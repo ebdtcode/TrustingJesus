@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trusting Jesus — Prayer Points</title>
+  <link rel="stylesheet" href="./assets/css/site.css" />
+  <script type="module">
+    import { makeHeader, initPrayerPage } from './assets/js/site.js';
+    window.addEventListener('DOMContentLoaded', async () => {
+      document.body.prepend(makeHeader('prayer'));
+      await initPrayerPage();
+    });
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <main id="main" class="container">
+    <section class="hero">
+      <h1 class="hero-title">Weekly Prayer Points</h1>
+      <p class="hero-subtitle">Pray with scripture and focus each week.</p>
+    </section>
+    <section class="panel">
+      <div class="filters" aria-label="Filters">
+        <div class="form-field">
+          <label for="year-filter">Year</label>
+          <select id="year-filter" aria-controls="list" disabled>
+            <option>All</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="search">Search</label>
+          <input id="search" type="search" placeholder="Search theme or verse" aria-controls="list" />
+        </div>
+        <button class="btn" id="clear-filters" type="button">Clear</button>
+      </div>
+      <div id="list" aria-live="polite">Loading…</div>
+    </section>
+  </main>
+  <footer>© Trusting Jesus</footer>
+</body>
+</html>

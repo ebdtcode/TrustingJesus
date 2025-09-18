@@ -1,0 +1,73 @@
+/* Trusting Jesus Static Site Styles (WCAG AA) - Webflow-inspired */
+:root {
+  --bg: #0b132b;
+  --bg-2: #0f1c39;
+  --panel: #101b33cc;
+  --ink: #ffffff;
+  --muted: #dfe7f2;
+  --accent: #ffd166; /* AA on dark */
+  --focus: #94d2bd;
+  --card: rgba(255,255,255,0.08);
+  --border: #2d3b5c;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--ink);
+  background: radial-gradient(1000px 600px at 80% -10%, #22376655, transparent),
+              radial-gradient(800px 500px at -10% 10%, #11244a66, transparent),
+              linear-gradient(180deg, var(--bg), var(--bg-2));
+}
+
+/* Skip link */
+.skip-link { position: absolute; left: -9999px; top: 0; background: #0a9396; color: #001219; padding: 0.5rem 0.75rem; border-radius: 6px; }
+.skip-link:focus { left: 0.75rem; top: 0.75rem; z-index: 1000; outline: 3px solid var(--focus); }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus, button:focus, input:focus, select:focus { outline: 3px solid var(--focus); outline-offset: 3px; }
+
+header { backdrop-filter: blur(10px); background: var(--panel); border-bottom: 1px solid var(--border); padding: 1rem; position: sticky; top: 0; z-index: 100; }
+header nav { display: flex; gap: 1rem; align-items: center; }
+header nav a { font-weight: 700; padding: 0.25rem 0.5rem; border-radius: 6px; }
+header nav a[aria-current="page"] { background: rgba(255,255,255,0.08); }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
+main { padding: 1.5rem 0 2.5rem; }
+
+/* Hero */
+.hero { padding: 3rem 0 1.5rem; }
+.hero-title { font-size: clamp(2rem, 5vw, 3.2rem); margin: 0 0 0.5rem; line-height: 1.15; }
+.hero-subtitle { color: var(--muted); font-size: clamp(1.1rem, 2.5vw, 1.4rem); margin: 0; }
+
+/* Panels and cards */
+.panel { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1rem; margin: 1rem 0; backdrop-filter: blur(8px); }
+.cards { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1rem; }
+@media (min-width: 640px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 960px) { .cards { grid-template-columns: repeat(3, 1fr); } }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1rem; display: flex; flex-direction: column; gap: 0.25rem; min-height: 110px; }
+.card a { color: var(--ink); font-weight: 700; }
+.meta { color: var(--muted); font-size: 0.95rem; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 999px; background: #2d3a61; color: var(--muted); font-size: 0.85rem; margin-right: 0.25rem; }
+
+/* Lists */
+.list { list-style: none; padding: 0; margin: 0; }
+.list li { padding: 0.6rem 0; border-bottom: 1px solid #334; }
+.list li:last-child { border-bottom: none; }
+
+/* Filters */
+.filters { display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 1rem 0; align-items: end; }
+.form-field { display: grid; gap: 0.35rem; }
+.form-field label { font-size: 0.9rem; color: var(--muted); }
+input, select { background: #16294d; color: var(--ink); border: 1px solid var(--border); border-radius: 8px; padding: 0.6rem 0.7rem; min-width: 240px; }
+button.btn { background: #22324a; border: 2px solid #415777; color: #ffffff; padding: 0.6rem 1rem; border-radius: 999px; cursor: pointer; font-weight: 700; }
+button.btn:hover { background: #2b3e59; border-color: var(--accent); color: var(--accent); }
+
+/* Footer */
+footer { color: var(--muted); text-align: center; padding: 2rem 1rem; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
