@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jesus Christ, the Peace Child - Our Assurance of Peace with God</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); color: #fff; overflow: hidden; }
+    .presentation { position: relative; width: 100vw; height: 100vh; }
+    .slide { display: none; position: absolute; width: 100%; height: 100%; padding: 60px 80px 60px 320px; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); }
+    .slide.active { display: flex; }
+    h1 { font-size: 4.2rem; font-weight: 800; margin-bottom: 1.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); line-height: 1.2; color: #fff; }
+    h2 { font-size: 3.2rem; font-weight: 700; margin-bottom: 1.2rem; color: #ffd166; text-shadow: 1px 2px 4px rgba(0,0,0,0.4); line-height: 1.3; }
+    h3 { font-size: 2.4rem; font-weight: 700; margin-bottom: 1rem; color: #fff; text-shadow: 1px 2px 3px rgba(0,0,0,0.35); }
+    .subtitle { font-size: 1.8rem; font-weight: 400; margin-bottom: 0.6rem; color: #e8f4f8; line-height: 1.4; }
+    .scripture { background: rgba(255,255,255,0.14); border-left: 6px solid #ffd166; padding: 1.5rem; margin: 1.2rem 0; border-radius: 10px; backdrop-filter: blur(8px); box-shadow: 0 8px 32px rgba(0,0,0,0.25); max-width: 1100px; }
+    .scripture-text { font-size: 1.8rem; font-style: italic; line-height: 1.6; margin-bottom: 0.6rem; color: #fff; }
+    .scripture-ref { font-size: 1.2rem; font-weight: 700; color: #ffd166; text-align: right; }
+    .content-list { text-align: left; max-width: 1000px; margin: 0 auto; }
+    .content-list li { font-size: 1.5rem; margin: 0.9rem 0; padding-left: 1rem; line-height: 1.55; list-style: none; position: relative; }
+    .content-list li:before { content: "\25B6"; color: #ffd166; font-weight: bold; position: absolute; left: -1rem; }
+    .quote { font-size: 1.9rem; font-style: italic; text-align: center; padding: 1.5rem; border-radius: 12px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); margin: 1.2rem 0; box-shadow: 0 8px 32px rgba(0,0,0,0.2); line-height: 1.5; }
+    .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; width: 100%; max-width: 1100px; }
+    .column { text-align: left; }
+    .column h4 { font-size: 1.9rem; color: #ffd166; margin-bottom: 1rem; text-align: center; }
+    .column ul { list-style: none; padding: 0; }
+    .column li { font-size: 1.4rem; margin: 0.7rem 0; padding-left: 1.5rem; line-height: 1.5; position: relative; }
+    .column li:before { content: "\2713"; color: #ffd166; font-weight: bold; position: absolute; left: 0; }
+    .prayer-points { background: rgba(255,255,255,0.12); border-radius: 14px; padding: 2rem; backdrop-filter: blur(12px); box-shadow: 0 12px 40px rgba(0,0,0,0.28); max-width: 1100px; margin: 1.2rem auto; }
+    .prayer-points h3 { color: #ffd166; margin-bottom: 1rem; font-size: 2.1rem; }
+    .navigation { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 1rem; z-index: 1000; }
+    .nav-btn { background: rgba(255,255,255,0.22); border: 2px solid rgba(255,255,255,0.3); color: white; padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 600; backdrop-filter: blur(10px); transition: all 0.3s ease; }
+    .nav-btn:hover { background: rgba(255,255,255,0.32); border-color: #ffd166; color: #ffd166; }
+    .nav-btn:disabled { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); cursor: not-allowed; }
+    .slide-counter { position: fixed; top: 30px; right: 30px; background: rgba(0,0,0,0.45); padding: 0.5rem 1rem; border-radius: 20px; font-size: 1rem; backdrop-filter: blur(10px); }
+    .emphasis { color: #ffd166; font-weight: 800; }
+    .call-to-action { background: linear-gradient(135deg, #06d6a0, #118ab2); color: white; padding: 2rem; border-radius: 14px; margin: 1.2rem 0; box-shadow: 0 12px 40px rgba(0,0,0,0.3); text-align: center; }
+    .call-to-action h3 { font-size: 2.6rem; margin-bottom: 1rem; }
+    .call-to-action p { font-size: 1.6rem; line-height: 1.6; }
+    .section-break { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .section-break h1 { color: #ffd166 !important; }
+    .section-break h2 { color: #e8f4f8 !important; }
+    .cta-slide { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .cta-slide h1 { color: #ffd166 !important; }
+    .cta-slide .content-list li { color: #fff; }
+    .prayer-slide .scripture { background: rgba(255,209,102,0.15); border-left-color: #ffd166; }
+
+    /* Sidebar Navigation */
+    .sidebar { position: fixed; left: 0; top: 0; width: 280px; height: 100vh; background: rgba(20, 33, 61, 0.95); backdrop-filter: blur(10px); overflow-y: auto; z-index: 1500; border-right: 2px solid #ffd166; }
+    .sidebar-header { padding: 1.5rem; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,209,102,0.3); }
+    .sidebar-header h3 { color: #ffd166; font-size: 1.3rem; margin: 0; }
+    .sidebar-nav { padding: 1rem 0; }
+    .sidebar-item { padding: 0.8rem 1.5rem; cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem; border-left: 3px solid transparent; display: flex; align-items: center; gap: 0.5rem; }
+    .sidebar-item:hover { background: rgba(255,209,102,0.1); border-left-color: #ffd166; }
+    .sidebar-item.active { background: rgba(255,209,102,0.2); border-left-color: #ffd166; color: #ffd166; font-weight: 600; }
+    .sidebar-item.section { background: rgba(255,209,102,0.1); font-weight: 600; color: #ffd166; margin-top: 0.5rem; }
+    .slide-num { display: inline-block; width: 25px; color: rgba(255,255,255,0.6); }
+    .sidebar-item.active .slide-num { color: #ffd166; }
+
+    /* Home Button */
+    .home-btn { position: fixed; top: 30px; left: 300px; background: rgba(255,209,102,0.9); color: #14213d; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; z-index: 1000; display: flex; align-items: center; gap: 0.5rem; }
+    .home-btn:hover { background: #ffd166; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255,209,102,0.4); }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle { display: none; position: fixed; top: 30px; left: 20px; z-index: 2000; background: rgba(255,209,102,0.9); color: #14213d; border: none; padding: 0.75rem; border-radius: 8px; cursor: pointer; }
+    .menu-toggle:hover { background: #ffd166; }
+
+    @media (max-width: 1024px) {
+      .slide{ padding: 40px 50px 40px 320px; }
+      h1{ font-size: 3.4rem; }
+      h2{ font-size: 2.8rem; }
+      h3{ font-size: 2.2rem; }
+      .subtitle{ font-size: 1.5rem; }
+      .content-list li{ font-size: 1.35rem; }
+      .quote{ font-size: 1.6rem; }
+      .two-column{ grid-template-columns: 1fr; gap: 1.2rem; }
+    }
+    @media (max-width: 768px) {
+      .slide{ padding: 80px 30px 30px 30px; }
+      h1{ font-size: 2.6rem; }
+      h2{ font-size: 2.2rem; }
+      h3{ font-size: 1.9rem; }
+      .subtitle{ font-size: 1.3rem; }
+      .content-list li{ font-size: 1.2rem; }
+      .scripture-text{ font-size: 1.4rem; }
+      .quote{ font-size: 1.3rem; }
+      .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+      .sidebar.open { transform: translateX(0); }
+      .menu-toggle { display: block; }
+      .home-btn { left: auto; right: 30px; }
+    }
+    @media print { body{ background: white; color: black; } .slide{ display: block !important; page-break-after: always; position: static; background: white; color: black; padding: 2cm; } .navigation, .slide-counter{ display: none; } .scripture, .prayer-points, .call-to-action{ background: #f8f9fa; border: 2px solid #ddd; color: black; } h2, .scripture-ref, .emphasis{ color: #000; } }
+  </style>
+</head>
+<body>
+  <div class="presentation">
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Jesus Christ, The Peace Child</h3>
+      </div>
+      <div class="sidebar-nav" id="sidebarNav">
+        <!-- Navigation items will be generated by JavaScript -->
+      </div>
+    </nav>
+
+    <!-- Home Button -->
+    <a href="../index.html" class="home-btn">
+      <span>🏠</span>
+      <span>Dashboard</span>
+    </a>
+
+    <div class="slide-counter"><span id="current-slide">1</span> / <span id="total-slides">22</span></div>
+
+    <!-- 1. Title Slide -->
+    <div class="slide active" data-slide="1">
+      <h1>Jesus Christ, the Peace Child</h1>
+      <h2>Our Assurance of Peace with God</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Therefore, having been justified by faith, we have peace with God through our Lord Jesus Christ"</div>
+        <div class="scripture-ref">Romans 5:1</div>
+      </div>
+      <div class="subtitle" style="margin-top: 2rem;">A Life-Transforming Summary</div>
+      <div class="subtitle">Standing Secure in God's Grace</div>
+    </div>
+
+    <!-- 2. Scripture Foundation -->
+    <div class="slide" data-slide="2">
+      <h2>Scripture Foundation</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Therefore, having been justified by faith, we have peace with God through our Lord Jesus Christ, through whom also we have access by faith into this grace in which we stand"</div>
+        <div class="scripture-ref">Romans 5:1-2</div>
+      </div>
+      <div class="scripture">
+        <div class="scripture-text">"If God is for us, who can be against us? For I am persuaded that neither death nor life... shall be able to separate us from the love of God which is in Christ Jesus our Lord"</div>
+        <div class="scripture-ref">Romans 8:31, 38-39</div>
+      </div>
+      <div class="scripture">
+        <div class="scripture-text">"The Prodigal Son - treated as though he never left home"</div>
+        <div class="scripture-ref">Luke 15</div>
+      </div>
+    </div>
+
+    <!-- 3. Six Pillars Overview -->
+    <div class="slide section-break" data-slide="3">
+      <h1>Six Pillars of Peace</h1>
+      <h2>Our Unshakeable Foundation</h2>
+      <div class="subtitle">Building a life of confidence in God's unchanging love</div>
+    </div>
+
+    <!-- 4. Pillar 1: Peace Through Christ Alone -->
+    <div class="slide" data-slide="4">
+      <h2>Pillar 1: Peace Through Christ Alone</h2>
+      <div class="content-list"><ul>
+        <li>Jesus is God's Peace Child - the divine solution to war between God and humanity</li>
+        <li>The war that lasted for thousands of years has ended</li>
+        <li>As long as Jesus lives, God is at peace with believers</li>
+        <li>Accepting the Peace Child ends the war forever</li>
+        <li>He Himself IS our peace with God</li>
+      </ul></div>
+    </div>
+
+    <!-- 5. Pillar 2: The Legal Basis of Peace -->
+    <div class="slide" data-slide="5">
+      <h2>Pillar 2: The Legal Basis of Peace</h2>
+      <div class="content-list"><ul>
+        <li>Our peace is not emotional but based on solid legal foundation</li>
+        <li>Christ fulfilled every requirement of God's law perfectly</li>
+        <li>The heavenly court has declared us "NOT GUILTY"</li>
+        <li>We have a legal deed to this peace - God's Word</li>
+        <li>No one can challenge what God has legally established</li>
+      </ul></div>
+    </div>
+
+    <!-- 6. Pillar 3: Peace Is More Than the End of War -->
+    <div class="slide" data-slide="6">
+      <h2>Pillar 3: Peace Is More Than the End of War</h2>
+      <div class="quote">"The bombs have stopped falling"</div>
+      <div class="content-list"><ul>
+        <li>God is completely pleased with you in Christ</li>
+        <li>He has nothing against you in His heart</li>
+        <li>All charges have been dropped completely</li>
+        <li>God is not withholding His love or favor</li>
+        <li>Complete restoration and acceptance</li>
+      </ul></div>
+    </div>
+
+    <!-- 7. Pillar 4: Our Justification Is Secure -->
+    <div class="slide" data-slide="7">
+      <h2>Pillar 4: Our Justification Is Secure</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Who shall bring a charge against God's elect? It is God who justifies. Who is he who condemns? It is Christ who died... who also makes intercession for us."</div>
+        <div class="scripture-ref">Romans 8:33-34</div>
+      </div>
+      <div class="content-list"><ul>
+        <li>No accusation can stand against us</li>
+        <li>Christ died and rose again as our defense</li>
+        <li>Nothing can separate us from God's love</li>
+      </ul></div>
+    </div>
+
+    <!-- 8. Pillar 5: Living in Grace -->
+    <div class="slide" data-slide="8">
+      <h2>Pillar 5: Living in Grace</h2>
+      <div class="quote">"Through whom also we have access by faith into this grace in which we stand"</div>
+      <div class="content-list"><ul>
+        <li>Grace doesn't leave you the way it found you</li>
+        <li>You become a new creation in Christ</li>
+        <li>Grace teaches you to say no to sin</li>
+        <li>God works in you both to will and to do</li>
+        <li>Transformation happens from the inside out</li>
+      </ul></div>
+    </div>
+
+    <!-- 9. Pillar 6: The Father's Heart -->
+    <div class="slide" data-slide="9">
+      <h2>Pillar 6: The Father's Heart</h2>
+      <div class="quote">"God treats us as though we never left home"</div>
+      <div class="content-list"><ul>
+        <li>The Father runs to meet us while we are yet far off</li>
+        <li>Complete restoration with the best robe, ring, and shoes</li>
+        <li>Treated exactly as He would treat Jesus</li>
+        <li>As though you never sinned or rebelled</li>
+        <li>With complete acceptance and joy</li>
+      </ul></div>
+    </div>
+
+    <!-- 10. Practical Applications Overview -->
+    <div class="slide section-break" data-slide="10">
+      <h1>Practical Applications</h1>
+      <h2>Living Out Your Peace</h2>
+      <div class="subtitle">How this truth transforms every area of life</div>
+    </div>
+
+    <!-- 11. Daily Living Applications -->
+    <div class="slide" data-slide="11">
+      <h2>Daily Living Applications</h2>
+      <div class="two-column">
+        <div class="column">
+          <h4>Personal Identity</h4>
+          <ul>
+            <li>See yourself as God sees you</li>
+            <li>Rest in His complete acceptance</li>
+            <li>Live from approval, not for approval</li>
+            <li>Stand confidently in His love</li>
+          </ul>
+        </div>
+        <div class="column">
+          <h4>Facing Challenges</h4>
+          <ul>
+            <li>"If God is for us, who can be against us?"</li>
+            <li>No trial can separate from His love</li>
+            <li>Draw strength from secure foundation</li>
+            <li>Face death with confidence</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12. Prayer Point 1: Thanksgiving for Peace -->
+    <div class="slide prayer-slide" data-slide="12">
+      <h2>Prayer Point 1: Thanksgiving for Peace</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">"Father, thank You that Jesus is our Peace Child. The war between us has ended forever. We praise You that this peace rests on the solid legal foundation of Christ's perfect work, not on our emotions or performance."</div>
+          <div class="scripture-ref">Based on Romans 5:1</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 13. Prayer Point 2: Confidence in God's Love -->
+    <div class="slide prayer-slide" data-slide="13">
+      <h2>Prayer Point 2: Confidence in God's Love</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">"Lord, when circumstances overwhelm us, help us boldly declare: 'If God is for us, who can be against us?' Strengthen our confidence that nothing can separate us from Your love in Christ Jesus."</div>
+          <div class="scripture-ref">Based on Romans 8:31, 38-39</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 14. Prayer Point 3: Freedom from Condemnation -->
+    <div class="slide prayer-slide" data-slide="14">
+      <h2>Prayer Point 3: Freedom from Condemnation</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">"We declare that there is no condemnation for those in Christ Jesus. When guilt tries to overwhelm us, remind us that You justify us, not condemn us. No accusation can stand against Your elect."</div>
+          <div class="scripture-ref">Based on Romans 8:1, 33-34</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 15. Prayer Point 4: Grace for Transformation -->
+    <div class="slide prayer-slide" data-slide="15">
+      <h2>Prayer Point 4: Grace for Transformation</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">"Lord, let Your grace work powerfully in us, changing our desires and transforming us from glory to glory. Thank You that grace doesn't leave us as it found us but makes us new creations in Christ."</div>
+          <div class="scripture-ref">Based on Romans 5:2, 2 Corinthians 5:17</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 16. Prayer Point 5: Boldness in Witnessing -->
+    <div class="slide prayer-slide" data-slide="16">
+      <h2>Prayer Point 5: Boldness in Witnessing</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">"Father, this gospel is too good to keep to ourselves. Give us joy and excitement about Your grace that motivates us to share. May we be motivated from within to tell others about Jesus, our Peace Child."</div>
+          <div class="scripture-ref">Based on 2 Corinthians 5:18-20</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 17. Declaration of Faith -->
+    <div class="slide" data-slide="17">
+      <h2>Declaration of Faith</h2>
+      <div class="quote">"Jesus is the Peace Child. The war has ended. The bombs have stopped falling. God treats me as though I never left home. This peace is mine legally. I am at peace with God forever."</div>
+      <div class="subtitle">This is not wishful thinking - this is legal reality in Christ Jesus.</div>
+    </div>
+
+    <!-- 18. Five Essential Truths -->
+    <div class="slide" data-slide="18">
+      <h2>Five Essential Truths to Remember</h2>
+      <div class="content-list"><ul>
+        <li><span class="emphasis">"Jesus is the Peace Child"</span> - He is God's divine solution</li>
+        <li><span class="emphasis">"The bombs have stopped falling"</span> - The war is over</li>
+        <li><span class="emphasis">"God treats us as though we never left home"</span> - Complete restoration</li>
+        <li><span class="emphasis">"This peace is mine legally"</span> - Unshakeable foundation</li>
+        <li><span class="emphasis">"Grace will teach you to say no"</span> - Internal transformation</li>
+      </ul></div>
+    </div>
+
+    <!-- 19. Questions for Reflection -->
+    <div class="slide" data-slide="19">
+      <h2>Questions for Reflection</h2>
+      <div class="content-list"><ul>
+        <li>Do I truly believe the war between God and me has ended?</li>
+        <li>Am I living from God's approval or trying to earn it?</li>
+        <li>How does knowing God is FOR me change my perspective on challenges?</li>
+        <li>What areas of my life need to align with this truth?</li>
+        <li>Who in my life needs to hear about the Peace Child?</li>
+      </ul></div>
+    </div>
+
+    <!-- 20. Weekly Action Steps -->
+    <div class="slide" data-slide="20">
+      <h2>Weekly Action Steps</h2>
+      <div class="two-column">
+        <div class="column">
+          <h4>Personal Growth</h4>
+          <ul>
+            <li>Daily affirm your legal standing in Christ</li>
+            <li>Meditate on Romans 5:1-2 and 8:31-39</li>
+            <li>Practice resting in God's approval</li>
+            <li>Let grace transform your desires</li>
+          </ul>
+        </div>
+        <div class="column">
+          <h4>Outward Impact</h4>
+          <ul>
+            <li>Share one truth about the Peace Child this week</li>
+            <li>Invite someone to hear the gospel</li>
+            <li>Live with boldness knowing God is for you</li>
+            <li>Demonstrate grace in your relationships</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 21. Memorable Takeaway -->
+    <div class="slide" data-slide="21">
+      <h2>The Bedrock Truth</h2>
+      <div class="quote">"This peace with God is the bedrock of the Christian life. It's the most fundamental blessing of being in Christ upon which all other hopes and joys are built."</div>
+      <div class="subtitle">When this peace is your foundation, it changes your relationship with yourself, others, trials, death, and everything about your life.</div>
+    </div>
+
+    <!-- 22. Closing Prayer -->
+    <div class="slide" data-slide="22">
+      <h1>Closing Prayer</h1>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">"Father, thank You for Jesus, our Peace Child. Thank You that through Him, we have been declared righteous, accepted completely, and loved unconditionally. May this truth transform our hearts, renew our minds, and ignite our passion to share this good news with a world that desperately needs to know about the Peace Child. Help us live each day in the reality of Your peace. In Jesus' name, Amen."</div>
+          <div class="scripture-ref">Prayer of Commitment</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+      <button class="nav-btn" onclick="previousSlide()">← Previous</button>
+      <button class="nav-btn" onclick="nextSlide()">Next →</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = document.querySelectorAll('.slide').length;
+    document.getElementById('total-slides').textContent = totalSlides;
+
+    // Slide titles for sidebar navigation
+    const slideTitles = [
+      'Title', 'Scripture Foundation', 'Six Pillars Overview',
+      'Pillar 1: Peace Through Christ', 'Pillar 2: Legal Basis', 'Pillar 3: More Than End of War', 'Pillar 4: Secure Justification', 'Pillar 5: Living in Grace', 'Pillar 6: Father\'s Heart',
+      'Practical Applications', 'Daily Living',
+      'Prayer 1: Thanksgiving', 'Prayer 2: Confidence', 'Prayer 3: No Condemnation', 'Prayer 4: Transformation', 'Prayer 5: Witnessing',
+      'Declaration of Faith', 'Five Essential Truths', 'Questions for Reflection', 'Weekly Action Steps', 'Memorable Takeaway', 'Closing Prayer'
+    ];
+
+    // Generate sidebar navigation
+    function generateSidebar() {
+      const sidebarNav = document.getElementById('sidebarNav');
+      sidebarNav.innerHTML = '';
+
+      slideTitles.forEach((title, index) => {
+        const item = document.createElement('div');
+        item.className = 'sidebar-item';
+
+        // Mark section breaks
+        if ([2, 9, 11, 16].includes(index)) {
+          item.classList.add('section');
+        }
+
+        if (index === currentSlide - 1) {
+          item.classList.add('active');
+        }
+
+        item.innerHTML = `
+          <span class="slide-num">${index + 1}</span>
+          <span>${title}</span>
+        `;
+
+        item.onclick = () => {
+          showSlide(index + 1);
+        };
+
+        sidebarNav.appendChild(item);
+      });
+    }
+
+    function showSlide(n) {
+      const slides = document.querySelectorAll('.slide');
+      if (n > totalSlides) n = 1;
+      if (n < 1) n = totalSlides;
+      currentSlide = n;
+      slides.forEach(s => s.classList.remove('active'));
+      slides[currentSlide - 1].classList.add('active');
+      document.getElementById('current-slide').textContent = currentSlide;
+
+      // Update navigation buttons
+      const prevBtn = document.querySelector('.nav-btn');
+      const nextBtn = document.querySelectorAll('.nav-btn')[1];
+      prevBtn.disabled = currentSlide === 1;
+      nextBtn.disabled = currentSlide === totalSlides;
+
+      // Update sidebar
+      generateSidebar();
+    }
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function previousSlide() { showSlide(currentSlide - 1); }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+
+    document.addEventListener('keydown', function(event) {
+      switch(event.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+        case ' ': // Space
+        case 'Enter':
+          nextSlide();
+          event.preventDefault();
+          break;
+        case 'ArrowLeft':
+        case 'ArrowUp':
+          previousSlide();
+          event.preventDefault();
+          break;
+        case 'Home':
+          currentSlide = 1; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'End':
+          currentSlide = totalSlides; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'PageDown':
+          showSlide(Math.min(currentSlide + 10, totalSlides)); event.preventDefault();
+          break;
+        case 'PageUp':
+          showSlide(Math.max(currentSlide - 10, 1)); event.preventDefault();
+          break;
+      }
+    });
+
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let startY = 0;
+
+    document.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    });
+
+    document.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const endY = e.changedTouches[0].clientY;
+      const deltaX = endX - startX;
+      const deltaY = endY - startY;
+
+      // Only trigger if horizontal swipe is longer than vertical and over 50px
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+        if (deltaX > 0) {
+          previousSlide(); // Swipe right = previous
+        } else {
+          nextSlide();  // Swipe left = next
+        }
+      }
+    });
+
+    // Initialize
+    generateSidebar();
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>
