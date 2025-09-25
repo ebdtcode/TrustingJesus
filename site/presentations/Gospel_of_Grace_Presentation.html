@@ -1,1278 +1,785 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Gospel of Grace - PowerPoint Presentation</title>
-    <style>
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #03396C;
-            color: white;
-            overflow: hidden;
-            position: relative;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Sidebar Navigation */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: -300px;
-            width: 300px;
-            height: 100vh;
-            background: rgba(3, 57, 108, 0.95);
-            backdrop-filter: blur(10px);
-            border-right: 2px solid #FF8D21;
-            z-index: 2000;
-            transition: left 0.3s ease;
-            overflow-y: auto;
-            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
-        }
-
-        .sidebar.open {
-            left: 0;
-        }
-
-        .sidebar-header {
-            padding: 20px;
-            border-bottom: 1px solid rgba(255, 141, 33, 0.3);
-            text-align: center;
-        }
-
-        .sidebar-header h3 {
-            color: #FF8D21;
-            font-size: 1.2rem;
-            margin: 0;
-        }
-
-        .sidebar-nav {
-            padding: 10px 0;
-        }
-
-        .sidebar-item {
-            display: flex;
-            align-items: center;
-            padding: 12px 20px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            border-left: 3px solid transparent;
-            font-size: 0.9rem;
-        }
-
-        .sidebar-item:hover {
-            background: rgba(255, 141, 33, 0.1);
-            border-left-color: #FF8D21;
-        }
-
-        .sidebar-item.active {
-            background: rgba(255, 141, 33, 0.2);
-            border-left-color: #FF8D21;
-            color: #FF8D21;
-        }
-
-        .sidebar-item-number {
-            background: #FF8D21;
-            color: #03396C;
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-right: 12px;
-            flex-shrink: 0;
-        }
-
-        .sidebar-item.active .sidebar-item-number {
-            background: white;
-            color: #03396C;
-        }
-
-        .sidebar-item-title {
-            flex: 1;
-            line-height: 1.3;
-        }
-
-        .sidebar-toggle {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: #FF8D21;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 2100;
-            font-size: 1.2rem;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .sidebar-toggle:hover {
-            background: #ff6b00;
-            transform: scale(1.1);
-        }
-
-        .sidebar-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0,0,0,0.5);
-            z-index: 1900;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .sidebar-overlay.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        /* Presentation Container */
-        .presentation {
-            width: 100vw;
-            height: 100vh;
-            position: relative;
-            transition: margin-left 0.3s ease;
-        }
-
-        .presentation.sidebar-open {
-            margin-left: 300px;
-        }
-
-        /* Individual Slide Styles */
-        .slide {
-            width: 100%;
-            height: 100%;
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 60px;
-            text-align: center;
-            position: relative;
-            background: linear-gradient(135deg, #03396C 0%, #1a5490 100%);
-        }
-
-        .slide.active {
-            display: flex;
-        }
-
-        /* Typography Hierarchy */
-        .slide h1 {
-            font-size: 4.5rem;
-            font-weight: 700;
-            margin-bottom: 40px;
-            color: #FF8D21;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            line-height: 1.2;
-        }
-
-        .slide h2 {
-            font-size: 3rem;
-            font-weight: 600;
-            margin-bottom: 30px;
-            color: white;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
-
-        .slide h3 {
-            font-size: 2.2rem;
-            font-weight: 500;
-            margin-bottom: 25px;
-            color: #FF8D21;
-        }
-
-        .slide p {
-            font-size: 1.8rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            max-width: 900px;
-        }
-
-        /* Special Content Styles */
-        .scripture {
-            font-size: 2.2rem;
-            font-style: italic;
-            color: #FFD700;
-            margin: 30px 0;
-            padding: 30px;
-            border-left: 5px solid #FF8D21;
-            background: rgba(255, 141, 33, 0.1);
-            border-radius: 10px;
-            max-width: 1000px;
-        }
-
-        .scripture-reference {
-            font-size: 1.4rem;
-            color: #FF8D21;
-            margin-top: 15px;
-            font-weight: 600;
-        }
-
-        .quote {
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: #FF8D21;
-            margin: 40px 0;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            border: 2px solid #FF8D21;
-            max-width: 1000px;
-        }
-
-        /* Bullet Points */
-        .bullet-list {
-            text-align: left;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .bullet-list li {
-            font-size: 1.8rem;
-            margin: 20px 0;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .bullet-list li::before {
-            content: "▶";
-            color: #FF8D21;
-            font-size: 1.5rem;
-            position: absolute;
-            left: 0;
-        }
-
-        /* Section Break Styles */
-        .section-break {
-            background: linear-gradient(45deg, #FF8D21, #ffb366);
-            color: #03396C;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .section-break h1 {
-            color: #03396C;
-            font-size: 5rem;
-            text-shadow: 2px 2px 4px rgba(255,255,255,0.3);
-        }
-
-        /* Call to Action Style */
-        .cta {
-            background: linear-gradient(135deg, #FF8D21 0%, #ff6b00 100%);
-            color: white;
-        }
-
-        .cta h1 {
-            color: white;
-        }
-
-        /* Navigation */
-        .nav-controls {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-            display: flex;
-            gap: 10px;
-        }
-
-        /* Home Button */
-        .home-button {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 141, 33, 0.9);
-            color: white;
-            border: 2px solid #FF8D21;
-            padding: 12px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            z-index: 2100;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .home-button:hover {
-            background: #FF8D21;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            text-decoration: none;
-            color: white;
-        }
-
-        .home-button-icon {
-            font-size: 1.2rem;
-        }
-
-        .nav-button {
-            background: #FF8D21;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .nav-button:hover {
-            background: #ff6b00;
-            transform: translateY(-2px);
-        }
-
-        .nav-button:disabled {
-            background: rgba(255, 141, 33, 0.5);
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        /* Slide Counter */
-        .slide-counter {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            background: rgba(255, 141, 33, 0.9);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        /* Progress Bar */
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 4px;
-            background: #FF8D21;
-            transition: width 0.3s ease;
-            z-index: 1000;
-        }
-
-        /* Two Column Layout */
-        .two-column {
-            display: flex;
-            gap: 60px;
-            align-items: flex-start;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .column {
-            flex: 1;
-            text-align: left;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .presentation.sidebar-open {
-                margin-left: 0;
-            }
-
-            .sidebar {
-                width: 280px;
-                left: -280px;
-            }
-
-            .sidebar-toggle {
-                top: 15px;
-                left: 15px;
-                width: 45px;
-                height: 45px;
-                font-size: 1rem;
-            }
-
-            .slide {
-                padding: 30px 20px;
-            }
-
-            .slide h1 {
-                font-size: 2.8rem;
-            }
-
-            .slide h2 {
-                font-size: 2.2rem;
-            }
-
-            .slide p {
-                font-size: 1.4rem;
-            }
-
-            .scripture {
-                font-size: 1.6rem;
-            }
-
-            .quote {
-                font-size: 1.8rem;
-            }
-
-            .two-column {
-                flex-direction: column;
-                gap: 30px;
-            }
-
-            .nav-controls {
-                bottom: 20px;
-                right: 20px;
-            }
-
-            .home-button {
-                padding: 10px 15px;
-                font-size: 0.9rem;
-                top: 70px;
-                right: 15px;
-            }
-
-            .home-button span:not(.home-button-icon) {
-                display: none;
-            }
-
-            .slide-counter {
-                bottom: 20px;
-                left: 20px;
-            }
-        }
-
-        /* Print Styles */
-        @media print {
-            .slide {
-                display: flex !important;
-                page-break-after: always;
-                height: 100vh;
-                background: white !important;
-                color: #03396C !important;
-            }
-
-            .nav-controls, .slide-counter, .progress-bar, .home-button, .sidebar-toggle {
-                display: none !important;
-            }
-
-            .slide h1, .quote {
-                color: #FF8D21 !important;
-            }
-        }
-
-        /* Animation Effects */
-        .slide-enter {
-            animation: slideIn 0.5s ease-out;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Gospel of Grace - Bishop J. Darlingston</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); color: #fff; overflow: hidden; }
+    .presentation { position: relative; width: 100vw; height: 100vh; }
+    .slide { display: none; position: absolute; width: 100%; height: 100%; padding: 60px 80px 60px 320px; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); }
+    .slide.active { display: flex; }
+    h1 { font-size: 4.2rem; font-weight: 800; margin-bottom: 1.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); line-height: 1.2; color: #fff; }
+    h2 { font-size: 3.2rem; font-weight: 700; margin-bottom: 1.2rem; color: #ffd166; text-shadow: 1px 2px 4px rgba(0,0,0,0.4); line-height: 1.3; }
+    h3 { font-size: 2.4rem; font-weight: 700; margin-bottom: 1rem; color: #fff; text-shadow: 1px 2px 3px rgba(0,0,0,0.35); }
+    .subtitle { font-size: 1.8rem; font-weight: 400; margin-bottom: 0.6rem; color: #e8f4f8; line-height: 1.4; }
+    .scripture { background: rgba(255,255,255,0.14); border-left: 6px solid #ffd166; padding: 1.5rem; margin: 1.2rem 0; border-radius: 10px; backdrop-filter: blur(8px); box-shadow: 0 8px 32px rgba(0,0,0,0.25); max-width: 1100px; }
+    .scripture-text { font-size: 1.8rem; font-style: italic; line-height: 1.6; margin-bottom: 0.6rem; color: #fff; }
+    .scripture-ref { font-size: 1.2rem; font-weight: 700; color: #ffd166; text-align: right; }
+    .content-list { text-align: left; max-width: 1000px; margin: 0 auto; }
+    .content-list li { font-size: 1.5rem; margin: 0.9rem 0; padding-left: 1rem; line-height: 1.55; list-style: none; position: relative; }
+    .content-list li:before { content: "\25B6"; color: #ffd166; font-weight: bold; position: absolute; left: -1rem; }
+    .quote { font-size: 1.9rem; font-style: italic; text-align: center; padding: 1.5rem; border-radius: 12px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); margin: 1.2rem 0; box-shadow: 0 8px 32px rgba(0,0,0,0.2); line-height: 1.5; }
+    .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; width: 100%; max-width: 1100px; }
+    .column { text-align: left; }
+    .column h4 { font-size: 1.9rem; color: #ffd166; margin-bottom: 1rem; text-align: center; }
+    .column ul { list-style: none; padding: 0; }
+    .column li { font-size: 1.4rem; margin: 0.7rem 0; padding-left: 1.5rem; line-height: 1.5; position: relative; }
+    .column li:before { content: "\2713"; color: #ffd166; font-weight: bold; position: absolute; left: 0; }
+    .prayer-points { background: rgba(255,255,255,0.12); border-radius: 14px; padding: 2rem; backdrop-filter: blur(12px); box-shadow: 0 12px 40px rgba(0,0,0,0.28); max-width: 1100px; margin: 1.2rem auto; }
+    .prayer-points h3 { color: #ffd166; margin-bottom: 1rem; font-size: 2.1rem; }
+    .navigation { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 1rem; z-index: 1000; }
+    .nav-btn { background: rgba(255,255,255,0.22); border: 2px solid rgba(255,255,255,0.3); color: white; padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 600; backdrop-filter: blur(10px); transition: all 0.3s ease; }
+    .nav-btn:hover { background: rgba(255,255,255,0.32); border-color: #ffd166; color: #ffd166; }
+    .nav-btn:disabled { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); cursor: not-allowed; }
+    .slide-counter { position: fixed; top: 30px; right: 30px; background: rgba(0,0,0,0.45); padding: 0.5rem 1rem; border-radius: 20px; font-size: 1rem; backdrop-filter: blur(10px); }
+    .emphasis { color: #ffd166; font-weight: 800; }
+    .call-to-action { background: linear-gradient(135deg, #06d6a0, #118ab2); color: white; padding: 2rem; border-radius: 14px; margin: 1.2rem 0; box-shadow: 0 12px 40px rgba(0,0,0,0.3); text-align: center; }
+    .call-to-action h3 { font-size: 2.6rem; margin-bottom: 1rem; }
+    .call-to-action p { font-size: 1.6rem; line-height: 1.6; }
+    .section-break { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .section-break h1 { color: #ffd166 !important; }
+    .section-break h2 { color: #e8f4f8 !important; }
+    .cta-slide { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .cta-slide h1 { color: #ffd166 !important; }
+    .cta-slide .content-list li { color: #fff; }
+    .prayer-slide .scripture { background: rgba(255,209,102,0.15); border-left-color: #ffd166; }
+
+    /* Sidebar Navigation */
+    .sidebar { position: fixed; left: 0; top: 0; width: 280px; height: 100vh; background: rgba(20, 33, 61, 0.95); backdrop-filter: blur(10px); overflow-y: auto; z-index: 1500; border-right: 2px solid #ffd166; }
+    .sidebar-header { padding: 1.5rem; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,209,102,0.3); }
+    .sidebar-header h3 { color: #ffd166; font-size: 1.3rem; margin: 0; }
+    .sidebar-nav { padding: 1rem 0; }
+    .sidebar-item { padding: 0.8rem 1.5rem; cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem; border-left: 3px solid transparent; display: flex; align-items: center; gap: 0.5rem; }
+    .sidebar-item:hover { background: rgba(255,209,102,0.1); border-left-color: #ffd166; }
+    .sidebar-item.active { background: rgba(255,209,102,0.2); border-left-color: #ffd166; color: #ffd166; font-weight: 600; }
+    .sidebar-item.section { background: rgba(255,209,102,0.1); font-weight: 600; color: #ffd166; margin-top: 0.5rem; }
+    .slide-num { display: inline-block; width: 25px; color: rgba(255,255,255,0.6); }
+    .sidebar-item.active .slide-num { color: #ffd166; }
+
+    /* Home Button */
+    .home-btn { position: fixed; top: 30px; left: 300px; background: rgba(255,209,102,0.9); color: #14213d; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; z-index: 1000; display: flex; align-items: center; gap: 0.5rem; }
+    .home-btn:hover { background: #ffd166; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255,209,102,0.4); }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle { display: none; position: fixed; top: 30px; left: 20px; z-index: 2000; background: rgba(255,209,102,0.9); color: #14213d; border: none; padding: 0.75rem; border-radius: 8px; cursor: pointer; }
+    .menu-toggle:hover { background: #ffd166; }
+
+    @media (max-width: 1024px) {
+      .slide{ padding: 40px 50px 40px 320px; }
+      h1{ font-size: 3.4rem; }
+      h2{ font-size: 2.8rem; }
+      h3{ font-size: 2.2rem; }
+      .subtitle{ font-size: 1.5rem; }
+      .content-list li{ font-size: 1.35rem; }
+      .quote{ font-size: 1.6rem; }
+      .two-column{ grid-template-columns: 1fr; gap: 1.2rem; }
+    }
+    @media (max-width: 768px) {
+      .slide{ padding: 80px 30px 30px 30px; }
+      h1{ font-size: 2.6rem; }
+      h2{ font-size: 2.2rem; }
+      h3{ font-size: 1.9rem; }
+      .subtitle{ font-size: 1.3rem; }
+      .content-list li{ font-size: 1.2rem; }
+      .scripture-text{ font-size: 1.4rem; }
+      .quote{ font-size: 1.3rem; }
+      .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+      .sidebar.open { transform: translateX(0); }
+      .menu-toggle { display: block; }
+      .home-btn { left: auto; right: 30px; }
+    }
+    @media print { body{ background: white; color: black; } .slide{ display: block !important; page-break-after: always; position: static; background: white; color: black; padding: 2cm; } .navigation, .slide-counter{ display: none; } .scripture, .prayer-points, .call-to-action{ background: #f8f9fa; border: 2px solid #ddd; color: black; } h2, .scripture-ref, .emphasis{ color: #000; } }
+  </style>
 </head>
 <body>
-    <!-- Sidebar Toggle Button -->
-    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
-
-    <!-- Home Button -->
-    <a href="../index.html" class="home-button" title="Return to Dashboard">
-        <span class="home-button-icon">🏠</span>
-        <span>Dashboard</span>
-    </a>
-
-    <!-- Sidebar Overlay -->
-    <div class="sidebar-overlay" onclick="closeSidebar()"></div>
+  <div class="presentation">
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
 
     <!-- Sidebar Navigation -->
-    <div class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <h3>Slide Navigation</h3>
-        </div>
-        <div class="sidebar-nav" id="sidebarNav">
-            <!-- Navigation items will be generated by JavaScript -->
-        </div>
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Gospel of Grace</h3>
+      </div>
+      <div class="sidebar-nav" id="sidebarNav">
+        <!-- Navigation items will be generated by JavaScript -->
+      </div>
+    </nav>
+
+    <!-- Home Button -->
+    <a href="../index.html" class="home-btn">
+      <span>🏠</span>
+      <span>Dashboard</span>
+    </a>
+
+    <div class="slide-counter"><span id="current-slide">1</span> / <span id="total-slides">51</span></div>
+
+    <!-- 1. Title Slide -->
+    <div class="slide active" data-slide="1">
+      <h1>The Gospel of Grace</h1>
+      <h2>Peace with God Through Jesus Christ</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Therefore, having been justified by faith, we have peace with God through our Lord Jesus Christ"</div>
+        <div class="scripture-ref">Romans 5:1-2</div>
+      </div>
+      <div class="subtitle" style="margin-top: 2rem;">Bishop J. Darlingston</div>
+      <div class="subtitle">September 21, 2025</div>
+      <div class="subtitle">A Life-Changing Message of Hope and Transformation</div>
     </div>
 
-    <div class="presentation" id="presentation">
-        <div class="progress-bar" id="progressBar"></div>
-
-        <!-- Slide 1: Title Slide -->
-        <div class="slide active">
-            <h1>The Gospel of Grace</h1>
-            <h2>Peace with God Through Jesus Christ</h2>
-            <div class="scripture">
-                "Therefore, having been justified by faith, we have peace with God through our Lord Jesus Christ"
-                <div class="scripture-reference">Romans 5:1-2</div>
-            </div>
-            <p style="margin-top: 40px; font-size: 1.6rem; color: #FF8D21;">Bishop J. Darlingston</p>
-            <p style="margin-top: 20px; font-size: 1.4rem; color: #FFD700;">September 21, 2025</p>
-            <p style="margin-top: 20px; font-size: 1.3rem;">A Life-Changing Message of Hope and Transformation</p>
+    <!-- 2. Prayer Points Summary -->
+    <div class="slide" data-slide="2">
+      <h2>This Week's Prayer Focus</h2>
+      <div class="two-column">
+        <div class="column">
+          <h4>Core Declarations</h4>
+          <ul>
+            <li><span class="emphasis">Peace Child Declaration</span><br>Romans 5:1 - Jesus is our Peace Child</li>
+            <li><span class="emphasis">Legal Standing</span><br>Romans 8:33-34 - No condemnation</li>
+            <li><span class="emphasis">God Is FOR Us</span><br>Romans 8:31 - Who can be against us?</li>
+            <li><span class="emphasis">Complete Restoration</span><br>Luke 15 - As though we never left</li>
+          </ul>
         </div>
-
-        <!-- Slide 2: Prayer Points Summary -->
-        <div class="slide">
-            <h2>This Week's Prayer Focus</h2>
-            <div class="two-column" style="max-width: 1200px; gap: 40px;">
-                <div class="column">
-                    <ul class="bullet-list" style="margin: 0;">
-                        <li style="margin: 15px 0; font-size: 1.6rem;"><strong style="color: #FF8D21;">Peace Child Declaration</strong><br><span style="font-size: 1.3rem; color: #FFD700;">Romans 5:1 - Jesus is our Peace Child</span></li>
-                        <li style="margin: 15px 0; font-size: 1.6rem;"><strong style="color: #FF8D21;">Legal Standing Before God</strong><br><span style="font-size: 1.3rem; color: #FFD700;">Romans 8:33-34 - No condemnation remains</span></li>
-                        <li style="margin: 15px 0; font-size: 1.6rem;"><strong style="color: #FF8D21;">God Is FOR Us</strong><br><span style="font-size: 1.3rem; color: #FFD700;">Romans 8:31 - Who can be against us?</span></li>
-                        <li style="margin: 15px 0; font-size: 1.6rem;"><strong style="color: #FF8D21;">Treated As Though We Never Left</strong><br><span style="font-size: 1.3rem; color: #FFD700;">Luke 15 - Complete restoration</span></li>
-                    </ul>
-                </div>
-                <div class="column">
-                    <ul class="bullet-list" style="margin: 0;">
-                        <li style="margin: 15px 0; font-size: 1.6rem;"><strong style="color: #FF8D21;">Access to Transforming Grace</strong><br><span style="font-size: 1.3rem; color: #FFD700;">Romans 5:2 - Grace changes everything</span></li>
-                        <li style="margin: 15px 0; font-size: 1.6rem;"><strong style="color: #FF8D21;">Nothing Can Separate Us</strong><br><span style="font-size: 1.3rem; color: #FFD700;">Romans 8:38-39 - Eternally secure</span></li>
-                        <li style="margin: 15px 0; font-size: 1.6rem;"><strong style="color: #FF8D21;">New Creation Reality</strong><br><span style="font-size: 1.3rem; color: #FFD700;">2 Cor 5:17 - Old things passed away</span></li>
-                        <li style="margin: 15px 0; font-size: 1.6rem;"><strong style="color: #FF8D21;">Evangelistic Passion</strong><br><span style="font-size: 1.3rem; color: #FFD700;">2 Cor 5:18-20 - Ministry of reconciliation</span></li>
-                    </ul>
-                </div>
-            </div>
+        <div class="column">
+          <h4>Transformation Truths</h4>
+          <ul>
+            <li><span class="emphasis">Access to Grace</span><br>Romans 5:2 - Grace changes everything</li>
+            <li><span class="emphasis">Nothing Separates</span><br>Romans 8:38-39 - Eternally secure</li>
+            <li><span class="emphasis">New Creation</span><br>2 Cor 5:17 - Old things passed away</li>
+            <li><span class="emphasis">Evangelistic Passion</span><br>2 Cor 5:18-20 - Ministry of reconciliation</li>
+          </ul>
         </div>
-
-        <!-- Slide 3: Opening Scripture -->
-        <div class="slide">
-            <h2>Our Foundation Scripture</h2>
-            <div class="scripture">
-                "Therefore, having been justified by faith, we have peace with God through our Lord Jesus Christ, through whom also we have access by faith into this grace in which we stand, and rejoice in hope of the glory of God."
-                <div class="scripture-reference">Romans 5:1-2</div>
-            </div>
-        </div>
-
-        <!-- Slide 3: Section Break -->
-        <div class="slide section-break">
-            <h1>The Peace Child Story</h1>
-            <h2>A Cultural Bridge to the Gospel</h2>
-        </div>
-
-        <!-- Slide 4: The Mission Challenge -->
-        <div class="slide">
-            <h2>The Missionary's Dilemma</h2>
-            <ul class="bullet-list">
-                <li>Missionaries to the Sawi people of South America</li>
-                <li>Gospel message was incomprehensible to them</li>
-                <li>In their culture, betrayal was considered a virtue</li>
-                <li>Judas, not Jesus, was seen as the hero</li>
-                <li>How do you share the gospel when the betrayer is celebrated?</li>
-            </ul>
-        </div>
-
-        <!-- Slide 5: The Breakthrough -->
-        <div class="slide">
-            <h2>God's Wisdom Revealed</h2>
-            <ul class="bullet-list">
-                <li>Two warring villages decided to make peace</li>
-                <li>One king gave his son to the other tribe</li>
-                <li>This child was called the "Peace Child"</li>
-                <li>As long as the Peace Child lived, there could be no war</li>
-                <li>The exchange made the two tribes one people</li>
-            </ul>
-        </div>
-
-        <!-- Slide 6: The Gospel Connection -->
-        <div class="slide">
-            <h2>The Revelation</h2>
-            <div class="quote">
-                "Tell them Jesus is the Peace Child!"
-            </div>
-            <p>God opened the missionary's eyes to see that Jesus Christ is God's Peace Child - the divine solution to the war between God and humanity.</p>
-        </div>
-
-        <!-- Slide 7: Jesus Our Peace Child -->
-        <div class="slide">
-            <h2>Jesus: The Ultimate Peace Child</h2>
-            <ul class="bullet-list">
-                <li>War existed between God and man due to sin</li>
-                <li>This war had lasted for thousands of years</li>
-                <li>God provided His own Son as the Peace Child</li>
-                <li>As long as Jesus lives, God is at peace with believers</li>
-                <li>Accepting the Peace Child ends the war forever</li>
-            </ul>
-        </div>
-
-        <!-- Slide 8: Key Quote -->
-        <div class="slide">
-            <h2>The Heart of the Gospel</h2>
-            <div class="quote">
-                "Jesus is the Peace Child"
-            </div>
-            <p>He is not only the one who makes peace - He Himself IS our peace with God.</p>
-        </div>
-
-        <!-- Slide 9: Section Break -->
-        <div class="slide section-break">
-            <h1>The War Has Ended</h1>
-            <h2>Understanding Our New Reality</h2>
-        </div>
-
-        <!-- Slide 10: The Bombs Have Stopped -->
-        <div class="slide">
-            <h2>A Powerful Metaphor</h2>
-            <div class="quote">
-                "The bombs have stopped falling"
-            </div>
-            <p>The war that once existed between God and man has ceased. The enmity is over. The hostility has ended.</p>
-        </div>
-
-        <!-- Slide 11: What This Means -->
-        <div class="slide">
-            <h2>Your New Reality in Christ</h2>
-            <ul class="bullet-list">
-                <li>No war exists between you and God</li>
-                <li>God is completely pleased with you</li>
-                <li>He has nothing against you in His heart</li>
-                <li>All charges have been dropped completely</li>
-                <li>God is not fighting against you</li>
-                <li>He is not withholding His love or favor</li>
-            </ul>
-        </div>
-
-        <!-- Slide 12: God's Heart Toward You -->
-        <div class="slide">
-            <h2>God's Attitude in Christ</h2>
-            <p style="font-size: 2rem; margin-bottom: 30px;">In Christ, God is:</p>
-            <ul class="bullet-list">
-                <li>Not offended by your sins</li>
-                <li>Not withholding His love</li>
-                <li>Not withholding Himself</li>
-                <li>Not planning to punish you</li>
-                <li>Completely at peace with you</li>
-            </ul>
-        </div>
-
-        <!-- Slide 13: Section Break -->
-        <div class="slide section-break">
-            <h1>God Is FOR You</h1>
-            <h2>Romans 8:31-39</h2>
-        </div>
-
-        <!-- Slide 14: The Great Question -->
-        <div class="slide">
-            <h2>What Then Shall We Say?</h2>
-            <div class="scripture">
-                "What then shall we say to these things? If God is for us, who can be against us?"
-                <div class="scripture-reference">Romans 8:31</div>
-            </div>
-        </div>
-
-        <!-- Slide 15: God's Love Proven -->
-        <div class="slide">
-            <h2>The Ultimate Proof</h2>
-            <div class="scripture">
-                "He who did not spare His own Son, but delivered Him up for us all, how shall He not with Him also freely give us all things?"
-                <div class="scripture-reference">Romans 8:32</div>
-            </div>
-        </div>
-
-        <!-- Slide 16: No Accusations Can Stand -->
-        <div class="slide">
-            <h2>Secure from All Accusations</h2>
-            <div class="scripture">
-                "Who shall bring a charge against God's elect? It is God who justifies. Who is he who condemns? It is Christ who died, and furthermore is also risen, who is even at the right hand of God, who also makes intercession for us."
-                <div class="scripture-reference">Romans 8:33-34</div>
-            </div>
-        </div>
-
-        <!-- Slide 17: Nothing Can Separate -->
-        <div class="slide">
-            <h2>Eternally Secure</h2>
-            <div class="scripture">
-                "For I am persuaded that neither death nor life, nor angels nor principalities nor powers, nor things present nor things to come, nor height nor depth, nor any other created thing, shall be able to separate us from the love of God which is in Christ Jesus our Lord."
-                <div class="scripture-reference">Romans 8:38-39</div>
-            </div>
-        </div>
-
-        <!-- Slide 18: Section Break -->
-        <div class="slide section-break">
-            <h1>The Legal Foundation</h1>
-            <h2>Not Emotional, But Legal</h2>
-        </div>
-
-        <!-- Slide 19: A Legal Matter -->
-        <div class="slide">
-            <h2>Why the Legal Foundation Matters</h2>
-            <ul class="bullet-list">
-                <li>No one respects the law more than God</li>
-                <li>God's love never gets in the way of His law</li>
-                <li>Everything God does must be done legally</li>
-                <li>He had to follow the law to the letter</li>
-                <li>The law is the expression of God's holiness</li>
-            </ul>
-        </div>
-
-        <!-- Slide 20: The Law's Requirements -->
-        <div class="slide">
-            <h2>What the Law Demands</h2>
-            <ul class="bullet-list">
-                <li>"The soul that sins shall die"</li>
-                <li>"Without the shedding of blood, no remission"</li>
-                <li>God has never forgiven anyone apart from blood</li>
-                <li>It would be illegal for God to ignore these requirements</li>
-                <li>Christ fulfilled every requirement perfectly</li>
-            </ul>
-        </div>
-
-        <!-- Slide 21: Your Legal Standing -->
-        <div class="slide">
-            <h2>You Have a Legal Deed</h2>
-            <div class="quote">
-                "This peace is mine legally"
-            </div>
-            <p>Just as a property deed gives you legal ownership, Christ's work gives you legal standing before God. When challenged, you can present your deed - God's Word!</p>
-        </div>
-
-        <!-- Slide 22: Christ's Perfect Qualification -->
-        <div class="slide">
-            <h2>Jesus Met Every Requirement</h2>
-            <ul class="bullet-list">
-                <li>Lived a perfectly sinless life</li>
-                <li>Loved God with all His heart, mind, soul, strength</li>
-                <li>Fulfilled the law completely</li>
-                <li>Never once broke any commandment</li>
-                <li>Qualified as the spotless Lamb of God</li>
-            </ul>
-        </div>
-
-        <!-- Slide 23: The Divine Courtroom -->
-        <div class="slide">
-            <h2>The Heavenly Court Scene</h2>
-            <ul class="bullet-list">
-                <li>God the Judge examines the evidence</li>
-                <li>Jesus our Defense Lawyer presents His case</li>
-                <li>He shows His broken body and shed blood</li>
-                <li>God examines Christ's perfect life</li>
-                <li>The law's requirements are fully satisfied</li>
-                <li>Verdict: "NOT GUILTY!"</li>
-            </ul>
-        </div>
-
-        <!-- Slide 24: Section Break -->
-        <div class="slide section-break">
-            <h1>The Prodigal Son</h1>
-            <h2>A Picture of Salvation</h2>
-        </div>
-
-        <!-- Slide 25: The Rebellion -->
-        <div class="slide">
-            <h2>The Son's Departure</h2>
-            <ul class="bullet-list">
-                <li>"I don't want to be under your authority"</li>
-                <li>"I don't want to listen to you"</li>
-                <li>"I want to make my own decisions"</li>
-                <li>"Give me my inheritance and let me go"</li>
-                <li>He spent everything on sinful living</li>
-            </ul>
-        </div>
-
-        <!-- Slide 26: Coming to His Senses -->
-        <div class="slide">
-            <h2>The Awakening</h2>
-            <ul class="bullet-list">
-                <li>He lost everything through sinful choices</li>
-                <li>The wages of sin brought death and despair</li>
-                <li>He "came to his senses"</li>
-                <li>"Even the servants have enough to eat"</li>
-                <li>He decided to return home</li>
-            </ul>
-        </div>
-
-        <!-- Slide 27: The Father's Response -->
-        <div class="slide">
-            <h2>Amazing Grace in Action</h2>
-            <ul class="bullet-list">
-                <li>The father was watching the road every day</li>
-                <li>He saw his son "while he was yet far off"</li>
-                <li>The father RAN to meet him</li>
-                <li>He laid aside all dignity to reach his son</li>
-                <li>Grace reached him before law could judge him</li>
-            </ul>
-        </div>
-
-        <!-- Slide 28: Complete Restoration -->
-        <div class="slide">
-            <h2>Treated as If He Never Left</h2>
-            <div class="quote">
-                "God treats us as though we never left home"
-            </div>
-            <ul class="bullet-list">
-                <li>The best robe was put on him</li>
-                <li>A ring was placed on his finger</li>
-                <li>Shoes were put on his feet</li>
-                <li>The fatted calf was killed</li>
-                <li>A celebration was thrown</li>
-            </ul>
-        </div>
-
-        <!-- Slide 29: The Heart of Grace -->
-        <div class="slide">
-            <h2>How God Sees You</h2>
-            <p style="font-size: 2rem; margin-bottom: 40px;">God treats you exactly as He would treat Jesus:</p>
-            <ul class="bullet-list">
-                <li>As though you never left home</li>
-                <li>As though you never sinned</li>
-                <li>As though you never rebelled</li>
-                <li>As a faithful, loving child</li>
-                <li>With complete acceptance and joy</li>
-            </ul>
-        </div>
-
-        <!-- Slide 30: Section Break -->
-        <div class="slide section-break">
-            <h1>Access to Grace</h1>
-            <h2>Standing in Transformation</h2>
-        </div>
-
-        <!-- Slide 31: More Than Forgiveness -->
-        <div class="slide">
-            <h2>Peace Plus Access</h2>
-            <div class="scripture">
-                "Through whom also we have access by faith into this grace in which we stand"
-                <div class="scripture-reference">Romans 5:2</div>
-            </div>
-            <p>Not only do we have peace with God, but we have ongoing access to His transforming grace.</p>
-        </div>
-
-        <!-- Slide 32: Grace Changes Everything -->
-        <div class="slide">
-            <h2>The Power of Grace</h2>
-            <ul class="bullet-list">
-                <li>Grace doesn't leave you the way it found you</li>
-                <li>You are joined to Christ who is grace</li>
-                <li>Through union with Him, you bear His fruit</li>
-                <li>Grace breaks the power of sin over you</li>
-                <li>You become a new creation in Christ</li>
-            </ul>
-        </div>
-
-        <!-- Slide 33: Grace Teaches You -->
-        <div class="slide">
-            <h2>Internal Transformation</h2>
-            <div class="quote">
-                "Grace will teach you to say no"
-            </div>
-            <ul class="bullet-list">
-                <li>Your desires begin to change</li>
-                <li>You develop new appetites</li>
-                <li>Sin loses its appeal</li>
-                <li>Holiness becomes attractive</li>
-                <li>Transformation happens from the inside out</li>
-            </ul>
-        </div>
-
-        <!-- Slide 34: God Works In You -->
-        <div class="slide">
-            <h2>Divine Partnership</h2>
-            <div class="scripture">
-                "For it is God who works in you both to will and to do for His good pleasure"
-                <div class="scripture-reference">Philippians 2:13</div>
-            </div>
-            <p>God doesn't just save you and leave you - He continues to work in you, changing your will and empowering your actions.</p>
-        </div>
-
-        <!-- Slide 35: New Creation Reality -->
-        <div class="slide">
-            <h2>Your New Identity</h2>
-            <div class="scripture">
-                "Therefore, if anyone is in Christ, he is a new creation; old things have passed away; behold, all things have become new"
-                <div class="scripture-reference">2 Corinthians 5:17</div>
-            </div>
-        </div>
-
-        <!-- Slide 36: Section Break -->
-        <div class="slide section-break">
-            <h1>Prayer Points</h1>
-            <h2>Applying Gospel Truth</h2>
-        </div>
-
-        <!-- Slide 37: Prayer for Understanding -->
-        <div class="slide">
-            <h2>Prayer for Legal Standing</h2>
-            <div class="scripture">
-                "Father, we thank You that our peace with You is not based on emotions, but on the solid legal foundation of what Christ accomplished. Help us stand confidently in this truth."
-                <div class="scripture-reference">Based on Romans 5:1</div>
-            </div>
-        </div>
-
-        <!-- Slide 38: Prayer for Freedom -->
-        <div class="slide">
-            <h2>Prayer Against Condemnation</h2>
-            <div class="scripture">
-                "Lord, we declare that there is no condemnation for those in Christ Jesus. When guilt tries to overwhelm us, remind us that You justify us, not condemn us."
-                <div class="scripture-reference">Based on Romans 8:1</div>
-            </div>
-        </div>
-
-        <!-- Slide 39: Prayer for Confidence -->
-        <div class="slide">
-            <h2>Prayer for Bold Faith</h2>
-            <div class="scripture">
-                "When circumstances overwhelm us, help us boldly declare: 'If God is for us, who can be against us?' Give us unwavering confidence in Your love."
-                <div class="scripture-reference">Based on Romans 8:31</div>
-            </div>
-        </div>
-
-        <!-- Slide 40: Prayer for Transformation -->
-        <div class="slide">
-            <h2>Prayer for Grace to Work</h2>
-            <div class="scripture">
-                "Lord, let Your grace work powerfully in us, changing our desires and transforming us from glory to glory into the image of Christ."
-                <div class="scripture-reference">Based on Romans 5:2</div>
-            </div>
-        </div>
-
-        <!-- Slide 41: Section Break -->
-        <div class="slide section-break">
-            <h1>The Call to Action</h1>
-            <h2>Share This Gospel</h2>
-        </div>
-
-        <!-- Slide 42: The World's Need -->
-        <div class="slide">
-            <h2>A Desperate World</h2>
-            <ul class="bullet-list">
-                <li>Maryland, Virginia, Washington - this whole area needs the gospel</li>
-                <li>Many people in churches are still lost</li>
-                <li>They think it's "too good to be true"</li>
-                <li>They try to add works to grace</li>
-                <li>They need to hear about the Peace Child</li>
-            </ul>
-        </div>
-
-        <!-- Slide 43: Access by Faith Alone -->
-        <div class="slide">
-            <h2>Simple Faith</h2>
-            <div class="quote">
-                "Faith is simply an empty hand that accepts what Christ has done"
-            </div>
-            <p>We access all of God's promises by faith, not by works. Simply receive what Christ accomplished for you.</p>
-        </div>
-
-        <!-- Slide 44: Evangelistic Passion -->
-        <div class="slide">
-            <h2>Motivated from Within</h2>
-            <ul class="bullet-list">
-                <li>When we grasp this revelation, we can't keep quiet</li>
-                <li>Joy and excitement about God's grace motivates sharing</li>
-                <li>No one has to tell us to tell others about Jesus</li>
-                <li>We're motivated from within to share the good news</li>
-                <li>Don't come alone - bring someone with you</li>
-            </ul>
-        </div>
-
-        <!-- Slide 45: Key Quotes Summary -->
-        <div class="slide">
-            <h2>Remember These Truths</h2>
-            <div style="text-align: left; max-width: 1000px;">
-                <p style="font-size: 1.8rem; margin: 20px 0; color: #FF8D21;">"Jesus is the Peace Child"</p>
-                <p style="font-size: 1.8rem; margin: 20px 0; color: #FF8D21;">"The bombs have stopped falling"</p>
-                <p style="font-size: 1.8rem; margin: 20px 0; color: #FF8D21;">"God treats us as though we never left home"</p>
-                <p style="font-size: 1.8rem; margin: 20px 0; color: #FF8D21;">"This peace is mine legally"</p>
-                <p style="font-size: 1.8rem; margin: 20px 0; color: #FF8D21;">"Grace will teach you to say no"</p>
-            </div>
-        </div>
-
-        <!-- Slide 46: Foundation Truth -->
-        <div class="slide">
-            <h2>Build Your Life on This</h2>
-            <div class="scripture">
-                "This peace with God is the bedrock of the Christian life. It's the most fundamental blessing of being in Christ upon which all other hopes and joys are built."
-            </div>
-        </div>
-
-        <!-- Slide 47: Life Transformation -->
-        <div class="slide">
-            <h2>What Changes</h2>
-            <p style="font-size: 2rem; margin-bottom: 40px;">When this peace is your foundation, it changes:</p>
-            <ul class="bullet-list">
-                <li>Your relationship with yourself</li>
-                <li>Your relationship with others</li>
-                <li>How you face trials and challenges</li>
-                <li>Your view of death</li>
-                <li>Everything about your life</li>
-            </ul>
-        </div>
-
-        <!-- Slide 48: Final Call -->
-        <div class="slide cta">
-            <h1>Accept the Peace Child</h1>
-            <h2>Jesus Christ is God's answer to the war between God and humanity</h2>
-            <div class="scripture">
-                "Therefore, having been justified by faith, we have peace with God through our Lord Jesus Christ"
-                <div class="scripture-reference">Romans 5:1</div>
-            </div>
-        </div>
-
-        <!-- Slide 49: Response -->
-        <div class="slide cta">
-            <h1>What Will You Do?</h1>
-            <ul class="bullet-list" style="color: white;">
-                <li>Will you accept Jesus as your Peace Child?</li>
-                <li>Will you believe this gospel is true?</li>
-                <li>Will you rest in what Christ has done?</li>
-                <li>Will you share this good news with others?</li>
-                <li>Will you live in the reality of God's peace?</li>
-            </ul>
-        </div>
-
-        <!-- Slide 50: Closing -->
-        <div class="slide">
-            <h1>The Gospel of Grace</h1>
-            <h2>Peace with God Through Jesus Christ</h2>
-            <div class="quote">
-                "Jesus is the Peace Child. The war has ended. The bombs have stopped falling. You are at peace with God forever."
-            </div>
-            <p style="margin-top: 60px; font-size: 1.6rem; color: #FF8D21;">May this truth transform your life and ignite your passion to share the gospel with others.</p>
-        </div>
+      </div>
     </div>
 
-    <!-- Navigation Controls -->
-    <div class="nav-controls">
-        <button class="nav-button" id="prevBtn" onclick="changeSlide(-1)">Previous</button>
-        <button class="nav-button" id="nextBtn" onclick="changeSlide(1)">Next</button>
+    <!-- 3. Opening Scripture -->
+    <div class="slide" data-slide="3">
+      <h2>Our Foundation Scripture</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Therefore, having been justified by faith, we have peace with God through our Lord Jesus Christ, through whom also we have access by faith into this grace in which we stand, and rejoice in hope of the glory of God."</div>
+        <div class="scripture-ref">Romans 5:1-2</div>
+      </div>
     </div>
 
-    <!-- Slide Counter -->
-    <div class="slide-counter" id="slideCounter">1 / 51</div>
+    <!-- 4. Section Break -->
+    <div class="slide section-break" data-slide="4">
+      <h1>The Peace Child Story</h1>
+      <h2>A Cultural Bridge to the Gospel</h2>
+    </div>
 
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const totalSlides = slides.length;
-        const progressBar = document.getElementById('progressBar');
-        const slideCounter = document.getElementById('slideCounter');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const sidebar = document.getElementById('sidebar');
-        const sidebarNav = document.getElementById('sidebarNav');
-        const sidebarOverlay = document.querySelector('.sidebar-overlay');
-        const presentation = document.getElementById('presentation');
+    <!-- 5. The Mission Challenge -->
+    <div class="slide" data-slide="5">
+      <h2>The Missionary's Dilemma</h2>
+      <div class="content-list"><ul>
+        <li>Missionaries to the Sawi people of South America</li>
+        <li>Gospel message was incomprehensible to them</li>
+        <li>In their culture, betrayal was considered a virtue</li>
+        <li>Judas, not Jesus, was seen as the hero</li>
+        <li>How do you share the gospel when the betrayer is celebrated?</li>
+      </ul></div>
+    </div>
 
-        // Slide titles for navigation
-        const slideTitles = [
-            "The Gospel of Grace", "This Week's Prayer Focus", "Our Foundation Scripture",
-            "The Peace Child Story", "The Missionary's Dilemma", "God's Wisdom Revealed",
-            "The Revelation", "Jesus: The Ultimate Peace Child", "The Heart of the Gospel",
-            "The War Has Ended", "A Powerful Metaphor", "Your New Reality in Christ",
-            "God's Attitude in Christ", "God Is FOR You", "The Great Question",
-            "The Ultimate Proof", "Secure from All Accusations", "Eternally Secure",
-            "The Legal Foundation", "Why the Legal Foundation Matters", "What the Law Demands",
-            "You Have a Legal Deed", "Jesus Met Every Requirement", "The Heavenly Court Scene",
-            "The Prodigal Son", "The Son's Departure", "The Awakening", "Amazing Grace in Action",
-            "Complete Restoration", "How God Sees You", "Access to Grace", "Peace Plus Access",
-            "The Power of Grace", "Internal Transformation", "Divine Partnership", "Your New Identity",
-            "Prayer Points", "Prayer for Legal Standing", "Prayer Against Condemnation",
-            "Prayer for Bold Faith", "Prayer for Grace to Work", "The Call to Action",
-            "A Desperate World", "Simple Faith", "Motivated from Within", "Remember These Truths",
-            "Build Your Life on This", "What Changes", "Accept the Peace Child", "What Will You Do?",
-            "The Gospel of Grace"
-        ];
+    <!-- 6. The Breakthrough -->
+    <div class="slide" data-slide="6">
+      <h2>God's Wisdom Revealed</h2>
+      <div class="content-list"><ul>
+        <li>Two warring villages decided to make peace</li>
+        <li>One king gave his son to the other tribe</li>
+        <li>This child was called the "Peace Child"</li>
+        <li>As long as the Peace Child lived, there could be no war</li>
+        <li>The exchange made the two tribes one people</li>
+      </ul></div>
+    </div>
 
-        function generateSidebarNav() {
-            sidebarNav.innerHTML = '';
+    <!-- 7. The Gospel Connection -->
+    <div class="slide" data-slide="7">
+      <h2>The Revelation</h2>
+      <div class="quote">"Tell them Jesus is the Peace Child!"</div>
+      <div class="subtitle">God opened the missionary's eyes to see that Jesus Christ is God's Peace Child - the divine solution to the war between God and humanity.</div>
+    </div>
 
-            slides.forEach((slide, index) => {
-                const navItem = document.createElement('div');
-                navItem.className = 'sidebar-item';
-                if (index === currentSlide) {
-                    navItem.classList.add('active');
-                }
+    <!-- 8. Jesus Our Peace Child -->
+    <div class="slide" data-slide="8">
+      <h2>Jesus: The Ultimate Peace Child</h2>
+      <div class="content-list"><ul>
+        <li>War existed between God and man due to sin</li>
+        <li>This war had lasted for thousands of years</li>
+        <li>God provided His own Son as the Peace Child</li>
+        <li>As long as Jesus lives, God is at peace with believers</li>
+        <li>Accepting the Peace Child ends the war forever</li>
+      </ul></div>
+    </div>
 
-                // Add special styling for prayer points section (slides 37-41)
-                let title = slideTitles[index];
-                if (index >= 37 && index <= 41) {
-                    title = "🙏 " + title;
-                }
+    <!-- 9. Key Quote -->
+    <div class="slide" data-slide="9">
+      <h2>The Heart of the Gospel</h2>
+      <div class="quote">"Jesus is the Peace Child"</div>
+      <div class="subtitle">He is not only the one who makes peace - He Himself IS our peace with God.</div>
+    </div>
 
-                navItem.innerHTML = `
-                    <div class="sidebar-item-number">${index + 1}</div>
-                    <div class="sidebar-item-title">${title}</div>
-                `;
+    <!-- 10. Section Break -->
+    <div class="slide section-break" data-slide="10">
+      <h1>The War Has Ended</h1>
+      <h2>Understanding Our New Reality</h2>
+    </div>
 
-                navItem.addEventListener('click', () => {
-                    goToSlide(index);
-                    closeSidebar();
-                });
+    <!-- 11. The Bombs Have Stopped -->
+    <div class="slide" data-slide="11">
+      <h2>A Powerful Metaphor</h2>
+      <div class="quote">"The bombs have stopped falling"</div>
+      <div class="subtitle">The war that once existed between God and man has ceased. The enmity is over. The hostility has ended.</div>
+    </div>
 
-                sidebarNav.appendChild(navItem);
-            });
+    <!-- 12. What This Means -->
+    <div class="slide" data-slide="12">
+      <h2>Your New Reality in Christ</h2>
+      <div class="content-list"><ul>
+        <li>No war exists between you and God</li>
+        <li>God is completely pleased with you</li>
+        <li>He has nothing against you in His heart</li>
+        <li>All charges have been dropped completely</li>
+        <li>God is not fighting against you</li>
+        <li>He is not withholding His love or favor</li>
+      </ul></div>
+    </div>
+
+    <!-- 13. God's Heart Toward You -->
+    <div class="slide" data-slide="13">
+      <h2>God's Attitude in Christ</h2>
+      <div class="subtitle">In Christ, God is:</div>
+      <div class="content-list"><ul>
+        <li>Not offended by your sins</li>
+        <li>Not withholding His love</li>
+        <li>Not withholding Himself</li>
+        <li>Not planning to punish you</li>
+        <li>Completely at peace with you</li>
+      </ul></div>
+    </div>
+
+    <!-- 14. Section Break -->
+    <div class="slide section-break" data-slide="14">
+      <h1>God Is FOR You</h1>
+      <h2>Romans 8:31-39</h2>
+    </div>
+
+    <!-- 15. The Great Question -->
+    <div class="slide" data-slide="15">
+      <h2>What Then Shall We Say?</h2>
+      <div class="scripture">
+        <div class="scripture-text">"What then shall we say to these things? If God is for us, who can be against us?"</div>
+        <div class="scripture-ref">Romans 8:31</div>
+      </div>
+    </div>
+
+    <!-- 16. God's Love Proven -->
+    <div class="slide" data-slide="16">
+      <h2>The Ultimate Proof</h2>
+      <div class="scripture">
+        <div class="scripture-text">"He who did not spare His own Son, but delivered Him up for us all, how shall He not with Him also freely give us all things?"</div>
+        <div class="scripture-ref">Romans 8:32</div>
+      </div>
+    </div>
+
+    <!-- 17. No Accusations Can Stand -->
+    <div class="slide" data-slide="17">
+      <h2>Secure from All Accusations</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Who shall bring a charge against God's elect? It is God who justifies. Who is he who condemns? It is Christ who died, and furthermore is also risen, who is even at the right hand of God, who also makes intercession for us."</div>
+        <div class="scripture-ref">Romans 8:33-34</div>
+      </div>
+    </div>
+
+    <!-- 18. Nothing Can Separate -->
+    <div class="slide" data-slide="18">
+      <h2>Eternally Secure</h2>
+      <div class="scripture">
+        <div class="scripture-text">"For I am persuaded that neither death nor life, nor angels nor principalities nor powers, nor things present nor things to come, nor height nor depth, nor any other created thing, shall be able to separate us from the love of God which is in Christ Jesus our Lord."</div>
+        <div class="scripture-ref">Romans 8:38-39</div>
+      </div>
+    </div>
+
+    <!-- 19. Section Break -->
+    <div class="slide section-break" data-slide="19">
+      <h1>The Legal Foundation</h1>
+      <h2>Not Emotional, But Legal</h2>
+    </div>
+
+    <!-- 20. A Legal Matter -->
+    <div class="slide" data-slide="20">
+      <h2>Why the Legal Foundation Matters</h2>
+      <div class="content-list"><ul>
+        <li>No one respects the law more than God</li>
+        <li>God's love never gets in the way of His law</li>
+        <li>Everything God does must be done legally</li>
+        <li>He had to follow the law to the letter</li>
+        <li>The law is the expression of God's holiness</li>
+      </ul></div>
+    </div>
+
+    <!-- 21. The Law's Requirements -->
+    <div class="slide" data-slide="21">
+      <h2>What the Law Demands</h2>
+      <div class="content-list"><ul>
+        <li>"The soul that sins shall die"</li>
+        <li>"Without the shedding of blood, no remission"</li>
+        <li>God has never forgiven anyone apart from blood</li>
+        <li>It would be illegal for God to ignore these requirements</li>
+        <li>Christ fulfilled every requirement perfectly</li>
+      </ul></div>
+    </div>
+
+    <!-- 22. Your Legal Standing -->
+    <div class="slide" data-slide="22">
+      <h2>You Have a Legal Deed</h2>
+      <div class="quote">"This peace is mine legally"</div>
+      <div class="subtitle">Just as a property deed gives you legal ownership, Christ's work gives you legal standing before God. When challenged, you can present your deed - God's Word!</div>
+    </div>
+
+    <!-- 23. Christ's Perfect Qualification -->
+    <div class="slide" data-slide="23">
+      <h2>Jesus Met Every Requirement</h2>
+      <div class="content-list"><ul>
+        <li>Lived a perfectly sinless life</li>
+        <li>Loved God with all His heart, mind, soul, strength</li>
+        <li>Fulfilled the law completely</li>
+        <li>Never once broke any commandment</li>
+        <li>Qualified as the spotless Lamb of God</li>
+      </ul></div>
+    </div>
+
+    <!-- 24. The Divine Courtroom -->
+    <div class="slide" data-slide="24">
+      <h2>The Heavenly Court Scene</h2>
+      <div class="content-list"><ul>
+        <li>God the Judge examines the evidence</li>
+        <li>Jesus our Defense Lawyer presents His case</li>
+        <li>He shows His broken body and shed blood</li>
+        <li>God examines Christ's perfect life</li>
+        <li>The law's requirements are fully satisfied</li>
+        <li><span class="emphasis">Verdict: "NOT GUILTY!"</span></li>
+      </ul></div>
+    </div>
+
+    <!-- 25. Section Break -->
+    <div class="slide section-break" data-slide="25">
+      <h1>The Prodigal Son</h1>
+      <h2>A Picture of Salvation</h2>
+    </div>
+
+    <!-- 26. The Rebellion -->
+    <div class="slide" data-slide="26">
+      <h2>The Son's Departure</h2>
+      <div class="content-list"><ul>
+        <li>"I don't want to be under your authority"</li>
+        <li>"I don't want to listen to you"</li>
+        <li>"I want to make my own decisions"</li>
+        <li>"Give me my inheritance and let me go"</li>
+        <li>He spent everything on sinful living</li>
+      </ul></div>
+    </div>
+
+    <!-- 27. Coming to His Senses -->
+    <div class="slide" data-slide="27">
+      <h2>The Awakening</h2>
+      <div class="content-list"><ul>
+        <li>He lost everything through sinful choices</li>
+        <li>The wages of sin brought death and despair</li>
+        <li>He "came to his senses"</li>
+        <li>"Even the servants have enough to eat"</li>
+        <li>He decided to return home</li>
+      </ul></div>
+    </div>
+
+    <!-- 28. The Father's Response -->
+    <div class="slide" data-slide="28">
+      <h2>Amazing Grace in Action</h2>
+      <div class="content-list"><ul>
+        <li>The father was watching the road every day</li>
+        <li>He saw his son "while he was yet far off"</li>
+        <li>The father RAN to meet him</li>
+        <li>He laid aside all dignity to reach his son</li>
+        <li>Grace reached him before law could judge him</li>
+      </ul></div>
+    </div>
+
+    <!-- 29. Complete Restoration -->
+    <div class="slide" data-slide="29">
+      <h2>Treated as If He Never Left</h2>
+      <div class="quote">"God treats us as though we never left home"</div>
+      <div class="content-list"><ul>
+        <li>The best robe was put on him</li>
+        <li>A ring was placed on his finger</li>
+        <li>Shoes were put on his feet</li>
+        <li>The fatted calf was killed</li>
+        <li>A celebration was thrown</li>
+      </ul></div>
+    </div>
+
+    <!-- 30. The Heart of Grace -->
+    <div class="slide" data-slide="30">
+      <h2>How God Sees You</h2>
+      <div class="subtitle">God treats you exactly as He would treat Jesus:</div>
+      <div class="content-list"><ul>
+        <li>As though you never left home</li>
+        <li>As though you never sinned</li>
+        <li>As though you never rebelled</li>
+        <li>As a faithful, loving child</li>
+        <li>With complete acceptance and joy</li>
+      </ul></div>
+    </div>
+
+    <!-- 31. Section Break -->
+    <div class="slide section-break" data-slide="31">
+      <h1>Access to Grace</h1>
+      <h2>Standing in Transformation</h2>
+    </div>
+
+    <!-- 32. More Than Forgiveness -->
+    <div class="slide" data-slide="32">
+      <h2>Peace Plus Access</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Through whom also we have access by faith into this grace in which we stand"</div>
+        <div class="scripture-ref">Romans 5:2</div>
+      </div>
+      <div class="subtitle">Not only do we have peace with God, but we have ongoing access to His transforming grace.</div>
+    </div>
+
+    <!-- 33. Grace Changes Everything -->
+    <div class="slide" data-slide="33">
+      <h2>The Power of Grace</h2>
+      <div class="content-list"><ul>
+        <li>Grace doesn't leave you the way it found you</li>
+        <li>You are joined to Christ who is grace</li>
+        <li>Through union with Him, you bear His fruit</li>
+        <li>Grace breaks the power of sin over you</li>
+        <li>You become a new creation in Christ</li>
+      </ul></div>
+    </div>
+
+    <!-- 34. Grace Teaches You -->
+    <div class="slide" data-slide="34">
+      <h2>Internal Transformation</h2>
+      <div class="quote">"Grace will teach you to say no"</div>
+      <div class="content-list"><ul>
+        <li>Your desires begin to change</li>
+        <li>You develop new appetites</li>
+        <li>Sin loses its appeal</li>
+        <li>Holiness becomes attractive</li>
+        <li>Transformation happens from the inside out</li>
+      </ul></div>
+    </div>
+
+    <!-- 35. God Works In You -->
+    <div class="slide" data-slide="35">
+      <h2>Divine Partnership</h2>
+      <div class="scripture">
+        <div class="scripture-text">"For it is God who works in you both to will and to do for His good pleasure"</div>
+        <div class="scripture-ref">Philippians 2:13</div>
+      </div>
+      <div class="subtitle">God doesn't just save you and leave you - He continues to work in you, changing your will and empowering your actions.</div>
+    </div>
+
+    <!-- 36. New Creation Reality -->
+    <div class="slide" data-slide="36">
+      <h2>Your New Identity</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Therefore, if anyone is in Christ, he is a new creation; old things have passed away; behold, all things have become new"</div>
+        <div class="scripture-ref">2 Corinthians 5:17</div>
+      </div>
+    </div>
+
+    <!-- 37. Section Break - Prayer Points -->
+    <div class="slide section-break" data-slide="37">
+      <h1>Prayer Points</h1>
+      <h2>Applying Gospel Truth</h2>
+    </div>
+
+    <!-- 38. Prayer for Understanding -->
+    <div class="slide prayer-slide" data-slide="38">
+      <h2>Prayer for Legal Standing</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">"Father, we thank You that our peace with You is not based on emotions, but on the solid legal foundation of what Christ accomplished. Help us stand confidently in this truth."</div>
+          <div class="scripture-ref">Based on Romans 5:1</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 39. Prayer for Freedom -->
+    <div class="slide prayer-slide" data-slide="39">
+      <h2>Prayer Against Condemnation</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">"Lord, we declare that there is no condemnation for those in Christ Jesus. When guilt tries to overwhelm us, remind us that You justify us, not condemn us."</div>
+          <div class="scripture-ref">Based on Romans 8:1</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 40. Prayer for Confidence -->
+    <div class="slide prayer-slide" data-slide="40">
+      <h2>Prayer for Bold Faith</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">"When circumstances overwhelm us, help us boldly declare: 'If God is for us, who can be against us?' Give us unwavering confidence in Your love."</div>
+          <div class="scripture-ref">Based on Romans 8:31</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 41. Prayer for Transformation -->
+    <div class="slide prayer-slide" data-slide="41">
+      <h2>Prayer for Grace to Work</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">"Lord, let Your grace work powerfully in us, changing our desires and transforming us from glory to glory into the image of Christ."</div>
+          <div class="scripture-ref">Based on Romans 5:2</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 42. Section Break - Call to Action -->
+    <div class="slide section-break" data-slide="42">
+      <h1>The Call to Action</h1>
+      <h2>Share This Gospel</h2>
+    </div>
+
+    <!-- 43. The World's Need -->
+    <div class="slide" data-slide="43">
+      <h2>A Desperate World</h2>
+      <div class="content-list"><ul>
+        <li>Maryland, Virginia, Washington - this whole area needs the gospel</li>
+        <li>Many people in churches are still lost</li>
+        <li>They think it's "too good to be true"</li>
+        <li>They try to add works to grace</li>
+        <li>They need to hear about the Peace Child</li>
+      </ul></div>
+    </div>
+
+    <!-- 44. Access by Faith Alone -->
+    <div class="slide" data-slide="44">
+      <h2>Simple Faith</h2>
+      <div class="quote">"Faith is simply an empty hand that accepts what Christ has done"</div>
+      <div class="subtitle">We access all of God's promises by faith, not by works. Simply receive what Christ accomplished for you.</div>
+    </div>
+
+    <!-- 45. Evangelistic Passion -->
+    <div class="slide" data-slide="45">
+      <h2>Motivated from Within</h2>
+      <div class="content-list"><ul>
+        <li>When we grasp this revelation, we can't keep quiet</li>
+        <li>Joy and excitement about God's grace motivates sharing</li>
+        <li>No one has to tell us to tell others about Jesus</li>
+        <li>We're motivated from within to share the good news</li>
+        <li>Don't come alone - bring someone with you</li>
+      </ul></div>
+    </div>
+
+    <!-- 46. Key Quotes Summary -->
+    <div class="slide" data-slide="46">
+      <h2>Remember These Truths</h2>
+      <div class="content-list"><ul>
+        <li><span class="emphasis">"Jesus is the Peace Child"</span></li>
+        <li><span class="emphasis">"The bombs have stopped falling"</span></li>
+        <li><span class="emphasis">"God treats us as though we never left home"</span></li>
+        <li><span class="emphasis">"This peace is mine legally"</span></li>
+        <li><span class="emphasis">"Grace will teach you to say no"</span></li>
+      </ul></div>
+    </div>
+
+    <!-- 47. Foundation Truth -->
+    <div class="slide" data-slide="47">
+      <h2>Build Your Life on This</h2>
+      <div class="quote">"This peace with God is the bedrock of the Christian life. It's the most fundamental blessing of being in Christ upon which all other hopes and joys are built."</div>
+    </div>
+
+    <!-- 48. Life Transformation -->
+    <div class="slide" data-slide="48">
+      <h2>What Changes</h2>
+      <div class="subtitle">When this peace is your foundation, it changes:</div>
+      <div class="content-list"><ul>
+        <li>Your relationship with yourself</li>
+        <li>Your relationship with others</li>
+        <li>How you face trials and challenges</li>
+        <li>Your view of death</li>
+        <li>Everything about your life</li>
+      </ul></div>
+    </div>
+
+    <!-- 49. Final Call -->
+    <div class="slide cta-slide" data-slide="49">
+      <h1>Accept the Peace Child</h1>
+      <h2>Jesus Christ is God's answer to the war between God and humanity</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Therefore, having been justified by faith, we have peace with God through our Lord Jesus Christ"</div>
+        <div class="scripture-ref">Romans 5:1</div>
+      </div>
+    </div>
+
+    <!-- 50. Response -->
+    <div class="slide cta-slide" data-slide="50">
+      <h1>What Will You Do?</h1>
+      <div class="content-list"><ul>
+        <li>Will you accept Jesus as your Peace Child?</li>
+        <li>Will you believe this gospel is true?</li>
+        <li>Will you rest in what Christ has done?</li>
+        <li>Will you share this good news with others?</li>
+        <li>Will you live in the reality of God's peace?</li>
+      </ul></div>
+    </div>
+
+    <!-- 51. Closing -->
+    <div class="slide" data-slide="51">
+      <h1>The Gospel of Grace</h1>
+      <h2>Peace with God Through Jesus Christ</h2>
+      <div class="quote">"Jesus is the Peace Child. The war has ended. The bombs have stopped falling. You are at peace with God forever."</div>
+      <div class="subtitle" style="margin-top: 2rem;">May this truth transform your life and ignite your passion to share the gospel with others.</div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+      <button class="nav-btn" onclick="previousSlide()">← Previous</button>
+      <button class="nav-btn" onclick="nextSlide()">Next →</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = document.querySelectorAll('.slide').length;
+    document.getElementById('total-slides').textContent = totalSlides;
+
+    // Slide titles for sidebar navigation
+    const slideTitles = [
+      'Title', 'Prayer Focus', 'Foundation Scripture',
+      'Peace Child Story', 'Missionary\'s Dilemma', 'God\'s Wisdom', 'The Revelation',
+      'Jesus: Peace Child', 'Heart of Gospel',
+      'War Has Ended', 'Powerful Metaphor', 'New Reality', 'God\'s Attitude',
+      'God Is FOR You', 'What Shall We Say?', 'Ultimate Proof', 'Secure from Accusations', 'Eternally Secure',
+      'Legal Foundation', 'Why Legal Matters', 'Law Demands', 'Legal Deed', 'Jesus Qualified', 'Heavenly Court',
+      'Prodigal Son', 'Son\'s Departure', 'The Awakening', 'Amazing Grace', 'Complete Restoration', 'How God Sees You',
+      'Access to Grace', 'Peace Plus Access', 'Power of Grace', 'Internal Transformation', 'Divine Partnership', 'New Identity',
+      'Prayer Points', 'Prayer: Legal Standing', 'Prayer: Against Condemnation', 'Prayer: Bold Faith', 'Prayer: Grace to Work',
+      'Call to Action', 'Desperate World', 'Simple Faith', 'Motivated from Within', 'Remember Truths',
+      'Build Your Life', 'What Changes', 'Accept Peace Child', 'What Will You Do?', 'Closing'
+    ];
+
+    // Generate sidebar navigation
+    function generateSidebar() {
+      const sidebarNav = document.getElementById('sidebarNav');
+      sidebarNav.innerHTML = '';
+
+      slideTitles.forEach((title, index) => {
+        const item = document.createElement('div');
+        item.className = 'sidebar-item';
+
+        // Mark section breaks
+        if ([3, 9, 13, 18, 24, 30, 36, 41].includes(index)) {
+          item.classList.add('section');
         }
 
-        function updateSidebarActive() {
-            const navItems = document.querySelectorAll('.sidebar-item');
-            navItems.forEach((item, index) => {
-                if (index === currentSlide) {
-                    item.classList.add('active');
-                } else {
-                    item.classList.remove('active');
-                }
-            });
+        if (index === currentSlide - 1) {
+          item.classList.add('active');
         }
 
-        function toggleSidebar() {
-            sidebar.classList.toggle('open');
-            sidebarOverlay.classList.toggle('active');
-            if (window.innerWidth > 768) {
-                presentation.classList.toggle('sidebar-open');
-            }
+        item.innerHTML = `
+          <span class="slide-num">${index + 1}</span>
+          <span>${title}</span>
+        `;
+
+        item.onclick = () => {
+          showSlide(index + 1);
+        };
+
+        sidebarNav.appendChild(item);
+      });
+    }
+
+    function showSlide(n) {
+      const slides = document.querySelectorAll('.slide');
+      if (n > totalSlides) n = 1;
+      if (n < 1) n = totalSlides;
+      currentSlide = n;
+      slides.forEach(s => s.classList.remove('active'));
+      slides[currentSlide - 1].classList.add('active');
+      document.getElementById('current-slide').textContent = currentSlide;
+
+      // Update navigation buttons
+      const prevBtn = document.querySelector('.nav-btn');
+      const nextBtn = document.querySelectorAll('.nav-btn')[1];
+      prevBtn.disabled = currentSlide === 1;
+      nextBtn.disabled = currentSlide === totalSlides;
+
+      // Update sidebar
+      generateSidebar();
+    }
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function previousSlide() { showSlide(currentSlide - 1); }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+
+    document.addEventListener('keydown', function(event) {
+      switch(event.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+        case ' ': // Space
+        case 'Enter':
+          nextSlide();
+          event.preventDefault();
+          break;
+        case 'ArrowLeft':
+        case 'ArrowUp':
+          previousSlide();
+          event.preventDefault();
+          break;
+        case 'Home':
+          currentSlide = 1; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'End':
+          currentSlide = totalSlides; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'PageDown':
+          showSlide(Math.min(currentSlide + 10, totalSlides)); event.preventDefault();
+          break;
+        case 'PageUp':
+          showSlide(Math.max(currentSlide - 10, 1)); event.preventDefault();
+          break;
+      }
+    });
+
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let startY = 0;
+
+    document.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    });
+
+    document.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const endY = e.changedTouches[0].clientY;
+      const deltaX = endX - startX;
+      const deltaY = endY - startY;
+
+      // Only trigger if horizontal swipe is longer than vertical and over 50px
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+        if (deltaX > 0) {
+          previousSlide(); // Swipe right = previous
+        } else {
+          nextSlide();  // Swipe left = next
         }
+      }
+    });
 
-        function closeSidebar() {
-            sidebar.classList.remove('open');
-            sidebarOverlay.classList.remove('active');
-            presentation.classList.remove('sidebar-open');
-        }
-
-        function goToSlide(slideIndex) {
-            if (slideIndex >= 0 && slideIndex < totalSlides) {
-                currentSlide = slideIndex;
-                updateSlide();
-            }
-        }
-
-        function updateSlide() {
-            // Hide all slides
-            slides.forEach(slide => slide.classList.remove('active'));
-
-            // Show current slide with animation
-            slides[currentSlide].classList.add('active', 'slide-enter');
-
-            // Update progress bar
-            const progress = ((currentSlide + 1) / totalSlides) * 100;
-            progressBar.style.width = progress + '%';
-
-            // Update slide counter
-            slideCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
-
-            // Update navigation buttons
-            prevBtn.disabled = currentSlide === 0;
-            nextBtn.disabled = currentSlide === totalSlides - 1;
-
-            // Update sidebar active state
-            updateSidebarActive();
-
-            // Remove animation class after animation completes
-            setTimeout(() => {
-                slides[currentSlide].classList.remove('slide-enter');
-            }, 500);
-        }
-
-        function changeSlide(direction) {
-            const newSlide = currentSlide + direction;
-
-            if (newSlide >= 0 && newSlide < totalSlides) {
-                currentSlide = newSlide;
-                updateSlide();
-            }
-        }
-
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            // Don't trigger navigation if sidebar is open on mobile
-            if (window.innerWidth <= 768 && sidebar.classList.contains('open')) {
-                if (e.key === 'Escape') {
-                    closeSidebar();
-                }
-                return;
-            }
-
-            switch(e.key) {
-                case 'ArrowLeft':
-                case 'ArrowUp':
-                    changeSlide(-1);
-                    break;
-                case 'ArrowRight':
-                case 'ArrowDown':
-                case ' ':
-                    changeSlide(1);
-                    break;
-                case 'Home':
-                    currentSlide = 0;
-                    updateSlide();
-                    break;
-                case 'End':
-                    currentSlide = totalSlides - 1;
-                    updateSlide();
-                    break;
-                case 'Escape':
-                    closeSidebar();
-                    break;
-            }
-        });
-
-        // Touch/swipe support for mobile
-        let startX = 0;
-        let startY = 0;
-
-        document.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-            startY = e.touches[0].clientY;
-        });
-
-        document.addEventListener('touchend', (e) => {
-            const endX = e.changedTouches[0].clientX;
-            const endY = e.changedTouches[0].clientY;
-            const deltaX = endX - startX;
-            const deltaY = endY - startY;
-
-            // Don't trigger navigation if sidebar is open
-            if (sidebar.classList.contains('open')) return;
-
-            // Only trigger if horizontal swipe is longer than vertical
-            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
-                if (deltaX > 0) {
-                    changeSlide(-1); // Swipe right = previous
-                } else {
-                    changeSlide(1);  // Swipe left = next
-                }
-            }
-        });
-
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth <= 768) {
-                presentation.classList.remove('sidebar-open');
-            } else if (sidebar.classList.contains('open')) {
-                presentation.classList.add('sidebar-open');
-            }
-        });
-
-        // Initialize
-        generateSidebarNav();
-        updateSlide();
-
-        // Prevent context menu on touch devices
-        document.addEventListener('contextmenu', (e) => e.preventDefault());
-    </script>
+    // Initialize
+    generateSidebar();
+    showSlide(currentSlide);
+  </script>
 </body>
 </html>
