@@ -4,5 +4,24 @@
     "title": "README",
     "speaker": null,
     "date": null
+  },
+  {
+    "id": "gospel-of-grace-2025-09-21",
+    "title": "The Gospel of Grace",
+    "date": "2025-09-21",
+    "speaker": "Pastor",
+    "scripture": "Romans 5:1-2",
+    "summary": "A powerful message about Jesus as the Peace Child who legally secured our peace with God. The sermon emphasizes that salvation is not emotional but legal - Christ satisfied every requirement of the law. Using the prodigal son story, it illustrates how God treats believers as though they never sinned, never rebelled, never left home.",
+    "keyPoints": [
+      "The Peace Child story - ending the war between God and humanity",
+      "Our legal standing before God through Christ's sacrifice",
+      "God is not just neutral but actively FOR us (Romans 8:31)",
+      "The prodigal son - picture of complete restoration",
+      "Access to transforming grace that changes us from inside out",
+      "Nothing can separate us from God's love (Romans 8:38-39)"
+    ],
+    "path": "../transcripts/sermon/Sermon_Sep_21_2025_Gospel_of_grace.md",
+    "presentationPath": "presentations/Gospel_of_Grace_Presentation.html",
+    "prayerPointsPath": "../prayer_points/2025/Week-2025-09-21_Gospel_of_Grace.md"
   }
 ]

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[SERMON TITLE] - [SPEAKER NAME]</title>
+    <style>
+        /* CONSISTENT STYLE TEMPLATE FOR ALL PRESENTATIONS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #03396C;
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Sidebar Navigation (PowerPoint Style) */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100vh;
+            background: rgba(3, 57, 108, 0.95);
+            backdrop-filter: blur(10px);
+            border-right: 2px solid #FF8D21;
+            z-index: 2000;
+            transition: left 0.3s ease;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 141, 33, 0.3);
+            text-align: center;
+        }
+
+        .sidebar-header h3 {
+            color: #FF8D21;
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .sidebar-nav {
+            padding: 10px 0;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+            font-size: 0.9rem;
+        }
+
+        .sidebar-item:hover {
+            background: rgba(255, 141, 33, 0.1);
+            border-left-color: #FF8D21;
+        }
+
+        .sidebar-item.active {
+            background: rgba(255, 141, 33, 0.2);
+            border-left-color: #FF8D21;
+            color: #FF8D21;
+        }
+
+        .sidebar-item-number {
+            background: #FF8D21;
+            color: #03396C;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .sidebar-item.active .sidebar-item-number {
+            background: white;
+            color: #03396C;
+        }
+
+        .sidebar-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #FF8D21;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 2100;
+            font-size: 1.2rem;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .sidebar-toggle:hover {
+            background: #ff6b00;
+            transform: scale(1.1);
+        }
+
+        /* Slide Styles */
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 80px;
+            text-align: center;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        /* Typography Standards */
+        .slide h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .slide h2 {
+            font-size: 3rem;
+            font-weight: 600;
+            color: #FF8D21;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .scripture {
+            background: rgba(255, 141, 33, 0.1);
+            border-left: 4px solid #FF8D21;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 900px;
+            font-size: 1.8rem;
+            line-height: 1.6;
+            text-align: left;
+            border-radius: 8px;
+        }
+
+        .scripture-reference {
+            text-align: right;
+            color: #FFD700;
+            font-size: 1.4rem;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        .bullet-list {
+            text-align: left;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .bullet-list li {
+            font-size: 1.8rem;
+            margin: 20px 0;
+            line-height: 1.5;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .bullet-list li:before {
+            content: "▶";
+            color: #FF8D21;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        .prayer-point {
+            background: rgba(255, 141, 33, 0.15);
+            border: 2px solid #FF8D21;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 900px;
+            border-radius: 12px;
+        }
+
+        .prayer-point h3 {
+            color: #FFD700;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .two-column {
+            display: flex;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .column {
+            flex: 1;
+            text-align: left;
+        }
+
+        /* Navigation Controls */
+        .nav-controls {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        /* Home Button */
+        .home-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 141, 33, 0.9);
+            color: white;
+            border: 2px solid #FF8D21;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            z-index: 2100;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .home-button:hover {
+            background: #FF8D21;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            text-decoration: none;
+            color: white;
+        }
+
+        .home-button-icon {
+            font-size: 1.2rem;
+        }
+
+        .nav-button {
+            background: #FF8D21;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background: #ff6b00;
+            transform: translateY(-2px);
+        }
+
+        .nav-button:disabled {
+            background: rgba(255, 141, 33, 0.3);
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1.1rem;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: #FF8D21;
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 280px;
+                left: -280px;
+            }
+
+            .slide {
+                padding: 30px 20px;
+            }
+
+            .slide h1 {
+                font-size: 2.5rem;
+            }
+
+            .slide h2 {
+                font-size: 2rem;
+            }
+
+            .scripture {
+                font-size: 1.4rem;
+                padding: 20px;
+            }
+
+            .two-column {
+                flex-direction: column;
+            }
+
+            .home-button {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+                top: 70px;
+                right: 15px;
+            }
+
+            .home-button span:not(.home-button-icon) {
+                display: none;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .sidebar, .sidebar-toggle, .nav-controls, .slide-counter, .progress-bar, .home-button {
+                display: none !important;
+            }
+
+            .slide {
+                display: flex !important;
+                page-break-after: always;
+                background: white;
+                color: black;
+            }
+
+            .slide h1, .slide h2 {
+                color: #03396C;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- TEMPLATE STRUCTURE -->
+    <!-- Replace [BRACKETED] placeholders with actual content -->
+
+    <!-- Sidebar Toggle -->
+    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+
+    <!-- Home Button (Update path if needed) -->
+    <a href="../index.html" class="home-button" title="Return to Dashboard">
+        <span class="home-button-icon">🏠</span>
+        <span>Dashboard</span>
+    </a>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Slide Navigation</h3>
+        </div>
+        <div class="sidebar-nav" id="sidebarNav">
+            <!-- Navigation items will be auto-generated -->
+        </div>
+    </div>
+
+    <div class="presentation">
+        <div class="progress-bar" id="progressBar"></div>
+
+        <!-- SLIDE 1: Title Slide (ALWAYS INCLUDE) -->
+        <div class="slide active">
+            <h1>[SERMON TITLE]</h1>
+            <h2>[SERMON SUBTITLE/THEME]</h2>
+            <div class="scripture">
+                "[KEY SCRIPTURE TEXT]"
+                <div class="scripture-reference">[SCRIPTURE REFERENCE]</div>
+            </div>
+            <p style="margin-top: 40px; font-size: 1.6rem; color: #FF8D21;">[SPEAKER NAME]</p>
+            <p style="margin-top: 20px; font-size: 1.4rem; color: #FFD700;">[DATE]</p>
+        </div>
+
+        <!-- SLIDE 2: Prayer Points Summary (ALWAYS INCLUDE) -->
+        <div class="slide">
+            <h2>This Week's Prayer Focus</h2>
+            <div class="two-column">
+                <div class="column">
+                    <ul class="bullet-list">
+                        <li><strong style="color: #FF8D21;">[Prayer Point 1]</strong><br>
+                            <span style="font-size: 1.3rem; color: #FFD700;">[Scripture]</span></li>
+                        <li><strong style="color: #FF8D21;">[Prayer Point 2]</strong><br>
+                            <span style="font-size: 1.3rem; color: #FFD700;">[Scripture]</span></li>
+                        <!-- Add more as needed -->
+                    </ul>
+                </div>
+                <div class="column">
+                    <ul class="bullet-list">
+                        <li><strong style="color: #FF8D21;">[Prayer Point 3]</strong><br>
+                            <span style="font-size: 1.3rem; color: #FFD700;">[Scripture]</span></li>
+                        <li><strong style="color: #FF8D21;">[Prayer Point 4]</strong><br>
+                            <span style="font-size: 1.3rem; color: #FFD700;">[Scripture]</span></li>
+                        <!-- Add more as needed -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: Opening Scripture (ALWAYS INCLUDE) -->
+        <div class="slide">
+            <h2>Our Foundation Scripture</h2>
+            <div class="scripture">
+                "[FULL SCRIPTURE PASSAGE]"
+                <div class="scripture-reference">[BOOK CHAPTER:VERSES]</div>
+            </div>
+        </div>
+
+        <!-- MAIN CONTENT SLIDES -->
+        <!-- Add your sermon content slides here following the template patterns -->
+
+        <!-- PRAYER POINTS SECTION (DETAILED) -->
+        <!-- Include detailed prayer points slides near the end -->
+
+        <!-- CALL TO ACTION SLIDE (ALWAYS INCLUDE) -->
+        <div class="slide">
+            <h2>This Week's Challenge</h2>
+            <ul class="bullet-list">
+                <li>[Action Step 1]</li>
+                <li>[Action Step 2]</li>
+                <li>[Action Step 3]</li>
+            </ul>
+        </div>
+
+        <!-- CLOSING SLIDE (ALWAYS INCLUDE) -->
+        <div class="slide">
+            <h1>[SERMON TITLE]</h1>
+            <p style="font-size: 2rem; margin: 30px 0;">[KEY TAKEAWAY MESSAGE]</p>
+            <p style="font-size: 1.4rem; color: #FFD700;">[CHURCH NAME]</p>
+        </div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="nav-controls">
+        <button class="nav-button" id="prevBtn" onclick="changeSlide(-1)">Previous</button>
+        <button class="nav-button" id="nextBtn" onclick="changeSlide(1)">Next</button>
+    </div>
+
+    <!-- Slide Counter -->
+    <div class="slide-counter" id="slideCounter">1 / [TOTAL]</div>
+
+    <script>
+        // STANDARD NAVIGATION SCRIPT (DO NOT MODIFY)
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const progressBar = document.getElementById('progressBar');
+        const slideCounter = document.getElementById('slideCounter');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarNav = document.getElementById('sidebarNav');
+
+        // UPDATE THIS ARRAY WITH YOUR SLIDE TITLES
+        const slideTitles = [
+            "[Slide 1 Title]",
+            "Prayer Points Summary",
+            "Foundation Scripture",
+            // Add all your slide titles here
+        ];
+
+        function generateSidebarNav() {
+            sidebarNav.innerHTML = '';
+            slides.forEach((slide, index) => {
+                const navItem = document.createElement('div');
+                navItem.className = 'sidebar-item';
+                if (index === currentSlide) navItem.classList.add('active');
+
+                // Mark prayer slides with emoji
+                let title = slideTitles[index] || `Slide ${index + 1}`;
+                if (title.includes('Prayer') || title.includes('prayer')) {
+                    title = '🙏 ' + title;
+                }
+
+                navItem.innerHTML = `
+                    <div class="sidebar-item-number">${index + 1}</div>
+                    <div class="sidebar-item-title">${title}</div>
+                `;
+
+                navItem.addEventListener('click', () => {
+                    goToSlide(index);
+                    closeSidebar();
+                });
+
+                sidebarNav.appendChild(navItem);
+            });
+        }
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('open');
+        }
+
+        function closeSidebar() {
+            sidebar.classList.remove('open');
+        }
+
+        function goToSlide(slideIndex) {
+            if (slideIndex >= 0 && slideIndex < totalSlides) {
+                currentSlide = slideIndex;
+                updateSlide();
+            }
+        }
+
+        function updateSlide() {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide].classList.add('active');
+            progressBar.style.width = ((currentSlide + 1) / totalSlides * 100) + '%';
+            slideCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+            updateSidebarActive();
+        }
+
+        function updateSidebarActive() {
+            document.querySelectorAll('.sidebar-item').forEach((item, index) => {
+                if (index === currentSlide) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        function changeSlide(direction) {
+            const newSlide = currentSlide + direction;
+            if (newSlide >= 0 && newSlide < totalSlides) {
+                currentSlide = newSlide;
+                updateSlide();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case 'ArrowLeft': changeSlide(-1); break;
+                case 'ArrowRight':
+                case ' ': changeSlide(1); break;
+                case 'Home': goToSlide(0); break;
+                case 'End': goToSlide(totalSlides - 1); break;
+                case 'Escape': closeSidebar(); break;
+            }
+        });
+
+        // Initialize
+        generateSidebarNav();
+        updateSlide();
+    </script>
+</body>
+</html>

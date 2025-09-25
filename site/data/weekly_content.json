@@ -1,0 +1,73 @@
+[
+  {
+    "week": "2025-W38",
+    "weekOf": "September 21, 2025",
+    "title": "The Gospel of Grace",
+    "theme": "Peace with God Through Jesus Christ",
+    "speaker": "Bishop J. Darlingston",
+    "scripture": "Romans 5:1-2",
+    "content": {
+      "sermon": {
+        "title": "The Gospel of Grace",
+        "speaker": "Bishop J. Darlingston",
+        "date": "2025-09-21",
+        "transcriptPath": "transcripts/sermon/Sermon_Sep_21_2025_Gospel_of_grace.md",
+        "summary": "A powerful message about Jesus as the Peace Child who legally secured our peace with God. Emphasizes that salvation is not emotional but legal - Christ satisfied every requirement of the law.",
+        "keyPoints": [
+          "The Peace Child story",
+          "Legal standing before God",
+          "God is FOR us (Romans 8:31)",
+          "The Prodigal Son illustration",
+          "Access to transforming grace",
+          "Nothing can separate us from God's love"
+        ]
+      },
+      "presentation": {
+        "title": "The Gospel of Grace - 51 Slides",
+        "path": "presentations/Gospel_of_Grace_Presentation.html",
+        "slideCount": 51,
+        "features": [
+          "Left sidebar navigation",
+          "Prayer points summary slide",
+          "Interactive slide thumbnails",
+          "Mobile responsive design"
+        ]
+      },
+      "prayerPoints": {
+        "title": "Week of September 21 Prayer Focus",
+        "path": "prayer_points/2025/Week-2025-09-21_Gospel_of_Grace.md",
+        "count": 8,
+        "topics": [
+          "Peace Child Declaration",
+          "Legal Standing Before God",
+          "God Is FOR Us",
+          "Treated As Though We Never Left",
+          "Access to Transforming Grace",
+          "Nothing Can Separate Us",
+          "New Creation Reality",
+          "Evangelistic Passion"
+        ],
+        "actionSteps": [
+          "Memorize Romans 5:1-2",
+          "Share the Peace Child illustration",
+          "Declare 'It is God who justifies!'",
+          "Thank God daily that He treats you as He treats Jesus",
+          "Allow grace to teach you to say 'no' to ungodly habits"
+        ]
+      }
+    },
+    "featured": true
+  },
+  {
+    "week": "Previous",
+    "title": "Have I Not Called You",
+    "content": {
+      "presentation": {
+        "title": "Have I Not Called You",
+        "path": "presentations/Have_I_Not_Called_You_Presentation.html",
+        "description": "An inspiring message about God's calling and purpose for your life"
+      }
+    },
+    "featured": false
+  }
+]

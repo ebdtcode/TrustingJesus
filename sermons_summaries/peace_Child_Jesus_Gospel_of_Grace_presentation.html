@@ -1,0 +1,711 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Peace With God Through Jesus Christ - Prayer Slides</title>
+            
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .slide {
+            width: 100%;
+            height: 100%;
+            max-width: 1400px;
+            max-height: 900px;
+            background: #FFFFFF;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .slide.active {
+            display: flex;
+            animation: slideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        /* Header Design */
+        .slide-header {
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
+            color: #FFFFFF;
+            padding: 40px 50px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slide-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: rotate(45deg);
+        }
+        
+        .slide-header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .slide-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 12px;
+            text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .slide-scripture {
+            font-size: 1.3rem;
+            font-weight: 500;
+            opacity: 0.9;
+            letter-spacing: 0.5px;
+        }
+        
+        .slide-date {
+            position: absolute;
+            top: 20px;
+            right: 50px;
+            font-size: 1rem;
+            opacity: 0.8;
+            font-weight: 400;
+        }
+        
+        /* Content Area */
+        .slide-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+        }
+        
+        /* Summary Section */
+        .summary-section {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 100%);
+            padding: 40px 50px;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+        }
+        
+        .summary-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #667eea;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .summary-title::before {
+            content: '📖';
+            font-size: 1.5rem;
+        }
+        
+        .summary-text {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: #2C3E50;
+            font-weight: 400;
+        }
+        
+        .verse-text {
+            background: rgba(255, 255, 255, 0.95);
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #4facfe;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #6C757D;
+            line-height: 1.6;
+        }
+        
+        /* Prayer Points Section */
+        .prayer-section {
+            flex: 1;
+            padding: 40px 50px;
+            overflow-y: auto;
+        }
+        
+        .prayer-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #667eea;
+            font-weight: 700;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .prayer-title::before {
+            content: '🙏';
+            font-size: 1.5rem;
+        }
+        
+        .prayer-grid {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: 1fr;
+        }
+        
+        .prayer-card {
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .prayer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(135deg, #4facfe 0%, #f093fb 100%);
+        }
+        
+        .prayer-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.2);
+        }
+        
+        .prayer-number {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #667eea 0%, #4facfe 100%);
+            color: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .prayer-focus {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2C3E50;
+            margin-bottom: 12px;
+            margin-right: 40px;
+            line-height: 1.4;
+        }
+        
+        .prayer-text {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #6C757D;
+            margin-bottom: 12px;
+        }
+        
+        .prayer-scripture {
+            font-size: 0.95rem;
+            color: #667eea;
+            font-weight: 500;
+            font-style: italic;
+            background: rgba(102, 126, 234, 0.05);
+            padding: 8px 12px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+        
+        /* Navigation */
+        .slide-navigation {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .nav-button {
+            background: #FFFFFF;
+            border: none;
+            color: #667eea;
+            padding: 16px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+            background: #667eea;
+            color: #FFFFFF;
+        }
+        
+        .nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .slide-counter {
+            background: #FFFFFF;
+            color: #667eea;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 12px 20px;
+            border-radius: 25px;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .slide-title { font-size: 2.8rem; }
+            .slide { margin: 10px; }
+        }
+        
+        @media (max-width: 768px) {
+            .slide-title { font-size: 2.4rem; }
+            .slide-header, .summary-section, .prayer-section { padding: 30px; }
+            .prayer-grid { grid-template-columns: 1fr; }
+        }
+        
+        /* Print Styles */
+        @media print {
+            .slide-navigation, .presentation-controls, .timer {
+                display: none !important;
+            }
+            
+            .slide {
+                page-break-after: always;
+                display: flex !important;
+                max-width: 100vw;
+                max-height: 100vh;
+                margin: 0;
+                border-radius: 0;
+                box-shadow: none;
+            }
+            
+            body {
+                background: white;
+            }
+        }
+    </style>
+    
+        </head>
+        <body>
+            <div class="slide-container">
+                
+        <div class="slide" id="slide-1">
+            <div class="slide-header">
+                <div class="slide-date"></div>
+                <div class="header-content">
+                    <h1 class="slide-title">Peace With God Through Jesus Christ</h1>
+                    <div class="slide-scripture">Romans 5:1–2</div>
+                </div>
+            </div>
+            
+            <div class="slide-content">
+                
+            <div class="summary-section">
+                <h2 class="summary-title">Sermon Summary</h2>
+                <div class="summary-text">The DMV needs the gospel, and Romans grounds us in the foundation of our faith: having been justified by faith, we now have peace with God through our Lord Jesus Christ, we have access by faith into the grace in which we stand, and we rejoice in hope of the glory of God. The “peace child” story illustrates the gospel: God gave His Son as our Peace Child. As long as Jesus lives (and He lives forever), everyone who receives Him lives in a state of peace with God. This peace is more than the end of hostility—it means God is positively for us.
+
+Romans 8 unfolds the implications: If God is for us, who can be against us? He did not spare His own Son; therefore He will freely give us all things. God is the One who justifies; it is not God who condemns. Christ died, rose again, is at God’s right hand, and intercedes for us—therefore there is no condemnation for those in Christ and nothing can separate us from the love of God in Christ Jesus. The prodigal son shows the Father’s heart: grace runs to meet us before the law can condemn, restoring us as if we never left.
+
+This peace was secured legally. God did not set aside His law; He fulfilled it. The soul that sins must die; without shedding of blood there is no forgiveness. Jesus’ sinless life, substitutionary death, shed blood, and resurrection satisfied the righteous demands of the law. The resurrection is heaven’s verdict that the sacrifice was accepted and we are justified. Our peace is not sentimental; it is legal—like a deed you can present from Scripture.
+
+Peace with God also ushers us into grace. Grace does not license sin; it liberates from sin. We are dead to sin; grace unites us to Christ and empowers holiness. Grace works in us to will and to do God’s good pleasure, teaching us to say “no” to ungodliness and transforming us from the inside out. We access all of this by faith—empty hands receiving all Christ has accomplished. This revelation reshapes how we see ourselves, others, our trials, and even death, and it propels us to share this good news with others.</div>
+                <div class="verse-text">") The DMV needs the gospel, and Romans grounds us in the foundation of our faith: having been justified by faith, we now have peace with God through our Lord Jesus Christ, we have access by faith into..."</div>
+            </div>
+            
+                
+            </div>
+        </div>
+        
+        <div class="slide" id="slide-2">
+            <div class="slide-header">
+                <div class="slide-date"></div>
+                <div class="header-content">
+                    <h1 class="slide-title">Prayer Points (1/3)</h1>
+                    
+                </div>
+            </div>
+            
+            <div class="slide-content">
+                
+                
+            <div class="prayer-section">
+                <h2 class="prayer-title">Prayer Points</h2>
+                <div class="prayer-grid">
+                    
+            <div class="prayer-card">
+                <div class="prayer-number">1</div>
+                <div class="prayer-focus">Thanksgiving for Justification and Peace</div>
+                <div class="prayer-text">Father, we thank You that, having been justified by faith, we have peace with You through our Lord Jesus Christ. We stand in grace and rejoice in hope of Your glory.</div>
+                
+            </div>
+            
+            <div class="prayer-card">
+                <div class="prayer-number">2</div>
+                <div class="prayer-focus">2) Assurance: No Condemnation, God Is For Us</div>
+                <div class="prayer-text">Lord, we boldly confess: If God is for us, who can be against us? You did not spare Your own Son; therefore You freely give us all things in Him. Silence every accusing voice; we receive Your verdict—justified, not condemned. Nothing shall separate us from Your love in Christ.</div>
+                
+            </div>
+            
+            <div class="prayer-card">
+                <div class="prayer-number">39</div>
+                <div class="prayer-focus">3) Revelation of the Legal Ground of the Gospel</div>
+                <div class="prayer-text">Righteous Father, deepen our understanding that peace was secured legally: the soul that sins shall die, and without shedding of blood there is no forgiveness. Thank You that Jesus was delivered up for our offenses and raised for our justification. Root us in this unshakable foundation.</div>
+                
+            </div>
+            
+            <div class="prayer-card">
+                <div class="prayer-number">25</div>
+                <div class="prayer-focus">4) Transformation by Grace, Not License to Sin</div>
+                <div class="prayer-text">Lord Jesus, since we are dead to sin, let us not continue in it. Let grace teach us to say “no” to ungodliness and worldly passions. Work in us to will and to do Your good pleasure. Make holiness our delight.</div>
+                
+            </div>
+            
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="slide" id="slide-3">
+            <div class="slide-header">
+                <div class="slide-date"></div>
+                <div class="header-content">
+                    <h1 class="slide-title">Prayer Points (2/3)</h1>
+                    
+                </div>
+            </div>
+            
+            <div class="slide-content">
+                
+                
+            <div class="prayer-section">
+                <h2 class="prayer-title">Prayer Points</h2>
+                <div class="prayer-grid">
+                    
+            <div class="prayer-card">
+                <div class="prayer-number">13</div>
+                <div class="prayer-focus">5) Union With Christ Bearing Fruit to God</div>
+                <div class="prayer-text">Father, thank You that we are joined to Christ to bear fruit for Your glory. By the Spirit, produce in us Christlike character and good works that remain.</div>
+                
+            </div>
+            
+            <div class="prayer-card">
+                <div class="prayer-number">5</div>
+                <div class="prayer-focus">6) Prodigals Come Home in the DMV</div>
+                <div class="prayer-text">Abba, run to meet prodigals across Maryland, Virginia, and Washington, DC. Let grace outrun judgment. Clothe them with righteousness, restore their sonship, and fill our churches with testimonies of Your embrace.</div>
+                
+            </div>
+            
+            <div class="prayer-card">
+                <div class="prayer-number">14</div>
+                <div class="prayer-focus">7) Bold Gospel Witness and Open Doors</div>
+                <div class="prayer-text">Lord, make us unashamed of the gospel in this region. Give us open doors, clarity, and boldness to proclaim Jesus the Peace Child. Let many believe and be established in the faith.</div>
+                
+            </div>
+            
+            <div class="prayer-card">
+                <div class="prayer-number">20</div>
+                <div class="prayer-focus">8) Joy in Trials, Hope That Does Not Disappoint</div>
+                <div class="prayer-text">Father, help us rejoice in hope and even in trials, knowing they produce perseverance, character, and hope—and hope does not put us to shame because Your love is poured into our hearts by the Holy Spirit.</div>
+                
+            </div>
+            
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="slide" id="slide-4">
+            <div class="slide-header">
+                <div class="slide-date"></div>
+                <div class="header-content">
+                    <h1 class="slide-title">Prayer Points (3/3)</h1>
+                    
+                </div>
+            </div>
+            
+            <div class="slide-content">
+                
+                
+            <div class="prayer-section">
+                <h2 class="prayer-title">Prayer Points</h2>
+                <div class="prayer-grid">
+                    
+            <div class="prayer-card">
+                <div class="prayer-number">5</div>
+                <div class="prayer-focus">9) Freedom From Fear and Accusation</div>
+                <div class="prayer-text">God of peace, break the power of fear, guilt, and condemnation over Your people. Let the “deed” of Your Word settle our hearts: we have peace with God through Jesus.</div>
+                
+            </div>
+            
+            <div class="prayer-card">
+                <div class="prayer-number">34</div>
+                <div class="prayer-focus">10) Harvest of Souls and Healthy Churches</div>
+                <div class="prayer-text">Lord of the harvest, draw many in the DMV to saving faith. Establish them in grace, plant them in gospel-centered churches, and multiply the witness of Your people.</div>
+                
+            </div>
+            
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+            </div>
+            
+            <div class="slide-navigation">
+                <button id="prev-btn" class="nav-button" onclick="prevSlide()">← Previous</button>
+                <div class="slide-counter">
+                    <span id="current-slide">1</span> / 4
+                </div>
+                <button id="next-btn" class="nav-button" onclick="nextSlide()">Next →</button>
+            </div>
+            
+            
+        <script>
+            let currentSlide = 1;
+            const totalSlides = 4;
+            
+            function showSlide(n) {
+                const slides = document.querySelectorAll('.slide');
+                
+                if (n > totalSlides) currentSlide = 1;
+                if (n < 1) currentSlide = totalSlides;
+                
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[currentSlide - 1].classList.add('active');
+                
+                document.getElementById('current-slide').textContent = currentSlide;
+                
+                // Update button states
+                document.getElementById('prev-btn').disabled = currentSlide === 1;
+                document.getElementById('next-btn').disabled = currentSlide === totalSlides;
+            }
+            
+            window.nextSlide = function() {
+                if (currentSlide < totalSlides) {
+                    currentSlide++;
+                    showSlide(currentSlide);
+                }
+            }
+            
+            window.prevSlide = function() {
+                if (currentSlide > 1) {
+                    currentSlide--;
+                    showSlide(currentSlide);
+                }
+            }
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') nextSlide();
+                if (e.key === 'ArrowLeft') prevSlide();
+                if (e.key === 'f' || e.key === 'F') toggleFullscreen();
+            });
+            
+            window.toggleFullscreen = function() {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen();
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    }
+                }
+            }
+            
+            // Initialize
+            document.addEventListener('DOMContentLoaded', () => {
+                showSlide(1);
+            });
+        </script>
+        
+            
+        <style>
+            /* Presentation Mode Enhancements */
+            /* Presentation Mode Enhancements */
+            .presentation-controls {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 2000;
+                display: flex;
+                gap: 10px;
+            }
+            
+            .control-btn {
+                background: {card_bg};
+                color: {primary};
+                border: 1px solid rgba(102, 126, 234, 0.2);
+                padding: 12px 18px;
+                border-radius: 50px;
+                cursor: pointer;
+                font-size: 14px;
+                font-weight: 600;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 20px {shadow_light};
+                backdrop-filter: blur(10px);
+            }
+            
+            .control-btn:hover {
+                background: {primary};
+                color: {text_light};
+                box-shadow: 0 6px 25px {shadow_medium};
+                transform: translateY(-2px);
+            }
+            
+            .timer {
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                color: {primary};
+                background: {card_bg};
+                padding: 12px 20px;
+                border-radius: 50px;
+                font-size: 16px;
+                font-weight: 700;
+                z-index: 2000;
+                box-shadow: 0 4px 20px {shadow_light};
+                backdrop-filter: blur(10px);
+            }
+        </style>
+        
+        <div class="presentation-controls">
+            <button class="control-btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+            <button class="control-btn" onclick="toggleTimer()">⏱ Timer</button>
+            <button class="control-btn" onclick="printSlides()">🖨 Print</button>
+        </div>
+        
+        <div class="timer" id="timer" style="display: none;">00:00</div>
+        
+        <script>
+            // Add presentation-specific JS after main script block
+            // This ensures that functions like toggleFullscreen are defined.
+            document.addEventListener('DOMContentLoaded', () => {
+                // Presentation timer
+                let timerInterval;
+                let startTime;
+                let timerVisible = false;
+                
+                window.toggleTimer = function() {
+                    timerVisible = !timerVisible;
+                    const timerEl = document.getElementById('timer');
+                    
+                    if (timerVisible) {
+                        timerEl.style.display = 'block';
+                        startTime = Date.now();
+                        timerInterval = setInterval(updateTimer, 1000);
+                    } else {
+                        timerEl.style.display = 'none';
+                        clearInterval(timerInterval);
+                    }
+                }
+                
+                function updateTimer() {
+                    const elapsed = Math.floor((Date.now() - startTime) / 1000);
+                    const minutes = Math.floor(elapsed / 60);
+                    const seconds = elapsed % 60;
+                    document.getElementById('timer').textContent = 
+                        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                }
+                
+                window.printSlides = function() {
+                    window.print();
+                }
+                
+                // Auto-advance slides (optional)
+                let autoAdvance = false;
+                let autoAdvanceInterval;
+                
+                window.toggleAutoAdvance = function(seconds = 30) {
+                    autoAdvance = !autoAdvance;
+                    
+                    if (autoAdvance) {
+                        autoAdvanceInterval = setInterval(() => {
+                            if (window.currentSlide < window.totalSlides) {
+                                window.nextSlide();
+                            } else {
+                                clearInterval(autoAdvanceInterval);
+                                autoAdvance = false;
+                            }
+                        }, seconds * 1000);
+                    } else {
+                        clearInterval(autoAdvanceInterval);
+                    }
+                }
+            });
+        </script>
+        
+        </body>
+        </html>
+        
