@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Additional Weekly Prayer Points - Harvest Intercontinental Church</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); color: #fff; overflow: hidden; }
+    .presentation { position: relative; width: 100vw; height: 100vh; }
+    .slide { display: none; position: absolute; width: 100%; height: 100%; padding: 60px 80px 60px 320px; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); }
+    .slide.active { display: flex; }
+    h1 { font-size: 4.2rem; font-weight: 800; margin-bottom: 1.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); line-height: 1.2; color: #fff; }
+    h2 { font-size: 3.2rem; font-weight: 700; margin-bottom: 1.2rem; color: #ffd166; text-shadow: 1px 2px 4px rgba(0,0,0,0.4); line-height: 1.3; }
+    h3 { font-size: 2.4rem; font-weight: 700; margin-bottom: 1rem; color: #fff; text-shadow: 1px 2px 3px rgba(0,0,0,0.35); }
+    .subtitle { font-size: 1.8rem; font-weight: 400; margin-bottom: 0.6rem; color: #e8f4f8; line-height: 1.4; }
+    .scripture { background: rgba(255,255,255,0.14); border-left: 6px solid #ffd166; padding: 1.5rem; margin: 1.2rem 0; border-radius: 10px; backdrop-filter: blur(8px); box-shadow: 0 8px 32px rgba(0,0,0,0.25); max-width: 1100px; }
+    .scripture-text { font-size: 1.8rem; font-style: italic; line-height: 1.6; margin-bottom: 0.6rem; color: #fff; }
+    .scripture-ref { font-size: 1.2rem; font-weight: 700; color: #ffd166; text-align: right; }
+    .content-list { text-align: left; max-width: 1000px; margin: 0 auto; }
+    .content-list li { font-size: 1.5rem; margin: 0.9rem 0; padding-left: 1rem; line-height: 1.55; list-style: none; position: relative; }
+    .content-list li:before { content: "\25B6"; color: #ffd166; font-weight: bold; position: absolute; left: -1rem; }
+    .quote { font-size: 1.9rem; font-style: italic; text-align: center; padding: 1.5rem; border-radius: 12px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); margin: 1.2rem 0; box-shadow: 0 8px 32px rgba(0,0,0,0.2); line-height: 1.5; }
+    .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; width: 100%; max-width: 1100px; }
+    .column { text-align: left; }
+    .column h4 { font-size: 1.9rem; color: #ffd166; margin-bottom: 1rem; text-align: center; }
+    .column ul { list-style: none; padding: 0; }
+    .column li { font-size: 1.4rem; margin: 0.7rem 0; padding-left: 1.5rem; line-height: 1.5; position: relative; }
+    .column li:before { content: "\2713"; color: #ffd166; font-weight: bold; position: absolute; left: 0; }
+    .prayer-points { background: rgba(255,255,255,0.12); border-radius: 14px; padding: 2rem; backdrop-filter: blur(12px); box-shadow: 0 12px 40px rgba(0,0,0,0.28); max-width: 1100px; margin: 1.2rem auto; }
+    .prayer-points h3 { color: #ffd166; margin-bottom: 1rem; font-size: 2.1rem; }
+    .navigation { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 1rem; z-index: 1000; }
+    .nav-btn { background: rgba(255,255,255,0.22); border: 2px solid rgba(255,255,255,0.3); color: white; padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 600; backdrop-filter: blur(10px); transition: all 0.3s ease; }
+    .nav-btn:hover { background: rgba(255,255,255,0.32); border-color: #ffd166; color: #ffd166; }
+    .nav-btn:disabled { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); cursor: not-allowed; }
+    .slide-counter { position: fixed; top: 30px; right: 30px; background: rgba(0,0,0,0.45); padding: 0.5rem 1rem; border-radius: 20px; font-size: 1rem; backdrop-filter: blur(10px); }
+    .emphasis { color: #ffd166; font-weight: 800; }
+    .call-to-action { background: linear-gradient(135deg, #06d6a0, #118ab2); color: white; padding: 2rem; border-radius: 14px; margin: 1.2rem 0; box-shadow: 0 12px 40px rgba(0,0,0,0.3); text-align: center; }
+    .call-to-action h3 { font-size: 2.6rem; margin-bottom: 1rem; }
+    .call-to-action p { font-size: 1.6rem; line-height: 1.6; }
+    .section-break { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .section-break h1 { color: #ffd166 !important; }
+    .section-break h2 { color: #e8f4f8 !important; }
+    .prayer-slide .scripture { background: rgba(255,209,102,0.15); border-left-color: #ffd166; }
+
+    /* Prayer Icon Styles */
+    .prayer-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .prayer-focus { background: rgba(255,209,102,0.1); padding: 2rem; border-radius: 15px; margin: 1.5rem auto; max-width: 900px; }
+    .prayer-title { color: #ffd166; font-size: 2.2rem; margin-bottom: 1rem; font-weight: 700; }
+    .prayer-text { font-size: 1.6rem; line-height: 1.6; margin: 1rem 0; }
+    .prayer-specific { background: rgba(255,255,255,0.08); padding: 1.5rem; border-radius: 10px; margin: 1rem 0; }
+
+    /* Map/Location Visual */
+    .location-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 2rem auto; max-width: 1000px; }
+    .location-card { background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 12px; text-align: center; transition: all 0.3s ease; }
+    .location-card:hover { transform: translateY(-5px); background: rgba(255,209,102,0.15); }
+    .location-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .location-name { color: #ffd166; font-size: 1.4rem; font-weight: 600; }
+    .location-detail { font-size: 1.1rem; color: #e8f4f8; }
+
+    /* Sidebar Navigation */
+    .sidebar { position: fixed; left: 0; top: 0; width: 280px; height: 100vh; background: rgba(20, 33, 61, 0.95); backdrop-filter: blur(10px); overflow-y: auto; z-index: 1500; border-right: 2px solid #ffd166; }
+    .sidebar-header { padding: 1.5rem; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,209,102,0.3); }
+    .sidebar-header h3 { color: #ffd166; font-size: 1.3rem; margin: 0; }
+    .sidebar-nav { padding: 1rem 0; }
+    .sidebar-item { padding: 0.8rem 1.5rem; cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem; border-left: 3px solid transparent; display: flex; align-items: center; gap: 0.5rem; }
+    .sidebar-item:hover { background: rgba(255,209,102,0.1); border-left-color: #ffd166; }
+    .sidebar-item.active { background: rgba(255,209,102,0.2); border-left-color: #ffd166; color: #ffd166; font-weight: 600; }
+    .sidebar-item.section { background: rgba(255,209,102,0.1); font-weight: 600; color: #ffd166; margin-top: 0.5rem; }
+    .slide-num { display: inline-block; width: 25px; color: rgba(255,255,255,0.6); }
+    .sidebar-item.active .slide-num { color: #ffd166; }
+
+    /* Home Button */
+    .home-btn { position: fixed; top: 30px; left: 300px; background: rgba(255,209,102,0.9); color: #14213d; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; z-index: 1000; display: flex; align-items: center; gap: 0.5rem; }
+    .home-btn:hover { background: #ffd166; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255,209,102,0.4); }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle { display: none; position: fixed; top: 30px; left: 20px; z-index: 2000; background: rgba(255,209,102,0.9); color: #14213d; border: none; padding: 0.75rem; border-radius: 8px; cursor: pointer; }
+    .menu-toggle:hover { background: #ffd166; }
+
+    @media (max-width: 1024px) {
+      .slide{ padding: 40px 50px 40px 320px; }
+      h1{ font-size: 3.4rem; }
+      h2{ font-size: 2.8rem; }
+      h3{ font-size: 2.2rem; }
+      .subtitle{ font-size: 1.5rem; }
+      .content-list li{ font-size: 1.35rem; }
+      .quote{ font-size: 1.6rem; }
+      .two-column{ grid-template-columns: 1fr; gap: 1.2rem; }
+      .location-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .slide{ padding: 80px 30px 30px 30px; }
+      h1{ font-size: 2.6rem; }
+      h2{ font-size: 2.2rem; }
+      h3{ font-size: 1.9rem; }
+      .subtitle{ font-size: 1.3rem; }
+      .content-list li{ font-size: 1.2rem; }
+      .scripture-text{ font-size: 1.4rem; }
+      .quote{ font-size: 1.3rem; }
+      .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+      .sidebar.open { transform: translateX(0); }
+      .menu-toggle { display: block; }
+      .home-btn { left: auto; right: 30px; }
+    }
+    @media print { body{ background: white; color: black; } .slide{ display: block !important; page-break-after: always; position: static; background: white; color: black; padding: 2cm; } .navigation, .slide-counter{ display: none; } .scripture, .prayer-points, .call-to-action{ background: #f8f9fa; border: 2px solid #ddd; color: black; } h2, .scripture-ref, .emphasis{ color: #000; } }
+  </style>
+</head>
+<body>
+  <div class="presentation">
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Weekly Prayer Points</h3>
+      </div>
+      <div class="sidebar-nav" id="sidebarNav">
+        <!-- Navigation items will be generated by JavaScript -->
+      </div>
+    </nav>
+
+    <!-- Home Button -->
+    <a href="../index.html" class="home-btn">
+      <span>🏠</span>
+      <span>Dashboard</span>
+    </a>
+
+    <div class="slide-counter"><span id="current-slide">1</span> / <span id="total-slides">15</span></div>
+
+    <!-- 1. Title Slide -->
+    <div class="slide active" data-slide="1">
+      <div class="prayer-icon">🙏</div>
+      <h1>Additional Weekly Prayer Points</h1>
+      <h2>United in Prayer</h2>
+      <div class="subtitle" style="margin-top: 2rem;">Harvest Intercontinental Church</div>
+      <div class="subtitle">Standing in the Gap for Our Nation, Church, and World</div>
+      <div class="scripture" style="margin-top: 2rem;">
+        <div class="scripture-text">"If my people, who are called by my name, will humble themselves and pray and seek my face and turn from their wicked ways, then I will hear from heaven, and I will forgive their sin and will heal their land."</div>
+        <div class="scripture-ref">2 Chronicles 7:14</div>
+      </div>
+    </div>
+
+    <!-- 2. This Week's Focus -->
+    <div class="slide" data-slide="2">
+      <h2>This Week's Prayer Focus</h2>
+      <div class="prayer-focus">
+        <div class="content-list"><ul>
+          <li><span class="emphasis">Peace in America</span> - Seeking God's peace and prosperity for our nation</li>
+          <li><span class="emphasis">Harvest Intercontinental Ministries</span> - Covering our church and leadership</li>
+          <li><span class="emphasis">Church Planting Success</span> - Supporting new churches in Canada and Ethiopia</li>
+          <li><span class="emphasis">Spiritual Awakening</span> - Revival in our communities</li>
+          <li><span class="emphasis">Unity in the Body</span> - One heart, one mission</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <!-- 3. Section: Prayer for America -->
+    <div class="slide section-break" data-slide="3">
+      <div class="prayer-icon">🇺🇸</div>
+      <h1>Prayer for Peace in America</h1>
+      <h2>Seeking the Welfare of Our Nation</h2>
+    </div>
+
+    <!-- 4. Scripture Foundation for America -->
+    <div class="slide prayer-slide" data-slide="4">
+      <h2>God's Command to Pray for Our Land</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Also, seek the peace and prosperity of the city to which I have carried you into exile. Pray to the Lord for it, because if it prospers, you too will prosper."</div>
+        <div class="scripture-ref">Jeremiah 29:7 (NIV)</div>
+      </div>
+      <div class="subtitle" style="margin-top: 2rem;">When our nation prospers in righteousness, we all flourish under God's blessing</div>
+    </div>
+
+    <!-- 5. Specific Prayers for America -->
+    <div class="slide" data-slide="5">
+      <h2>How to Pray for America</h2>
+      <div class="prayer-points">
+        <h3>🕊️ Specific Prayer Points</h3>
+        <div class="content-list"><ul>
+          <li><strong>National Leadership:</strong> Wisdom for President, Congress, and Supreme Court</li>
+          <li><strong>Peace & Unity:</strong> Healing of divisions, racial reconciliation</li>
+          <li><strong>Economic Prosperity:</strong> Jobs, provision, and stewardship</li>
+          <li><strong>Spiritual Revival:</strong> Return to godly values and principles</li>
+          <li><strong>Protection:</strong> From terrorism, natural disasters, and pandemics</li>
+          <li><strong>Next Generation:</strong> Godly influence in schools and universities</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <!-- 6. Prayer Declaration for America -->
+    <div class="slide prayer-slide" data-slide="6">
+      <h2>Prayer Declaration for America</h2>
+      <div class="prayer-focus">
+        <div class="prayer-text">
+          "Father, we lift up the United States of America before Your throne. We pray for peace to reign from sea to shining sea. Let Your righteousness flow through our government, our communities, and our homes.
+        </div>
+        <div class="prayer-text">
+          We declare that America shall be saved and shall serve the Lord. We speak peace over every city, prosperity over every family, and Your divine protection over this land.
+        </div>
+        <div class="prayer-text">
+          Raise up godly leaders. Turn hearts back to You. Let this nation be a beacon of hope and a sender of missionaries. In Jesus' name, Amen!"
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Section: Prayer for Harvest Intercontinental -->
+    <div class="slide section-break" data-slide="7">
+      <div class="prayer-icon">⛪</div>
+      <h1>Prayer for Our Church</h1>
+      <h2>Harvest Intercontinental Ministries Unlimited</h2>
+    </div>
+
+    <!-- 8. Vision and Leadership -->
+    <div class="slide" data-slide="8">
+      <h2>Covering Our Leadership</h2>
+      <div class="two-column">
+        <div class="column">
+          <h4>Senior Leadership</h4>
+          <ul>
+            <li>Apostolic covering and divine wisdom</li>
+            <li>Fresh revelation and anointing</li>
+            <li>Protection for families</li>
+            <li>Strength for the vision</li>
+            <li>Health and longevity</li>
+          </ul>
+        </div>
+        <div class="column">
+          <h4>Ministry Teams</h4>
+          <ul>
+            <li>Unity in purpose and vision</li>
+            <li>Excellence in service</li>
+            <li>Spiritual growth and maturity</li>
+            <li>Divine appointments</li>
+            <li>Multiplication of workers</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. Church Growth and Impact -->
+    <div class="slide" data-slide="9">
+      <h2>Prayer for Church Impact</h2>
+      <div class="prayer-points">
+        <h3>🔥 Ministry Expansion</h3>
+        <div class="content-list"><ul>
+          <li><strong>Souls Won:</strong> Thousands coming to Christ through our ministry</li>
+          <li><strong>Disciples Made:</strong> Believers growing in maturity and purpose</li>
+          <li><strong>Communities Transformed:</strong> Tangible impact in our neighborhoods</li>
+          <li><strong>Financial Provision:</strong> Resources for every vision and project</li>
+          <li><strong>Global Reach:</strong> Missions and church planting worldwide</li>
+          <li><strong>Signs & Wonders:</strong> Manifestation of God's power</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <!-- 10. Section: New Church Plants -->
+    <div class="slide section-break" data-slide="10">
+      <div class="prayer-icon">🌍</div>
+      <h1>Prayer for Church Plants</h1>
+      <h2>Canada & Ethiopia</h2>
+    </div>
+
+    <!-- 11. New Churches Overview -->
+    <div class="slide" data-slide="11">
+      <h2>Our Global Extension</h2>
+      <div class="location-grid">
+        <div class="location-card">
+          <div class="location-icon">🇨🇦</div>
+          <div class="location-name">Canada</div>
+          <div class="location-detail">New church plant establishing roots</div>
+        </div>
+        <div class="location-card">
+          <div class="location-icon">🇪🇹</div>
+          <div class="location-name">Ethiopia</div>
+          <div class="location-detail">Revival breaking forth in Africa</div>
+        </div>
+        <div class="location-card">
+          <div class="location-icon">🌟</div>
+          <div class="location-name">Future Plants</div>
+          <div class="location-detail">More nations to be reached</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12. Specific Prayers for Church Plants -->
+    <div class="slide" data-slide="12">
+      <h2>How to Pray for New Churches</h2>
+      <div class="two-column">
+        <div class="column">
+          <h4>🇨🇦 Canada Plant</h4>
+          <ul>
+            <li>Strong foundation and roots</li>
+            <li>Favor with government authorities</li>
+            <li>Open doors in the community</li>
+            <li>Financial provision and partners</li>
+            <li>Harvest of souls</li>
+            <li>Protection from opposition</li>
+          </ul>
+        </div>
+        <div class="column">
+          <h4>🇪🇹 Ethiopia Plant</h4>
+          <ul>
+            <li>Cultural wisdom and sensitivity</li>
+            <li>Local leadership development</li>
+            <li>Supernatural provision</li>
+            <li>Signs, wonders, and miracles</li>
+            <li>Unity with local believers</li>
+            <li>Multiplication of disciples</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 13. Prayer Declaration for Church Plants -->
+    <div class="slide prayer-slide" data-slide="13">
+      <h2>Declaration Over Our Church Plants</h2>
+      <div class="prayer-focus">
+        <div class="prayer-text">
+          "Father, we thank You for the open doors in Canada and Ethiopia. We declare that these churches will be lighthouses in their nations, bringing hope, healing, and salvation to multitudes."
+        </div>
+        <div class="prayer-text">
+          "We speak divine favor, supernatural provision, and explosive growth. Let revival fire fall in these locations. Raise up strong local leaders full of wisdom and anointing."
+        </div>
+        <div class="prayer-text">
+          "We bind every force of opposition and loose the power of the Holy Spirit. These churches will not just survive but thrive and multiply. Nations shall come to their light! In Jesus' mighty name!"
+        </div>
+      </div>
+    </div>
+
+    <!-- 14. Call to United Prayer -->
+    <div class="slide" data-slide="14">
+      <h2>United We Stand</h2>
+      <div class="call-to-action">
+        <h3>Join the Prayer Movement</h3>
+        <p>Every believer is called to be an intercessor. When we pray together, heaven moves and earth changes!</p>
+      </div>
+      <div class="content-list" style="margin-top: 2rem;"><ul>
+        <li>Commit to pray daily for these requests</li>
+        <li>Join our weekly prayer meetings</li>
+        <li>Fast as led by the Holy Spirit</li>
+        <li>Share prayer testimonies</li>
+        <li>Recruit other prayer warriors</li>
+      </ul></div>
+    </div>
+
+    <!-- 15. Closing Prayer -->
+    <div class="slide" data-slide="15">
+      <h1>Let Us Pray Together</h1>
+      <div class="prayer-focus">
+        <div class="scripture">
+          <div class="scripture-text">"Again, truly I tell you that if two of you on earth agree about anything they ask for, it will be done for them by my Father in heaven."</div>
+          <div class="scripture-ref">Matthew 18:19</div>
+        </div>
+        <div class="prayer-text" style="margin-top: 2rem; font-size: 1.8rem;">
+          Together, we stand in the gap. Together, we see breakthrough. Together, we advance the Kingdom!
+        </div>
+        <div class="emphasis" style="font-size: 2rem; margin-top: 2rem;">
+          In Jesus' Name, Amen! 🙏
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+      <button class="nav-btn" onclick="previousSlide()">← Previous</button>
+      <button class="nav-btn" onclick="nextSlide()">Next →</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = document.querySelectorAll('.slide').length;
+    document.getElementById('total-slides').textContent = totalSlides;
+
+    // Slide titles for sidebar navigation
+    const slideTitles = [
+      'Welcome',
+      'This Week\'s Focus',
+      'Prayer for America',
+      'Scripture Foundation',
+      'Specific Prayers',
+      'Declaration for America',
+      'Our Church Prayer',
+      'Leadership Coverage',
+      'Church Impact',
+      'Church Plants',
+      'Global Extension',
+      'Plant Specifics',
+      'Declaration for Plants',
+      'United Prayer',
+      'Closing Prayer'
+    ];
+
+    // Generate sidebar navigation
+    function generateSidebar() {
+      const sidebarNav = document.getElementById('sidebarNav');
+      sidebarNav.innerHTML = '';
+
+      slideTitles.forEach((title, index) => {
+        const item = document.createElement('div');
+        item.className = 'sidebar-item';
+
+        // Mark section breaks
+        if ([2, 6, 9].includes(index)) {
+          item.classList.add('section');
+        }
+
+        if (index === currentSlide - 1) {
+          item.classList.add('active');
+        }
+
+        item.innerHTML = `
+          <span class="slide-num">${index + 1}</span>
+          <span>${title}</span>
+        `;
+
+        item.onclick = () => {
+          showSlide(index + 1);
+        };
+
+        sidebarNav.appendChild(item);
+      });
+    }
+
+    function showSlide(n) {
+      const slides = document.querySelectorAll('.slide');
+      if (n > totalSlides) n = 1;
+      if (n < 1) n = totalSlides;
+      currentSlide = n;
+      slides.forEach(s => s.classList.remove('active'));
+      slides[currentSlide - 1].classList.add('active');
+      document.getElementById('current-slide').textContent = currentSlide;
+
+      // Update navigation buttons
+      const prevBtn = document.querySelector('.nav-btn');
+      const nextBtn = document.querySelectorAll('.nav-btn')[1];
+      prevBtn.disabled = currentSlide === 1;
+      nextBtn.disabled = currentSlide === totalSlides;
+
+      // Update sidebar
+      generateSidebar();
+    }
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function previousSlide() { showSlide(currentSlide - 1); }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+
+    document.addEventListener('keydown', function(event) {
+      switch(event.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+        case ' ': // Space
+        case 'Enter':
+          nextSlide();
+          event.preventDefault();
+          break;
+        case 'ArrowLeft':
+        case 'ArrowUp':
+          previousSlide();
+          event.preventDefault();
+          break;
+        case 'Home':
+          currentSlide = 1; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'End':
+          currentSlide = totalSlides; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'PageDown':
+          showSlide(Math.min(currentSlide + 10, totalSlides)); event.preventDefault();
+          break;
+        case 'PageUp':
+          showSlide(Math.max(currentSlide - 10, 1)); event.preventDefault();
+          break;
+      }
+    });
+
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let startY = 0;
+
+    document.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    });
+
+    document.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const endY = e.changedTouches[0].clientY;
+      const deltaX = endX - startX;
+      const deltaY = endY - startY;
+
+      // Only trigger if horizontal swipe is longer than vertical and over 50px
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+        if (deltaX > 0) {
+          previousSlide(); // Swipe right = previous
+        } else {
+          nextSlide();  // Swipe left = next
+        }
+      }
+    });
+
+    // Initialize
+    generateSidebar();
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>
