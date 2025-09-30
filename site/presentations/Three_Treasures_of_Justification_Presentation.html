@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Three Treasures of Justification - Bishop Darlingston Johnson</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); color: #fff; overflow: hidden; }
+    .presentation { position: relative; width: 100vw; height: 100vh; }
+    .slide { display: none; position: absolute; width: 100%; height: 100%; padding: 60px 80px 60px 320px; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); }
+    .slide.active { display: flex; }
+    h1 { font-size: 4.2rem; font-weight: 800; margin-bottom: 1.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); line-height: 1.2; color: #fff; }
+    h2 { font-size: 3.2rem; font-weight: 700; margin-bottom: 1.2rem; color: #ffd166; text-shadow: 1px 2px 4px rgba(0,0,0,0.4); line-height: 1.3; }
+    h3 { font-size: 2.4rem; font-weight: 700; margin-bottom: 1rem; color: #fff; text-shadow: 1px 2px 3px rgba(0,0,0,0.35); }
+    .subtitle { font-size: 1.8rem; font-weight: 400; margin-bottom: 0.6rem; color: #e8f4f8; line-height: 1.4; }
+    .scripture { background: rgba(255,255,255,0.14); border-left: 6px solid #ffd166; padding: 1.5rem; margin: 1.2rem 0; border-radius: 10px; backdrop-filter: blur(8px); box-shadow: 0 8px 32px rgba(0,0,0,0.25); max-width: 1100px; }
+    .scripture-text { font-size: 1.8rem; font-style: italic; line-height: 1.6; margin-bottom: 0.6rem; color: #fff; }
+    .scripture-ref { font-size: 1.2rem; font-weight: 700; color: #ffd166; text-align: right; }
+    .content-list { text-align: left; max-width: 1000px; margin: 0 auto; }
+    .content-list li { font-size: 1.5rem; margin: 0.9rem 0; padding-left: 1rem; line-height: 1.55; list-style: none; position: relative; }
+    .content-list li:before { content: "\25B6"; color: #ffd166; font-weight: bold; position: absolute; left: -1rem; }
+    .quote { font-size: 1.9rem; font-style: italic; text-align: center; padding: 1.5rem; border-radius: 12px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); margin: 1.2rem 0; box-shadow: 0 8px 32px rgba(0,0,0,0.2); line-height: 1.5; }
+    .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; width: 100%; max-width: 1100px; }
+    .column { text-align: left; }
+    .column h4 { font-size: 1.9rem; color: #ffd166; margin-bottom: 1rem; text-align: center; }
+    .column ul { list-style: none; padding: 0; }
+    .column li { font-size: 1.4rem; margin: 0.7rem 0; padding-left: 1.5rem; line-height: 1.5; position: relative; }
+    .column li:before { content: "\2713"; color: #ffd166; font-weight: bold; position: absolute; left: 0; }
+    .prayer-points { background: rgba(255,255,255,0.12); border-radius: 14px; padding: 2rem; backdrop-filter: blur(12px); box-shadow: 0 12px 40px rgba(0,0,0,0.28); max-width: 1100px; margin: 1.2rem auto; }
+    .prayer-points h3 { color: #ffd166; margin-bottom: 1rem; font-size: 2.1rem; }
+    .navigation { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 1rem; z-index: 1000; }
+    .nav-btn { background: rgba(255,255,255,0.22); border: 2px solid rgba(255,255,255,0.3); color: white; padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 600; backdrop-filter: blur(10px); transition: all 0.3s ease; }
+    .nav-btn:hover { background: rgba(255,255,255,0.32); border-color: #ffd166; color: #ffd166; }
+    .nav-btn:disabled { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); cursor: not-allowed; }
+    .slide-counter { position: fixed; top: 30px; right: 30px; background: rgba(0,0,0,0.45); padding: 0.5rem 1rem; border-radius: 20px; font-size: 1rem; backdrop-filter: blur(10px); }
+    .emphasis { color: #ffd166; font-weight: 800; }
+    .call-to-action { background: linear-gradient(135deg, #06d6a0, #118ab2); color: white; padding: 2rem; border-radius: 14px; margin: 1.2rem 0; box-shadow: 0 12px 40px rgba(0,0,0,0.3); text-align: center; }
+    .call-to-action h3 { font-size: 2.6rem; margin-bottom: 1rem; }
+    .call-to-action p { font-size: 1.6rem; line-height: 1.6; }
+    .section-break { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .section-break h1 { color: #ffd166 !important; }
+    .section-break h2 { color: #e8f4f8 !important; }
+    .cta-slide { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .cta-slide h1 { color: #ffd166 !important; }
+    .cta-slide .content-list li { color: #fff; }
+    .prayer-slide .scripture { background: rgba(255,209,102,0.15); border-left-color: #ffd166; }
+
+    /* Sidebar Navigation */
+    .sidebar { position: fixed; left: 0; top: 0; width: 280px; height: 100vh; background: rgba(20, 33, 61, 0.95); backdrop-filter: blur(10px); overflow-y: auto; z-index: 1500; border-right: 2px solid #ffd166; }
+    .sidebar-header { padding: 1.5rem; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,209,102,0.3); }
+    .sidebar-header h3 { color: #ffd166; font-size: 1.3rem; margin: 0; }
+    .sidebar-nav { padding: 1rem 0; }
+    .sidebar-item { padding: 0.8rem 1.5rem; cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem; border-left: 3px solid transparent; display: flex; align-items: center; gap: 0.5rem; }
+    .sidebar-item:hover { background: rgba(255,209,102,0.1); border-left-color: #ffd166; }
+    .sidebar-item.active { background: rgba(255,209,102,0.2); border-left-color: #ffd166; color: #ffd166; font-weight: 600; }
+    .sidebar-item.section { background: rgba(255,209,102,0.1); font-weight: 600; color: #ffd166; margin-top: 0.5rem; }
+    .slide-num { display: inline-block; width: 25px; color: rgba(255,255,255,0.6); }
+    .sidebar-item.active .slide-num { color: #ffd166; }
+
+    /* Home Button */
+    .home-btn { position: fixed; top: 30px; left: 300px; background: rgba(255,209,102,0.9); color: #14213d; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; z-index: 1000; display: flex; align-items: center; gap: 0.5rem; }
+    .home-btn:hover { background: #ffd166; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255,209,102,0.4); }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle { display: none; position: fixed; top: 30px; left: 20px; z-index: 2000; background: rgba(255,209,102,0.9); color: #14213d; border: none; padding: 0.75rem; border-radius: 8px; cursor: pointer; }
+    .menu-toggle:hover { background: #ffd166; }
+
+    @media (max-width: 1024px) {
+      .slide{ padding: 40px 50px 40px 320px; }
+      h1{ font-size: 3.4rem; }
+      h2{ font-size: 2.8rem; }
+      h3{ font-size: 2.2rem; }
+      .subtitle{ font-size: 1.5rem; }
+      .content-list li{ font-size: 1.35rem; }
+      .quote{ font-size: 1.6rem; }
+      .two-column{ grid-template-columns: 1fr; gap: 1.2rem; }
+    }
+    @media (max-width: 768px) {
+      .slide{ padding: 80px 30px 30px 30px; }
+      h1{ font-size: 2.6rem; }
+      h2{ font-size: 2.2rem; }
+      h3{ font-size: 1.9rem; }
+      .subtitle{ font-size: 1.3rem; }
+      .content-list li{ font-size: 1.2rem; }
+      .scripture-text{ font-size: 1.4rem; }
+      .quote{ font-size: 1.3rem; }
+      .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+      .sidebar.open { transform: translateX(0); }
+      .menu-toggle { display: block; }
+      .home-btn { left: auto; right: 30px; }
+    }
+    @media print { body{ background: white; color: black; } .slide{ display: block !important; page-break-after: always; position: static; background: white; color: black; padding: 2cm; } .navigation, .slide-counter{ display: none; } .scripture, .prayer-points, .call-to-action{ background: #f8f9fa; border: 2px solid #ddd; color: black; } h2, .scripture-ref, .emphasis{ color: #000; } }
+  </style>
+</head>
+<body>
+  <div class="presentation">
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Three Treasures</h3>
+      </div>
+      <div class="sidebar-nav" id="sidebarNav">
+        <!-- Navigation items will be generated by JavaScript -->
+      </div>
+    </nav>
+
+    <!-- Home Button -->
+    <a href="../index.html" class="home-btn">
+      <span>🏠</span>
+      <span>Dashboard</span>
+    </a>
+
+    <div class="slide-counter"><span id="current-slide">1</span> / <span id="total-slides">40</span></div>
+
+    <!-- 1. Title Slide -->
+    <div class="slide active" data-slide="1">
+      <h1>Three Treasures of Justification</h1>
+      <h2>Living in the Fullness of Grace</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Therefore, having been justified by faith, we have peace with God through our Lord Jesus Christ, through whom also we have access by faith into this grace in which we stand, and rejoice in hope of the glory of God."</div>
+        <div class="scripture-ref">Romans 5:1-5</div>
+      </div>
+      <div class="subtitle" style="margin-top: 2rem;">Bishop Darlingston Johnson</div>
+      <div class="subtitle">September 29, 2025</div>
+    </div>
+
+    <!-- 2. Series Information -->
+    <div class="slide" data-slide="2">
+      <h2>Salvation Explained Series</h2>
+      <h3 style="color: #ffd166;">Part 2: From Guilt to Glory</h3>
+      <div class="content-list"><ul>
+        <li>Part 1: The Gospel Crisis - Many have never heard the true gospel</li>
+        <li><span class="emphasis">Part 2: Three Treasures of Justification</span></li>
+        <li>Focus: Understanding what we possess in Christ</li>
+        <li>Goal: Living in the reality of our justification</li>
+      </ul></div>
+    </div>
+
+    <!-- 3. The Gospel Crisis -->
+    <div class="slide" data-slide="3">
+      <h2>The Gospel Crisis Today</h2>
+      <div class="content-list"><ul>
+        <li>Many people in Christian churches have never heard the true gospel</li>
+        <li>They've heard about behavior modification and religious duty</li>
+        <li>They've heard Jesus' name mentioned but not the gospel of grace</li>
+        <li>Result: No confidence in salvation, no assurance of eternal life</li>
+        <li>Some have never truly received Jesus as Savior and Lord</li>
+        <li>The gospel of grace is the only gospel with power to save</li>
+      </ul></div>
+    </div>
+
+    <!-- 4. Section Break -->
+    <div class="slide section-break" data-slide="4">
+      <h1>What Is Justification?</h1>
+      <h2>The Legal Foundation</h2>
+    </div>
+
+    <!-- 5. Definition of Justification -->
+    <div class="slide" data-slide="5">
+      <h2>Justification Defined</h2>
+      <div class="quote">"To be justified before God is to be declared righteous or right in the eyes of the law and in the eyes of God."</div>
+      <div class="subtitle" style="margin-top: 1.5rem;">Result: Set free from all punishment for your sins, both now and forever.</div>
+    </div>
+
+    <!-- 6. The Law Satisfied -->
+    <div class="slide" data-slide="6">
+      <h2>The Legal Nature of Justification</h2>
+      <div class="content-list"><ul>
+        <li>God made this declaration based on following the law perfectly</li>
+        <li>Love motivated God, but He followed the law to the letter</li>
+        <li>The law demanded: "Without shedding of blood, no remission"</li>
+        <li>The law didn't even bend for God - He submitted to it</li>
+        <li>Jesus fulfilled all requirements the law demanded</li>
+        <li>The law itself now declares believers "not guilty"</li>
+      </ul></div>
+    </div>
+
+    <!-- 7. Jesus Qualified -->
+    <div class="slide" data-slide="7">
+      <h2>Why Only Jesus Could Die for Us</h2>
+      <div class="content-list"><ul>
+        <li>Born of a virgin - came into the world without sin</li>
+        <li>Lived 33 years in perfect obedience to the law</li>
+        <li>Satisfied the law in every way</li>
+        <li>The law found nothing to charge Him with</li>
+        <li>Therefore, the law accepted His death as substitute for ours</li>
+        <li>Muhammad, Confucius, others couldn't do it - only Jesus could</li>
+      </ul></div>
+    </div>
+
+    <!-- 8. Everlasting Verdict -->
+    <div class="slide" data-slide="8">
+      <h2>The Verdict Cannot Be Reversed</h2>
+      <div class="scripture">
+        <div class="scripture-text">"For by one offering He has perfected forever those who are being sanctified."</div>
+        <div class="scripture-ref">Hebrews 10:14</div>
+      </div>
+      <div class="subtitle">If the verdict could be reversed by your sin, Jesus would have wasted His blood. But He didn't - you are perfected FOREVER.</div>
+    </div>
+
+    <!-- 9. Justification By Faith -->
+    <div class="slide" data-slide="9">
+      <h2>How Justification Becomes Yours</h2>
+      <div class="content-list"><ul>
+        <li>Jesus' blood is sufficient for every person who ever lived</li>
+        <li>The potential is unlimited - billions or trillions can be saved</li>
+        <li>BUT: It cannot take effect until you personally receive Jesus</li>
+        <li>No universal salvation - faith is essential</li>
+        <li>By one man (Adam) all became sinners</li>
+        <li>By one Man (Jesus) MANY shall be made righteous</li>
+      </ul></div>
+    </div>
+
+    <!-- 10. The Gift of Righteousness -->
+    <div class="slide" data-slide="10">
+      <h2>God's Own Righteousness</h2>
+      <div class="quote">"You stand right now as righteous as God Himself. You stand right now as righteous as Jesus."</div>
+      <div class="scripture">
+        <div class="scripture-text">"For He made Him who knew no sin to be sin for us, that we might become the righteousness of God in Him."</div>
+        <div class="scripture-ref">2 Corinthians 5:21</div>
+      </div>
+    </div>
+
+    <!-- 11. Jesus as Savior and Lord -->
+    <div class="slide" data-slide="11">
+      <h2>Not Just Savior, But Lord</h2>
+      <div class="content-list"><ul>
+        <li>Jesus came to save us from SIN, not just from hell</li>
+        <li>The real evil is sin itself, not just its consequences</li>
+        <li>As SAVIOR: Delivers from the penalty of sin (wrath of God)</li>
+        <li>As LORD: Delivers from the power of sin (dominion)</li>
+        <li>On the cross, He dealt with the SINNER, not just sins</li>
+        <li>The old man was crucified - you have a new nature</li>
+      </ul></div>
+    </div>
+
+    <!-- 12. Section Break -->
+    <div class="slide section-break" data-slide="12">
+      <h1>Three Treasures</h1>
+      <h2>The Results of Justification</h2>
+    </div>
+
+    <!-- 13. Treasure 1: Peace with God -->
+    <div class="slide" data-slide="13">
+      <h1 style="color: #ffd166;">Treasure #1</h1>
+      <h2>Peace with God</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Therefore, having been justified by faith, we have peace with God through our Lord Jesus Christ"</div>
+        <div class="scripture-ref">Romans 5:1</div>
+      </div>
+    </div>
+
+    <!-- 14. What Peace Means -->
+    <div class="slide" data-slide="14">
+      <h2>What Peace with God Means</h2>
+      <div class="content-list"><ul>
+        <li>Total and complete reconciliation</li>
+        <li>God holds NOTHING against you</li>
+        <li>The war has ended - God is not dropping bombs</li>
+        <li>End of hostilities and nullification of all judgment</li>
+        <li>Cancellation of all debts</li>
+        <li>Removal of all legal and relational barriers</li>
+      </ul></div>
+    </div>
+
+    <!-- 15. Peace with God - Positive Side -->
+    <div class="slide" data-slide="15">
+      <h2>The Presence of Good Will</h2>
+      <div class="content-list"><ul>
+        <li>God has granted you the status of SONS, not servants</li>
+        <li>He is actively and forcefully FOR you</li>
+        <li>He's making things work for you right now</li>
+        <li>He's resisting your enemies forcefully</li>
+        <li>He's a constant friend sticking closer than a brother</li>
+        <li>He will never leave you on your own</li>
+        <li>He loves you just as much as He loves Jesus</li>
+      </ul></div>
+    </div>
+
+    <!-- 16. Where Trouble Comes From -->
+    <div class="slide" data-slide="16">
+      <h2>Understanding Tribulation</h2>
+      <div class="scripture">
+        <div class="scripture-text">"In this world you will have tribulation; but be of good cheer, I have overcome the world."</div>
+        <div class="scripture-ref">John 16:33</div>
+      </div>
+      <div class="subtitle">God has made peace with you. The devil has not. Know where trouble comes from!</div>
+    </div>
+
+    <!-- 17. Treasure 2: Access to Grace -->
+    <div class="slide" data-slide="17">
+      <h1 style="color: #ffd166;">Treasure #2</h1>
+      <h2>Access to Grace</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Through whom also we have access by faith into this grace in which we stand"</div>
+        <div class="scripture-ref">Romans 5:2a</div>
+      </div>
+    </div>
+
+    <!-- 18. Standing in Grace -->
+    <div class="slide" data-slide="18">
+      <h2>Living in Unmerited Favor</h2>
+      <div class="quote">"I am standing, living, walking, abiding in the unmerited and undeserved favor of God."</div>
+      <div class="content-list"><ul>
+        <li>I go to sleep enjoying unmerited favor</li>
+        <li>I wake up to unmerited favor</li>
+        <li>I go to work in unmerited favor</li>
+        <li>Everywhere I am, I live in, abide in, swim in grace</li>
+        <li>I know nothing but unmerited favor in Christ Jesus</li>
+      </ul></div>
+    </div>
+
+    <!-- 19. Grace Gives Power -->
+    <div class="slide" data-slide="19">
+      <h2>Grace Empowers You</h2>
+      <div class="content-list"><ul>
+        <li>Grace gives you power to rule and reign in life</li>
+        <li>You will face tribulation - enemy is real, world is fallen</li>
+        <li>BUT: God is not fighting against you</li>
+        <li>If God is on your side, who can be against you?</li>
+        <li>Grace empowers you to face trials without being overcome</li>
+        <li>Standing in grace changes everything</li>
+      </ul></div>
+    </div>
+
+    <!-- 20. Treasure 3: Hope -->
+    <div class="slide" data-slide="20">
+      <h1 style="color: #ffd166;">Treasure #3</h1>
+      <h2>Hope That Does Not Disappoint</h2>
+      <div class="scripture">
+        <div class="scripture-text">"And rejoice in hope of the glory of God... Now hope does not disappoint, because the love of God has been poured out in our hearts by the Holy Spirit"</div>
+        <div class="scripture-ref">Romans 5:2b, 5</div>
+      </div>
+    </div>
+
+    <!-- 21. Why Hope Matters -->
+    <div class="slide" data-slide="21">
+      <h2>The Importance of Hope</h2>
+      <div class="content-list"><ul>
+        <li>Loss of hope is at the root of most emotional problems</li>
+        <li>Depression, discouragement, loss of motivation - all rooted in hopelessness</li>
+        <li>Faith, hope, and love - all three are essential</li>
+        <li>Many Christians lose hope and experience effects of hopelessness</li>
+        <li>Earthly hopes can and do disappoint</li>
+        <li>But the hope rooted in Christ NEVER disappoints</li>
+      </ul></div>
+    </div>
+
+    <!-- 22. Hope as Anchor -->
+    <div class="slide" data-slide="22">
+      <h2>Anchor Your Soul</h2>
+      <div class="quote">"That hope we should talk about is what you anchor your soul to because that one will not disappoint."</div>
+      <div class="subtitle">This hope is rooted in peace with God and access to grace - it cannot fail!</div>
+    </div>
+
+    <!-- 23. Section Break - Key Scriptures -->
+    <div class="slide section-break" data-slide="23">
+      <h1>Key Scriptures</h1>
+      <h2>Foundation Truths</h2>
+    </div>
+
+    <!-- 24. No Condemnation -->
+    <div class="slide" data-slide="24">
+      <h2>No Condemnation</h2>
+      <div class="scripture">
+        <div class="scripture-text">"There is therefore now no condemnation to those who are in Christ Jesus."</div>
+        <div class="scripture-ref">Romans 8:1</div>
+      </div>
+    </div>
+
+    <!-- 25. God Is FOR Us -->
+    <div class="slide" data-slide="25">
+      <h2>If God Is FOR Us</h2>
+      <div class="scripture">
+        <div class="scripture-text">"What then shall we say to these things? If God is for us, who can be against us? He who did not spare His own Son, but delivered Him up for us all, how shall He not with Him also freely give us all things?"</div>
+        <div class="scripture-ref">Romans 8:31-32</div>
+      </div>
+    </div>
+
+    <!-- 26. Nothing Separates -->
+    <div class="slide" data-slide="26">
+      <h2>Eternally Secure</h2>
+      <div class="scripture">
+        <div class="scripture-text">"For I am persuaded that neither death nor life, nor angels nor principalities nor powers, nor things present nor things to come, nor height nor depth, nor any other created thing, shall be able to separate us from the love of God which is in Christ Jesus our Lord."</div>
+        <div class="scripture-ref">Romans 8:38-39</div>
+      </div>
+    </div>
+
+    <!-- 27. Section Break - Prayer Points -->
+    <div class="slide section-break" data-slide="27">
+      <h1>Prayer Points</h1>
+      <h2>Living These Truths</h2>
+    </div>
+
+    <!-- 28. Prayer 1 -->
+    <div class="slide prayer-slide" data-slide="28">
+      <h2>Prayer for Clear Gospel Understanding</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">"Heavenly Father, thank You for the true gospel of grace. Open the eyes of those who have never truly heard or understood it. Help them see that salvation is not by works but by faith alone in Jesus Christ. Search my own heart - help me know with certainty that I have personally received Jesus as both Savior and Lord."</div>
+          <div class="scripture-ref">Based on Romans 1:16, Ephesians 2:8-9</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 29. Prayer 2 -->
+    <div class="slide prayer-slide" data-slide="29">
+      <h2>Prayer for Revelation of Legal Standing</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">"Lord Jesus, thank You that justification is a legal declaration. The law itself has declared me righteous because You satisfied every demand. Help me grasp the everlasting nature of this verdict - that it can never be reversed. Let this truth anchor my soul and give me unshakable confidence."</div>
+          <div class="scripture-ref">Based on Romans 5:1, Hebrews 10:14</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 30. Prayer 3 -->
+    <div class="slide prayer-slide" data-slide="30">
+      <h2>Prayer for Walking in God's Righteousness</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">"Father, I declare that in Christ, I am the righteousness of God. This is not my achievement but Your gift of grace. When I pray, let me come boldly. When I face the enemy, let me declare that the righteousness of God stands here. Let this identity transform how I live."</div>
+          <div class="scripture-ref">Based on 2 Corinthians 5:21, James 5:16</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 31. Prayer 4 -->
+    <div class="slide prayer-slide" data-slide="31">
+      <h2>Prayer for Living in Peace</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">"Heavenly Father, thank You that I have peace with You. The war is over. You hold nothing against me. Help me reject every lie that says You are angry or disappointed. When accusations come, remind me that God is completely reconciled to me in Christ. Let this peace guard my heart."</div>
+          <div class="scripture-ref">Based on Romans 5:1, Romans 8:31</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 32. Prayer 5 -->
+    <div class="slide prayer-slide" data-slide="32">
+      <h2>Prayer for Standing in Grace</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">"Lord, I thank You that I stand in grace - unmerited and undeserved favor. This grace gives me power to rule and reign in life. Even though I face tribulation, grace empowers me not to be overcome. Jesus, as my Lord, break the power of sin in my life. Transform me by Your grace."</div>
+          <div class="scripture-ref">Based on Romans 5:2, Philippians 2:13</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 33. Prayer 6 -->
+    <div class="slide prayer-slide" data-slide="33">
+      <h2>Prayer for Hope as Anchor</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">"Father, thank You for hope that does not disappoint. This hope is rooted in my peace with You and access to Your grace. When earthly hopes fail or circumstances discourage, anchor my soul in the unchanging hope found in Christ. Protect me from depression and despair. Fill me with joy and hope."</div>
+          <div class="scripture-ref">Based on Romans 5:5, Hebrews 6:19</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 34. Prayer 7 -->
+    <div class="slide prayer-slide" data-slide="34">
+      <h2>Prayer for Boldness to Share</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">"Lord Jesus, the whole world needs to hear about You. Only You could die for our sins. Give me a burden for the lost. Help me proclaim clearly that salvation is by grace through faith in You alone. Give me divine appointments this week. Let me be faithful to declare that Jesus is the only way."</div>
+          <div class="scripture-ref">Based on John 14:6, Romans 10:14-15</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 35. Declaration of Faith -->
+    <div class="slide" data-slide="35">
+      <h2>Declaration of Faith</h2>
+      <div class="quote">"I am justified by faith in Jesus Christ. I possess three treasures: Peace with God that can never be taken away, Access to grace that empowers me daily, and Hope that anchors my soul and never disappoints."</div>
+    </div>
+
+    <!-- 36. Reflection Questions -->
+    <div class="slide" data-slide="36">
+      <h2>Questions for Reflection</h2>
+      <div class="content-list"><ul>
+        <li>Have I truly received Jesus as both Savior AND Lord?</li>
+        <li>Am I trying to earn righteousness, or resting in the gift?</li>
+        <li>Do I live with confidence that God holds nothing against me?</li>
+        <li>When I pray, do I come boldly as the righteousness of God?</li>
+        <li>Am I experiencing peace, grace, and hope in daily life?</li>
+        <li>Who needs to hear this gospel from me this week?</li>
+      </ul></div>
+    </div>
+
+    <!-- 37. Action Steps -->
+    <div class="slide" data-slide="37">
+      <h2>This Week's Action Steps</h2>
+      <div class="content-list"><ul>
+        <li>Memorize Romans 5:1-2 and declare it each morning</li>
+        <li>Write out 2 Corinthians 5:21 and read it when doubt arises</li>
+        <li>Identify one area where you've tried to earn God's favor</li>
+        <li>Share the gospel of justification with one person</li>
+        <li>Practice praying as "the righteousness of God in Christ"</li>
+        <li>Reject every accusation by declaring: "I am justified"</li>
+        <li>Thank God nightly for your three treasures</li>
+      </ul></div>
+    </div>
+
+    <!-- 38. Memorable Quotes -->
+    <div class="slide" data-slide="38">
+      <h2>Remember These Truths</h2>
+      <div class="content-list"><ul>
+        <li><span class="emphasis">"The law didn't bend for God - God submitted to the law"</span></li>
+        <li><span class="emphasis">"If the verdict could be reversed, Jesus wasted His blood"</span></li>
+        <li><span class="emphasis">"You stand as righteous as God Himself"</span></li>
+        <li><span class="emphasis">"The war has ended - God is not dropping bombs"</span></li>
+        <li><span class="emphasis">"God has made peace with you. The devil has not"</span></li>
+        <li><span class="emphasis">"Hope rooted in Christ never disappoints"</span></li>
+      </ul></div>
+    </div>
+
+    <!-- 39. Call to Respond -->
+    <div class="slide cta-slide" data-slide="39">
+      <h1>Will You Receive Him?</h1>
+      <div class="content-list"><ul>
+        <li>If you have never truly received Jesus as Savior and Lord, do it today</li>
+        <li>Realize you are a sinner who cannot save yourself</li>
+        <li>Turn to the only One who can help - Jesus Christ</li>
+        <li>Trust His work on the cross as sufficient for all your sins</li>
+        <li>Receive Him as both Savior (penalty) and Lord (power)</li>
+        <li>Accept the gift of righteousness by faith</li>
+      </ul></div>
+    </div>
+
+    <!-- 40. Closing Prayer -->
+    <div class="slide" data-slide="40">
+      <h2>Closing Prayer</h2>
+      <div class="prayer-points">
+        <div class="scripture-text">"Father God, thank You for this glorious gospel of grace that declares me justified by faith. Thank You for the three treasures I possess: peace with You that can never be taken away, access to grace that empowers me to live victoriously, and hope that anchors my soul and never disappoints. Help me walk in the fullness of these truths every day. Lord Jesus, You are my Savior and my Lord. Work in me both to will and to do Your good pleasure. Give me a burden for those who have never heard this gospel. In Jesus' mighty name, Amen!"</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+      <button class="nav-btn" onclick="previousSlide()">← Previous</button>
+      <button class="nav-btn" onclick="nextSlide()">Next →</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = document.querySelectorAll('.slide').length;
+    document.getElementById('total-slides').textContent = totalSlides;
+
+    // Slide titles for sidebar navigation
+    const slideTitles = [
+      'Title', 'Series Info', 'Gospel Crisis',
+      'What Is Justification?', 'Definition', 'Law Satisfied', 'Jesus Qualified', 'Everlasting Verdict', 'By Faith', 'Gift of Righteousness', 'Savior and Lord',
+      'Three Treasures', 'Treasure 1: Peace', 'What Peace Means', 'Presence of Good Will', 'Understanding Tribulation',
+      'Treasure 2: Access', 'Standing in Grace', 'Grace Empowers',
+      'Treasure 3: Hope', 'Why Hope Matters', 'Hope as Anchor',
+      'Key Scriptures', 'No Condemnation', 'God Is FOR Us', 'Nothing Separates',
+      'Prayer Points', 'Prayer: Gospel Understanding', 'Prayer: Legal Standing', 'Prayer: Righteousness', 'Prayer: Peace', 'Prayer: Grace', 'Prayer: Hope', 'Prayer: Share Gospel',
+      'Declaration', 'Reflection Questions', 'Action Steps', 'Memorable Quotes', 'Call to Respond', 'Closing Prayer'
+    ];
+
+    // Generate sidebar navigation
+    function generateSidebar() {
+      const sidebarNav = document.getElementById('sidebarNav');
+      sidebarNav.innerHTML = '';
+
+      slideTitles.forEach((title, index) => {
+        const item = document.createElement('div');
+        item.className = 'sidebar-item';
+
+        // Mark section breaks
+        if ([3, 11, 16, 19, 22, 26].includes(index)) {
+          item.classList.add('section');
+        }
+
+        if (index === currentSlide - 1) {
+          item.classList.add('active');
+        }
+
+        item.innerHTML = `
+          <span class="slide-num">${index + 1}</span>
+          <span>${title}</span>
+        `;
+
+        item.onclick = () => {
+          showSlide(index + 1);
+        };
+
+        sidebarNav.appendChild(item);
+      });
+    }
+
+    function showSlide(n) {
+      const slides = document.querySelectorAll('.slide');
+      if (n > totalSlides) n = 1;
+      if (n < 1) n = totalSlides;
+      currentSlide = n;
+      slides.forEach(s => s.classList.remove('active'));
+      slides[currentSlide - 1].classList.add('active');
+      document.getElementById('current-slide').textContent = currentSlide;
+
+      // Update navigation buttons
+      const prevBtn = document.querySelector('.nav-btn');
+      const nextBtn = document.querySelectorAll('.nav-btn')[1];
+      prevBtn.disabled = currentSlide === 1;
+      nextBtn.disabled = currentSlide === totalSlides;
+
+      // Update sidebar
+      generateSidebar();
+    }
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function previousSlide() { showSlide(currentSlide - 1); }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+
+    document.addEventListener('keydown', function(event) {
+      switch(event.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+        case ' ':
+        case 'Enter':
+          nextSlide();
+          event.preventDefault();
+          break;
+        case 'ArrowLeft':
+        case 'ArrowUp':
+          previousSlide();
+          event.preventDefault();
+          break;
+        case 'Home':
+          currentSlide = 1; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'End':
+          currentSlide = totalSlides; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'PageDown':
+          showSlide(Math.min(currentSlide + 10, totalSlides)); event.preventDefault();
+          break;
+        case 'PageUp':
+          showSlide(Math.max(currentSlide - 10, 1)); event.preventDefault();
+          break;
+      }
+    });
+
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let startY = 0;
+
+    document.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    });
+
+    document.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const endY = e.changedTouches[0].clientY;
+      const deltaX = endX - startX;
+      const deltaY = endY - startY;
+
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+        if (deltaX > 0) {
+          previousSlide();
+        } else {
+          nextSlide();
+        }
+      }
+    });
+
+    // Initialize
+    generateSidebar();
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>

@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "id": "three-treasures-justification-2025-09-29",
+    "title": "Three Treasures of Justification",
+    "date": "2025-09-29",
+    "speaker": "Bishop Darlingston Johnson",
+    "scripture": "Romans 5:1-5",
+    "series": "Salvation Explained: From Guilt to Glory (Part 2)",
+    "path": "transcripts/sermon/Three_Treasures_of_Justification__Bishop_Darlingston_Johnson/transcript.md",
+    "youtubeUrl": "https://youtu.be/zFhzdk9LgVU",
+    "duration": "57:21"
+  },
+  {
+    "id": "gospel-of-grace-2025-09-21",
+    "title": "The Gospel of Grace",
+    "date": "2025-09-21",
+    "speaker": "Pastor",
+    "scripture": "Romans 5:1-2",
+    "path": "transcripts/sermon/Sermon_Sep_21_2025_Gospel_of_grace.md"
+  }
+]
