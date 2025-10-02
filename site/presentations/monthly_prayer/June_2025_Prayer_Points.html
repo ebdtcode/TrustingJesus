@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>June 2025 Prayer Points - HIM-U</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #14213d 0%, #1f4068 100%);
+            color: #ffffff;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .presentation {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 280px;
+            background: rgba(20, 33, 61, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem 1.5rem;
+            overflow-y: auto;
+            border-right: 2px solid #ffd166;
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar.hidden {
+            transform: translateX(-100%);
+        }
+
+        .sidebar h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #ffd166;
+        }
+
+        .sidebar .date {
+            font-size: 0.9rem;
+            color: #a8dadc;
+            margin-bottom: 2rem;
+        }
+
+        .slide-menu {
+            list-style: none;
+        }
+
+        .slide-menu li {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+        }
+
+        .slide-menu li:hover {
+            background: rgba(255, 209, 102, 0.2);
+            transform: translateX(5px);
+        }
+
+        .slide-menu li.active {
+            background: rgba(255, 209, 102, 0.3);
+            border-left: 4px solid #ffd166;
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 3rem;
+            overflow-y: auto;
+            height: 100vh;
+        }
+
+        .slide {
+            display: none;
+            animation: fadeIn 0.5s ease;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #ffd166;
+            border-bottom: 3px solid #ffd166;
+            padding-bottom: 1rem;
+        }
+
+        .slide h3 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem 0;
+            color: #a8dadc;
+        }
+
+        .slide ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .slide ul li {
+            margin: 1rem 0;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .slide ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ffd166;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .scripture {
+            background: rgba(255, 209, 102, 0.1);
+            border-left: 4px solid #ffd166;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .scripture-text {
+            font-style: italic;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .scripture-ref {
+            text-align: right;
+            color: #ffd166;
+            font-weight: bold;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 50;
+        }
+
+        .nav-btn {
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213d;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .nav-btn:hover {
+            background: #ffd166;
+            transform: scale(1.05);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: rgba(255, 209, 102, 0.2);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            z-index: 50;
+        }
+
+        .toggle-sidebar {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213d;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 101;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-sidebar:hover {
+            background: #ffd166;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.visible {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 2rem 1rem;
+            }
+
+            .slide h2 {
+                font-size: 1.8rem;
+            }
+
+            .slide h3 {
+                font-size: 1.4rem;
+            }
+
+            .slide ul li {
+                font-size: 1rem;
+            }
+
+            .navigation {
+                bottom: 1rem;
+                right: 1rem;
+                left: 1rem;
+                justify-content: space-between;
+            }
+
+            .nav-btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media print {
+            .sidebar,
+            .navigation,
+            .slide-counter,
+            .toggle-sidebar {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .slide {
+                display: block !important;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="toggle-sidebar" onclick="toggleSidebar()">☰ Menu</button>
+    <div class="slide-counter">
+        <span id="currentSlide">1</span> / <span id="totalSlides">0</span>
+    </div>
+
+    <div class="presentation">
+        <nav class="sidebar" id="sidebar">
+            <h1>June 2025</h1>
+            <p class="date">3 Days Prayer</p>
+            <p class="date">June 5-7, 2025</p>
+            <ul class="slide-menu" id="slideMenu"></ul>
+        </nav>
+
+        <main class="main-content">
+            <div class="slide active" data-title="Welcome">
+                <h2>June 2025 Prayer Points</h2>
+                <h3>3 Days of Prayer</h3>
+                <div class="scripture">
+                    <p class="scripture-text">"Call unto me, and I will answer thee, and shew thee great and mighty things, which thou knowest not."</p>
+                    <p class="scripture-ref">Jeremiah 33:3 (KJV)</p>
+                </div>
+                <ul>
+                    <li>June 5-7, 2025</li>
+                    <li>Seeking God's Face</li>
+                    <li>Breakthrough and Expansion</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Day 1: Thanksgiving">
+                <h2>Day 1: Thanksgiving & Worship</h2>
+                <h3>June 5, 2025</h3>
+                <div class="scripture">
+                    <p class="scripture-text">"Enter into his gates with thanksgiving, and into his courts with praise: be thankful unto him, and bless his name."</p>
+                    <p class="scripture-ref">Psalm 100:4 (KJV)</p>
+                </div>
+            </div>
+
+            <div class="slide" data-title="Thanksgiving for Faithfulness">
+                <h2>Thanksgiving for God's Faithfulness</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"It is of the LORD's mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness."</p>
+                    <p class="scripture-ref">Lamentations 3:22-23 (KJV)</p>
+                </div>
+                <ul>
+                    <li>Thank God for His faithfulness over HIM-U</li>
+                    <li>Thank Him for preserving and sustaining the ministry</li>
+                    <li>Thank Him for every answered prayer</li>
+                    <li>Thank Him for His mercy and grace</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Thanksgiving for Growth">
+                <h2>Thanksgiving for Growth & Expansion</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"For thou hast made him most blessed for ever: thou hast made him exceeding glad with thy countenance."</p>
+                    <p class="scripture-ref">Psalm 21:6 (KJV)</p>
+                </div>
+                <ul>
+                    <li>Thank God for numerical and spiritual growth</li>
+                    <li>Thank Him for new souls added to the kingdom</li>
+                    <li>Thank Him for ministry expansion and reach</li>
+                    <li>Thank Him for every testimony of transformation</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Thanksgiving for Protection">
+                <h2>Thanksgiving for Divine Protection</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"He that dwelleth in the secret place of the most High shall abide under the shadow of the Almighty."</p>
+                    <p class="scripture-ref">Psalm 91:1 (KJV)</p>
+                </div>
+                <ul>
+                    <li>Thank God for protecting HIM-U from every attack</li>
+                    <li>Thank Him for shielding the leadership and members</li>
+                    <li>Thank Him for safety in travels and gatherings</li>
+                    <li>Thank Him for peace and security</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Thanksgiving for Provision">
+                <h2>Thanksgiving for Divine Provision</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"But my God shall supply all your need according to his riches in glory by Christ Jesus."</p>
+                    <p class="scripture-ref">Philippians 4:19 (KJV)</p>
+                </div>
+                <ul>
+                    <li>Thank God for financial provision and resources</li>
+                    <li>Thank Him for faithful givers and supporters</li>
+                    <li>Thank Him for meeting every ministry need</li>
+                    <li>Thank Him for supernatural multiplication</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Worship Declaration">
+                <h2>Worship Declaration</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"O come, let us worship and bow down: let us kneel before the LORD our maker."</p>
+                    <p class="scripture-ref">Psalm 95:6 (KJV)</p>
+                </div>
+                <ul>
+                    <li>We worship You as our Creator and Sustainer</li>
+                    <li>We exalt Your name above every name</li>
+                    <li>We acknowledge Your sovereignty and power</li>
+                    <li>We surrender completely to Your will</li>
+                    <li>We magnify Your greatness and glory</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Day 2: Intercession">
+                <h2>Day 2: Intercession & Warfare</h2>
+                <h3>June 6, 2025</h3>
+                <div class="scripture">
+                    <p class="scripture-text">"And I sought for a man among them, that should make up the hedge, and stand in the gap before me for the land, that I should not destroy it: but I found none."</p>
+                    <p class="scripture-ref">Ezekiel 22:30 (KJV)</p>
+                </div>
+            </div>
+
+            <div class="slide" data-title="Prayer for Leadership">
+                <h2>Prayer for HIM-U Leadership</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"And I will give you pastors according to mine heart, which shall feed you with knowledge and understanding."</p>
+                    <p class="scripture-ref">Jeremiah 3:15 (KJV)</p>
+                </div>
+                <ul>
+                    <li>Pray for divine wisdom for all leadership decisions</li>
+                    <li>Fresh anointing and power for ministry</li>
+                    <li>Physical health and spiritual vitality</li>
+                    <li>Unity and harmony among leadership team</li>
+                    <li>Protection from attacks and discouragement</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Spiritual Warfare 1">
+                <h2>Spiritual Warfare: Binding</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"Behold, I give unto you power to tread on serpents and scorpions, and over all the power of the enemy: and nothing shall by any means hurt you."</p>
+                    <p class="scripture-ref">Luke 10:19 (KJV)</p>
+                </div>
+                <ul>
+                    <li>Bind every spirit of division and strife</li>
+                    <li>Bind every spirit of confusion and deception</li>
+                    <li>Bind every satanic assignment against HIM-U</li>
+                    <li>Bind every spirit of sickness and disease</li>
+                    <li>Bind every financial attack and limitation</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Spiritual Warfare 2">
+                <h2>Spiritual Warfare: Loosing</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"And whatsoever thou shalt loose on earth shall be loosed in heaven."</p>
+                    <p class="scripture-ref">Matthew 16:19 (KJV)</p>
+                </div>
+                <ul>
+                    <li>Loose divine favor and open doors</li>
+                    <li>Loose angelic assistance and protection</li>
+                    <li>Loose financial breakthroughs and abundance</li>
+                    <li>Loose healing and miracles</li>
+                    <li>Loose revival and spiritual awakening</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Prayer for Members">
+                <h2>Prayer for HIM-U Members</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"That he would grant you, according to the riches of his glory, to be strengthened with might by his Spirit in the inner man."</p>
+                    <p class="scripture-ref">Ephesians 3:16 (KJV)</p>
+                </div>
+                <ul>
+                    <li>Pray for spiritual growth and maturity</li>
+                    <li>Deliverance from every bondage and addiction</li>
+                    <li>Marital and family restoration</li>
+                    <li>Financial breakthrough and stability</li>
+                    <li>Career advancement and success</li>
+                    <li>Divine health and healing</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Prayer for Nations">
+                <h2>Prayer for Nations</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"For the earth shall be filled with the knowledge of the glory of the LORD, as the waters cover the sea."</p>
+                    <p class="scripture-ref">Habakkuk 2:14 (KJV)</p>
+                </div>
+                <ul>
+                    <li>Pray for open doors in unreached nations</li>
+                    <li>Divine connections with leaders and influencers</li>
+                    <li>Resources for global missions and outreach</li>
+                    <li>Protection for missionaries and workers</li>
+                    <li>Harvest of souls from every tribe and tongue</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Prayer for Government">
+                <h2>Prayer for Government & Authorities</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"I exhort therefore, that, first of all, supplications, prayers, intercessions, and giving of thanks, be made for all men; For kings, and for all that are in authority."</p>
+                    <p class="scripture-ref">1 Timothy 2:1-2 (KJV)</p>
+                </div>
+                <ul>
+                    <li>Pray for wisdom for governmental leaders</li>
+                    <li>Righteous policies and just governance</li>
+                    <li>Peace and stability in our nations</li>
+                    <li>Protection from terrorism and violence</li>
+                    <li>Economic prosperity and growth</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Day 3: Breakthrough">
+                <h2>Day 3: Breakthrough & Expansion</h2>
+                <h3>June 7, 2025</h3>
+                <div class="scripture">
+                    <p class="scripture-text">"And the LORD shall make thee the head, and not the tail; and thou shalt be above only, and thou shalt not be beneath."</p>
+                    <p class="scripture-ref">Deuteronomy 28:13 (KJV)</p>
+                </div>
+            </div>
+
+            <div class="slide" data-title="Ministry Expansion">
+                <h2>Ministry Expansion & Growth</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"Enlarge the place of thy tent, and let them stretch forth the curtains of thine habitations: spare not, lengthen thy cords, and strengthen thy stakes."</p>
+                    <p class="scripture-ref">Isaiah 54:2 (KJV)</p>
+                </div>
+                <ul>
+                    <li>Pray for supernatural multiplication of HIM-U</li>
+                    <li>Establishment of new branches and locations</li>
+                    <li>Increased capacity and infrastructure</li>
+                    <li>Strategic partnerships and alliances</li>
+                    <li>Greater visibility and influence</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Soul Winning Breakthrough">
+                <h2>Soul Winning Breakthrough</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"He that goeth forth and weepeth, bearing precious seed, shall doubtless come again with rejoicing, bringing his sheaves with him."</p>
+                    <p class="scripture-ref">Psalm 126:6 (KJV)</p>
+                </div>
+                <ul>
+                    <li>Pray for massive harvest of souls</li>
+                    <li>Bold and effective evangelism</li>
+                    <li>Creative outreach strategies</li>
+                    <li>Every member an active soul winner</li>
+                    <li>Salvations in every service and event</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Financial Breakthrough">
+                <h2>Financial Breakthrough</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"Bring ye all the tithes into the storehouse, that there may be meat in mine house, and prove me now herewith, saith the LORD of hosts, if I will not open you the windows of heaven, and pour you out a blessing, that there shall not be room enough to receive it."</p>
+                    <p class="scripture-ref">Malachi 3:10 (KJV)</p>
+                </div>
+                <ul>
+                    <li>Pray for unprecedented financial increase</li>
+                    <li>Debt cancellation and financial freedom</li>
+                    <li>New streams of income and revenue</li>
+                    <li>Generous givers and faithful supporters</li>
+                    <li>Completion of all building projects</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Media & Technology">
+                <h2>Media & Technology Breakthrough</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"And many nations shall come, and say, Come, and let us go up to the mountain of the LORD, and to the house of the God of Jacob; and he will teach us of his ways, and we will walk in his paths."</p>
+                    <p class="scripture-ref">Micah 4:2 (KJV)</p>
+                </div>
+                <ul>
+                    <li>Pray for viral reach of gospel content</li>
+                    <li>Excellence in media production</li>
+                    <li>State-of-the-art equipment and technology</li>
+                    <li>Skilled and committed media team</li>
+                    <li>Digital platforms reaching millions</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Youth Revolution">
+                <h2>Youth Revolution</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"And it shall come to pass afterward, that I will pour out my spirit upon all flesh; and your sons and your daughters shall prophesy, your old men shall dream dreams, your young men shall see visions."</p>
+                    <p class="scripture-ref">Joel 2:28 (KJV)</p>
+                </div>
+                <ul>
+                    <li>Pray for revival among the youth</li>
+                    <li>Radical salvation and transformation</li>
+                    <li>Activation of spiritual gifts and callings</li>
+                    <li>Youth-led evangelism and missions</li>
+                    <li>Protection from worldly influences</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Harvest Olney Growth">
+                <h2>Harvest Olney Breakthrough</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"So shall my word be that goeth forth out of my mouth: it shall not return unto me void, but it shall accomplish that which I please, and it shall prosper in the thing whereto I sent it."</p>
+                    <p class="scripture-ref">Isaiah 55:11 (KJV)</p>
+                </div>
+                <ul>
+                    <li>Pray for explosive growth at Harvest Olney</li>
+                    <li>Community transformation and impact</li>
+                    <li>Facility expansion and resources</li>
+                    <li>Strong leadership team development</li>
+                    <li>Established as a lighthouse church</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Miracles & Healings">
+                <h2>Miracles & Healings</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"Jesus Christ the same yesterday, and to day, and for ever."</p>
+                    <p class="scripture-ref">Hebrews 13:8 (KJV)</p>
+                </div>
+                <ul>
+                    <li>Pray for manifestation of God's power</li>
+                    <li>Creative miracles and supernatural signs</li>
+                    <li>Healing of incurable diseases</li>
+                    <li>Deliverance from demonic oppression</li>
+                    <li>Restoration of sight, hearing, and mobility</li>
+                    <li>Testimonies that bring glory to God</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Final Declarations">
+                <h2>Declarations of Faith</h2>
+                <ul>
+                    <li>This is HIM-U's season of supernatural breakthrough</li>
+                    <li>We are experiencing unprecedented expansion</li>
+                    <li>Doors no man can shut are opening for us</li>
+                    <li>Nations are coming to our rising</li>
+                    <li>Financial abundance is our portion</li>
+                    <li>Souls are being saved in massive numbers</li>
+                    <li>God's glory fills every gathering</li>
+                    <li>We are walking in divine health and favor</li>
+                    <li>Our best days are now and ahead</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Closing Prayer">
+                <h2>Closing Prayer</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"Now unto him that is able to do exceeding abundantly above all that we ask or think, according to the power that worketh in us, Unto him be glory in the church by Christ Jesus throughout all ages, world without end. Amen."</p>
+                    <p class="scripture-ref">Ephesians 3:20-21 (KJV)</p>
+                </div>
+                <ul>
+                    <li>Father, we thank You for hearing our prayers</li>
+                    <li>We seal every prayer in the name of Jesus</li>
+                    <li>We receive the answers by faith</li>
+                    <li>To You alone be all the glory</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const slideMenu = document.getElementById('slideMenu');
+
+        // Initialize slide menu
+        slides.forEach((slide, index) => {
+            const li = document.createElement('li');
+            li.textContent = `${index + 1}. ${slide.dataset.title}`;
+            li.onclick = () => showSlide(index + 1);
+            slideMenu.appendChild(li);
+        });
+
+        function showSlide(n) {
+            if (n > totalSlides) currentSlide = totalSlides;
+            if (n < 1) currentSlide = 1;
+            currentSlide = n;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+
+            document.getElementById('currentSlide').textContent = currentSlide;
+            document.getElementById('totalSlides').textContent = totalSlides;
+
+            // Update menu
+            const menuItems = slideMenu.querySelectorAll('li');
+            menuItems.forEach((item, index) => {
+                item.classList.toggle('active', index === currentSlide - 1);
+            });
+
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+
+            // Scroll to top
+            document.querySelector('.main-content').scrollTop = 0;
+        }
+
+        function changeSlide(n) {
+            showSlide(currentSlide + n);
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('hidden');
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+            if (e.key === 'Home') showSlide(1);
+            if (e.key === 'End') showSlide(totalSlides);
+            if (e.key === ' ') {
+                e.preventDefault();
+                changeSlide(1);
+            }
+        });
+
+        // Touch support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.querySelector('.main-content').addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.querySelector('.main-content').addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) changeSlide(1);
+            if (touchEndX > touchStartX + 50) changeSlide(-1);
+        }
+
+        // Initialize
+        showSlide(1);
+    </script>
+</body>
+</html>

@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>March 2025 - 2 Days Prayer Points</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #14213d 0%, #1f4068 100%);
+            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .presentation {
+            margin-left: 280px;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: rgba(20, 33, 61, 0.95);
+            backdrop-filter: blur(10px);
+            border-right: 2px solid rgba(255, 209, 102, 0.3);
+            overflow-y: auto;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .sidebar-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 209, 102, 0.3);
+        }
+
+        .sidebar-header h2 {
+            color: #ffd166;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .sidebar-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .home-btn {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213d;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .home-btn:hover {
+            background: #ffd166;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 209, 102, 0.4);
+        }
+
+        .slide-menu {
+            list-style: none;
+        }
+
+        .slide-menu li {
+            margin-bottom: 8px;
+        }
+
+        .slide-menu a {
+            display: block;
+            padding: 10px 15px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            border-left: 3px solid transparent;
+        }
+
+        .slide-menu a:hover {
+            background: rgba(255, 209, 102, 0.1);
+            border-left-color: #ffd166;
+            color: white;
+        }
+
+        .slide-menu a.active {
+            background: rgba(255, 209, 102, 0.2);
+            border-left-color: #ffd166;
+            color: #ffd166;
+            font-weight: 600;
+        }
+
+        .slide {
+            display: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #ffd166;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #ffd166;
+            border-bottom: 3px solid #ffd166;
+            padding-bottom: 15px;
+        }
+
+        .slide h3 {
+            font-size: 1.8rem;
+            margin: 25px 0 15px 0;
+            color: #ffd166;
+        }
+
+        .slide p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .slide ul {
+            margin: 20px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .slide ul li {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .slide ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ffd166;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+
+        .scripture {
+            background: rgba(255, 255, 255, 0.14);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 6px solid #ffd166;
+            margin: 25px 0;
+        }
+
+        .scripture-text {
+            font-size: 1.4rem;
+            font-style: italic;
+            line-height: 1.9;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .scripture-ref {
+            font-size: 1.2rem;
+            color: #ffd166;
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .prayer-icon {
+            font-size: 4rem;
+            margin: 20px 0;
+            display: block;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+        }
+
+        .date-range {
+            font-size: 1.5rem;
+            color: #ffd166;
+            margin-bottom: 30px;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213d;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: #ffd166;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 209, 102, 0.4);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 30px;
+            left: 320px;
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213d;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213d;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        @media (max-width: 968px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .presentation {
+                margin-left: 0;
+                padding: 80px 20px 100px 20px;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .slide-counter {
+                left: 20px;
+                bottom: 90px;
+            }
+
+            .navigation {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .slide h1 {
+                font-size: 2.5rem;
+            }
+
+            .slide h2 {
+                font-size: 2rem;
+            }
+
+            .slide h3 {
+                font-size: 1.5rem;
+            }
+
+            .slide p, .slide ul li {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media print {
+            .sidebar, .navigation, .slide-counter, .mobile-menu-toggle {
+                display: none;
+            }
+
+            .presentation {
+                margin-left: 0;
+            }
+
+            .slide {
+                display: block;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="mobile-menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>March 2025</h2>
+            <p>2 Days Prayer Points</p>
+        </div>
+        <a href="../index.html" class="home-btn">🏠 Home</a>
+        <ul class="slide-menu" id="slideMenu"></ul>
+    </div>
+
+    <div class="presentation">
+        <!-- Slide 1: Title Slide -->
+        <div class="slide active" data-title="Title">
+            <span class="prayer-icon">🙏</span>
+            <h1>2 Days of Prayer</h1>
+            <p class="subtitle">March 5-6, 2025</p>
+            <p class="date-range">Celebrating 25 Years of the Bishopric</p>
+        </div>
+
+        <!-- Slide 2: Overview -->
+        <div class="slide" data-title="Overview">
+            <h2>Prayer Focus</h2>
+            <ul>
+                <li>Day 1: Praying for HIM-U and the Nations</li>
+                <li>Day 2: Praying for Harvest Olney</li>
+                <li>Special focus: 25th Bishopric Celebration</li>
+            </ul>
+        </div>
+
+        <!-- Slide 3: Day 1 Title -->
+        <div class="slide" data-title="Day 1: HIM-U & Nations">
+            <h2>Day 1 - March 5, 2025</h2>
+            <h1>Praying for HIM-U and the Nations</h1>
+            <div class="scripture">
+                <p class="scripture-text">"He who dwells in the shelter of the Most High will remain secure and rest in the shadow of the Almighty [whose power no enemy can withstand]."</p>
+                <p class="scripture-ref">Psalm 91:1 (AMP)</p>
+            </div>
+        </div>
+
+        <!-- Slide 4: Dwelling in Shelter -->
+        <div class="slide" data-title="Day 1: Under His Shelter">
+            <h2>Dwelling in God's Shelter</h2>
+            <div class="scripture">
+                <p class="scripture-text">"He who dwells in the shelter of the Most High will remain secure and rest in the shadow of the Almighty [whose power no enemy can withstand]."</p>
+                <p class="scripture-ref">Psalm 91:1 (AMP)</p>
+            </div>
+            <ul>
+                <li>Thank God that HIM-U will continually dwell under His shelter</li>
+                <li>Thank God that HIM-U's security and confidence is in Jesus and Him alone</li>
+            </ul>
+        </div>
+
+        <!-- Slide 5: 25 Years Thanksgiving -->
+        <div class="slide" data-title="Day 1: 25 Years">
+            <h2>25 Years of Faithfulness</h2>
+            <div class="scripture">
+                <p class="scripture-text">"It is good to give thanks to the LORD, and to sing praises to Your name, O Most High; to declare Your lovingkindness in the morning, and Your faithfulness every night."</p>
+                <p class="scripture-ref">Psalm 92:1-2</p>
+            </div>
+            <ul>
+                <li>Thank God, praise his Holy Name as HIM-U celebrates 25 years of the Bishopric</li>
+                <li>Thank God for His consistent lovingkindness and faithfulness to Bishop and Lady Chrys</li>
+                <li>Declare that HIM-U will fulfill her mission of winning the lost at all costs</li>
+            </ul>
+        </div>
+
+        <!-- Slide 6: Shepherds -->
+        <div class="slide" data-title="Day 1: Shepherds">
+            <h2>Shepherds After God's Heart</h2>
+            <div class="scripture">
+                <p class="scripture-text">"And I will give you shepherds according to My heart, who will feed you with knowledge and understanding."</p>
+                <p class="scripture-ref">Jeremiah 3:15</p>
+            </div>
+            <div class="scripture">
+                <p class="scripture-text">"The eyes of your understanding being enlightened; that you may know what is the hope of His calling, what are the riches of the glory of His inheritance in the saints."</p>
+                <p class="scripture-ref">Ephesians 1:18</p>
+            </div>
+        </div>
+
+        <!-- Slide 7: Bishop & Lady Chrys -->
+        <div class="slide" data-title="Day 1: Bishop & Lady Chrys">
+            <h2>Prayer for Bishop and Lady Chrys</h2>
+            <ul>
+                <li>Thank God for Bishop and Lady Chrys who obeyed the Lord to become missionaries and not refugees</li>
+                <li>Thank God for their faithfulness as committed Shepherds of HIM-U</li>
+                <li>Pray that God continues to enlighten their eyes of understanding in their knowledge of Him spiritually and experientially</li>
+                <li>Pray that the Spirit of the Lord will rest on them mightily as they lead HIM-U</li>
+                <li>Pray they lack nothing good spiritually, emotionally, physically, and financially</li>
+            </ul>
+        </div>
+
+        <!-- Slide 8: Salt of Earth -->
+        <div class="slide" data-title="Day 1: Salt of the Earth">
+            <h2>Salt of the Earth</h2>
+            <div class="scripture">
+                <p class="scripture-text">"You are the salt of the earth; but if the salt has lost its taste (purpose), how can it be made salty? It is no longer good for anything, but to be thrown out and walked on by people."</p>
+                <p class="scripture-ref">Matthew 5:13 (AMP)</p>
+            </div>
+        </div>
+
+        <!-- Slide 9: High Quality Salt -->
+        <div class="slide" data-title="Day 1: Quality Salt">
+            <h2>HIM-U: High Quality Salt</h2>
+            <ul>
+                <li>Thank God for making HIM-U churches the salt in every locality where He planted us</li>
+                <li>Pray that HIM-U churches will be a high-quality salt in the hand of God</li>
+                <li>Pray that no conditions or cultures will render HIM-U churches powerless or ineffective</li>
+            </ul>
+        </div>
+
+        <!-- Slide 10: Pray for Leaders -->
+        <div class="slide" data-title="Day 1: National Leaders">
+            <h2>Prayer for Leaders</h2>
+            <div class="scripture">
+                <p class="scripture-text">"I urge, then, first of all, that petitions, prayers, intercession and thanksgiving be made for all people—for kings and all those in authority, that we may live peaceful and quiet lives in all godliness and holiness."</p>
+                <p class="scripture-ref">1 Timothy 2:1-2 (NIV)</p>
+            </div>
+            <div class="scripture">
+                <p class="scripture-text">"When the righteous are in authority, the people rejoice; but when a wicked man rules, the people groan."</p>
+                <p class="scripture-ref">Proverbs 29:2 (NKJV)</p>
+            </div>
+        </div>
+
+        <!-- Slide 11: US Leadership Prayer -->
+        <div class="slide" data-title="Day 1: US Leadership">
+            <h2>Wisdom for Leaders</h2>
+            <ul>
+                <li>Pray for the President, Vice President, members of Congress and State officials that they will lead by the wisdom of God</li>
+                <li>Pray that the Lord will give them a heart of compassion to lead the people</li>
+                <li>Pray that the Lord will cause righteous men and women to have the ear of the leaders who will hear godly counsel</li>
+            </ul>
+        </div>
+
+        <!-- Slide 12: Believers in Power -->
+        <div class="slide" data-title="Day 1: Believers in Power">
+            <h2>Believers in Position of Power</h2>
+            <div class="scripture">
+                <p class="scripture-text">"One day as Mordecai was on duty at the king's gate, two of the king's eunuchs, Bigthana and Teresh—who were guards at the door of the king's private quarters—became angry at King Xerxes and plotted to assassinate him."</p>
+                <p class="scripture-ref">Esther 2:21 (NIV)</p>
+            </div>
+            <ul>
+                <li>Pray for believers in position of power to hear what the Lord is saying concerning their nations and act accordingly</li>
+                <li>Pray that those in position of power seeking to block the work of God be removed</li>
+            </ul>
+        </div>
+
+        <!-- Slide 13: Supporting Bishops -->
+        <div class="slide" data-title="Day 1: Supporting Bishops">
+            <h2>Lifting Up the Hands</h2>
+            <div class="scripture">
+                <p class="scripture-text">"But Moses' hands became heavy; so they took a stone and put it under him, and he sat on it. And Aaron and Hur supported his hands, one on one side, and the other on the other side; and his hands were steady until the going down of the sun. So Joshua defeated Amalek and his people with the edge of the sword."</p>
+                <p class="scripture-ref">Exodus 17:12-13</p>
+            </div>
+        </div>
+
+        <!-- Slide 14: Bishops Prayer -->
+        <div class="slide" data-title="Day 1: HIM-U Bishops">
+            <h2>Prayer for HIM-U Bishops</h2>
+            <ul>
+                <li>Thank God for Bishop Musa Korfeh, Bishop Bouerima Kimso, Bishop Julius Lagaah, Bishop Daniel Njoya, Bishop Victor Okofor, Bishop Wolo Belleh, and their First Ladies</li>
+                <li>Thank God for those who are lifting up the hands of Bishop Johnson and Lady Chrys</li>
+                <li>Pray that they continuously trust in the Lord and lean on His understanding as they serve HIM-U</li>
+                <li>Declare that they prosper and be in good health even as their souls prosper</li>
+            </ul>
+        </div>
+
+        <!-- Slide 15: Travel & Provision -->
+        <div class="slide" data-title="Day 1: Travel Provision">
+            <h2>Provision for Travel</h2>
+            <div class="scripture">
+                <p class="scripture-text">"And my God shall supply all your need according to His riches in glory by Christ Jesus."</p>
+                <p class="scripture-ref">Philippians 4:19</p>
+            </div>
+            <ul>
+                <li>Agree with the Word of God that those needing Visas will receive them</li>
+                <li>None will lack travel and accommodation finances whether they travel internationally or locally</li>
+                <li>Declare all modes of transportation are covered by the blood of Jesus</li>
+                <li>Cancel incidents and accidents as people come and go back to their respective destinations</li>
+            </ul>
+        </div>
+
+        <!-- Slide 16: Peace for Nations -->
+        <div class="slide" data-title="Day 1: Peace for Nations">
+            <h2>Prayer for Peace</h2>
+            <div class="scripture">
+                <p class="scripture-text">"And work for the peace and prosperity of the city where I sent you into exile. Pray to the LORD for it, for its welfare will determine your welfare."</p>
+                <p class="scripture-ref">Jeremiah 29:7 (NLT)</p>
+            </div>
+            <ul>
+                <li>Taking DRC as a point of contact, pray for the peace of nations affected by war</li>
+                <li>Pray for the leaders to receive godly wisdom to put an end to the conflicts</li>
+            </ul>
+        </div>
+
+        <!-- Slide 17: Day 2 Title -->
+        <div class="slide" data-title="Day 2: Harvest Olney">
+            <h2>Day 2 - March 6, 2025</h2>
+            <h1>Praying for Harvest Olney</h1>
+            <div class="scripture">
+                <p class="scripture-text">"He lets me lie down in green pastures; He leads me beside the still and quiet waters."</p>
+                <p class="scripture-ref">Psalm 23:2 (AMP)</p>
+            </div>
+        </div>
+
+        <!-- Slide 18: Word Preached -->
+        <div class="slide" data-title="Day 2: Word Preached">
+            <h2>The Word Preached</h2>
+            <div class="scripture">
+                <p class="scripture-text">"He lets me lie down in green pastures; He leads me beside the still and quiet waters."</p>
+                <p class="scripture-ref">Psalm 23:2 (AMP)</p>
+            </div>
+            <ul>
+                <li>Declare that the word of God preached in Harvest Olney will cause the hearers to be stabilized in their faith</li>
+                <li>Thank God that the word preached in Harvest Olney will refresh our souls and manifest Christ in and through us</li>
+            </ul>
+        </div>
+
+        <!-- Slide 19: Spiritual Climate -->
+        <div class="slide" data-title="Day 2: Spiritual Climate">
+            <h2>Breaking Through Spiritually</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Listen. No one is able to break into a mighty man's house and steal his property unless he first overpowers the mighty man and ties him up. Then his entire house can be plundered and his possessions taken."</p>
+                <p class="scripture-ref">Mark 3:27 (TPT)</p>
+            </div>
+            <div class="scripture">
+                <p class="scripture-text">"Every place on which the sole of your foot treads shall become yours; your territory shall be from the wilderness to Lebanon, and from the river, the river Euphrates, as far as the western sea (the Mediterranean)."</p>
+                <p class="scripture-ref">Deuteronomy 11:24 (AMP)</p>
+            </div>
+        </div>
+
+        <!-- Slide 20: Olney Belongs to God -->
+        <div class="slide" data-title="Day 2: Olney Territory">
+            <h2>Taking Territory for God</h2>
+            <ul>
+                <li>Declare that the spiritual climate over Olney and surrounding cities is conducive for people being saved in their numbers</li>
+                <li>Pray that any mighty man ruling over Olney and surrounding cities is disposed in Jesus name</li>
+                <li>Thank God that Olney and surrounding cities belong to our God and His Christ</li>
+                <li>Thank God that Harvest Olney is one of the churches God is using to bring great salvation to Olney and surrounding cities</li>
+            </ul>
+        </div>
+
+        <!-- Slide 21: Ministry Workers -->
+        <div class="slide" data-title="Day 2: Ministry Workers">
+            <h2>Ministry Workers</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Work willingly at whatever you do, as though you were working for the Lord rather than for people. Remember that the Lord will give you an inheritance as your reward, and that the Master you are serving is Christ."</p>
+                <p class="scripture-ref">Colossians 3:23-24 (NLT)</p>
+            </div>
+            <ul>
+                <li>Thank God for all the Ministry Workers of Harvest Olney as they give themselves to serve and go the extra mile during The Bishopric</li>
+                <li>Pray for unity of purpose and of mind, peace and strength</li>
+                <li>Thank God for rewarding them in this life and the one to come</li>
+            </ul>
+        </div>
+
+        <!-- Slide 22: Bishopric Celebration -->
+        <div class="slide" data-title="Day 2: Bishopric Services">
+            <h2>Bishopric Celebration Services</h2>
+            <div class="scripture">
+                <p class="scripture-text">"And my speech and my preaching were not with persuasive words of human wisdom, but in demonstration of the Spirit and of power, that your faith should not be in the wisdom of men but in the power of God."</p>
+                <p class="scripture-ref">1 Corinthians 2:4-5</p>
+            </div>
+        </div>
+
+        <!-- Slide 23: Manifested Presence -->
+        <div class="slide" data-title="Day 2: God's Presence">
+            <h2>Manifested Presence of God</h2>
+            <ul>
+                <li>Pray for the Bishopric Celebration for the manifested presence of God during the evening services and teaching sessions during the day</li>
+                <li>Pray that the Word will be preached in the demonstration of the Spirit and of power</li>
+                <li>Pray a glory cloud to tabernacle with us during Praise and Worship Sessions</li>
+            </ul>
+        </div>
+
+        <!-- Slide 24: Wealth Creation -->
+        <div class="slide" data-title="Day 2: Power to Get Wealth">
+            <h2>Power to Get Wealth</h2>
+            <div class="scripture">
+                <p class="scripture-text">"And you shall remember the LORD your God, for it is He who gives you power to get wealth, that He may establish His covenant which He swore to your fathers, as it is this day."</p>
+                <p class="scripture-ref">Deuteronomy 8:18 (NIV)</p>
+            </div>
+        </div>
+
+        <!-- Slide 25: Prosperity -->
+        <div class="slide" data-title="Day 2: Prospering">
+            <h2>Prospering for God's Glory</h2>
+            <ul>
+                <li>Thank God for empowering Harvesters (better paying jobs, promotions, raises, flourishing businesses, ideas, business relations) to be prosperous for His Glory</li>
+                <li>Pray that God is empowering us to be debt free so we have more resources for every good work</li>
+                <li>Declare that as God prospers us we will testify of His faithfulness and remain humble</li>
+            </ul>
+        </div>
+
+        <!-- Slide 26: Generosity -->
+        <div class="slide" data-title="Day 2: Generous Giving">
+            <h2>Cheerful and Generous Giving</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Remember this: Whoever sows sparingly will also reap sparingly, and whoever sows generously will also reap generously. Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver."</p>
+                <p class="scripture-ref">2 Corinthians 9:6-7 (NIV)</p>
+            </div>
+            <ul>
+                <li>Pray that every Harvester will reflect the heart of our Father through our life of generosity</li>
+                <li>Pray that every Harvester will be both willing and able to contribute to "Raising the Walls"</li>
+            </ul>
+        </div>
+
+        <!-- Slide 27: Marriages -->
+        <div class="slide" data-title="Day 2: Marriages">
+            <h2>Marriage and Relationships</h2>
+            <div class="scripture">
+                <p class="scripture-text">"However, each man among you [without exception] is to love his wife as his very own self [with behavior worthy of respect and esteem, always seeking the best for her with an attitude of lovingkindness], and the wife [must see to it] that she respects and delights in her husband."</p>
+                <p class="scripture-ref">Ephesians 5:33 (AMP)</p>
+            </div>
+            <ul>
+                <li>Pray that marriages in Harvest will blossom based on love and mutual respect</li>
+                <li>Pray that the Lord will restore relationships (marriages, between parents and children, among brethren) in Harvest Olney</li>
+            </ul>
+        </div>
+
+        <!-- Slide 28: Praying Church -->
+        <div class="slide" data-title="Day 2: Praying Church">
+            <h2>A Praying Church</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Also [Jesus] told them a parable to the effect that they ought always to pray and not to turn coward (faint, lose heart, and give up)."</p>
+                <p class="scripture-ref">Luke 18:1 (AMPC)</p>
+            </div>
+            <ul>
+                <li>Thank God for making Harvest Olney a Bible based praying church</li>
+                <li>Thank God for the grace to wait on Him in prayer until we receive the answer</li>
+            </ul>
+        </div>
+
+        <!-- Slide 29: Employment -->
+        <div class="slide" data-title="Day 2: Employment">
+            <h2>Employment and Provision</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Go around and ask all your neighbors for empty jars. Don't ask for just a few. Then go inside and shut the door behind you and your sons. Pour oil into all the jars, and as each is filled, put it to one side... Go, sell the oil and pay your debts. You and your sons can live on what is left."</p>
+                <p class="scripture-ref">2 Kings 4:1-7 (NIV)</p>
+            </div>
+        </div>
+
+        <!-- Slide 30: Jobs & Business -->
+        <div class="slide" data-title="Day 2: Jobs & Business">
+            <h2>Supernatural Provision</h2>
+            <ul>
+                <li>Pray that God will comfort our brethren who lost their jobs</li>
+                <li>Thank God for supernatural provisions for our brethren who are in between jobs</li>
+                <li>Pray that God will favor our brethren as they apply for jobs and are interviewed</li>
+                <li>Pray that the Holy Spirit will inspire witty ideas to our brethren to start successful businesses</li>
+            </ul>
+        </div>
+
+        <!-- Slide 31: Immigration -->
+        <div class="slide" data-title="Day 2: Immigration">
+            <h2>Prayer for Immigrants</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Every place on which the sole of your foot treads shall become yours; your territory shall be from the wilderness to Lebanon, and from the river, the river Euphrates, as far as the western sea (the Mediterranean)."</p>
+                <p class="scripture-ref">Deuteronomy 11:24 (AMP)</p>
+            </div>
+            <div class="scripture">
+                <p class="scripture-text">"I now give you permission to make a law that will save the lives of your people. You may use my ring to seal the law, so that it can never be changed."</p>
+                <p class="scripture-ref">Esther 8:7 (CEV)</p>
+            </div>
+        </div>
+
+        <!-- Slide 32: Laws for Immigrants -->
+        <div class="slide" data-title="Day 2: Just Laws">
+            <h2>America as Our Home</h2>
+            <ul>
+                <li>Thank God for giving us America as our home</li>
+                <li>Pray to reverse every evil law targeting immigrants in this country</li>
+                <li>Pray for laws that enable the situation of undocumented immigrants to be regularized</li>
+            </ul>
+        </div>
+
+        <!-- Slide 33: Healing -->
+        <div class="slide" data-title="Day 2: Healing">
+            <h2>By His Stripes We Are Healed</h2>
+            <div class="scripture">
+                <p class="scripture-text">"But He was wounded for our transgressions, He was crushed for our wickedness [our sin, our injustice, our wrongdoing]; The punishment [required] for our well-being fell on Him, and by His stripes (wounds) we are healed."</p>
+                <p class="scripture-ref">Isaiah 53:5 (AMP)</p>
+            </div>
+        </div>
+
+        <!-- Slide 34: Divine Health -->
+        <div class="slide" data-title="Day 2: Divine Health">
+            <h2>Enjoying Divine Health</h2>
+            <ul>
+                <li>Thank Jesus for paying for our healing in full and that no disease can withstand Him</li>
+                <li>Thank Jesus for being our personal healer (the Great Physician)</li>
+                <li>Pray to enforce the healing that we graciously received through Jesus</li>
+                <li>Declare that we are enjoying divine health</li>
+            </ul>
+        </div>
+
+        <!-- Slide 35: Closing Prayer -->
+        <div class="slide" data-title="Closing">
+            <h2>Closing Prayer</h2>
+            <p style="font-size: 1.4rem; text-align: center; margin: 40px 0;">Thank God for 25 years of faithful leadership and ministry through the Bishopric. As we have prayed in agreement according to the Word of God, we declare that He has heard and answered our prayers.</p>
+            <p style="text-align: center; font-size: 2rem; margin-top: 30px;">Amen</p>
+        </div>
+
+        <!-- Slide 36: Thank You -->
+        <div class="slide" data-title="Thank You">
+            <h1>Thank You</h1>
+            <span class="prayer-icon">🙏</span>
+            <p class="subtitle">Celebrating 25 Years of God's Faithfulness</p>
+            <p>May God continue to bless HIM-U and Harvest Olney</p>
+        </div>
+    </div>
+
+    <div class="slide-counter" id="slideCounter"></div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="changeSlide(-1)" id="prevBtn">← Previous</button>
+        <button class="nav-btn" onclick="changeSlide(1)" id="nextBtn">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function generateSlideMenu() {
+            const menu = document.getElementById('slideMenu');
+            slides.forEach((slide, index) => {
+                const title = slide.getAttribute('data-title');
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = '#';
+                a.textContent = `${index + 1}. ${title}`;
+                a.onclick = (e) => {
+                    e.preventDefault();
+                    showSlide(index + 1);
+                };
+                li.appendChild(a);
+                menu.appendChild(li);
+            });
+        }
+
+        function updateSlideMenu() {
+            const menuItems = document.querySelectorAll('.slide-menu a');
+            menuItems.forEach((item, index) => {
+                if (index + 1 === currentSlide) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        function showSlide(n) {
+            if (n > totalSlides) {
+                currentSlide = totalSlides;
+                return;
+            }
+            if (n < 1) {
+                currentSlide = 1;
+                return;
+            }
+
+            currentSlide = n;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+
+            document.getElementById('slideCounter').textContent = `${currentSlide} / ${totalSlides}`;
+
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+
+            updateSlideMenu();
+        }
+
+        function changeSlide(n) {
+            showSlide(currentSlide + n);
+        }
+
+        function toggleMenu() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+                e.preventDefault();
+                changeSlide(1);
+            } else if (e.key === 'Home') {
+                showSlide(1);
+            } else if (e.key === 'End') {
+                showSlide(totalSlides);
+            }
+        });
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                changeSlide(1);
+            }
+            if (touchEndX > touchStartX + 50) {
+                changeSlide(-1);
+            }
+        }
+
+        generateSlideMenu();
+        showSlide(1);
+    </script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trusting Jesus — Transcript Viewer</title>
+  <link rel="stylesheet" href="./assets/css/site.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    .transcript-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .transcript-header {
+      border-bottom: 3px solid #FF8D21;
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .transcript-title {
+      color: #03396C;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .transcript-meta {
+      color: #666;
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+    }
+
+    .transcript-meta strong {
+      color: #03396C;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #FF8D21;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .transcript-content {
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+
+    .transcript-content h1 {
+      color: #03396C;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #FF8D21;
+      padding-bottom: 0.5rem;
+    }
+
+    .transcript-content h2 {
+      color: #03396C;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .transcript-content h3 {
+      color: #FF8D21;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .transcript-content p {
+      margin-bottom: 1rem;
+    }
+
+    .transcript-content blockquote {
+      border-left: 4px solid #FF8D21;
+      padding-left: 1.5rem;
+      margin: 1.5rem 0;
+      color: #555;
+      font-style: italic;
+    }
+
+    .transcript-content ul, .transcript-content ol {
+      margin-bottom: 1rem;
+      padding-left: 2rem;
+    }
+
+    .transcript-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    .transcript-content code {
+      background: #f5f5f5;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+    }
+
+    .transcript-content pre {
+      background: #f5f5f5;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    .transcript-content pre code {
+      background: none;
+      padding: 0;
+    }
+
+    .youtube-link {
+      display: inline-block;
+      background: #FF0000;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    .youtube-link:hover {
+      background: #CC0000;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 3rem;
+      color: #666;
+    }
+
+    .error {
+      background: #ffebee;
+      color: #c62828;
+      padding: 1rem;
+      border-radius: 5px;
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <main id="main" class="container">
+    <div class="transcript-container">
+      <a href="transcripts.html" class="back-link">← Back to Transcripts</a>
+
+      <div id="loading" class="loading">
+        <p>Loading transcript...</p>
+      </div>
+
+      <div id="transcript-viewer" style="display: none;">
+        <div class="transcript-header">
+          <h1 class="transcript-title" id="title"></h1>
+          <div class="transcript-meta" id="meta"></div>
+        </div>
+        <div class="transcript-content" id="content"></div>
+      </div>
+
+      <div id="error" class="error" style="display: none;">
+        <strong>Error:</strong> <span id="error-message"></span>
+      </div>
+    </div>
+  </main>
+
+  <footer>© Trusting Jesus</footer>
+
+  <script>
+    // Get the transcript path from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const transcriptPath = urlParams.get('path');
+    const transcriptId = urlParams.get('id');
+
+    async function loadTranscript() {
+      if (!transcriptPath && !transcriptId) {
+        showError('No transcript specified. Please provide a path or id parameter.');
+        return;
+      }
+
+      try {
+        // First, try to get metadata from transcripts.json
+        let metadata = null;
+        let finalPath = transcriptPath;
+
+        if (transcriptId) {
+          const response = await fetch('./data/transcripts.json');
+          const transcripts = await response.json();
+          metadata = transcripts.find(t => t.id === transcriptId);
+          if (metadata) {
+            finalPath = metadata.path;
+          } else {
+            showError('Transcript not found with id: ' + transcriptId);
+            return;
+          }
+        }
+
+        // Load the markdown file
+        const mdResponse = await fetch(finalPath);
+        if (!mdResponse.ok) {
+          throw new Error('Failed to load transcript: ' + mdResponse.statusText);
+        }
+
+        const markdown = await mdResponse.text();
+
+        // Parse markdown to HTML
+        const html = marked.parse(markdown);
+
+        // Extract title from markdown if not in metadata
+        let title = metadata?.title || 'Transcript';
+        const titleMatch = markdown.match(/^#\s+(.+)$/m);
+        if (titleMatch && !metadata?.title) {
+          title = titleMatch[1];
+        }
+
+        // Display the transcript
+        document.getElementById('title').textContent = title;
+
+        // Build meta information
+        let metaHtml = '';
+        if (metadata) {
+          if (metadata.speaker) metaHtml += `<strong>Speaker:</strong> ${metadata.speaker}<br>`;
+          if (metadata.date) metaHtml += `<strong>Date:</strong> ${new Date(metadata.date).toLocaleDateString()}<br>`;
+          if (metadata.scripture) metaHtml += `<strong>Scripture:</strong> ${metadata.scripture}<br>`;
+          if (metadata.series) metaHtml += `<strong>Series:</strong> ${metadata.series}<br>`;
+          if (metadata.duration) metaHtml += `<strong>Duration:</strong> ${metadata.duration}<br>`;
+          if (metadata.youtubeUrl) {
+            metaHtml += `<a href="${metadata.youtubeUrl}" target="_blank" class="youtube-link">▶ Watch on YouTube</a>`;
+          }
+        }
+        document.getElementById('meta').innerHTML = metaHtml;
+
+        // Display the content
+        document.getElementById('content').innerHTML = html;
+
+        // Show the viewer, hide loading
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('transcript-viewer').style.display = 'block';
+
+        // Update page title
+        document.title = `${title} — Transcript`;
+
+      } catch (error) {
+        console.error('Error loading transcript:', error);
+        showError(error.message);
+      }
+    }
+
+    function showError(message) {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('error').style.display = 'block';
+      document.getElementById('error-message').textContent = message;
+    }
+
+    // Load when DOM is ready
+    window.addEventListener('DOMContentLoaded', loadTranscript);
+  </script>
+</body>
+</html>

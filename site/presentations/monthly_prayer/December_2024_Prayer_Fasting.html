@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>December 2024 - 3 Days Prayer & Fasting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #14213d 0%, #1f4068 100%);
+            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .presentation {
+            margin-left: 280px;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: rgba(20, 33, 61, 0.95);
+            backdrop-filter: blur(10px);
+            border-right: 2px solid rgba(255, 209, 102, 0.3);
+            overflow-y: auto;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .sidebar-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 209, 102, 0.3);
+        }
+
+        .sidebar-header h2 {
+            color: #ffd166;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .sidebar-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .home-btn {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213d;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .home-btn:hover {
+            background: #ffd166;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 209, 102, 0.4);
+        }
+
+        .slide-menu {
+            list-style: none;
+        }
+
+        .slide-menu li {
+            margin-bottom: 8px;
+        }
+
+        .slide-menu a {
+            display: block;
+            padding: 10px 15px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            border-left: 3px solid transparent;
+        }
+
+        .slide-menu a:hover {
+            background: rgba(255, 209, 102, 0.1);
+            border-left-color: #ffd166;
+            color: white;
+        }
+
+        .slide-menu a.active {
+            background: rgba(255, 209, 102, 0.2);
+            border-left-color: #ffd166;
+            color: #ffd166;
+            font-weight: 600;
+        }
+
+        .slide {
+            display: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #ffd166;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #ffd166;
+            border-bottom: 3px solid #ffd166;
+            padding-bottom: 15px;
+        }
+
+        .slide h3 {
+            font-size: 1.8rem;
+            margin: 25px 0 15px 0;
+            color: #ffd166;
+        }
+
+        .slide p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .slide ul {
+            margin: 20px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .slide ul li {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .slide ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ffd166;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+
+        .scripture {
+            background: rgba(255, 255, 255, 0.14);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 6px solid #ffd166;
+            margin: 25px 0;
+        }
+
+        .scripture-text {
+            font-size: 1.4rem;
+            font-style: italic;
+            line-height: 1.9;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .scripture-ref {
+            font-size: 1.2rem;
+            color: #ffd166;
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .prayer-icon {
+            font-size: 4rem;
+            margin: 20px 0;
+            display: block;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+        }
+
+        .date-range {
+            font-size: 1.5rem;
+            color: #ffd166;
+            margin-bottom: 30px;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213d;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: #ffd166;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 209, 102, 0.4);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 30px;
+            left: 320px;
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213d;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213d;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        @media (max-width: 968px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .presentation {
+                margin-left: 0;
+                padding: 80px 20px 100px 20px;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .slide-counter {
+                left: 20px;
+                bottom: 90px;
+            }
+
+            .navigation {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .slide h1 {
+                font-size: 2.5rem;
+            }
+
+            .slide h2 {
+                font-size: 2rem;
+            }
+
+            .slide h3 {
+                font-size: 1.5rem;
+            }
+
+            .slide p, .slide ul li {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media print {
+            .sidebar, .navigation, .slide-counter, .mobile-menu-toggle {
+                display: none;
+            }
+
+            .presentation {
+                margin-left: 0;
+            }
+
+            .slide {
+                display: block;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="mobile-menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>December 2024</h2>
+            <p>3 Days Prayer & Fasting</p>
+        </div>
+        <a href="../index.html" class="home-btn">🏠 Home</a>
+        <ul class="slide-menu" id="slideMenu"></ul>
+    </div>
+
+    <div class="presentation">
+        <!-- Slide 1: Title Slide -->
+        <div class="slide active" data-title="Title">
+            <span class="prayer-icon">🙏</span>
+            <h1>Harvest 3 Days Fasting</h1>
+            <p class="subtitle">December 2024</p>
+            <p class="date-range">A Time of Prayer and Consecration</p>
+        </div>
+
+        <!-- Slide 2: Overview -->
+        <div class="slide" data-title="Overview">
+            <h2>3 Days of Prayer & Fasting</h2>
+            <ul>
+                <li>Day 1: Thanksgiving for Personal Life</li>
+                <li>Day 2: Prayers for Family</li>
+                <li>Day 3: Harvest Church</li>
+            </ul>
+        </div>
+
+        <!-- Slide 3: Day 1 Title -->
+        <div class="slide" data-title="Day 1: Thanksgiving">
+            <h2>Day 1</h2>
+            <h1>Thanksgiving for Personal Life</h1>
+            <div class="scripture">
+                <p class="scripture-text">"Because of the LORD's great love we are not consumed, for his compassions never fail. They are new every morning; great is your faithfulness."</p>
+                <p class="scripture-ref">Lamentations 3:22-23 (NIV)</p>
+            </div>
+        </div>
+
+        <!-- Slide 4: Day 1 - Section 1 -->
+        <div class="slide" data-title="Day 1: Spiritual Growth">
+            <h2>Spiritual Growth & Guidance</h2>
+            <ul>
+                <li>Thank God for His presence, guidance, and faithfulness throughout the year</li>
+                <li>Express gratitude for growth in faith and understanding of His Word</li>
+                <li>Thank Him for answered prayers and divine interventions</li>
+                <li>Acknowledge His protection, provision, and mercies</li>
+            </ul>
+        </div>
+
+        <!-- Slide 5: Day 1 - Section 2 -->
+        <div class="slide" data-title="Day 1: Health & Wellness">
+            <h2>Health & Wellness</h2>
+            <ul>
+                <li>Thank God for the gift of life and good health</li>
+                <li>Be grateful for physical strength and mental clarity</li>
+                <li>Acknowledge His healing power in times of sickness</li>
+                <li>Thank Him for sustaining you through challenges</li>
+            </ul>
+        </div>
+
+        <!-- Slide 6: Day 1 - Section 3 -->
+        <div class="slide" data-title="Day 1: Career & Finances">
+            <h2>Career & Finances</h2>
+            <ul>
+                <li>Thank God for employment opportunities and career growth</li>
+                <li>Be grateful for His provision and financial blessings</li>
+                <li>Acknowledge His wisdom in decision-making</li>
+                <li>Thank Him for open doors and favor in your endeavors</li>
+            </ul>
+        </div>
+
+        <!-- Slide 7: Day 1 - Section 4 -->
+        <div class="slide" data-title="Day 1: Relationships">
+            <h2>Relationships & Community</h2>
+            <ul>
+                <li>Thank God for meaningful friendships and relationships</li>
+                <li>Be grateful for the support of loved ones</li>
+                <li>Acknowledge His grace in resolving conflicts</li>
+                <li>Thank Him for opportunities to be a blessing to others</li>
+            </ul>
+        </div>
+
+        <!-- Slide 8: Day 2 Title -->
+        <div class="slide" data-title="Day 2: Family Prayers">
+            <h2>Day 2</h2>
+            <h1>Prayers for Family</h1>
+            <div class="scripture">
+                <p class="scripture-text">"Unless the LORD builds the house, the builders labor in vain. Unless the LORD watches over the city, the guards stand watch in vain."</p>
+                <p class="scripture-ref">Psalm 127:1 (NIV)</p>
+            </div>
+        </div>
+
+        <!-- Slide 9: Day 2 - Section 1 -->
+        <div class="slide" data-title="Day 2: Unity & Love">
+            <h2>Unity & Love</h2>
+            <ul>
+                <li>Pray for love, peace, and unity in your family</li>
+                <li>Ask God to strengthen bonds and deepen relationships</li>
+                <li>Pray for forgiveness and reconciliation where there is strife</li>
+                <li>Ask for wisdom in communication and understanding</li>
+            </ul>
+        </div>
+
+        <!-- Slide 10: Day 2 - Section 2 -->
+        <div class="slide" data-title="Day 2: Protection & Provision">
+            <h2>Protection & Provision</h2>
+            <ul>
+                <li>Pray for God's protection over every family member</li>
+                <li>Ask for His provision in all areas of need</li>
+                <li>Pray against accidents, illnesses, and harm</li>
+                <li>Ask God to watch over your home and keep it safe</li>
+            </ul>
+        </div>
+
+        <!-- Slide 11: Day 2 - Section 3 -->
+        <div class="slide" data-title="Day 2: Spiritual Growth">
+            <h2>Spiritual Growth of Family</h2>
+            <ul>
+                <li>Pray for the salvation of unsaved family members</li>
+                <li>Ask God to draw everyone closer to Him</li>
+                <li>Pray for spiritual growth and maturity in faith</li>
+                <li>Ask for a hunger for God's Word and prayer in your family</li>
+            </ul>
+        </div>
+
+        <!-- Slide 12: Day 2 - Section 4 -->
+        <div class="slide" data-title="Day 2: Children & Future">
+            <h2>Children & Future Generations</h2>
+            <ul>
+                <li>Pray for the well-being and success of your children</li>
+                <li>Ask God to guide them in their education and career paths</li>
+                <li>Pray for godly friendships and protection from negative influences</li>
+                <li>Ask for wisdom as parents/guardians to raise them in God's ways</li>
+            </ul>
+        </div>
+
+        <!-- Slide 13: Day 3 Title -->
+        <div class="slide" data-title="Day 3: Harvest Church">
+            <h2>Day 3</h2>
+            <h1>Harvest Church</h1>
+            <div class="scripture">
+                <p class="scripture-text">"And let us consider how we may spur one another on toward love and good deeds, not giving up meeting together, as some are in the habit of doing, but encouraging one another—and all the more as you see the Day approaching."</p>
+                <p class="scripture-ref">Hebrews 10:24-25 (NIV)</p>
+            </div>
+        </div>
+
+        <!-- Slide 14: Day 3 - Section 1 -->
+        <div class="slide" data-title="Day 3: Leadership">
+            <h2>Church Leadership</h2>
+            <ul>
+                <li>Pray for wisdom and strength for the pastoral team</li>
+                <li>Ask God to guide leaders in decision-making and vision</li>
+                <li>Pray for protection over their families and ministries</li>
+                <li>Ask for fresh anointing and revelation of God's Word</li>
+            </ul>
+        </div>
+
+        <!-- Slide 15: Day 3 - Section 2 -->
+        <div class="slide" data-title="Day 3: Church Growth">
+            <h2>Church Growth & Expansion</h2>
+            <ul>
+                <li>Pray for numerical and spiritual growth of the church</li>
+                <li>Ask God to bring new souls into the kingdom</li>
+                <li>Pray for effective evangelism and outreach programs</li>
+                <li>Ask for resources and opportunities for expansion</li>
+            </ul>
+        </div>
+
+        <!-- Slide 16: Day 3 - Section 3 -->
+        <div class="slide" data-title="Day 3: Unity & Fellowship">
+            <h2>Unity & Fellowship</h2>
+            <ul>
+                <li>Pray for love and unity among members</li>
+                <li>Ask God to remove divisions and promote peace</li>
+                <li>Pray for meaningful fellowship and genuine relationships</li>
+                <li>Ask for a spirit of service and cooperation</li>
+            </ul>
+        </div>
+
+        <!-- Slide 17: Day 3 - Section 4 -->
+        <div class="slide" data-title="Day 3: Ministry Impact">
+            <h2>Ministry Impact</h2>
+            <ul>
+                <li>Pray for effectiveness in all ministry departments</li>
+                <li>Ask God to empower members with spiritual gifts</li>
+                <li>Pray for youth, children's, and special ministries</li>
+                <li>Ask for testimonies and transformed lives</li>
+            </ul>
+        </div>
+
+        <!-- Slide 18: Closing Prayer -->
+        <div class="slide" data-title="Closing Prayer">
+            <h2>Closing Prayer</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Now to him who is able to do immeasurably more than all we ask or imagine, according to his power that is at work within us, to him be glory in the church and in Christ Jesus throughout all generations, for ever and ever! Amen."</p>
+                <p class="scripture-ref">Ephesians 3:20-21 (NIV)</p>
+            </div>
+        </div>
+
+        <!-- Slide 19: Thank You -->
+        <div class="slide" data-title="Thank You">
+            <h1>Thank You</h1>
+            <span class="prayer-icon">🙏</span>
+            <p class="subtitle">May God bless you abundantly</p>
+            <p>Continue to trust in the Lord with all your heart</p>
+        </div>
+    </div>
+
+    <div class="slide-counter" id="slideCounter"></div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="changeSlide(-1)" id="prevBtn">← Previous</button>
+        <button class="nav-btn" onclick="changeSlide(1)" id="nextBtn">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function generateSlideMenu() {
+            const menu = document.getElementById('slideMenu');
+            slides.forEach((slide, index) => {
+                const title = slide.getAttribute('data-title');
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = '#';
+                a.textContent = `${index + 1}. ${title}`;
+                a.onclick = (e) => {
+                    e.preventDefault();
+                    showSlide(index + 1);
+                };
+                li.appendChild(a);
+                menu.appendChild(li);
+            });
+        }
+
+        function updateSlideMenu() {
+            const menuItems = document.querySelectorAll('.slide-menu a');
+            menuItems.forEach((item, index) => {
+                if (index + 1 === currentSlide) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        function showSlide(n) {
+            if (n > totalSlides) {
+                currentSlide = totalSlides;
+                return;
+            }
+            if (n < 1) {
+                currentSlide = 1;
+                return;
+            }
+
+            currentSlide = n;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+
+            document.getElementById('slideCounter').textContent = `${currentSlide} / ${totalSlides}`;
+
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+
+            updateSlideMenu();
+        }
+
+        function changeSlide(n) {
+            showSlide(currentSlide + n);
+        }
+
+        function toggleMenu() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+                e.preventDefault();
+                changeSlide(1);
+            } else if (e.key === 'Home') {
+                showSlide(1);
+            } else if (e.key === 'End') {
+                showSlide(totalSlides);
+            }
+        });
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                changeSlide(1);
+            }
+            if (touchEndX > touchStartX + 50) {
+                changeSlide(-1);
+            }
+        }
+
+        generateSlideMenu();
+        showSlide(1);
+    </script>
+</body>
+</html>

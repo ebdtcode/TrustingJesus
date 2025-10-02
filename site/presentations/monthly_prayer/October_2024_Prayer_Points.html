@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>October 2024 - 3 Days Prayer Points</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #14213d 0%, #1f4068 100%);
+            color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 280px;
+            background: rgba(20, 33, 61, 0.95);
+            border-right: 2px solid #ffd166;
+            padding: 2rem 1rem;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .sidebar h1 {
+            color: #ffd166;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .sidebar .subtitle {
+            color: #a8dadc;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 209, 102, 0.3);
+        }
+
+        .slide-menu {
+            list-style: none;
+        }
+
+        .slide-menu li {
+            margin-bottom: 0.5rem;
+        }
+
+        .slide-menu a {
+            color: #f8f9fa;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .slide-menu a:hover,
+        .slide-menu a.active {
+            background: rgba(255, 209, 102, 0.2);
+            color: #ffd166;
+            transform: translateX(5px);
+        }
+
+        .main-content {
+            margin-left: 280px;
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .slide-container {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .slide {
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #ffd166;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #ffd166;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #a8dadc;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .scripture {
+            background: rgba(255, 209, 102, 0.1);
+            border-left: 4px solid #ffd166;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .scripture-text {
+            font-style: italic;
+            color: #a8dadc;
+            margin-bottom: 0.5rem;
+        }
+
+        .scripture-ref {
+            color: #ffd166;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .declaration {
+            background: rgba(168, 218, 220, 0.1);
+            border-left: 4px solid #a8dadc;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 209, 102, 0.3);
+        }
+
+        button {
+            background: #ffd166;
+            color: #14213d;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        button:hover:not(:disabled) {
+            background: #ffb938;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 209, 102, 0.4);
+        }
+
+        button:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            text-align: center;
+            color: #a8dadc;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 1rem;
+            }
+
+            .slide-container {
+                padding: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .sidebar,
+            .navigation {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .slide {
+                display: block !important;
+                page-break-after: always;
+            }
+
+            .slide-container {
+                box-shadow: none;
+                background: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>October 2024</h1>
+        <p class="subtitle">3 Days Prayer Points<br>October 2, 3, 4</p>
+        <ul class="slide-menu" id="slideMenu"></ul>
+    </div>
+
+    <div class="main-content">
+        <div class="slide-container">
+            <div id="slides">
+                <!-- Slide 1: Title -->
+                <div class="slide active" data-title="Welcome">
+                    <h2>Harvest Intercontinental Church, Olney</h2>
+                    <h3>Prayer Guide October 2, 3, 4</h3>
+                    <p style="margin-top: 2rem; font-size: 1.3rem; color: #ffd166;">3 Days of Prayer and Fasting</p>
+                    <ul style="list-style: none; margin-left: 0; margin-top: 2rem;">
+                        <li><strong>October 2, 2024 - Praying for HIM-U and the Nations</strong></li>
+                        <li><strong>October 3, 2024 - Praying for Harvest Olney</strong></li>
+                        <li><strong>October 4, 2024 - Praying for Harvest Olney continued</strong></li>
+                    </ul>
+                </div>
+
+                <!-- Day 1: October 2 -->
+                <div class="slide" data-title="Day 1 - HIM-U and Nations">
+                    <h2>October 2, 2024</h2>
+                    <h3>Praying for HIM-U and the Nations</h3>
+                </div>
+
+                <div class="slide" data-title="Opening Declarations">
+                    <h2>Opening Declarations</h2>
+                    <div class="declaration">
+                        <p><strong>Begin with the following declarations of who we are:</strong></p>
+                        <ul>
+                            <li>We are a royal priesthood, a holy nation, His own special people, that we may proclaim the praises of Him who called us out of darkness into His marvelous light; <strong>1 Peter 2:9</strong></li>
+                            <li>He causes us to triumph always in Christ Jesus. <strong>2 Cor 2:14</strong></li>
+                            <li>The Lord reigns forever! <strong>Psalm 9:7</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="slide" data-title="God's Purpose for HIM-U">
+                    <h2>God's Purpose for HIM-U</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"...Declaring the end from the beginning, And from ancient times things that are not yet done, Saying, 'My counsel shall stand, And I will do all My pleasure,'"</p>
+                        <p class="scripture-ref">Isaiah 46:10</p>
+                    </div>
+                    <ul>
+                        <li><strong>Pray</strong> that God's agenda and purpose for HIM-U will be fulfilled through us</li>
+                        <li><strong>Pray</strong> that we will not lose sight of the mandate – A world where no one lives and dies without Christ</li>
+                    </ul>
+                </div>
+
+                <div class="slide" data-title="Gospel of Grace">
+                    <h2>The Gospel of Grace</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"But none of these things move me, neither count I my life dear unto myself, so that I might finish my course with joy, and the ministry, which I have received of the Lord Jesus, to testify the gospel of the grace of God."</p>
+                        <p class="scripture-ref">Acts 20:24</p>
+                    </div>
+                    <ul>
+                        <li><strong>Pray</strong> that the Gospel of grace will be taught and preached throughout HIM-U churches without reservation and hesitation</li>
+                        <li><strong>Pray</strong> that Holy Spirit will help us to understand the Gospel of grace more fully and clearly</li>
+                    </ul>
+                </div>
+
+                <div class="slide" data-title="Preaching Christ">
+                    <h2>Preaching Christ</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"Preach the word! Be ready in season and out of season. Convince, rebuke, exhort, with all longsuffering and teaching."</p>
+                        <p class="scripture-ref">2 Timothy 4:2</p>
+                    </div>
+                    <ul>
+                        <li><strong>Pray</strong> for the Body of Christ will arise in this nation and preach Christ alone</li>
+                        <li><strong>Pray</strong> for the political situation in the U.S. That God will give wisdom to those in authority and to those who advise them</li>
+                        <li><strong>Pray</strong> for the unity of the Body of Christ</li>
+                        <li><strong>Pray</strong> that the Body of Christ will be strengthened with might and power by the Holy Spirit</li>
+                        <li><strong>Pray</strong> that Body of Christ will understand the urgency of the time and pursue God's agenda</li>
+                    </ul>
+                </div>
+
+                <div class="slide" data-title="Peaceful Elections">
+                    <h2>Prayer for America</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"For kings, and for all that are in authority; that we may lead a quiet and peaceable life in all godliness and honesty."</p>
+                        <p class="scripture-ref">Proverbs 21:1</p>
+                    </div>
+                    <ul>
+                        <li><strong>Pray</strong> for peaceful elections</li>
+                        <li><strong>Pray</strong> the fear of God, discernment and wisdom for those in authority – the President, Vice-President, Congress, Judiciary, State Senate, etc</li>
+                        <li><strong>Pray</strong> God's protection upon the USA from all enemies</li>
+                    </ul>
+                </div>
+
+                <div class="slide" data-title="Life Abundant">
+                    <h2>Life Abundant</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"The thief does not come except to steal, and to kill, and to destroy. I have come that they may have life, and that they may have it more abundantly."</p>
+                        <p class="scripture-ref">John 10:10</p>
+                    </div>
+                    <div class="declaration">
+                        <p><strong>Declare Life abundant over all of HIM-U in this our year of LIFE ABUNDANT!</strong></p>
+                    </div>
+                </div>
+
+                <div class="slide" data-title="Prayer for Bishops">
+                    <h2>Prayer for Bishops</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"And let us not grow weary while doing good, for in due season we shall reap if we do not lose heart"</p>
+                        <p class="scripture-ref">Galatians 6:9</p>
+                    </div>
+                    <ul>
+                        <li><strong>Pray</strong> for the Presiding Prelate (Bishop Johnson) and all the other Bishops will not grow weary in well doing</li>
+                        <li><strong>Declare</strong> long life, divine health, wholeness and no weapon formed against them will prosper</li>
+                        <li><strong>Declare</strong> they go from glory to glory and faith to faith</li>
+                    </ul>
+                </div>
+
+                <div class="slide" data-title="Resources for Ministry">
+                    <h2>Resources for Ministry</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"And God is able to bless you abundantly, so that in all things at all times, having all that you need, you will abound in every good work."</p>
+                        <p class="scripture-ref">2 Corinthians 9:8</p>
+                    </div>
+                    <ul>
+                        <li><strong>Pray</strong> for an abundance of resources for every good work the Lord has called HIM-U to do</li>
+                        <li><strong>Pray</strong> for that HIIAU will be trailblazer for great spiritual foundation and academic excellence</li>
+                        <li><strong>Pray</strong> that more schools, universities orphanages, clinics and hospitals will be built</li>
+                    </ul>
+                </div>
+
+                <div class="slide" data-title="Thanksgiving for HIM-U">
+                    <h2>Thanksgiving for HIM-U</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"Praise the Lord..."</p>
+                        <p class="scripture-ref">Psalm 111:1</p>
+                    </div>
+                    <ul>
+                        <li><strong>Thank God</strong> for 34 years of existence as a ministry</li>
+                        <li><strong>Pray</strong> that years ahead as a ministry will be even more glorious and we will see more churches planted in the nations</li>
+                        <li><strong>Pray</strong> that God will raise up more evangelists and prophets in HIM-U</li>
+                    </ul>
+                </div>
+
+                <!-- Day 2: October 3 -->
+                <div class="slide" data-title="Day 2 - Harvest Olney">
+                    <h2>October 3, 2024</h2>
+                    <h3>Praying for Harvest Olney</h3>
+                </div>
+
+                <div class="slide" data-title="Invest Beyond Declarations">
+                    <h2>Invest Beyond Declarations</h2>
+                    <div class="declaration">
+                        <p><strong>Begin with the following declarations:</strong></p>
+                        <ul>
+                            <li><strong>Declare</strong> that God our Father is Jehovah Jireh, our Provider. We have all the finances for Invest Beyond. We see the sanctuary completed and call it so. That our God shall supply all our needs according to His riches in glory by Christ Jesus. <strong>Phil 4:19</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="slide" data-title="Thanksgiving for Harvest Olney">
+                    <h2>Thanksgiving for Harvest Olney</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"Praise ye the LORD. O give thanks unto the LORD; for he is good: for his mercy endureth forever."</p>
+                        <p class="scripture-ref">Psalm 106:1</p>
+                    </div>
+                    <ul>
+                        <li><strong>Thank God</strong> for what he has done in Harvest Olney from the beginning of the year till now</li>
+                        <li><strong>Thank God</strong> for salvation of souls, dedication of lives to Christ and people who have a fresh commitment to go deeper with the Lord</li>
+                        <li><strong>Thank God</strong> for healings, deliverances, promotions, provisions, protection, career breakthroughs, business breakthroughs etc.</li>
+                    </ul>
+                </div>
+
+                <div class="slide" data-title="Invest Beyond - Provision">
+                    <h2>Invest Beyond - Provision</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"So I answered them, and said to them, 'The God of heaven Himself will prosper us; therefore, we His servants will arise and build, but you have no heritage or right or memorial in Jerusalem.'"</p>
+                        <p class="scripture-ref">Nehemiah 2:20</p>
+                    </div>
+                    <ul>
+                        <li><strong>Thank God</strong> for Invest Beyond and how the Lord has provided the resources since we broke ground</li>
+                        <li><strong>Thank God</strong> the sanctuary will be finished on schedule</li>
+                        <li><strong>Thank God</strong> that make those who are willing to give will be able to and those who are able will be willing to give</li>
+                        <li><strong>Declare</strong> we are experiencing increases in business, promotions on job and raises</li>
+                    </ul>
+                </div>
+
+                <div class="slide" data-title="Invest Beyond Team">
+                    <h2>Invest Beyond Team</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"...Do not sorrow, for the joy of the Lord is your strength."</p>
+                        <p class="scripture-ref">Nehemiah 8:10</p>
+                    </div>
+                    <ul>
+                        <li><strong>Pray</strong> that Invest Beyond Team will not be weary or discouraged</li>
+                        <li><strong>Declare</strong> the Holy Spirit is continuously supplying strategies, strength, grace and wisdom to the Invest Beyond Team</li>
+                    </ul>
+                </div>
+
+                <div class="slide" data-title="Understanding the Purpose">
+                    <h2>Understanding the Purpose</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"the sons of Issachar who had understanding of the times, to know what Israel ought to do, their chiefs were two hundred; and all their brethren were at their command."</p>
+                        <p class="scripture-ref">1 Chronicles 12:32</p>
+                    </div>
+                    <ul>
+                        <li><strong>Pray</strong> that God will give us deeper understanding of why we are building this sanctuary - for God's glory, salvation of lost souls, raising a prophetic end-time army and training and releasing men and women for the nations and harvest</li>
+                        <li><strong>Declare</strong> that our hearts are more united as we build this sanctuary, and God is doing a mighty work in our hearts and lives</li>
+                        <li><strong>Declare</strong> during the process of building this sanctuary, God is raising up a mighty army that is completely sold out to God's agenda and purposes</li>
+                    </ul>
+                </div>
+
+                <div class="slide" data-title="Builders and Laborers">
+                    <h2>Builders and Laborers</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"I have called by name Bezaleel the son of Uri, the son of Hur, of the tribe of Judah: And I have filled him with the spirit of God, in wisdom, and in understanding, and in knowledge, and in all manner of workmanship, To devise cunning works, to work in gold, and in silver, and in brass,"</p>
+                        <p class="scripture-ref">Exodus 31:2-4</p>
+                    </div>
+                    <ul>
+                        <li><strong>Pray</strong> God's wisdom and protection on the engineers, builders and laborers</li>
+                        <li><strong>Pray</strong> that they experience God in a new way. May unsaved get saved</li>
+                    </ul>
+                </div>
+
+                <div class="slide" data-title="Protection for Project">
+                    <h2>Protection for the Project</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"No weapon formed against you shall prosper, And every tongue which rises against you in judgment You shall condemn. This is the heritage of the servants of the Lord, And their righteousness is from Me,' Says the Lord."</p>
+                        <p class="scripture-ref">Isaiah 54:17</p>
+                    </div>
+                    <ul>
+                        <li><strong>Declare</strong> no weapons formed against Invest Beyond will prosper</li>
+                        <li><strong>Declare</strong> there will be no injury on the project site</li>
+                        <li><strong>Declare</strong> that the Hand of Lord is upon this project and is being built for God's glory</li>
+                    </ul>
+                </div>
+
+                <div class="slide" data-title="Resources and Favor">
+                    <h2>Resources and Favor</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"I will go before thee and make the crooked places straight: I will break in pieces the gates of brass, and cut in sunder the bars of iron: And I will give thee the treasures of darkness, and hidden riches of secret places, that thou mayest know that I, the LORD, which call thee by thy name, am the God of Israel."</p>
+                        <p class="scripture-ref">Isaiah 45:2-3</p>
+                    </div>
+                    <ul>
+                        <li><strong>Pray</strong> we tap into resources God has designed for the completion of this building</li>
+                        <li><strong>Declare</strong> that we have favor with all regulatory agencies</li>
+                        <li><strong>Pray</strong> that this project will not be halted due to a lack of funds</li>
+                    </ul>
+                </div>
+
+                <div class="slide" data-title="Holy Spirit Baptism">
+                    <h2>Holy Spirit Baptism</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"But thou shalt remember the Lord thy God: for it is he that giveth thee power to get wealth, that he may establish his covenant which he sware unto thy fathers, as it is this day."</p>
+                        <p class="scripture-ref">Deuteronomy 8:18</p>
+                    </div>
+                    <ul>
+                        <li><strong>Pray</strong> for more Harvesters (and those who visit regularly) to see the need to be baptized in the Holy Spirit</li>
+                    </ul>
+                </div>
+
+                <!-- Day 3: October 4 -->
+                <div class="slide" data-title="Day 3 - Harvest Olney cont.">
+                    <h2>October 4, 2024</h2>
+                    <h3>Praying for Harvest Olney continued...</h3>
+                </div>
+
+                <div class="slide" data-title="Healing Declarations">
+                    <h2>Healing Declarations</h2>
+                    <div class="declaration">
+                        <p><strong>Declarations:</strong></p>
+                        <ul>
+                            <li><strong>Declare</strong> Jesus is our healer. He is still same healer 2000 years ago. <strong>Hebrew 13:8</strong></li>
+                            <li><strong>Declare</strong> that the Glory of the Lord is present at Harvest Olney and fills every service; that people are being born again and baptized in the Holy Spirit every week; that no one comes and leaves in the same way because God is in our midst. <strong>Matt. 18:20</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="slide" data-title="By His Stripes">
+                    <h2>By His Stripes We Are Healed</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"But He was wounded for our transgressions, He was bruised for our iniquities; the chastisement for our peace was upon Him, and by His stripes we are healed."</p>
+                        <p class="scripture-ref">Isaiah 53:5</p>
+                    </div>
+                    <ul>
+                        <li><strong>Declare</strong> God's healing power is manifesting in our lives</li>
+                        <li><strong>Declare</strong> every cell, tissue, organ and system is whole</li>
+                        <li><strong>Pray</strong> for healing for those who are dealing with emotional and mental issues</li>
+                        <li><strong>Pray</strong> that we see more testimonies of people being healed at Harvest Olney from all kinds of diseases</li>
+                        <li><strong>Pray</strong> the gifts of healings will operate at higher level in our services</li>
+                        <li><strong>Pray</strong> that we make a practice in our everyday lives to pray for the sick and see them recover</li>
+                    </ul>
+                </div>
+
+                <div class="slide" data-title="Identity in Christ">
+                    <h2>Our Identity in Christ</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"giving thanks to the Father who has qualified us to be partakers of the inheritance of the saints in the light. He has delivered us from the power of darkness and conveyed us into the kingdom of the Son of His love, in whom we have redemption through His blood, the forgiveness of sins."</p>
+                        <p class="scripture-ref">Colossians 1:12-14</p>
+                    </div>
+                    <ul>
+                        <li><strong>Pray</strong> that God gives us a greater revelation of who we are in Christ Jesus</li>
+                        <li><strong>Pray</strong> that we understand more fully that we are partakers of the inheritance of saints in the light</li>
+                        <li><strong>Declare</strong> we have been delivered from the kingdom of darkness</li>
+                        <li><strong>Declare</strong> that we are in Kingdom of the Son of His love</li>
+                        <li><strong>Declare</strong> we have redemption through His blood and the forgiveness of sins</li>
+                    </ul>
+                </div>
+
+                <div class="slide" data-title="Favor and Provision">
+                    <h2>Favor and Provision</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"For you bless the righteous, O Lord; You cover him with favor as with a shield."</p>
+                        <p class="scripture-ref">Psalm 5:12</p>
+                    </div>
+                    <ul>
+                        <li><strong>Pray</strong> that the Lord will give favor to Harvesters looking for jobs, needing immigration papers, needing promotions, wanting to start businesses...</li>
+                        <li><strong>Pray</strong> that God will give those trust Him for godly spouses their heart desires according to His will</li>
+                        <li><strong>Pray</strong> for married couples that are trusting the Lord for the fruit of the womb will see the manifestations</li>
+                    </ul>
+                </div>
+
+                <div class="slide" data-title="Longing for God">
+                    <h2>Longing for God's Presence</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"As the deer pants for the water brooks, So pants my soul for You, O God. My soul thirsts for God, for the living God..."</p>
+                        <p class="scripture-ref">Psalm 42:1-2</p>
+                    </div>
+                    <ul>
+                        <li><strong>Pray</strong> that Harvesters will long for God's presence</li>
+                    </ul>
+                </div>
+
+                <div class="slide" data-title="God's Glory">
+                    <h2>God's Glory</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"So that the priests could not continue ministering because of the cloud; for the glory of the Lord filled the house of God."</p>
+                        <p class="scripture-ref">2 Chronicles 5:14</p>
+                    </div>
+                    <ul>
+                        <li><strong>Thank God</strong> that the Lord is graciously being present in our midst</li>
+                        <li><strong>Pray</strong> that we see a greater manifestation of God's glory and power in our midst</li>
+                        <li><strong>Pray</strong> each pulpit minister will have fresh grace and anointing</li>
+                        <li><strong>Pray</strong> that the supernatural and miraculous will become our experience every time we gather</li>
+                        <li><strong>Pray</strong> that there will be greater dimension of the revelation of God's Word</li>
+                    </ul>
+                </div>
+
+                <div class="slide" data-title="Desire for the Word">
+                    <h2>Desire for the Word</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"As newborn babes, desire the pure milk of the word, that you may grow thereby,"</p>
+                        <p class="scripture-ref">1 Peter 2:2</p>
+                    </div>
+                    <ul>
+                        <li><strong>Pray</strong> that each Harvester will sincerely desire the Word</li>
+                        <li><strong>Pray</strong> that we see desire to grow and mature into the image of Christ</li>
+                        <li><strong>Declare</strong> we refuse to remain spiritual babies</li>
+                    </ul>
+                </div>
+
+                <div class="slide" data-title="Beholding God's Glory">
+                    <h2>Beholding God's Glory</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"But we all, with unveiled face, beholding as in a mirror the glory of the Lord, are being transformed into the same image from glory to glory, just as by the Spirit of the Lord."</p>
+                        <p class="scripture-ref">2 Corinthians 3:18</p>
+                    </div>
+                    <ul>
+                        <li><strong>Pray</strong> that we Harvester will behold God's glory intentionally in all situation and circumstance</li>
+                        <li><strong>Pray</strong> that we will behold Jesus as our healer, good shepherd, our high priest, Lamb of God etc.</li>
+                    </ul>
+                </div>
+
+                <div class="slide" data-title="Church Attendance">
+                    <h2>Church Attendance</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"And let us consider how we may spur one another on toward love and good deeds, not giving up meeting together, as some are in the habit of doing, but encouraging one another...."</p>
+                        <p class="scripture-ref">Hebrews 10:24-25a</p>
+                    </div>
+                    <ul>
+                        <li><strong>Pray</strong> that God will increase our attendance, bringing back those who had stopped attending and increasing the attendance of those who visit for the first time</li>
+                        <li><strong>Pray</strong> that God will give us "Godly", not just good strategies as our leaders plan for how to do this</li>
+                    </ul>
+                </div>
+
+                <!-- Closing -->
+                <div class="slide" data-title="Closing Prayer">
+                    <h2>Closing Prayer</h2>
+                    <div class="declaration">
+                        <p style="font-size: 1.3rem; text-align: center; margin-top: 3rem;">
+                            <strong>CLOSING: Thank God for the assurance that as we, the righteous, have prayed in agreement in the name of Jesus according to the Word of God, He has heard and answered. Amen</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation">
+                <button id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+                <div class="slide-counter">
+                    <span id="currentSlide">1</span> / <span id="totalSlides">33</span>
+                </div>
+                <button id="nextBtn" onclick="changeSlide(1)">Next →</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        // Generate slide menu
+        const slideMenu = document.getElementById('slideMenu');
+        slides.forEach((slide, index) => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = '#';
+            a.textContent = slide.dataset.title;
+            a.onclick = (e) => {
+                e.preventDefault();
+                goToSlide(index);
+            };
+            li.appendChild(a);
+            slideMenu.appendChild(li);
+        });
+
+        function updateSlideCounter() {
+            document.getElementById('currentSlide').textContent = currentSlide + 1;
+            document.getElementById('totalSlides').textContent = totalSlides;
+        }
+
+        function updateButtons() {
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function updateMenu() {
+            const menuItems = slideMenu.querySelectorAll('a');
+            menuItems.forEach((item, index) => {
+                item.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[n].classList.add('active');
+            updateSlideCounter();
+            updateButtons();
+            updateMenu();
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+            if (currentSlide < 0) currentSlide = 0;
+            showSlide(currentSlide);
+        }
+
+        function goToSlide(n) {
+            currentSlide = n;
+            showSlide(currentSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+            if (e.key === 'Home') goToSlide(0);
+            if (e.key === 'End') goToSlide(totalSlides - 1);
+        });
+
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) changeSlide(1);
+            if (touchEndX > touchStartX + 50) changeSlide(-1);
+        }
+
+        // Initialize
+        updateSlideCounter();
+        updateButtons();
+        updateMenu();
+    </script>
+</body>
+</html>

@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>February 2025 - 2 Days of Prayer and Fasting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #14213d 0%, #1f4068 100%);
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 280px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2rem 1rem;
+            overflow-y: auto;
+            border-right: 2px solid rgba(255, 209, 102, 0.3);
+        }
+
+        .sidebar h3 {
+            color: #ffd166;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            text-align: center;
+            border-bottom: 2px solid #ffd166;
+            padding-bottom: 0.5rem;
+        }
+
+        .slide-menu {
+            list-style: none;
+        }
+
+        .slide-menu li {
+            padding: 0.7rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            border-left: 3px solid transparent;
+        }
+
+        .slide-menu li:hover {
+            background: rgba(255, 209, 102, 0.1);
+            border-left-color: #ffd166;
+            transform: translateX(5px);
+        }
+
+        .slide-menu li.active {
+            background: rgba(255, 209, 102, 0.2);
+            border-left-color: #ffd166;
+            font-weight: bold;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .slide-container {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 3rem 4rem;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            overflow-y: auto;
+        }
+
+        .slide.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .slide h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #ffd166;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #ffd166;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #ffd166;
+        }
+
+        .slide p, .slide li {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .slide ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .scripture {
+            background: rgba(255, 209, 102, 0.1);
+            border-left: 4px solid #ffd166;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .scripture-text {
+            font-style: italic;
+            font-size: 1.4rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .scripture-ref {
+            color: #ffd166;
+            font-weight: bold;
+            text-align: right;
+            font-size: 1.2rem;
+        }
+
+        .declaration {
+            background: rgba(168, 218, 220, 0.1);
+            border-left: 4px solid #a8dadc;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .declaration p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 2px solid rgba(255, 209, 102, 0.3);
+        }
+
+        .nav-btn {
+            background: #ffd166;
+            color: #14213d;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: #ffa500;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-btn:disabled {
+            background: #666;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-counter {
+            color: #ffd166;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+
+            .slide {
+                padding: 2rem 1.5rem;
+            }
+
+            .slide h1 {
+                font-size: 2rem;
+            }
+
+            .slide h2 {
+                font-size: 1.8rem;
+            }
+
+            .slide h3 {
+                font-size: 1.5rem;
+            }
+
+            .slide p, .slide li {
+                font-size: 1.1rem;
+            }
+
+            .scripture-text {
+                font-size: 1.2rem;
+            }
+
+            .scripture-ref {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Navigation</h3>
+            <ul class="slide-menu" id="slideMenu"></ul>
+        </aside>
+
+        <div class="main-content">
+            <div class="slide-container" id="slideContainer">
+                <!-- Slide 1: Title -->
+                <div class="slide active" data-title="Welcome">
+                    <h1>February 2025</h1>
+                    <h2>2 Days of Prayer and Fasting</h2>
+                    <h3>February 6, 7, 2025</h3>
+                    <p style="font-size: 1.5rem; margin-top: 2rem;">Harvest Intercontinental Church, Olney</p>
+                    <p style="font-size: 1.3rem; margin-top: 1rem; color: #ffd166;">Year of Unshakable Hope</p>
+                </div>
+
+                <!-- Slide 2: Day One Title -->
+                <div class="slide" data-title="Day 1 - HIM-U and Nations">
+                    <h2>Day One</h2>
+                    <h3>February 6, 2025</h3>
+                    <h3 style="color: #a8dadc;">Praying for HIM-U and the Nations</h3>
+                </div>
+
+                <!-- Slide 3: Opening Declarations -->
+                <div class="slide" data-title="Who We Are">
+                    <h3>Begin with declarations of who we are:</h3>
+                    <div class="declaration">
+                        <ul>
+                            <li>We have been justified – completely forgiven and made righteous, in Christ Jesus (Romans 5:1)</li>
+                            <li>We are united with the Lord, and we are one spirit with Him! (1 Corinthians 6:17)</li>
+                            <li>We cannot be separated from the love of God (Romans 8:35-39)</li>
+                            <li>We have direct access to God through the Holy Spirit (Ephesians 2:18)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 4: Kingdom Come -->
+                <div class="slide" data-title="Your Kingdom Come">
+                    <div class="scripture">
+                        <p class="scripture-text">"Your kingdom come, Your will be done, on earth as it is in heaven."</p>
+                        <p class="scripture-ref">Matthew 6:10 (NKJV)</p>
+                    </div>
+                    <div class="declaration">
+                        <p><strong>Pray that God's kingdom will come and that His will be done on the earth as it is in heaven!</strong></p>
+                    </div>
+                </div>
+
+                <!-- Slide 5: Pray for All People -->
+                <div class="slide" data-title="Pray for All People">
+                    <div class="scripture">
+                        <p class="scripture-text">"I urge you, first of all, to pray for all people. Ask God to help them; intercede on their behalf, and give thanks for them. Pray this way for kings and all who are in authority so that we can live peaceful and quiet lives marked by godliness and dignity."</p>
+                        <p class="scripture-ref">1 Timothy 2:1-2 (NLT)</p>
+                    </div>
+                </div>
+
+                <!-- Slide 6: Pray for Nations -->
+                <div class="slide" data-title="Pray for Nations">
+                    <div class="declaration">
+                        <ul>
+                            <li>Pray for the nations, asking God to intervene in their situations: that where there is war and political unrest, He will bring peace; that where there is famine and food insecurity, He will bring relief; that where there is genocide, He will bring an end to the situation.</li>
+                            <li>Thank God for a peaceful transition of power to the new President of the U.S., and the elected members of Congress and State officials.</li>
+                            <li>Pray that God will lead the new administration in all things in the next four years, so that we can live peaceful and quiet lives marked by godliness and dignity.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 7: Pray for America -->
+                <div class="slide" data-title="Pray for America">
+                    <div class="scripture">
+                        <p class="scripture-text">"And work for the peace and prosperity of the city where I sent you into exile. Pray to the LORD for it, for its welfare will determine your welfare."</p>
+                        <p class="scripture-ref">Jeremiah 29:7 (NLT)</p>
+                    </div>
+                    <div class="scripture">
+                        <p class="scripture-text">"By the blessing of the upright the city is exalted, but it is overthrown by the mouth of the wicked."</p>
+                        <p class="scripture-ref">Proverbs 11:11 (NKJV)</p>
+                    </div>
+                </div>
+
+                <!-- Slide 8: Peace and Prosperity -->
+                <div class="slide" data-title="Peace and Prosperity">
+                    <div class="declaration">
+                        <ul>
+                            <li>Pray for America, that God will give wisdom to those in authority and to those who advise them.</li>
+                            <li>Pray that America will experience more peace and prosperity.</li>
+                            <li>Pray the same for each of the nations that HIM-U represents.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 9: Wisdom for Leaders -->
+                <div class="slide" data-title="Wisdom for Leaders">
+                    <div class="scripture">
+                        <p class="scripture-text">"If any of you lacks wisdom, you should ask God, who gives generously to all without finding fault, and it will be given to you."</p>
+                        <p class="scripture-ref">James 1:5 (NIV)</p>
+                    </div>
+                    <div class="declaration">
+                        <ul>
+                            <li>Thank God for this wisdom He generously provides to all without finding fault.</li>
+                            <li>Pray for the Presiding Prelate (Bishop Johnson) and all the other Bishops, that God give them wisdom as they lead HIM-U.</li>
+                            <li>Pray for God's continuous protection, provision, and leading upon all the HIM-U Pastors and their wives, and all missionaries.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 10: Abundant Grace -->
+                <div class="slide" data-title="Abundant Grace">
+                    <div class="scripture">
+                        <p class="scripture-text">"With great power the apostles continued to give their testimony about the resurrection of the Lord Jesus. And abundant grace was upon them all."</p>
+                        <p class="scripture-ref">Acts 4:33 (BSB)</p>
+                    </div>
+                    <div class="declaration">
+                        <ul>
+                            <li>Thank God for the Word we receive from the pulpits every week.</li>
+                            <li>Declare that the abundant grace of God will continue to rest upon all Bishops, Pastors and Ministers at HIM-U, and the power of God will be manifested through each of them in greater ways.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 11: Spirit's Power -->
+                <div class="slide" data-title="Spirit's Power">
+                    <div class="scripture">
+                        <p class="scripture-text">"My message and my preaching were not with persuasive words of wisdom, but with a demonstration of the Spirit's power, so that your faith would not rest on men's wisdom, but on God's power."</p>
+                        <p class="scripture-ref">1 Corinthians 2:4-5 (BSB)</p>
+                    </div>
+                    <div class="declaration">
+                        <p><strong>Pray that amazing signs and wonders will occur as the Word increases among our churches.</strong></p>
+                    </div>
+                </div>
+
+                <!-- Slide 12: Word Continues to Increase -->
+                <div class="slide" data-title="Word Increases">
+                    <div class="scripture">
+                        <p class="scripture-text">"And the word of God continued to increase, and the number of the disciples multiplied greatly in Jerusalem, and a great many of the priests became obedient to the faith."</p>
+                        <p class="scripture-ref">Acts 6:7 (ESV)</p>
+                    </div>
+                </div>
+
+                <!-- Slide 13: Gospel Spreads -->
+                <div class="slide" data-title="Gospel Spreads">
+                    <div class="declaration">
+                        <ul>
+                            <li>Pray that the Word of God will continue to spread and prevail in every nation HIM-U represents, and that the Gospel will be preached with boldness, and without apology.</li>
+                            <li>Pray that the number of disciples will multiply exceedingly across all HIM-U churches around the world.</li>
+                            <li>Declare that in every nation HIM-U represents, from North to South and East to West, men, women, boys and girls will become obedient to the faith.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 14: Resources -->
+                <div class="slide" data-title="Resources for Good Work">
+                    <div class="scripture">
+                        <p class="scripture-text">"And God is able to bless you abundantly, so that in all things at all times, having all that you need, you will abound in every good work."</p>
+                        <p class="scripture-ref">2 Corinthians 9:8 (NIV)</p>
+                    </div>
+                    <div class="declaration">
+                        <ul>
+                            <li>Pray for an abundance of resources for every good work the Lord has called HIM-U to do.</li>
+                            <li>Pray that HIM-U members will be faithful to give generously to HIM-U projects</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 15: No Weapon -->
+                <div class="slide" data-title="No Weapon">
+                    <div class="scripture">
+                        <p class="scripture-text">"No weapon formed against you shall prosper, and every tongue which rises against you in judgment You shall condemn. This is the heritage of the servants of the Lord, and their righteousness is from Me," says the Lord.</p>
+                        <p class="scripture-ref">Isaiah 54:17 (NKJV)</p>
+                    </div>
+                    <div class="declaration">
+                        <ul>
+                            <li>Declare no weapon formed against HIM-U, the Bishops, Pastors and members shall prosper.</li>
+                            <li>Declare that HIM-U goes from faith to faith, from strength to strength, and from glory to glory through Christ Jesus.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 16: Day Two Title -->
+                <div class="slide" data-title="Day 2 - Harvest Olney">
+                    <h2>Day Two</h2>
+                    <h3>February 7, 2025</h3>
+                    <h3 style="color: #a8dadc;">Praying for Harvest Olney</h3>
+                </div>
+
+                <!-- Slide 17: Day Two Opening -->
+                <div class="slide" data-title="Opening Declarations">
+                    <h3>Begin with the following declarations:</h3>
+                    <div class="declaration">
+                        <ul>
+                            <li>Declare that God not only hears our prayers, but that He answers (Isaiah 65:24)</li>
+                            <li>Declare our God is able to do exceedingly abundantly above all that we ask or think according to the power that works in us (Ephesians 3:20)</li>
+                            <li>Declare that all things work together for our good. We are more than conquerors through Him that loves us. Nothing can separate us from the love of God which is in Christ Jesus our Lord (Romans 8:28, 37, 39)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 18: Everlasting Love -->
+                <div class="slide" data-title="Everlasting Love">
+                    <div class="scripture">
+                        <p class="scripture-text">"Long ago the LORD said to Israel: 'I have loved you, my people, with an everlasting love. With unfailing love I have drawn you to myself.'"</p>
+                        <p class="scripture-ref">Jeremiah 31:3 (NLT)</p>
+                    </div>
+                    <div class="declaration">
+                        <ul>
+                            <li>Declare: My Father loves me with an everlasting love. I have never not been loved by Him.</li>
+                            <li>Thank God for drawing you closer to Him.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 19: Sons and Daughters -->
+                <div class="slide" data-title="Sons and Daughters">
+                    <div class="scripture">
+                        <p class="scripture-text">"I will be a Father to you, and you shall be My sons and daughters, Says the LORD Almighty."</p>
+                        <p class="scripture-ref">2 Corinthians 6:18 (NKJV)</p>
+                    </div>
+                    <div class="scripture">
+                        <p class="scripture-text">"Every good gift and every perfect gift is from above, coming down from the Father of lights, with whom there is no variation or shadow due to change."</p>
+                        <p class="scripture-ref">James 1:17 (ESV)</p>
+                    </div>
+                </div>
+
+                <!-- Slide 20: Father's Faithfulness -->
+                <div class="slide" data-title="Father's Faithfulness">
+                    <div class="declaration">
+                        <ul>
+                            <li>Declare: My Father, God, is so pleased with my being His child that He will never leave me.</li>
+                            <li>Declare: My Father is faithful. He will supply all my needs according to His riches in glory by Christ Jesus!</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 21: God's Word Works -->
+                <div class="slide" data-title="God's Word Works">
+                    <div class="scripture">
+                        <p class="scripture-text">"So shall my word be that goes out from my mouth; it shall not return to me empty, but it shall accomplish that which I purpose, and shall succeed in the thing for which I sent it."</p>
+                        <p class="scripture-ref">Isaiah 55:11 (ESV)</p>
+                    </div>
+                </div>
+
+                <!-- Slide 22: Word Produces Fruit -->
+                <div class="slide" data-title="Word Produces Fruit">
+                    <div class="declaration">
+                        <ul>
+                            <li>Declare that the Word of God works in us.</li>
+                            <li>Thank God for the power in His Word to produce fruit, to accomplish all that He sends the Word to do, and to prosper everywhere He sends the Word.</li>
+                            <li>Pray that in this year of Unshakable Hope, the Word of God will ignite hope in our hearts, reviving dreams and visions, and giving us strength to fulfill God's purposes for our lives.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 23: Hope as Anchor -->
+                <div class="slide" data-title="Hope as Anchor">
+                    <div class="scripture">
+                        <p class="scripture-text">"We have this hope as an anchor for the soul, firm and secure. It enters the inner sanctuary behind the curtain..."</p>
+                        <p class="scripture-ref">Hebrews 6:19 (NIV)</p>
+                    </div>
+                    <div class="declaration">
+                        <ul>
+                            <li>Thank God for being a faithful anchor for our souls, and praise Him for the hope we have through Jesus Christ.</li>
+                            <li>Declare our unwavering trust in His promises and His perfect plan for our lives.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 24: Filled with Holy Spirit -->
+                <div class="slide" data-title="Filled with Holy Spirit">
+                    <div class="scripture">
+                        <p class="scripture-text">"Barnabas was a good man, full of the Holy Spirit and faith, and a great number of people were brought to the Lord."</p>
+                        <p class="scripture-ref">Acts 11:24 (NLT)</p>
+                    </div>
+                    <div class="declaration">
+                        <ul>
+                            <li>Pray that every Harvester will be filled with the Holy Spirit.</li>
+                            <li>Thank God for open doors to share the Gospel locally and globally and for all opportunities to bring people closer to God.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 25: The Helper -->
+                <div class="slide" data-title="The Helper">
+                    <div class="scripture">
+                        <p class="scripture-text">"And I will pray the Father, and He will give you another Helper, that He may abide with you forever, the Spirit of truth, whom the world cannot receive, because it neither sees Him nor knows Him; but you know Him, for He dwells with you and will be in you."</p>
+                        <p class="scripture-ref">John 14:16-17 (NKJV)</p>
+                    </div>
+                </div>
+
+                <!-- Slide 26: Fellowship with Holy Spirit -->
+                <div class="slide" data-title="Fellowship with Holy Spirit">
+                    <div class="declaration">
+                        <ul>
+                            <li>Pray that we will learn to fellowship with the Holy Spirit so that we can know Him and His ways.</li>
+                            <li>Pray that we will partner with the Holy Spirit in everything we do.</li>
+                            <li>Pray that we shall covet the gifts of the Holy Spirit.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 27: Invest Beyond -->
+                <div class="slide" data-title="Invest Beyond">
+                    <div class="scripture">
+                        <p class="scripture-text">"So, I answered them, and said to them, 'The God of heaven Himself will prosper us; therefore, we His servants will arise and build, but you have no heritage or right or memorial in Jerusalem.'"</p>
+                        <p class="scripture-ref">Nehemiah 2:20 (NKJV)</p>
+                    </div>
+                </div>
+
+                <!-- Slide 28: Building the Walls -->
+                <div class="slide" data-title="Building the Walls">
+                    <div class="declaration">
+                        <ul>
+                            <li>Thank God for Invest Beyond and how the Lord has provided the resources since we broke ground.</li>
+                            <li>Thank God that those who are willing to give will be able to, and those who are able to give will be willing to.</li>
+                            <li>Declare we are experiencing increases in business, promotions on jobs and raises.</li>
+                            <li>Thank God for this next phase of Invest Beyond – Building the Walls will be completed on time.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 29: God Works While We Wait -->
+                <div class="slide" data-title="God Works While We Wait">
+                    <div class="scripture">
+                        <p class="scripture-text">"For since the world began, no ear has heard and no eye has seen a God like You, who works for those who wait for him!"</p>
+                        <p class="scripture-ref">Isaiah 64:4 (NLT)</p>
+                    </div>
+                    <div class="declaration">
+                        <ul>
+                            <li>Declare that our God is working as we wait for answers to our prayers.</li>
+                            <li>Pray 2 Corinthians 4:18, that as we wait, the Holy Spirit will help us to "fix our eyes not on what is seen, but on what is unseen, since what is seen is temporary, but what is unseen is eternal."</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 30: Unshakable Hope -->
+                <div class="slide" data-title="Year of Unshakable Hope">
+                    <div class="scripture">
+                        <p class="scripture-text">"After they prayed, the place where they were meeting was shaken. And they were all filled with the Holy Spirit and spoke the word of God boldly."</p>
+                        <p class="scripture-ref">Acts 4:31 (NIV)</p>
+                    </div>
+                    <div class="declaration">
+                        <p><strong>Pray that in this our Year of Unshakable Hope, this will be our portion, that the heavens will be open over our services in the power, and in the manifestations of the Holy Spirit and His gifts.</strong></p>
+                    </div>
+                </div>
+
+                <!-- Slide 31: Closing -->
+                <div class="slide" data-title="Closing Thanksgiving">
+                    <h2>CLOSING</h2>
+                    <div class="declaration" style="margin-top: 3rem;">
+                        <p style="font-size: 1.5rem;"><strong>Thank God for the assurance that as we, the righteous, have prayed in agreement in the name of Jesus according to the Word of God, He has heard and answered. Amen</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+                <span class="slide-counter">
+                    <span id="currentSlide">1</span> / <span id="totalSlides">31</span>
+                </span>
+                <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const slideMenu = document.getElementById('slideMenu');
+
+        // Generate slide menu
+        slides.forEach((slide, index) => {
+            const li = document.createElement('li');
+            li.textContent = slide.getAttribute('data-title');
+            li.onclick = () => goToSlide(index);
+            slideMenu.appendChild(li);
+        });
+
+        const menuItems = document.querySelectorAll('.slide-menu li');
+
+        function updateSlide() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                menuItems[index].classList.remove('active');
+            });
+
+            slides[currentSlide].classList.add('active');
+            menuItems[currentSlide].classList.add('active');
+
+            document.getElementById('currentSlide').textContent = currentSlide + 1;
+            document.getElementById('totalSlides').textContent = totalSlides;
+
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+
+            // Scroll menu item into view
+            menuItems[currentSlide].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+            updateSlide();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlide();
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+            if (e.key === 'Home') goToSlide(0);
+            if (e.key === 'End') goToSlide(totalSlides - 1);
+        });
+
+        // Touch support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) changeSlide(1);
+            if (touchEndX > touchStartX + 50) changeSlide(-1);
+        }
+
+        // Initialize
+        updateSlide();
+    </script>
+</body>
+</html>

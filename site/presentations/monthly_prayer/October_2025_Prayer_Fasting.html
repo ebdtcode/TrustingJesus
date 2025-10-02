@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>October 2025 Prayer & Fasting - HIM-U</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #14213d 0%, #1f4068 100%);
+            color: #ffffff;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .presentation {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 280px;
+            background: rgba(20, 33, 61, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem 1.5rem;
+            overflow-y: auto;
+            border-right: 2px solid #ffd166;
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar.hidden {
+            transform: translateX(-100%);
+        }
+
+        .sidebar h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #ffd166;
+        }
+
+        .sidebar .date {
+            font-size: 0.9rem;
+            color: #a8dadc;
+            margin-bottom: 2rem;
+        }
+
+        .slide-menu {
+            list-style: none;
+        }
+
+        .slide-menu li {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+        }
+
+        .slide-menu li:hover {
+            background: rgba(255, 209, 102, 0.2);
+            transform: translateX(5px);
+        }
+
+        .slide-menu li.active {
+            background: rgba(255, 209, 102, 0.3);
+            border-left: 4px solid #ffd166;
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 3rem;
+            overflow-y: auto;
+            height: 100vh;
+        }
+
+        .slide {
+            display: none;
+            animation: fadeIn 0.5s ease;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #ffd166;
+            border-bottom: 3px solid #ffd166;
+            padding-bottom: 1rem;
+        }
+
+        .slide h3 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem 0;
+            color: #a8dadc;
+        }
+
+        .slide ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .slide ul li {
+            margin: 1rem 0;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .slide ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ffd166;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .scripture {
+            background: rgba(255, 209, 102, 0.1);
+            border-left: 4px solid #ffd166;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .scripture-text {
+            font-style: italic;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .scripture-ref {
+            text-align: right;
+            color: #ffd166;
+            font-weight: bold;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 50;
+        }
+
+        .nav-btn {
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213d;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .nav-btn:hover {
+            background: #ffd166;
+            transform: scale(1.05);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: rgba(255, 209, 102, 0.2);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            z-index: 50;
+        }
+
+        .toggle-sidebar {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213d;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 101;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-sidebar:hover {
+            background: #ffd166;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.visible {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 2rem 1rem;
+            }
+
+            .slide h2 {
+                font-size: 1.8rem;
+            }
+
+            .slide h3 {
+                font-size: 1.4rem;
+            }
+
+            .slide ul li {
+                font-size: 1rem;
+            }
+
+            .navigation {
+                bottom: 1rem;
+                right: 1rem;
+                left: 1rem;
+                justify-content: space-between;
+            }
+
+            .nav-btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media print {
+            .sidebar,
+            .navigation,
+            .slide-counter,
+            .toggle-sidebar {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .slide {
+                display: block !important;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="toggle-sidebar" onclick="toggleSidebar()">☰ Menu</button>
+    <div class="slide-counter">
+        <span id="currentSlide">1</span> / <span id="totalSlides">0</span>
+    </div>
+
+    <div class="presentation">
+        <nav class="sidebar" id="sidebar">
+            <h1>October 2025</h1>
+            <p class="date">3 Days Prayer & Fasting</p>
+            <p class="date">October 1-3, 2025</p>
+            <ul class="slide-menu" id="slideMenu"></ul>
+        </nav>
+
+        <main class="main-content">
+            <div class="slide active" data-title="Welcome">
+                <h2>October 2025 Prayer & Fasting</h2>
+                <h3>HIMU and Nations - Unshakable Hope</h3>
+                <div class="scripture">
+                    <p class="scripture-text">"Faithful is he that calleth you, who also will do it."</p>
+                    <p class="scripture-ref">1 Thessalonians 5:24</p>
+                </div>
+                <ul>
+                    <li>October 1-3, 2025</li>
+                    <li>God's Faithfulness to HIM-U</li>
+                    <li>Apostolic and Prophetic Era</li>
+                    <li>Unshakable Hope Anchored in Christ</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Day 1: HIMU and Nations">
+                <h2>Day 1: HIMU and Nations</h2>
+                <h3>Wednesday, October 1, 2025</h3>
+                <div class="scripture">
+                    <p class="scripture-text">"Faithful is he that calleth you, who also will do it."</p>
+                    <p class="scripture-ref">1 Thessalonians 5:24</p>
+                </div>
+                <ul>
+                    <li>God's Faithfulness to HIM-U</li>
+                    <li>Apostolic and Prophetic Era</li>
+                    <li>Praying for Our Bishops</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="God's Faithfulness">
+                <h2>God's Faithfulness to HIM-U</h2>
+                <h3>Thanksgiving for Recent Missions</h3>
+                <ul>
+                    <li>Thank God for accompanying Bishop to Tanzania and Zambia</li>
+                    <li>Praise Him for testimonies of transformation</li>
+                    <li>Celebrate the expanding vision of HIM-U across nations</li>
+                    <li>God has been faithful in opening international doors</li>
+                    <li>His presence went before us and prepared the way</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Apostolic Era">
+                <h2>Apostolic and Prophetic Era of HIM-U</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"And this gospel of the kingdom shall be preached in all the world for a witness unto all nations; and then shall the end come."</p>
+                    <p class="scripture-ref">Matthew 24:14</p>
+                </div>
+            </div>
+
+            <div class="slide" data-title="Apostolic Prayer Points">
+                <h2>Apostolic Era - Prayer Points</h2>
+                <ul>
+                    <li>Pray for establishment of new churches in unreached areas</li>
+                    <li>Spiritual awakening across all 6 dioceses</li>
+                    <li>Open doors in new nations and territories</li>
+                    <li>Signs, wonders, and miracles following the preaching</li>
+                    <li>Bold apostolic leadership raising up worldwide</li>
+                    <li>Prophetic voices speaking God's word with power</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Six Diocesan Bishops">
+                <h2>Thank God for Six Diocesan Bishops</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"That I may know him, and the power of his resurrection, and the fellowship of his sufferings, being made conformable unto his death."</p>
+                    <p class="scripture-ref">Philippians 3:10</p>
+                </div>
+            </div>
+
+            <div class="slide" data-title="Presiding Prelate">
+                <h2>Pray for the Presiding Prelate & Lady Chrys</h2>
+                <ul>
+                    <li>Divine wisdom for apostolic leadership</li>
+                    <li>Strength and good health for the journey</li>
+                    <li>Fresh anointing for global impact</li>
+                    <li>Protection over their lives and ministry</li>
+                    <li>Unity and love in their marriage</li>
+                    <li>Favor with world leaders and influencers</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Our Bishops">
+                <h2>Pray for Our Six Diocesan Bishops</h2>
+                <h3>Kimso Boerima • Julius Laggah • Wolo Belleh<br>Musa Korfeh • Alain Njoya • Victor Okafor</h3>
+                <ul>
+                    <li>Know Him deeply and intimately (Philippians 3:10)</li>
+                    <li>Be vessels of honor, sanctified and useful</li>
+                    <li>Preach the undiluted Word with boldness</li>
+                    <li>Their children will love the Lord with all their hearts</li>
+                    <li>All their needs supplied according to His riches</li>
+                    <li>Continually seek God's face in prayer and worship</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Day 1 Closing">
+                <h2>Day 1 Closing Declaration</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"In the day when I cried thou answeredst me, and strengthenedst me with strength in my soul."</p>
+                    <p class="scripture-ref">Psalm 138:3</p>
+                </div>
+                <ul>
+                    <li>God hears our prayers for HIM-U and nations</li>
+                    <li>He strengthens us with His supernatural power</li>
+                    <li>The apostolic era is now upon HIM-U</li>
+                    <li>Our bishops walk in divine authority</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Day 2: Prayer for HIM-U Olney">
+                <h2>Day 2: Prayer for HIM-U Olney</h2>
+                <h3>Thursday, October 2, 2025</h3>
+                <div class="scripture">
+                    <p class="scripture-text">"Every time you cross my mind, I break out in exclamations of thanks to God. Each exclamation is a trigger to prayer. I find myself praying for you with a glad heart. I am so pleased that you have continued on in this with us, believing and proclaiming God's Message."</p>
+                    <p class="scripture-ref">Philippians 1:3-6 (MSG)</p>
+                </div>
+            </div>
+
+            <div class="slide" data-title="Thank God for HIM-U Olney">
+                <h2>Thank God for HIM-U Olney</h2>
+                <ul>
+                    <li>Being part of the HIM-U family and global movement</li>
+                    <li>Our dedicated leaders who serve with excellence</li>
+                    <li>Continuous commitment to God's vision</li>
+                    <li>Faithful members who show up week after week</li>
+                    <li>The testimonies and transformations we've witnessed</li>
+                    <li>God's presence that dwells among us</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Pray for Leaders">
+                <h2>Pray for HIM-U Olney Leaders</h2>
+                <ul>
+                    <li>Serve with excitement and renewed passion</li>
+                    <li>Continue serving with love and genuine humility</li>
+                    <li>Never depart from God's message and truth</li>
+                    <li>Wisdom in leading their families and ministries</li>
+                    <li>Protection from burnout and discouragement</li>
+                    <li>Fresh anointing for every assignment</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Last Quarter 2025">
+                <h2>Last Quarter of 2025 - Unshakable Hope</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"So God has given both his promise and his oath. These two things are unchangeable because it is impossible for God to lie. Therefore, we who have fled to him for refuge can have great confidence as we hold to the hope that lies before us. This hope is a strong and trustworthy anchor for our souls."</p>
+                    <p class="scripture-ref">Hebrews 6:18-19 (TPT)</p>
+                </div>
+            </div>
+
+            <div class="slide" data-title="Unshakable Hope Declaration">
+                <h2>Our Anchor of Hope</h2>
+                <ul>
+                    <li>Our hope is fastened to the mercy seat in heaven</li>
+                    <li>God's promises are unchangeable and certain</li>
+                    <li>We finish 2025 strong with unshakable confidence</li>
+                    <li>No storm can move us from our firm foundation</li>
+                    <li>Our hope in Christ will not disappoint</li>
+                    <li>We declare breakthrough in the final quarter</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Invest Beyond">
+                <h2>Thank Him for Invest Beyond</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"And let us not be weary in well doing: for in due season we shall reap, if we faint not."</p>
+                    <p class="scripture-ref">Galatians 6:9</p>
+                </div>
+                <ul>
+                    <li>Financial doors opening in unexpected ways</li>
+                    <li>No layoffs - job security for all members</li>
+                    <li>New jobs and promotions coming forth</li>
+                    <li>Business opportunities and contracts</li>
+                    <li>Increase and multiplication in our investments</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="God's Protection">
+                <h2>Thanking God for His Protection</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"Who shall separate us from the love of Christ? shall tribulation, or distress, or persecution, or famine, or nakedness, or peril, or sword?... Nay, in all these things we are more than conquerors through him that loved us."</p>
+                    <p class="scripture-ref">Romans 8:35-39</p>
+                </div>
+            </div>
+
+            <div class="slide" data-title="More Than Conquerors">
+                <h2>We Are More Than Conquerors</h2>
+                <ul>
+                    <li>Nothing can separate us from God's love</li>
+                    <li>Protected from every weapon formed against us</li>
+                    <li>Safe from accidents, diseases, and harm</li>
+                    <li>Angels encamped around us and our families</li>
+                    <li>Covered by the blood of Jesus</li>
+                    <li>Victory in every battle we face</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Walls of Jericho">
+                <h2>Walls of Jericho to Crumble</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"So the people shouted when the priests blew with the trumpets: and it came to pass, when the people heard the sound of the trumpet, and the people shouted with a great shout, that the wall fell down flat."</p>
+                    <p class="scripture-ref">Joshua 6:20</p>
+                </div>
+                <ul>
+                    <li>Our praise brings down every obstacle</li>
+                    <li>Barriers to breakthrough are collapsing</li>
+                    <li>Victory comes through worship and obedience</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Wisdom from Above">
+                <h2>Wisdom from Above</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"And he removed from thence, and digged another well; and for that they strove not: and he called the name of it Rehoboth; and he said, For now the LORD hath made room for us, and we shall be fruitful in the land."</p>
+                    <p class="scripture-ref">Genesis 26:21-22</p>
+                </div>
+                <ul>
+                    <li>Be innovative like Isaac - don't give up</li>
+                    <li>God makes room for us - Rehoboth means "enough room"</li>
+                    <li>Wisdom to navigate challenges creatively</li>
+                    <li>Supernatural strategies for increase</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Peace for America">
+                <h2>Peace and Stability of America</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"Pray for the peace of Jerusalem: they shall prosper that love thee. Peace be within thy walls, and prosperity within thy palaces. For my brethren and companions' sakes, I will now say, Peace be within thee. Because of the house of the LORD our God I will seek thy good."</p>
+                    <p class="scripture-ref">Psalms 122:6-9 (TPT)</p>
+                </div>
+            </div>
+
+            <div class="slide" data-title="Pray for America">
+                <h2>Pray for America</h2>
+                <ul>
+                    <li>Peace within our borders and cities</li>
+                    <li>Wisdom for national leaders and decision-makers</li>
+                    <li>Unity across racial and political divides</li>
+                    <li>Economic stability and prosperity</li>
+                    <li>Protection from terrorism and violence</li>
+                    <li>Spiritual awakening across the nation</li>
+                    <li>Justice and righteousness to prevail</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Pray for the Sick">
+                <h2>Pray for the Sick</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"Is any sick among you? let him call for the elders of the church; and let them pray over him, anointing him with oil in the name of the Lord: And the prayer of faith shall save the sick, and the Lord shall raise him up."</p>
+                    <p class="scripture-ref">James 5:14-15</p>
+                </div>
+            </div>
+
+            <div class="slide" data-title="Healing Declarations">
+                <h2>Healing and Wholeness</h2>
+                <ul>
+                    <li>Cancel every plan of the enemy against our health</li>
+                    <li>Declare healing over every sick body</li>
+                    <li>By His stripes we are healed</li>
+                    <li>No disease can stay in our bodies</li>
+                    <li>Life and health flowing through every organ</li>
+                    <li>Complete restoration and recovery</li>
+                    <li>Testimony of divine healing</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Day 2 Closing">
+                <h2>Day 2 Closing - Confidence in Prayer</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"And since we have such confidence toward God, we know that he hears us whenever we ask anything that is according to his will. And if we know that he hears us in whatever we ask, we also know that we have obtained the requests we ask of him."</p>
+                    <p class="scripture-ref">1 John 5:14-15 (TPT)</p>
+                </div>
+            </div>
+
+            <div class="slide" data-title="Final Declarations">
+                <h2>October 2025 Declarations</h2>
+                <ul>
+                    <li>HIM-U is entering an apostolic and prophetic era</li>
+                    <li>Our bishops walk in divine authority and power</li>
+                    <li>HIM-U Olney finishes 2025 with unshakable hope</li>
+                    <li>Financial breakthrough is our portion</li>
+                    <li>We are protected and victorious</li>
+                    <li>Walls of limitation are crumbling</li>
+                    <li>America experiences peace and stability</li>
+                    <li>Healing flows to every sick person</li>
+                    <li>God hears and answers our prayers</li>
+                </ul>
+            </div>
+
+            <div class="slide" data-title="Closing Prayer">
+                <h2>Closing Prayer</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"Faithful is he that calleth you, who also will do it."</p>
+                    <p class="scripture-ref">1 Thessalonians 5:24</p>
+                </div>
+                <ul>
+                    <li>Father, thank You for Your faithfulness to HIM-U</li>
+                    <li>Thank You for our bishops and leaders</li>
+                    <li>Thank You for unshakable hope in Christ</li>
+                    <li>Thank You for provision, protection, and healing</li>
+                    <li>We receive all You have prepared for us</li>
+                    <li>To You alone be glory, honor, and praise</li>
+                    <li>In Jesus' mighty name, Amen</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const slideMenu = document.getElementById('slideMenu');
+
+        // Initialize slide menu
+        slides.forEach((slide, index) => {
+            const li = document.createElement('li');
+            li.textContent = `${index + 1}. ${slide.dataset.title}`;
+            li.onclick = () => showSlide(index + 1);
+            slideMenu.appendChild(li);
+        });
+
+        function showSlide(n) {
+            if (n > totalSlides) currentSlide = totalSlides;
+            if (n < 1) currentSlide = 1;
+            currentSlide = n;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+
+            document.getElementById('currentSlide').textContent = currentSlide;
+            document.getElementById('totalSlides').textContent = totalSlides;
+
+            // Update menu
+            const menuItems = slideMenu.querySelectorAll('li');
+            menuItems.forEach((item, index) => {
+                item.classList.toggle('active', index === currentSlide - 1);
+            });
+
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+
+            // Scroll to top
+            document.querySelector('.main-content').scrollTop = 0;
+        }
+
+        function changeSlide(n) {
+            showSlide(currentSlide + n);
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('hidden');
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+            if (e.key === 'Home') showSlide(1);
+            if (e.key === 'End') showSlide(totalSlides);
+            if (e.key === ' ') {
+                e.preventDefault();
+                changeSlide(1);
+            }
+        });
+
+        // Touch support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.querySelector('.main-content').addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.querySelector('.main-content').addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) changeSlide(1);
+            if (touchEndX > touchStartX + 50) changeSlide(-1);
+        }
+
+        // Initialize
+        showSlide(1);
+    </script>
+</body>
+</html>

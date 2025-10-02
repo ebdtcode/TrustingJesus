@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>January 2025 - 21 Days Prayer & Fasting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #14213d 0%, #1f4068 100%);
+            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .presentation {
+            margin-left: 280px;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: rgba(20, 33, 61, 0.95);
+            backdrop-filter: blur(10px);
+            border-right: 2px solid rgba(255, 209, 102, 0.3);
+            overflow-y: auto;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .sidebar-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 209, 102, 0.3);
+        }
+
+        .sidebar-header h2 {
+            color: #ffd166;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .sidebar-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .home-btn {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213d;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .home-btn:hover {
+            background: #ffd166;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 209, 102, 0.4);
+        }
+
+        .slide-menu {
+            list-style: none;
+        }
+
+        .slide-menu li {
+            margin-bottom: 8px;
+        }
+
+        .slide-menu a {
+            display: block;
+            padding: 10px 15px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            border-left: 3px solid transparent;
+        }
+
+        .slide-menu a:hover {
+            background: rgba(255, 209, 102, 0.1);
+            border-left-color: #ffd166;
+            color: white;
+        }
+
+        .slide-menu a.active {
+            background: rgba(255, 209, 102, 0.2);
+            border-left-color: #ffd166;
+            color: #ffd166;
+            font-weight: 600;
+        }
+
+        .slide {
+            display: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #ffd166;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #ffd166;
+            border-bottom: 3px solid #ffd166;
+            padding-bottom: 15px;
+        }
+
+        .slide h3 {
+            font-size: 1.8rem;
+            margin: 25px 0 15px 0;
+            color: #ffd166;
+        }
+
+        .slide p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .slide ul {
+            margin: 20px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .slide ul li {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .slide ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ffd166;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+
+        .scripture {
+            background: rgba(255, 255, 255, 0.14);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 6px solid #ffd166;
+            margin: 25px 0;
+        }
+
+        .scripture-text {
+            font-size: 1.4rem;
+            font-style: italic;
+            line-height: 1.9;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .scripture-ref {
+            font-size: 1.2rem;
+            color: #ffd166;
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .prayer-icon {
+            font-size: 4rem;
+            margin: 20px 0;
+            display: block;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+        }
+
+        .date-range {
+            font-size: 1.5rem;
+            color: #ffd166;
+            margin-bottom: 30px;
+        }
+
+        .highlight-box {
+            background: rgba(255, 209, 102, 0.15);
+            border: 2px solid #ffd166;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213d;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: #ffd166;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 209, 102, 0.4);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 30px;
+            left: 320px;
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213d;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213d;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        @media (max-width: 968px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .presentation {
+                margin-left: 0;
+                padding: 80px 20px 100px 20px;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .slide-counter {
+                left: 20px;
+                bottom: 90px;
+            }
+
+            .navigation {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .slide h1 {
+                font-size: 2.5rem;
+            }
+
+            .slide h2 {
+                font-size: 2rem;
+            }
+
+            .slide h3 {
+                font-size: 1.5rem;
+            }
+
+            .slide p, .slide ul li {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media print {
+            .sidebar, .navigation, .slide-counter, .mobile-menu-toggle {
+                display: none;
+            }
+
+            .presentation {
+                margin-left: 0;
+            }
+
+            .slide {
+                display: block;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="mobile-menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>January 2025</h2>
+            <p>21 Days Prayer & Fasting</p>
+        </div>
+        <a href="../index.html" class="home-btn">🏠 Home</a>
+        <ul class="slide-menu" id="slideMenu"></ul>
+    </div>
+
+    <div class="presentation">
+        <!-- Slide 1: Title Slide -->
+        <div class="slide active" data-title="Title">
+            <span class="prayer-icon">🙏</span>
+            <h1>21 Days of Prayer & Fasting</h1>
+            <p class="subtitle">Unshakable Hope</p>
+            <p class="date-range">January 2025 - Week 1: Anchored in Hope</p>
+        </div>
+
+        <!-- Slide 2: Key Scriptures -->
+        <div class="slide" data-title="Key Scriptures">
+            <h2>Key Scriptures</h2>
+            <div class="scripture">
+                <p class="scripture-text">"We have this hope as an anchor for the soul, firm and secure..."</p>
+                <p class="scripture-ref">Hebrews 6:19</p>
+            </div>
+            <div class="scripture">
+                <p class="scripture-text">"Against all hope, Abraham in hope believed and so became the father of many nations."</p>
+                <p class="scripture-ref">Romans 4:18</p>
+            </div>
+        </div>
+
+        <!-- Slide 3: Fasting Guidelines -->
+        <div class="slide" data-title="Fasting Guidelines">
+            <h2>21 Days Fasting Guidelines</h2>
+            <ul>
+                <li>Week One: Daniel Fast - fruits and vegetables</li>
+                <li>Week Two: Continue fruits/vegetables OR one meal a day</li>
+                <li>Week Three: Continue fruits/vegetables OR one meal a day</li>
+                <li>Remember to drink water to avoid dehydration</li>
+                <li>For those with medical issues, decide what is best for you</li>
+            </ul>
+        </div>
+
+        <!-- Slide 4: Week 1 Theme -->
+        <div class="slide" data-title="Week 1 Theme">
+            <h1>Week 1: Anchored in Hope</h1>
+            <p class="subtitle">Theme: Strengthening Personal Hope</p>
+            <div class="highlight-box">
+                <p style="font-size: 1.5rem; text-align: center;">7 Days of Hope-Filled Prayer</p>
+            </div>
+        </div>
+
+        <!-- Slide 5: Day 1 Title -->
+        <div class="slide" data-title="Day 1: Thanksgiving">
+            <h2>Day 1</h2>
+            <h1>Thanksgiving for Hope</h1>
+            <div class="scripture">
+                <p class="scripture-text">"Enter his gates with thanksgiving and his courts with praise; give thanks to Him and praise his name."</p>
+                <p class="scripture-ref">Psalm 100:4</p>
+            </div>
+        </div>
+
+        <!-- Slide 6: Day 1 - Prayer Point 1 -->
+        <div class="slide" data-title="Day 1: Enter His Presence">
+            <h2>Enter His Presence</h2>
+            <div class="scripture">
+                <p class="scripture-text">"For in this hope we were saved. But hope that is seen is no hope at all. Who hopes for what they already have? But if we hope for what we do not yet have, we wait for it patiently."</p>
+                <p class="scripture-ref">Romans 8:24-25</p>
+            </div>
+            <ul>
+                <li>Thank God that we can enter His Presence because of Jesus</li>
+                <li>Declare our unwavering trust in His promises</li>
+                <li>Declare trust in His perfect plan for our lives</li>
+            </ul>
+        </div>
+
+        <!-- Slide 7: Day 1 - Prayer Point 2 -->
+        <div class="slide" data-title="Day 1: Our Anchor">
+            <h2>Hope as Our Anchor</h2>
+            <div class="scripture">
+                <p class="scripture-text">"We have this hope as an anchor for the soul, firm and secure. It enters the inner sanctuary behind the curtain..."</p>
+                <p class="scripture-ref">Hebrews 6:19</p>
+            </div>
+            <ul>
+                <li>Thank God for being a faithful anchor for our souls</li>
+                <li>Praise Him for the hope we have through Jesus Christ</li>
+            </ul>
+        </div>
+
+        <!-- Slide 8: Day 1 - Prayer Point 3 -->
+        <div class="slide" data-title="Day 1: Christ in You">
+            <h2>Christ in You</h2>
+            <div class="scripture">
+                <p class="scripture-text">"To them God has chosen to make known among the Gentiles the glorious riches of this mystery, which is Christ in you, the hope of glory."</p>
+                <p class="scripture-ref">Colossians 1:27</p>
+            </div>
+            <ul>
+                <li>Thank God for the glorious riches of this mystery</li>
+                <li>Thank Him that Christ is in us, the Hope of Glory</li>
+                <li>Praise Him that we are in Him</li>
+            </ul>
+        </div>
+
+        <!-- Slide 9: Day 1 - Prayer Point 4 -->
+        <div class="slide" data-title="Day 1: Hold Unswervingly">
+            <h2>Hold Unswervingly to Hope</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Let us hold unswervingly to the hope we profess, for He who promised is faithful."</p>
+                <p class="scripture-ref">Hebrews 10:23</p>
+            </div>
+            <ul>
+                <li>Ask the Holy Spirit to help us hold tightly without wavering</li>
+                <li>Hold to the hope we have and profess</li>
+                <li>Trust because He who called us is faithful and can be trusted</li>
+            </ul>
+        </div>
+
+        <!-- Slide 10: Day 1 - Prayer Point 5 -->
+        <div class="slide" data-title="Day 1: Hope & Future">
+            <h2>Plans for Hope & a Future</h2>
+            <div class="scripture">
+                <p class="scripture-text">"For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, plans to give you hope and a future."</p>
+                <p class="scripture-ref">Jeremiah 29:11</p>
+            </div>
+            <ul>
+                <li>Thank God for His plans to give us hope and a future</li>
+                <li>Trust His plans in whatever situation we find ourselves</li>
+            </ul>
+        </div>
+
+        <!-- Slide 11: Day 1 - Prayer Point 6 -->
+        <div class="slide" data-title="Day 1: Source of Hope">
+            <h2>God is the Source of Hope</h2>
+            <div class="scripture">
+                <p class="scripture-text">"I pray that God, the source of hope, will fill you completely with joy and peace because you trust in him. Then you will overflow with confident hope through the power of the Holy Spirit."</p>
+                <p class="scripture-ref">Romans 15:13 (NLT)</p>
+            </div>
+            <ul>
+                <li>Thank God that He is the source of our Hope</li>
+                <li>Pray to grow in our trust of Him</li>
+                <li>Ask Him to fill us completely with His joy and peace</li>
+            </ul>
+        </div>
+
+        <!-- Slide 12: Day 2 Title -->
+        <div class="slide" data-title="Day 2: Renewing Trust">
+            <h2>Day 2</h2>
+            <h1>Renewing Trust in God's Promises</h1>
+            <div class="scripture">
+                <p class="scripture-text">"Being fully persuaded that God had power to do what he had promised."</p>
+                <p class="scripture-ref">Romans 4:20-21</p>
+            </div>
+        </div>
+
+        <!-- Slide 13: Day 2 - Prayer Point 1 -->
+        <div class="slide" data-title="Day 2: Confidence in Promises">
+            <h2>Confidence in God's Promises</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Now to him who is able to do immeasurably more than all we ask or imagine, according to his power that is at work within us..."</p>
+                <p class="scripture-ref">Ephesians 3:20</p>
+            </div>
+            <ul>
+                <li>Pray for renewed confidence in God's promises when situations seem impossible</li>
+                <li>Declare that God is able to do exceedingly abundantly above all we ask or think</li>
+                <li>Pray to hide this Word in our hearts in 2025</li>
+            </ul>
+        </div>
+
+        <!-- Slide 14: Day 2 - Prayer Point 2 -->
+        <div class="slide" data-title="Day 2: Yes in Christ">
+            <h2>All Promises are Yes</h2>
+            <div class="scripture">
+                <p class="scripture-text">"For no matter how many promises God has made, they are 'Yes' in Christ. And so through him the 'Amen' is spoken by us to the glory of God."</p>
+                <p class="scripture-ref">2 Corinthians 1:20</p>
+            </div>
+            <ul>
+                <li>Ask God for grace to remain steadfast in trials</li>
+            </ul>
+        </div>
+
+        <!-- Slide 15: Day 2 - Prayer Point 3 -->
+        <div class="slide" data-title="Day 2: He Remains Faithful">
+            <h2>He Remains Faithful</h2>
+            <div class="scripture">
+                <p class="scripture-text">"If we are faithless, he remains faithful, for he cannot disown himself."</p>
+                <p class="scripture-ref">2 Timothy 2:13</p>
+            </div>
+            <ul>
+                <li>Ask the Holy Spirit to help us remember this about God</li>
+                <li>He remains faithful even when we are not</li>
+            </ul>
+        </div>
+
+        <!-- Slide 16: Day 2 - Prayer Point 4 -->
+        <div class="slide" data-title="Day 2: Power of His Word">
+            <h2>Power of God's Word</h2>
+            <div class="scripture">
+                <p class="scripture-text">"It is the same with my word. I send it out, and it always produces fruit. It will accomplish all I want it to, and it will prosper everywhere I send it."</p>
+                <p class="scripture-ref">Isaiah 55:11 (NLT)</p>
+            </div>
+            <ul>
+                <li>Thank God that His Word produces fruit</li>
+                <li>Thank Him that His Word accomplishes all He sends it to do</li>
+                <li>Thank Him that His Word prospers everywhere He sends it</li>
+            </ul>
+        </div>
+
+        <!-- Slide 17: Day 2 - Prayer Point 5 -->
+        <div class="slide" data-title="Day 2: Powerful Prayer">
+            <h2>Our Prayers are Powerful</h2>
+            <div class="scripture">
+                <p class="scripture-text">"The earnest prayer of a righteous person has great power and produces wonderful results."</p>
+                <p class="scripture-ref">James 5:16b (NLT)</p>
+            </div>
+            <ul>
+                <li>Declare that we are the righteousness of God in Christ</li>
+                <li>Our prayers are powerful and produce results</li>
+                <li>God hears and answers our prayers</li>
+            </ul>
+        </div>
+
+        <!-- Slide 18: Day 3 Title -->
+        <div class="slide" data-title="Day 3: Overcoming Challenges">
+            <h2>Day 3</h2>
+            <h1>Overcoming Challenges with Hope</h1>
+            <div class="scripture">
+                <p class="scripture-text">"We can rejoice, too, when we run into problems and trials, for we know that they help us develop endurance."</p>
+                <p class="scripture-ref">Romans 5:3-5</p>
+            </div>
+        </div>
+
+        <!-- Slide 19: Day 3 - Prayer Point 1 -->
+        <div class="slide" data-title="Day 3: Strength in Trials">
+            <h2>Strength to Overcome</h2>
+            <ul>
+                <li>Pray for strength to overcome trials with hope and joy</li>
+                <li>Pray that this strength be based on God's promises, not on feelings</li>
+                <li>Declare victory over fear, doubt, and discouragement in Jesus' name</li>
+            </ul>
+        </div>
+
+        <!-- Slide 20: Day 3 - Prayer Point 2 -->
+        <div class="slide" data-title="Day 3: God's Goodness">
+            <h2>See the Lord's Goodness</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Yet I am confident I will see the Lord's goodness while I am here in the land of the living."</p>
+                <p class="scripture-ref">Psalm 27:13</p>
+            </div>
+            <ul>
+                <li>Ask for faith to walk in God's promises daily</li>
+                <li>Trust His timing and plan</li>
+            </ul>
+        </div>
+
+        <!-- Slide 21: Day 3 - Prayer Point 3 -->
+        <div class="slide" data-title="Day 3: Renewed Strength">
+            <h2>Those Who Hope in the Lord</h2>
+            <div class="scripture">
+                <p class="scripture-text">"But those who hope in the Lord will renew their strength. They will soar on wings like eagles; they will run and not grow weary; they will walk and not be faint."</p>
+                <p class="scripture-ref">Isaiah 40:31</p>
+            </div>
+            <ul>
+                <li>Declare: We will renew our strength</li>
+                <li>We will soar on wings like eagles</li>
+                <li>We will run and not grow weary</li>
+                <li>We will walk and not be faint</li>
+            </ul>
+        </div>
+
+        <!-- Slide 22: Day 3 - Prayer Point 4 -->
+        <div class="slide" data-title="Day 3: Confident Prayer">
+            <h2>Confidence in Prayer</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Now this is the confidence that we have in Him, that if we ask anything according to His will, He hears us. And if we know that He hears us, whatever we ask, we know that we have the petitions that we have asked of Him."</p>
+                <p class="scripture-ref">1 John 5:14-15</p>
+            </div>
+            <ul>
+                <li>Ask the Holy Spirit to help us pray God's word back to Him</li>
+                <li>Thank God that He hears and answers as we pray accordingly</li>
+            </ul>
+        </div>
+
+        <!-- Slide 23: Day 4 Title -->
+        <div class="slide" data-title="Day 4: Lifestyle of Praise">
+            <h2>Day 4</h2>
+            <h1>Cultivating a Lifestyle of Praise</h1>
+            <div class="scripture">
+                <p class="scripture-text">"Rejoice in the Lord always. Again I will say, rejoice!"</p>
+                <p class="scripture-ref">Philippians 4:4</p>
+            </div>
+        </div>
+
+        <!-- Slide 24: Day 4 - Prayer Point 1 -->
+        <div class="slide" data-title="Day 4: Radiate Joy">
+            <h2>Radiating God's Joy</h2>
+            <div class="scripture">
+                <p class="scripture-text">"You have turned for me my mourning into dancing; You have put off my sackcloth and clothed me with gladness, to the end that my glory may sing praise to You and not be silent."</p>
+                <p class="scripture-ref">Psalm 30:11-12</p>
+            </div>
+            <ul>
+                <li>Pray that our lives will radiate God's joy and hope to others</li>
+                <li>Ask the Holy Spirit for a heart filled with gratitude regardless of circumstances</li>
+            </ul>
+        </div>
+
+        <!-- Slide 25: Day 4 - Prayer Point 2 -->
+        <div class="slide" data-title="Day 4: Give Thanks Always">
+            <h2>In Everything Give Thanks</h2>
+            <div class="scripture">
+                <p class="scripture-text">"In everything give thanks; for this is the will of God in Christ Jesus for you."</p>
+                <p class="scripture-ref">1 Thessalonians 5:18</p>
+            </div>
+            <ul>
+                <li>Declare that God inhabits the praises of His people</li>
+                <li>Declare that breakthroughs come through praise</li>
+                <li>Pray to make giving thanks part of our daily lives</li>
+                <li>Ask the Holy Spirit to help us understand that praise is not dependent on emotions</li>
+            </ul>
+        </div>
+
+        <!-- Slide 26: Day 4 - Prayer Point 3 -->
+        <div class="slide" data-title="Day 4: Proclaim His Praises">
+            <h2>Proclaim His Praises</h2>
+            <div class="scripture">
+                <p class="scripture-text">"But you are a chosen generation, a royal priesthood, a holy nation, His own special people, that you may proclaim the praises of Him who called you out of darkness into His marvelous light."</p>
+                <p class="scripture-ref">1 Peter 2:9</p>
+            </div>
+            <ul>
+                <li>Thank God that He called us out of darkness into His marvelous light</li>
+                <li>Thank Him that He chose us and made us a kingdom of priests</li>
+                <li>Thank Him for our purpose: to proclaim His praises</li>
+            </ul>
+        </div>
+
+        <!-- Slide 27: Day 4 - Prayer Point 4 -->
+        <div class="slide" data-title="Day 4: Continual Praise">
+            <h2>Sacrifice of Praise</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Therefore by Him let us continually offer the sacrifice of praise to God, that is, the fruit of our lips, giving thanks to His name."</p>
+                <p class="scripture-ref">Hebrews 13:15</p>
+            </div>
+            <ul>
+                <li>Ask the Holy Spirit to help us build capacity for proclaiming His praises</li>
+            </ul>
+        </div>
+
+        <!-- Slide 28: Day 5 Title -->
+        <div class="slide" data-title="Day 5: Anchored in Word">
+            <h2>Day 5</h2>
+            <h1>Anchored in the Word</h1>
+            <div class="scripture">
+                <p class="scripture-text">"You are my hiding place and my shield; I hope in Your Word."</p>
+                <p class="scripture-ref">Psalm 119:114</p>
+            </div>
+        </div>
+
+        <!-- Slide 29: Day 5 - Prayer Point 1 -->
+        <div class="slide" data-title="Day 5: Scripture's Purpose">
+            <h2>Written for Our Learning</h2>
+            <div class="scripture">
+                <p class="scripture-text">"For whatever things were written before were written for our learning, that we through the patience and comfort of the Scriptures might have hope."</p>
+                <p class="scripture-ref">Romans 15:4</p>
+            </div>
+            <ul>
+                <li>Thank God for the Scriptures written for our instruction</li>
+                <li>Thank Him that in the Word we can learn patience and be comforted</li>
+                <li>Ask the Holy Spirit for wisdom and revelation as we dive deeper into Scripture in 2025</li>
+            </ul>
+        </div>
+
+        <!-- Slide 30: Day 5 - Prayer Point 2 -->
+        <div class="slide" data-title="Day 5: Meditate on Word">
+            <h2>Study and Meditate</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Study this Book of Instruction continually. Meditate on it day and night so you will be sure to obey everything written in it. Only then will you prosper and succeed in all you do."</p>
+                <p class="scripture-ref">Joshua 1:8</p>
+            </div>
+            <ul>
+                <li>Ask the Holy Spirit for hunger to study the Word continually</li>
+                <li>Ask for desire to meditate on it day and night</li>
+                <li>Ask for grace to obey what it says</li>
+                <li>Pray to prosper and succeed in all we do</li>
+            </ul>
+        </div>
+
+        <!-- Slide 31: Day 5 - Prayer Point 3 -->
+        <div class="slide" data-title="Day 5: Living Word">
+            <h2>The Word is Alive and Powerful</h2>
+            <div class="scripture">
+                <p class="scripture-text">"For the Word of God is alive and powerful. It is sharper than the sharpest two-edged sword, cutting between soul and spirit, between joint and marrow. It exposes our innermost thoughts and desires."</p>
+                <p class="scripture-ref">Hebrews 4:12 (NLT)</p>
+            </div>
+            <ul>
+                <li>Pray that the Word be alive and powerful in our lives</li>
+                <li>Ask that it expose our innermost thoughts and desires</li>
+                <li>Pray to be changed by it</li>
+            </ul>
+        </div>
+
+        <!-- Slide 32: Day 5 - Prayer Point 4 -->
+        <div class="slide" data-title="Day 5: Doers of Word">
+            <h2>Be Doers of the Word</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Anyone who listens to the word but does not do what it says is like someone who looks at his face in a mirror and, after looking at himself, goes away and immediately forgets what he looks like."</p>
+                <p class="scripture-ref">James 1:23-24</p>
+            </div>
+            <ul>
+                <li>Pray to be not only listeners or readers of the Word</li>
+                <li>Pray to become doers of the Word</li>
+            </ul>
+        </div>
+
+        <!-- Slide 33: Day 6 Title -->
+        <div class="slide" data-title="Day 6: Victory Over Anxiety">
+            <h2>Day 6</h2>
+            <h1>Declaring Victory Over Anxiety</h1>
+            <div class="scripture">
+                <p class="scripture-text">"Don't worry about anything; instead, pray about everything."</p>
+                <p class="scripture-ref">Philippians 4:6-7 (NLT)</p>
+            </div>
+        </div>
+
+        <!-- Slide 34: Day 6 - Prayer Point 1 -->
+        <div class="slide" data-title="Day 6: God's Peace">
+            <h2>Peace that Guards</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Don't worry about anything; instead, pray about everything. Tell God what you need, and thank him for all he has done. Then you will experience God's peace, which exceeds anything we can understand. His peace will guard your hearts and minds as you live in Christ Jesus."</p>
+                <p class="scripture-ref">Philippians 4:6-7 (NLT)</p>
+            </div>
+            <ul>
+                <li>Ask the Holy Spirit to remind us to pray about everything</li>
+                <li>Help us tell God what we need</li>
+                <li>Help us thank God for all He has done</li>
+            </ul>
+        </div>
+
+        <!-- Slide 35: Day 6 - Prayer Point 2 -->
+        <div class="slide" data-title="Day 6: Do Not Fear">
+            <h2>God is With Us</h2>
+            <div class="scripture">
+                <p class="scripture-text">"So do not fear, for I am with you; do not be dismayed, for I am your God. I will strengthen you and help you; I will uphold you with my righteous right hand."</p>
+                <p class="scripture-ref">Isaiah 41:10</p>
+            </div>
+            <ul>
+                <li>Declare that we will not fear because God is always with us</li>
+                <li>Trust in His power to help us walk through any valley</li>
+                <li>Thank Him for His strength that upholds us</li>
+                <li>Thank Him for being Jehovah Ezer, the Lord our Help</li>
+            </ul>
+        </div>
+
+        <!-- Slide 36: Day 6 - Prayer Point 3 -->
+        <div class="slide" data-title="Day 6: Spirit of Power">
+            <h2>Not a Spirit of Timidity</h2>
+            <div class="scripture">
+                <p class="scripture-text">"For the Spirit God gave us does not make us timid, but gives us power, love and self-discipline."</p>
+                <p class="scripture-ref">2 Timothy 1:7</p>
+            </div>
+            <ul>
+                <li>Declare God's sufficiency in every area of our lives</li>
+                <li>Declare that we are not timid because His Spirit gives us power, love, and self-discipline</li>
+                <li>Pray for those battling anxiety, that they experience God's hope and comfort</li>
+            </ul>
+        </div>
+
+        <!-- Slide 37: Day 7 Title -->
+        <div class="slide" data-title="Day 7: Testimonies">
+            <h2>Day 7</h2>
+            <h1>Testimonies of Hope</h1>
+            <div class="scripture">
+                <p class="scripture-text">"I waited patiently for the LORD to help me, and he turned to me and heard my cry. He lifted me out of the pit of despair, out of the mud and the mire."</p>
+                <p class="scripture-ref">Psalm 40:1-3 (NLT)</p>
+            </div>
+        </div>
+
+        <!-- Slide 38: Day 7 - Prayer Point 1 -->
+        <div class="slide" data-title="Day 7: God Hears & Answers">
+            <h2>A New Song to Sing</h2>
+            <div class="scripture">
+                <p class="scripture-text">"He has given me a new song to sing, a hymn of praise to our God. Many will see what he has done and be amazed. They will put their trust in the LORD."</p>
+                <p class="scripture-ref">Psalm 40:3 (NLT)</p>
+            </div>
+            <ul>
+                <li>Thank God for past testimonies of His goodness and faithfulness</li>
+                <li>Thank God that He is the One who hears AND answers prayers</li>
+                <li>Declare that your testimony will inspire hope and faith in Christ for others</li>
+            </ul>
+        </div>
+
+        <!-- Slide 39: Day 7 - Prayer Point 2 -->
+        <div class="slide" data-title="Day 7: We Overcome">
+            <h2>By the Blood and Our Testimony</h2>
+            <div class="scripture">
+                <p class="scripture-text">"And they have defeated him by the blood of the Lamb and by their testimony. And they did not love their lives so much that they were afraid to die."</p>
+                <p class="scripture-ref">Revelation 12:11 (NLT)</p>
+            </div>
+            <ul>
+                <li>Declare that we overcome by the blood of the Lamb</li>
+                <li>Declare that we overcome by the word of our testimony</li>
+            </ul>
+        </div>
+
+        <!-- Slide 40: Day 7 - Prayer Point 3 -->
+        <div class="slide" data-title="Day 7: Tell the Nations">
+            <h2>Proclaim What He Has Done</h2>
+            <div class="scripture">
+                <p class="scripture-text">"In that wonderful day you will sing: 'Thank the Lord! Praise his name! Tell the nations what he has done. Let them know how mighty he is!'"</p>
+                <p class="scripture-ref">Isaiah 12:4 (NLT)</p>
+            </div>
+            <ul>
+                <li>Pray for boldness to share your hope-filled testimonies with others</li>
+            </ul>
+        </div>
+
+        <!-- Slide 41: Declarations -->
+        <div class="slide" data-title="Scripture Declarations">
+            <h2>Additional Scripture Declarations</h2>
+            <ul>
+                <li>Philippians 4:13 - "I can do all things through Christ"</li>
+                <li>Nehemiah 8:10 - "The joy of the LORD is my strength"</li>
+                <li>Deuteronomy 28:13 - "The head and not the tail"</li>
+                <li>1 Peter 2:24 - "By His wounds I am healed"</li>
+                <li>Colossians 1:12-13 - "Qualified to share in the inheritance"</li>
+                <li>2 Corinthians 5:7 - "We walk by faith, not by sight"</li>
+                <li>Isaiah 54:17 - "No weapon formed against me shall prosper"</li>
+                <li>Philippians 4:19 - "My God shall supply all my needs"</li>
+            </ul>
+        </div>
+
+        <!-- Slide 42: Closing -->
+        <div class="slide" data-title="Closing">
+            <h1>Week 1 Complete</h1>
+            <span class="prayer-icon">🙏</span>
+            <p class="subtitle">Continue in Prayer</p>
+            <div class="highlight-box">
+                <p style="font-size: 1.4rem;">You are anchored in unshakable hope through Christ Jesus our Lord</p>
+            </div>
+        </div>
+
+        <!-- Slide 43: Thank You -->
+        <div class="slide" data-title="Thank You">
+            <h1>Thank You</h1>
+            <span class="prayer-icon">🙏</span>
+            <p class="subtitle">May your hope in the Lord overflow</p>
+            <p>Continue in faith, prayer, and fasting</p>
+        </div>
+    </div>
+
+    <div class="slide-counter" id="slideCounter"></div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="changeSlide(-1)" id="prevBtn">← Previous</button>
+        <button class="nav-btn" onclick="changeSlide(1)" id="nextBtn">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function generateSlideMenu() {
+            const menu = document.getElementById('slideMenu');
+            slides.forEach((slide, index) => {
+                const title = slide.getAttribute('data-title');
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = '#';
+                a.textContent = `${index + 1}. ${title}`;
+                a.onclick = (e) => {
+                    e.preventDefault();
+                    showSlide(index + 1);
+                };
+                li.appendChild(a);
+                menu.appendChild(li);
+            });
+        }
+
+        function updateSlideMenu() {
+            const menuItems = document.querySelectorAll('.slide-menu a');
+            menuItems.forEach((item, index) => {
+                if (index + 1 === currentSlide) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        function showSlide(n) {
+            if (n > totalSlides) {
+                currentSlide = totalSlides;
+                return;
+            }
+            if (n < 1) {
+                currentSlide = 1;
+                return;
+            }
+
+            currentSlide = n;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+
+            document.getElementById('slideCounter').textContent = `${currentSlide} / ${totalSlides}`;
+
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+
+            updateSlideMenu();
+        }
+
+        function changeSlide(n) {
+            showSlide(currentSlide + n);
+        }
+
+        function toggleMenu() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+                e.preventDefault();
+                changeSlide(1);
+            } else if (e.key === 'Home') {
+                showSlide(1);
+            } else if (e.key === 'End') {
+                showSlide(totalSlides);
+            }
+        });
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                changeSlide(1);
+            }
+            if (touchEndX > touchStartX + 50) {
+                changeSlide(-1);
+            }
+        }
+
+        generateSlideMenu();
+        showSlide(1);
+    </script>
+</body>
+</html>

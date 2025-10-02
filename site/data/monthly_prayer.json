@@ -1,0 +1,283 @@
+[
+  {
+    "id": "january-2025-21-days",
+    "title": "21 Days of Prayer - Week One: Anchored in Hope",
+    "month": "January",
+    "year": "2025",
+    "date": "2025-01-01",
+    "duration": "21 Days",
+    "type": "Extended Prayer",
+    "theme": "Anchored in Hope",
+    "scripture": "Hebrews 6:19",
+    "description": "Week One of the 21 Days Prayer focusing on anchoring ourselves in unshakable hope through God's promises.",
+    "presentationPath": "presentations/monthly_prayer/January_2025_21_Days_Prayer.html",
+    "keyTopics": [
+      "Hope as an anchor",
+      "God's faithfulness",
+      "New year dedication",
+      "Personal transformation",
+      "Church unity"
+    ]
+  },
+  {
+    "id": "february-2025-2-days",
+    "title": "2 Days of Prayer and Fasting",
+    "month": "February",
+    "year": "2025",
+    "date": "2025-02-01",
+    "duration": "2 Days",
+    "type": "Prayer & Fasting",
+    "theme": "Seeking God's Face",
+    "scripture": "2 Chronicles 7:14",
+    "description": "Two days dedicated to seeking God's face for personal breakthrough and church advancement.",
+    "presentationPath": "presentations/monthly_prayer/February_2025_Prayer_Points.html",
+    "keyTopics": [
+      "Humility and seeking",
+      "Personal breakthrough",
+      "Family blessings",
+      "Church growth",
+      "National healing"
+    ]
+  },
+  {
+    "id": "march-2025-2-days",
+    "title": "2 Days of Prayer Points",
+    "month": "March",
+    "year": "2025",
+    "date": "2025-03-01",
+    "duration": "2 Days",
+    "type": "Prayer Points",
+    "theme": "Spring Renewal",
+    "scripture": "Isaiah 43:19",
+    "description": "Spring prayer points focusing on God doing new things in our lives and ministry.",
+    "presentationPath": "presentations/monthly_prayer/March_2025_Prayer_Points.html",
+    "keyTopics": [
+      "New things",
+      "Spring renewal",
+      "Fresh anointing",
+      "Ministry expansion",
+      "Personal growth"
+    ]
+  },
+  {
+    "id": "april-2025-bishopric",
+    "title": "25th Bishopric Celebration Prayer Points",
+    "month": "April",
+    "year": "2025",
+    "date": "2025-04-01",
+    "duration": "Special Event",
+    "type": "Celebration",
+    "theme": "25 Years of Faithful Leadership",
+    "scripture": "Philippians 1:6",
+    "description": "Special prayer points celebrating 25 years of Bishopric leadership and God's faithfulness.",
+    "presentationPath": "presentations/monthly_prayer/April_2025_Bishopric_Celebration.html",
+    "keyTopics": [
+      "Thanksgiving for leadership",
+      "25 years of ministry",
+      "Future vision",
+      "Generational blessing",
+      "Church legacy"
+    ]
+  },
+  {
+    "id": "may-2025-2-days",
+    "title": "2 Days of Prayer and Fasting",
+    "month": "May",
+    "year": "2025",
+    "date": "2025-05-01",
+    "duration": "2 Days",
+    "type": "Prayer & Fasting",
+    "theme": "Pressing Forward",
+    "scripture": "Philippians 3:14",
+    "description": "Two days of pressing toward the mark for the prize of the high calling of God.",
+    "presentationPath": "presentations/monthly_prayer/May_2025_Prayer_Fasting.html",
+    "keyTopics": [
+      "Pressing forward",
+      "Higher calling",
+      "Spiritual growth",
+      "Victory in Christ",
+      "Kingdom advancement"
+    ]
+  },
+  {
+    "id": "june-2025-3-days",
+    "title": "3 Days of Prayer",
+    "month": "June",
+    "year": "2025",
+    "date": "2025-06-01",
+    "duration": "3 Days",
+    "type": "Prayer",
+    "theme": "Summer Harvest",
+    "scripture": "John 4:35",
+    "description": "Three days of prayer for the harvest of souls and spiritual breakthrough.",
+    "presentationPath": "presentations/monthly_prayer/June_2025_Prayer_Points.html",
+    "keyTopics": [
+      "Harvest of souls",
+      "Evangelism",
+      "Mission outreach",
+      "Church planting",
+      "Community impact"
+    ]
+  },
+  {
+    "id": "july-2025-3-days",
+    "title": "3 Days of Prayer and Fasting",
+    "month": "July",
+    "year": "2025",
+    "date": "2025-07-01",
+    "duration": "3 Days",
+    "type": "Prayer & Fasting",
+    "theme": "Freedom in Christ",
+    "scripture": "Galatians 5:1",
+    "description": "Three days celebrating freedom in Christ and praying for liberation from all bondage.",
+    "presentationPath": "presentations/monthly_prayer/July_2025_Prayer_Fasting.html",
+    "keyTopics": [
+      "Freedom in Christ",
+      "Breaking bondage",
+      "Spiritual liberty",
+      "Deliverance",
+      "Victory declaration"
+    ]
+  },
+  {
+    "id": "august-2025-prayer",
+    "title": "August Prayer Points",
+    "month": "August",
+    "year": "2025",
+    "date": "2025-08-01",
+    "duration": "Monthly",
+    "type": "Prayer Points",
+    "theme": "Increase and Multiplication",
+    "scripture": "Genesis 26:12",
+    "description": "Monthly prayer points focusing on God's increase and multiplication in every area.",
+    "presentationPath": "presentations/monthly_prayer/August_2025_Prayer_Points.html",
+    "keyTopics": [
+      "Increase",
+      "Multiplication",
+      "Abundance",
+      "Financial breakthrough",
+      "Ministry growth"
+    ]
+  },
+  {
+    "id": "september-2025-3-days",
+    "title": "3 Days of Prayer and Fasting",
+    "month": "September",
+    "year": "2025",
+    "date": "2025-09-01",
+    "duration": "3 Days",
+    "type": "Prayer & Fasting",
+    "theme": "Fall Harvest Preparation",
+    "scripture": "James 5:7",
+    "description": "Three days of prayer preparing for the fall harvest and year-end breakthrough.",
+    "presentationPath": "presentations/monthly_prayer/September_2025_Prayer_Fasting.html",
+    "keyTopics": [
+      "Harvest preparation",
+      "Patient faith",
+      "End-year breakthrough",
+      "Reaping rewards",
+      "Spiritual maturity"
+    ]
+  },
+  {
+    "id": "october-2025-3-days",
+    "title": "3 Days of Prayer and Fasting",
+    "month": "October",
+    "year": "2025",
+    "date": "2025-10-01",
+    "duration": "3 Days",
+    "type": "Prayer & Fasting",
+    "theme": "HIMU and Nations - Unshakable Hope",
+    "scripture": "1 Thessalonians 5:24, Hebrews 6:18-19",
+    "description": "Three days focusing on HIMU's global mission, church leadership, and maintaining unshakable hope in the final quarter.",
+    "presentationPath": "presentations/monthly_prayer/October_2025_Prayer_Fasting.html",
+    "keyTopics": [
+      "HIMU global missions",
+      "Diocesan bishops",
+      "Church planting",
+      "Unshakable hope",
+      "Financial provision",
+      "Protection and peace"
+    ]
+  },
+  {
+    "id": "november-2025-3-days",
+    "title": "3 Days of Prayer and Fasting",
+    "month": "November",
+    "year": "2025",
+    "date": "2025-11-01",
+    "duration": "3 Days",
+    "type": "Prayer & Fasting",
+    "theme": "Thanksgiving and Preparation",
+    "scripture": "Psalm 100:4",
+    "description": "Three days of thanksgiving for the year and preparing for the new year ahead.",
+    "presentationPath": "presentations/monthly_prayer/November_2025_Prayer_Fasting.html",
+    "keyTopics": [
+      "Thanksgiving",
+      "Year-end gratitude",
+      "New year preparation",
+      "Prophetic declarations",
+      "Vision for future"
+    ]
+  },
+  {
+    "id": "december-2024-3-days",
+    "title": "3 Days of Prayer and Fasting",
+    "month": "December",
+    "year": "2024",
+    "date": "2024-12-01",
+    "duration": "3 Days",
+    "type": "Prayer & Fasting",
+    "theme": "Year-End Thanksgiving and New Beginnings",
+    "scripture": "Psalm 118:24",
+    "description": "Three days of year-end thanksgiving and preparing for new beginnings in the coming year.",
+    "presentationPath": "presentations/monthly_prayer/December_2024_Prayer_Fasting.html",
+    "keyTopics": [
+      "Year-end thanksgiving",
+      "Personal life review",
+      "Family blessings",
+      "Church advancement",
+      "New year vision"
+    ]
+  },
+  {
+    "id": "september-2024-3-days",
+    "title": "3 Days of Prayer and Fasting",
+    "month": "September",
+    "year": "2024",
+    "date": "2024-09-01",
+    "duration": "3 Days",
+    "type": "Prayer & Fasting",
+    "theme": "Fall Breakthrough",
+    "scripture": "Isaiah 43:19",
+    "description": "Three days of prayer for breakthrough and new things in the fall season.",
+    "presentationPath": "presentations/monthly_prayer/September_2024_Prayer_Fasting.html",
+    "keyTopics": [
+      "Breakthrough",
+      "New season",
+      "Divine intervention",
+      "Harvest blessings",
+      "Church revival"
+    ]
+  },
+  {
+    "id": "october-2024-3-days",
+    "title": "3 Days Prayer Points",
+    "month": "October",
+    "year": "2024",
+    "date": "2024-10-01",
+    "duration": "3 Days",
+    "type": "Prayer Points",
+    "theme": "Finishing Strong",
+    "scripture": "2 Timothy 4:7",
+    "description": "Three days of prayer for finishing the year strong and preparing for year-end victory.",
+    "presentationPath": "presentations/monthly_prayer/October_2024_Prayer_Points.html",
+    "keyTopics": [
+      "Finishing strong",
+      "Year-end victory",
+      "Faithfulness",
+      "Perseverance",
+      "Final push"
+    ]
+  }
+]

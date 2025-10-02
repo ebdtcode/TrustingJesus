@@ -9,7 +9,11 @@
     import { makeHeader, renderList, card } from './assets/js/site.js';
     window.addEventListener('DOMContentLoaded', async () => {
       document.body.prepend(makeHeader('transcripts'));
-      await renderList('list', './data/transcripts.json', (t) => card(t.title || t.folder, [t.speaker, t.date].filter(Boolean).join(' • '), t.path || '#'));
+      await renderList('list', './data/transcripts.json', (t) => {
+        // Create link to transcript viewer instead of raw markdown
+        const viewerLink = t.id ? `transcript-viewer.html?id=${t.id}` : `transcript-viewer.html?path=${t.path}`;
+        return card(t.title || t.folder, [t.speaker, t.date].filter(Boolean).join(' • '), viewerLink);
+      });
     });
   </script>
 </head>

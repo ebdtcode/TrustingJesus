@@ -38,6 +38,7 @@ export function makeHeader(active) {
   const nav = h('nav', {},
     h('a', { href: './index.html', 'aria-current': active==='home' ? 'page' : null }, 'Home'),
     h('a', { href: './prayer.html', 'aria-current': active==='prayer' ? 'page' : null }, 'Prayer Points'),
+    h('a', { href: './monthly-prayer.html', 'aria-current': active==='monthly-prayer' ? 'page' : null }, 'Monthly Prayer & Fasting'),
     h('a', { href: './sermons.html', 'aria-current': active==='sermons' ? 'page' : null }, 'Sermon Summaries'),
     h('a', { href: './transcripts.html', 'aria-current': active==='transcripts' ? 'page' : null }, 'Transcripts'),
     h('a', { href: './presentations.html', 'aria-current': active==='presentations' ? 'page' : null }, 'Presentations')
@@ -70,7 +71,12 @@ export async function initPrayerPage({
 
   function render(items) {
     const ul = h('ul', { class: 'list', role: 'list' });
-    items.forEach(p => ul.append(card(p.title || p.theme || 'Untitled', p.week_of ? formatDate(p.week_of) : '', p.path || '#')));
+    items.forEach(p => {
+      // Create link to prayer viewer instead of raw markdown
+      const viewerLink = p.id ? `prayer-viewer.html?id=${p.id}` : (p.path || '#');
+      const dateStr = p.week_of ? formatDate(p.week_of) : (p.date ? formatDate(p.date) : '');
+      ul.append(card(p.title || p.theme || 'Untitled', dateStr, viewerLink));
+    });
     listEl.innerHTML = '';
     listEl.append(ul);
   }

@@ -9,7 +9,11 @@
     import { makeHeader, renderList, card } from './assets/js/site.js';
     window.addEventListener('DOMContentLoaded', async () => {
       document.body.prepend(makeHeader('sermons'));
-      await renderList('list', './data/sermons.json', (s) => card(s.title, [s.speaker, s.date].filter(Boolean).join(' • '), s.path || '#'));
+      await renderList('list', './data/sermons.json', (s) => {
+        // Create link to sermon viewer instead of raw path
+        const viewerLink = s.id ? `sermon-viewer.html?id=${s.id}` : (s.path || '#');
+        return card(s.title, [s.speaker, s.date].filter(Boolean).join(' • '), viewerLink);
+      });
     });
   </script>
 </head>

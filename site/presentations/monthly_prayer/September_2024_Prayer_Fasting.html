@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>September 2024 - 3 Days of Prayer and Fasting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #14213d 0%, #1f4068 100%);
+            color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 280px;
+            background: rgba(20, 33, 61, 0.95);
+            border-right: 2px solid #ffd166;
+            padding: 2rem 1rem;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .sidebar h1 {
+            color: #ffd166;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .sidebar .subtitle {
+            color: #a8dadc;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 209, 102, 0.3);
+        }
+
+        .slide-menu {
+            list-style: none;
+        }
+
+        .slide-menu li {
+            margin-bottom: 0.5rem;
+        }
+
+        .slide-menu a {
+            color: #f8f9fa;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .slide-menu a:hover,
+        .slide-menu a.active {
+            background: rgba(255, 209, 102, 0.2);
+            color: #ffd166;
+            transform: translateX(5px);
+        }
+
+        .main-content {
+            margin-left: 280px;
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .slide-container {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .slide {
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #ffd166;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #ffd166;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #a8dadc;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .scripture {
+            background: rgba(255, 209, 102, 0.1);
+            border-left: 4px solid #ffd166;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .scripture-text {
+            font-style: italic;
+            color: #a8dadc;
+            margin-bottom: 0.5rem;
+        }
+
+        .scripture-ref {
+            color: #ffd166;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .declaration {
+            background: rgba(168, 218, 220, 0.1);
+            border-left: 4px solid #a8dadc;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 209, 102, 0.3);
+        }
+
+        button {
+            background: #ffd166;
+            color: #14213d;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        button:hover:not(:disabled) {
+            background: #ffb938;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 209, 102, 0.4);
+        }
+
+        button:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            text-align: center;
+            color: #a8dadc;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 1rem;
+            }
+
+            .slide-container {
+                padding: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .sidebar,
+            .navigation {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .slide {
+                display: block !important;
+                page-break-after: always;
+            }
+
+            .slide-container {
+                box-shadow: none;
+                background: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>September 2024</h1>
+        <p class="subtitle">3 Days of Prayer and Fasting</p>
+        <ul class="slide-menu" id="slideMenu"></ul>
+    </div>
+
+    <div class="main-content">
+        <div class="slide-container">
+            <div id="slides">
+                <!-- Slide 1: Title -->
+                <div class="slide active" data-title="Welcome">
+                    <h2>September 2024</h2>
+                    <h3>3 Days of Prayer and Fasting</h3>
+                    <p style="margin-top: 2rem; font-size: 1.2rem;">Prayer Points for First Week, September</p>
+                    <ul style="list-style: none; margin-left: 0; margin-top: 2rem;">
+                        <li><strong>Wednesday, September 4th</strong></li>
+                        <li><strong>Thursday, September 5th</strong></li>
+                        <li><strong>Friday, September 6th - Holy Ghost Night</strong></li>
+                    </ul>
+                    <p style="margin-top: 2rem; color: #a8dadc;">Prepared by Pastor Gledy</p>
+                </div>
+
+                <!-- Slide 2: Day One Header -->
+                <div class="slide" data-title="Day One - Declarations & Thanksgiving">
+                    <h2>Day One</h2>
+                    <h3>Wednesday September 5th</h3>
+                    <p style="font-size: 1.3rem; color: #ffd166; margin-top: 2rem;">Declarations & Thanksgiving</p>
+                </div>
+
+                <!-- Slide 3: James 5:16b -->
+                <div class="slide" data-title="Powerful & Effective Prayer">
+                    <h2>Powerful & Effective Prayer</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"...The prayer of a righteous person is powerful and effective."</p>
+                        <p class="scripture-ref">James 5:16b (NLT)</p>
+                    </div>
+                    <div class="declaration">
+                        <p><strong>Declare our confidence in what we are doing tonight because God's word says that our prayers are powerful and can produce wonderful results.</strong></p>
+                    </div>
+                </div>
+
+                <!-- Slide 4: God Hears and Answers -->
+                <div class="slide" data-title="God Hears and Answers">
+                    <h2>God Hears and Answers</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"In those days when you pray, I will listen."</p>
+                        <p class="scripture-ref">Jeremiah 29:12 (NLT)</p>
+                    </div>
+                    <div class="scripture">
+                        <p class="scripture-text">"I will answer them before they even call to me. While they are still talking about their needs, I will go ahead and answer their prayers!"</p>
+                        <p class="scripture-ref">Isaiah 65:24 (NLT)</p>
+                    </div>
+                </div>
+
+                <!-- Slide 5: Abiding in Christ -->
+                <div class="slide" data-title="Abiding in Christ">
+                    <h2>Abiding in Christ</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"But if you remain in me and my words remain in you, you may ask for anything you want, and it will be granted!"</p>
+                        <p class="scripture-ref">John 15:7 (NLT)</p>
+                    </div>
+                    <div class="declaration">
+                        <p><strong>DECLARE that God not only hears our prayers, but that He answers.</strong></p>
+                    </div>
+                </div>
+
+                <!-- Slide 6: Exceeding Abundantly -->
+                <div class="slide" data-title="Exceeding Abundantly">
+                    <h2>Exceeding Abundantly Above</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"Now to Him who is able to do exceedingly abundantly above all that we ask or think, according to the power that works in us..."</p>
+                        <p class="scripture-ref">Ephesians 3:20 (NKJV)</p>
+                    </div>
+                    <div class="declaration">
+                        <p><strong>DECLARE that whatever we ask for, our God is able to do exceedingly abundantly above that.</strong></p>
+                        <p><strong>That all things are possible for those who believe in His mighty power which is at work in us.</strong></p>
+                        <p><strong>DECLARE that He is not just willing, but that He is able.</strong></p>
+                    </div>
+                </div>
+
+                <!-- Slide 7: Blessed Youth and Adults -->
+                <div class="slide" data-title="Blessed Youth and Adults">
+                    <h2>Blessed Youth and Adults</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"Blessed is the man who walks not in the counsel of the ungodly, nor stands in the path of sinners, nor sits in the seat of the scornful; but his delight is in the law of the LORD, and in His law he meditates day and night. He shall be like a tree planted by the rivers of water, that brings forth its fruit in its season, whose leaf also shall not wither; and whatever he does shall prosper."</p>
+                        <p class="scripture-ref">Psalm 1:1-3 (NKJV)</p>
+                    </div>
+                </div>
+
+                <!-- Slide 8: Declaration for Harvest Olney -->
+                <div class="slide" data-title="Declaration for Harvest Olney">
+                    <h2>Declaration for Harvest Olney</h2>
+                    <div class="declaration">
+                        <p><strong>DECLARE that our youth and adults at Harvest Olney are blessed:</strong></p>
+                        <ul>
+                            <li>That they do not walk in the counsel of the ungodly</li>
+                            <li>That they will delight in the Word of God and hide it in their hearts</li>
+                            <li>That they will be fruitful in the things of the Lord</li>
+                            <li>That they will prosper in what they put their hands to do</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 9: God's Ultimate Provision -->
+                <div class="slide" data-title="God's Ultimate Provision">
+                    <h2>God's Ultimate Provision</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"He who did not spare His own Son, but delivered Him up for us all, how shall He not with Him also freely give us all things?"</p>
+                        <p class="scripture-ref">Romans 8:32 (NKJV)</p>
+                    </div>
+                    <div class="declaration">
+                        <p><strong>THANK God for His ultimate provision</strong></p>
+                        <p><strong>DECLARE that if He could deliver His own son for us, what can He not do for us....</strong></p>
+                    </div>
+                </div>
+
+                <!-- Slide 10: Our Refuge and Blessing -->
+                <div class="slide" data-title="Our Refuge and Blessing">
+                    <h2>Our Refuge and Blessing</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"Keep me safe, O God, for I have come to you for refuge."</p>
+                        <p class="scripture-ref">Psalm 16:1</p>
+                    </div>
+                    <div class="declaration">
+                        <p><strong>DECLARE that God keeps us safe and that He is our refuge, our hiding place.</strong></p>
+                    </div>
+                    <div class="scripture">
+                        <p class="scripture-text">"I said to the Lord, 'You are my Master! Every good thing I have comes from you.'"</p>
+                        <p class="scripture-ref">Psalm 16:2</p>
+                    </div>
+                    <div class="declaration">
+                        <p><strong>DECLARE that we have good things and that they all come from the Lord our God.</strong></p>
+                    </div>
+                </div>
+
+                <!-- Slide 11: Our Inheritance -->
+                <div class="slide" data-title="Our Inheritance">
+                    <h2>Our Inheritance</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"Lord, you alone are my inheritance, my cup of blessing. You guard all that is mine."</p>
+                        <p class="scripture-ref">Psalm 16:5</p>
+                    </div>
+                    <div class="declaration">
+                        <p><strong>DECLARE that we have an inheritance from the Lord that he guards all that He has given to us.</strong></p>
+                    </div>
+                    <div class="scripture">
+                        <p class="scripture-text">"I know the Lord is always with me. I will not be shaken, for he is right beside me."</p>
+                        <p class="scripture-ref">Psalm 16:8</p>
+                    </div>
+                    <div class="declaration">
+                        <p><strong>DECLARE that God is our ever present help; declare his name, Jehovah EZER, the Lord our helper.</strong></p>
+                    </div>
+                </div>
+
+                <!-- Slide 12: God's Word Never Barren -->
+                <div class="slide" data-title="God's Word Never Barren">
+                    <h2>God's Word Never Barren</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"It is the same with my word. I send it out, and it always produces fruit. It will accomplish all I want it to, and it will prosper everywhere I send it."</p>
+                        <p class="scripture-ref">Isaiah 55:10-11</p>
+                    </div>
+                    <div class="declaration">
+                        <p><strong>THANK God for His Word:</strong></p>
+                        <ul>
+                            <li>That it always produces fruit</li>
+                            <li>That it is never barren</li>
+                            <li>That it accomplishes all He wants it to accomplish</li>
+                            <li>That it prospers everywhere he sends it</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 13: Year of Life Abundant -->
+                <div class="slide" data-title="Year of Life Abundant">
+                    <h2>Year of Life Abundant</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"The thief comes only to steal and kill and destroy; I have come that they may have life, and have it to the full."</p>
+                        <p class="scripture-ref">John 10:10</p>
+                    </div>
+                    <div class="declaration">
+                        <p><strong>DECLARE that in this our Year of Life Abundant, we shall focus not on the thief, but on the one who comes at the same time with His life abundant.</strong></p>
+                    </div>
+                </div>
+
+                <!-- Slide 14: Day Two Header -->
+                <div class="slide" data-title="Day Two - Harvest Olney & USA">
+                    <h2>Day Two</h2>
+                    <h3>Thursday September 6th</h3>
+                    <p style="font-size: 1.3rem; color: #ffd166; margin-top: 2rem;">Harvest Olney & USA</p>
+                </div>
+
+                <!-- Slide 15: Power of the Spirit -->
+                <div class="slide" data-title="Power of the Spirit">
+                    <h2>Power of the Spirit</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"And my speech and my preaching was not with enticing words of man's wisdom, but in demonstration of the Spirit and of power...."</p>
+                        <p class="scripture-ref">1 Corinthians 2:4</p>
+                    </div>
+                    <div class="declaration">
+                        <p><strong>THANK God for Bishop Johnson and Pastor Chrys, our senior pastors, and for all our pastors who bring the Word to us and pray that all who stand behind Harvest Olney's pulpit will not speak with "enticing words of man's wisdom, but in the demonstration of the Spirit and of power...."</strong></p>
+                    </div>
+                </div>
+
+                <!-- Slide 16: Wisdom from God -->
+                <div class="slide" data-title="Wisdom from God">
+                    <h2>Wisdom from God</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"For wisdom is better than jewels, and all that you may desire cannot compare with her."</p>
+                        <p class="scripture-ref">Proverbs 8:11</p>
+                    </div>
+                    <div class="scripture">
+                        <p class="scripture-text">"If any of you lacks wisdom, you should ask God, who gives generously to all without finding fault, and it will be given to you."</p>
+                        <p class="scripture-ref">James 1:5</p>
+                    </div>
+                    <div class="declaration">
+                        <p><strong>THANK God for this wisdom that comes from Him.</strong></p>
+                        <p><strong>Pray for wisdom for senior pastors and all our leaders at Harvest Olney.</strong></p>
+                    </div>
+                </div>
+
+                <!-- Slide 17: Spiritual Wisdom and Insight -->
+                <div class="slide" data-title="Spiritual Wisdom and Insight">
+                    <h2>Spiritual Wisdom and Insight</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"...asking God, the glorious Father of our Lord Jesus Christ, to give you spiritual wisdom and insight so that you might grow in your knowledge of God. I pray that your hearts will be flooded with light so that you can understand the confident hope he has given to those he called—his holy people who are his rich and glorious inheritance."</p>
+                        <p class="scripture-ref">Ephesians 1:17-18</p>
+                    </div>
+                </div>
+
+                <!-- Slide 18: Prayer for Harvest Olney -->
+                <div class="slide" data-title="Prayer for Harvest Olney">
+                    <h2>Prayer for Harvest Olney</h2>
+                    <div class="declaration">
+                        <p><strong>PRAY:</strong></p>
+                        <ul>
+                            <li>That God will give us spiritual wisdom so that Harvesters will grow in our knowledge of God; that we come to know not just His acts, but his ways</li>
+                            <li>That we will understand the hope we have in Him</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 19: Complete Knowledge of His Will -->
+                <div class="slide" data-title="Complete Knowledge of His Will">
+                    <h2>Complete Knowledge of His Will</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"So we have not stopped praying for you since we first heard about you. We ask God to give you complete knowledge of his will and to give you spiritual wisdom and understanding. Then the way you live will always honor and please the Lord, and your lives will produce every kind of good fruit. All the while, you will grow as you learn to know God better and better."</p>
+                        <p class="scripture-ref">Colossians 1:9-10</p>
+                    </div>
+                </div>
+
+                <!-- Slide 20: Prayers for Fruitful Living -->
+                <div class="slide" data-title="Prayers for Fruitful Living">
+                    <h2>Prayers for Fruitful Living</h2>
+                    <div class="declaration">
+                        <p><strong>PRAY that we have complete knowledge of His will for us</strong></p>
+                        <p><strong>PRAY that we have spiritual wisdom and understanding so that:</strong></p>
+                        <ul>
+                            <li>We can live in a way that always honors and pleases our Lord</li>
+                            <li>Our lives will produce every kind of good fruit</li>
+                            <li>We will grow as we learn to know God better and better</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 21: Doers of the Word -->
+                <div class="slide" data-title="Doers of the Word">
+                    <h2>Doers of the Word</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"For if you listen to the word and don't obey, it is like glancing at your face in a mirror. You see yourself, walk away, and forget what you look like."</p>
+                        <p class="scripture-ref">James 1:23-24</p>
+                    </div>
+                    <div class="declaration">
+                        <p><strong>DECLARE that this is not our portion; we will read and listen to the Word and we will do what it says. Amen!</strong></p>
+                    </div>
+                </div>
+
+                <!-- Slide 22: Grace and Peace -->
+                <div class="slide" data-title="Grace and Peace">
+                    <h2>Grace and Peace</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"Let your conversation be always full of grace, seasoned with salt, so that you may know how to answer everyone."</p>
+                        <p class="scripture-ref">Colossians 4:6</p>
+                    </div>
+                    <div class="declaration">
+                        <p><strong>PRAY for wisdom to deal with, to live in peace with each other.</strong></p>
+                    </div>
+                </div>
+
+                <!-- Slide 23: Inner Strength -->
+                <div class="slide" data-title="Inner Strength">
+                    <h2>Inner Strength</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"I pray that from his glorious, unlimited resources He will empower you with inner strength through his Spirit."</p>
+                        <p class="scripture-ref">Ephesians 3:16 (NLT)</p>
+                    </div>
+                    <div class="declaration">
+                        <p><strong>PRAY this for us at Harvest Olney, that we be empowered with inner strength.</strong></p>
+                    </div>
+                </div>
+
+                <!-- Slide 24: Love Each Other -->
+                <div class="slide" data-title="Love Each Other">
+                    <h2>Love Each Other</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"Dear friends, since God loved us that much, we surely ought to love each other."</p>
+                        <p class="scripture-ref">1 John 4:11</p>
+                    </div>
+                    <div class="declaration">
+                        <p><strong>PRAY that we will build our capacity to love each other, in word, but more importantly in deed, in demonstration by what we do.</strong></p>
+                    </div>
+                </div>
+
+                <!-- Slide 25: New Strength -->
+                <div class="slide" data-title="New Strength">
+                    <h2>New Strength</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"Have you never heard? Have you never understood? The Lord is the everlasting God, the Creator of all the earth. He never grows weak or weary. No one can measure the depths of his understanding. He gives power to the weak and strength to the powerless. Even youths will become weak and tired, and young men will fall in exhaustion. But those who trust in the Lord will find new strength. They will soar high on wings like eagles. They will run and not grow weary. They will walk and not faint."</p>
+                        <p class="scripture-ref">Isaiah 40:28-31</p>
+                    </div>
+                </div>
+
+                <!-- Slide 26: Declaration for Those in Trials -->
+                <div class="slide" data-title="Declaration for Those in Trials">
+                    <h2>Declaration for Those in Trials</h2>
+                    <div class="declaration">
+                        <p><strong>DECLARE over those among us who are in trials and tribulations and pain and hurt:</strong></p>
+                        <ul>
+                            <li>That their God never grows weary</li>
+                            <li>That He gives power to the weak and strength to the powerless</li>
+                            <li>That as they continue to trust in Him, new strength to continue to stand</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 27: Prayer for America -->
+                <div class="slide" data-title="Prayer for America">
+                    <h2>Prayer for America</h2>
+                    <div class="scripture">
+                        <p class="scripture-text">"And work for the peace and prosperity of the city where I sent you into exile. Pray to the Lord for it, for its welfare will determine your welfare."</p>
+                        <p class="scripture-ref">Jeremiah 29:7</p>
+                    </div>
+                    <div class="declaration">
+                        <p><strong>Pray in the Spirit for America!!</strong></p>
+                    </div>
+                </div>
+
+                <!-- Slide 28: Closing -->
+                <div class="slide" data-title="Closing Prayer">
+                    <h2>Closing Prayer</h2>
+                    <div class="declaration">
+                        <p style="font-size: 1.5rem; text-align: center; margin-top: 3rem;">
+                            <strong>THANK GOD FOR HEARING AND ANSWERING US!!</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation">
+                <button id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+                <div class="slide-counter">
+                    <span id="currentSlide">1</span> / <span id="totalSlides">28</span>
+                </div>
+                <button id="nextBtn" onclick="changeSlide(1)">Next →</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        // Generate slide menu
+        const slideMenu = document.getElementById('slideMenu');
+        slides.forEach((slide, index) => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = '#';
+            a.textContent = slide.dataset.title;
+            a.onclick = (e) => {
+                e.preventDefault();
+                goToSlide(index);
+            };
+            li.appendChild(a);
+            slideMenu.appendChild(li);
+        });
+
+        function updateSlideCounter() {
+            document.getElementById('currentSlide').textContent = currentSlide + 1;
+            document.getElementById('totalSlides').textContent = totalSlides;
+        }
+
+        function updateButtons() {
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function updateMenu() {
+            const menuItems = slideMenu.querySelectorAll('a');
+            menuItems.forEach((item, index) => {
+                item.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[n].classList.add('active');
+            updateSlideCounter();
+            updateButtons();
+            updateMenu();
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+            if (currentSlide < 0) currentSlide = 0;
+            showSlide(currentSlide);
+        }
+
+        function goToSlide(n) {
+            currentSlide = n;
+            showSlide(currentSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+            if (e.key === 'Home') goToSlide(0);
+            if (e.key === 'End') goToSlide(totalSlides - 1);
+        });
+
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) changeSlide(1);
+            if (touchEndX > touchStartX + 50) changeSlide(-1);
+        }
+
+        // Initialize
+        updateSlideCounter();
+        updateButtons();
+        updateMenu();
+    </script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trusting Jesus — Sermon</title>
+  <link rel="stylesheet" href="./assets/css/site.css" />
+  <style>
+    .sermon-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .sermon-header {
+      background: linear-gradient(135deg, #03396C, #1a5490);
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .sermon-title {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .sermon-meta {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 0.5rem;
+    }
+
+    .sermon-meta strong {
+      color: #FFD700;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      color: #FF8D21;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .sermon-section {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .sermon-section h2 {
+      color: #03396C;
+      border-bottom: 3px solid #FF8D21;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+
+    .sermon-summary {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 1.5rem;
+    }
+
+    .key-points {
+      list-style: none;
+      padding: 0;
+    }
+
+    .key-points li {
+      padding: 0.75rem 0 0.75rem 2rem;
+      position: relative;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .key-points li:before {
+      content: "▶";
+      color: #FF8D21;
+      position: absolute;
+      left: 0;
+      font-size: 0.9rem;
+    }
+
+    .action-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .action-card {
+      background: linear-gradient(135deg, #FF8D21, #FFA94D);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(255, 141, 33, 0.3);
+    }
+
+    .action-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(255, 141, 33, 0.4);
+    }
+
+    .action-card-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .action-card-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .action-card-desc {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    .action-card.primary {
+      background: linear-gradient(135deg, #03396C, #1a5490);
+    }
+
+    .action-card.secondary {
+      background: linear-gradient(135deg, #666, #999);
+    }
+
+    .youtube-embed {
+      margin: 2rem 0;
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .youtube-embed iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 3rem;
+      color: #666;
+    }
+
+    .error {
+      background: #ffebee;
+      color: #c62828;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+
+    .series-badge {
+      display: inline-block;
+      background: #FFD700;
+      color: #03396C;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <main id="main" class="container">
+    <div class="sermon-container">
+      <a href="sermons.html" class="back-link">← Back to Sermons</a>
+
+      <div id="loading" class="loading">
+        <p>Loading sermon...</p>
+      </div>
+
+      <div id="sermon-viewer" style="display: none;">
+        <!-- Header will be inserted here -->
+      </div>
+
+      <div id="error" class="error" style="display: none;">
+        <strong>Error:</strong> <span id="error-message"></span>
+      </div>
+    </div>
+  </main>
+
+  <footer>© Trusting Jesus</footer>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const sermonId = urlParams.get('id');
+
+    async function loadSermon() {
+      if (!sermonId) {
+        showError('No sermon specified. Please provide an id parameter.');
+        return;
+      }
+
+      try {
+        const response = await fetch('./data/sermons.json');
+        const sermons = await response.json();
+        const sermon = sermons.find(s => s.id === sermonId);
+
+        if (!sermon) {
+          showError('Sermon not found with id: ' + sermonId);
+          return;
+        }
+
+        // Build the sermon page
+        const viewer = document.getElementById('sermon-viewer');
+
+        // Header
+        let headerHTML = `
+          <div class="sermon-header">
+            <h1 class="sermon-title">${sermon.title}</h1>
+            ${sermon.series ? `<div class="series-badge">${sermon.series}</div>` : ''}
+            <div class="sermon-meta">
+              ${sermon.speaker ? `<strong>Speaker:</strong> ${sermon.speaker}<br>` : ''}
+              ${sermon.date ? `<strong>Date:</strong> ${new Date(sermon.date).toLocaleDateString()}<br>` : ''}
+              ${sermon.scripture ? `<strong>Scripture:</strong> ${sermon.scripture}` : ''}
+            </div>
+          </div>
+        `;
+
+        // YouTube embed
+        if (sermon.youtubeUrl) {
+          const videoId = extractYouTubeID(sermon.youtubeUrl);
+          if (videoId) {
+            headerHTML += `
+              <div class="youtube-embed">
+                <iframe
+                  src="https://www.youtube.com/embed/${videoId}"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </div>
+            `;
+          }
+        }
+
+        // Summary
+        let contentHTML = '';
+        if (sermon.summary) {
+          contentHTML += `
+            <div class="sermon-section">
+              <h2>Summary</h2>
+              <div class="sermon-summary">${sermon.summary}</div>
+            </div>
+          `;
+        }
+
+        // Key Points
+        if (sermon.keyPoints && sermon.keyPoints.length) {
+          contentHTML += `
+            <div class="sermon-section">
+              <h2>Key Points</h2>
+              <ul class="key-points">
+                ${sermon.keyPoints.map(point => `<li>${point}</li>`).join('')}
+              </ul>
+            </div>
+          `;
+        }
+
+        // Action Cards
+        let actionsHTML = '<div class="action-grid">';
+
+        if (sermon.presentationPath) {
+          actionsHTML += `
+            <a href="${sermon.presentationPath}" class="action-card primary">
+              <div class="action-card-icon">📊</div>
+              <div class="action-card-title">View Presentation</div>
+              <div class="action-card-desc">Full slide deck</div>
+            </a>
+          `;
+        }
+
+        if (sermon.transcriptPath) {
+          actionsHTML += `
+            <a href="${sermon.transcriptPath}" class="action-card">
+              <div class="action-card-icon">📝</div>
+              <div class="action-card-title">Read Transcript</div>
+              <div class="action-card-desc">Complete text</div>
+            </a>
+          `;
+        }
+
+        if (sermon.prayerPointsPath) {
+          actionsHTML += `
+            <a href="${sermon.prayerPointsPath}" class="action-card">
+              <div class="action-card-icon">🙏</div>
+              <div class="action-card-title">Prayer Points</div>
+              <div class="action-card-desc">Pray with focus</div>
+            </a>
+          `;
+        }
+
+        if (sermon.youtubeUrl) {
+          actionsHTML += `
+            <a href="${sermon.youtubeUrl}" target="_blank" class="action-card secondary">
+              <div class="action-card-icon">▶️</div>
+              <div class="action-card-title">Watch on YouTube</div>
+              <div class="action-card-desc">Full video</div>
+            </a>
+          `;
+        }
+
+        actionsHTML += '</div>';
+        contentHTML += `<div class="sermon-section"><h2>Resources</h2>${actionsHTML}</div>`;
+
+        viewer.innerHTML = headerHTML + contentHTML;
+
+        // Show the viewer
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('sermon-viewer').style.display = 'block';
+
+        // Update page title
+        document.title = `${sermon.title} — Trusting Jesus`;
+
+      } catch (error) {
+        console.error('Error loading sermon:', error);
+        showError(error.message);
+      }
+    }
+
+    function extractYouTubeID(url) {
+      const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+      const match = url.match(regExp);
+      return (match && match[2].length === 11) ? match[2] : null;
+    }
+
+    function showError(message) {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('error').style.display = 'block';
+      document.getElementById('error-message').textContent = message;
+    }
+
+    window.addEventListener('DOMContentLoaded', loadSermon);
+  </script>
+</body>
+</html>

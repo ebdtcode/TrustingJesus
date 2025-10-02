@@ -24,9 +24,9 @@
       "Salvation is by grace through faith alone - not by works",
       "The verdict of 'not guilty' is everlasting and cannot be reversed"
     ],
-    "path": "../transcripts/sermon/Three_Treasures_of_Justification__Bishop_Darlingston_Johnson/transcript.md",
+    "transcriptPath": "transcript-viewer.html?id=three-treasures-justification-2025-09-29",
     "presentationPath": "presentations/Three_Treasures_of_Justification_Presentation.html",
-    "prayerPointsPath": "../prayer_points/2025/Three_Treasures_of_Justification_Summary_and_Prayer.md"
+    "prayerPointsPath": "prayer-viewer.html?id=three-treasures-justification-2025-09-29"
   },
   {
     "id": "gospel-of-grace-2025-09-21",
@@ -43,8 +43,8 @@
       "Access to transforming grace that changes us from inside out",
       "Nothing can separate us from God's love (Romans 8:38-39)"
     ],
-    "path": "../transcripts/sermon/Sermon_Sep_21_2025_Gospel_of_grace.md",
+    "transcriptPath": "transcript-viewer.html?id=gospel-of-grace-2025-09-21",
     "presentationPath": "presentations/Gospel_of_Grace_Presentation.html",
-    "prayerPointsPath": "../prayer_points/2025/Week-2025-09-21_Gospel_of_Grace.md"
+    "prayerPointsPath": "prayer-viewer.html?id=gospel-of-grace-2025-09-21"
   }
 ]
