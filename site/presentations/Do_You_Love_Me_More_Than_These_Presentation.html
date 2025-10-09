@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Do You Love Me More Than These? - Pastor Maima Moore</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); color: #fff; overflow: hidden; }
+    .presentation { position: relative; width: 100vw; height: 100vh; }
+    .slide { display: none; position: absolute; width: 100%; height: 100%; padding: 60px 80px 60px 320px; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); }
+    .slide.active { display: flex; }
+    h1 { font-size: 4.2rem; font-weight: 800; margin-bottom: 1.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); line-height: 1.2; color: #fff; }
+    h2 { font-size: 3.2rem; font-weight: 700; margin-bottom: 1.2rem; color: #ffd166; text-shadow: 1px 2px 4px rgba(0,0,0,0.4); line-height: 1.3; }
+    h3 { font-size: 2.4rem; font-weight: 700; margin-bottom: 1rem; color: #fff; text-shadow: 1px 2px 3px rgba(0,0,0,0.35); }
+    .subtitle { font-size: 1.8rem; font-weight: 400; margin-bottom: 0.6rem; color: #e8f4f8; line-height: 1.4; }
+    .scripture { background: rgba(255,255,255,0.14); border-left: 6px solid #ffd166; padding: 1.5rem; margin: 1.2rem 0; border-radius: 10px; backdrop-filter: blur(8px); box-shadow: 0 8px 32px rgba(0,0,0,0.25); max-width: 1100px; }
+    .scripture-text { font-size: 1.8rem; font-style: italic; line-height: 1.6; margin-bottom: 0.6rem; color: #fff; }
+    .scripture-ref { font-size: 1.2rem; font-weight: 700; color: #ffd166; text-align: right; }
+    .content-list { text-align: left; max-width: 1000px; margin: 0 auto; }
+    .content-list li { font-size: 1.5rem; margin: 0.9rem 0; padding-left: 1rem; line-height: 1.55; list-style: none; position: relative; }
+    .content-list li:before { content: "\25B6"; color: #ffd166; font-weight: bold; position: absolute; left: -1rem; }
+    .quote { font-size: 1.9rem; font-style: italic; text-align: center; padding: 1.5rem; border-radius: 12px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); margin: 1.2rem 0; box-shadow: 0 8px 32px rgba(0,0,0,0.2); line-height: 1.5; }
+    .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; width: 100%; max-width: 1100px; }
+    .column { text-align: left; }
+    .column h4 { font-size: 1.9rem; color: #ffd166; margin-bottom: 1rem; text-align: center; }
+    .column ul { list-style: none; padding: 0; }
+    .column li { font-size: 1.4rem; margin: 0.7rem 0; padding-left: 1.5rem; line-height: 1.5; position: relative; }
+    .column li:before { content: "\2713"; color: #ffd166; font-weight: bold; position: absolute; left: 0; }
+    .prayer-points { background: rgba(255,255,255,0.12); border-radius: 14px; padding: 2rem; backdrop-filter: blur(12px); box-shadow: 0 12px 40px rgba(0,0,0,0.28); max-width: 1100px; margin: 1.2rem auto; }
+    .prayer-points h3 { color: #ffd166; margin-bottom: 1rem; font-size: 2.1rem; }
+    .navigation { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 1rem; z-index: 1000; }
+    .nav-btn { background: rgba(255,255,255,0.22); border: 2px solid rgba(255,255,255,0.3); color: white; padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 600; backdrop-filter: blur(10px); transition: all 0.3s ease; }
+    .nav-btn:hover { background: rgba(255,255,255,0.32); border-color: #ffd166; color: #ffd166; }
+    .nav-btn:disabled { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); cursor: not-allowed; }
+    .slide-counter { position: fixed; top: 30px; right: 30px; background: rgba(0,0,0,0.45); padding: 0.5rem 1rem; border-radius: 20px; font-size: 1rem; backdrop-filter: blur(10px); }
+    .emphasis { color: #ffd166; font-weight: 800; }
+    .call-to-action { background: linear-gradient(135deg, #06d6a0, #118ab2); color: white; padding: 2rem; border-radius: 14px; margin: 1.2rem 0; box-shadow: 0 12px 40px rgba(0,0,0,0.3); text-align: center; }
+    .call-to-action h3 { font-size: 2.6rem; margin-bottom: 1rem; }
+    .call-to-action p { font-size: 1.6rem; line-height: 1.6; }
+    .section-break { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .section-break h1 { color: #ffd166 !important; }
+    .section-break h2 { color: #e8f4f8 !important; }
+    .cta-slide { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .cta-slide h1 { color: #ffd166 !important; }
+    .cta-slide .content-list li { color: #fff; }
+    .prayer-slide .scripture { background: rgba(255,209,102,0.15); border-left-color: #ffd166; }
+
+    /* Sidebar Navigation */
+    .sidebar { position: fixed; left: 0; top: 0; width: 280px; height: 100vh; background: rgba(20, 33, 61, 0.95); backdrop-filter: blur(10px); overflow-y: auto; z-index: 1500; border-right: 2px solid #ffd166; }
+    .sidebar-header { padding: 1.5rem; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,209,102,0.3); }
+    .sidebar-header h3 { color: #ffd166; font-size: 1.3rem; margin: 0; }
+    .sidebar-nav { padding: 1rem 0; }
+    .sidebar-item { padding: 0.8rem 1.5rem; cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem; border-left: 3px solid transparent; display: flex; align-items: center; gap: 0.5rem; }
+    .sidebar-item:hover { background: rgba(255,209,102,0.1); border-left-color: #ffd166; }
+    .sidebar-item.active { background: rgba(255,209,102,0.2); border-left-color: #ffd166; color: #ffd166; font-weight: 600; }
+    .sidebar-item.section { background: rgba(255,209,102,0.1); font-weight: 600; color: #ffd166; margin-top: 0.5rem; }
+    .slide-num { display: inline-block; width: 25px; color: rgba(255,255,255,0.6); }
+    .sidebar-item.active .slide-num { color: #ffd166; }
+
+    /* Home Button */
+    .home-btn { position: fixed; top: 30px; left: 300px; background: rgba(255,209,102,0.9); color: #14213d; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; z-index: 1000; display: flex; align-items: center; gap: 0.5rem; }
+    .home-btn:hover { background: #ffd166; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255,209,102,0.4); }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle { display: none; position: fixed; top: 30px; left: 20px; z-index: 2000; background: rgba(255,209,102,0.9); color: #14213d; border: none; padding: 0.75rem; border-radius: 8px; cursor: pointer; }
+    .menu-toggle:hover { background: #ffd166; }
+
+    @media (max-width: 1024px) {
+      .slide{ padding: 40px 50px 40px 320px; }
+      h1{ font-size: 3.4rem; }
+      h2{ font-size: 2.8rem; }
+      h3{ font-size: 2.2rem; }
+      .subtitle{ font-size: 1.5rem; }
+      .content-list li{ font-size: 1.35rem; }
+      .quote{ font-size: 1.6rem; }
+      .two-column{ grid-template-columns: 1fr; gap: 1.2rem; }
+    }
+    @media (max-width: 768px) {
+      .slide{ padding: 80px 30px 30px 30px; }
+      h1{ font-size: 2.6rem; }
+      h2{ font-size: 2.2rem; }
+      h3{ font-size: 1.9rem; }
+      .subtitle{ font-size: 1.3rem; }
+      .content-list li{ font-size: 1.2rem; }
+      .scripture-text{ font-size: 1.4rem; }
+      .quote{ font-size: 1.3rem; }
+      .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+      .sidebar.open { transform: translateX(0); }
+      .menu-toggle { display: block; }
+      .home-btn { left: auto; right: 30px; }
+    }
+    @media print { body{ background: white; color: black; } .slide{ display: block !important; page-break-after: always; position: static; background: white; color: black; padding: 2cm; } .navigation, .slide-counter{ display: none; } .scripture, .prayer-points, .call-to-action{ background: #f8f9fa; border: 2px solid #ddd; color: black; } h2, .scripture-ref, .emphasis{ color: #000; } }
+  </style>
+</head>
+<body>
+  <div class="presentation">
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Do You Love Me?</h3>
+      </div>
+      <div class="sidebar-nav" id="sidebarNav">
+        <!-- Navigation items will be generated by JavaScript -->
+      </div>
+    </nav>
+
+    <!-- Home Button -->
+    <a href="../index.html" class="home-btn">
+      <span>🏠</span>
+      <span>Dashboard</span>
+    </a>
+
+    <div class="slide-counter"><span id="current-slide">1</span> / <span id="total-slides">36</span></div>
+
+    <!-- 1. Title Slide -->
+    <div class="slide active" data-slide="1">
+      <h1>Do You Love Me More Than These?</h1>
+      <h2>A Call To Radical Discipleship</h2>
+      <div class="scripture">
+        <div class="scripture-text">"So when they had eaten breakfast, Jesus said to Simon Peter, 'Simon, son of Jonah, do you love Me more than these?' He said to Him, 'Yes, Lord; You know that I love You.' He said to him, 'Feed My lambs.'"</div>
+        <div class="scripture-ref">John 21:15</div>
+      </div>
+      <div class="subtitle" style="margin-top: 2rem;">Pastor Maima Moore</div>
+      <div class="subtitle">Harvest Intercontinational Church - Olney</div>
+      <div class="subtitle">October 6, 2025</div>
+    </div>
+
+    <!-- 2. Central Message -->
+    <div class="slide" data-slide="2">
+      <h2>Jesus Is Looking for "A Few Good Men"</h2>
+      <div class="quote">"Jesus is looking for committed disciples who will answer His call in the day of His power. Not merely attendees, but radical followers who will say YES to His commission."</div>
+      <div class="subtitle" style="margin-top: 2rem;">This powerful message calls believers to examine the depth of their love for Jesus Christ and challenges the church to embrace radical discipleship in this critical hour.</div>
+    </div>
+
+    <!-- 3. Context: Peter's Restoration -->
+    <div class="slide" data-slide="3">
+      <h2>A Post-Resurrection Encounter</h2>
+      <div class="content-list"><ul>
+        <li>Peter had denied Jesus three times during His trial</li>
+        <li>After the resurrection, Jesus meets the disciples by the Sea of Galilee</li>
+        <li>They had fished all night and caught nothing</li>
+        <li>Jesus told them to cast the net on the right side - miraculous catch</li>
+        <li>Jesus prepared breakfast for them on the shore</li>
+        <li>Then came the threefold question: "Do you love Me?"</li>
+      </ul></div>
+    </div>
+
+    <!-- 4. Section Break: Six Theological Points -->
+    <div class="slide section-break" data-slide="4">
+      <h1>⚔️ Six Theological Truths</h1>
+      <h2>Foundations of Radical Discipleship</h2>
+    </div>
+
+    <!-- 5. Point 1: The Call to Willing Troops -->
+    <div class="slide" data-slide="5">
+      <h2>1. The Call to Willing Troops</h2>
+      <h3 style="color: #ffd166;">Psalm 110:3 - In the Day of God's Power</h3>
+      <div class="scripture">
+        <div class="scripture-text">"Your people shall be volunteers in the day of Your power; in the beauties of holiness, from the womb of the morning, You have the dew of Your youth."</div>
+        <div class="scripture-ref">Psalm 110:3 (NKJV)</div>
+      </div>
+    </div>
+
+    <!-- 6. Point 1 Details -->
+    <div class="slide" data-slide="6">
+      <h2>God Is Seeking Willing Volunteers</h2>
+      <div class="content-list"><ul>
+        <li>The word "people" actually means "troops" - we are in spiritual warfare</li>
+        <li>We live in the "day of His power" - particularly in these last days</li>
+        <li>Jesus Christ is Commander-in-Chief recruiting volunteers</li>
+        <li><span class="emphasis">Many are called, but few are chosen</span></li>
+        <li>Those who are chosen are those who actively CHOOSE to respond</li>
+        <li>God is looking for troops who will stand for righteousness</li>
+      </ul></div>
+    </div>
+
+    <!-- 7. Point 2: Love as Foundation -->
+    <div class="slide" data-slide="7">
+      <h2>2. Love as the Foundation</h2>
+      <h3 style="color: #ffd166;">John 21:15-17 - Three Questions</h3>
+      <div class="scripture">
+        <div class="scripture-text">"He said to him the third time, 'Simon, son of Jonah, do you love Me?' Peter was grieved because He said to him the third time, 'Do you love Me?' And he said to Him, 'Lord, You know all things; You know that I love You.' Jesus said to him, 'Feed My sheep.'"</div>
+        <div class="scripture-ref">John 21:17</div>
+      </div>
+    </div>
+
+    <!-- 8. Point 2 Details -->
+    <div class="slide" data-slide="8">
+      <h2>Everything Flows from Love</h2>
+      <div class="content-list"><ul>
+        <li>Jesus didn't ask Peter about theology or preaching ability</li>
+        <li>Jesus didn't ask about his past failures - He asked about LOVE</li>
+        <li>All Christian service must flow from genuine agape love for Christ</li>
+        <li><span class="emphasis">"Do you love Me MORE than these?"</span></li>
+        <li>What are "these"? Other people, possessions, positions, pursuits?</li>
+        <li>Jesus Christ must hold the supreme place in our affections</li>
+      </ul></div>
+    </div>
+
+    <!-- 9. Point 3: From Failure to Restoration -->
+    <div class="slide" data-slide="9">
+      <h2>3. From Failure to Restoration</h2>
+      <h3 style="color: #ffd166;">Through Love</h3>
+      <div class="content-list"><ul>
+        <li>Peter denied Christ three times</li>
+        <li>Jesus gave him three opportunities to affirm love</li>
+        <li>Past failures do not disqualify us from future service</li>
+        <li>God is more interested in the condition of our hearts</li>
+        <li>Restoration comes through returning to our first love</li>
+        <li>Re-establishing Jesus as Lord brings restoration</li>
+      </ul></div>
+    </div>
+
+    <!-- 10. Point 4: Love Through Obedience -->
+    <div class="slide" data-slide="10">
+      <h2>4. Love Expressed Through Service</h2>
+      <h3 style="color: #ffd166;">John 21:15-17 - The Commission</h3>
+      <div class="two-column">
+        <div class="column">
+          <h4>Three Affirmations</h4>
+          <ul>
+            <li>"Do you love Me?"</li>
+            <li>"Do you love Me?"</li>
+            <li>"Do you love Me?"</li>
+          </ul>
+        </div>
+        <div class="column">
+          <h4>Three Commissions</h4>
+          <ul>
+            <li>"Feed My lambs"</li>
+            <li>"Tend My sheep"</li>
+            <li>"Feed My sheep"</li>
+          </ul>
+        </div>
+      </div>
+      <div class="subtitle" style="margin-top: 1.5rem;">Love is demonstrated through practical obedience and sacrificial service to God's people.</div>
+    </div>
+
+    <!-- 11. Point 4 Details -->
+    <div class="slide" data-slide="11">
+      <h2>Love Is Not Merely Emotional</h2>
+      <div class="content-list"><ul>
+        <li>Love for Christ must be practical, not just sentimental</li>
+        <li>Those who truly love Jesus care for what He cares about</li>
+        <li>His sheep - His church - His kingdom</li>
+        <li>Our love is proven by our willingness to serve others in His name</li>
+        <li>Feed the lambs (young believers)</li>
+        <li>Tend the sheep (care for and protect)</li>
+        <li>Feed the sheep (mature believers need nourishment too)</li>
+      </ul></div>
+    </div>
+
+    <!-- 12. Point 5: The Cost -->
+    <div class="slide" data-slide="12">
+      <h2>5. The Cost of Radical Discipleship</h2>
+      <h3 style="color: #ffd166;">John 21:18-19 - The Prophecy</h3>
+      <div class="scripture">
+        <div class="scripture-text">"Most assuredly, I say to you, when you were younger, you girded yourself and walked where you wished; but when you are old, you will stretch out your hands, and another will gird you and carry you where you do not wish." This He spoke, signifying by what death he would glorify God. And when He had spoken this, He said to him, "Follow Me."</div>
+        <div class="scripture-ref">John 21:18-19</div>
+      </div>
+    </div>
+
+    <!-- 13. Point 5 Details -->
+    <div class="slide" data-slide="13">
+      <h2>Jesus Doesn't Hide the Cost</h2>
+      <div class="content-list"><ul>
+        <li>Jesus prophetically told Peter about his martyrdom</li>
+        <li>Radical discipleship may cost us everything</li>
+        <li>Our lives, our rights, our comfort, our preferences</li>
+        <li><span class="emphasis">"Follow Me" - not to ease, but to a cross</span></li>
+        <li>The call to discipleship is a call to die to self daily</li>
+        <li>Living wholly for Christ, regardless of personal cost</li>
+      </ul></div>
+    </div>
+
+    <!-- 14. Point 6: Focus on Your Calling -->
+    <div class="slide" data-slide="14">
+      <h2>6. Focus on Your Own Calling</h2>
+      <h3 style="color: #ffd166;">John 21:20-22 - What About Him?</h3>
+      <div class="scripture">
+        <div class="scripture-text">"Then Peter, turning around, saw the disciple whom Jesus loved following, and said to Jesus, 'But Lord, what about this man?' Jesus said to him, 'If I will that he remain till I come, what is that to you? You follow Me.'"</div>
+        <div class="scripture-ref">John 21:20-22</div>
+      </div>
+    </div>
+
+    <!-- 15. Point 6 Details -->
+    <div class="slide" data-slide="15">
+      <h2>Don't Compare Your Calling</h2>
+      <div class="content-list"><ul>
+        <li>Peter asked about John's future - Jesus redirected him</li>
+        <li><span class="emphasis">"What is that to you? You follow Me!"</span></li>
+        <li>Don't compare your calling with others</li>
+        <li>Don't be distracted by what God is doing in someone else's life</li>
+        <li>Each disciple has a unique path and calling</li>
+        <li>Our responsibility: follow Jesus faithfully, wherever He leads</li>
+      </ul></div>
+    </div>
+
+    <!-- 16. Section Break: Applications -->
+    <div class="slide section-break" data-slide="16">
+      <h1>💡 Practical Applications</h1>
+      <h2>Living Out Radical Discipleship</h2>
+    </div>
+
+    <!-- 17. Applications 1-3 -->
+    <div class="slide" data-slide="17">
+      <h2>How to Apply This Message</h2>
+      <div class="content-list"><ul>
+        <li><span class="emphasis">1. Examine Your Love:</span> Regularly ask yourself, "Do I truly love Jesus more than anything or anyone else?" Let this be a heart check.</li>
+        <li><span class="emphasis">2. Choose to Be Chosen:</span> Recognize that God is calling you to radical discipleship. Make the conscious decision to fully surrender to His lordship.</li>
+        <li><span class="emphasis">3. Serve His Sheep:</span> Demonstrate your love for Christ by caring for His people. Get involved in ministry and mentorship.</li>
+      </ul></div>
+    </div>
+
+    <!-- 18. Applications 4-6 -->
+    <div class="slide" data-slide="18">
+      <h2>How to Apply This Message</h2>
+      <div class="content-list"><ul>
+        <li><span class="emphasis">4. Count the Cost:</span> Understand that following Jesus may cost you everything. Make the decision now that He is worth it.</li>
+        <li><span class="emphasis">5. Stay Focused on Your Call:</span> Don't be distracted by what God is doing with others. Keep your eyes on Jesus.</li>
+        <li><span class="emphasis">6. Be Willing in the Day of His Power:</span> This is an urgent hour. Stand up, step forward, and say, "Here I am, send me."</li>
+      </ul></div>
+    </div>
+
+    <!-- 19. Key Illustration -->
+    <div class="slide" data-slide="19">
+      <h2>A Few Good Men</h2>
+      <div class="quote">"Just as the United States Marines sought volunteers willing to serve with excellence and sacrifice, Jesus is seeking those who will voluntarily commit to radical discipleship in this critical hour of history."</div>
+      <div class="subtitle" style="margin-top: 2rem;">The Lord is recruiting - will you enlist?</div>
+    </div>
+
+    <!-- 20. Section Break: Key Scriptures -->
+    <div class="slide section-break" data-slide="20">
+      <h1>📖 Key Scriptures</h1>
+      <h2>Foundation Texts</h2>
+    </div>
+
+    <!-- 21. Matthew 22:14 -->
+    <div class="slide" data-slide="21">
+      <h2>Many Called, Few Chosen</h2>
+      <div class="scripture">
+        <div class="scripture-text">"For many are called, but few are chosen."</div>
+        <div class="scripture-ref">Matthew 22:14</div>
+      </div>
+    </div>
+
+    <!-- 22. Luke 9:23-24 -->
+    <div class="slide" data-slide="22">
+      <h2>Take Up Your Cross Daily</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Then He said to them all, 'If anyone desires to come after Me, let him deny himself, and take up his cross daily, and follow Me. For whoever desires to save his life will lose it, but whoever loses his life for My sake will save it.'"</div>
+        <div class="scripture-ref">Luke 9:23-24</div>
+      </div>
+    </div>
+
+    <!-- 23. John 14:15 -->
+    <div class="slide" data-slide="23">
+      <h2>Love and Obedience</h2>
+      <div class="scripture">
+        <div class="scripture-text">"If you love Me, keep My commandments."</div>
+        <div class="scripture-ref">John 14:15</div>
+      </div>
+    </div>
+
+    <!-- 24. 1 Peter 5:2-4 -->
+    <div class="slide" data-slide="24">
+      <h2>Shepherd the Flock</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Shepherd the flock of God which is among you, serving as overseers, not by compulsion but willingly, not for dishonest gain but eagerly; nor as being lords over those entrusted to you, but being examples to the flock; and when the Chief Shepherd appears, you will receive the crown of glory that does not fade away."</div>
+        <div class="scripture-ref">1 Peter 5:2-4</div>
+      </div>
+    </div>
+
+    <!-- 25. Section Break: Prayer Points -->
+    <div class="slide section-break" data-slide="25">
+      <h1>🙏 Prayer Points</h1>
+      <h2>Scripture-Based Prayers</h2>
+    </div>
+
+    <!-- 26. Prayer 1: Supreme Love -->
+    <div class="slide prayer-slide" data-slide="26">
+      <h2>1. Prayer for Supreme Love for Christ</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Heavenly Father, we cry out for hearts that burn with undivided love for Your Son, Jesus Christ. Like Peter, we have failed You, denied You, and placed other things before You. We ask You to restore our first love and to make Jesus the supreme treasure of our hearts. Lord, we declare with Peter, "You know all things; You know that we love You!" Let our love for Christ be greater than our love for comfort, possessions, reputation, or even our own families. Consume us with holy passion for Jesus that compels us to serve You with abandoned devotion.</div>
+          <div class="scripture-ref">Based on Matthew 6:33</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 27. Prayer 2: Willing Hearts -->
+    <div class="slide prayer-slide" data-slide="27">
+      <h2>2. Prayer for Willing Hearts</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Lord of Hosts, we recognize that we are living in the day of Your power, and You are calling for willing volunteers to serve in Your army. We respond to Your call and say, "Here we are, send us!" Make us troops who are willing to stand for righteousness, to advance Your kingdom, and to fulfill the Great Commission. Remove every hesitation, fear, and compromise from our hearts. We choose to be chosen. We volunteer to be among the "few good men" who will serve You with excellence and total commitment in this generation.</div>
+          <div class="scripture-ref">Based on Psalm 110:3</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 28. Prayer 3: Faithful Shepherding -->
+    <div class="slide prayer-slide" data-slide="28">
+      <h2>3. Prayer for Faithful Shepherding</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Good Shepherd, You have called us not only to love You but to demonstrate that love by caring for Your people. Give us Your heart for the sheep - for the lambs who are young in faith, for the weak who need tender care, and for the mature who need continual feeding on Your Word. Raise up faithful shepherds, teachers, and mentors in our midst who will feed Your flock with truth, protect them from wolves, and lead them to green pastures. Help us to see every opportunity to serve others as an opportunity to express our love for You.</div>
+          <div class="scripture-ref">Based on 1 Peter 5:2</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 29. Prayer 4: Grace to Embrace Cost -->
+    <div class="slide prayer-slide" data-slide="29">
+      <h2>4. Prayer for Grace to Embrace the Cost</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Lord Jesus, You never promised us an easy path. You told Your disciples that following You would cost them everything, even their lives. We ask for grace to count the cost and to embrace it willingly. Deliver us from the spirit of comfort and complacency that weakens the church. Give us the spirit of the martyrs who loved not their lives unto death. Whether You call us to literal martyrdom or to daily die to our own desires, give us strength to say, "Not my will, but Yours be done."</div>
+          <div class="scripture-ref">Based on Matthew 16:24</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 30. Prayer 5: Restoration -->
+    <div class="slide prayer-slide" data-slide="30">
+      <h2>5. Prayer for Restoration from Past Failures</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Merciful Father, we thank You that our past failures do not disqualify us from future service. Just as You restored Peter after his three denials, restore every believer who has fallen, failed, or denied You. Speak words of recommissioning over those who are paralyzed by guilt and shame. Remind us that Your mercies are new every morning and that You specialize in resurrection and restoration. Turn our mourning into dancing and our ashes into beauty as we return to You with our whole hearts.</div>
+          <div class="scripture-ref">Based on Psalm 51:17</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 31. Prayer 6: Undistracted Focus -->
+    <div class="slide prayer-slide" data-slide="31">
+      <h2>6. Prayer for Undistracted Focus</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Faithful Lord, deliver us from the trap of comparison and competition in the body of Christ. When we are tempted to look at what You are doing in someone else's life and ask, "What about them?" remind us of Your words to Peter: "What is that to you? You follow Me!" Help us to run our own race with perseverance, to steward our unique calling with faithfulness, and to celebrate what You are doing in the lives of our brothers and sisters without envy or distraction. Keep our eyes fixed on Jesus, the author and finisher of our faith.</div>
+          <div class="scripture-ref">Based on Hebrews 12:1-2</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 32. Prayer 7: Church Awakening -->
+    <div class="slide prayer-slide" data-slide="32">
+      <h2>7. Prayer for the Church to Arise</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">God of Revival, we pray for a mighty awakening in Your church. Shake us from spiritual slumber, religious routine, and lukewarm Christianity. Raise up a generation of radical disciples who will turn the world upside down for Jesus Christ. Let Your church be known not for our buildings or programs, but for our extravagant love for Jesus and our sacrificial service to others. Pour out Your Spirit upon us and thrust us into the harvest fields as laborers who are willing to do whatever it takes to see Your kingdom come and Your will be done on earth as it is in heaven.</div>
+          <div class="scripture-ref">Based on Matthew 9:37-38</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 33. Closing Declaration -->
+    <div class="slide" data-slide="33">
+      <h2>Declaration of Commitment</h2>
+      <div class="quote">"We declare that we love Jesus Christ more than these - more than comfort, more than approval, more than security, more than life itself. We choose to be chosen. We volunteer to serve as His troops in the day of His power. We will feed His lambs, tend His sheep, and follow Him wherever He leads, no matter the cost."</div>
+    </div>
+
+    <!-- 34. Reflection Questions -->
+    <div class="slide" data-slide="34">
+      <h2>Questions for Reflection</h2>
+      <div class="content-list"><ul>
+        <li>Do I truly love Jesus more than anything or anyone else?</li>
+        <li>What are the "these" in my life that compete for my devotion?</li>
+        <li>Am I willing to count the cost and embrace radical discipleship?</li>
+        <li>How am I demonstrating my love for Christ by serving His sheep?</li>
+        <li>Am I comparing myself to others instead of focusing on my calling?</li>
+        <li>Have I truly answered His call to be a willing volunteer?</li>
+      </ul></div>
+    </div>
+
+    <!-- 35. Call to Action -->
+    <div class="slide cta-slide" data-slide="35">
+      <h1>Will You Answer the Call?</h1>
+      <div class="content-list"><ul>
+        <li>Jesus is looking for "a few good men" in this generation</li>
+        <li>Not just church attendees, but radical disciples</li>
+        <li>Those who will love Him supremely above all else</li>
+        <li>Those who will serve His sheep faithfully</li>
+        <li>Those who will count the cost and embrace the cross</li>
+        <li>Those who will follow Him without distraction</li>
+        <li><span class="emphasis">The question remains: "Do YOU love Me more than these?"</span></li>
+      </ul></div>
+    </div>
+
+    <!-- 36. Closing Slide -->
+    <div class="slide" data-slide="36">
+      <h1>To God Be All Glory</h1>
+      <div class="scripture">
+        <div class="scripture-text">"Jesus said to him, 'Feed My sheep... Follow Me.'"</div>
+        <div class="scripture-ref">John 21:17, 19</div>
+      </div>
+      <div class="subtitle" style="margin-top: 2rem;">Watch the full sermon:</div>
+      <div class="subtitle">https://youtu.be/WlPrqfk1Tvg</div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+      <button class="nav-btn" onclick="previousSlide()">← Previous</button>
+      <button class="nav-btn" onclick="nextSlide()">Next →</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = document.querySelectorAll('.slide').length;
+    document.getElementById('total-slides').textContent = totalSlides;
+
+    // Slide titles for sidebar navigation
+    const slideTitles = [
+      'Title', 'Central Message', 'Context: Restoration',
+      '⚔️ Six Theological Truths', '1. Willing Troops (Ps 110:3)', 'Willing Volunteers', '2. Love as Foundation (Jn 21:15-17)', 'Everything Flows from Love',
+      '3. Failure to Restoration', '4. Love Through Service', 'Love Is Not Emotional', '5. The Cost (Jn 21:18-19)', 'Jesus Doesn\'t Hide Cost',
+      '6. Focus on Calling (Jn 21:20-22)', 'Don\'t Compare',
+      '💡 Practical Applications', 'Applications 1-3', 'Applications 4-6', 'Illustration: Few Good Men',
+      '📖 Key Scriptures', 'Many Called, Few Chosen', 'Take Up Cross Daily', 'Love and Obedience', 'Shepherd the Flock',
+      '🙏 Prayer Points', 'Prayer: Supreme Love', 'Prayer: Willing Hearts', 'Prayer: Shepherding', 'Prayer: Embrace Cost', 'Prayer: Restoration',
+      'Prayer: Undistracted Focus', 'Prayer: Church Awakening', 'Declaration of Commitment', 'Reflection Questions', 'Call to Action', 'Closing'
+    ];
+
+    // Generate sidebar navigation
+    function generateSidebar() {
+      const sidebarNav = document.getElementById('sidebarNav');
+      sidebarNav.innerHTML = '';
+
+      slideTitles.forEach((title, index) => {
+        const item = document.createElement('div');
+        item.className = 'sidebar-item';
+
+        // Mark section breaks
+        if ([3, 15, 19, 24].includes(index)) {
+          item.classList.add('section');
+        }
+
+        if (index === currentSlide - 1) {
+          item.classList.add('active');
+        }
+
+        item.innerHTML = `
+          <span class="slide-num">${index + 1}</span>
+          <span>${title}</span>
+        `;
+
+        item.onclick = () => {
+          showSlide(index + 1);
+        };
+
+        sidebarNav.appendChild(item);
+      });
+    }
+
+    function showSlide(n) {
+      const slides = document.querySelectorAll('.slide');
+      if (n > totalSlides) n = 1;
+      if (n < 1) n = totalSlides;
+      currentSlide = n;
+      slides.forEach(s => s.classList.remove('active'));
+      slides[currentSlide - 1].classList.add('active');
+      document.getElementById('current-slide').textContent = currentSlide;
+
+      // Update navigation buttons
+      const prevBtn = document.querySelector('.nav-btn');
+      const nextBtn = document.querySelectorAll('.nav-btn')[1];
+      prevBtn.disabled = currentSlide === 1;
+      nextBtn.disabled = currentSlide === totalSlides;
+
+      // Update sidebar
+      generateSidebar();
+    }
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function previousSlide() { showSlide(currentSlide - 1); }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+
+    document.addEventListener('keydown', function(event) {
+      switch(event.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+        case ' ':
+        case 'Enter':
+          nextSlide();
+          event.preventDefault();
+          break;
+        case 'ArrowLeft':
+        case 'ArrowUp':
+          previousSlide();
+          event.preventDefault();
+          break;
+        case 'Home':
+          currentSlide = 1; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'End':
+          currentSlide = totalSlides; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'PageDown':
+          showSlide(Math.min(currentSlide + 10, totalSlides)); event.preventDefault();
+          break;
+        case 'PageUp':
+          showSlide(Math.max(currentSlide - 10, 1)); event.preventDefault();
+          break;
+      }
+    });
+
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let startY = 0;
+
+    document.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    });
+
+    document.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const endY = e.changedTouches[0].clientY;
+      const deltaX = endX - startX;
+      const deltaY = endY - startY;
+
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+        if (deltaX > 0) {
+          previousSlide();
+        } else {
+          nextSlide();
+        }
+      }
+    });
+
+    // Initialize
+    generateSidebar();
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>

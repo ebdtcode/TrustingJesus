@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torn Paper Prayer Template</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #1a1a1a;
+            --bg-medium: #2d2d2d;
+            --paper-white: #f5f5f0;
+            --paper-cream: #fffef7;
+            --text-dark: #1a1a1a;
+            --text-light: #ffffff;
+            --gold-accent: #d4af37;
+            --warm-glow: rgba(255, 200, 100, 0.3);
+        }
+
+        body {
+            font-family: 'Georgia', 'Garamond', serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .presentation {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 280px;
+            background: var(--bg-medium);
+            backdrop-filter: blur(10px);
+            padding: 2rem 1.5rem;
+            overflow-y: auto;
+            border-right: 2px solid rgba(212, 175, 55, 0.3);
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar.hidden {
+            transform: translateX(-100%);
+        }
+
+        .sidebar h1 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold-accent);
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .slide-menu {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .slide-menu li {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .slide-menu li:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: translateX(5px);
+        }
+
+        .slide-menu li.active {
+            background: rgba(212, 175, 55, 0.3);
+            border-left: 4px solid var(--gold-accent);
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.6s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Background image container */
+        .slide-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+
+        .slide-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.4);
+        }
+
+        /* Torn paper effect container */
+        .torn-paper {
+            position: absolute;
+            background: var(--paper-cream);
+            color: var(--text-dark);
+            padding: 3rem 4rem;
+            max-width: 900px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Torn edge SVG mask */
+        .torn-paper::before,
+        .torn-paper::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: var(--paper-cream);
+        }
+
+        .torn-paper::before {
+            top: -15px;
+            clip-path: polygon(
+                0% 100%, 2% 80%, 4% 90%, 6% 70%, 8% 85%, 10% 75%,
+                12% 95%, 14% 85%, 16% 70%, 18% 90%, 20% 80%, 22% 95%,
+                24% 75%, 26% 85%, 28% 70%, 30% 90%, 32% 80%, 34% 95%,
+                36% 85%, 38% 75%, 40% 90%, 42% 80%, 44% 70%, 46% 85%,
+                48% 95%, 50% 80%, 52% 90%, 54% 75%, 56% 85%, 58% 95%,
+                60% 80%, 62% 70%, 64% 85%, 66% 90%, 68% 75%, 70% 95%,
+                72% 85%, 74% 80%, 76% 70%, 78% 90%, 80% 85%, 82% 75%,
+                84% 90%, 86% 80%, 88% 95%, 90% 85%, 92% 75%, 94% 90%,
+                96% 80%, 98% 85%, 100% 75%, 100% 100%
+            );
+        }
+
+        .torn-paper::after {
+            bottom: -15px;
+            clip-path: polygon(
+                0% 0%, 2% 20%, 4% 10%, 6% 30%, 8% 15%, 10% 25%,
+                12% 5%, 14% 15%, 16% 30%, 18% 10%, 20% 20%, 22% 5%,
+                24% 25%, 26% 15%, 28% 30%, 30% 10%, 32% 20%, 34% 5%,
+                36% 15%, 38% 25%, 40% 10%, 42% 20%, 44% 30%, 46% 15%,
+                48% 5%, 50% 20%, 52% 10%, 54% 25%, 56% 15%, 58% 5%,
+                60% 20%, 62% 30%, 64% 15%, 66% 10%, 68% 25%, 70% 5%,
+                72% 15%, 74% 20%, 76% 30%, 78% 10%, 80% 15%, 82% 25%,
+                84% 10%, 86% 20%, 88% 5%, 90% 15%, 92% 25%, 94% 10%,
+                96% 20%, 98% 15%, 100% 25%, 100% 0%
+            );
+        }
+
+        /* Dove decoration */
+        .dove-left,
+        .dove-right {
+            position: absolute;
+            font-size: 4rem;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+            z-index: 10;
+        }
+
+        .dove-left {
+            top: 2rem;
+            left: 2rem;
+        }
+
+        .dove-right {
+            top: 2rem;
+            right: 2rem;
+        }
+
+        /* Light rays effect */
+        .light-rays {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--warm-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .light-rays.top-left {
+            top: -100px;
+            left: -100px;
+        }
+
+        .light-rays.top-right {
+            top: -100px;
+            right: -100px;
+        }
+
+        /* Title slide specific */
+        .title-slide-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 4rem;
+        }
+
+        .title-text {
+            text-align: right;
+            color: var(--text-light);
+            max-width: 800px;
+        }
+
+        .title-brand {
+            font-size: 1rem;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        .title-main {
+            font-size: 6rem;
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .title-main .cross {
+            display: inline-block;
+            margin: 0 0.5rem;
+        }
+
+        .title-author {
+            font-size: 2rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .title-date {
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+        }
+
+        .title-website {
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        /* Content slide with torn paper */
+        .content-slide {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem;
+        }
+
+        .torn-paper.center {
+            position: relative;
+            top: auto;
+            left: auto;
+            right: auto;
+            bottom: auto;
+        }
+
+        .torn-paper h2 {
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .torn-paper p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        /* Thank you slide */
+        .thank-you-slide {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 4rem;
+        }
+
+        .thank-you-content {
+            text-align: right;
+            color: var(--text-light);
+        }
+
+        .thank-you-content .dove-center {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .thank-you-content h2 {
+            font-size: 7rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .thank-you-content .author {
+            font-size: 2rem;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .thank-you-content .contact {
+            font-size: 1.3rem;
+            line-height: 2;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation */
+        .navigation {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 50;
+        }
+
+        .nav-btn {
+            background: rgba(212, 175, 55, 0.9);
+            color: var(--text-dark);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .nav-btn:hover {
+            background: var(--gold-accent);
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            z-index: 50;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .toggle-sidebar {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(212, 175, 55, 0.9);
+            color: var(--text-dark);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            z-index: 101;
+            transition: all 0.3s ease;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .toggle-sidebar:hover {
+            background: var(--gold-accent);
+        }
+
+        .home-btn {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            background: rgba(212, 175, 55, 0.9);
+            color: var(--text-dark);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            z-index: 101;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .home-btn:hover {
+            background: var(--gold-accent);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.visible {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .title-main {
+                font-size: 3rem;
+            }
+
+            .torn-paper {
+                padding: 2rem;
+                max-width: 90%;
+            }
+
+            .torn-paper h2 {
+                font-size: 2rem;
+            }
+
+            .thank-you-content h2 {
+                font-size: 4rem;
+            }
+        }
+
+        @media print {
+            .sidebar,
+            .navigation,
+            .slide-counter,
+            .toggle-sidebar,
+            .home-btn {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .slide {
+                display: block !important;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="toggle-sidebar" onclick="toggleSidebar()">☰ Menu</button>
+    <a href="../index.html" class="home-btn">🏠 Home</a>
+    <div class="slide-counter">
+        <span id="currentSlide">1</span> / <span id="totalSlides">0</span>
+    </div>
+
+    <div class="presentation">
+        <nav class="sidebar" id="sidebar">
+            <h1>Journey of Prayer</h1>
+            <p style="color: rgba(255,255,255,0.7); margin-bottom: 1rem; font-family: 'Segoe UI', sans-serif;">Presentation Template</p>
+            <ul class="slide-menu" id="slideMenu"></ul>
+        </nav>
+
+        <main class="main-content">
+            <!-- Slide 1: Title Slide -->
+            <div class="slide active" data-title="Title">
+                <div class="slide-bg">
+                    <!-- Background image placeholder (use prayer hands image) -->
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #3a3a3a 0%, #1a1a1a 100%);"></div>
+                </div>
+                <div class="light-rays top-right"></div>
+                <div class="title-slide-content">
+                    <div class="title-text">
+                        <div class="title-brand">CHURCH NAME</div>
+                        <h1 class="title-main">
+                            A JOURNEY <span class="cross">✟</span>F<br>
+                            PRAYER
+                        </h1>
+                        <div class="title-author">SPEAKER NAME</div>
+                        <div class="title-date">DATE HERE</div>
+                        <div class="title-website">WWW.YOURCHURCH.COM</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Content with Torn Paper (Light bg) -->
+            <div class="slide" data-title="What is Prayer?">
+                <div class="slide-bg">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #3a3a3a 0%, #1a1a1a 100%);"></div>
+                </div>
+                <div class="light-rays top-left"></div>
+                <div class="dove-left">🕊️</div>
+                <div class="content-slide">
+                    <div class="torn-paper center">
+                        <h2>WHAT IS PRAYER?</h2>
+                        <p>Prayer is our direct communication with God. It's not just speaking to Him, but also listening for His voice. Through prayer, we express our hearts, our needs, our gratitude, and our worship. It's the foundation of our relationship with our Creator and the source of spiritual strength and guidance in our daily lives.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Content with Torn Paper (Dark bg) -->
+            <div class="slide" data-title="The Power of Prayer">
+                <div class="slide-bg">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);"></div>
+                </div>
+                <div class="light-rays top-right"></div>
+                <div class="dove-right">🕊️</div>
+                <div class="content-slide">
+                    <div class="torn-paper center">
+                        <h2>THE POWER OF PRAYER</h2>
+                        <p>Prayer has the power to change circumstances, transform hearts, and move mountains. When we pray, we tap into the unlimited power of God. Through faithful prayer, we see miracles, receive healing, gain wisdom, and experience breakthroughs that are beyond our human capabilities.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: Why Pray? -->
+            <div class="slide" data-title="Why Pray?">
+                <div class="slide-bg">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #3a3a3a 0%, #1a1a1a 100%);"></div>
+                </div>
+                <div class="light-rays top-left"></div>
+                <div class="dove-left">🕊️</div>
+                <div class="content-slide">
+                    <div class="torn-paper center">
+                        <h2>WHY PRAY?</h2>
+                        <p>We pray because God invites us into relationship with Him. Prayer aligns our will with His, brings peace to our souls, and opens doors of blessing. It's through prayer that we grow spiritually, receive direction for our lives, and experience the presence of God in profound ways.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: How to Pray -->
+            <div class="slide" data-title="How to Pray">
+                <div class="slide-bg">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);"></div>
+                </div>
+                <div class="light-rays top-right"></div>
+                <div class="dove-right">🕊️</div>
+                <div class="content-slide">
+                    <div class="torn-paper center">
+                        <h2>HOW TO PRAY</h2>
+                        <p>Prayer doesn't require special words or perfect phrases. Simply come to God with an honest heart. Start with worship and thanksgiving, confess your sins, bring your requests, and listen for His voice. Prayer can be spoken, silent, individual, or corporate. What matters most is sincerity and faith.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: Prayer and the Bible -->
+            <div class="slide" data-title="Prayer & Scripture">
+                <div class="slide-bg">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #3a3a3a 0%, #1a1a1a 100%);"></div>
+                </div>
+                <div class="light-rays top-left"></div>
+                <div class="dove-left">🕊️</div>
+                <div class="content-slide">
+                    <div class="torn-paper center">
+                        <h2>PRAYER AND THE BIBLE</h2>
+                        <p>Scripture guides our prayers and teaches us how to pray. The Bible is filled with prayers, promises, and principles that shape our communication with God. As we pray God's Word back to Him, we align our requests with His will and build our faith on His unchanging truth.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 7: Thank You -->
+            <div class="slide" data-title="Thank You">
+                <div class="slide-bg">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);"></div>
+                </div>
+                <div class="light-rays top-right"></div>
+                <div class="thank-you-slide">
+                    <div class="thank-you-content">
+                        <div class="dove-center">🕊️</div>
+                        <h2>THANK<br>YOU</h2>
+                        <div class="author">SPEAKER NAME</div>
+                        <div class="contact">
+                            @YOURCHURCH<br>
+                            HELLO@YOURCHURCH.COM<br>
+                            WWW.YOURCHURCH.COM
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const slideMenu = document.getElementById('slideMenu');
+
+        // Initialize slide menu
+        slides.forEach((slide, index) => {
+            const li = document.createElement('li');
+            li.textContent = `${index + 1}. ${slide.dataset.title}`;
+            li.onclick = () => showSlide(index + 1);
+            slideMenu.appendChild(li);
+        });
+
+        function showSlide(n) {
+            if (n > totalSlides) currentSlide = totalSlides;
+            if (n < 1) currentSlide = 1;
+            currentSlide = n;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+
+            document.getElementById('currentSlide').textContent = currentSlide;
+            document.getElementById('totalSlides').textContent = totalSlides;
+
+            // Update menu
+            const menuItems = slideMenu.querySelectorAll('li');
+            menuItems.forEach((item, index) => {
+                item.classList.toggle('active', index === currentSlide - 1);
+            });
+
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+        }
+
+        function changeSlide(n) {
+            showSlide(currentSlide + n);
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('hidden');
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+            if (e.key === 'Home') showSlide(1);
+            if (e.key === 'End') showSlide(totalSlides);
+            if (e.key === ' ') {
+                e.preventDefault();
+                changeSlide(1);
+            }
+        });
+
+        // Touch support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.querySelector('.main-content').addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.querySelector('.main-content').addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) changeSlide(1);
+            if (touchEndX > touchStartX + 50) changeSlide(-1);
+        }
+
+        // Initialize
+        showSlide(1);
+    </script>
+</body>
+</html>
