@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Steadfast Hope - Sermon Presentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2563a8;
+            --dark-blue: #1e4a7c;
+            --accent-blue: #3b82f6;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--primary-blue);
+            color: var(--white);
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .presentation {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 280px;
+            background: rgba(30, 74, 124, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem 1.5rem;
+            overflow-y: auto;
+            border-right: 2px solid var(--accent-blue);
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar.hidden {
+            transform: translateX(-100%);
+        }
+
+        .sidebar h1 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+        }
+
+        .slide-menu {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .slide-menu li {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .slide-menu li:hover {
+            background: rgba(59, 130, 246, 0.3);
+            transform: translateX(5px);
+        }
+
+        .slide-menu li.active {
+            background: rgba(59, 130, 246, 0.5);
+            border-left: 4px solid var(--white);
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .church-logo {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            background: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
+            padding-right: 3rem;
+        }
+
+        .church-logo .star-icon {
+            font-size: 2rem;
+            color: var(--primary-blue);
+        }
+
+        .church-logo .name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+        }
+
+        .date-badge {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-bottom: 2px solid var(--white);
+        }
+
+        .chevron-left {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding-left: 2rem;
+        }
+
+        .chevron-right {
+            position: absolute;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .chevron-icon {
+            width: 80px;
+            height: 80px;
+            border: 3px solid var(--white);
+            border-right: none;
+            border-top: none;
+            transform: rotate(135deg);
+        }
+
+        .chevron-icon-right {
+            width: 80px;
+            height: 80px;
+            border: 3px solid var(--white);
+            border-left: none;
+            border-bottom: none;
+            transform: rotate(135deg);
+        }
+
+        .title-slide {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 100%;
+            gap: 0;
+        }
+
+        .title-content {
+            background: var(--white);
+            color: var(--dark-gray);
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .title-content h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: var(--dark-gray);
+        }
+
+        .title-content p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: var(--dark-gray);
+        }
+
+        .title-image {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+        }
+
+        .title-overlay {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 3rem;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .title-overlay h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .content-slide {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 100%;
+        }
+
+        .content-left {
+            background: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem;
+            position: relative;
+        }
+
+        .content-right {
+            background: var(--white);
+            color: var(--dark-gray);
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .content-title {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .content-subtitle {
+            display: inline-block;
+            background: transparent;
+            border: 3px solid var(--white);
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem auto;
+            color: var(--white);
+        }
+
+        .content-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: var(--dark-gray);
+        }
+
+        .list-slide {
+            padding: 4rem 8rem 4rem 4rem;
+            background: var(--primary-blue);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .list-title {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .list-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list-content li {
+            font-size: 1.8rem;
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .list-content li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 2rem;
+        }
+
+        .scripture-slide {
+            background: var(--white);
+            color: var(--dark-gray);
+            padding: 6rem 8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .scripture-text {
+            font-size: 2.5rem;
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: 2rem;
+            font-family: Georgia, serif;
+        }
+
+        .scripture-ref {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 50;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-blue);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .nav-btn:hover {
+            background: var(--white);
+            transform: scale(1.05);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            z-index: 50;
+        }
+
+        .toggle-sidebar {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-blue);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 101;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-sidebar:hover {
+            background: var(--white);
+        }
+
+        .home-btn {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-blue);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 101;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .home-btn:hover {
+            background: var(--white);
+            transform: scale(1.05);
+        }
+
+        .prayer-slide {
+            background: var(--primary-blue);
+            padding: 4rem 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .prayer-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            color: var(--white);
+        }
+
+        .prayer-text {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            color: var(--white);
+            margin-bottom: 2rem;
+        }
+
+        .prayer-scripture {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+            border-left: 4px solid var(--white);
+            padding-left: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.visible {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .title-slide,
+            .content-slide {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            .sidebar,
+            .navigation,
+            .slide-counter,
+            .toggle-sidebar,
+            .home-btn {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .slide {
+                display: block !important;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="toggle-sidebar" onclick="toggleSidebar()">☰ Menu</button>
+    <a href="../index.html" class="home-btn">🏠 Home</a>
+    <div class="slide-counter">
+        <span id="currentSlide">1</span> / <span id="totalSlides">0</span>
+    </div>
+
+    <div class="presentation">
+        <nav class="sidebar" id="sidebar">
+            <h1>A Steadfast Hope</h1>
+            <p style="color: rgba(255,255,255,0.7); margin-bottom: 1rem;">Bishop Dr. Darlingston Johnson</p>
+            <ul class="slide-menu" id="slideMenu"></ul>
+        </nav>
+
+        <main class="main-content">
+            <!-- Slide 1: Title Slide -->
+            <div class="slide active" data-title="Welcome">
+                <div class="title-slide">
+                    <div class="title-content">
+                        <h1>A STEADFAST HOPE</h1>
+                        <p><strong>Bishop Dr. Darlingston Johnson</strong></p>
+                        <p style="margin-top: 1rem;">Salvation Explained: From Guilt to Glory - Part 3</p>
+                        <p style="margin-top: 1rem; font-size: 1.1rem;">October 13, 2025</p>
+                    </div>
+                    <div class="title-image">
+                        <div class="title-overlay">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                            <h3>The Third Treasure of Salvation</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Series Context -->
+            <div class="slide" data-title="Series Context">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="list-slide">
+                    <h2 class="list-title">Salvation Explained Series</h2>
+                    <div class="list-content">
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="margin: 2rem 0; padding-left: 0;">
+                                <a href="Gospel_of_Grace_Presentation.html" style="color: var(--white); text-decoration: none; font-size: 1.8rem; display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px; transition: all 0.3s ease;">
+                                    <span style="background: var(--white); color: var(--primary-blue); padding: 0.5rem 1rem; border-radius: 50%; font-weight: bold;">1</span>
+                                    <span>Part 1: Peace with God</span>
+                                </a>
+                            </li>
+                            <li style="margin: 2rem 0; padding-left: 0;">
+                                <a href="Three_Treasures_of_Justification_Presentation.html" style="color: var(--white); text-decoration: none; font-size: 1.8rem; display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px; transition: all 0.3s ease;">
+                                    <span style="background: var(--white); color: var(--primary-blue); padding: 0.5rem 1rem; border-radius: 50%; font-weight: bold;">2</span>
+                                    <span>Part 2: Standing in Grace</span>
+                                </a>
+                            </li>
+                            <li style="margin: 2rem 0; padding-left: 0;">
+                                <span style="color: var(--white); font-size: 1.8rem; display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(255,255,255,0.2); border-radius: 8px; border-left: 4px solid var(--white);">
+                                    <span style="background: var(--white); color: var(--primary-blue); padding: 0.5rem 1rem; border-radius: 50%; font-weight: bold;">3</span>
+                                    <span>Part 3: A Steadfast Hope (Current)</span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="chevron-right">
+                        <div class="chevron-icon-right"></div>
+                        <div class="chevron-icon-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Gospel of Grace Overview -->
+            <div class="slide" data-title="Gospel of Grace Overview">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="list-slide">
+                    <h2 class="list-title">The Gospel of Grace: Complete Series</h2>
+                    <div class="list-content">
+                        <p style="font-size: 1.6rem; line-height: 1.8; margin-bottom: 2rem;">Through justification by faith in Jesus Christ, believers receive three precious treasures that secure our relationship with God from guilt to glory:</p>
+                        <ul>
+                            <li><strong>Peace with God</strong> - The war is over, reconciliation complete</li>
+                            <li><strong>Access to Grace</strong> - Standing in unmerited favor moment by moment</li>
+                            <li><strong>Steadfast Hope</strong> - Confident expectation of eternal glorification</li>
+                        </ul>
+                    </div>
+                    <div class="chevron-right">
+                        <div class="chevron-icon-right"></div>
+                        <div class="chevron-icon-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: Foundation Scripture -->
+            <div class="slide" data-title="Romans 5:1-5 Complete">
+                <div class="scripture-slide">
+                    <div class="scripture-text" style="font-size: 1.8rem;">
+                        "Therefore, being justified by faith, we have <strong style="color: var(--primary-blue);">peace with God</strong> through our Lord Jesus Christ, through whom also we have <strong style="color: var(--primary-blue);">access by faith into this grace</strong> in which we stand, and rejoice in <strong style="color: var(--primary-blue);">hope of the glory of God</strong>. And not only that, but we also glory in tribulations, knowing that tribulation produces perseverance; and perseverance, character; and character, hope. Now hope does not disappoint, because the love of God has been poured out in our hearts by the Holy Spirit who was given to us."
+                    </div>
+                    <div class="scripture-ref">Romans 5:1-5</div>
+                </div>
+            </div>
+
+            <!-- Slide 5: How the Series Works Together -->
+            <div class="slide" data-title="Journey from Guilt to Glory">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="content-slide">
+                    <div class="content-left">
+                        <div class="chevron-left">
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                        </div>
+                        <h2 class="content-title">FROM GUILT TO GLORY</h2>
+                        <div class="chevron-right">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <div class="content-text">
+                            <p style="margin-bottom: 1.5rem;"><strong style="font-size: 1.5rem;">Part 1: Peace with God</strong><br>Christ satisfied every requirement of the law. The legal verdict is "not guilty" - war is over, reconciliation is complete. God is not just neutral but actively FOR us.</p>
+                            <p style="margin-bottom: 1.5rem;"><strong style="font-size: 1.5rem;">Part 2: Standing in Grace</strong><br>We now stand in unmerited favor with access to transforming grace that changes us from the inside out. Our position is secure - nothing can separate us from God's love.</p>
+                            <p><strong style="font-size: 1.5rem;">Part 3: Steadfast Hope</strong><br>Our hope is anchored in the living Christ who rules over every storm. We are predestined for glorification, united with Christ in His death, resurrection, and eternal reign.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: Big Idea -->
+            <div class="slide" data-title="Big Idea">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="content-slide">
+                    <div class="content-left">
+                        <div class="chevron-left">
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                        </div>
+                        <h2 class="content-title">BIG IDEA</h2>
+                        <div class="chevron-right">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <div class="content-text">
+                            <p>Believers possess a steadfast and secure hope anchored in Jesus Christ Himself, guaranteed by God's immutable promise and oath, ensuring that no storm of life can ultimately destroy those who trust in Him.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: Foundation Scripture -->
+            <div class="slide" data-title="Romans 5:1-5">
+                <div class="scripture-slide">
+                    <div class="scripture-text">
+                        "Therefore, being justified by faith, we have peace with God through our Lord Jesus Christ, through whom also we have access by faith into this grace in which we stand, and rejoice in hope of the glory of God."
+                    </div>
+                    <div class="scripture-ref">Romans 5:1-2</div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Hope is Essential -->
+            <div class="slide" data-title="Hope is Essential">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="content-slide">
+                    <div class="content-left">
+                        <div class="chevron-left">
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                        </div>
+                        <h2 class="content-title">HOPE IS ESSENTIAL</h2>
+                        <div class="content-subtitle">As Vital as Water and Air</div>
+                        <div class="chevron-right">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <div class="content-text">
+                            <p>Hope is as vital to human existence as water and air. A person without hope is spiritually dead even while physically alive. When people lose hope, they lose their will to live.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: Proverbs 13:12 -->
+            <div class="slide" data-title="Proverbs 13:12">
+                <div class="scripture-slide">
+                    <div class="scripture-text">
+                        "Hope deferred makes the heart sick."
+                    </div>
+                    <div class="scripture-ref">Proverbs 13:12</div>
+                </div>
+            </div>
+
+            <!-- Slide 7: The Critical Question -->
+            <div class="slide" data-title="The Critical Question">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="list-slide">
+                    <h2 class="list-title">The Critical Question</h2>
+                    <div class="list-content">
+                        <p style="font-size: 2.5rem; margin: 3rem 0; line-height: 1.6;">Where do you anchor your hope when storms rage and the bottom drops out of life?</p>
+                    </div>
+                    <div class="chevron-right">
+                        <div class="chevron-icon-right"></div>
+                        <div class="chevron-icon-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 8: False Anchors -->
+            <div class="slide" data-title="False Anchors">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="list-slide">
+                    <h2 class="list-title">False Anchors</h2>
+                    <div class="list-content">
+                        <ul>
+                            <li>Money and financial security</li>
+                            <li>Job and career success</li>
+                            <li>Relationships and family</li>
+                            <li>Health and physical strength</li>
+                        </ul>
+                        <p style="font-size: 1.5rem; margin-top: 2rem; font-style: italic;">These are blessings from God, but they were never intended to be soul anchors because they can all fail or disappear.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 9: We Need a Sure Anchor -->
+            <div class="slide" data-title="We Need a Sure Anchor">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="content-slide">
+                    <div class="content-left">
+                        <div class="chevron-left">
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                        </div>
+                        <h2 class="content-title">SURE & STEADFAST</h2>
+                        <div class="chevron-right">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <div class="content-text">
+                            <p>We need an anchor that is steadfast and sure, one that can survive any wind or wave. An anchor that goes beyond earthly securities to something eternal and unchangeable.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 10: The Hope of Glory -->
+            <div class="slide" data-title="The Hope of Glory">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="content-slide">
+                    <div class="content-left">
+                        <div class="chevron-left">
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                        </div>
+                        <h2 class="content-title">THE HOPE OF GLORY</h2>
+                        <div class="chevron-right">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <div class="content-text">
+                            <p>This hope is not mere optimism or positive thinking. It is a confident expectation of future good based on God's immutable promise. Believers are predestined to be completely conformed to the image of Jesus Christ.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 11: United with Christ -->
+            <div class="slide" data-title="United with Christ">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="list-slide">
+                    <h2 class="list-title">United with Christ</h2>
+                    <div class="list-content">
+                        <ul>
+                            <li>Crucified with Him</li>
+                            <li>Buried with Him</li>
+                            <li>Raised with Him</li>
+                            <li>Seated with Him</li>
+                            <li>Glorified with Him</li>
+                        </ul>
+                    </div>
+                    <div class="chevron-right">
+                        <div class="chevron-icon-right"></div>
+                        <div class="chevron-icon-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 12: Hebrews 6:13-20 -->
+            <div class="slide" data-title="God's Double Guarantee">
+                <div class="scripture-slide">
+                    <div class="scripture-text">
+                        "When God made His promise to Abraham, He swore by Himself, since there is no one greater by whom He could swear."
+                    </div>
+                    <div class="scripture-ref">Hebrews 6:13</div>
+                </div>
+            </div>
+
+            <!-- Slide 13: Two Immutable Things -->
+            <div class="slide" data-title="Two Immutable Things">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="content-slide">
+                    <div class="content-left">
+                        <div class="chevron-left">
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                        </div>
+                        <h2 class="content-title">DOUBLE GUARANTEE</h2>
+                        <div class="chevron-right">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <div class="content-text">
+                            <p><strong>1. God's Promise</strong></p>
+                            <p style="margin-top: 1rem;"><strong>2. God's Oath</strong></p>
+                            <p style="margin-top: 2rem; font-size: 1.5rem; font-weight: bold;">It is IMPOSSIBLE for God to lie.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 14: Strong Consolation -->
+            <div class="slide" data-title="Strong Consolation">
+                <div class="scripture-slide">
+                    <div class="scripture-text">
+                        "By two immutable things, in which it is impossible for God to lie, we might have strong consolation, who have fled for refuge to lay hold of the hope set before us."
+                    </div>
+                    <div class="scripture-ref">Hebrews 6:18</div>
+                </div>
+            </div>
+
+            <!-- Slide 15: The Anchor of Our Soul -->
+            <div class="slide" data-title="The Anchor">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="content-slide">
+                    <div class="content-left">
+                        <div class="chevron-left">
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                        </div>
+                        <h2 class="content-title">THE ANCHOR</h2>
+                        <div class="content-subtitle">Sure and Steadfast</div>
+                        <div class="chevron-right">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <div class="content-text">
+                            <p>Unlike a ship's anchor that goes down, the believer's anchor goes UP through the veil into the Holy of Holies, where Jesus our forerunner has entered.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 16: Hebrews 6:19-20 -->
+            <div class="slide" data-title="Hebrews 6:19-20">
+                <div class="scripture-slide">
+                    <div class="scripture-text">
+                        "This hope we have as an anchor of the soul, both sure and steadfast, and which enters the Presence behind the veil, where the forerunner has entered for us, even Jesus."
+                    </div>
+                    <div class="scripture-ref">Hebrews 6:19-20</div>
+                </div>
+            </div>
+
+            <!-- Slide 17: Jesus IS the Anchor -->
+            <div class="slide" data-title="Jesus IS the Anchor">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="list-slide">
+                    <h2 class="list-title">Jesus IS the Anchor</h2>
+                    <div class="list-content">
+                        <ul>
+                            <li>He is the person who secures us</li>
+                            <li>He is the high priest forever</li>
+                            <li>Because He lives, we shall live also</li>
+                            <li>The storms are under His feet</li>
+                        </ul>
+                    </div>
+                    <div class="chevron-right">
+                        <div class="chevron-icon-right"></div>
+                        <div class="chevron-icon-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 18: Lord Over the Storm -->
+            <div class="slide" data-title="Lord Over the Storm">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="content-slide">
+                    <div class="content-left">
+                        <div class="chevron-left">
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                        </div>
+                        <h2 class="content-title">LORD OVER THE STORM</h2>
+                        <div class="chevron-right">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <div class="content-text">
+                            <p>Jesus calmed the wind and waves, proving His lordship over all circumstances. Even death could not hold Him, demonstrating that no power can overcome Him or those anchored to Him.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 19: God's Investment -->
+            <div class="slide" data-title="God's Investment">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="content-slide">
+                    <div class="content-left">
+                        <div class="chevron-left">
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                        </div>
+                        <h2 class="content-title">GOD'S INVESTMENT</h2>
+                        <div class="chevron-right">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <div class="content-text">
+                            <p>God has invested too much in believers to let the enemy undo His work. God cannot forsake believers without forsaking Jesus, which He will never do again.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 20: Seated in Heavenly Places -->
+            <div class="slide" data-title="Seated with Christ">
+                <div class="scripture-slide">
+                    <div class="scripture-text">
+                        "God raised us up together, and made us sit together in the heavenly places in Christ Jesus, far above all principalities and powers."
+                    </div>
+                    <div class="scripture-ref">Ephesians 2:6</div>
+                </div>
+            </div>
+
+            <!-- Slide 21: John 16:33 -->
+            <div class="slide" data-title="John 16:33">
+                <div class="scripture-slide">
+                    <div class="scripture-text">
+                        "In this world you will have tribulation, but be of good cheer, I have overcome the world."
+                    </div>
+                    <div class="scripture-ref">John 16:33</div>
+                </div>
+            </div>
+
+            <!-- Slide 22: Practical Application -->
+            <div class="slide" data-title="Practical Application">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="list-slide">
+                    <h2 class="list-title">Practical Application</h2>
+                    <div class="list-content">
+                        <p style="font-size: 2.5rem; margin: 3rem 0; line-height: 1.6;">Learn to speak to yourself more than you listen to yourself.</p>
+                    </div>
+                    <div class="chevron-right">
+                        <div class="chevron-icon-right"></div>
+                        <div class="chevron-icon-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 23: Speak to Your Soul -->
+            <div class="slide" data-title="Speak to Your Soul">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="content-slide">
+                    <div class="content-left">
+                        <div class="chevron-left">
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                        </div>
+                        <h2 class="content-title">SPEAK TO YOUR SOUL</h2>
+                        <div class="chevron-right">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <div class="content-text">
+                            <p>When facing tribulation, despair, or depression, remind yourself of the steadfast hope God has set before you. Rejoice and praise God even in trials.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 24: Not Based on Circumstances -->
+            <div class="slide" data-title="Not Based on Circumstances">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="list-slide">
+                    <h2 class="list-title">Anchor Point</h2>
+                    <div class="list-content">
+                        <p style="font-size: 2.2rem; margin: 3rem 0; line-height: 1.6;">Your hope is anchored not in earthly circumstances but in the eternal, unchangeable Christ who rules over every storm.</p>
+                    </div>
+                    <div class="chevron-right">
+                        <div class="chevron-icon-right"></div>
+                        <div class="chevron-icon-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 25: Application 1 -->
+            <div class="slide" data-title="Application 1">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="content-slide">
+                    <div class="content-left">
+                        <div class="chevron-left">
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                        </div>
+                        <h2 class="content-title">REPLACE FALSE ANCHORS</h2>
+                        <div class="chevron-right">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <div class="content-text">
+                            <p>Examine what you're depending on for security. Consciously transfer your hope from jobs, money, relationships, and health to Christ alone.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 26: Application 2 -->
+            <div class="slide" data-title="Application 2">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="content-slide">
+                    <div class="content-left">
+                        <div class="chevron-left">
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                        </div>
+                        <h2 class="content-title">SPEAK TRUTH DAILY</h2>
+                        <div class="chevron-right">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <div class="content-text">
+                            <p>When facing discouragement, actively remind yourself of God's promises. Ask, "Why are you downcast, O my soul?" and answer with the truth of your steadfast hope in Christ.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 27: Application 3 -->
+            <div class="slide" data-title="Application 3">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="content-slide">
+                    <div class="content-left">
+                        <div class="chevron-left">
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                        </div>
+                        <h2 class="content-title">LOOK UP, NOT DOWN</h2>
+                        <div class="chevron-right">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <div class="content-text">
+                            <p>Like Peter walking on water, keep your eyes fixed on Jesus rather than the storm. Your anchor goes UP through the veil to where Christ is seated.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 28: Application 4 -->
+            <div class="slide" data-title="Application 4">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="content-slide">
+                    <div class="content-left">
+                        <div class="chevron-left">
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                        </div>
+                        <h2 class="content-title">ETERNAL PERSPECTIVE</h2>
+                        <div class="chevron-right">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <div class="content-text">
+                            <p>Your current trial is temporary compared to the eternal glory that awaits you. Let this eternal hope put present suffering in proper perspective.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 29: Prayer Section Header -->
+            <div class="slide" data-title="Prayer Points">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="list-slide">
+                    <h2 class="list-title">Prayer Points</h2>
+                    <div class="list-content">
+                        <p style="font-size: 2rem; margin: 2rem 0; line-height: 1.6;">Let us pray together, anchoring our souls in the steadfast hope of Jesus Christ.</p>
+                    </div>
+                    <div class="chevron-right">
+                        <div class="chevron-icon-right"></div>
+                        <div class="chevron-icon-right"></div>
+                        <div class="chevron-icon-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 30: Prayer 1 - Steadfast Hope -->
+            <div class="slide" data-title="Prayer: Steadfast Hope">
+                <div class="prayer-slide">
+                    <h2 class="prayer-title">Prayer for Steadfast Hope Anchored in Christ</h2>
+                    <div class="prayer-text">
+                        <p>Lord Jesus, You are the anchor for my soul, sure and steadfast. I release my grip on false anchors like money, job security, relationships, and health, and I anchor my hope completely in You. When storms rage, remind me that You rule over the wind and waves, and that the very storms threatening me are already under Your feet. Let my soul find stability, security, and peace in You alone.</p>
+                    </div>
+                    <div class="prayer-scripture">
+                        "This hope we have as an anchor of the soul, both sure and steadfast, and which enters the Presence behind the veil, where the forerunner has entered for us, even Jesus." - Hebrews 6:19-20
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 31: Prayer 2 - Hope of Glory -->
+            <div class="slide" data-title="Prayer: Hope of Glory">
+                <div class="prayer-slide">
+                    <h2 class="prayer-title">Prayer for Rejoicing in the Hope of Glory</h2>
+                    <div class="prayer-text">
+                        <p>Heavenly Father, I thank You for the hope of glory that You have set before me. According to Romans 5:2, I stand in grace and rejoice in the hope of Your glory. Help me to grasp that I am predestined to be completely conformed to the image of Jesus. When I face trials, let this eternal perspective lift my eyes above present circumstances. Let this hope cause me to praise You even in the midst of difficulties.</p>
+                    </div>
+                    <div class="prayer-scripture">
+                        "Through whom also we have access by faith into this grace in which we stand, and rejoice in hope of the glory of God." - Romans 5:2
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 32: Prayer 3 - God's Promise and Oath -->
+            <div class="slide" data-title="Prayer: Strong Consolation">
+                <div class="prayer-slide">
+                    <h2 class="prayer-title">Prayer for Strong Consolation</h2>
+                    <div class="prayer-text">
+                        <p>Lord God, Your Word declares that You confirmed Your promise with an oath, and that by two immutable things in which it is impossible for You to lie, I might have strong consolation. I receive this strong consolation now. When doubts assail me, when circumstances contradict Your promises, remind me that You cannot lie. Your promise stands forever, and Your oath seals my destiny.</p>
+                    </div>
+                    <div class="prayer-scripture">
+                        "By two immutable things, in which it is impossible for God to lie, we might have strong consolation." - Hebrews 6:18
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 33: Prayer 4 - Victory Over Despair -->
+            <div class="slide" data-title="Prayer: Victory Over Despair">
+                <div class="prayer-slide">
+                    <h2 class="prayer-title">Prayer for Victory Over Despair</h2>
+                    <div class="prayer-text">
+                        <p>Father, I come against every spirit of despair, discouragement, and depression in the name of Jesus. I declare that my hope is not deferred—it is alive and active because it is anchored in the living Christ. I choose to speak to my soul rather than listen to my soul. My hope is steadfast and secure in Jesus. No trial I face is stronger than my anchor. No storm can last longer than my eternal destiny.</p>
+                    </div>
+                    <div class="prayer-scripture">
+                        "Why are you cast down, O my soul? And why are you disquieted within me? Hope in God, for I shall yet praise Him." - Psalm 42:5
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 34: Prayer 5 - Union with Christ -->
+            <div class="slide" data-title="Prayer: Union with Christ">
+                <div class="prayer-slide">
+                    <h2 class="prayer-title">Prayer for Awareness of Union with Christ</h2>
+                    <div class="prayer-text">
+                        <p>Lord Jesus, open the eyes of my understanding to comprehend the full reality of my union with You. When You were crucified, I was crucified with You. When You arose, I arose with You. According to Ephesians 2:6, I am seated with You in heavenly places far above all principalities and powers. Help me to live from this heavenly position rather than from my earthly circumstances. I am already victorious because I am in You, the Victor.</p>
+                    </div>
+                    <div class="prayer-scripture">
+                        "God raised us up together, and made us sit together in the heavenly places in Christ Jesus." - Ephesians 2:6
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 35: Call to Respond -->
+            <div class="slide" data-title="Call to Respond">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="list-slide">
+                    <h2 class="list-title">Call to Respond</h2>
+                    <div class="list-content">
+                        <ul>
+                            <li>Receive Jesus as your anchor</li>
+                            <li>Transfer your hope to Christ alone</li>
+                            <li>Speak truth to your soul daily</li>
+                            <li>Come for prayer and agreement</li>
+                        </ul>
+                    </div>
+                    <div class="chevron-right">
+                        <div class="chevron-icon-right"></div>
+                        <div class="chevron-icon-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 36: Your End is Glory -->
+            <div class="slide" data-title="Your End is Glory">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="content-slide">
+                    <div class="content-left">
+                        <div class="chevron-left">
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                        </div>
+                        <h2 class="content-title">YOUR END IS GLORY</h2>
+                        <div class="chevron-right">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <div class="content-text">
+                            <p>Your end is not the cross or the tomb. Your end is resurrection glory, seated with Christ at the right hand of the Father, completely conformed to His image, living forever and ever without end.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 37: This Hope Does Not Disappoint -->
+            <div class="slide" data-title="Hope Does Not Disappoint">
+                <div class="scripture-slide">
+                    <div class="scripture-text">
+                        "Now hope does not disappoint, because the love of God has been poured out in our hearts by the Holy Spirit who was given to us."
+                    </div>
+                    <div class="scripture-ref">Romans 5:5</div>
+                </div>
+            </div>
+
+            <!-- Slide 38: Nothing Can Separate Us -->
+            <div class="slide" data-title="Nothing Can Separate">
+                <div class="scripture-slide">
+                    <div class="scripture-text">
+                        "For I am persuaded that neither death nor life, nor angels nor principalities nor powers, nor things present nor things to come, shall be able to separate us from the love of God which is in Christ Jesus our Lord."
+                    </div>
+                    <div class="scripture-ref">Romans 8:38-39</div>
+                </div>
+            </div>
+
+            <!-- Slide 39: Watch on YouTube -->
+            <div class="slide" data-title="Watch on YouTube">
+                <div class="date-badge">October 13, 2025</div>
+                <div class="list-slide">
+                    <h2 class="list-title">Watch Full Sermon</h2>
+                    <div class="list-content">
+                        <p style="font-size: 2rem; margin: 3rem 0; line-height: 1.6;">Watch the complete message on YouTube:</p>
+                        <p style="font-size: 1.5rem; margin: 2rem 0; font-family: monospace; background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px;">youtube.com/watch?v=6XDUe-nktx4</p>
+                    </div>
+                    <div class="chevron-right">
+                        <div class="chevron-icon-right"></div>
+                        <div class="chevron-icon-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 40: Thank You -->
+            <div class="slide" data-title="Thank You">
+                <div class="title-slide">
+                    <div class="title-content">
+                        <h1>THANK YOU</h1>
+                        <p style="font-size: 1.8rem; margin-top: 2rem;"><strong>Bishop Dr. Darlingston Johnson</strong></p>
+                        <p style="margin-top: 2rem; font-size: 1.3rem;">Salvation Explained: From Guilt to Glory</p>
+                        <p style="margin-top: 3rem; font-size: 1.2rem; font-style: italic;">"This hope we have as an anchor of the soul, both sure and steadfast."</p>
+                        <p style="font-size: 1rem; margin-top: 1rem;">- Hebrews 6:19</p>
+                    </div>
+                    <div class="title-image">
+                        <div class="title-overlay">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                            <h3>May your hope be anchored in Christ alone</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const slideMenu = document.getElementById('slideMenu');
+
+        // Initialize slide menu
+        slides.forEach((slide, index) => {
+            const li = document.createElement('li');
+            li.textContent = `${index + 1}. ${slide.dataset.title}`;
+            li.onclick = () => showSlide(index + 1);
+            slideMenu.appendChild(li);
+        });
+
+        function showSlide(n) {
+            if (n > totalSlides) currentSlide = totalSlides;
+            if (n < 1) currentSlide = 1;
+            currentSlide = n;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+
+            document.getElementById('currentSlide').textContent = currentSlide;
+            document.getElementById('totalSlides').textContent = totalSlides;
+
+            // Update menu
+            const menuItems = slideMenu.querySelectorAll('li');
+            menuItems.forEach((item, index) => {
+                item.classList.toggle('active', index === currentSlide - 1);
+            });
+
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+        }
+
+        function changeSlide(n) {
+            showSlide(currentSlide + n);
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('hidden');
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+            if (e.key === 'Home') showSlide(1);
+            if (e.key === 'End') showSlide(totalSlides);
+            if (e.key === ' ') {
+                e.preventDefault();
+                changeSlide(1);
+            }
+        });
+
+        // Touch support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.querySelector('.main-content').addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.querySelector('.main-content').addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) changeSlide(1);
+            if (touchEndX > touchStartX + 50) changeSlide(-1);
+        }
+
+        // Initialize
+        showSlide(1);
+    </script>
+
+    <!-- Template Switcher Module -->
+    <script src="../js/template-switcher.js"></script>
+</body>
+</html>

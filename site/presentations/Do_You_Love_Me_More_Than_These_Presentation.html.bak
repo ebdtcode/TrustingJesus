@@ -641,7 +641,5 @@
     generateSidebar();
     showSlide(currentSlide);
   </script>
-  <!-- Template Switcher Module -->
-  <script src="../js/template-switcher.js"></script>
 </body>
 </html>
