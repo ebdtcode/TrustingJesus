@@ -105,6 +105,28 @@
       margin-bottom: 0.5rem;
     }
 
+    /* AGGRESSIVE: Remove backgrounds from text EXCEPT container */
+    .prayer-content li,
+    .prayer-content li *,
+    .prayer-content li span,
+    .prayer-content li mark,
+    .prayer-content mark,
+    mark {
+      background: none !important;
+      background-color: transparent !important;
+      background-image: none !important;
+    }
+
+    /* Ensure prayer container has WHITE background */
+    .prayer-container {
+      background: white !important;
+      background-color: white !important;
+    }
+
+    .prayer-content {
+      color: #333 !important;
+    }
+
     .prayer-content code {
       background: #f5f5f5;
       padding: 2px 6px;

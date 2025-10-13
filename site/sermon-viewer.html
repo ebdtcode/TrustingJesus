@@ -94,6 +94,54 @@
       font-size: 0.9rem;
     }
 
+    /* AGGRESSIVE: Remove ALL backgrounds from text content EXCEPT sermon-section */
+    .key-points li,
+    .key-points li *,
+    .key-points li span,
+    .key-points li mark,
+    .sermon-summary *,
+    mark {
+      background: none !important;
+      background-color: transparent !important;
+      background-image: none !important;
+    }
+
+    /* Ensure sermon section has WHITE background */
+    .sermon-section {
+      background: white !important;
+      background-color: white !important;
+    }
+
+    /* Explicitly set DARK text color for readability on white */
+    .key-points li {
+      color: #333 !important;
+    }
+
+    .sermon-summary {
+      color: #333 !important;
+    }
+
+    .sermon-section mark {
+      background: transparent !important;
+      color: inherit !important;
+    }
+
+    /* Override browser's text selection highlighting */
+    ::selection {
+      background: rgba(255, 141, 33, 0.3);
+      color: inherit;
+    }
+
+    ::-moz-selection {
+      background: rgba(255, 141, 33, 0.3);
+      color: inherit;
+    }
+
+    /* Force remove any inline background styles on list items */
+    .key-points li[style] {
+      background: white !important;
+    }
+
     .action-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

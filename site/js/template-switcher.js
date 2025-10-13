@@ -368,6 +368,35 @@ const TemplateSwitcher = {
         .sidebar {
           background: rgba(30, 74, 124, 0.95) !important;
         }
+
+        /* Ensure proper text visibility - no white on white */
+        .content-list li, ul li, ol li {
+          background: transparent !important;
+          color: var(--white) !important;
+        }
+
+        .content-list li span, ul li span, ol li span {
+          background: transparent !important;
+          color: inherit !important;
+        }
+
+        mark {
+          background: transparent !important;
+          color: var(--white) !important;
+        }
+
+        /* Ensure text in cards/boxes is visible */
+        .slide p, .slide li, .slide span {
+          color: var(--white) !important;
+        }
+
+        .slide h1, .slide h2, .slide h3 {
+          color: var(--white) !important;
+        }
+
+        .slide h2 {
+          color: var(--accent-blue) !important;
+        }
       `;
     } else if (templateKey === 'torn-paper') {
       css = `
@@ -428,6 +457,40 @@ const TemplateSwitcher = {
           background: var(--white) !important;
           color: var(--dark-gray) !important;
         }
+
+        /* Ensure proper text visibility - dark text on light backgrounds */
+        .content-list li, ul li, ol li {
+          background: transparent !important;
+          color: var(--dark-gray) !important;
+        }
+
+        .content-list li span, ul li span, ol li span {
+          background: transparent !important;
+          color: inherit !important;
+        }
+
+        mark {
+          background: transparent !important;
+          color: var(--dark-gray) !important;
+        }
+
+        /* Ensure all slide text is dark for readability */
+        .slide p, .slide li {
+          color: var(--dark-gray) !important;
+        }
+
+        .slide h1 {
+          color: var(--dark-gray) !important;
+        }
+
+        .slide h3, .slide h4 {
+          color: var(--dark-gray) !important;
+        }
+
+        /* Keep accent color for emphasis */
+        .emphasis {
+          color: var(--accent-color) !important;
+        }
       `;
     } else if (templateKey === 'classic') {
       css = `
@@ -462,6 +525,39 @@ const TemplateSwitcher = {
 
         .sidebar {
           background: rgba(20, 33, 61, 0.95) !important;
+        }
+
+        /* Ensure proper text visibility - white text on dark backgrounds */
+        .content-list li, ul li, ol li {
+          background: transparent !important;
+          color: var(--white) !important;
+        }
+
+        .content-list li span, ul li span, ol li span {
+          background: transparent !important;
+          color: inherit !important;
+        }
+
+        mark {
+          background: transparent !important;
+          color: var(--white) !important;
+        }
+
+        /* Ensure text in cards/boxes is visible */
+        .slide p, .slide li, .slide span {
+          color: var(--white) !important;
+        }
+
+        .slide h1, .slide h3 {
+          color: var(--white) !important;
+        }
+
+        .slide h2 {
+          color: var(--accent-color) !important;
+        }
+
+        .emphasis {
+          color: var(--accent-color) !important;
         }
       `;
     }
