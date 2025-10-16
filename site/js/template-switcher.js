@@ -369,33 +369,47 @@ const TemplateSwitcher = {
           background: rgba(30, 74, 124, 0.95) !important;
         }
 
-        /* Ensure proper text visibility - no white on white */
-        .content-list li, ul li, ol li {
-          background: transparent !important;
+        /* Fix contrast: Dark text on white backgrounds, white text on dark backgrounds */
+
+        /* White background sections need dark text */
+        .content-right,
+        .content-right *,
+        .title-content,
+        .title-content *,
+        .slide[style*="background: white"],
+        .slide[style*="background: #fff"] {
+          color: #333 !important;
+        }
+
+        .content-right h1,
+        .content-right h2,
+        .content-right h3,
+        .title-content h1,
+        .title-content h2,
+        .title-content h3 {
+          color: #333 !important;
+        }
+
+        /* Default slide text - white on dark */
+        .slide {
           color: var(--white) !important;
         }
 
-        .content-list li span, ul li span, ol li span {
-          background: transparent !important;
-          color: inherit !important;
-        }
-
-        mark {
-          background: transparent !important;
-          color: var(--white) !important;
-        }
-
-        /* Ensure text in cards/boxes is visible */
-        .slide p, .slide li, .slide span {
-          color: var(--white) !important;
-        }
-
-        .slide h1, .slide h2, .slide h3 {
+        .slide h1, .slide h3 {
           color: var(--white) !important;
         }
 
         .slide h2 {
           color: var(--accent-blue) !important;
+        }
+
+        /* List items */
+        .content-list li, ul li, ol li {
+          background: transparent !important;
+        }
+
+        mark {
+          background: transparent !important;
         }
       `;
     } else if (templateKey === 'torn-paper') {
@@ -458,32 +472,33 @@ const TemplateSwitcher = {
           color: var(--dark-gray) !important;
         }
 
-        /* Ensure proper text visibility - dark text on light backgrounds */
+        /* Fix contrast for torn-paper theme */
+
+        /* Default slide text - dark on warm background */
+        .slide {
+          color: var(--dark-gray) !important;
+        }
+
+        .slide h1, .slide h3, .slide h4 {
+          color: var(--dark-gray) !important;
+        }
+
+        /* White/light background sections */
+        .content-right,
+        .content-right *,
+        .title-content,
+        .title-content * {
+          color: var(--dark-gray) !important;
+        }
+
+        /* List items */
         .content-list li, ul li, ol li {
           background: transparent !important;
           color: var(--dark-gray) !important;
         }
 
-        .content-list li span, ul li span, ol li span {
-          background: transparent !important;
-          color: inherit !important;
-        }
-
         mark {
           background: transparent !important;
-          color: var(--dark-gray) !important;
-        }
-
-        /* Ensure all slide text is dark for readability */
-        .slide p, .slide li {
-          color: var(--dark-gray) !important;
-        }
-
-        .slide h1 {
-          color: var(--dark-gray) !important;
-        }
-
-        .slide h3, .slide h4 {
           color: var(--dark-gray) !important;
         }
 
@@ -527,24 +542,29 @@ const TemplateSwitcher = {
           background: rgba(20, 33, 61, 0.95) !important;
         }
 
-        /* Ensure proper text visibility - white text on dark backgrounds */
-        .content-list li, ul li, ol li {
-          background: transparent !important;
-          color: var(--white) !important;
+        /* Fix contrast for classic theme */
+
+        /* White background sections need dark text */
+        .content-right,
+        .content-right *,
+        .title-content,
+        .title-content *,
+        .slide[style*="background: white"],
+        .slide[style*="background: #fff"] {
+          color: #333 !important;
         }
 
-        .content-list li span, ul li span, ol li span {
-          background: transparent !important;
-          color: inherit !important;
+        .content-right h1,
+        .content-right h2,
+        .content-right h3,
+        .title-content h1,
+        .title-content h2,
+        .title-content h3 {
+          color: #333 !important;
         }
 
-        mark {
-          background: transparent !important;
-          color: var(--white) !important;
-        }
-
-        /* Ensure text in cards/boxes is visible */
-        .slide p, .slide li, .slide span {
+        /* Default slide text - white on dark */
+        .slide {
           color: var(--white) !important;
         }
 
@@ -554,6 +574,15 @@ const TemplateSwitcher = {
 
         .slide h2 {
           color: var(--accent-color) !important;
+        }
+
+        /* List items */
+        .content-list li, ul li, ol li {
+          background: transparent !important;
+        }
+
+        mark {
+          background: transparent !important;
         }
 
         .emphasis {
