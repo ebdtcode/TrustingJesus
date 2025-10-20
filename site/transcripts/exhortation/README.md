@@ -67,4 +67,4 @@ This transcript can be used to create a standalone slide presentation following 
 
 ## Example Referenced
 
-The speaker mentions **Reverend James Koala**, who demonstrated an attitude of giving by serving in difficult mission fields. His ministry grew from a small meeting to 14 congregations because of his generous, self-giving attitude.
+The speaker mentions **Reverend David Kawala**, who demonstrated an attitude of giving by serving in difficult mission fields. His ministry grew from a small meeting to 14 congregations because of his generous, self-giving attitude.

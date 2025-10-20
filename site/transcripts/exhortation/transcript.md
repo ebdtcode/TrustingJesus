@@ -86,9 +86,9 @@ So please, I want us to give. I want us to give - not out of coercion, not becau
 
 When we give, we'll notice that from giving our money, we'll give our time, we'll give our lives, and people will be blessed.
 
-### Example: Reverend James Koala
+### Example: Reverend David Kawala
 
-One more thing and then I'll go. I got the opportunity to meet that man, Reverend James Koala. And that guy, they told us he used to go in the jungle. He would be going all kinds of places to preach the gospel. I don't know if we heard what was in that video - he said he went from a small meeting to 14 congregations, that's 14 churches.
+One more thing and then I'll go. I got the opportunity to meet that man, Reverend David Kawala. And that guy, they told us he used to go in the jungle. He would be going all kinds of places to preach the gospel. I don't know if we heard what was in that video - he said he went from a small meeting to 14 congregations, that's 14 churches.
 
 Why? **Because he has an attitude of giving.**
 
