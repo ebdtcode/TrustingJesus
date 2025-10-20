@@ -1,0 +1,56 @@
+{
+  "title": "Making is Greater Than Blessing",
+  "subtitle": "An Exhortation on Biblical Giving",
+  "speaker": "Unknown",
+  "date": "2025-10-20",
+  "church": "Harvest Intercontinental Church - Olney",
+  "service_type": "Sunday Service",
+  "content_type": "exhortation",
+  "source": {
+    "type": "youtube",
+    "url": "https://www.youtube.com/watch?v=ajvzhKQ0el0",
+    "segment_start": "1:05:55",
+    "segment_end": "1:14:05",
+    "full_service_title": "Online Campus | Harvest Intercontinental Church-Olney | LIVE Broadcast"
+  },
+  "duration_seconds": 490,
+  "duration_formatted": "8:10",
+  "transcription": {
+    "date": "2025-10-20",
+    "model": "whisper-base",
+    "language": "en"
+  },
+  "scripture_references": [
+    {
+      "reference": "1 Timothy 6:3-5",
+      "context": "Warning against teaching godliness as a means of gain"
+    },
+    {
+      "reference": "2 Corinthians 8-9",
+      "context": "Principles of generous giving and blessing"
+    },
+    {
+      "reference": "Revelation 2",
+      "context": "The church of Laodicea - rich but spiritually poor"
+    },
+    {
+      "reference": "2 Corinthians 8",
+      "context": "Jesus' example of sacrificial giving"
+    }
+  ],
+  "key_themes": [
+    "Character formation through giving",
+    "God's priority: making us like Christ over blessing us",
+    "Dangers of giving for personal gain",
+    "The Laodicean attitude of self-sufficiency",
+    "Christlike generosity as spiritual transformation"
+  ],
+  "key_points": [
+    "God's primary goal is to make us into the image of His Son, not merely to bless us",
+    "We should not give to gain blessings or out of need, but to become like Christ",
+    "The church in the West faces the Laodicean danger of self-sufficiency",
+    "Jesus gave knowing many would not respond - we are called to the same sacrificial generosity",
+    "Giving detaches our hearts from material things and attaches us to the Lord"
+  ],
+  "summary": "This exhortation challenges believers to understand that God's purpose in calling us to give is not primarily about receiving blessings, but about transforming us into the image of Christ. The speaker addresses two extremes: giving to get blessed, and not giving because we feel we already have enough. True biblical giving reflects Christ's sacrificial love and transforms the giver's character."
+}
