@@ -128,6 +128,21 @@
             width: 100vw;
             height: 100vh;
             position: relative;
+            transition: transform 0.3s ease, width 0.3s ease;
+        }
+
+        /* Shift presentation when sidebar is open */
+        body.sidebar-open .presentation {
+            transform: translateX(300px);
+            width: calc(100vw - 300px);
+        }
+
+        body.sidebar-open .slide-counter {
+            left: 330px;
+        }
+
+        body.sidebar-open .sidebar-toggle {
+            left: 320px;
         }
 
         .slide {
@@ -322,6 +337,20 @@
             .sidebar {
                 width: 280px;
                 left: -280px;
+            }
+
+            /* On mobile, shift by sidebar width (280px) */
+            body.sidebar-open .presentation {
+                transform: translateX(280px);
+                width: calc(100vw - 280px);
+            }
+
+            body.sidebar-open .slide-counter {
+                left: 310px;
+            }
+
+            body.sidebar-open .sidebar-toggle {
+                left: 300px;
             }
 
             .slide {
@@ -528,10 +557,12 @@
 
         function toggleSidebar() {
             sidebar.classList.toggle('open');
+            document.body.classList.toggle('sidebar-open');
         }
 
         function closeSidebar() {
             sidebar.classList.remove('open');
+            document.body.classList.remove('sidebar-open');
         }
 
         function goToSlide(slideIndex) {
