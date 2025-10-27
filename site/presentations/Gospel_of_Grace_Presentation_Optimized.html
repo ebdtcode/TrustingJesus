@@ -14,7 +14,8 @@
             --accent-hover: #ff6b00;
             --text-primary: white;
             --text-secondary: #FFD700;
-            --panel-bg: rgba(255, 141, 33, 0.1);
+            --panel-bg: rgba(3, 57, 108, 0.7);
+            --text-on-orange: #1a1a1a;
             --overlay-bg: rgba(0,0,0,0.5);
             --sidebar-width: 300px;
             --animation-duration: 0.3s;
@@ -43,7 +44,7 @@
             top: -40px;
             left: 0;
             background: var(--accent-color);
-            color: var(--text-primary);
+            color: var(--text-on-orange);
             padding: 8px;
             text-decoration: none;
             z-index: 9999;
@@ -105,14 +106,14 @@
         }
 
         .sidebar-item.active {
-            background: rgba(255, 141, 33, 0.2);
+            background: rgba(3, 57, 108, 0.6);
             border-left-color: var(--accent-color);
             color: var(--accent-color);
         }
 
         .sidebar-item-number {
             background: var(--accent-color);
-            color: var(--primary-bg);
+            color: var(--text-on-orange);
             border-radius: 50%;
             width: 24px;
             height: 24px;
@@ -133,7 +134,7 @@
         .sidebar-toggle, .help-button {
             position: fixed;
             background: var(--accent-color);
-            color: var(--text-primary);
+            color: var(--text-on-orange);
             border: none;
             padding: 12px;
             border-radius: 50%;
@@ -412,7 +413,7 @@
 
         .nav-button, .home-button {
             background: var(--accent-color);
-            color: var(--text-primary);
+            color: var(--text-on-orange);
             border: none;
             padding: 12px 20px;
             border-radius: 25px;
@@ -542,7 +543,7 @@
             }
 
             .slide h1, .quote {
-                color: var(--accent-color) !important;
+                color: #1f4068 !important;
             }
 
             .scripture {
@@ -1060,6 +1061,5 @@
         }
     </script>
   <!-- Template Switcher Module -->
-  <script src="../js/template-switcher.js"></script>
 </body>
 </html>

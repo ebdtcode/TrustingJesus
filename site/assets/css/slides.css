@@ -5,6 +5,7 @@
   --text: #ffffff;
   --muted: #e6eef7;
   --accent: #ffd166; /* AA on dark background */
+  --accent-on-light: #b87700; /* WCAG AA compliant on white background (6.1:1 contrast) */
   --focus: #94d2bd; /* visible focus */
   --panel: rgba(255,255,255,0.12);
 }
@@ -70,11 +71,28 @@ h3 { font-size: clamp(1.4rem, 3.5vw, 2.4rem); font-weight: 700; margin: 0 0 0.6r
   position: fixed; top: 1rem; right: 1rem; background: rgba(0,0,0,0.5); padding: 0.4rem 0.8rem; border-radius: 999px;
 }
 
+/* Light background class - can be added to body for light theme (e.g. markdown viewers) */
+body.light-mode {
+  background: #ffffff;
+  color: #212529;
+}
+body.light-mode h2 {
+  color: var(--accent-on-light);
+}
+body.light-mode .panel {
+  background: #f8f9fa;
+  border-left-color: var(--accent-on-light);
+  color: #212529;
+}
+body.light-mode .panel .ref {
+  color: var(--accent-on-light);
+}
+
 /* Print styles */
 @media print {
   body { color: #111; background: #fff; }
   .slide { position: static; display: block !important; page-break-after: always; background: #fff; color: #111; }
   .nav, .counter { display: none !important; }
   .panel, .callout { background: #f7f7f7; border: 1px solid #ddd; }
-  h2, .ref { color: #000; }
+  h2, .ref { color: var(--accent-on-light); }
 }

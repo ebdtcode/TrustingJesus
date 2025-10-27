@@ -14,7 +14,8 @@
             --bg-light: #1f4068;
             --text-light: #ffffff;
             --text-muted: #e8f4f8;
-            --card-bg: rgba(255,255,255,0.14);
+            --card-bg: rgba(20, 33, 61, 0.7);  /* Changed from semi-transparent white to dark blue for proper contrast */
+            --text-on-yellow: #0a1128;  /* Darker blue for WCAG AA contrast on yellow backgrounds (4.5:1) */
             --border: #2d3b5c;
             --success-green: #06d6a0;
             --info-blue: #118ab2;
@@ -83,7 +84,7 @@
 
         .date-indicator {
             background: var(--accent-yellow);
-            color: var(--primary-blue);
+            color: var(--text-on-yellow);
             padding: 0.5rem 1rem;
             border-radius: 25px;
             display: inline-block;
@@ -98,10 +99,11 @@
 
         .section-title {
             font-size: 2rem;
-            color: var(--text-light);
+            color: #ffd166;
             margin-bottom: 1.5rem;
             text-align: center;
             position: relative;
+            font-weight: 700;
         }
 
         .section-title::after {
@@ -159,7 +161,7 @@
             display: inline-flex;
             align-items: center;
             background: var(--accent-yellow);
-            color: var(--primary-blue);
+            color: var(--text-on-yellow);
             padding: 0.7rem 1.2rem;
             border-radius: 8px;
             font-weight: 600;
@@ -235,7 +237,7 @@
         }
 
         .sermon-link {
-            background: rgba(255,255,255,0.1);
+            background: rgba(20, 33, 61, 0.6);
             color: var(--text-light);
             padding: 0.5rem 1rem;
             border-radius: 8px;
@@ -317,7 +319,7 @@
         }
 
         .timeline-link {
-            background: rgba(255,255,255,0.1);
+            background: rgba(20, 33, 61, 0.6);
             color: var(--text-light);
             padding: 0.4rem 0.8rem;
             border-radius: 6px;
@@ -356,7 +358,7 @@
 
         .category-count {
             background: var(--accent-yellow);
-            color: var(--primary-blue);
+            color: var(--text-on-yellow);
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
             font-weight: 600;
@@ -433,7 +435,7 @@
         }
 
         .quick-link {
-            background: rgba(255,255,255,0.1);
+            background: rgba(20, 33, 61, 0.6);
             border: 1px solid rgba(255,255,255,0.2);
             border-radius: 12px;
             padding: 1rem;
@@ -627,7 +629,7 @@
                     <p>An uncompromising message that being born again is not optional but essential for entering God's kingdom. If you're not inside, you can't know - discover the transformative power of spiritual rebirth through God's incorruptible Word.</p>
                     <div class="sermon-links">
                         <a href="presentations/You_MUST_Be_Born_Again_Presentation.html" class="sermon-link">📊 15-Slide Presentation</a>
-                        <a href="sermons_summaries/You_MUST_Be_Born_Again__Pastor_Zangai_Peabody__2025-10-27.md" class="sermon-link">📝 Summary & 12 Prayer Points</a>
+                        <a href="sermons_summaries/You_MUST_Be_Born_Again__Pastor_Zangai_Peabody__2025-10-27.html" class="sermon-link">📝 Summary & 12 Prayer Points</a>
                         <a href="https://youtu.be/m8cM1J3Ryf0" class="sermon-link" target="_blank">🎥 YouTube Video</a>
                     </div>
                 </div>
@@ -930,7 +932,6 @@
     </script>
 
     <!-- Template Switcher Module -->
-    <script src="js/template-switcher.js"></script>
 
     <!-- Markdown Viewer Module -->
     <script src="js/markdown-viewer.js"></script>

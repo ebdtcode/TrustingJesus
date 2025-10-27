@@ -14,7 +14,8 @@
             --accent-hover: #ff6b00;
             --text-primary: white;
             --text-secondary: #FFD700;
-            --panel-bg: rgba(255, 141, 33, 0.1);
+            --panel-bg: rgba(3, 57, 108, 0.7);
+            --text-on-orange: #1a1a1a;
             --overlay-bg: rgba(0,0,0,0.5);
             --sidebar-width: 320px;
             --animation-duration: 0.3s;
@@ -35,7 +36,7 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: var(--primary-bg);
-            color: var(--text-primary);
+            color: var(--text-on-orange);
             overflow: hidden;
             line-height: 1.6;
         }
@@ -46,7 +47,7 @@
             top: -40px;
             left: 0;
             background: var(--accent-color);
-            color: var(--text-primary);
+            color: var(--text-on-orange);
             padding: 8px;
             text-decoration: none;
             z-index: 9999;
@@ -129,7 +130,7 @@
         }
 
         .sidebar-item.active {
-            background: rgba(255, 141, 33, 0.2);
+            background: rgba(3, 57, 108, 0.6);
             border-left-color: var(--accent-color);
             color: var(--accent-color);
         }
@@ -142,7 +143,7 @@
 
         .sidebar-item-number {
             background: var(--accent-color);
-            color: var(--primary-bg);
+            color: var(--text-on-orange);
             border-radius: 50%;
             width: 24px;
             height: 24px;
@@ -278,7 +279,7 @@
 
         .info-card:hover {
             transform: translateY(-5px);
-            background: rgba(255, 141, 33, 0.2);
+            background: rgba(3, 57, 108, 0.6);
             box-shadow: 0 5px 20px rgba(255, 141, 33, 0.3);
         }
 
@@ -475,7 +476,7 @@
             width: 30px;
             height: 30px;
             background: var(--accent-color);
-            color: var(--primary-bg);
+            color: var(--text-on-orange);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -514,7 +515,7 @@
         .sidebar-toggle, .help-button {
             position: fixed;
             background: var(--accent-color);
-            color: var(--text-primary);
+            color: var(--text-on-orange);
             border: none;
             padding: 12px;
             border-radius: 50%;
@@ -597,7 +598,7 @@
             top: 15px;
             right: 15px;
             background: var(--accent-color);
-            color: var(--text-primary);
+            color: var(--text-on-orange);
             border: none;
             border-radius: 50%;
             width: 30px;
@@ -686,7 +687,7 @@
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 600;
             margin-bottom: 30px;
-            color: var(--text-primary);
+            color: var(--text-on-orange);
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
@@ -770,11 +771,11 @@
         /* Section Breaks */
         .section-break {
             background: linear-gradient(45deg, var(--accent-color), #ffb366);
-            color: var(--primary-bg);
+            color: var(--text-on-orange);
         }
 
         .section-break h1 {
-            color: var(--primary-bg);
+            color: var(--text-on-orange);
             font-size: clamp(3rem, 6vw, 5rem);
             text-shadow: 2px 2px 4px rgba(255,255,255,0.3);
         }
@@ -785,7 +786,7 @@
         }
 
         .cta h1 {
-            color: var(--text-primary);
+            color: var(--text-on-orange);
         }
 
         /* Navigation Controls */
@@ -800,7 +801,7 @@
 
         .nav-button, .home-button {
             background: var(--accent-color);
-            color: var(--text-primary);
+            color: var(--text-on-orange);
             border: none;
             padding: 12px 20px;
             border-radius: 25px;
@@ -853,7 +854,7 @@
             bottom: 30px;
             left: 30px;
             background: rgba(255, 141, 33, 0.9);
-            color: var(--text-primary);
+            color: var(--text-on-orange);
             padding: 10px 20px;
             border-radius: 20px;
             font-weight: 600;
@@ -950,7 +951,7 @@
             }
 
             .slide h1, .quote {
-                color: var(--accent-color) !important;
+                color: #1f4068 !important;
             }
 
             .scripture {
@@ -2581,6 +2582,5 @@
         }
     </script>
   <!-- Template Switcher Module -->
-  <script src="../js/template-switcher.js"></script>
 </body>
 </html>

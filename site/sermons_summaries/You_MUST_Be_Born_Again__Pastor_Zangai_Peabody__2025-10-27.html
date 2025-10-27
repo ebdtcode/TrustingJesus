@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You MUST Be Born Again! - Sermon Summary</title>
+    <style>
+        :root {
+            --primary-blue: #14213d;
+            --secondary-blue: #1f4068;
+            --accent-yellow: #ffd166;
+            --bg-dark: #0b132b;
+            --text-light: #ffffff;
+            --text-muted: #e8f4f8;
+            --card-bg: rgba(20, 33, 61, 0.7);
+            --success: #06d6a0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #14213d 0%, #1f4068 100%);
+            color: var(--text-light);
+            line-height: 1.7;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-left: 6px solid var(--accent-yellow);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent-yellow);
+            color: var(--primary-blue);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 209, 102, 0.3);
+        }
+
+        .home-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 209, 102, 0.4);
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--accent-yellow);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .meta-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 3px solid var(--accent-yellow);
+        }
+
+        .meta-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: var(--accent-yellow);
+            color: var(--primary-blue);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--accent-yellow);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--accent-yellow);
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            color: var(--text-light);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--accent-yellow);
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            color: var(--accent-yellow);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* Quote Box */
+        .quote-box {
+            background: rgba(255, 209, 102, 0.15);
+            border-left: 5px solid var(--accent-yellow);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            font-style: italic;
+            color: var(--text-light);
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        li::marker {
+            color: var(--accent-yellow);
+        }
+
+        /* Prayer Points */
+        .prayer-point {
+            background: linear-gradient(135deg, rgba(6, 214, 160, 0.1), rgba(59, 130, 246, 0.1));
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid rgba(255, 209, 102, 0.3);
+        }
+
+        .prayer-point h4 {
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+
+        .prayer-focus {
+            background: rgba(255, 209, 102, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .scripture-ref {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            border-left: 3px solid var(--success);
+        }
+
+        .scripture-label {
+            color: var(--success);
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        /* Biblical References */
+        .references-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .reference-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-yellow);
+            transition: all 0.3s ease;
+        }
+
+        .reference-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .reference-verse {
+            color: var(--accent-yellow);
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        /* Video Link */
+        .video-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .video-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(255, 0, 0, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 0.5rem;
+            }
+
+            .header, .content-section {
+                padding: 1.5rem;
+            }
+
+            .meta {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .home-button, .video-link {
+                display: none;
+            }
+
+            .content-section {
+                border: 1px solid #ddd;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <a href="../index.html" class="home-button">
+                <span>🏠</span> Back to Home
+            </a>
+
+            <h1>📖 You MUST Be Born Again! (Kuku-jumuku)</h1>
+
+            <div class="meta">
+                <div class="meta-item">
+                    <div class="meta-label">Speaker</div>
+                    <div class="meta-value">Pastor Zangai Peabody</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Date</div>
+                    <div class="meta-value">October 27, 2025</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Duration</div>
+                    <div class="meta-value">52:42</div>
+                </div>
+            </div>
+
+            <div class="tags">
+                <span class="tag">🔑 Salvation</span>
+                <span class="tag">✨ Born Again</span>
+                <span class="tag">🌱 New Birth</span>
+                <span class="tag">💫 Spiritual Rebirth</span>
+                <span class="tag">⚖️ Righteousness</span>
+                <span class="tag">👑 Kingdom of God</span>
+            </div>
+
+            <a href="https://youtu.be/m8cM1J3Ryf0" target="_blank" class="video-link">
+                <span>▶️</span> Watch on YouTube
+            </a>
+        </div>
+
+        <!-- Main Theme -->
+        <div class="content-section">
+            <h2>🎯 Main Theme</h2>
+            <p>Pastor Zangai Peabody delivers a powerful and unapologetic message on the absolute necessity of being born again to comprehend and experience the Kingdom of God. Drawing from Jesus's encounter with Nicodemus in John 3, the pastor addresses the fundamental truth that spiritual rebirth is not optional but essential for entering into relationship with God and understanding spiritual realities. The sermon confronts religious tradition, dead religiosity, and the deception that church attendance or religious activity equates to spiritual life. Pastor Zangai uses the African phrase "Kuku-jumuku" (meaning "if you're not inside, you can't know") to illustrate that spiritual things are incomprehensible to those who remain spiritually dead.</p>
+        </div>
+
+        <!-- Key Biblical Foundation -->
+        <div class="content-section">
+            <h2>📚 Key Biblical Foundation</h2>
+            <p>The sermon centers on John 3:1-12, where Nicodemus, a Pharisee and ruler of the Jews, comes to Jesus seeking understanding. Jesus's response is direct and uncompromising: <strong>"Unless one is born again, he cannot see the kingdom of God."</strong> This encounter reveals that religious knowledge, position, and even sincere seeking cannot substitute for spiritual rebirth. Jesus distinguishes between natural understanding and spiritual comprehension, declaring that "that which is born of the flesh is flesh, and that which is born of the Spirit is spirit" (John 3:6).</p>
+        </div>
+
+        <!-- Central Teaching Points -->
+        <div class="content-section">
+            <h2>💡 Central Teaching Points</h2>
+
+            <h3>1. The Spiritual Death Inherited from Adam</h3>
+            <p>Pastor Zangai uses the illustration of a master copy DVD to explain how sin entered humanity through Adam. Romans 5:12 teaches that through one man sin entered the world, and death through sin spread to all mankind. Just as a flawed master copy produces flawed duplicates, Adam's fallen nature was transmitted to all his descendants. We are not sinners because we sin; we sin because we are born sinners. This Adamic nature makes us spiritually dead and incapable of comprehending spiritual truth.</p>
+
+            <h3>2. The Natural Man Cannot Receive Spiritual Things</h3>
+            <p>Quoting 1 Corinthians 2:14, the pastor emphasizes that "the natural man does not receive the things of the Spirit of God, for they are foolishness to him; nor can he know them, because they are spiritually discerned." This explains why even religious leaders like Nicodemus, despite their extensive knowledge of Scripture, cannot grasp spiritual realities without being born again. The sermon illustrates this with Peter's response in Matthew 16:21-23, where Jesus had to rebuke him saying, "You are not mindful of the things of God, but the things of men."</p>
+
+            <h3>3. The New Birth Through God's Incorruptible Word</h3>
+            <p>The mechanism of new birth is explained through 1 Peter 1:23: "having been born again, not of corruptible seed but incorruptible, through the word of God which lives and abides forever." Just as physical birth requires a seed to be planted in a womb, spiritual birth occurs when the Word of God enters the womb of our spirit through our ears. God operates on us through His Word, imparting His kind of life—not the corrupted life from our earthly lineage, but divine, incorruptible life.</p>
+
+            <h3>4. The Kingdom of God is Righteousness, Peace, and Joy</h3>
+            <p>The pastor clarifies that the kingdom Jesus spoke about is not merely heaven but a present spiritual reality. Luke 17:20-21 declares, "the kingdom of God is within you." Romans 14:17 defines this kingdom as "righteousness and peace and joy in the Holy Spirit." Being born again grants access to this kingdom—a realm where believers experience God's righteousness (not their own), supernatural peace, and joy that transcends circumstances. This righteousness is not earned but imputed through Christ, who "knew no sin became sin that we might become the righteousness of God" (2 Corinthians 5:21).</p>
+
+            <h3>5. The Authority and Power of the Born-Again Believer</h3>
+            <p>Proverbs 28:1 declares "the righteous are bold as a lion." The sermon connects this boldness to the authority Jesus displayed—cleansing the temple (Mark 11:27-28), teaching with authority unlike the scribes (Matthew 7:29), healing on the Sabbath, and raising the dead. Born-again believers are backed by God's authority just as police officers are backed by government authority. Proverbs 15:29 promises that "the Lord hears the prayers of the righteous," and James 5:16 declares "the effective, fervent prayer of a righteous man avails much."</p>
+
+            <h3>6. Being Led by the Spirit as Sons of God</h3>
+            <p>Those who are born again receive a personal GPS—the Holy Spirit's guidance. Romans 8:14 teaches that "as many as are led by the Spirit of God, these are sons of God." The pastor shares a testimony of his wife receiving creative ideas from the Spirit for her teaching work, illustrating how believers are supernaturally directed in practical daily matters. This is the life of walking by faith, where God shows unusual provision and opens doors that natural reasoning cannot explain.</p>
+
+            <h3>7. The Choice: Remaining in Adam or Being in Christ</h3>
+            <p>The sermon concludes with a powerful declaration of choice: "I choose to be in Jesus. I refuse to be in Adam." Galatians 2:20 captures this truth: "I have been crucified with Christ; it is no longer I who live, but Christ lives in me." The old Adamic life must die for Christ's life to reign. Habits, addictions, and patterns from the old lineage can be broken not through self-effort but through the new life in Christ exercised by faith.</p>
+        </div>
+
+        <!-- Notable Quotes -->
+        <div class="content-section">
+            <h2>💬 Notable Quotes</h2>
+
+            <div class="quote-box">
+                "If you are not inside, you can't know. All right, except you are born again, you can't comprehend this."
+            </div>
+
+            <div class="quote-box">
+                "Man's problem is not that he needs more teaching. Man needs life because man is dead spiritually."
+            </div>
+
+            <div class="quote-box">
+                "I don't have to sin for you to call me a sinner. I am born a sinner. That was my character."
+            </div>
+
+            <div class="quote-box">
+                "Your own righteousness is like filthy rags, but this righteousness is given to us from God."
+            </div>
+
+            <div class="quote-box">
+                "It is not my sinning that gives me my standing in righteousness. No, it's because of who He is and what He did that makes me righteous."
+            </div>
+
+            <div class="quote-box">
+                "People should see signs and wonders. We know that you are on furlough. We know that they took away your employment. How are you making it? I believe in God."
+            </div>
+
+            <div class="quote-box">
+                "I have another source of food that you do not know of. I have another means of supply that you don't know about. You must be born again."
+            </div>
+
+            <div class="quote-box">
+                "For those of you that laughed and scorned, I tell you, born of the Spirit and the blood. I thank God I did not listen to you. By now poverty would have put me on the side."
+            </div>
+        </div>
+
+        <!-- Practical Application -->
+        <div class="content-section">
+            <h2>🎯 Practical Application</h2>
+            <p>The sermon calls for an urgent, decisive response. Pastor Zangai confronts those who may have church positions—ushers, choir members, even teachers and rulers like Nicodemus—but lack the essence of spiritual life. Church attendance, religious rituals, and even doctrinal knowledge cannot substitute for being born again. The time is now to make a conscious decision to receive new life through Jesus Christ. For those already born again, the message calls believers to walk in the authority, righteousness, and Spirit-led life that is their inheritance. Dead situations—relationships, businesses, personal struggles—can come alive through the resurrection power available to those who are truly born again.</p>
+        </div>
+
+        <!-- Biblical References -->
+        <div class="content-section">
+            <h2>📖 Biblical References</h2>
+
+            <h3>Primary Passages</h3>
+            <div class="references-grid">
+                <div class="reference-item">
+                    <span class="reference-verse">John 3:1-12</span> - Nicodemus and Jesus's teaching on being born again
+                </div>
+                <div class="reference-item">
+                    <span class="reference-verse">Mark 11:27-28</span> - Religious leaders question Jesus's authority
+                </div>
+                <div class="reference-item">
+                    <span class="reference-verse">Matthew 7:29</span> - Jesus taught with authority unlike the scribes
+                </div>
+                <div class="reference-item">
+                    <span class="reference-verse">Romans 5:12</span> - Sin and death entered through Adam
+                </div>
+            </div>
+
+            <h3>Supporting Passages</h3>
+            <div class="references-grid">
+                <div class="reference-item">
+                    <span class="reference-verse">Matthew 16:21-23</span> - Peter rebuked for being mindful of earthly things
+                </div>
+                <div class="reference-item">
+                    <span class="reference-verse">1 Corinthians 2:14</span> - The natural man cannot receive spiritual things
+                </div>
+                <div class="reference-item">
+                    <span class="reference-verse">1 Peter 1:23</span> - Born again through incorruptible seed of God's Word
+                </div>
+                <div class="reference-item">
+                    <span class="reference-verse">Luke 17:20-21</span> - The kingdom of God is within you
+                </div>
+                <div class="reference-item">
+                    <span class="reference-verse">Romans 14:17</span> - Kingdom defined as righteousness, peace, joy in Holy Spirit
+                </div>
+                <div class="reference-item">
+                    <span class="reference-verse">2 Corinthians 5:21</span> - Christ became sin that we might become God's righteousness
+                </div>
+                <div class="reference-item">
+                    <span class="reference-verse">Galatians 2:20</span> - Crucified with Christ; Christ lives in me
+                </div>
+                <div class="reference-item">
+                    <span class="reference-verse">Proverbs 28:1</span> - The righteous are bold as a lion
+                </div>
+                <div class="reference-item">
+                    <span class="reference-verse">Proverbs 15:29</span> - The Lord hears the prayers of the righteous
+                </div>
+                <div class="reference-item">
+                    <span class="reference-verse">James 5:16</span> - Effective, fervent prayer of the righteous avails much
+                </div>
+                <div class="reference-item">
+                    <span class="reference-verse">Romans 8:14</span> - Led by the Spirit as sons of God
+                </div>
+                <div class="reference-item">
+                    <span class="reference-verse">Philippians 4:13</span> - I can do all things through Christ who strengthens me
+                </div>
+            </div>
+        </div>
+
+        <!-- Prayer Points -->
+        <div class="content-section">
+            <h2>🙏 Prayer Points Based on This Sermon</h2>
+
+            <div class="prayer-point">
+                <h4>1. Prayer for Salvation and New Birth</h4>
+                <div class="prayer-focus">Focus: For those who have never truly been born again</div>
+                <p>Lord Jesus, I acknowledge that I cannot comprehend spiritual things in my natural state. According to John 3:3, unless I am born again, I cannot see or enter Your kingdom. I confess that I am born in sin through Adam's lineage (Romans 5:12), spiritually dead and unable to save myself. Today I receive Your incorruptible seed, the Word of God (1 Peter 1:23), into my spirit. I believe Jesus Christ died for my sins and rose again. I renounce my old Adamic nature and choose to be in Christ. Make me a new creation. Give me Your divine life, that I may know You and walk in Your kingdom. Save me now, in Jesus's name.</p>
+                <div class="scripture-ref">
+                    <span class="scripture-label">Scripture:</span> John 3:3,7; 2 Corinthians 5:17; Romans 10:9-10
+                </div>
+            </div>
+
+            <div class="prayer-point">
+                <h4>2. Prayer for Spiritual Understanding and Discernment</h4>
+                <div class="prayer-focus">Focus: For eyes to comprehend spiritual realities</div>
+                <p>Father, I pray that the eyes of my understanding be enlightened (Ephesians 1:18). Remove the veil of natural thinking that keeps me from discerning spiritual truth. Your Word declares that spiritual things are spiritually discerned (1 Corinthians 2:14). Since I am born again, I have the mind of Christ (1 Corinthians 2:16). Open my spiritual eyes to see beyond natural circumstances. Help me to be mindful of things of God, not things of man (Matthew 16:23). Let Your Holy Spirit teach me all things and guide me into all truth (John 16:13). Give me wisdom and revelation in the knowledge of Christ.</p>
+                <div class="scripture-ref">
+                    <span class="scripture-label">Scripture:</span> 1 Corinthians 2:14-16; Ephesians 1:17-18; Matthew 16:23; John 16:13
+                </div>
+            </div>
+
+            <div class="prayer-point">
+                <h4>3. Prayer for Walking in Imputed Righteousness</h4>
+                <div class="prayer-focus">Focus: For boldness and confidence in Christ's righteousness</div>
+                <p>Heavenly Father, I thank You that through Christ, I have become the righteousness of God (2 Corinthians 5:21). My own righteousness is as filthy rags (Isaiah 64:6), but Christ's righteousness has been imputed to me. I declare that I am righteous not by my works but by faith in Jesus Christ. According to Proverbs 28:1, the righteous are bold as a lion. I receive this boldness to pray, to witness, and to live victoriously. I refuse condemnation because there is no condemnation for those in Christ Jesus (Romans 8:1). Let me walk in the confidence that You hear my prayers (Proverbs 15:29) and that I have access to Your throne of grace (Hebrews 4:16).</p>
+                <div class="scripture-ref">
+                    <span class="scripture-label">Scripture:</span> 2 Corinthians 5:21; Proverbs 28:1; Romans 8:1; Proverbs 15:29; Isaiah 64:6; Hebrews 4:16
+                </div>
+            </div>
+
+            <div class="prayer-point">
+                <h4>4. Prayer for Resurrection Power Over Dead Situations</h4>
+                <div class="prayer-focus">Focus: For life to come to dead areas</div>
+                <p>Lord, just as Jesus called Lazarus from the grave, I call forth resurrection life over every dead situation in my life. You are the God who calls those things that are not as though they were (Romans 4:17). I speak life to dead relationships, dead dreams, dead businesses, and dead hopes. Your Word declares that greater is He who is in me than he who is in the world (1 John 4:4). I refuse to accept death where You have promised life. According to Ezekiel 37, I prophesy to dry bones: Live! Come alive in the name of Jesus. Let Your resurrection power that raised Christ from the dead (Ephesians 1:19-20) quicken every area of my life.</p>
+                <div class="scripture-ref">
+                    <span class="scripture-label">Scripture:</span> John 11:43-44; Romans 4:17; Ezekiel 37:4-5; 1 John 4:4; Ephesians 1:19-20
+                </div>
+            </div>
+
+            <div class="prayer-point">
+                <h4>5. Prayer for Being Spirit-Led in Daily Life</h4>
+                <div class="prayer-focus">Focus: For divine guidance and wisdom</div>
+                <p>Father, Your Word declares that as many as are led by the Spirit of God, these are sons of God (Romans 8:14). I am Your child, born of Your Spirit. Lead me today by Your Holy Spirit. Give me supernatural wisdom and creative ideas for my work, family, and ministry. You promise in James 1:5 that if any lacks wisdom, let him ask of God who gives liberally. I ask now for wisdom. Order my steps according to Your Word (Psalm 119:133). Let me not lean on my own understanding but acknowledge You in all my ways, and You will direct my paths (Proverbs 3:5-6). Open and close doors according to Your perfect will. Give me divine connections and supernatural provision that only You can arrange.</p>
+                <div class="scripture-ref">
+                    <span class="scripture-label">Scripture:</span> Romans 8:14; James 1:5; Proverbs 3:5-6; Psalm 119:133; Psalm 37:23
+                </div>
+            </div>
+
+            <div class="prayer-point">
+                <h4>6. Prayer for Effective, Fervent Intercession</h4>
+                <div class="prayer-focus">Focus: For powerful prayer life</div>
+                <p>Lord Jesus, You intercede for me at the right hand of the Father (Romans 8:34), and You have given me access to pray with authority. Your Word promises that the effective, fervent prayer of a righteous man avails much (James 5:16). I am that righteous man through Christ. Teach me to pray according to Your will, praying Your Word back to You. Help me to pray with faith, nothing doubting (James 1:6). Let my prayers be like Moses stretching his rod over the Red Sea—obedient acts of faith that release Your supernatural power. I thank You that You hear me always (John 11:42). Raise up an army of intercessors in this generation who will stand in the gap and see Your kingdom come on earth as it is in heaven.</p>
+                <div class="scripture-ref">
+                    <span class="scripture-label">Scripture:</span> James 5:16; Romans 8:34; John 11:42; James 1:6; Matthew 6:10
+                </div>
+            </div>
+
+            <div class="prayer-point">
+                <h4>7. Prayer for Boldness to Witness</h4>
+                <div class="prayer-focus">Focus: For courage to share the gospel</div>
+                <p>Father, give me holy boldness to proclaim the gospel of Jesus Christ. I am not ashamed of the gospel, for it is the power of God to salvation for everyone who believes (Romans 1:16). Just as Peter and John spoke boldly before the religious leaders, fill me with the same Spirit to speak Your word with all boldness (Acts 4:29). Open my eyes to see those around me who are spiritually dead and in need of new birth. Give me words seasoned with grace to explain the mystery that unless one is born again, they cannot see or enter the kingdom of God (John 3:3). Let my life be a testimony of Your transforming power, and may many come to saving faith through my witness.</p>
+                <div class="scripture-ref">
+                    <span class="scripture-label">Scripture:</span> Romans 1:16; Acts 4:29; John 3:3; Colossians 4:6; 2 Timothy 1:7
+                </div>
+            </div>
+
+            <div class="prayer-point">
+                <h4>8. Prayer for Deliverance from Religious Tradition</h4>
+                <div class="prayer-focus">Focus: For freedom from dead religion</div>
+                <p>Lord, deliver me from every form of dead religion and religious tradition that makes void the Word of God (Mark 7:13). Like Nicodemus who came with knowledge but without life, expose areas where I have substituted outward ritual for inward transformation. Your Word declares that where the Spirit of the Lord is, there is liberty (2 Corinthians 3:17). Free me from the bondage of trying to earn Your favor through my own efforts. Help me to understand that salvation is not by works of righteousness which I have done, but according to Your mercy (Titus 3:5). Teach me to worship You in spirit and in truth (John 4:24), not in the deadness of religious performance but in the vitality of Spirit-filled relationship.</p>
+                <div class="scripture-ref">
+                    <span class="scripture-label">Scripture:</span> Mark 7:13; 2 Corinthians 3:17; Titus 3:5; John 4:24; Galatians 5:1
+                </div>
+            </div>
+
+            <div class="prayer-point">
+                <h4>9. Prayer for Supernatural Provision</h4>
+                <div class="prayer-focus">Focus: For divine supply and breakthrough</div>
+                <p>Heavenly Father, I thank You that I have another source of supply that the world does not know. My God shall supply all my need according to His riches in glory by Christ Jesus (Philippians 4:19). Just as Jesus had food to eat that the disciples did not know about (John 4:32), I receive supernatural provision that cannot be explained by natural means. Open windows of heaven and pour out blessings I cannot contain (Malachi 3:10). Let those who see my life during difficult seasons marvel and ask, "How are you making it?" Give me bold faith to testify, "I believe in God!" Where the world expects poverty, let Your abundance flow. Where experts predict lack, demonstrate Your supernatural supply. I walk by faith, not by sight (2 Corinthians 5:7).</p>
+                <div class="scripture-ref">
+                    <span class="scripture-label">Scripture:</span> Philippians 4:19; John 4:32; Malachi 3:10; 2 Corinthians 5:7; Psalm 23:1
+                </div>
+            </div>
+
+            <div class="prayer-point">
+                <h4>10. Prayer for Victory Over Adamic Nature</h4>
+                <div class="prayer-focus">Focus: For freedom from inherited sinful patterns</div>
+                <p>Lord Jesus, I thank You that I am no longer in Adam but in Christ. The old has passed away; behold, the new has come (2 Corinthians 5:17). I renounce every sinful habit, addiction, and pattern that came through my natural lineage. I declare that I am dead to sin and alive to God in Christ Jesus (Romans 6:11). Break every generational curse and bondage. Where my family line has been marked by anger, addiction, poverty, or sickness, I declare that in Christ I am a new creation. I am not defined by my past or my family history. I choose Jesus. I refuse to remain in Adam. Let the power of the Holy Spirit produce in me the fruit of righteousness, peace, and joy. Transform my mind, renew my heart, and establish me in the victory Christ has already won.</p>
+                <div class="scripture-ref">
+                    <span class="scripture-label">Scripture:</span> 2 Corinthians 5:17; Romans 6:11; Galatians 3:13; Romans 12:2; 1 John 4:4
+                </div>
+            </div>
+
+            <div class="prayer-point">
+                <h4>11. Prayer for Kingdom Living</h4>
+                <div class="prayer-focus">Focus: For experiencing righteousness, peace, and joy</div>
+                <p>Father, I thank You that Your kingdom is not a matter of eating and drinking, but of righteousness and peace and joy in the Holy Spirit (Romans 14:17). I have been translated from the kingdom of darkness into the kingdom of Your dear Son (Colossians 1:13). Today I choose to walk in kingdom reality. I receive the righteousness of God in Christ—not my own works but His perfect standing. I receive Your peace that surpasses all understanding (Philippians 4:7), peace that is not dependent on my circumstances. I receive the joy of the Lord which is my strength (Nehemiah 8:10). Let the kingdom of God be manifest in my life—in my home, my workplace, and my community. May people see Your kingdom demonstrated through my transformed life.</p>
+                <div class="scripture-ref">
+                    <span class="scripture-label">Scripture:</span> Romans 14:17; Colossians 1:13; Philippians 4:7; Nehemiah 8:10; Matthew 6:33
+                </div>
+            </div>
+
+            <div class="prayer-point">
+                <h4>12. Prayer for Walking in Resurrection Life</h4>
+                <div class="prayer-focus">Focus: For manifesting the power of Christ's resurrection</div>
+                <p>Lord, I pray to know You and the power of Your resurrection (Philippians 3:10). The same Spirit that raised Jesus from the dead dwells in me and gives life to my mortal body (Romans 8:11). I refuse to live in defeat, depression, or spiritual death. Just as Lazarus came forth from the tomb at Your command, I speak to every dead area of my life: Come forth! Relationships, come alive! Dreams, be resurrected! Ministries, be restored! Health, be renewed! I am more than a conqueror through Him who loved me (Romans 8:37). Greater is He who is in me than he who is in the world (1 John 4:4). Let the resurrection life of Jesus flow through me, bringing transformation, healing, and miraculous breakthrough. I walk in newness of life!</p>
+                <div class="scripture-ref">
+                    <span class="scripture-label">Scripture:</span> Philippians 3:10; Romans 8:11; John 11:43-44; Romans 8:37; 1 John 4:4; Romans 6:4
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="content-section" style="text-align: center;">
+            <p style="color: var(--text-muted); font-size: 0.95rem;">
+                📖 For more sermons and prayer resources, visit our <a href="../index.html" style="color: var(--accent-yellow); font-weight: 600;">Home Page</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

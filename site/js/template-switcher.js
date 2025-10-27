@@ -55,7 +55,7 @@ const TemplateSwitcher = {
           top: 80px;
           right: 30px;
           z-index: 2000;
-          background: rgba(255, 255, 255, 0.95);
+          background: rgba(20, 33, 61, 0.98);
           border-radius: 12px;
           padding: 1rem;
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -75,9 +75,9 @@ const TemplateSwitcher = {
         .switcher-header {
           display: flex;
           align-items: center;
-          justify-content: space-between;
+          justify-content: between;
           margin-bottom: 0.5rem;
-          color: #14213d;
+          color: #ffffff;
           font-weight: 600;
           font-size: 0.9rem;
         }
@@ -92,7 +92,7 @@ const TemplateSwitcher = {
           cursor: pointer;
           font-size: 1.2rem;
           padding: 0.25rem;
-          color: #14213d;
+          color: #ffffff;
           transition: transform 0.3s ease;
         }
 
@@ -108,18 +108,18 @@ const TemplateSwitcher = {
           border-radius: 8px;
           cursor: pointer;
           transition: all 0.3s ease;
-          background: rgba(20, 33, 61, 0.05);
+          background: rgba(255, 255, 255, 0.1);
           border: 2px solid transparent;
         }
 
         .template-option:hover {
-          background: rgba(20, 33, 61, 0.1);
+          background: rgba(255, 255, 255, 0.15);
           transform: translateX(3px);
         }
 
         .template-option.active {
-          background: rgba(37, 99, 168, 0.15);
-          border-color: #2563a8;
+          background: rgba(59, 130, 246, 0.3);
+          border-color: #3b82f6;
         }
 
         .template-radio {
@@ -135,13 +135,13 @@ const TemplateSwitcher = {
 
         .template-name {
           font-weight: 600;
-          color: #14213d;
+          color: #ffffff;
           font-size: 0.95rem;
         }
 
         .template-desc {
           font-size: 0.75rem;
-          color: #666;
+          color: #e6eef7;
           margin-top: 0.25rem;
         }
 
@@ -357,7 +357,7 @@ const TemplateSwitcher = {
           border-left-color: var(--accent-blue) !important;
         }
 
-        h2 {
+        .slide h2, .presentation h2 {
           color: var(--accent-blue) !important;
         }
 
@@ -437,20 +437,20 @@ const TemplateSwitcher = {
         }
 
         .scripture-ref {
-          color: var(--accent-color) !important;
+          color: #1f4068 !important;
         }
 
         .scripture-text {
           color: var(--dark-gray) !important;
         }
 
-        h2 {
-          color: var(--accent-color) !important;
+        .slide h2, .presentation h2 {
+          color: #1f4068 !important;
           font-family: Georgia, serif !important;
         }
 
         .emphasis {
-          color: var(--accent-color) !important;
+          color: #1f4068 !important;
         }
 
         .sidebar {
@@ -504,7 +504,7 @@ const TemplateSwitcher = {
 
         /* Keep accent color for emphasis */
         .emphasis {
-          color: var(--accent-color) !important;
+          color: #1f4068 !important;
         }
       `;
     } else if (templateKey === 'classic') {
@@ -530,12 +530,12 @@ const TemplateSwitcher = {
           border-left-color: var(--accent-color) !important;
         }
 
-        h2 {
-          color: var(--accent-color) !important;
+        .slide h2, .presentation h2 {
+          color: #1f4068 !important;
         }
 
         .emphasis {
-          color: var(--accent-color) !important;
+          color: #1f4068 !important;
         }
 
         .sidebar {
@@ -573,7 +573,7 @@ const TemplateSwitcher = {
         }
 
         .slide h2 {
-          color: var(--accent-color) !important;
+          color: #1f4068 !important;
         }
 
         /* List items */
@@ -586,7 +586,7 @@ const TemplateSwitcher = {
         }
 
         .emphasis {
-          color: var(--accent-color) !important;
+          color: #1f4068 !important;
         }
       `;
     }
