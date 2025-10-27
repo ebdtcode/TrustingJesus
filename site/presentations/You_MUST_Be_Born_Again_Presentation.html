@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You MUST Be Born Again - Pastor Zangai Peabody</title>
+    <style>
+        /* CONSISTENT STYLE TEMPLATE FOR ALL PRESENTATIONS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #14213D;
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Sidebar Navigation (PowerPoint Style) */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100vh;
+            background: rgba(20, 33, 61, 0.95);
+            backdrop-filter: blur(10px);
+            border-right: 2px solid #FFD166;
+            z-index: 2000;
+            transition: left 0.3s ease;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 209, 102, 0.3);
+            text-align: center;
+        }
+
+        .sidebar-header h3 {
+            color: #FFD166;
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .sidebar-nav {
+            padding: 10px 0;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+            font-size: 0.9rem;
+        }
+
+        .sidebar-item:hover {
+            background: rgba(255, 209, 102, 0.1);
+            border-left-color: #FFD166;
+        }
+
+        .sidebar-item.active {
+            background: rgba(255, 209, 102, 0.2);
+            border-left-color: #FFD166;
+            color: #FFD166;
+        }
+
+        .sidebar-item-number {
+            background: #FFD166;
+            color: #14213D;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .sidebar-item.active .sidebar-item-number {
+            background: white;
+            color: #14213D;
+        }
+
+        .sidebar-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #FFD166;
+            color: #14213D;
+            border: none;
+            padding: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 2100;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            width: clamp(44px, 8vw, 55px);
+            height: clamp(44px, 8vw, 55px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            touch-action: manipulation;
+            font-weight: 600;
+        }
+
+        .sidebar-toggle:hover {
+            background: #FFC233;
+            transform: scale(1.1);
+        }
+
+        .sidebar-toggle:active {
+            transform: scale(1.05);
+        }
+
+        /* Slide Styles */
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            transition: transform 0.3s ease, width 0.3s ease;
+        }
+
+        body.sidebar-open .presentation {
+            transform: translateX(300px);
+            width: calc(100vw - 300px);
+        }
+
+        body.sidebar-open .slide-counter {
+            left: 330px;
+        }
+
+        body.sidebar-open .sidebar-toggle {
+            left: 320px;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 80px;
+            text-align: center;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        /* Typography Standards - Fully Responsive */
+        .slide h1 {
+            font-size: clamp(1.8rem, 5vw, 4rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: clamp(15px, 3vh, 30px);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .slide h2 {
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            font-weight: 600;
+            color: #FFD166;
+            margin-bottom: clamp(15px, 3vh, 30px);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            line-height: 1.3;
+        }
+
+        .slide p {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            line-height: 1.6;
+        }
+
+        .scripture {
+            background: rgba(255, 209, 102, 0.1);
+            border-left: 4px solid #FFD166;
+            padding: clamp(15px, 3vw, 30px);
+            margin: clamp(15px, 3vh, 30px) auto;
+            max-width: 900px;
+            font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+            line-height: 1.6;
+            text-align: left;
+            border-radius: 8px;
+            width: 90%;
+        }
+
+        .scripture-reference {
+            text-align: right;
+            color: #FFD166;
+            font-size: clamp(1rem, 2vw, 1.4rem);
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        .bullet-list {
+            text-align: left;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 90%;
+        }
+
+        .bullet-list li {
+            font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+            margin: clamp(10px, 2vh, 20px) 0;
+            line-height: 1.5;
+            position: relative;
+            padding-left: clamp(30px, 5vw, 40px);
+        }
+
+        .bullet-list li:before {
+            content: "▶";
+            color: #FFD166;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        .prayer-point {
+            background: rgba(255, 209, 102, 0.15);
+            border: 2px solid #FFD166;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 900px;
+            border-radius: 12px;
+        }
+
+        .prayer-point h3 {
+            color: #FFD166;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .two-column {
+            display: flex;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .column {
+            flex: 1;
+            text-align: left;
+        }
+
+        /* Navigation Controls */
+        .nav-controls {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        /* Home Button */
+        .home-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213D;
+            border: 2px solid #FFD166;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            z-index: 2100;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .home-button:hover {
+            background: #FFD166;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            text-decoration: none;
+            color: #14213D;
+        }
+
+        .home-button-icon {
+            font-size: 1.2rem;
+        }
+
+        .nav-button {
+            background: #FFD166;
+            color: #14213D;
+            border: none;
+            padding: clamp(10px, 2vh, 15px) clamp(20px, 3vw, 30px);
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            touch-action: manipulation;
+        }
+
+        .nav-button:hover {
+            background: #FFC233;
+            transform: translateY(-2px);
+        }
+
+        .nav-button:active {
+            transform: translateY(0);
+        }
+
+        .nav-button:disabled {
+            background: rgba(255, 209, 102, 0.3);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1.1rem;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: #FFD166;
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1280px) {
+            .slide {
+                padding: 50px 60px;
+            }
+        }
+
+        @media (max-width: 1023px) {
+            .slide {
+                padding: 40px 40px;
+            }
+
+            .two-column {
+                gap: 20px;
+            }
+
+            .nav-controls {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .sidebar {
+                width: 280px;
+                left: -280px;
+            }
+
+            body.sidebar-open .presentation {
+                transform: translateX(280px);
+                width: calc(100vw - 280px);
+            }
+
+            body.sidebar-open .slide-counter {
+                left: 310px;
+            }
+
+            body.sidebar-open .sidebar-toggle {
+                left: 300px;
+            }
+
+            .slide {
+                padding: 30px 20px;
+            }
+
+            .two-column {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .home-button {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+                top: 70px;
+                right: 15px;
+            }
+
+            .home-button span:not(.home-button-icon) {
+                display: none;
+            }
+
+            .nav-controls {
+                bottom: 15px;
+                right: 15px;
+                gap: 10px;
+            }
+
+            .slide-counter {
+                bottom: 15px;
+                left: 15px;
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 599px) {
+            .sidebar {
+                width: 250px;
+                left: -250px;
+            }
+
+            body.sidebar-open .presentation {
+                transform: translateX(250px);
+                width: calc(100vw - 250px);
+            }
+
+            body.sidebar-open .sidebar-toggle {
+                left: 270px;
+            }
+
+            body.sidebar-open .slide-counter {
+                left: 270px;
+            }
+
+            .slide {
+                padding: 20px 15px;
+            }
+
+            .prayer-point {
+                padding: 20px;
+                margin: 20px auto;
+            }
+
+            .prayer-point h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-height: 600px) and (orientation: landscape) {
+            .slide {
+                padding: 20px 40px;
+                justify-content: flex-start;
+                overflow-y: auto;
+            }
+
+            .slide h1 {
+                margin-bottom: 15px;
+            }
+
+            .slide h2 {
+                margin-bottom: 15px;
+            }
+
+            .scripture {
+                margin: 15px auto;
+                padding: 15px;
+            }
+
+            .nav-controls {
+                bottom: 10px;
+            }
+
+            .slide-counter {
+                bottom: 10px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .sidebar, .sidebar-toggle, .nav-controls, .slide-counter, .progress-bar, .home-button {
+                display: none !important;
+            }
+
+            .slide {
+                display: flex !important;
+                page-break-after: always;
+                background: white;
+                color: black;
+            }
+
+            .slide h1, .slide h2 {
+                color: #14213D;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+
+    <a href="../../index.html" class="home-button" title="Return to Home">
+        <span class="home-button-icon">🏠</span>
+        <span>Home</span>
+    </a>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Slide Navigation</h3>
+        </div>
+        <div class="sidebar-nav" id="sidebarNav">
+        </div>
+    </div>
+
+    <div class="presentation">
+        <div class="progress-bar" id="progressBar"></div>
+
+        <!-- SLIDE 1: Title Slide -->
+        <div class="slide active">
+            <h1>You MUST Be Born Again!</h1>
+            <h2>Kuku-jumuku: If You're Not Inside, You Can't Know</h2>
+            <div class="scripture">
+                "Jesus answered and said to him, 'Most assuredly, I say to you, unless one is born again, he cannot see the kingdom of God.'"
+                <div class="scripture-reference">John 3:3</div>
+            </div>
+            <p style="margin-top: 40px; font-size: 1.6rem; color: #FFD166;">Pastor Zangai Peabody</p>
+            <p style="margin-top: 20px; font-size: 1.4rem; color: #FFD166;">October 27, 2025</p>
+        </div>
+
+        <!-- SLIDE 2: Key Scripture - John 3:1-12 -->
+        <div class="slide">
+            <h2>Our Foundation Scripture</h2>
+            <div class="scripture">
+                "There was a man of the Pharisees named Nicodemus, a ruler of the Jews. This man came to Jesus by night and said to Him, 'Rabbi, we know that You are a teacher come from God; for no one can do these signs that You do unless God is with him.' Jesus answered and said to him, 'Most assuredly, I say to you, unless one is born again, he cannot see the kingdom of God.'"
+                <div class="scripture-reference">John 3:1-3</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: The Problem - Spiritual Death -->
+        <div class="slide">
+            <h2>The Problem: Spiritual Death from Adam</h2>
+            <ul class="bullet-list">
+                <li>Sin entered through one man - Adam</li>
+                <li>Death spread to all mankind</li>
+                <li>We are born sinners, spiritually dead</li>
+                <li>Religious knowledge cannot fix this</li>
+                <li>Man's problem is not more teaching - man needs LIFE</li>
+            </ul>
+            <div class="scripture" style="margin-top: 30px;">
+                "Through one man sin entered the world, and death through sin, and thus death spread to all men, because all sinned."
+                <div class="scripture-reference">Romans 5:12</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: Natural vs Spiritual -->
+        <div class="slide">
+            <h2>The Natural Man Cannot Understand Spiritual Things</h2>
+            <div class="scripture">
+                "But the natural man does not receive the things of the Spirit of God, for they are foolishness to him; nor can he know them, because they are spiritually discerned."
+                <div class="scripture-reference">1 Corinthians 2:14</div>
+            </div>
+            <p style="font-size: 1.5rem; margin-top: 30px; color: #FFD166;">
+                Kuku-jumuku: If you're not inside, you can't know!
+            </p>
+        </div>
+
+        <!-- SLIDE 5: The Solution - Born Again -->
+        <div class="slide">
+            <h2>The Solution: Born Again Through God's Word</h2>
+            <div class="scripture">
+                "Having been born again, not of corruptible seed but incorruptible, through the word of God which lives and abides forever."
+                <div class="scripture-reference">1 Peter 1:23</div>
+            </div>
+            <ul class="bullet-list" style="margin-top: 30px;">
+                <li>God's Word is the incorruptible seed</li>
+                <li>It enters through our ears into our spirit</li>
+                <li>We receive divine, eternal life - not Adamic life</li>
+            </ul>
+        </div>
+
+        <!-- SLIDE 6: The Kingdom of God -->
+        <div class="slide">
+            <h2>The Kingdom of God: Righteousness, Peace & Joy</h2>
+            <div class="scripture">
+                "For the kingdom of God is not eating and drinking, but righteousness and peace and joy in the Holy Spirit."
+                <div class="scripture-reference">Romans 14:17</div>
+            </div>
+            <ul class="bullet-list" style="margin-top: 30px;">
+                <li>Not heaven only - a present reality within you</li>
+                <li>Righteousness from God, not your own works</li>
+                <li>Supernatural peace and joy in the Spirit</li>
+            </ul>
+        </div>
+
+        <!-- SLIDE 7: Authority of the Righteous -->
+        <div class="slide">
+            <h2>The Righteous Are Bold as a Lion</h2>
+            <div class="scripture">
+                "The wicked flee when no one pursues, but the righteous are bold as a lion."
+                <div class="scripture-reference">Proverbs 28:1</div>
+            </div>
+            <ul class="bullet-list" style="margin-top: 30px;">
+                <li>Backed by God's authority</li>
+                <li>Effective, fervent prayer that avails much</li>
+                <li>The Lord hears the prayers of the righteous</li>
+                <li>Signs and wonders follow believers</li>
+            </ul>
+        </div>
+
+        <!-- SLIDE 8: Led by the Spirit -->
+        <div class="slide">
+            <h2>Spirit-Led Living as Sons of God</h2>
+            <div class="scripture">
+                "For as many as are led by the Spirit of God, these are sons of God."
+                <div class="scripture-reference">Romans 8:14</div>
+            </div>
+            <ul class="bullet-list" style="margin-top: 30px;">
+                <li>Divine guidance in daily matters</li>
+                <li>Creative wisdom and supernatural ideas</li>
+                <li>Provision that defies natural explanation</li>
+                <li>Walking by faith, not by sight</li>
+            </ul>
+        </div>
+
+        <!-- SLIDE 9: The Choice -->
+        <div class="slide">
+            <h2>The Choice: Adam or Christ</h2>
+            <div class="scripture">
+                "I have been crucified with Christ; it is no longer I who live, but Christ lives in me; and the life which I now live in the flesh I live by faith in the Son of God, who loved me and gave Himself for me."
+                <div class="scripture-reference">Galatians 2:20</div>
+            </div>
+            <p style="font-size: 2rem; margin-top: 40px; color: #FFD166; font-weight: 600;">
+                I choose to be in Jesus. I refuse to be in Adam.
+            </p>
+        </div>
+
+        <!-- SLIDE 10: Prayer Points Overview -->
+        <div class="slide">
+            <h2>This Week's Prayer Focus</h2>
+            <div class="two-column">
+                <div class="column">
+                    <ul class="bullet-list">
+                        <li><strong style="color: #FFD166;">Salvation & New Birth</strong><br>
+                            <span style="font-size: 1.3rem;">John 3:3,7</span></li>
+                        <li><strong style="color: #FFD166;">Spiritual Understanding</strong><br>
+                            <span style="font-size: 1.3rem;">1 Corinthians 2:14-16</span></li>
+                        <li><strong style="color: #FFD166;">Walking in Righteousness</strong><br>
+                            <span style="font-size: 1.3rem;">2 Corinthians 5:21</span></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <ul class="bullet-list">
+                        <li><strong style="color: #FFD166;">Resurrection Power</strong><br>
+                            <span style="font-size: 1.3rem;">Romans 4:17</span></li>
+                        <li><strong style="color: #FFD166;">Spirit-Led Living</strong><br>
+                            <span style="font-size: 1.3rem;">Romans 8:14</span></li>
+                        <li><strong style="color: #FFD166;">Freedom from Old Nature</strong><br>
+                            <span style="font-size: 1.3rem;">Galatians 2:20</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 11: Prayer Point 1 -->
+        <div class="slide">
+            <div class="prayer-point">
+                <h3>Prayer for Salvation and New Birth</h3>
+                <p style="font-size: 1.4rem; line-height: 1.7;">
+                    Lord Jesus, I acknowledge that I cannot comprehend spiritual things in my natural state.
+                    I confess that I am born in sin through Adam's lineage, spiritually dead and unable to save myself.
+                    Today I receive Your incorruptible seed, the Word of God, into my spirit.
+                    I believe Jesus Christ died for my sins and rose again. I renounce my old Adamic nature
+                    and choose to be in Christ. Make me a new creation. Give me Your divine life,
+                    that I may know You and walk in Your kingdom. Save me now, in Jesus's name.
+                </p>
+            </div>
+        </div>
+
+        <!-- SLIDE 12: Prayer Point 2 -->
+        <div class="slide">
+            <div class="prayer-point">
+                <h3>Prayer for Walking in Imputed Righteousness</h3>
+                <p style="font-size: 1.4rem; line-height: 1.7;">
+                    Father, I thank You that through Christ, I have become the righteousness of God.
+                    My own righteousness is as filthy rags, but Christ's righteousness has been imputed to me.
+                    The righteous are bold as a lion - I receive this boldness to pray, to witness, and to live victoriously.
+                    I refuse condemnation because there is no condemnation for those in Christ Jesus.
+                    Let me walk in the confidence that You hear my prayers and that I have access to Your throne of grace.
+                </p>
+            </div>
+        </div>
+
+        <!-- SLIDE 13: Prayer Point 3 -->
+        <div class="slide">
+            <div class="prayer-point">
+                <h3>Prayer for Resurrection Power Over Dead Situations</h3>
+                <p style="font-size: 1.4rem; line-height: 1.7;">
+                    Lord, just as Jesus called Lazarus from the grave, I call forth resurrection life
+                    over every dead situation in my life. You are the God who calls those things that are not
+                    as though they were. I speak life to dead relationships, dead dreams, dead businesses,
+                    and dead hopes. Greater is He who is in me than he who is in the world.
+                    I refuse to accept death where You have promised life. Let Your resurrection power
+                    that raised Christ from the dead quicken every area of my life.
+                </p>
+            </div>
+        </div>
+
+        <!-- SLIDE 14: Application -->
+        <div class="slide">
+            <h2>This Week's Challenge</h2>
+            <ul class="bullet-list">
+                <li>Make a conscious decision today: Am I truly born again?</li>
+                <li>Walk in your authority as a righteous believer</li>
+                <li>Listen for the Holy Spirit's guidance in daily matters</li>
+                <li>Speak life to dead situations around you</li>
+                <li>Boldly testify of the new life you have in Christ</li>
+            </ul>
+        </div>
+
+        <!-- SLIDE 15: Closing -->
+        <div class="slide">
+            <h1>You MUST Be Born Again!</h1>
+            <p style="font-size: 2rem; margin: 30px 0; color: #FFD166; font-weight: 600;">
+                "I choose to be in Jesus. I refuse to be in Adam."
+            </p>
+            <div class="scripture">
+                "Therefore, if anyone is in Christ, he is a new creation;
+                old things have passed away; behold, all things have become new."
+                <div class="scripture-reference">2 Corinthians 5:17</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="nav-controls">
+        <button class="nav-button" id="prevBtn" onclick="changeSlide(-1)">Previous</button>
+        <button class="nav-button" id="nextBtn" onclick="changeSlide(1)">Next</button>
+    </div>
+
+    <!-- Slide Counter -->
+    <div class="slide-counter" id="slideCounter">1 / 15</div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const progressBar = document.getElementById('progressBar');
+        const slideCounter = document.getElementById('slideCounter');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarNav = document.getElementById('sidebarNav');
+
+        const slideTitles = [
+            "Title: You MUST Be Born Again",
+            "Foundation Scripture: John 3:1-3",
+            "The Problem: Spiritual Death",
+            "Natural vs Spiritual Understanding",
+            "The Solution: Born Again",
+            "The Kingdom of God",
+            "Authority of the Righteous",
+            "Spirit-Led Living",
+            "The Choice: Adam or Christ",
+            "Prayer Focus Overview",
+            "Prayer: Salvation & New Birth",
+            "Prayer: Walking in Righteousness",
+            "Prayer: Resurrection Power",
+            "This Week's Challenge",
+            "Closing: New Creation in Christ"
+        ];
+
+        function generateSidebarNav() {
+            sidebarNav.innerHTML = '';
+            slides.forEach((slide, index) => {
+                const navItem = document.createElement('div');
+                navItem.className = 'sidebar-item';
+                if (index === currentSlide) navItem.classList.add('active');
+
+                let title = slideTitles[index] || `Slide ${index + 1}`;
+                if (title.includes('Prayer') || title.includes('prayer')) {
+                    title = '🙏 ' + title;
+                }
+
+                navItem.innerHTML = `
+                    <div class="sidebar-item-number">${index + 1}</div>
+                    <div class="sidebar-item-title">${title}</div>
+                `;
+
+                navItem.addEventListener('click', () => {
+                    goToSlide(index);
+                    closeSidebar();
+                });
+
+                sidebarNav.appendChild(navItem);
+            });
+        }
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('open');
+            document.body.classList.toggle('sidebar-open');
+        }
+
+        function closeSidebar() {
+            sidebar.classList.remove('open');
+            document.body.classList.remove('sidebar-open');
+        }
+
+        function goToSlide(slideIndex) {
+            if (slideIndex >= 0 && slideIndex < totalSlides) {
+                currentSlide = slideIndex;
+                updateSlide();
+            }
+        }
+
+        function updateSlide() {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide].classList.add('active');
+            progressBar.style.width = ((currentSlide + 1) / totalSlides * 100) + '%';
+            slideCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+            updateSidebarActive();
+        }
+
+        function updateSidebarActive() {
+            document.querySelectorAll('.sidebar-item').forEach((item, index) => {
+                if (index === currentSlide) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        function changeSlide(direction) {
+            const newSlide = currentSlide + direction;
+            if (newSlide >= 0 && newSlide < totalSlides) {
+                currentSlide = newSlide;
+                updateSlide();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case 'ArrowLeft': changeSlide(-1); break;
+                case 'ArrowRight':
+                case ' ':
+                    e.preventDefault();
+                    changeSlide(1);
+                    break;
+                case 'Home': goToSlide(0); break;
+                case 'End': goToSlide(totalSlides - 1); break;
+                case 'Escape': closeSidebar(); break;
+            }
+        });
+
+        // Touch/Swipe Navigation
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let touchStartY = 0;
+        let touchEndY = 0;
+        const minSwipeDistance = 50;
+
+        const presentationElement = document.querySelector('.presentation');
+
+        presentationElement.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        presentationElement.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeDistanceX = touchEndX - touchStartX;
+            const swipeDistanceY = touchEndY - touchStartY;
+
+            if (Math.abs(swipeDistanceX) > Math.abs(swipeDistanceY)) {
+                if (Math.abs(swipeDistanceX) > minSwipeDistance) {
+                    if (swipeDistanceX > 0) {
+                        changeSlide(-1);
+                    } else {
+                        changeSlide(1);
+                    }
+                }
+            }
+        }
+
+        // Prevent double-tap zoom
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', (e) => {
+            const now = new Date().getTime();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+
+        // Initialize
+        generateSidebarNav();
+        updateSlide();
+    </script>
+</body>
+</html>
