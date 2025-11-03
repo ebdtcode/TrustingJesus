@@ -1,0 +1,559 @@
+/* Health Presentation Slides Styles - Medical Theme */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, #14213d 0%, #1f4068 100%);
+  color: #fff;
+  overflow: hidden;
+}
+
+.presentation {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.slide {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 60px 80px 60px 320px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #14213d 0%, #1f4068 100%);
+}
+
+.slide.active {
+  display: flex;
+}
+
+/* Typography */
+h1 {
+  font-size: 4.2rem;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  line-height: 1.2;
+  color: #fff;
+}
+
+h2 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  color: #ffd166;
+  text-shadow: 1px 2px 4px rgba(0,0,0,0.4);
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-shadow: 1px 2px 3px rgba(0,0,0,0.35);
+}
+
+h4 {
+  font-size: 1.9rem;
+  color: #ffd166;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 0.6rem;
+  color: #e8f4f8;
+  line-height: 1.4;
+}
+
+.emphasis {
+  color: #ffd166;
+  font-weight: 800;
+}
+
+/* Content Boxes */
+.info-box,
+.scripture {
+  background: rgba(255,255,255,0.14);
+  border-left: 6px solid #ffd166;
+  padding: 1.5rem;
+  margin: 1.2rem 0;
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  max-width: 1100px;
+}
+
+.info-text,
+.scripture-text {
+  font-size: 1.8rem;
+  line-height: 1.6;
+  margin-bottom: 0.6rem;
+  color: #fff;
+}
+
+.info-label,
+.scripture-ref {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffd166;
+  text-align: right;
+}
+
+.medical-note,
+.prayer-points {
+  background: rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 2rem;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.28);
+  max-width: 1100px;
+  margin: 1.2rem auto;
+}
+
+.medical-note h3,
+.prayer-points h3 {
+  color: #ffd166;
+  margin-bottom: 1rem;
+  font-size: 2.1rem;
+}
+
+.range-box {
+  background: rgba(255,209,102,0.15);
+  border: 3px solid #ffd166;
+  padding: 2rem;
+  border-radius: 14px;
+  margin: 1.5rem 0;
+  max-width: 800px;
+}
+
+.range-value {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ffd166;
+  margin: 0.5rem 0;
+}
+
+.warning-box {
+  background: rgba(255,100,100,0.2);
+  border-left: 6px solid #ff6b6b;
+  padding: 1.5rem;
+  margin: 1.2rem 0;
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  max-width: 1100px;
+}
+
+.success-box {
+  background: rgba(6,214,160,0.2);
+  border-left: 6px solid #06d6a0;
+  padding: 1.5rem;
+  margin: 1.2rem 0;
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  max-width: 1100px;
+}
+
+.dosage-box {
+  background: rgba(6,214,160,0.15);
+  border: 2px solid #06d6a0;
+  padding: 1.2rem;
+  border-radius: 10px;
+  margin: 1rem 0;
+  max-width: 900px;
+}
+
+.evidence-box {
+  background: rgba(17,138,178,0.2);
+  border-left: 6px solid #118ab2;
+  padding: 1.5rem;
+  margin: 1.2rem 0;
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  max-width: 1100px;
+}
+
+/* Lists */
+.content-list {
+  text-align: left;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.content-list li {
+  font-size: 1.5rem;
+  margin: 0.9rem 0;
+  padding-left: 1rem;
+  line-height: 1.55;
+  list-style: none;
+  position: relative;
+}
+
+.content-list li:before {
+  content: "\25B6";
+  color: #ffd166;
+  font-weight: bold;
+  position: absolute;
+  left: -1rem;
+}
+
+/* Columns */
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.column {
+  text-align: left;
+}
+
+.column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.column li {
+  font-size: 1.4rem;
+  margin: 0.7rem 0;
+  padding-left: 1.5rem;
+  line-height: 1.5;
+  position: relative;
+}
+
+.column li:before {
+  content: "\2713";
+  color: #ffd166;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* Quote */
+.quote {
+  font-size: 1.9rem;
+  font-style: italic;
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  margin: 1.2rem 0;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  line-height: 1.5;
+}
+
+/* Call to Action */
+.call-to-action {
+  background: linear-gradient(135deg, #06d6a0, #118ab2);
+  color: white;
+  padding: 2rem;
+  border-radius: 14px;
+  margin: 1.2rem 0;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.call-to-action h3 {
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+}
+
+.call-to-action p {
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+
+/* Special Slides */
+.section-break {
+  background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important;
+}
+
+.section-break h1 {
+  color: #ffd166 !important;
+}
+
+.section-break h2 {
+  color: #e8f4f8 !important;
+}
+
+.cta-slide {
+  background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important;
+}
+
+.cta-slide h1 {
+  color: #ffd166 !important;
+}
+
+.cta-slide .content-list li {
+  color: #fff;
+}
+
+.prayer-slide .scripture {
+  background: rgba(255,209,102,0.15);
+  border-left-color: #ffd166;
+}
+
+/* Tier Badges */
+.tier-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.tier-1 {
+  background: rgba(6,214,160,0.9);
+  color: #001219;
+}
+
+.tier-2 {
+  background: rgba(255,159,28,0.9);
+  color: #001219;
+}
+
+.tier-3 {
+  background: rgba(150,150,150,0.9);
+  color: #fff;
+}
+
+/* Navigation */
+.navigation {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  z-index: 1000;
+}
+
+.nav-btn {
+  background: rgba(255,255,255,0.22);
+  border: 2px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: rgba(255,255,255,0.32);
+  border-color: #ffd166;
+  color: #ffd166;
+}
+
+.nav-btn:disabled {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.5);
+  cursor: not-allowed;
+}
+
+.slide-counter {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background: rgba(0,0,0,0.45);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+/* Sidebar Navigation */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 280px;
+  height: 100vh;
+  background: rgba(20, 33, 61, 0.95);
+  backdrop-filter: blur(10px);
+  overflow-y: auto;
+  z-index: 1500;
+  border-right: 2px solid #ffd166;
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  background: rgba(0,0,0,0.2);
+  border-bottom: 1px solid rgba(255,209,102,0.3);
+}
+
+.sidebar-header h3 {
+  color: #ffd166;
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.sidebar-nav {
+  padding: 1rem 0;
+}
+
+.sidebar-item {
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  border-left: 3px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sidebar-item:hover {
+  background: rgba(255,209,102,0.1);
+  border-left-color: #ffd166;
+}
+
+.sidebar-item.active {
+  background: rgba(255,209,102,0.2);
+  border-left-color: #ffd166;
+  color: #ffd166;
+  font-weight: 600;
+}
+
+.sidebar-item.section {
+  background: rgba(255,209,102,0.1);
+  font-weight: 600;
+  color: #ffd166;
+  margin-top: 0.5rem;
+}
+
+.slide-num {
+  display: inline-block;
+  width: 25px;
+  color: rgba(255,255,255,0.6);
+}
+
+.sidebar-item.active .slide-num {
+  color: #ffd166;
+}
+
+/* Home Button */
+.home-btn {
+  position: fixed;
+  top: 30px;
+  left: 300px;
+  background: rgba(255,209,102,0.9);
+  color: #14213d;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.home-btn:hover {
+  background: #ffd166;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255,209,102,0.4);
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 30px;
+  left: 20px;
+  z-index: 2000;
+  background: rgba(255,209,102,0.9);
+  color: #14213d;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.menu-toggle:hover {
+  background: #ffd166;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .slide { padding: 40px 50px 40px 320px; }
+  h1 { font-size: 3.4rem; }
+  h2 { font-size: 2.8rem; }
+  h3 { font-size: 2.2rem; }
+  .subtitle { font-size: 1.5rem; }
+  .content-list li { font-size: 1.35rem; }
+  .quote { font-size: 1.6rem; }
+  .two-column { grid-template-columns: 1fr; gap: 1.2rem; }
+}
+
+@media (max-width: 768px) {
+  .slide { padding: 80px 30px 30px 30px; }
+  h1 { font-size: 2.6rem; }
+  h2 { font-size: 2.2rem; }
+  h3 { font-size: 1.9rem; }
+  .subtitle { font-size: 1.3rem; }
+  .content-list li { font-size: 1.2rem; }
+  .info-text { font-size: 1.4rem; }
+  .quote { font-size: 1.3rem; }
+  .range-value { font-size: 2.5rem; }
+  .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+  .sidebar.open { transform: translateX(0); }
+  .menu-toggle { display: block; }
+  .home-btn { left: auto; right: 30px; }
+}
+
+/* Print Styles */
+@media print {
+  body { background: white; color: black; }
+  .slide {
+    display: block !important;
+    page-break-after: always;
+    position: static;
+    background: white;
+    color: black;
+    padding: 2cm;
+  }
+  .navigation,
+  .slide-counter,
+  .sidebar,
+  .home-btn,
+  .menu-toggle {
+    display: none;
+  }
+  .info-box,
+  .medical-note,
+  .call-to-action,
+  .range-box,
+  .warning-box,
+  .success-box {
+    background: #f8f9fa;
+    border: 2px solid #ddd;
+    color: black;
+  }
+  h2,
+  .info-label,
+  .emphasis {
+    color: #000;
+  }
+}

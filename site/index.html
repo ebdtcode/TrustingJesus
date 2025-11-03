@@ -214,42 +214,75 @@
 
         .featured-sermon {
             display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
             align-items: center;
         }
 
+        .sermon-info {
+            min-width: 0; /* Allows proper text wrapping */
+        }
+
         .sermon-info h3 {
-            font-size: 2rem;
-            margin: 0 0 0.5rem;
+            font-size: 2.2rem;
+            margin: 0 0 1rem;
             color: var(--text-light);
+            line-height: 1.3;
+            word-wrap: break-word;
         }
 
         .sermon-meta {
             color: var(--text-muted);
             margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .sermon-info p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            color: var(--text-muted);
         }
 
         .sermon-links {
             display: flex;
-            gap: 1rem;
+            gap: 0.75rem;
             flex-wrap: wrap;
+            margin-top: 1rem;
         }
 
         .sermon-link {
             background: rgba(20, 33, 61, 0.6);
             color: var(--text-light);
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1rem;
             border-radius: 8px;
             text-decoration: none;
             transition: all 0.2s ease;
-            border: 1px solid transparent;
+            border: 1px solid var(--border);
+            font-size: 0.9rem;
+            white-space: nowrap;
         }
 
         .sermon-link:hover {
             background: var(--accent-yellow);
             color: var(--primary-blue);
             text-decoration: none;
+            border-color: var(--accent-yellow);
+        }
+
+        .sermon-highlight {
+            background: rgba(255, 209, 102, 0.1);
+            border-left: 4px solid var(--accent-yellow);
+            padding: 2rem;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 200px;
+        }
+
+        .sermon-highlight blockquote {
+            margin: 0;
+            padding: 0;
         }
 
         /* Content Timeline */
@@ -497,10 +530,45 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .featured-sermon {
+                gap: 2rem;
+            }
+
+            .sermon-info h3 {
+                font-size: 1.8rem;
+            }
+
+            .sermon-highlight {
+                padding: 1.5rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .featured-sermon {
                 grid-template-columns: 1fr;
-                gap: 1rem;
+                gap: 1.5rem;
+            }
+
+            .sermon-info h3 {
+                font-size: 1.6rem;
+            }
+
+            .sermon-highlight {
+                min-height: auto;
+                padding: 1.5rem;
+            }
+
+            .sermon-highlight blockquote {
+                font-size: 1rem !important;
+            }
+
+            .sermon-links {
+                flex-direction: column;
+            }
+
+            .sermon-link {
+                text-align: center;
             }
 
             .filter-row {
@@ -622,21 +690,22 @@
             <div class="featured-title">This Week's Featured Content</div>
             <div class="featured-sermon">
                 <div class="sermon-info">
-                    <h3>"You MUST Be Born Again! (Kuku-jumuku)"</h3>
+                    <h3>Biblical Meditation - The Key to Success</h3>
                     <div class="sermon-meta">
-                        Speaker: Pastor Zangai Peabody | October 27, 2025
+                        Speaker: Bishop Dr. Darlingston Johnson | November 2, 2025
                     </div>
-                    <p>An uncompromising message that being born again is not optional but essential for entering God's kingdom. If you're not inside, you can't know - discover the transformative power of spiritual rebirth through God's incorruptible Word.</p>
+                    <p>A powerful sermon on biblical meditation as the most critical spiritual discipline for fulfilling God's purpose. Learn how to move God's Word from your head to your heart through sustained meditation, using practical illustrations like thermostats, sponges, and tea bags to transform your spiritual life.</p>
                     <div class="sermon-links">
-                        <a href="presentations/You_MUST_Be_Born_Again_Presentation.html" class="sermon-link">📊 15-Slide Presentation</a>
-                        <a href="sermons_summaries/You_MUST_Be_Born_Again__Pastor_Zangai_Peabody__2025-10-27.html" class="sermon-link">📝 Summary & 12 Prayer Points</a>
-                        <a href="https://youtu.be/m8cM1J3Ryf0" class="sermon-link" target="_blank">🎥 YouTube Video</a>
+                        <a href="presentations/Biblical_Meditation_The_Key_to_Success_Presentation.html" class="sermon-link">📊 17-Slide Presentation</a>
+                        <a href="sermons_summaries/Biblical_Meditation_The_Key_to_Success_Summary.md" class="sermon-link">📝 Summary & 12 Prayer Points</a>
+                        <a href="https://youtu.be/kk-CAOqouJU" class="sermon-link" target="_blank">🎥 YouTube Video</a>
                     </div>
                 </div>
                 <div class="sermon-highlight">
                     <blockquote style="font-style: italic; color: var(--accent-yellow); font-size: 1.2rem; margin: 0;">
-                        "Most assuredly, I say to you, unless one is born again, he cannot see the kingdom of God"
+                        "This book of the law shall not depart from your mouth, but you shall meditate in it day and night... For then you will make your way prosperous, and then you will have good success"
                     </blockquote>
+                    <div style="text-align: right; font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;">— Joshua 1:8</div>
                 </div>
             </div>
         </section>
@@ -646,6 +715,19 @@
             <h2 class="section-title">Content by Week/Date</h2>
             <div class="timeline-container">
                 <div class="timeline-line"></div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">November 2, 2025</div>
+                    <h3 class="timeline-title">Biblical Meditation - The Key to Success</h3>
+                    <div class="timeline-speaker">Bishop Dr. Darlingston Johnson</div>
+                    <p>This powerful sermon focuses on biblical meditation as the most critical spiritual discipline for believers. Learn that meditation is both prayer and worship, and it's the fuel that empowers all other spiritual practices. Features practical steps to move God's Word from head to heart through sustained meditation, with memorable illustrations (thermostat, sponge, tea bag, baby) (Joshua 1:8)</p>
+                    <div class="timeline-links">
+                        <a href="presentations/Biblical_Meditation_The_Key_to_Success_Presentation.html" class="timeline-link">📊 Presentation (17 slides)</a>
+                        <a href="sermons_summaries/Biblical_Meditation_The_Key_to_Success_Summary.md" class="timeline-link">📝 Summary & Prayer Points</a>
+                        <a href="prayer_points/2025/Biblical_Meditation_Prayer_Points.md" class="timeline-link">🙏 Prayer Points (12 topics)</a>
+                        <a href="https://youtu.be/kk-CAOqouJU" class="timeline-link" target="_blank">🎥 YouTube</a>
+                    </div>
+                </div>
 
                 <div class="timeline-item">
                     <div class="timeline-date">October 20, 2025</div>

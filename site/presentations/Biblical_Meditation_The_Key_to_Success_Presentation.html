@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biblical Meditation: The Key to Success - Bishop Dr. Darlingston Johnson</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); color: #fff; overflow: hidden; }
+    .presentation { position: relative; width: 100vw; height: 100vh; }
+    .slide { display: none; position: absolute; width: 100%; height: 100%; padding: 60px 80px 60px 320px; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); }
+    .slide.active { display: flex; }
+    h1 { font-size: 4.2rem; font-weight: 800; margin-bottom: 1.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); line-height: 1.2; color: #fff; }
+    h2 { font-size: 3.2rem; font-weight: 700; margin-bottom: 1.2rem; color: #ffd166; text-shadow: 1px 2px 4px rgba(0,0,0,0.4); line-height: 1.3; }
+    h3 { font-size: 2.4rem; font-weight: 700; margin-bottom: 1rem; color: #fff; text-shadow: 1px 2px 3px rgba(0,0,0,0.35); }
+    .subtitle { font-size: 1.8rem; font-weight: 400; margin-bottom: 0.6rem; color: #e8f4f8; line-height: 1.4; }
+    .scripture { background: rgba(255,255,255,0.14); border-left: 6px solid #ffd166; padding: 1.5rem; margin: 1.2rem 0; border-radius: 10px; backdrop-filter: blur(8px); box-shadow: 0 8px 32px rgba(0,0,0,0.25); max-width: 1100px; }
+    .scripture-text { font-size: 1.8rem; font-style: italic; line-height: 1.6; margin-bottom: 0.6rem; color: #fff; }
+    .scripture-ref { font-size: 1.2rem; font-weight: 700; color: #ffd166; text-align: right; }
+    .content-list { text-align: left; max-width: 1000px; margin: 0 auto; }
+    .content-list li { font-size: 1.5rem; margin: 0.9rem 0; padding-left: 1rem; line-height: 1.55; list-style: none; position: relative; }
+    .content-list li:before { content: "\25B6"; color: #ffd166; font-weight: bold; position: absolute; left: -1rem; }
+    .quote { font-size: 1.9rem; font-style: italic; text-align: center; padding: 1.5rem; border-radius: 12px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); margin: 1.2rem 0; box-shadow: 0 8px 32px rgba(0,0,0,0.2); line-height: 1.5; }
+    .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; width: 100%; max-width: 1100px; }
+    .column { text-align: left; }
+    .column h4 { font-size: 1.9rem; color: #ffd166; margin-bottom: 1rem; text-align: center; }
+    .column ul { list-style: none; padding: 0; }
+    .column li { font-size: 1.4rem; margin: 0.7rem 0; padding-left: 1.5rem; line-height: 1.5; position: relative; }
+    .column li:before { content: "\2713"; color: #ffd166; font-weight: bold; position: absolute; left: 0; }
+    .prayer-points { background: rgba(255,255,255,0.12); border-radius: 14px; padding: 2rem; backdrop-filter: blur(12px); box-shadow: 0 12px 40px rgba(0,0,0,0.28); max-width: 1100px; margin: 1.2rem auto; }
+    .prayer-points h3 { color: #ffd166; margin-bottom: 1rem; font-size: 2.1rem; }
+    .navigation { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 1rem; z-index: 1000; }
+    .nav-btn { background: rgba(255,255,255,0.22); border: 2px solid rgba(255,255,255,0.3); color: white; padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 600; backdrop-filter: blur(10px); transition: all 0.3s ease; }
+    .nav-btn:hover { background: rgba(255,255,255,0.32); border-color: #ffd166; color: #ffd166; }
+    .nav-btn:disabled { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); cursor: not-allowed; }
+    .slide-counter { position: fixed; top: 30px; right: 30px; background: rgba(0,0,0,0.45); padding: 0.5rem 1rem; border-radius: 20px; font-size: 1rem; backdrop-filter: blur(10px); }
+    .emphasis { color: #ffd166; font-weight: 800; }
+    .call-to-action { background: linear-gradient(135deg, #06d6a0, #118ab2); color: white; padding: 2rem; border-radius: 14px; margin: 1.2rem 0; box-shadow: 0 12px 40px rgba(0,0,0,0.3); text-align: center; }
+    .call-to-action h3 { font-size: 2.6rem; margin-bottom: 1rem; }
+    .call-to-action p { font-size: 1.6rem; line-height: 1.6; }
+    .section-break { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .section-break h1 { color: #ffd166 !important; }
+    .section-break h2 { color: #e8f4f8 !important; }
+    .cta-slide { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .cta-slide h1 { color: #ffd166 !important; }
+    .cta-slide .content-list li { color: #fff; }
+    .prayer-slide .scripture { background: rgba(255,209,102,0.15); border-left-color: #ffd166; }
+
+    /* Sidebar Navigation */
+    .sidebar { position: fixed; left: 0; top: 0; width: 280px; height: 100vh; background: rgba(20, 33, 61, 0.95); backdrop-filter: blur(10px); overflow-y: auto; z-index: 1500; border-right: 2px solid #ffd166; }
+    .sidebar-header { padding: 1.5rem; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,209,102,0.3); }
+    .sidebar-header h3 { color: #ffd166; font-size: 1.3rem; margin: 0; }
+    .sidebar-nav { padding: 1rem 0; }
+    .sidebar-item { padding: 0.8rem 1.5rem; cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem; border-left: 3px solid transparent; display: flex; align-items: center; gap: 0.5rem; }
+    .sidebar-item:hover { background: rgba(255,209,102,0.1); border-left-color: #ffd166; }
+    .sidebar-item.active { background: rgba(255,209,102,0.2); border-left-color: #ffd166; color: #ffd166; font-weight: 600; }
+    .sidebar-item.section { background: rgba(255,209,102,0.1); font-weight: 600; color: #ffd166; margin-top: 0.5rem; }
+    .slide-num { display: inline-block; width: 25px; color: rgba(255,255,255,0.6); }
+    .sidebar-item.active .slide-num { color: #ffd166; }
+
+    /* Home Button */
+    .home-btn { position: fixed; top: 30px; left: 300px; background: rgba(255,209,102,0.9); color: #14213d; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; z-index: 1000; display: flex; align-items: center; gap: 0.5rem; }
+    .home-btn:hover { background: #ffd166; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255,209,102,0.4); }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle { display: none; position: fixed; top: 30px; left: 20px; z-index: 2000; background: rgba(255,209,102,0.9); color: #14213d; border: none; padding: 0.75rem; border-radius: 8px; cursor: pointer; }
+    .menu-toggle:hover { background: #ffd166; }
+
+    @media (max-width: 1024px) {
+      .slide{ padding: 40px 50px 40px 320px; }
+      h1{ font-size: 3.4rem; }
+      h2{ font-size: 2.8rem; }
+      h3{ font-size: 2.2rem; }
+      .subtitle{ font-size: 1.5rem; }
+      .content-list li{ font-size: 1.35rem; }
+      .quote{ font-size: 1.6rem; }
+      .two-column{ grid-template-columns: 1fr; gap: 1.2rem; }
+    }
+    @media (max-width: 768px) {
+      .slide{ padding: 80px 30px 30px 30px; }
+      h1{ font-size: 2.6rem; }
+      h2{ font-size: 2.2rem; }
+      h3{ font-size: 1.9rem; }
+      .subtitle{ font-size: 1.3rem; }
+      .content-list li{ font-size: 1.2rem; }
+      .scripture-text{ font-size: 1.4rem; }
+      .quote{ font-size: 1.3rem; }
+      .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+      .sidebar.open { transform: translateX(0); }
+      .menu-toggle { display: block; }
+      .home-btn { left: auto; right: 30px; }
+    }
+    @media print { body{ background: white; color: black; } .slide{ display: block !important; page-break-after: always; position: static; background: white; color: black; padding: 2cm; } .navigation, .slide-counter{ display: none; } .scripture, .prayer-points, .call-to-action{ background: #f8f9fa; border: 2px solid #ddd; color: black; } h2, .scripture-ref, .emphasis{ color: #000; } }
+  </style>
+</head>
+<body>
+  <div class="presentation">
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Biblical Meditation</h3>
+      </div>
+      <div class="sidebar-nav" id="sidebarNav">
+        <!-- Navigation items will be generated by JavaScript -->
+      </div>
+    </nav>
+
+    <!-- Home Button -->
+    <a href="../index.html" class="home-btn">
+      <span>🏠</span>
+      <span>Dashboard</span>
+    </a>
+
+    <div class="slide-counter"><span id="current-slide">1</span> / <span id="total-slides">17</span></div>
+
+    <!-- 1. Title Slide -->
+    <div class="slide active" data-slide="1">
+      <h1>Biblical Meditation</h1>
+      <h2>The Key to Success</h2>
+      <div class="scripture">
+        <div class="scripture-text">"This Book of the Law shall not depart from your mouth, but you shall meditate in it day and night, that you may observe to do according to all that is written in it. For then you will make your way prosperous, and then you will have good success."</div>
+        <div class="scripture-ref">Joshua 1:8</div>
+      </div>
+      <div class="subtitle" style="margin-top: 2rem;">Bishop Dr. Darlingston Johnson</div>
+      <div class="subtitle">November 2, 2025</div>
+      <div class="subtitle">The Most Important Spiritual Discipline</div>
+    </div>
+
+    <!-- 2. Main Theme -->
+    <div class="slide" data-slide="2">
+      <h2>The Most Important Spiritual Discipline</h2>
+      <div class="quote">"Meditation is the most critical key to your spiritual growth, emotional health, and success in fulfilling God's purpose for your life."</div>
+      <div class="content-list"><ul>
+        <li>Not optional, but <span class="emphasis">commanded</span> by God</li>
+        <li>Essential for fulfilling your divine assignment</li>
+        <li>The pathway to transformation and victory</li>
+        <li>Both prayer and worship in its highest form</li>
+      </ul></div>
+    </div>
+
+    <!-- 3. Section Break -->
+    <div class="slide section-break" data-slide="3">
+      <h1>Meditation Is Prayer & Worship</h1>
+      <h2>The Fuel That Sets Everything on Fire</h2>
+    </div>
+
+    <!-- 4. Why Meditation is First -->
+    <div class="slide" data-slide="4">
+      <h2>Why God Prioritizes Meditation</h2>
+      <div class="content-list"><ul>
+        <li><span class="emphasis">Meditation IS prayer</span> - One of the highest forms</li>
+        <li><span class="emphasis">Meditation IS worship</span> - An act of worship itself</li>
+        <li>Meditation produces <span class="emphasis">revelation</span> that empowers all other spiritual practices</li>
+        <li>Without meditation, prayer becomes vain repetition</li>
+        <li>Without meditation, worship becomes empty words</li>
+      </ul></div>
+      <div class="quote" style="margin-top: 1.5rem;">"Meditation is the fuel that sets every other type of prayer on fire"</div>
+    </div>
+
+    <!-- 5. The Problem: Head to Heart -->
+    <div class="slide" data-slide="5">
+      <h2>The Journey from Head to Heart</h2>
+      <div class="two-column">
+        <div class="column">
+          <h4>The Problem</h4>
+          <ul>
+            <li>Word enters the head as knowledge</li>
+            <li>Many hear Scripture regularly</li>
+            <li>Still struggling with sin</li>
+            <li>No transformation occurs</li>
+            <li>Knowledge alone changes nothing</li>
+          </ul>
+        </div>
+        <div class="column">
+          <h4>The Solution</h4>
+          <ul>
+            <li>Word must reach the heart</li>
+            <li>Meditation moves it from head to heart</li>
+            <li>Heart knowledge produces transformation</li>
+            <li>Thoughts, emotions, behavior all change</li>
+            <li>Victory over sin becomes reality</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Everyone Already Meditates -->
+    <div class="slide" data-slide="6">
+      <h2>You Already Know How to Meditate</h2>
+      <div class="quote">"If you know how to worry, you know how to meditate"</div>
+      <div class="content-list"><ul>
+        <li>Worrying is meditation on the devil's lies</li>
+        <li>You have a "PhD in meditation" through worry</li>
+        <li>Same skill applied to God's Word produces faith, peace, transformation</li>
+        <li>You can <span class="emphasis">choose</span> what to meditate on</li>
+      </ul></div>
+    </div>
+
+    <!-- 7. The Mind as Thermostat -->
+    <div class="slide" data-slide="7">
+      <h2>Your Mind is Like a Thermostat</h2>
+      <div class="quote">"You have the power to decide where you're going to set your mind"</div>
+      <div class="content-list"><ul>
+        <li>Just as a thermostat controls room temperature, you control your mind</li>
+        <li>The mind set on the Spirit produces <span class="emphasis">life and peace</span></li>
+        <li>The mind set on the flesh produces death</li>
+        <li>Reset your thermostat from worry to peace, fear to faith</li>
+        <li>Meditation is how you set the thermostat</li>
+      </ul></div>
+      <div class="scripture">
+        <div class="scripture-text">"For to be carnally minded is death, but to be spiritually minded is life and peace."</div>
+        <div class="scripture-ref">Romans 8:6</div>
+      </div>
+    </div>
+
+    <!-- 8. Section Break -->
+    <div class="slide section-break" data-slide="8">
+      <h1>How to Meditate</h1>
+      <h2>Practical Steps for Transformation</h2>
+    </div>
+
+    <!-- 9. Practical Steps -->
+    <div class="slide" data-slide="9">
+      <h2>The Meditation Process</h2>
+      <div class="content-list"><ul>
+        <li><span class="emphasis">Read/hear</span> the Word - Allow truth to enter your mind</li>
+        <li><span class="emphasis">Focus</span> your attention - Choose a specific truth or promise</li>
+        <li><span class="emphasis">Repeat, review, rehearse</span> - Go over it multiple times</li>
+        <li><span class="emphasis">Speak it, declare it</span> - Use your mouth to proclaim it</li>
+        <li><span class="emphasis">Keep it before your eyes</span> - Use imagination to visualize</li>
+        <li><span class="emphasis">See yourself living it</span> - Imagine walking in that reality</li>
+        <li><span class="emphasis">Exchange your thoughts</span> - Continue until transformation occurs</li>
+        <li><span class="emphasis">Practice day and night</span> - Make it a habit, not occasional</li>
+      </ul></div>
+    </div>
+
+    <!-- 10. Powerful Illustrations -->
+    <div class="slide" data-slide="10">
+      <h2>Stop Dipping, Start Soaking</h2>
+      <div class="two-column">
+        <div class="column">
+          <h4>The Sponge</h4>
+          <ul>
+            <li>Don't just dip and take out</li>
+            <li>Soak until completely saturated</li>
+            <li>Let the Word permeate your entire mind</li>
+          </ul>
+          <h4 style="margin-top: 1.5rem;">The Tea Bag</h4>
+          <ul>
+            <li>Quick dip doesn't make strong tea</li>
+            <li>Leave it in long enough for full infusion</li>
+            <li>Keep your mind in God's Word</li>
+          </ul>
+        </div>
+        <div class="column">
+          <h4>The Baby</h4>
+          <ul>
+            <li>Newborn baby sucks and sucks on milk</li>
+            <li>Extracting all nutrition for growth</li>
+            <li>The more you suck, the sweeter it becomes</li>
+          </ul>
+          <h4 style="margin-top: 1.5rem;">The Thermostat</h4>
+          <ul>
+            <li>Adjust thermostat to change temperature</li>
+            <li>Set your mind to change spiritual temperature</li>
+            <li>From fear to faith, worry to peace</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11. What to Meditate On -->
+    <div class="slide" data-slide="11">
+      <h2>What Should You Meditate On?</h2>
+      <div class="content-list"><ul>
+        <li>Things that <span class="emphasis">glorify God</span></li>
+        <li>Things for which you can <span class="emphasis">give thanks</span></li>
+        <li>God's character, promises, and faithfulness</li>
+        <li>Who Jesus is and what He has accomplished</li>
+        <li>Who you are in Christ and the new covenant</li>
+      </ul></div>
+      <div class="scripture">
+        <div class="scripture-text">"Finally, brethren, whatever things are true, whatever things are noble, whatever things are just, whatever things are pure, whatever things are lovely, whatever things are of good report, if there is any virtue and if there is anything praiseworthy—meditate on these things."</div>
+        <div class="scripture-ref">Philippians 4:8</div>
+      </div>
+    </div>
+
+    <!-- 12. Expected Results -->
+    <div class="slide" data-slide="12">
+      <h2>What Meditation Produces</h2>
+      <div class="content-list"><ul>
+        <li><span class="emphasis">Spiritual prosperity</span> - Success in fulfilling God's purpose</li>
+        <li><span class="emphasis">Victory over sin</span> - Word in heart prevents sin</li>
+        <li><span class="emphasis">Renewed mind</span> - Thoughts transformed to align with God</li>
+        <li><span class="emphasis">Changed emotions</span> - Peace replaces worry, faith replaces fear</li>
+        <li><span class="emphasis">Transformed behavior</span> - Become doers, not just hearers</li>
+        <li><span class="emphasis">Empowered prayer</span> - Praying with revelation and authority</li>
+        <li><span class="emphasis">Genuine worship</span> - Worship fueled by revelation of God's glory</li>
+      </ul></div>
+    </div>
+
+    <!-- 13. Section Break - Prayer Points -->
+    <div class="slide section-break" data-slide="13">
+      <h1>Prayer Focus</h1>
+      <h2>Living Out This Truth</h2>
+    </div>
+
+    <!-- 14. Prayer Points 1 -->
+    <div class="slide prayer-slide" data-slide="14">
+      <h2>Prayer for Commitment & Transformation</h2>
+      <div class="prayer-points">
+        <h3>Committing to Daily Meditation</h3>
+        <div class="scripture">
+          <div class="scripture-text">"Father, I receive Your command to meditate on Your Word day and night. Just as You commanded Joshua, I commit to making meditation my priority. Give me the discipline to set my mind on Your Word consistently, allowing Your truth to penetrate my heart and transform my life."</div>
+          <div class="scripture-ref">Based on Joshua 1:8</div>
+        </div>
+        <h3 style="margin-top: 1.5rem;">Moving Word from Head to Heart</h3>
+        <div class="scripture">
+          <div class="scripture-text">"Lord, help me move Your truth from my head to my heart through meditation. Teach me to take the Scriptures I read and hear, and through focused attention, repetition, declaration, and imagination, plant them deep in my heart where they can change how I think, feel, and act."</div>
+          <div class="scripture-ref">Based on Psalm 119:11</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 15. Prayer Points 2 -->
+    <div class="slide prayer-slide" data-slide="15">
+      <h2>Prayer for Victory & Grace</h2>
+      <div class="prayer-points">
+        <h3>Victory Over Worry and Anxiety</h3>
+        <div class="scripture">
+          <div class="scripture-text">"Father, I recognize that worry is meditation on the devil's lies. Right now, I reset my mind from worry to peace, from fear to faith. I choose to meditate on Your promises, Your faithfulness, Your provision, and Your love. As I set my mind on these things, let Your peace guard my heart and mind."</div>
+          <div class="scripture-ref">Based on Philippians 4:6-8</div>
+        </div>
+        <h3 style="margin-top: 1.5rem;">Grace to Transform from Within</h3>
+        <div class="scripture">
+          <div class="scripture-text">"Holy Spirit, as I meditate on God's Word, open the eyes of my understanding. Give me revelation of who God is, what Jesus has accomplished, and who I am in Christ. Let this revelation fuel my prayers and worship with power and authority, not vain repetition."</div>
+          <div class="scripture-ref">Based on Ephesians 1:17-18</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 16. Call to Action -->
+    <div class="slide cta-slide" data-slide="16">
+      <h1>Your Next Steps</h1>
+      <div class="call-to-action">
+        <h3>After Every Sermon, Identify:</h3>
+        <p style="margin-top: 1rem;">1. What God wants you to <span class="emphasis">KNOW</span><br>
+        2. What God wants you to <span class="emphasis">BELIEVE</span><br>
+        3. What <span class="emphasis">OLD THOUGHTS</span> need replacing with God's thoughts</p>
+      </div>
+      <div class="content-list" style="margin-top: 1.5rem;"><ul>
+        <li>Capture those truths and meditate on them throughout the week</li>
+        <li>Use your imagination to see yourself living out those truths</li>
+        <li>Don't just read the Word - soak in it, suck on it</li>
+        <li>Make meditation a daily habit, not an occasional activity</li>
+        <li>Let the Word transform you from the inside out</li>
+      </ul></div>
+    </div>
+
+    <!-- 17. Closing -->
+    <div class="slide" data-slide="17">
+      <h1>Biblical Meditation</h1>
+      <h2>The Key to Success</h2>
+      <div class="quote">"Stop dipping and start soaking. Stop skimming and start meditating in God's Word. The more you suck on the Word, the sweeter it will become."</div>
+      <div class="scripture">
+        <div class="scripture-text">"This Book of the Law shall not depart from your mouth, but you shall meditate in it day and night, that you may observe to do according to all that is written in it. For then you will make your way prosperous, and then you will have good success."</div>
+        <div class="scripture-ref">Joshua 1:8</div>
+      </div>
+      <div class="subtitle" style="margin-top: 2rem;">May this truth transform your life as you make meditation your daily priority.</div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+      <button class="nav-btn" onclick="previousSlide()">← Previous</button>
+      <button class="nav-btn" onclick="nextSlide()">Next →</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = document.querySelectorAll('.slide').length;
+    document.getElementById('total-slides').textContent = totalSlides;
+
+    // Slide titles for sidebar navigation
+    const slideTitles = [
+      'Title: Biblical Meditation',
+      'Main Theme',
+      'Prayer & Worship',
+      'Why Meditation First',
+      'Head to Heart Journey',
+      'You Already Meditate',
+      'Mind as Thermostat',
+      'How to Meditate',
+      'Practical Steps',
+      'Powerful Illustrations',
+      'What to Meditate On',
+      'Expected Results',
+      'Prayer Focus',
+      'Prayer: Commitment',
+      'Prayer: Victory & Grace',
+      'Call to Action',
+      'Closing'
+    ];
+
+    // Generate sidebar navigation
+    function generateSidebar() {
+      const sidebarNav = document.getElementById('sidebarNav');
+      sidebarNav.innerHTML = '';
+
+      slideTitles.forEach((title, index) => {
+        const item = document.createElement('div');
+        item.className = 'sidebar-item';
+
+        // Mark section breaks
+        if ([2, 7, 12].includes(index)) {
+          item.classList.add('section');
+        }
+
+        if (index === currentSlide - 1) {
+          item.classList.add('active');
+        }
+
+        item.innerHTML = `
+          <span class="slide-num">${index + 1}</span>
+          <span>${title}</span>
+        `;
+
+        item.onclick = () => {
+          showSlide(index + 1);
+        };
+
+        sidebarNav.appendChild(item);
+      });
+    }
+
+    function showSlide(n) {
+      const slides = document.querySelectorAll('.slide');
+      if (n > totalSlides) n = 1;
+      if (n < 1) n = totalSlides;
+      currentSlide = n;
+      slides.forEach(s => s.classList.remove('active'));
+      slides[currentSlide - 1].classList.add('active');
+      document.getElementById('current-slide').textContent = currentSlide;
+
+      // Update navigation buttons
+      const prevBtn = document.querySelector('.nav-btn');
+      const nextBtn = document.querySelectorAll('.nav-btn')[1];
+      prevBtn.disabled = currentSlide === 1;
+      nextBtn.disabled = currentSlide === totalSlides;
+
+      // Update sidebar
+      generateSidebar();
+    }
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function previousSlide() { showSlide(currentSlide - 1); }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+
+    document.addEventListener('keydown', function(event) {
+      switch(event.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+        case ' ': // Space
+        case 'Enter':
+          nextSlide();
+          event.preventDefault();
+          break;
+        case 'ArrowLeft':
+        case 'ArrowUp':
+          previousSlide();
+          event.preventDefault();
+          break;
+        case 'Home':
+          currentSlide = 1; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'End':
+          currentSlide = totalSlides; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'PageDown':
+          showSlide(Math.min(currentSlide + 10, totalSlides)); event.preventDefault();
+          break;
+        case 'PageUp':
+          showSlide(Math.max(currentSlide - 10, 1)); event.preventDefault();
+          break;
+      }
+    });
+
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let startY = 0;
+
+    document.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    });
+
+    document.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const endY = e.changedTouches[0].clientY;
+      const deltaX = endX - startX;
+      const deltaY = endY - startY;
+
+      // Only trigger if horizontal swipe is longer than vertical and over 50px
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+        if (deltaX > 0) {
+          previousSlide(); // Swipe right = previous
+        } else {
+          nextSlide();  // Swipe left = next
+        }
+      }
+    });
+
+    // Initialize
+    generateSidebar();
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>

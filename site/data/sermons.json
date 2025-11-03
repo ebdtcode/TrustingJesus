@@ -1,9 +1,26 @@
 [
   {
-    "path": "content/sermons_summaries/README.md",
-    "title": "README",
-    "speaker": null,
-    "date": null
+    "id": "biblical-meditation-2025-11-02",
+    "title": "Biblical Meditation - The Key to Success",
+    "date": "2025-11-02",
+    "speaker": "Bishop Dr. Darlingston Johnson",
+    "scripture": "Joshua 1:8",
+    "youtubeUrl": "https://youtu.be/kk-CAOqouJU",
+    "summary": "This powerful sermon focuses on biblical meditation as the most critical spiritual discipline for believers. Bishop Johnson teaches that meditation is essential for fulfilling God's purpose and achieving spiritual success. He emphasizes that meditation is both prayer and worship, and it's the fuel that empowers all other spiritual practices. The bishop provides practical instruction on moving God's Word from the head to the heart through sustained meditation, using memorable illustrations like thermostats, sponges, and tea bags to explain the process.",
+    "keyPoints": [
+      "Meditation is the most important spiritual discipline for fulfilling God's purpose",
+      "The Word must move from head to heart through meditation for transformation",
+      "Everyone already knows how to meditate (through worrying) - just redirect it to God's Word",
+      "The mind is like a thermostat that you can reset through meditation",
+      "Meditation is both prayer and worship - it sets all other spiritual disciplines on fire",
+      "Practical steps: Read, review, rehearse, repeat, and visualize yourself living the truth",
+      "What you meditate on determines what your mind produces (Romans 8:6)",
+      "Meditation leads to prosperity and success in God's assignment (Joshua 1:8)"
+    ],
+    "transcriptPath": "transcripts/sermon/Sunday_Nov_2_2025_Bishop_Darlingston_Johnson.md",
+    "presentationPath": "presentations/Biblical_Meditation_The_Key_to_Success_Presentation.html",
+    "summaryPath": "sermons_summaries/Biblical_Meditation_The_Key_to_Success_Summary.md",
+    "prayerPointsPath": "prayer_points/2025/Biblical_Meditation_Prayer_Points.md"
   },
   {
     "id": "secret-of-victory-2025-10-20",
