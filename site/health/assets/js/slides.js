@@ -1,9 +1,10 @@
 /* Health Presentation Slides Navigation JavaScript */
 
 // Slide navigation state
-let currentSlide = 1;
-let totalSlides = 0;
-let slideTitles = [];
+// Using var instead of let to allow redeclaration in inline scripts
+var currentSlide = 1;
+var totalSlides = 0;
+var slideTitles = [];
 
 /**
  * Initialize the presentation
@@ -196,7 +197,14 @@ document.addEventListener('touchend', (e) => {
   }
 });
 
-// Export functions for use in presentations
+// Make functions globally available
+window.initPresentation = initPresentation;
+window.showSlide = showSlide;
+window.nextSlide = nextSlide;
+window.previousSlide = previousSlide;
+window.toggleSidebar = toggleSidebar;
+
+// Also export for Node.js if needed
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     initPresentation,

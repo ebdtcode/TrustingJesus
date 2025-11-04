@@ -155,4 +155,3 @@ God didn't say now you're going to be facing some real, real tough and difficult
 
 **Transcription Date:** November 2, 2025
 **Transcription Method:** Whisper AI (Base Model)
-**File Location:** /Users/devos/git/media/prayer_trusting_Jesus/site/transcripts/sermon/Sunday_Nov_2_2025_Bishop_Darlingston_Johnson.md

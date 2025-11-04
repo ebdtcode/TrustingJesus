@@ -171,4 +171,3 @@ Father, I thank You for the gift of Your Word and the transformative power of bi
 **Based on Sermon by:** Bishop Dr. Darlingston Johnson
 **Scripture Foundation:** Joshua 1:8
 **Total Prayer Points:** 12 organized prayer points covering 6 major themes
-**File Location:** /Users/devos/git/media/prayer_trusting_Jesus/site/prayer_points/2025/Biblical_Meditation_Prayer_Points.md

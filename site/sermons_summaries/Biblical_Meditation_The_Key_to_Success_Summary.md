@@ -154,4 +154,3 @@ Capture those truths and meditate on them throughout the week. Use your imaginat
 **Summary Prepared:** November 2, 2025
 **Based on sermon by:** Bishop Dr. Darlingston Johnson
 **Church:** [Church Name]
-**Location:** /Users/devos/git/media/prayer_trusting_Jesus/site/sermons_summaries/Biblical_Meditation_The_Key_to_Success_Summary.md

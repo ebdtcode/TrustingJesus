@@ -1,0 +1,15 @@
+{
+  "name": "health",
+  "version": "1.0.0",
+  "description": "A comprehensive web resource providing evidence-based medical information on thyroid health, TSH levels, and natural wellness approaches.",
+  "main": "test-slides.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "playwright": "^1.56.1"
+  }
+}
