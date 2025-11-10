@@ -1,5 +1,72 @@
 [
   {
+    "week": "2025-W45",
+    "weekOf": "November 9, 2025",
+    "title": "How to Meditate God's Way",
+    "theme": "Biblical Meditation for Transformation and Success",
+    "speaker": "Bishop Dr. Darlingston Johnson",
+    "scripture": "Joshua 1:8, Romans 12:1-2, Psalm 1:1-3",
+    "content": {
+      "sermon": {
+        "title": "How to Meditate God's Way",
+        "speaker": "Bishop Dr. Darlingston Johnson",
+        "date": "2025-11-09",
+        "transcriptPath": "transcripts/sermon/How_to_Meditate_God's_Way__Bishop_Darlingston_Johnson/transcript.md",
+        "summary": "Bishop Dr. Darlingston Johnson delivers a transformative teaching on biblical meditation as God's chosen method for spiritual transformation and success. Moving beyond mere reading to deep meditation, he teaches practical frameworks like the MUSE acronym and the MEDITATE process for moving God's Word from head to heart.",
+        "keyPoints": [
+          "Biblical meditation as God's chosen method for transformation",
+          "Reading gives information; meditation produces transformation",
+          "Brain rewiring through God's Word (Proverbs 23:7)",
+          "MUSE framework: Muse, Mutter, Mouth, Memorize",
+          "MEDITATE process: 8-step practical guide",
+          "Power of imagination and visualization",
+          "Tree by rivers of water: stability and fruitfulness",
+          "Meditation fuels prayer and worship",
+          "Day and night meditation as lifestyle"
+        ]
+      },
+      "presentation": {
+        "title": "How to Meditate God's Way - 20 Slides",
+        "path": "presentations/How_to_Meditate_Gods_Way_Presentation.html",
+        "slideCount": 20,
+        "features": [
+          "Left sidebar navigation",
+          "MUSE and MEDITATE frameworks",
+          "Prayer points included",
+          "Mobile responsive design",
+          "Interactive slide navigation"
+        ]
+      },
+      "prayerPoints": {
+        "title": "Week of November 9 Prayer Focus",
+        "path": "transcripts/sermon/How_to_Meditate_God's_Way__Bishop_Darlingston_Johnson/sermon_summary_and_prayer_points.md",
+        "count": 12,
+        "topics": [
+          "Daily Commitment to Meditation",
+          "Transformation and Renewal of Mind",
+          "Fulfilling God's Divine Assignment",
+          "Stability and Fruitfulness",
+          "Exchange of Thoughts for God's Thoughts",
+          "Victory Over Sinful Patterns",
+          "Building Up and Receiving Inheritance",
+          "Empowered Prayer and Worship",
+          "Using Imagination for Internalization",
+          "The Lord as Shepherd",
+          "Practical Meditation Practice",
+          "Being a Doer of the Word"
+        ],
+        "actionSteps": [
+          "Memorize Joshua 1:8",
+          "Practice the MUSE framework daily",
+          "Implement the MEDITATE 8-step process",
+          "Use imagination to visualize Scripture",
+          "Meditate day and night as a lifestyle"
+        ]
+      }
+    },
+    "featured": true
+  },
+  {
     "week": "2025-W38",
     "weekOf": "September 21, 2025",
     "title": "The Gospel of Grace",

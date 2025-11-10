@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Meditate God's Way - Bishop Darlingston Johnson</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); color: #fff; overflow: hidden; }
+    .presentation { position: relative; width: 100vw; height: 100vh; }
+    .slide { display: none; position: absolute; width: 100%; height: 100%; padding: 60px 80px 60px 320px; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); }
+    .slide.active { display: flex; }
+    h1 { font-size: 4.2rem; font-weight: 800; margin-bottom: 1.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); line-height: 1.2; color: #fff; }
+    h2 { font-size: 3.2rem; font-weight: 700; margin-bottom: 1.2rem; color: #ffd166; text-shadow: 1px 2px 4px rgba(0,0,0,0.4); line-height: 1.3; }
+    h3 { font-size: 2.4rem; font-weight: 700; margin-bottom: 1rem; color: #fff; text-shadow: 1px 2px 3px rgba(0,0,0,0.35); }
+    .subtitle { font-size: 1.8rem; font-weight: 400; margin-bottom: 0.6rem; color: #e8f4f8; line-height: 1.4; }
+    .scripture { background: rgba(255,255,255,0.14); border-left: 6px solid #ffd166; padding: 1.5rem; margin: 1.2rem 0; border-radius: 10px; backdrop-filter: blur(8px); box-shadow: 0 8px 32px rgba(0,0,0,0.25); max-width: 1100px; }
+    .scripture-text { font-size: 1.8rem; font-style: italic; line-height: 1.6; margin-bottom: 0.6rem; color: #fff; }
+    .scripture-ref { font-size: 1.2rem; font-weight: 700; color: #ffd166; text-align: right; }
+    .content-list { text-align: left; max-width: 1000px; margin: 0 auto; }
+    .content-list li { font-size: 1.5rem; margin: 0.9rem 0; padding-left: 1rem; line-height: 1.55; list-style: none; position: relative; }
+    .content-list li:before { content: "\25B6"; color: #ffd166; font-weight: bold; position: absolute; left: -1rem; }
+    .quote { font-size: 1.9rem; font-style: italic; text-align: center; padding: 1.5rem; border-radius: 12px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); margin: 1.2rem 0; box-shadow: 0 8px 32px rgba(0,0,0,0.2); line-height: 1.5; }
+    .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; width: 100%; max-width: 1100px; }
+    .column { text-align: left; }
+    .column h4 { font-size: 1.9rem; color: #ffd166; margin-bottom: 1rem; text-align: center; }
+    .column ul { list-style: none; padding: 0; }
+    .column li { font-size: 1.4rem; margin: 0.7rem 0; padding-left: 1.5rem; line-height: 1.5; position: relative; }
+    .column li:before { content: "\2713"; color: #ffd166; font-weight: bold; position: absolute; left: 0; }
+    .prayer-points { background: rgba(255,255,255,0.12); border-radius: 14px; padding: 2rem; backdrop-filter: blur(12px); box-shadow: 0 12px 40px rgba(0,0,0,0.28); max-width: 1100px; margin: 1.2rem auto; }
+    .prayer-points h3 { color: #ffd166; margin-bottom: 1rem; font-size: 2.1rem; }
+    .navigation { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 1rem; z-index: 1000; }
+    .nav-btn { background: rgba(255,255,255,0.22); border: 2px solid rgba(255,255,255,0.3); color: white; padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 600; backdrop-filter: blur(10px); transition: all 0.3s ease; }
+    .nav-btn:hover { background: rgba(255,255,255,0.32); border-color: #ffd166; color: #ffd166; }
+    .nav-btn:disabled { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); cursor: not-allowed; }
+    .slide-counter { position: fixed; top: 30px; right: 30px; background: rgba(0,0,0,0.45); padding: 0.5rem 1rem; border-radius: 20px; font-size: 1rem; backdrop-filter: blur(10px); }
+    .emphasis { color: #ffd166; font-weight: 800; }
+    .call-to-action { background: linear-gradient(135deg, #06d6a0, #118ab2); color: white; padding: 2rem; border-radius: 14px; margin: 1.2rem 0; box-shadow: 0 12px 40px rgba(0,0,0,0.3); text-align: center; }
+    .call-to-action h3 { font-size: 2.6rem; margin-bottom: 1rem; }
+    .call-to-action p { font-size: 1.6rem; line-height: 1.6; }
+    .section-break { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .section-break h1 { color: #ffd166 !important; }
+    .section-break h2 { color: #e8f4f8 !important; }
+    .cta-slide { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .cta-slide h1 { color: #ffd166 !important; }
+    .cta-slide .content-list li { color: #fff; }
+    .prayer-slide .scripture { background: rgba(255,209,102,0.15); border-left-color: #ffd166; }
+    .framework-box { background: rgba(255,209,102,0.15); border: 2px solid #ffd166; border-radius: 12px; padding: 1.5rem; margin: 1rem 0; }
+    .framework-box h4 { color: #ffd166; font-size: 1.8rem; margin-bottom: 1rem; }
+
+    /* Sidebar Navigation */
+    .sidebar { position: fixed; left: 0; top: 0; width: 280px; height: 100vh; background: rgba(20, 33, 61, 0.95); backdrop-filter: blur(10px); overflow-y: auto; z-index: 1500; border-right: 2px solid #ffd166; }
+    .sidebar-header { padding: 1.5rem; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,209,102,0.3); }
+    .sidebar-header h3 { color: #ffd166; font-size: 1.3rem; margin: 0; }
+    .sidebar-nav { padding: 1rem 0; }
+    .sidebar-item { padding: 0.8rem 1.5rem; cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem; border-left: 3px solid transparent; display: flex; align-items: center; gap: 0.5rem; }
+    .sidebar-item:hover { background: rgba(255,209,102,0.1); border-left-color: #ffd166; }
+    .sidebar-item.active { background: rgba(255,209,102,0.2); border-left-color: #ffd166; color: #ffd166; font-weight: 600; }
+    .sidebar-item.section { background: rgba(255,209,102,0.1); font-weight: 600; color: #ffd166; margin-top: 0.5rem; }
+    .slide-num { display: inline-block; width: 25px; color: rgba(255,255,255,0.6); }
+    .sidebar-item.active .slide-num { color: #ffd166; }
+
+    /* Home Button */
+    .home-btn { position: fixed; top: 30px; left: 300px; background: rgba(255,209,102,0.9); color: #14213d; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; z-index: 1000; display: flex; align-items: center; gap: 0.5rem; }
+    .home-btn:hover { background: #ffd166; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255,209,102,0.4); }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle { display: none; position: fixed; top: 30px; left: 20px; z-index: 2000; background: rgba(255,209,102,0.9); color: #14213d; border: none; padding: 0.75rem; border-radius: 8px; cursor: pointer; }
+    .menu-toggle:hover { background: #ffd166; }
+
+    /* Tablet Landscape & Small Desktops (1024px - 1280px) */
+    @media (max-width: 1280px) {
+      .slide { padding: 50px 60px 50px 320px; }
+      h1 { font-size: 3.8rem; }
+      h2 { font-size: 3rem; }
+      h3 { font-size: 2.3rem; }
+      .subtitle { font-size: 1.6rem; }
+      .content-list li { font-size: 1.4rem; }
+      .quote { font-size: 1.7rem; }
+      .scripture { max-width: 900px; }
+      .content-list { max-width: 850px; }
+    }
+
+    /* Tablet Portrait (768px - 1024px) */
+    @media (max-width: 1024px) {
+      .slide { padding: 40px 40px 40px 300px; }
+      .sidebar { width: 260px; }
+      h1 { font-size: 3.2rem; }
+      h2 { font-size: 2.6rem; }
+      h3 { font-size: 2rem; }
+      .subtitle { font-size: 1.4rem; }
+      .content-list li { font-size: 1.3rem; }
+      .quote { font-size: 1.5rem; }
+      .scripture-text { font-size: 1.6rem; }
+      .scripture-ref { font-size: 1.1rem; }
+      .two-column { grid-template-columns: 1fr; gap: 1.2rem; }
+      .home-btn { left: 280px; font-size: 0.9rem; padding: 0.6rem 1.2rem; }
+      .navigation { bottom: 20px; }
+      .nav-btn { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
+    }
+
+    /* Mobile Landscape & Small Tablets (600px - 768px) */
+    @media (max-width: 768px) {
+      .slide { padding: 100px 30px 80px 30px; }
+      h1 { font-size: 2.4rem; }
+      h2 { font-size: 2rem; }
+      h3 { font-size: 1.7rem; }
+      .subtitle { font-size: 1.2rem; }
+      .content-list li { font-size: 1.1rem; margin: 0.7rem 0; }
+      .scripture-text { font-size: 1.3rem; }
+      .scripture-ref { font-size: 1rem; }
+      .quote { font-size: 1.2rem; padding: 1.2rem; }
+      .scripture { padding: 1.2rem; margin: 1rem 0; }
+      .prayer-points { padding: 1.5rem; }
+      .call-to-action h3 { font-size: 2rem; }
+      .call-to-action p { font-size: 1.3rem; }
+      .framework-box { padding: 1.2rem; }
+      .framework-box h4 { font-size: 1.5rem; }
+      .column h4 { font-size: 1.6rem; }
+      .column li { font-size: 1.2rem; }
+
+      /* Hide sidebar by default on mobile */
+      .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; width: 280px; }
+      .sidebar.open { transform: translateX(0); box-shadow: 4px 0 20px rgba(0,0,0,0.5); }
+
+      /* Show mobile menu toggle */
+      .menu-toggle { display: block; font-size: 1.2rem; }
+
+      /* Move home button to right side */
+      .home-btn {
+        left: auto;
+        right: 20px;
+        top: 20px;
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+      }
+      .home-btn span:last-child { display: none; }
+
+      /* Adjust slide counter */
+      .slide-counter {
+        top: 20px;
+        right: 80px;
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+      }
+
+      /* Navigation buttons */
+      .navigation {
+        bottom: 15px;
+        gap: 0.6rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
+        max-width: 400px;
+      }
+      .nav-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+        flex: 1;
+      }
+    }
+
+    /* Mobile Portrait (480px - 600px) */
+    @media (max-width: 600px) {
+      .slide { padding: 90px 20px 70px 20px; }
+      h1 { font-size: 2rem; line-height: 1.15; }
+      h2 { font-size: 1.7rem; margin-bottom: 1rem; }
+      h3 { font-size: 1.5rem; }
+      .subtitle { font-size: 1.1rem; line-height: 1.35; }
+      .content-list li { font-size: 1rem; margin: 0.6rem 0; padding-left: 0.8rem; }
+      .content-list li:before { left: -0.8rem; }
+      .scripture-text { font-size: 1.15rem; line-height: 1.5; }
+      .scripture-ref { font-size: 0.95rem; }
+      .quote { font-size: 1.1rem; padding: 1rem; }
+      .scripture { padding: 1rem; border-left-width: 4px; }
+      .prayer-points { padding: 1.2rem; margin: 0.8rem auto; }
+      .prayer-points h3 { font-size: 1.6rem; }
+      .call-to-action { padding: 1.5rem; }
+      .call-to-action h3 { font-size: 1.7rem; }
+      .call-to-action p { font-size: 1.15rem; }
+      .framework-box { padding: 1rem; }
+      .framework-box h4 { font-size: 1.3rem; }
+      .column h4 { font-size: 1.4rem; }
+      .column li { font-size: 1.05rem; }
+
+      .sidebar { width: 260px; }
+      .sidebar-header h3 { font-size: 1.1rem; }
+      .sidebar-item { font-size: 0.85rem; padding: 0.7rem 1.2rem; }
+
+      .navigation {
+        bottom: 10px;
+        width: calc(100% - 20px);
+        gap: 0.5rem;
+      }
+      .nav-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+        border-radius: 20px;
+      }
+
+      .slide-counter {
+        right: 70px;
+        font-size: 0.85rem;
+        padding: 0.35rem 0.7rem;
+      }
+
+      .home-btn {
+        padding: 0.5rem 0.8rem;
+        right: 15px;
+        top: 15px;
+      }
+      .home-btn span:first-child { font-size: 1.1rem; }
+    }
+
+    /* Small Mobile Portrait (320px - 480px) */
+    @media (max-width: 480px) {
+      .slide { padding: 80px 15px 65px 15px; }
+      h1 { font-size: 1.7rem; margin-bottom: 0.8rem; }
+      h2 { font-size: 1.5rem; margin-bottom: 0.8rem; }
+      h3 { font-size: 1.3rem; }
+      .subtitle { font-size: 1rem; margin-bottom: 0.5rem; }
+      .content-list li { font-size: 0.95rem; margin: 0.5rem 0; }
+      .scripture-text { font-size: 1.05rem; }
+      .scripture-ref { font-size: 0.9rem; }
+      .quote { font-size: 1rem; padding: 0.9rem; }
+      .scripture { padding: 0.9rem; margin: 0.8rem 0; }
+      .prayer-points { padding: 1rem; }
+      .prayer-points h3 { font-size: 1.4rem; margin-bottom: 0.8rem; }
+      .call-to-action { padding: 1.2rem; margin: 0.8rem 0; }
+      .call-to-action h3 { font-size: 1.5rem; margin-bottom: 0.8rem; }
+      .call-to-action p { font-size: 1.05rem; }
+      .framework-box { padding: 0.9rem; margin: 0.8rem 0; }
+      .framework-box h4 { font-size: 1.2rem; }
+      .column h4 { font-size: 1.3rem; }
+      .column li { font-size: 1rem; margin: 0.5rem 0; }
+
+      .sidebar { width: 240px; }
+      .sidebar-header { padding: 1.2rem; }
+      .sidebar-header h3 { font-size: 1rem; }
+      .sidebar-item { font-size: 0.8rem; padding: 0.65rem 1rem; }
+      .slide-num { width: 20px; font-size: 0.75rem; }
+
+      .menu-toggle {
+        padding: 0.6rem;
+        font-size: 1.1rem;
+        top: 15px;
+        left: 15px;
+      }
+
+      .navigation {
+        bottom: 8px;
+        width: calc(100% - 16px);
+        gap: 0.4rem;
+      }
+      .nav-btn {
+        padding: 0.45rem 0.7rem;
+        font-size: 0.75rem;
+        border-radius: 18px;
+      }
+
+      .slide-counter {
+        top: 15px;
+        right: 60px;
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+      }
+
+      .home-btn {
+        padding: 0.45rem 0.7rem;
+        right: 12px;
+        top: 12px;
+        border-radius: 20px;
+      }
+      .home-btn span:first-child { font-size: 1rem; }
+    }
+    @media print { body{ background: white; color: black; } .slide{ display: block !important; page-break-after: always; position: static; background: white; color: black; padding: 2cm; } .navigation, .slide-counter{ display: none; } .scripture, .prayer-points, .call-to-action{ background: #f8f9fa; border: 2px solid #ddd; color: black; } h2, .scripture-ref, .emphasis{ color: #000; } }
+  </style>
+</head>
+<body>
+  <div class="presentation">
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>How to Meditate God's Way</h3>
+      </div>
+      <div class="sidebar-nav" id="sidebarNav">
+        <!-- Navigation items will be generated by JavaScript -->
+      </div>
+    </nav>
+
+    <!-- Home Button -->
+    <a href="../index.html" class="home-btn">
+      <span>🏠</span>
+      <span>Dashboard</span>
+    </a>
+
+    <div class="slide-counter"><span id="current-slide">1</span> / <span id="total-slides">20</span></div>
+
+    <!-- 1. Title Slide -->
+    <div class="slide active" data-slide="1">
+      <h1>How to Meditate God's Way</h1>
+      <h2>Biblical Meditation for Transformation</h2>
+      <div class="scripture">
+        <div class="scripture-text">"This book of the law shall not depart from your mouth, but you shall meditate in it day and night, that you may observe to do according to all that is written in it. For then you will make your way prosperous, and then you will have good success."</div>
+        <div class="scripture-ref">Joshua 1:8</div>
+      </div>
+      <div class="subtitle" style="margin-top: 2rem;">Bishop Dr. Darlingston Johnson</div>
+      <div class="subtitle">November 9, 2025</div>
+    </div>
+
+    <!-- 2. God's Instruction to Joshua -->
+    <div class="slide" data-slide="2">
+      <h2>The Key to Success</h2>
+      <div class="content-list"><ul>
+        <li>Joshua received a divine assignment: Lead Israel into the Promised Land</li>
+        <li>God didn't say: "Master warfare" or "Train in combat"</li>
+        <li>God said: "Meditate on My Word day and night"</li>
+        <li>True prosperity = Fulfilling God's heavenly assignment</li>
+        <li>The secret to good success: Daily meditation on God's Word</li>
+      </ul></div>
+    </div>
+
+    <!-- 3. Reading vs Meditation -->
+    <div class="slide" data-slide="3">
+      <h2>What Biblical Meditation Is</h2>
+      <div class="quote">"Reading gives information, but meditation produces transformation"</div>
+      <div class="subtitle">Biblical meditation is a spirit-led practice of focusing your mind on God, His Word, and His truth in a sustained manner until it transforms the way you think, believe, and behave.</div>
+    </div>
+
+    <!-- 4. The Power of Thoughts -->
+    <div class="slide" data-slide="4">
+      <h2>Your Brain Can Be Rewired</h2>
+      <div class="scripture">
+        <div class="scripture-text">"For as he thinks in his heart, so is he."</div>
+        <div class="scripture-ref">Proverbs 23:7</div>
+      </div>
+      <div class="content-list"><ul>
+        <li>Thoughts determine emotions, emotions influence behavior</li>
+        <li>Your brain is like a thermostat set to certain patterns</li>
+        <li>Past experiences wire your brain to respond in certain ways</li>
+        <li>Good news: Your brain can be rewired through meditation</li>
+        <li>This is what Romans 12 calls "renewing your mind"</li>
+      </ul></div>
+    </div>
+
+    <!-- 5. Section Break -->
+    <div class="slide section-break" data-slide="5">
+      <h1>The Tree by Rivers of Water</h1>
+      <h2>Psalm 1:1-3</h2>
+    </div>
+
+    <!-- 6. Psalm 1 - The Blessed Life -->
+    <div class="slide" data-slide="6">
+      <h2>The Fruitful Life</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Blessed is the man who walks not in the counsel of the ungodly, nor stands in the path of sinners, nor sits in the seat of the scornful; but his delight is in the law of the LORD, and in His law he meditates day and night. He shall be like a tree planted by the rivers of water, that brings forth its fruit in its season, whose leaf also shall not wither; and whatever he does shall prosper."</div>
+        <div class="scripture-ref">Psalm 1:1-3</div>
+      </div>
+    </div>
+
+    <!-- 7. Benefits of Meditation -->
+    <div class="slide" data-slide="7">
+      <h2>Like a Tree Planted by Rivers</h2>
+      <div class="content-list"><ul>
+        <li><span class="emphasis">Planted:</span> Stable and unmovable, not swayed by circumstances</li>
+        <li><span class="emphasis">By Rivers:</span> Constant access to life-giving water</li>
+        <li><span class="emphasis">Fruitful:</span> Bears fruit in every season of life</li>
+        <li><span class="emphasis">Prosperous:</span> Everything you do succeeds in God's purposes</li>
+        <li><span class="emphasis">Never Withers:</span> Always fresh, alive, and thriving</li>
+      </ul></div>
+    </div>
+
+    <!-- 8. Section Break -->
+    <div class="slide section-break" data-slide="8">
+      <h1>Practical Steps</h1>
+      <h2>The 4 M's and MEDITATE Framework</h2>
+    </div>
+
+    <!-- 9. The 4 M's -->
+    <div class="slide" data-slide="9">
+      <h2>The Four M's</h2>
+      <div class="framework-box">
+        <h4>1. MUSE Silently</h4>
+        <div class="subtitle">Turn the truth over in your mind, pondering it deeply</div>
+      </div>
+      <div class="framework-box">
+        <h4>2. MUTTER Softly</h4>
+        <div class="subtitle">Whisper the words under your breath repeatedly</div>
+      </div>
+      <div class="framework-box">
+        <h4>3. MOUTH It Strongly</h4>
+        <div class="subtitle">Speak it aloud with confidence and conviction</div>
+      </div>
+      <div class="framework-box">
+        <h4>4. MEMORIZE It</h4>
+        <div class="subtitle">Store it in your heart to recall throughout the day</div>
+      </div>
+    </div>
+
+    <!-- 10. MEDITATE Acronym Part 1 -->
+    <div class="slide" data-slide="10">
+      <h2>M-E-D-I-T-A-T-E Framework (1/2)</h2>
+      <div class="content-list"><ul>
+        <li><span class="emphasis">M - Make Time:</span> Schedule it, don't hope it happens</li>
+        <li><span class="emphasis">E - Embrace Silence:</span> Eliminate distractions, especially phones</li>
+        <li><span class="emphasis">D - Determine Focus:</span> Choose your verse or truth</li>
+        <li><span class="emphasis">I - Internalize the Word:</span> Use imagination to see yourself living the truth</li>
+      </ul></div>
+    </div>
+
+    <!-- 11. MEDITATE Acronym Part 2 -->
+    <div class="slide" data-slide="11">
+      <h2>M-E-D-I-T-A-T-E Framework (2/2)</h2>
+      <div class="content-list"><ul>
+        <li><span class="emphasis">T - Talk with God:</span> Turn meditation into prayer</li>
+        <li><span class="emphasis">A - Apply the Truth:</span> Ask: What should I know? Believe? Do?</li>
+        <li><span class="emphasis">T - Think on It:</span> Keep muttering the word throughout the day</li>
+        <li><span class="emphasis">E - Enjoy the Lord:</span> Delight in His Word and expect fruit</li>
+      </ul></div>
+    </div>
+
+    <!-- 12. The Power of Imagination -->
+    <div class="slide" data-slide="12">
+      <h2>Internalize Through Imagination</h2>
+      <div class="quote">"The fastest way to get the Word from your head to your heart to your hands to your habits is to use your imagination"</div>
+      <div class="content-list"><ul>
+        <li>See Jesus sleeping in the storm, then see yourself sleeping peacefully</li>
+        <li>Don't identify with fearful disciples, identify with Christ</li>
+        <li>Envision yourself responding gently when provoked</li>
+        <li>Internalize truth so it becomes your automatic response</li>
+      </ul></div>
+    </div>
+
+    <!-- 13. Meditation Sets Prayer on Fire -->
+    <div class="slide" data-slide="13">
+      <h2>Meditation Empowers Prayer and Worship</h2>
+      <div class="content-list"><ul>
+        <li>Meditation is actually prayer and worship</li>
+        <li>True meditation sets other prayers on fire</li>
+        <li>Worshiping without revelation = empty words</li>
+        <li>Meditate on God's goodness before worship</li>
+        <li>Faith comes by hearing the Word of God</li>
+      </ul></div>
+    </div>
+
+    <!-- 14. Section Break -->
+    <div class="slide section-break" data-slide="14">
+      <h1>Prayer Points</h1>
+      <h2>From the Sermon</h2>
+    </div>
+
+    <!-- 15. Prayer 1 -->
+    <div class="slide prayer-slide" data-slide="15">
+      <h2>Daily Commitment to Meditation</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Father, I commit today to making meditation on Your Word my daily practice. Help me to prioritize meditation, knowing it will transform my heart and mind. Give me discipline to make time, silence distractions, and focus sustained attention on Your truth. Let this Word not depart from my mouth, but let me meditate on it continually.</div>
+          <div class="scripture-ref">Based on Joshua 1:8</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 16. Prayer 2 -->
+    <div class="slide prayer-slide" data-slide="16">
+      <h2>Transformation and Renewal</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Lord, I recognize that my mind has been wired by the world and past experiences. Today I declare that my brain can be rewired through meditation on Your Word. Transform the way I think, believe, feel, and behave. Exchange my thoughts for Your thoughts. Let Your Word transform me from the inside out.</div>
+          <div class="scripture-ref">Based on Romans 12:2</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 17. Prayer 3 -->
+    <div class="slide prayer-slide" data-slide="17">
+      <h2>Fulfilling God's Assignment</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Lord, You have given me a heavenly assignment. I don't want to profit by gaining the whole world but losing my soul or failing to fulfill Your purpose. As I meditate on Your Word day and night, empower me to carry out Your will in every area. Let meditation give me wisdom, strength, and character to represent Christ.</div>
+          <div class="scripture-ref">Based on Joshua 1:8; Matthew 16:26</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 18. Prayer 4 -->
+    <div class="slide prayer-slide" data-slide="18">
+      <h2>Stability and Fruitfulness</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Father, as I meditate on Your Word day and night, make me like a tree planted by rivers of water—stable, unmovable, and fruitful in every season. When bad news comes, let me not be moved because I am rooted in Your goodness. Let my leaves never wither, and let everything I do prosper in fulfilling Your will.</div>
+          <div class="scripture-ref">Based on Psalm 1:2-3</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 19. Prayer 5 -->
+    <div class="slide prayer-slide" data-slide="19">
+      <h2>Victory Over Sinful Patterns</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Father, I have areas where I keep struggling. Today I receive the revelation that the solution is to meditate on Your Word. If meditating on darkness can change people wrongly, then meditating on Your light has even more power to transform my desires toward godliness. Set me free through sustained meditation on Your liberating truth.</div>
+          <div class="scripture-ref">Based on John 8:32; 2 Corinthians 3:18</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 20. Call to Action -->
+    <div class="slide cta-slide" data-slide="20">
+      <h1>Start Meditating Today</h1>
+      <h2>Don't Be Hearers Only, But Doers</h2>
+      <div class="content-list"><ul>
+        <li>Take the meal provided today and eat it—chew on it, digest it</li>
+        <li>Or cook your own meal in God's presence</li>
+        <li>Start meditating today, not tomorrow</li>
+        <li>Use the 4 M's and MEDITATE framework</li>
+        <li>Become like a tree planted by rivers of water</li>
+        <li>Experience transformation from the inside out</li>
+      </ul></div>
+      <div class="quote" style="margin-top: 2rem;">"Blessed is the man whose delight is in the law of the LORD, and in His law he meditates day and night."</div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+      <button class="nav-btn" onclick="previousSlide()">← Previous</button>
+      <button class="nav-btn" onclick="nextSlide()">Next →</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = document.querySelectorAll('.slide').length;
+    document.getElementById('total-slides').textContent = totalSlides;
+
+    // Slide titles for sidebar navigation
+    const slideTitles = [
+      'Title',
+      'God\'s Instruction',
+      'Reading vs Meditation',
+      'Brain Can Be Rewired',
+      'Tree by Rivers',
+      'Psalm 1:1-3',
+      'Benefits of Meditation',
+      'Practical Steps',
+      'The Four M\'s',
+      'MEDITATE 1-4',
+      'MEDITATE 5-8',
+      'Power of Imagination',
+      'Meditation Sets Prayer on Fire',
+      'Prayer Points',
+      'Prayer: Daily Commitment',
+      'Prayer: Transformation',
+      'Prayer: God\'s Assignment',
+      'Prayer: Stability',
+      'Prayer: Victory',
+      'Call to Action'
+    ];
+
+    // Generate sidebar navigation
+    function generateSidebar() {
+      const sidebarNav = document.getElementById('sidebarNav');
+      sidebarNav.innerHTML = '';
+
+      slideTitles.forEach((title, index) => {
+        const item = document.createElement('div');
+        item.className = 'sidebar-item';
+
+        // Mark section breaks
+        if ([4, 7, 13].includes(index)) {
+          item.classList.add('section');
+        }
+
+        if (index === currentSlide - 1) {
+          item.classList.add('active');
+        }
+
+        item.innerHTML = `
+          <span class="slide-num">${index + 1}</span>
+          <span>${title}</span>
+        `;
+
+        item.onclick = () => {
+          showSlide(index + 1);
+        };
+
+        sidebarNav.appendChild(item);
+      });
+    }
+
+    function showSlide(n) {
+      const slides = document.querySelectorAll('.slide');
+      if (n > totalSlides) n = 1;
+      if (n < 1) n = totalSlides;
+      currentSlide = n;
+      slides.forEach(s => s.classList.remove('active'));
+      slides[currentSlide - 1].classList.add('active');
+      document.getElementById('current-slide').textContent = currentSlide;
+
+      // Update navigation buttons
+      const prevBtn = document.querySelector('.nav-btn');
+      const nextBtn = document.querySelectorAll('.nav-btn')[1];
+      prevBtn.disabled = currentSlide === 1;
+      nextBtn.disabled = currentSlide === totalSlides;
+
+      // Update sidebar
+      generateSidebar();
+    }
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function previousSlide() { showSlide(currentSlide - 1); }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+
+    document.addEventListener('keydown', function(event) {
+      switch(event.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+        case ' ':
+        case 'Enter':
+          nextSlide();
+          event.preventDefault();
+          break;
+        case 'ArrowLeft':
+        case 'ArrowUp':
+          previousSlide();
+          event.preventDefault();
+          break;
+        case 'Home':
+          currentSlide = 1; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'End':
+          currentSlide = totalSlides; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'PageDown':
+          showSlide(Math.min(currentSlide + 10, totalSlides)); event.preventDefault();
+          break;
+        case 'PageUp':
+          showSlide(Math.max(currentSlide - 10, 1)); event.preventDefault();
+          break;
+      }
+    });
+
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let startY = 0;
+
+    document.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    });
+
+    document.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const endY = e.changedTouches[0].clientY;
+      const deltaX = endX - startX;
+      const deltaY = endY - startY;
+
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+        if (deltaX > 0) {
+          previousSlide();
+        } else {
+          nextSlide();
+        }
+      }
+    });
+
+    // Initialize
+    generateSidebar();
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>
