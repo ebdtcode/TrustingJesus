@@ -1,0 +1,56 @@
+# Audio Files (Large files that shouldn't be in repository)
+*.mp3
+*.wav
+*.m4a
+*.aac
+*.ogg
+*.flac
+*.wma
+
+# Video Files
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.mkv
+*.flv
+
+# Large temporary files
+*.tmp
+*.temp
+
+# Audio transcript raw files
+audio.txt
+audio.json
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node modules (if any)
+node_modules/
+
+# Python virtual environments (if any)
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Log files
+*.log
+
+# Backup files
+*.bak
+*.backup
