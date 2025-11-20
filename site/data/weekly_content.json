@@ -1,5 +1,71 @@
 [
   {
+    "week": "2025-W46",
+    "weekOf": "November 16, 2025",
+    "title": "How to Live a Life of True Worship",
+    "theme": "Total Consecration and Six Principles for Worship",
+    "speaker": "Rev. Casimir Bilong",
+    "church": "Harvest Intercontinental Church - Olney",
+    "scripture": "Romans 12:1-18",
+    "content": {
+      "sermon": {
+        "title": "How to Live a Life of True Worship",
+        "speaker": "Rev. Casimir Bilong",
+        "date": "2025-11-16",
+        "transcriptPath": "transcripts/sermon/How_to_Live_a_Life_of_True_Worship__Rev_Casimir_Bilong/transcript.md",
+        "summary": "Rev. Casimir Bilong addresses the fundamental Christian question: 'Now that I'm saved, what does the Lord expect of me?' The answer: God expects believers to live a life of true worship by offering their entire being as a living and holy sacrifice. True worship is total consecration - a lifestyle, not just Sunday services.",
+        "keyPoints": [
+          "True worship is offering your whole being as a living sacrifice",
+          "Beware of the world - don't copy its behavior",
+          "Submit to spiritual transformation through meditating on God's Word",
+          "Understand your role in the body of Christ",
+          "Use your gifts faithfully - prophecy, serve, teach, encourage, give, lead",
+          "Build genuine relationships - really love others, don't pretend",
+          "Reflect Christ outside the body - be ambassadors to the world"
+        ]
+      },
+      "presentation": {
+        "title": "How to Live a Life of True Worship - 22 Slides",
+        "path": "presentations/How_to_Live_a_Life_of_True_Worship_Presentation.html",
+        "slideCount": 22,
+        "features": [
+          "Left sidebar navigation",
+          "Six key principles outlined",
+          "Prayer points included",
+          "Mobile responsive design",
+          "Interactive slide navigation"
+        ]
+      },
+      "prayerPoints": {
+        "title": "Week of November 16 Prayer Focus",
+        "path": "sermons_summaries/How_to_Live_a_Life_of_True_Worship.md",
+        "count": 12,
+        "topics": [
+          "Total Consecration and Surrender",
+          "Protection from Worldly Systems",
+          "Spiritual Transformation Through Meditation",
+          "Humility and Understanding Our Role",
+          "Faithfulness in Using Our Gifts",
+          "Genuine Love and Fellowship",
+          "Becoming Effective Ambassadors",
+          "Seriousness in Christian Walk",
+          "Enthusiastic Service to God",
+          "Vision to Win Lost Souls",
+          "Right Priorities and God's Will",
+          "Holy Spirit's Dwelling and Holiness"
+        ],
+        "actionSteps": [
+          "Memorize Romans 12:1-2",
+          "Daily present yourself as living sacrifice",
+          "Meditate on God's Word to know His will",
+          "Identify and use your spiritual gifts",
+          "Build genuine relationships in the body"
+        ]
+      }
+    },
+    "featured": true
+  },
+  {
     "week": "2025-W45",
     "weekOf": "November 9, 2025",
     "title": "How to Meditate God's Way",

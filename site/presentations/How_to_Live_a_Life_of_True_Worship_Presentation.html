@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Live a Life of True Worship - Rev. Casimir Bilong</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); color: #fff; overflow: hidden; }
+    .presentation { position: relative; width: 100vw; height: 100vh; }
+    .slide { display: none; position: absolute; width: 100%; height: 100%; padding: 60px 80px 60px 320px; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); }
+    .slide.active { display: flex; }
+    h1 { font-size: 4.2rem; font-weight: 800; margin-bottom: 1.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); line-height: 1.2; color: #fff; }
+    h2 { font-size: 3.2rem; font-weight: 700; margin-bottom: 1.2rem; color: #ffd166; text-shadow: 1px 2px 4px rgba(0,0,0,0.4); line-height: 1.3; }
+    h3 { font-size: 2.4rem; font-weight: 700; margin-bottom: 1rem; color: #fff; text-shadow: 1px 2px 3px rgba(0,0,0,0.35); }
+    .subtitle { font-size: 1.8rem; font-weight: 400; margin-bottom: 0.6rem; color: #e8f4f8; line-height: 1.4; }
+    .scripture { background: rgba(255,255,255,0.14); border-left: 6px solid #ffd166; padding: 1.5rem; margin: 1.2rem 0; border-radius: 10px; backdrop-filter: blur(8px); box-shadow: 0 8px 32px rgba(0,0,0,0.25); max-width: 1100px; }
+    .scripture-text { font-size: 1.8rem; font-style: italic; line-height: 1.6; margin-bottom: 0.6rem; color: #fff; }
+    .scripture-ref { font-size: 1.2rem; font-weight: 700; color: #ffd166; text-align: right; }
+    .content-list { text-align: left; max-width: 1000px; margin: 0 auto; }
+    .content-list li { font-size: 1.5rem; margin: 0.9rem 0; padding-left: 1rem; line-height: 1.55; list-style: none; position: relative; }
+    .content-list li:before { content: "\25B6"; color: #ffd166; font-weight: bold; position: absolute; left: -1rem; }
+    .quote { font-size: 1.9rem; font-style: italic; text-align: center; padding: 1.5rem; border-radius: 12px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); margin: 1.2rem 0; box-shadow: 0 8px 32px rgba(0,0,0,0.2); line-height: 1.5; }
+    .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; width: 100%; max-width: 1100px; }
+    .column { text-align: left; }
+    .column h4 { font-size: 1.9rem; color: #ffd166; margin-bottom: 1rem; text-align: center; }
+    .column ul { list-style: none; padding: 0; }
+    .column li { font-size: 1.4rem; margin: 0.7rem 0; padding-left: 1.5rem; line-height: 1.5; position: relative; }
+    .column li:before { content: "\2713"; color: #ffd166; font-weight: bold; position: absolute; left: 0; }
+    .prayer-points { background: rgba(255,255,255,0.12); border-radius: 14px; padding: 2rem; backdrop-filter: blur(12px); box-shadow: 0 12px 40px rgba(0,0,0,0.28); max-width: 1100px; margin: 1.2rem auto; }
+    .prayer-points h3 { color: #ffd166; margin-bottom: 1rem; font-size: 2.1rem; }
+    .navigation { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 1rem; z-index: 1000; }
+    .nav-btn { background: rgba(255,255,255,0.22); border: 2px solid rgba(255,255,255,0.3); color: white; padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 600; backdrop-filter: blur(10px); transition: all 0.3s ease; }
+    .nav-btn:hover { background: rgba(255,255,255,0.32); border-color: #ffd166; color: #ffd166; }
+    .nav-btn:disabled { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); cursor: not-allowed; }
+    .slide-counter { position: fixed; top: 30px; right: 30px; background: rgba(0,0,0,0.45); padding: 0.5rem 1rem; border-radius: 20px; font-size: 1rem; backdrop-filter: blur(10px); }
+    .emphasis { color: #ffd166; font-weight: 800; }
+    .call-to-action { background: linear-gradient(135deg, #06d6a0, #118ab2); color: white; padding: 2rem; border-radius: 14px; margin: 1.2rem 0; box-shadow: 0 12px 40px rgba(0,0,0,0.3); text-align: center; }
+    .call-to-action h3 { font-size: 2.6rem; margin-bottom: 1rem; }
+    .call-to-action p { font-size: 1.6rem; line-height: 1.6; }
+    .section-break { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .section-break h1 { color: #ffd166 !important; }
+    .section-break h2 { color: #e8f4f8 !important; }
+    .cta-slide { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .cta-slide h1 { color: #ffd166 !important; }
+    .cta-slide .content-list li { color: #fff; }
+    .prayer-slide .scripture { background: rgba(255,209,102,0.15); border-left-color: #ffd166; }
+    .framework-box { background: rgba(255,209,102,0.15); border: 2px solid #ffd166; border-radius: 12px; padding: 1.5rem; margin: 1rem 0; }
+    .framework-box h4 { color: #ffd166; font-size: 1.8rem; margin-bottom: 1rem; }
+
+    /* Sidebar Navigation */
+    .sidebar { position: fixed; left: 0; top: 0; width: 280px; height: 100vh; background: rgba(20, 33, 61, 0.95); backdrop-filter: blur(10px); overflow-y: auto; z-index: 1500; border-right: 2px solid #ffd166; }
+    .sidebar-header { padding: 1.5rem; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,209,102,0.3); }
+    .sidebar-header h3 { color: #ffd166; font-size: 1.3rem; margin: 0; }
+    .sidebar-nav { padding: 1rem 0; }
+    .sidebar-item { padding: 0.8rem 1.5rem; cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem; border-left: 3px solid transparent; display: flex; align-items: center; gap: 0.5rem; }
+    .sidebar-item:hover { background: rgba(255,209,102,0.1); border-left-color: #ffd166; }
+    .sidebar-item.active { background: rgba(255,209,102,0.2); border-left-color: #ffd166; color: #ffd166; font-weight: 600; }
+    .sidebar-item.section { background: rgba(255,209,102,0.1); font-weight: 600; color: #ffd166; margin-top: 0.5rem; }
+    .slide-num { display: inline-block; width: 25px; color: rgba(255,255,255,0.6); }
+    .sidebar-item.active .slide-num { color: #ffd166; }
+
+    /* Home Button */
+    .home-btn { position: fixed; top: 30px; left: 300px; background: rgba(255,209,102,0.9); color: #14213d; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; z-index: 1000; display: flex; align-items: center; gap: 0.5rem; }
+    .home-btn:hover { background: #ffd166; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255,209,102,0.4); }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle { display: none; position: fixed; top: 30px; left: 20px; z-index: 2000; background: rgba(255,209,102,0.9); color: #14213d; border: none; padding: 0.75rem; border-radius: 8px; cursor: pointer; }
+    .menu-toggle:hover { background: #ffd166; }
+
+    /* Tablet Landscape & Small Desktops (1024px - 1280px) */
+    @media (max-width: 1280px) {
+      .slide { padding: 50px 60px 50px 320px; }
+      h1 { font-size: 3.8rem; }
+      h2 { font-size: 3rem; }
+      h3 { font-size: 2.3rem; }
+      .subtitle { font-size: 1.6rem; }
+      .content-list li { font-size: 1.4rem; }
+      .quote { font-size: 1.7rem; }
+      .scripture { max-width: 900px; }
+      .content-list { max-width: 850px; }
+    }
+
+    /* Tablet Portrait (768px - 1024px) */
+    @media (max-width: 1024px) {
+      .slide { padding: 40px 40px 40px 300px; }
+      .sidebar { width: 260px; }
+      h1 { font-size: 3.2rem; }
+      h2 { font-size: 2.6rem; }
+      h3 { font-size: 2rem; }
+      .subtitle { font-size: 1.4rem; }
+      .content-list li { font-size: 1.3rem; }
+      .quote { font-size: 1.5rem; }
+      .scripture-text { font-size: 1.6rem; }
+      .scripture-ref { font-size: 1.1rem; }
+      .two-column { grid-template-columns: 1fr; gap: 1.2rem; }
+      .home-btn { left: 280px; font-size: 0.9rem; padding: 0.6rem 1.2rem; }
+      .navigation { bottom: 20px; }
+      .nav-btn { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
+    }
+
+    /* Mobile Landscape & Small Tablets (600px - 768px) */
+    @media (max-width: 768px) {
+      .slide { padding: 100px 30px 80px 30px; }
+      h1 { font-size: 2.4rem; }
+      h2 { font-size: 2rem; }
+      h3 { font-size: 1.7rem; }
+      .subtitle { font-size: 1.2rem; }
+      .content-list li { font-size: 1.1rem; margin: 0.7rem 0; }
+      .scripture-text { font-size: 1.3rem; }
+      .scripture-ref { font-size: 1rem; }
+      .quote { font-size: 1.2rem; padding: 1.2rem; }
+      .scripture { padding: 1.2rem; margin: 1rem 0; }
+      .prayer-points { padding: 1.5rem; }
+      .call-to-action h3 { font-size: 2rem; }
+      .call-to-action p { font-size: 1.3rem; }
+      .framework-box { padding: 1.2rem; }
+      .framework-box h4 { font-size: 1.5rem; }
+      .column h4 { font-size: 1.6rem; }
+      .column li { font-size: 1.2rem; }
+
+      /* Hide sidebar by default on mobile */
+      .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; width: 280px; }
+      .sidebar.open { transform: translateX(0); box-shadow: 4px 0 20px rgba(0,0,0,0.5); }
+
+      /* Show mobile menu toggle */
+      .menu-toggle { display: block; font-size: 1.2rem; }
+
+      /* Move home button to right side */
+      .home-btn {
+        left: auto;
+        right: 20px;
+        top: 20px;
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+      }
+      .home-btn span:last-child { display: none; }
+
+      /* Adjust slide counter */
+      .slide-counter {
+        top: 20px;
+        right: 80px;
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+      }
+
+      /* Navigation buttons */
+      .navigation {
+        bottom: 15px;
+        gap: 0.6rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
+        max-width: 400px;
+      }
+      .nav-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+        flex: 1;
+      }
+    }
+
+    /* Mobile Portrait (480px - 600px) */
+    @media (max-width: 600px) {
+      .slide { padding: 90px 20px 70px 20px; }
+      h1 { font-size: 2rem; line-height: 1.15; }
+      h2 { font-size: 1.7rem; margin-bottom: 1rem; }
+      h3 { font-size: 1.5rem; }
+      .subtitle { font-size: 1.1rem; line-height: 1.35; }
+      .content-list li { font-size: 1rem; margin: 0.6rem 0; padding-left: 0.8rem; }
+      .content-list li:before { left: -0.8rem; }
+      .scripture-text { font-size: 1.15rem; line-height: 1.5; }
+      .scripture-ref { font-size: 0.95rem; }
+      .quote { font-size: 1.1rem; padding: 1rem; }
+      .scripture { padding: 1rem; border-left-width: 4px; }
+      .prayer-points { padding: 1.2rem; margin: 0.8rem auto; }
+      .prayer-points h3 { font-size: 1.6rem; }
+      .call-to-action { padding: 1.5rem; }
+      .call-to-action h3 { font-size: 1.7rem; }
+      .call-to-action p { font-size: 1.15rem; }
+      .framework-box { padding: 1rem; }
+      .framework-box h4 { font-size: 1.3rem; }
+      .column h4 { font-size: 1.4rem; }
+      .column li { font-size: 1.05rem; }
+
+      .sidebar { width: 260px; }
+      .sidebar-header h3 { font-size: 1.1rem; }
+      .sidebar-item { font-size: 0.85rem; padding: 0.7rem 1.2rem; }
+
+      .navigation {
+        bottom: 10px;
+        width: calc(100% - 20px);
+        gap: 0.5rem;
+      }
+      .nav-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+        border-radius: 20px;
+      }
+
+      .slide-counter {
+        right: 70px;
+        font-size: 0.85rem;
+        padding: 0.35rem 0.7rem;
+      }
+
+      .home-btn {
+        padding: 0.5rem 0.8rem;
+        right: 15px;
+        top: 15px;
+      }
+      .home-btn span:first-child { font-size: 1.1rem; }
+    }
+
+    /* Small Mobile Portrait (320px - 480px) */
+    @media (max-width: 480px) {
+      .slide { padding: 80px 15px 65px 15px; }
+      h1 { font-size: 1.7rem; margin-bottom: 0.8rem; }
+      h2 { font-size: 1.5rem; margin-bottom: 0.8rem; }
+      h3 { font-size: 1.3rem; }
+      .subtitle { font-size: 1rem; margin-bottom: 0.5rem; }
+      .content-list li { font-size: 0.95rem; margin: 0.5rem 0; }
+      .scripture-text { font-size: 1.05rem; }
+      .scripture-ref { font-size: 0.9rem; }
+      .quote { font-size: 1rem; padding: 0.9rem; }
+      .scripture { padding: 0.9rem; margin: 0.8rem 0; }
+      .prayer-points { padding: 1rem; }
+      .prayer-points h3 { font-size: 1.4rem; margin-bottom: 0.8rem; }
+      .call-to-action { padding: 1.2rem; margin: 0.8rem 0; }
+      .call-to-action h3 { font-size: 1.5rem; margin-bottom: 0.8rem; }
+      .call-to-action p { font-size: 1.05rem; }
+      .framework-box { padding: 0.9rem; margin: 0.8rem 0; }
+      .framework-box h4 { font-size: 1.2rem; }
+      .column h4 { font-size: 1.3rem; }
+      .column li { font-size: 1rem; margin: 0.5rem 0; }
+
+      .sidebar { width: 240px; }
+      .sidebar-header { padding: 1.2rem; }
+      .sidebar-header h3 { font-size: 1rem; }
+      .sidebar-item { font-size: 0.8rem; padding: 0.65rem 1rem; }
+      .slide-num { width: 20px; font-size: 0.75rem; }
+
+      .menu-toggle {
+        padding: 0.6rem;
+        font-size: 1.1rem;
+        top: 15px;
+        left: 15px;
+      }
+
+      .navigation {
+        bottom: 8px;
+        width: calc(100% - 16px);
+        gap: 0.4rem;
+      }
+      .nav-btn {
+        padding: 0.45rem 0.7rem;
+        font-size: 0.75rem;
+        border-radius: 18px;
+      }
+
+      .slide-counter {
+        top: 15px;
+        right: 60px;
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+      }
+
+      .home-btn {
+        padding: 0.45rem 0.7rem;
+        right: 12px;
+        top: 12px;
+        border-radius: 20px;
+      }
+      .home-btn span:first-child { font-size: 1rem; }
+    }
+    @media print { body{ background: white; color: black; } .slide{ display: block !important; page-break-after: always; position: static; background: white; color: black; padding: 2cm; } .navigation, .slide-counter{ display: none; } .scripture, .prayer-points, .call-to-action{ background: #f8f9fa; border: 2px solid #ddd; color: black; } h2, .scripture-ref, .emphasis{ color: #000; } }
+  </style>
+</head>
+<body>
+  <div class="presentation">
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>True Worship</h3>
+      </div>
+      <div class="sidebar-nav" id="sidebarNav">
+        <!-- Navigation items will be generated by JavaScript -->
+      </div>
+    </nav>
+
+    <!-- Home Button -->
+    <a href="../index.html" class="home-btn">
+      <span>🏠</span>
+      <span>Dashboard</span>
+    </a>
+
+    <div class="slide-counter"><span id="current-slide">1</span> / <span id="total-slides">22</span></div>
+
+    <!-- 1. Title Slide -->
+    <div class="slide active" data-slide="1">
+      <h1>How to Live a Life of True Worship</h1>
+      <h2>Giving Our Entire Life as a Living Sacrifice</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Dear brothers and sisters, I plead with you to give your bodies to God because of all he has done for you. Let them be a living and holy sacrifice—the kind he will find acceptable. This is truly the way to worship him."</div>
+        <div class="scripture-ref">Romans 12:1 (NLT)</div>
+      </div>
+      <div class="subtitle" style="margin-top: 2rem;">Rev. Casimir Bilong</div>
+      <div class="subtitle">Harvest Intercontinental Church - Olney</div>
+      <div class="subtitle">November 16, 2025</div>
+    </div>
+
+    <!-- 2. The Central Question -->
+    <div class="slide" data-slide="2">
+      <h2>The Question Every Believer Must Answer</h2>
+      <div class="quote">"Now that I'm saved, what does the Lord expect of me?"</div>
+      <div class="content-list"><ul>
+        <li>God saved us and transformed our lives completely</li>
+        <li>We cannot just live our lives as we see fit</li>
+        <li>We must be serious about our Christian walk</li>
+        <li>The answer is found in Romans 12</li>
+      </ul></div>
+    </div>
+
+    <!-- 3. Key Scripture -->
+    <div class="slide" data-slide="3">
+      <h2>The Foundation of True Worship</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Dear brothers and sisters, I plead with you to give your bodies to God because of all he has done for you. Let them be a living and holy sacrifice—the kind he will find acceptable. This is truly the way to worship him. Don't copy the behavior and customs of this world, but let God transform you into a new person by changing the way you think. Then you will learn to know God's will for you, which is good and pleasing and perfect."</div>
+        <div class="scripture-ref">Romans 12:1-2 (NLT)</div>
+      </div>
+    </div>
+
+    <!-- 4. What is True Worship -->
+    <div class="slide" data-slide="4">
+      <h2>Living a Life of True Worship</h2>
+      <div class="content-list"><ul>
+        <li><span class="emphasis">Living Sacrifice:</span> Give your entire life—body, soul, and spirit</li>
+        <li><span class="emphasis">Holy Sacrifice:</span> Made holy by the Holy Spirit dwelling in us</li>
+        <li><span class="emphasis">On the Altar:</span> Not at the altar or by the altar—ON the altar permanently</li>
+        <li><span class="emphasis">Totally Dedicated:</span> A life completely consecrated to God</li>
+        <li><span class="emphasis">Acceptable to God:</span> The kind of sacrifice He finds pleasing</li>
+      </ul></div>
+    </div>
+
+    <!-- 5. Section Break: Six Principles -->
+    <div class="slide section-break" data-slide="5">
+      <h1>Six Key Principles</h1>
+      <h2>For Living a Life of True Worship</h2>
+    </div>
+
+    <!-- 6. Principle 1: Beware of the World -->
+    <div class="slide" data-slide="6">
+      <h2>Principle 1: Beware of the World</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Don't copy the behavior and customs of this world."</div>
+        <div class="scripture-ref">Romans 12:2a</div>
+      </div>
+      <div class="content-list"><ul>
+        <li>The world's systems are broken, wicked, and dangerous</li>
+        <li>Don't trust political, economic, or social systems</li>
+        <li>You have direct access to the Creator of the Universe</li>
+        <li>Don't make major life decisions based on worldly standards</li>
+      </ul></div>
+    </div>
+
+    <!-- 7. Principle 2: Spiritual Transformation -->
+    <div class="slide" data-slide="7">
+      <h2>Principle 2: Submit to Transformation</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Let God transform you into a new person by changing the way you think."</div>
+        <div class="scripture-ref">Romans 12:2b</div>
+      </div>
+      <div class="content-list"><ul>
+        <li>Transformation happens through daily meditation on God's Word</li>
+        <li>Meditation is the most important key to spiritual growth</li>
+        <li>This is not a microwave process—it takes patience</li>
+        <li>As you meditate, you become more like Christ</li>
+      </ul></div>
+    </div>
+
+    <!-- 8. Principle 3: Your Role in the Body -->
+    <div class="slide" data-slide="8">
+      <h2>Principle 3: Understand Your Role</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Don't think you are better than you really are. Be honest in your evaluation of yourselves... We are many parts of one body, and we all belong to each other."</div>
+        <div class="scripture-ref">Romans 12:3-4</div>
+      </div>
+      <div class="content-list"><ul>
+        <li>You're important, but not more important than your neighbor</li>
+        <li>No gift is superior to other gifts</li>
+        <li>God has given each person unique gifts for the body</li>
+        <li>Know your place and embrace your role</li>
+      </ul></div>
+    </div>
+
+    <!-- 9. Principle 4: Use Your Gifts Faithfully -->
+    <div class="slide" data-slide="9">
+      <h2>Principle 4: Assume Your Responsibility</h2>
+      <div class="content-list"><ul>
+        <li>If you can prophesy, speak out with faith</li>
+        <li>If your gift is serving, serve well</li>
+        <li>If you are a teacher, teach well</li>
+        <li>If your gift is encouraging, be encouraging</li>
+        <li>If your gift is giving, give generously</li>
+        <li>If you have leadership ability, take it seriously</li>
+        <li>If you show kindness, do it gladly</li>
+      </ul></div>
+      <div class="quote" style="margin-top: 1rem;">When you sit on your gift, you hurt yourself and the body</div>
+    </div>
+
+    <!-- 10. Principle 5: Genuine Love -->
+    <div class="slide" data-slide="10">
+      <h2>Principle 5: Build Genuine Relationships</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Don't just pretend to love others. Really love them."</div>
+        <div class="scripture-ref">Romans 12:9</div>
+      </div>
+      <div class="content-list"><ul>
+        <li>No plastic smiles—be genuine in your love</li>
+        <li>Hate what is wrong, hold tightly to what is good</li>
+        <li>Love each other with genuine affection</li>
+        <li>Be ready to help when God's people are in need</li>
+        <li>Always be eager to practice hospitality</li>
+        <li>When you ask "How are you?" mean it genuinely</li>
+      </ul></div>
+    </div>
+
+    <!-- 11. Principle 6: Reflect Christ -->
+    <div class="slide" data-slide="11">
+      <h2>Principle 6: Reflect Christ to the World</h2>
+      <div class="content-list"><ul>
+        <li>Bless those who persecute you—don't curse them</li>
+        <li>Be happy with those who are happy, weep with those who weep</li>
+        <li>Remember: unbelievers can't help their behavior</li>
+        <li>Live in harmony with each other</li>
+        <li>Don't be too proud to enjoy the company of ordinary people</li>
+        <li>Always be ready to learn from anyone</li>
+        <li>We are Christ's ambassadors to the world</li>
+      </ul></div>
+    </div>
+
+    <!-- 12. Section Break: Prayer Points -->
+    <div class="slide section-break" data-slide="12">
+      <h1>Prayer Points</h1>
+      <h2>Living a Life of True Worship</h2>
+    </div>
+
+    <!-- 13. Prayer 1: Total Consecration -->
+    <div class="slide prayer-slide" data-slide="13">
+      <h2>Prayer for Total Consecration</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Father, we come before You acknowledging that we have been saved by Your grace and mercy. We ask for the grace to live our entire lives on Your altar, not just visiting it occasionally. Help us to truly give You our bodies, souls, and spirits as living and holy sacrifices. May our lives be totally dedicated and totally consecrated to You. Give us the courage to pray daily: "Father, here I am. I am Your sacrifice. I am totally surrendered to You. Have Your way and do what You want to do with my life."</div>
+          <div class="scripture-ref">Romans 12:1</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 14. Prayer 2: Protection from the World -->
+    <div class="slide prayer-slide" data-slide="14">
+      <h2>Prayer for Protection from Worldly Systems</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Heavenly Father, we recognize that the world's systems are broken, wicked, dangerous, and selfish. We pray for discernment to see through the deceptions of political, economic, and social systems. Protect us from making major life decisions based on worldly standards. Keep us from placing our trust in the failing structures of this world. Remind us constantly that we have direct access to You, the Creator of the Universe. May we seek Your wisdom first in all things.</div>
+          <div class="scripture-ref">Romans 12:2a</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 15. Prayer 3: Spiritual Transformation -->
+    <div class="slide prayer-slide" data-slide="15">
+      <h2>Prayer for Transformation Through Meditation</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Lord, we submit ourselves to Your process of spiritual transformation. We confess that we often want instant results, but we acknowledge that true transformation requires patience and sustained meditation on Your Word. Holy Spirit, teach us how to meditate on Scripture day and night. Help us to focus our minds on God's Word in a sustained manner until it transforms the way we think, believe, and behave. As we behold Your Word and meditate on it, make us more and more like Christ.</div>
+          <div class="scripture-ref">Romans 12:2b</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 16. Prayer 4: Humility in the Body -->
+    <div class="slide prayer-slide" data-slide="16">
+      <h2>Prayer for Humility and Understanding</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Father, we come before You asking for the gift of humility. Help us not to think more highly of ourselves than we ought. Give us honest evaluation of ourselves. Remind us that while we are important, we are not more important than our neighbors. Help us to understand that we are many parts of one body and that we all belong to each other. Remove any pride, competition, or sense of superiority from our hearts. May we recognize that no gift is superior to other gifts.</div>
+          <div class="scripture-ref">Romans 12:3-4</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 17. Prayer 5: Faithfulness in Service -->
+    <div class="slide prayer-slide" data-slide="17">
+      <h2>Prayer for Faithfulness in Using Our Gifts</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Lord, thank You for the gifts, talents, and abilities You have given to each of us. We acknowledge that these gifts do not belong to us but to the body of Christ. Forgive us for sitting on our gifts, for being lazy, or for using our gifts only for personal gain. Stir up the gifts within us. Help us serve well, teach well, encourage faithfully, give generously, lead seriously, and show kindness gladly. Convict us that when we refuse to serve, we hurt ourselves and damage the body.</div>
+          <div class="scripture-ref">Romans 12:6-8</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 18. Prayer 6: Genuine Love -->
+    <div class="slide prayer-slide" data-slide="18">
+      <h2>Prayer for Genuine Love and Fellowship</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Heavenly Father, we repent of plastic smiles and pretend love. Teach us to genuinely love our brothers and sisters in Christ. Help us to hate what is wrong and hold tightly to what is good. Increase our genuine affection for each other. Remove all selfish mindsets from our hearts. When we ask our brothers and sisters "How are you?" let it be a genuine intention to know. When they share their needs, give us grace to help without waiting to be asked.</div>
+          <div class="scripture-ref">Romans 12:9-13</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 19. Prayer 7: Christ's Ambassadors -->
+    <div class="slide prayer-slide" data-slide="19">
+      <h2>Prayer for Becoming Effective Ambassadors</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Lord Jesus, we are Your ambassadors in this world. Help us to represent You well in our workplaces, neighborhoods, and daily interactions. Give us grace to bless those who persecute us. Help us empathize with those who don't know You—to be happy with those who are happy and weep with those who weep. Help us remember that unbelievers cannot help their behavior. Remove thoughts of revenge from our hearts. May our Christ-like responses draw many to You.</div>
+          <div class="scripture-ref">Romans 12:14-18</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 20. Prayer 8: Seriousness -->
+    <div class="slide prayer-slide" data-slide="20">
+      <h2>Prayer for Seriousness in Our Walk</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Father, we thank You for saving us and transforming our lives. Forgive us for times when we have been casual about our Christian life. We repent of treating Your sacrifice lightly. Help us to be extremely serious about our walk with You. Remove any complacency from our hearts. Give us grace to live every day with intentionality, purpose, and dedication to Your kingdom. May our lives reflect the gratitude appropriate for those rescued from darkness.</div>
+          <div class="scripture-ref">Romans 12:1</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 21. Prayer 9: Victory and Vision -->
+    <div class="slide prayer-slide" data-slide="21">
+      <h2>Prayer for Victory and Vision</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Lord, we recognize that living a life of true worship is not just about our personal holiness but about Your mission to seek and save the lost. As we refuse to follow the patterns of this world, meditate on Your Word, use our gifts faithfully, build genuine relationships, and reflect Your love to the world, we pray that multiple lost souls would be won to Christ. Align our hearts with the vision: "a world where no one lives or dies without Christ."</div>
+          <div class="scripture-ref">Romans 12:2</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 22. Call to Action -->
+    <div class="slide cta-slide" data-slide="22">
+      <h1>The Call to True Worship</h1>
+      <h2>Is Your Life Totally Surrendered to God?</h2>
+      <div class="content-list"><ul>
+        <li>Close your eyes and imagine yourself lying on God's altar</li>
+        <li>Your entire being—body, soul, and spirit—offered to Him</li>
+        <li>Pray: "Father, here I am. I am Your sacrifice."</li>
+        <li>Live a life totally dedicated and consecrated to God</li>
+        <li>This is living a life of true worship</li>
+      </ul></div>
+      <div class="quote" style="margin-top: 2rem;">"A life that is totally dedicated and totally consecrated to God—that is a life of true worship."</div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+      <button class="nav-btn" onclick="previousSlide()">← Previous</button>
+      <button class="nav-btn" onclick="nextSlide()">Next →</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = document.querySelectorAll('.slide').length;
+    document.getElementById('total-slides').textContent = totalSlides;
+
+    // Slide titles for sidebar navigation
+    const slideTitles = [
+      'Title',
+      'The Central Question',
+      'Key Scripture',
+      'What is True Worship',
+      'Six Principles',
+      'Principle 1: Beware World',
+      'Principle 2: Transformation',
+      'Principle 3: Your Role',
+      'Principle 4: Use Gifts',
+      'Principle 5: Genuine Love',
+      'Principle 6: Reflect Christ',
+      'Prayer Points',
+      'Prayer: Consecration',
+      'Prayer: Protection',
+      'Prayer: Transformation',
+      'Prayer: Humility',
+      'Prayer: Faithfulness',
+      'Prayer: Genuine Love',
+      'Prayer: Ambassadors',
+      'Prayer: Seriousness',
+      'Prayer: Victory',
+      'Call to Action'
+    ];
+
+    // Generate sidebar navigation
+    function generateSidebar() {
+      const sidebarNav = document.getElementById('sidebarNav');
+      sidebarNav.innerHTML = '';
+
+      slideTitles.forEach((title, index) => {
+        const item = document.createElement('div');
+        item.className = 'sidebar-item';
+
+        // Mark section breaks
+        if ([4, 11].includes(index)) {
+          item.classList.add('section');
+        }
+
+        if (index === currentSlide - 1) {
+          item.classList.add('active');
+        }
+
+        item.innerHTML = `
+          <span class="slide-num">${index + 1}</span>
+          <span>${title}</span>
+        `;
+
+        item.onclick = () => {
+          showSlide(index + 1);
+        };
+
+        sidebarNav.appendChild(item);
+      });
+    }
+
+    function showSlide(n) {
+      const slides = document.querySelectorAll('.slide');
+      if (n > totalSlides) n = 1;
+      if (n < 1) n = totalSlides;
+      currentSlide = n;
+      slides.forEach(s => s.classList.remove('active'));
+      slides[currentSlide - 1].classList.add('active');
+      document.getElementById('current-slide').textContent = currentSlide;
+
+      // Update navigation buttons
+      const prevBtn = document.querySelector('.nav-btn');
+      const nextBtn = document.querySelectorAll('.nav-btn')[1];
+      prevBtn.disabled = currentSlide === 1;
+      nextBtn.disabled = currentSlide === totalSlides;
+
+      // Update sidebar
+      generateSidebar();
+    }
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function previousSlide() { showSlide(currentSlide - 1); }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+
+    document.addEventListener('keydown', function(event) {
+      switch(event.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+        case ' ':
+        case 'Enter':
+          nextSlide();
+          event.preventDefault();
+          break;
+        case 'ArrowLeft':
+        case 'ArrowUp':
+          previousSlide();
+          event.preventDefault();
+          break;
+        case 'Home':
+          currentSlide = 1; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'End':
+          currentSlide = totalSlides; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'PageDown':
+          showSlide(Math.min(currentSlide + 10, totalSlides)); event.preventDefault();
+          break;
+        case 'PageUp':
+          showSlide(Math.max(currentSlide - 10, 1)); event.preventDefault();
+          break;
+      }
+    });
+
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let startY = 0;
+
+    document.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    });
+
+    document.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const endY = e.changedTouches[0].clientY;
+      const deltaX = endX - startX;
+      const deltaY = endY - startY;
+
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+        if (deltaX > 0) {
+          previousSlide();
+        } else {
+          nextSlide();
+        }
+      }
+    });
+
+    // Initialize
+    generateSidebar();
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>
