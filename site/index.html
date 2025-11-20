@@ -949,12 +949,18 @@
             const latest = allData.sermons[0];
             const latestPresentation = allData.presentations[0];
 
+            // Build prayer points link - prefer sermon viewer with prayer tab
+            const prayerLink = latest.id ? `sermon-viewer.html?id=${latest.id}#prayer` : 'prayer-viewer.html';
+
+            // Build presentation link
+            const presentationLink = latestPresentation.path || 'presentations.html';
+
             container.innerHTML = `
-                <a href="${latest.prayerPointsPath || '#'}" class="quick-link">
+                <a href="${prayerLink}" class="quick-link">
                     <span class="quick-link-icon">🎯</span>
                     Today's Prayer Focus
                 </a>
-                <a href="${latestPresentation.path || '#'}" class="quick-link">
+                <a href="${presentationLink}" class="quick-link">
                     <span class="quick-link-icon">📖</span>
                     Latest Message
                 </a>

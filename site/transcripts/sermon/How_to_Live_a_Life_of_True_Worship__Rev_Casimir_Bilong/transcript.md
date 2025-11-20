@@ -1,0 +1,589 @@
+# How to Live a Life of True Worship
+
+## Metadata
+
+**Title:** How to Live a Life of True Worship
+**Speaker:** Rev. Casimir Bilong
+**Church:** Harvest Intercontinental Church - Olney
+**Date:** November 16, 2025
+**Duration:** 48 minutes 40 seconds (2920 seconds)
+**Source:** YouTube
+**Video ID:** a88-dZf4XYo
+**URL:** https://www.youtube.com/watch?v=a88-dZf4XYo
+**Content Type:** Sermon
+**Primary Scripture:** Romans 12:1-18 (New Living Translation)
+
+## Key Scripture References
+
+- **Romans 12:1** - "Dear brothers and sisters, I plead with you to give your bodies to God because of all he has done for you. Let them be a living and holy sacrifice. The kind he will find acceptable. This is truly the way to worship him."
+- **Romans 12:2** - "Don't copy the behavior and customs of this world, but let God transform you into a new person by changing the way you think."
+- **Romans 12:3-4** - About not thinking too highly of ourselves and understanding our role in the body of Christ
+- **Romans 12:6-8** - About using our spiritual gifts faithfully
+- **Romans 12:9-13** - About genuine love within the body of Christ
+- **Romans 12:14-18** - About reflecting Christ outside the body
+
+## Main Message Points
+
+### Introduction
+The sermon addresses a fundamental question for every believer: "Now that I'm saved, what does the Lord expect of me?"
+
+### Central Theme: Living a Life of True Worship
+True worship is not just what we do on Sunday mornings - it is giving our entire life (body, soul, and spirit) to God as a living and holy sacrifice.
+
+### Six Key Principles for Living a Life of True Worship:
+
+#### 1. Beware of the World (Romans 12:2a)
+- Don't copy the behavior and customs of this world
+- The world's systems (political, economic, social) are broken and cannot save
+- The world is wicked, dangerous, and selfish
+- We cannot place our trust in worldly systems or priorities
+- We have direct access to the Creator of the Universe through Christ
+
+#### 2. Submit to the Process of Spiritual Transformation (Romans 12:2b)
+- Let God transform you into a new person by changing the way you think
+- Transformation happens through daily meditation on the Word of God
+- Meditation is the most important key to spiritual growth
+- It involves focusing our mind and thoughts on God's Word in a sustained manner
+- This is not a microwave process - it takes patience and time
+- Through meditation, God reveals His perfect will
+
+#### 3. Properly Understand Your Role Within the Body of Christ (Romans 12:3-4)
+- Don't think you're better than you really are
+- Be honest in your evaluation of yourself
+- You're important, but not more important than your neighbor
+- We are many parts of one body and we all belong to each other
+- God has given each person gifts, talents, and abilities for the body
+- No gift (spiritual or natural) is superior to other gifts
+
+#### 4. Assume Your Responsibility Within the Body Faithfully (Romans 12:6-8)
+- If you can prophesy, speak out with faith
+- If your gift is serving others, serve them well
+- If you are a teacher, teach well
+- If your gift is to encourage others, be encouraging
+- If your gift is giving, give generously (to the extent of your abilities)
+- If God has given you leadership ability, take it seriously
+- If you have a gift for showing kindness, do it gladly
+- There are dozens of ministries at Harvest - you can't say you didn't find a place to serve
+- When you sit on your gift, you hurt yourself and you hurt the body
+
+#### 5. Build Genuine Relationships of Love Within the Body (Romans 12:9-13)
+- Don't just pretend to love others - really love them
+- No "plastic smiles" - be genuine
+- Hate what is wrong, hold tightly to what is good
+- Love each other with genuine affection
+- Take delight in honoring each other
+- Never be lazy - work hard and serve the Lord enthusiastically
+- When God's people are in need, be ready to help them
+- Always be eager to practice hospitality
+- Take away selfish mindset
+- When you ask "how are you?" - let it be a genuine intention to know
+- Help without waiting to be asked
+
+#### 6. Reflect Christ Outside of the Body (Romans 12:14-18)
+- Bless those who persecute you - don't curse them
+- Be happy with those who are happy, weep with those who weep
+- Show empathy to those outside the church
+- Remember that unbelievers can't help their behavior - they don't have Christ
+- Live in harmony with each other
+- Don't be too proud to enjoy the company of ordinary people
+- Don't think you know it all - always be ready to learn
+- You can learn from anyone - believer, non-believer, child
+- This is part of your spiritual growth and worship
+
+## Central Call to Action
+
+**The Question:** Is my life totally surrendered to God? Is my life totally consecrated to God?
+
+**The Challenge:** Be serious with your Christian life. Don't take for granted what God has done for you.
+
+**The Vision:** Imagine yourself lying on the altar of God - your entire being offered as a living sacrifice. This is the attitude God expects of His children.
+
+**The Prayer:** "Father, here I am. I am your sacrifice. I am totally surrendered to you. Father, have your way. Do what you want to do with my life."
+
+## Key Themes
+
+1. **Total Consecration** - Living our entire life on the altar, not just visiting it occasionally
+2. **Living Sacrifice** - Body, soul, and spirit given to God (not dead sacrifices like in the Old Testament)
+3. **Holy Sacrifice** - Made holy by the Holy Spirit dwelling in us
+4. **Spiritual Transformation** - Through meditation on God's Word
+5. **Community & Service** - Using our gifts within the body of Christ
+6. **Genuine Love** - Real, not pretend relationships within the church
+7. **Christ's Ambassadors** - Reflecting Him to the world
+
+## Practical Applications
+
+1. **Daily Meditation** - Listen to Bishop's messages on meditating the Word
+2. **Serve in Ministry** - Text "SERVE" to the church number to explore ministry opportunities
+3. **Genuine Fellowship** - When you ask "how are you?" mean it, and help when you can
+4. **Self-Reflection** - Honestly evaluate if your life is totally consecrated to God
+5. **Use Your Gifts** - Don't sit on your gifts - they're for the body, not just for you
+6. **Reject World's Standards** - Don't make major life decisions based on worldly systems
+7. **Show Empathy** - Be Christ's reflection to unbelievers in your workplace and community
+
+## Notable Quotes
+
+- "God is looking for true worshipers, those who worship him in spirit and in truth."
+- "God wants us literally to live our entire life on the altar."
+- "A life that is totally dedicated and totally consecrated to God - that is a life of true worship."
+- "The world is wicked. The world is dangerous. The world is selfish."
+- "I have the direct contact of the Creator of the Universe."
+- "Meditation is the most important key to spiritual growth."
+- "The more we behold the Word of God and meditate on it, the more we become like the Word."
+- "Don't just pretend to love others, really love them."
+- "When you sit on that gift, you're hurting yourself and you're hurting the body."
+- "We are Christ's ambassadors."
+
+## Closing Summary
+
+God expects us to be serious with our Christian life by living lives that are totally dedicated and totally consecrated to Him. That's living a life of true worship. A life that requires that we refuse to follow the patterns of this world, that instead we renew our mind with the Word of God by meditating on it day and night, so that we'll be gradually transformed into the likeness of Christ.
+
+As true worshipers of God, we need to use our God-given natural and spiritual gifts, talents and abilities to serve and edify the body of Christ. We also need to build relationships of genuine love with our brothers and sisters in Christ and reflect the love of Christ in the world so that multiple lost souls will be won to Christ.
+
+And so that ultimately, as our vision here says, we will see a world where no one lives or dies without Christ.
+
+---
+
+## Full Transcript
+
+Bishop this morning is not here, he's not Carolina, so I have the privilege and the honor to bring the word this morning.
+
+So I want to thank Bishop for this opportunity and thank Pastor Chris as well. Thank you, Pastor Chris.
+
+We don't take for granted the opportunity to minister before the people of God.
+
+Father, we thank you for this day that you have made. We thank you for your grace, we thank you for your mercy, we thank you for your love, we thank you for everything you have done for us and what you keep doing in with and through us.
+
+Holy Spirit, you are the teacher. This morning teach us, show us the will of the Father.
+
+This morning Father, open up the minds of your people to receive the word you have for them. Help me, Holy Spirit, in my witness that I will speak only the word you have for your people.
+
+People, a word that will change the lives of your people as they meditate it, a word that will transform them and get them closer and closer to you, change them more and more into the likeness of Christ in Jesus name. Amen.
+
+All right. If you attended the Hodor on Wednesday or even yesterday, if you came at the second part of the Hodor yesterday, Bishop has been talking to us about the importance of making sure that we stay aligned with the mission and the vision of the church that we know we set the right priorities.
+
+You know that we take the role that we're supposed to play here and have this more seriously. And I was as I was reflecting on that, the Holy Spirit really pressed into my heart, the need for today's message to answer a question that I'm sure maybe many of you as you became Christians have had to deal with one way or the other.
+
+Now that I'm saved, what does the Lord expect of me? Lord, now that I'm saved, what kind of life do you want me to live? Now that I'm saved, how should I respond to everything that you did for me? And the Lord did so much for us.
+
+I don't know if it is for you, but for me, he did so much. So much. You know, if not for his grace, the odds were this more that I will be here in front of you speaking as I'm doing today, the odds were very small that I will become a child of God because of my background.
+
+You know, some of you were born, you have maybe the third generation or four generation of Christians in your family. I didn't have that privilege. So I know what the Lord has done for me.
+
+You know, I know where he took me from. So he has done so much for me that I cannot take my life, my life just like live my life just lightly and not acknowledge that the Lord has privileged me.
+
+You know, by bringing me into his kingdom. And if you're really serious about your Christian life, I'm sure this is a question that you may have asked yourself at one point.
+
+And this morning really I want to challenge us to be more serious with our life. Let's be serious with our Christian life. Really? I'm extremely serious and I'm saying it in the most serious way. Let's be serious with our Christian life. Let's not just live. Let's not take that for granted.
+
+And believe that, okay, Jesus died on the cross. That's fairly, it's probably a fairy tale or that story. I don't know. We don't even know whether it's true or not, but anyway, if it's true and I'm safe and then, okay, that's it.
+
+No, this is the serious matter of God's purpose for mankind. So we can just choose to live our life as we see fit. We cannot.
+
+So what does God expect of us now that we're saved? Now, I'm sure there are many ways to answer that question, but the Holy Spirit is leading me this morning into the book of Romans.
+
+When Paul wrote to the Church of Rome, the context was more or less similar to what we have today. The Roman Empire was the most powerful empire in the world then, the most powerful nation.
+
+And there was some form of prosperity, a relative prosperity compared to other nations surrounding Rome. Paul had not met the Christians in Rome yet at that point, but he wrote to them, exerting them to support his work, to support his mission, but also to live a different life.
+
+In light of the wonderful and beautiful things that the Lord had done in their life. And I think it applies to us again today. What God did then applies to us today. He saved us. He transformed our life. He changed us completely. So we can afford to just live as we see fit. Amen.
+
+So this morning we'll be reading from the book of Romans, Romans 12, and we'll go through throughout the 12 chapter of Romans, but I want us at this point to rise and read Romans 12, verse 1.
+
+And I want everything today in the new living translation, because I find that translation to be straightforward speaks things exactly in a way that we can clearly understand.
+
+So Romans 12 was one. And you see the answer here, in some, in some versions, it starts with therefore, and Bishop usually says when you see, therefore it means something was there before.
+
+And what was there before is that Paul explained to the Christians in Roman everything that the Lord has done for them. He explained their new identity in Christ, and he told them because of that then, because of everything that God has done for you.
+
+So let's read together. Dear brothers and sisters, I plead his pleading with you as I'm pleading today to give your bodies to God because of all he has done for you.
+
+Let them be a living and holy sacrifice. The kind he will find acceptable. This truly the way this is truly the way to worship him.
+
+Amen. You may have your seats. So brothers and sisters, the title of this message this morning is, living a life of true worship, living a life of true worship.
+
+We know from the Apostle John in the book of Revelation that our primary task when we go to heaven will be to worship. You know, we'll just do nothing else but worship the Lord.
+
+But I can't think that if God is so so interested in worship in heaven, that it wouldn't be the case here on earth after we saved.
+
+I think worship is so important to God that if that's the main of the main duty we'll have in heaven, it means worship should take a central place in our life here on earth.
+
+But remember God is looking for true worshipers, those who worship him in spirit and in truth. So what does God expect of us as Christians?
+
+He expect of us that we live a life of true worship, living a life of true worship. So we're going to grow through that today and try to understand what it means to live a life of true worship.
+
+First of all, let's start by breaking it down a little bit. In Romans 12 was one that we just read.
+
+Paul says to give our bodies, give your bodies to God. Why give our bodies to God? You know, before salvation we were slaves to sin.
+
+And our bodies totally belong and totally serve God. Totally. That's why when you see unbelievers acting a certain way, doing certain things, you know you understand that they can't help themselves because they belong to the devil.
+
+There's no way they can help. They can do it differently and that's where we were. Our bodies totally belong and serve to and serve the devil.
+
+Now after salvation, we are no longer slaves to sin. We are now slaves to what? We're slaves to righteousness. So it behooves us from that point to make sure our body that used to serve the devil, that now our bodies will serve righteousness, that our bodies will be offered to God.
+
+So that's why Paul here is exerting us to give our bodies to God. But what kind of bodies? What kind of bodies are we giving to God?
+
+We may just give our bodies away from our soul and our spirit. But if we do that, we will be giving God dead bodies. You know, death is the process whereby the spirit and the soul separate from the body, living the body dead.
+
+God doesn't want us to give dead bodies to him because in the past, in the Old Testament, they used to sacrifice animals, those slaughtered animals at the altar, animals to be consumed and their bodies will be at the altar.
+
+But Jesus made the ultimate sacrifice and Jesus is alive. Jesus is alive and he lives in you. He lives in me. So God is no longer looking for dead bodies. God is looking for living bodies.
+
+So as we take our body to God, we give them along with our soul and our spirit. So really what God is saying is that we should give our entire life to him as a sacrifice.
+
+Give our entire life to God as a sacrifice. God wants us literally to live our entire life on the altar.
+
+We should be living on the altar as it on the altar, not at the altar, not by the altar.
+
+Every now and then we may come at the altar when there is an altar call. But God wants us on a permanent basis every single day to actually be lying on the altar with our body, with our soul and our spirit.
+
+So God is looking for our living sacrifices. But Paul also talks about holy sacrifices. He says that sacrifice must be holy. Why? Because our bodies are the dwelling place of the Holy Spirit.
+
+The Holy Spirit makes us holy. We are sanctified and we are set apart for God's use.
+
+So even though we continue in the process of holiness throughout our life, by the fact that the Holy Spirit lives in us, it makes us holy.
+
+So we come our entire being, body, soul and spirit. God needs us to be given to his altar, that holy body.
+
+So the kind of sacrifice and at the end there, he says it is the kind of sacrifice he will find acceptable. So in reality, God is calling us to give him our entire life as a sacrifice, meaning he wants us to live a life that is totally dedicated.
+
+The sacrifice that we are pleasing to him is living a life that is totally dedicated, totally consecrated to him.
+
+A life that is totally dedicated and totally consecrated to God. That is a life of true worship.
+
+So before we move on right now, I want us to go through a simple exercise. Close your eyes for a few seconds. Lift up your hands.
+
+Imagine yourself lying on the altar of God. Use your imagination right now. Imagine your entire body, in fact your entire being lying there on the altar of God for a few seconds.
+
+You are on the altar. And talk to God by repeating after me, Father, here I am. I am your sacrifice. I am totally surrendered to you.
+
+Father, have your way. Do what you want to do with my life. Have your way and do what you want to do with my life in Jesus' name. Amen.
+
+That is the attitude that God expect of us as children in his household. So the question this morning is, is my life? Is your life totally surrendered to God? Is my life totally consecrated to God?
+
+It is not a rhetorical question. It is a reflection question, a self-reflection question. A question that every single of us should take back. And even right now, start thinking, can I really say at this point that my life is totally consecrated to God?
+
+If that's God wants, can I say that my life is totally dedicated to Him?
+
+Now, what does a dedicated and consecrated life looks like? That's what we're going to unfold as we go through Romans 12.
+
+The first point here, the first indication here of a dedicated and consecrated life to God, a life that is dedicated and consecrated to God, is that we need to be aware of the Word.
+
+W-O-R-L-T. Beware of the Word. Give me Romans 12 verse 2. I love the new living translation. It says, don't copy the behavior and customs of this Word.
+
+Don't copy the behavior and customs of this Word. But let God transform you into a new person. We'll get to the second point. But don't copy the behavior and customs of this Word.
+
+Ladies and gentlemen, brothers and sisters in Christ, the Word is wicked. The Word is wicked. The Word is dangerous. The Word is selfish.
+
+So there's no wisdom in living by the standards of this Word. There's no wisdom in that. You can make an assessment of the systems of this Word.
+
+Look at the political systems of this Word. We say we place our faith in politicians. What do they do?
+
+And it doesn't matter left, right, center. They are all the same. They care about themselves. All they need is your votes. Once you place them in power, it's all about themselves.
+
+They can hurt you. They can starve you. They do not care. So why would you place your hopes in the hands of politicians? Why would you do that?
+
+Look at the economic systems of the Word. They talk about capitalism. Has capitalism really significantly improved the living conditions of people in this world? See how you're suffering?
+
+They say it's the best economic system that the Word has ever known. Yes, it has brought enormous riches when you look at the riches of the Word globally. But how is that reflected in your pocket?
+
+They come up with their theories, their economic theories that contradict each or one another. They talk about recession here, up and down, inflation there, up and down. And you, the ordinary men, you are there in the middle. You wonder what are they talking about?
+
+Because you don't see any change to your day to day life and you want to trust those people. You want to trust that kind of system in the name of what?
+
+So you can't trust the Word. You can't trust the systems of this Word. The Word, if you look at the global organizations of this Word, they say they built organizations to improve the lives of human beings, the UN and everything that goes with it.
+
+Just do a little bit of research. Yes, there are technological advancements. Yes, there are things we can do today that we're unable to do yesterday. Today, I mean, there's AI that thinks faster than hundreds or thousands of computers.
+
+But how does that fundamentally change your day to day life? In fact, AI today is causing so many people to lose their jobs.
+
+So I'm going to trust that kind of the system of this Word. So ask yourself, and I'm asking myself the question, where are my priorities?
+
+Should I place my priorities in self-intertainment, meaning the purpose of my life will be just to enjoy myself?
+
+There is no physical pleasure to my knowledge that lasts more than 15 minutes.
+
+Oh, think about it. Those things that would give priority to how long do they last?
+
+I've never been in drugs, and they say when you get into drugs, I mean, it takes you to a different level.
+
+So, maybe drugs will take you to a level of satisfaction for, let's say, 24 hours or 48 hours, and after that, so what?
+
+So, where are our priorities? I'm talking about being serious with this life that God has given us.
+
+How do we make our choices? Do we look at the standards of this Word when we make the choice of Eucharist?
+
+When we want to choose a spouse, or any other major life altering decision we want to make in our life, we stand as do we use?
+
+Yes, we may be running after money wanting to be the richest people on this earth.
+
+There's one day they say he's soon going to be a trillionaire. What does his life look like?
+
+What's the purpose of being a trillionaire and having a miserable life?
+
+I'm just asking those questions, these are things that I mean, I'm talking our language here, we live in this country, we live in this country, we know these things.
+
+So, what are we looking for? What are we looking for?
+
+So, let's be careful with the Word. Listen, because God knew that the Word could not save itself, that the systems of the Word were broken, that's why He gave us Jesus.
+
+We have Jesus, we have the power of Christ, for those who have accepted Him as Lord and Savior, He lives in you, He wants to show you the way.
+
+Can you imagine that you have the direct contact of the Creator of the Universe, you have His direct contact?
+
+I mean, I would probably never have the direct contact of Donald Trump or Putin or see from China, but I do have the direct contact of the Creator of the Universe.
+
+I mean, I just need to come walk boldly into His throne of grace and say, Father, I'm here and He will reveal to me the mysteries of this Word.
+
+So, why would I use the standards of this Word to live my life when God has given me the key?
+
+That's the number one.
+
+Number two, to live a life of worship, of true worship, God expects us to submit to the process of spiritual transformation.
+
+And we still have the verse here. It says, don't copy the behavior and customs of this Word, but let God transform you into a new person by changing the way you think.
+
+We focus on the lies, we focus on the lies of this Word because we haven't changed the way we think.
+
+So God wants us to submit to the process of spiritual transformation and that process will allow every single aspect of our life to align.
+
+A single aspect of our life will die to see more and more and live into righteousness, die to see more and more, live into righteousness until we get completely transformed into the likeness of Christ because that's the ultimate goal of our Christian life.
+
+But we don't want to suffer, we don't want to, the rigor of going through that process, we don't want that because we look at the standards of this Word, this microwave Word, we want things to be like this.
+
+We want to be respite.
+
+And how do we submit to that process of spiritual transformation? Bishop has preached two messages on that. It's true meditating the Word of God.
+
+So go back and listen to Bishop's messages about meditating the Word.
+
+It is the daily meditation of the Word of God that will change us because as we meditate the Word, in fact, Bishop said meditation is the most important key to spiritual growth.
+
+He said it involves focusing our mind and our thoughts on God's Word, God's truth and God's revelation in a sustained manner until it transforms the way we think, the way we believe and the way we behave.
+
+So we need to focus on the Word. If you have questions concerning the standards of this Word, WORLD, let's get the answer into the Word, WORLD, let meditate on the Word, WORLD, and that's how gradually we're going to be transformed.
+
+And true meditation, God is going to reveal us His perfect will. It says here, then you will learn to know God's will for you, which is good and pleasing and perfect.
+
+Who doesn't want to know the will of God? Who doesn't want to know the will of God? And we struggle with that. What does God want? What does God want when the answer is in His Word?
+
+So we need to take meditation of the Word, meditation on the Word of God more seriously, because the more we behold the Word of God and meditate on it, the more we become like the Word and remember the Word of God is God Himself.
+
+So let's be patient enough to go through the process of spiritual transformation. It doesn't happen overnight. That's why we're here. That's why we have the body of Christ to help us as we go through that process.
+
+So I don't know, brothers and sisters, how we can just be satisfied with coming to church every Sunday, coming sitting there, listening to the Word, going back, coming back, sitting, listening to the Word, and nothing significant happens in Allah. We don't see any live transformation.
+
+We can be satisfied with that. Frankly, this is not religion. If we want religion, we can go to some of the churches that we know.
+
+You know over there, you know exactly what to expect. You see there's a book there. You know exactly what the official will say. I mean, point by point by point after an hour, because most of us here, we don't like saying too long in the service. We know it's for 60 minutes. At 59, we're ready. At 60, we're out.
+
+There are many churches out there where they do that. So if that's what we're interested in, we can do that. But it's not going to transform our life.
+
+Really, I'm speaking this morning from the bottom of my heart. I'm not speaking this morning to please or what I'm speaking from the bottom of my heart. Really?
+
+Let's be more serious with our Christian life.
+
+Number three, we need to properly understand our role within the body of Christ.
+
+There's a reason why we come here every Sunday. We can be coming here just as a social club. Now don't get me wrong. Fellowship is important. You know, it's good that we come. I know, hey, see so and so, brother, so and so, I'll meet you spend some time with you. That's good.
+
+But we can be coming here just for that. We have a role to play in the body. When God saved us, He placed us in the body.
+
+So let's make sure we play the role God wants us to play in the body. Let's move to versus three and four.
+
+Because of the privilege and authority God has given me this is Paul speaking. I give each of you this warning. He calls it a warning.
+
+Don't think you're better than you really are.
+
+I'm not saying it's written there.
+
+Don't think you're better than you really are. Be honest in your evaluation of yourselves, measuring yourselves by the faith God has given you.
+
+You're important, but you're not more important than you're neighbor.
+
+So don't think as a member of the body of Christ that you are special.
+
+Don't think of yourself highly than you really are. We're all the same in the body of Christ. When God looks at us, He sees us the same.
+
+You know, in verse four, move to verse four. Verse four says, just as our bodies have many parts and each part has special function move on.
+
+So it is with Christ's body that we are. We are many parts of one body and we all belong to each other.
+
+So that's our position in the body. That's the place we have in the body. God has bestowed upon us gifts, talents, abilities and those gifts, talents and abilities are primarily for the body.
+
+So we shouldn't think about ourselves, think about ourselves higher than we really are. It's not because I'm standing here in front of you preaching that I'm better than you. I'm not better than anyone here. I'm struggling the same way you are.
+
+So don't use your gift as a reason to think that you're better than someone else.
+
+It's not because you prophesied, you prophesied, but I know how to smile.
+
+Yes, the same way you're prophesied, we changed the life of someone, the same way my smile, we changed the life of someone.
+
+So you're not better. You're not better. You're not better. No gift spiritual or natural is superior to other gifts. No gift.
+
+That's what Paul is talking about. So know your place in the body. If you are the ear, be the ear. If you are the mouth, be the mouth. If you are the toe, be the toe, don't try to be who you're not.
+
+And I know usually everybody wants to preach, not everybody can preach. Isn't that a fact? It's a fact.
+
+And you think it's easy being here. But stop, we tell them.
+
+So my brothers and sisters, I'm not better than you. Nobody here is better than anyone. God has bestowed upon us gifts, talents, and abilities, and he expects of us that we use them to advance the kingdom equally.
+
+So we are part of the church, the body of Christ. And as such, we each have a specific role to play based on the spiritual and natural, spiritual and natural gifts, talents and abilities that God has bestowed upon us. Those gifts do not belong to us.
+
+That's why you can't boast for the gifts that you have. They don't belong to you. It's a gift. You didn't earn anything. You didn't do anything to have it.
+
+What did you do? Did you do anything special to have the gift? That's why it's called a gift. They gave it to you. God gave it to you. So why would you boast?
+
+So the gift does not belong to you. It doesn't belong to me. The gift belongs to the body, the bride of Christ.
+
+So you should think about your natural, which should think about our natural and spiritual gifts primarily as being meant to be used in the body, not even in the world.
+
+Because I know that we usually think about using our gifts in the world. When we think about what we're good at, how can I turn this into a money-making machine?
+
+How can I use that gift to make money? That's what we do.
+
+That's why we set up our business. We do our stuff out there because we know the gift we have. We want to use it to make money when God gave it to us to strengthen the body.
+
+Number four, we need to assume our responsibility within the body of Christ, faithfully.
+
+So when you know what your gifts, your talents, your abilities are, we need to make sure that we use those gifts faithfully within the body.
+
+Move to verse six and eight. Verse six, in his grace, God has given us different gifts for doing certain things well.
+
+So if God has given you the ability to prophesy, speak out with as much faith as God has given you. Don't sit with your gift if you can prophesy. God is saying, prophesy.
+
+Next verse, if your gift is serving others, serve them well.
+
+If you are a teacher, teach well. Next verse, if your gift is to encourage others, be encouraging.
+
+If God has given you, if it is, if it's giving, give generously. And please a disclaimer here. Don't say I'm not giving because giving is on my gift.
+
+Don't use this to say, no, I can't give because giving is on my gift. No, we are all gifted to give, but some people are just gifted in a special way to give.
+
+And if you are one of them, give to the extent that God has blessed you with that gift.
+
+You can't be, I mean, talking about invest beyond and all the things we have to do every day, every day, every day, when we have millionaires and billionaires sitting here, who don't want to give?
+
+Who don't want to give? So people don't even type. Well, you may not believe in typing, which is fine, but at least give generously to the extent of your abilities.
+
+You can be giving coins when you can give hundreds and hundreds of dollars. You can be giving coins. That's not worshiping God.
+
+So if your gift is giving, give generously. If God has given you leadership ability, take the leadership responsibility seriously.
+
+Someone would say there's no mention of leadership in the Bible. This is it. Take your leadership responsibility seriously. Be a leader.
+
+And if you have a gift for showing kindness to others, please do it gladly or show kindness to me, please.
+
+So like I was saying, if for you, if it's just about smiling, make sure you smile, you know, because the life of a person might be transformed.
+
+You know, yesterday, the hotel session with Miss Maxine Burnett, I mean, she had a powerful, powerful session.
+
+Yesterday, who attended? It was a powerful session. And she said something. I mean, she was listed the different ministries that we have here at Havas.
+
+I don't know how many that dozens of ministries. She made a comment. She said, you can't say you didn't find a place to serve.
+
+So you can match the gifts, the talents, the abilities that God has given you to an area of service right here at Havas, right here.
+
+You can't be coming every day, sitting, listening to Bishop going back without using, when you keep that gift, you're hurting yourself and you're hurting the body.
+
+You know, imagine, imagine if your left eye says, I don't want to see anymore. I can see but I refuse to see.
+
+Just imagine that. You wake up one morning, you know, morning, what's happening with me? You hear your eye saying, you know what? I'm mad at you. I'm not seeing today.
+
+Imagine that. That's exactly what you do when you refuse to serve. You know, you sit on that gift. It doesn't do you any good and it doesn't do the body any good.
+
+Because that good, that gift is not for you, is for the body. And by the way, as I'm speaking, if you think about serving right now, just text the word serve to the churches for number and go over the different ministries there, the ministries there and pick one.
+
+Or you can text info and identify where it says to serve and do the same thing. You can do that right now.
+
+Number five, we need to build genuine relationships of love within the body of Christ. Again, we're talking about living a life of true worship.
+
+Move to verse nine, true eleven. Don't just pretend to love others, really love them. I'm sure you didn't know it was in the Bible.
+
+Don't pretend you are in the body. Don't pretend to just love people. Don't give people what does his vaccine was called yesterday, the plastic smile. Don't give people the plastic smile. Be genuine.
+
+Love people genuinely. You know, hate what is wrong. Hold tightly to what is good. Keep going. Love each other with genuine affection and take delight in honoring each other. That's the way we're supposed to leave us brothers and sisters.
+
+You know, when you all know your brother or your sister in Christ, your worshiping God.
+
+Verse eleven, as you use your gift in the church, never be a her. Don't be lazy.
+
+It says never, never be lazy. But work hard and serve the Lord enthusiastically.
+
+Move to verse 13, please. Quickly to verse 13. Thank you, verse 13. When God's people are in need, be ready to help them. Always be eager to practice hospitality.
+
+We should be a church where, you know, we care for each other. We think about one another. We know what the needs are and we're ready to help those who I need.
+
+We should be that kind of church. When you think about the early church in the book of Acts, that's what they did.
+
+Loving on each other, helping each other. And it says, be ready. Always be ready to help. Always be eager to practice hospitality.
+
+So take away any selfish mindset. And as you come to church every single Sunday, as you interact with your brothers and sisters, try to find out when you ask them, how are you?
+
+Let that be a real intention to know, a general intention to know what's happening in their life.
+
+Really? And if they tell you what's happening in their life and you have the ability to help, don't wait for bishop or pastor to ask to help. Just go ahead and do it.
+
+That's why we're a community. That's why we are a party. Yeah, we can clap. We can clap on that.
+
+Number six, on having a lot of time left, we need to reflect Christ outside of the body.
+
+So within the body, we know what God wants us to do. Outside of the body, we are Christ's ambassadors. We need to be a reflection of Christ.
+
+So put up verses 14 to 18. We'll read quickly.
+
+Bless those who persecute you because outside them, once you reject the systems of the world, they will persecute you.
+
+But God says, bless those who persecute you. Don't curse them. Pray that God will bless them.
+
+If you are interactions every day with your coworkers, with people outside of the church, this is what you're supposed to do.
+
+Next verse. Be happy with those who are happy, whip with those who whip.
+
+You know, so that's empathy. We should be able to empathize with people out there.
+
+Remember remembering that most of the things that they do is because they can help. They don't have Christ.
+
+So don't be mad at your coworker who does something crazy and start thinking about revenge. They can't help. They can't do anything differently.
+
+You know, that's their word view. They don't. You have a Christian word view. They have a word view from the word, from the systems of this word.
+
+They can't help but treat you the way they treat you.
+
+Live in harmony with each other. Don't be too proud to enjoy the company of ordinary people.
+
+Just dip. Don't be too proud to enjoy the company of ordinary people and don't think you know it.
+
+Don't think you know it all. You should always be ready to learn.
+
+Always because the Bible says we know in part. And anybody you can learn from anybody.
+
+You can learn from a believer, from a pastor. You can learn from a non-believer. You can learn from a child.
+
+You can learn from anybody as long as you place yourself in the mindset of learning. God will teach you. God will use people that you cannot even imagine to teach you.
+
+And that's that's part of your spiritual growth.
+
+That's worship. Again, we're talking about living a life of true worship.
+
+To conclude this afternoon now, ladies and gentlemen, God expects us to be serious with our Christian life by living lives that are totally dedicated and totally consecrated to Him.
+
+That's living a life of true worship. A life that requires that we refuse to follow the patterns of this word, that instead we renew our mind with the word of God by meditating on it day and night.
+
+So that we'll be gradually transformed into the likeness of Christ. As true worshipers, as true worshipers of God, we need to use our God-given natural and spiritual gifts, talents and abilities to serve and edify the body of Christ.
+
+We also need to build relationships of genuine love with our brothers and sisters in Christ and reflect the love of Christ in the world so that multiple lost souls will be one to Christ.
+
+And so that ultimately, as our vision here says, we will see a word where no one lives or dies without Christ. Amen.
+
+Amen.
+
+---
+
+**Transcription Details:**
+- Transcription Engine: OpenAI Whisper (base model)
+- Transcription Date: November 19, 2025
+- Audio Source: Downloaded from YouTube
+- Audio Quality: High (MP3, 43.57 MB)
+- Transcription Accuracy: High confidence
