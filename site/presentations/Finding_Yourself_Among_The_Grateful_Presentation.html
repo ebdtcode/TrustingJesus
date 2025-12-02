@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finding Yourself Among The Grateful - Bishop Darlingston Johnson</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); color: #fff; overflow: hidden; }
+    .presentation { position: relative; width: 100vw; height: 100vh; }
+    .slide { display: none; position: absolute; width: 100%; height: 100%; padding: 60px 80px 60px 320px; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); }
+    .slide.active { display: flex; }
+    h1 { font-size: 4.2rem; font-weight: 800; margin-bottom: 1.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); line-height: 1.2; color: #fff; }
+    h2 { font-size: 3.2rem; font-weight: 700; margin-bottom: 1.2rem; color: #ffd166; text-shadow: 1px 2px 4px rgba(0,0,0,0.4); line-height: 1.3; }
+    h3 { font-size: 2.4rem; font-weight: 700; margin-bottom: 1rem; color: #fff; text-shadow: 1px 2px 3px rgba(0,0,0,0.35); }
+    .subtitle { font-size: 1.8rem; font-weight: 400; margin-bottom: 0.6rem; color: #e8f4f8; line-height: 1.4; }
+    .scripture { background: rgba(255,255,255,0.14); border-left: 6px solid #ffd166; padding: 1.5rem; margin: 1.2rem 0; border-radius: 10px; backdrop-filter: blur(8px); box-shadow: 0 8px 32px rgba(0,0,0,0.25); max-width: 1100px; }
+    .scripture-text { font-size: 1.8rem; font-style: italic; line-height: 1.6; margin-bottom: 0.6rem; color: #fff; }
+    .scripture-ref { font-size: 1.2rem; font-weight: 700; color: #ffd166; text-align: right; }
+    .content-list { text-align: left; max-width: 1000px; margin: 0 auto; }
+    .content-list li { font-size: 1.5rem; margin: 0.9rem 0; padding-left: 1rem; line-height: 1.55; list-style: none; position: relative; }
+    .content-list li:before { content: "\25B6"; color: #ffd166; font-weight: bold; position: absolute; left: -1rem; }
+    .quote { font-size: 1.9rem; font-style: italic; text-align: center; padding: 1.5rem; border-radius: 12px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); margin: 1.2rem 0; box-shadow: 0 8px 32px rgba(0,0,0,0.2); line-height: 1.5; }
+    .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; width: 100%; max-width: 1100px; }
+    .column { text-align: left; }
+    .column h4 { font-size: 1.9rem; color: #ffd166; margin-bottom: 1rem; text-align: center; }
+    .column ul { list-style: none; padding: 0; }
+    .column li { font-size: 1.4rem; margin: 0.7rem 0; padding-left: 1.5rem; line-height: 1.5; position: relative; }
+    .column li:before { content: "\2713"; color: #ffd166; font-weight: bold; position: absolute; left: 0; }
+    .prayer-points { background: rgba(255,255,255,0.12); border-radius: 14px; padding: 2rem; backdrop-filter: blur(12px); box-shadow: 0 12px 40px rgba(0,0,0,0.28); max-width: 1100px; margin: 1.2rem auto; }
+    .prayer-points h3 { color: #ffd166; margin-bottom: 1rem; font-size: 2.1rem; }
+    .navigation { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 1rem; z-index: 1000; }
+    .nav-btn { background: rgba(255,255,255,0.22); border: 2px solid rgba(255,255,255,0.3); color: white; padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 600; backdrop-filter: blur(10px); transition: all 0.3s ease; }
+    .nav-btn:hover { background: rgba(255,255,255,0.32); border-color: #ffd166; color: #ffd166; }
+    .nav-btn:disabled { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); cursor: not-allowed; }
+    .slide-counter { position: fixed; top: 30px; right: 30px; background: rgba(0,0,0,0.45); padding: 0.5rem 1rem; border-radius: 20px; font-size: 1rem; backdrop-filter: blur(10px); }
+    .emphasis { color: #ffd166; font-weight: 800; }
+    .call-to-action { background: linear-gradient(135deg, #06d6a0, #118ab2); color: white; padding: 2rem; border-radius: 14px; margin: 1.2rem 0; box-shadow: 0 12px 40px rgba(0,0,0,0.3); text-align: center; }
+    .call-to-action h3 { font-size: 2.6rem; margin-bottom: 1rem; }
+    .call-to-action p { font-size: 1.6rem; line-height: 1.6; }
+    .section-break { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .section-break h1 { color: #ffd166 !important; }
+    .section-break h2 { color: #e8f4f8 !important; }
+    .cta-slide { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .cta-slide h1 { color: #ffd166 !important; }
+    .cta-slide .content-list li { color: #fff; }
+    .prayer-slide .scripture { background: rgba(255,209,102,0.15); border-left-color: #ffd166; }
+
+    /* Sidebar Navigation */
+    .sidebar { position: fixed; left: 0; top: 0; width: 280px; height: 100vh; background: rgba(20, 33, 61, 0.95); backdrop-filter: blur(10px); overflow-y: auto; z-index: 1500; border-right: 2px solid #ffd166; }
+    .sidebar-header { padding: 1.5rem; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,209,102,0.3); }
+    .sidebar-header h3 { color: #ffd166; font-size: 1.3rem; margin: 0; }
+    .sidebar-nav { padding: 1rem 0; }
+    .sidebar-item { padding: 0.8rem 1.5rem; cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem; border-left: 3px solid transparent; display: flex; align-items: center; gap: 0.5rem; }
+    .sidebar-item:hover { background: rgba(255,209,102,0.1); border-left-color: #ffd166; }
+    .sidebar-item.active { background: rgba(255,209,102,0.2); border-left-color: #ffd166; color: #ffd166; font-weight: 600; }
+    .sidebar-item.section { background: rgba(255,209,102,0.1); font-weight: 600; color: #ffd166; margin-top: 0.5rem; }
+    .slide-num { display: inline-block; width: 25px; color: rgba(255,255,255,0.6); }
+    .sidebar-item.active .slide-num { color: #ffd166; }
+
+    /* Home Button */
+    .home-btn { position: fixed; top: 30px; left: 300px; background: rgba(255,209,102,0.9); color: #14213d; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; z-index: 1000; display: flex; align-items: center; gap: 0.5rem; }
+    .home-btn:hover { background: #ffd166; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255,209,102,0.4); }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle { display: none; position: fixed; top: 30px; left: 20px; z-index: 2000; background: rgba(255,209,102,0.9); color: #14213d; border: none; padding: 0.75rem; border-radius: 8px; cursor: pointer; }
+    .menu-toggle:hover { background: #ffd166; }
+
+    @media (max-width: 1024px) {
+      .slide{ padding: 40px 50px 40px 320px; }
+      h1{ font-size: 3.4rem; }
+      h2{ font-size: 2.8rem; }
+      h3{ font-size: 2.2rem; }
+      .subtitle{ font-size: 1.5rem; }
+      .content-list li{ font-size: 1.35rem; }
+      .quote{ font-size: 1.6rem; }
+      .two-column{ grid-template-columns: 1fr; gap: 1.2rem; }
+    }
+    @media (max-width: 768px) {
+      .slide{ padding: 80px 30px 30px 30px; }
+      h1{ font-size: 2.6rem; }
+      h2{ font-size: 2.2rem; }
+      h3{ font-size: 1.9rem; }
+      .subtitle{ font-size: 1.3rem; }
+      .content-list li{ font-size: 1.2rem; }
+      .scripture-text{ font-size: 1.4rem; }
+      .quote{ font-size: 1.3rem; }
+      .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+      .sidebar.open { transform: translateX(0); }
+      .menu-toggle { display: block; }
+      .home-btn { left: auto; right: 30px; }
+    }
+    @media print { body{ background: white; color: black; } .slide{ display: block !important; page-break-after: always; position: static; background: white; color: black; padding: 2cm; } .navigation, .slide-counter{ display: none; } .scripture, .prayer-points, .call-to-action{ background: #f8f9fa; border: 2px solid #ddd; color: black; } h2, .scripture-ref, .emphasis{ color: #000; } }
+  </style>
+</head>
+<body>
+  <div class="presentation">
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Finding Yourself Among The Grateful</h3>
+      </div>
+      <div class="sidebar-nav" id="sidebarNav">
+        <!-- Navigation items will be generated by JavaScript -->
+      </div>
+    </nav>
+
+    <!-- Home Button -->
+    <a href="../index.html" class="home-btn">
+      <span>🏠</span>
+      <span>Dashboard</span>
+    </a>
+
+    <div class="slide-counter"><span id="current-slide">1</span> / <span id="total-slides">14</span></div>
+
+    <!-- 1. Title Slide -->
+    <div class="slide active" data-slide="1">
+      <h1>Finding Yourself Among The Grateful</h1>
+      <div class="scripture">
+        <div class="scripture-text">"Were there not ten cleansed? But where are the nine?"</div>
+        <div class="scripture-ref">Luke 17:17 (NKJV)</div>
+      </div>
+      <div class="subtitle" style="margin-top: 2rem;">Bishop Dr. Darlingston Johnson</div>
+      <div class="subtitle">A Message on Gratitude and Thanksgiving</div>
+    </div>
+
+    <!-- 2. The Ungrateful Majority -->
+    <div class="slide" data-slide="2">
+      <h2>The Ungrateful Nine</h2>
+      <div class="subtitle">Don't Be Among the Ungrateful Majority</div>
+      <div class="content-list"><ul>
+        <li>Jesus healed <span class="emphasis">ten lepers</span>, but only one returned to give thanks</li>
+        <li>The nine represent the <span class="emphasis">ungrateful majority</span> - a common pattern</li>
+        <li>Jesus asked: "Were there not ten cleansed? Where are the nine?"</li>
+        <li>This question still echoes today - of all who have been blessed, where are the nine?</li>
+      </ul></div>
+      <div class="quote" style="margin-top: 1.5rem;">"May I be found among those who are grateful"</div>
+    </div>
+
+    <!-- 3. Section Break -->
+    <div class="slide section-break" data-slide="3">
+      <h1>Why Gratitude Matters</h1>
+      <h2>Ingratitude is Destructive</h2>
+    </div>
+
+    <!-- 4. Ingratitude Destroys Relationships -->
+    <div class="slide" data-slide="4">
+      <h2>Ingratitude Destroys</h2>
+      <div class="two-column">
+        <div class="column">
+          <h4>Relationships</h4>
+          <ul>
+            <li>Children estranged from parents</li>
+            <li>Marriages ending in divorce</li>
+            <li>Friendships destroyed</li>
+            <li>Ingratitude is a sin</li>
+          </ul>
+        </div>
+        <div class="column">
+          <h4>Health & Well-being</h4>
+          <ul>
+            <li>Increases stress levels</li>
+            <li>Weakens immune system</li>
+            <li>Affects sleep quality</li>
+            <li>Causes depression and anxiety</li>
+          </ul>
+        </div>
+      </div>
+      <div class="quote" style="margin-top: 1.5rem;">"A grateful person is much more relaxed - that's just the truth"</div>
+    </div>
+
+    <!-- 5. Spiritual Impact -->
+    <div class="slide" data-slide="5">
+      <h2>The Spiritual Impact</h2>
+      <div class="scripture">
+        <div class="scripture-text">"In everything give thanks; for this is the will of God in Christ Jesus for you."</div>
+        <div class="scripture-ref">1 Thessalonians 5:18 (NKJV)</div>
+      </div>
+      <div class="content-list"><ul>
+        <li><span class="emphasis">Ingratitude is the opposite of faith</span> - you cannot walk in faith and be ungrateful</li>
+        <li>Ungrateful people can only have <span class="emphasis">shallow relationships</span></li>
+        <li>Limiting gratitude limits your relationship with God</li>
+        <li>If you want to go deeper with God, take thanksgiving seriously</li>
+      </ul></div>
+    </div>
+
+    <!-- 6. Section Break -->
+    <div class="slide section-break" data-slide="6">
+      <h1>Christians Should Be</h1>
+      <h2>The Most Grateful People on Earth</h2>
+    </div>
+
+    <!-- 7. We Have the Most to Be Grateful For -->
+    <div class="slide" data-slide="7">
+      <h2>We Have the Most to Be Grateful For</h2>
+      <div class="content-list"><ul>
+        <li>God sent His only begotten Son who gave His life on the cross for us</li>
+        <li>We who do not deserve any blessing have been forgiven of all our sins</li>
+        <li>God credited us with Christ's righteousness - made us children of God</li>
+        <li>We are joint heirs with Jesus, seated with Him in heavenly places</li>
+        <li>God is for us and not against us</li>
+      </ul></div>
+      <div class="quote" style="margin-top: 1.5rem;">"There's no excuse for ingratitude among Christians"</div>
+    </div>
+
+    <!-- 8. Notice the Blessing -->
+    <div class="slide" data-slide="8">
+      <h2>Notice the Blessing</h2>
+      <div class="quote">"As they were going, he noticed he had been healed"</div>
+      <div class="content-list"><ul>
+        <li>One reason we're not grateful: we <span class="emphasis">fail to notice</span> God's blessings</li>
+        <li>Every day you leave and return safely - countless blessings unrecognized</li>
+        <li>We treat God's blessings as though they "just happened"</li>
+        <li>May the Lord open our eyes to see His daily blessings</li>
+      </ul></div>
+      <div class="scripture" style="margin-top: 1rem;">
+        <div class="scripture-text">"Lord, help me to notice Your blessings and the favor I receive each day from You and from people"</div>
+        <div class="scripture-ref">Prayer</div>
+      </div>
+    </div>
+
+    <!-- 9. Know the Blesser -->
+    <div class="slide" data-slide="9">
+      <h2>Know the Blesser</h2>
+      <div class="scripture">
+        <div class="scripture-text">"I will lift up my eyes unto the hills - From whence comes my help? My help comes from the LORD, who made heaven and earth."</div>
+        <div class="scripture-ref">Psalm 121:1-2 (NKJV)</div>
+      </div>
+      <div class="content-list"><ul>
+        <li>The leper returned to <span class="emphasis">Jesus</span> - he knew the source</li>
+        <li>David knew who blessed him, kept him alive, gave him ability</li>
+        <li>Don't just notice the blessing - <span class="emphasis">note the Blesser</span></li>
+        <li>"I know my Redeemer lives!" - Job 19:25</li>
+      </ul></div>
+    </div>
+
+    <!-- 10. The Entitlement Trap -->
+    <div class="slide" data-slide="10">
+      <h2>The Entitlement Trap</h2>
+      <div class="quote">"When you feel entitled, it's impossible to truly be grateful"</div>
+      <div class="content-list"><ul>
+        <li>A sense of <span class="emphasis">entitlement</span> blocks gratitude</li>
+        <li>If I think you owe me $10,000 and you give me $8,000 - I won't be thankful</li>
+        <li>We transfer entitlement to God: "After all I do for Him..."</li>
+        <li><span class="emphasis">Truth: God owes us nothing.</span> Every blessing is undeserved</li>
+      </ul></div>
+      <div class="scripture" style="margin-top: 1rem;">
+        <div class="scripture-text">"If you got what you deserved, eternity is not long enough to be in hell"</div>
+        <div class="scripture-ref">Bishop Johnson</div>
+      </div>
+    </div>
+
+    <!-- 11. Gratitude Complete -->
+    <div class="slide" data-slide="11">
+      <h2>Complete Your Gratitude</h2>
+      <div class="call-to-action">
+        <h3>The Principle</h3>
+        <p>"My gratitude is not complete until my blessing becomes my offering"</p>
+      </div>
+      <div class="content-list" style="margin-top: 1.5rem;"><ul>
+        <li><span class="emphasis">Naaman</span> brought gold, silver, clothing back to Elisha</li>
+        <li><span class="emphasis">Hannah</span> brought Samuel back to the Lord: "I have lent him to the LORD"</li>
+        <li>Of that which we have received, we give back to Him as worship</li>
+        <li>That is how to truly express gratitude to God</li>
+      </ul></div>
+    </div>
+
+    <!-- 12. Prayer Points -->
+    <div class="slide prayer-slide" data-slide="12">
+      <h2>Prayer Focus</h2>
+      <div class="prayer-points">
+        <h3>Eyes to See God's Blessings</h3>
+        <div class="scripture">
+          <div class="scripture-text">"Father, open my eyes to notice Your blessings that I take for granted each day. Help me to see Your hand in the ordinary moments - safe travels, daily provision, breath in my lungs. May I never treat Your blessings as mere coincidence."</div>
+          <div class="scripture-ref">Based on Psalm 103:2; Lamentations 3:22-23</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 13. Prayer Points 2 -->
+    <div class="slide prayer-slide" data-slide="13">
+      <h2>Prayer Focus</h2>
+      <div class="prayer-points">
+        <h3>Deliverance from Entitlement</h3>
+        <div class="scripture">
+          <div class="scripture-text">"Lord, deliver me from the spirit of entitlement. Help me remember that I deserve nothing good from You, yet You shower me with grace upon grace. Remove any 'Why God?' accusations from my heart and replace them with 'Thank You, Lord' for Your unmerited favor."</div>
+          <div class="scripture-ref">Based on Romans 6:23; Ephesians 2:8-9</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 14. Closing -->
+    <div class="slide cta-slide" data-slide="14">
+      <h1>Be The One Who Returns</h1>
+      <h2>Make Your Gratitude Complete</h2>
+      <div class="content-list" style="margin-top: 1.5rem;"><ul>
+        <li><span class="emphasis">Notice</span> God's blessings daily</li>
+        <li><span class="emphasis">Know</span> that Jesus is the source of every good thing</li>
+        <li><span class="emphasis">Return</span> to Him with thanksgiving and praise</li>
+        <li><span class="emphasis">Offer</span> your blessings back as worship</li>
+      </ul></div>
+      <div class="scripture" style="margin-top: 1.5rem;">
+        <div class="scripture-text">"Were there not ten cleansed? But where are the nine?"<br>Be the one who returns.</div>
+        <div class="scripture-ref">Luke 17:17</div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+      <button class="nav-btn" onclick="previousSlide()">← Previous</button>
+      <button class="nav-btn" onclick="nextSlide()">Next →</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = document.querySelectorAll('.slide').length;
+    document.getElementById('total-slides').textContent = totalSlides;
+
+    // Slide titles for sidebar navigation
+    const slideTitles = [
+      'Title',
+      'The Ungrateful Nine',
+      'Why Gratitude Matters',
+      'Ingratitude Destroys',
+      'Spiritual Impact',
+      'Christians Should Be',
+      'Most to Be Grateful For',
+      'Notice the Blessing',
+      'Know the Blesser',
+      'Entitlement Trap',
+      'Complete Your Gratitude',
+      'Prayer: Eyes to See',
+      'Prayer: Deliverance',
+      'Closing'
+    ];
+
+    // Generate sidebar navigation
+    function generateSidebar() {
+      const sidebarNav = document.getElementById('sidebarNav');
+      sidebarNav.innerHTML = '';
+
+      slideTitles.forEach((title, index) => {
+        const item = document.createElement('div');
+        item.className = 'sidebar-item';
+
+        // Mark section breaks
+        if ([2, 5].includes(index)) {
+          item.classList.add('section');
+        }
+
+        if (index === currentSlide - 1) {
+          item.classList.add('active');
+        }
+
+        item.innerHTML = `
+          <span class="slide-num">${index + 1}</span>
+          <span>${title}</span>
+        `;
+
+        item.onclick = () => {
+          showSlide(index + 1);
+        };
+
+        sidebarNav.appendChild(item);
+      });
+    }
+
+    function showSlide(n) {
+      const slides = document.querySelectorAll('.slide');
+      if (n > totalSlides) n = 1;
+      if (n < 1) n = totalSlides;
+      currentSlide = n;
+      slides.forEach(s => s.classList.remove('active'));
+      slides[currentSlide - 1].classList.add('active');
+      document.getElementById('current-slide').textContent = currentSlide;
+
+      // Update navigation buttons
+      const prevBtn = document.querySelector('.nav-btn');
+      const nextBtn = document.querySelectorAll('.nav-btn')[1];
+      prevBtn.disabled = currentSlide === 1;
+      nextBtn.disabled = currentSlide === totalSlides;
+
+      // Update sidebar
+      generateSidebar();
+    }
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function previousSlide() { showSlide(currentSlide - 1); }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+
+    document.addEventListener('keydown', function(event) {
+      switch(event.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+        case ' ': // Space
+        case 'Enter':
+          nextSlide();
+          event.preventDefault();
+          break;
+        case 'ArrowLeft':
+        case 'ArrowUp':
+          previousSlide();
+          event.preventDefault();
+          break;
+        case 'Home':
+          currentSlide = 1; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'End':
+          currentSlide = totalSlides; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'PageDown':
+          showSlide(Math.min(currentSlide + 10, totalSlides)); event.preventDefault();
+          break;
+        case 'PageUp':
+          showSlide(Math.max(currentSlide - 10, 1)); event.preventDefault();
+          break;
+      }
+    });
+
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let startY = 0;
+
+    document.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    });
+
+    document.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const endY = e.changedTouches[0].clientY;
+      const deltaX = endX - startX;
+      const deltaY = endY - startY;
+
+      // Only trigger if horizontal swipe is longer than vertical and over 50px
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+        if (deltaX > 0) {
+          previousSlide(); // Swipe right = previous
+        } else {
+          nextSlide();  // Swipe left = next
+        }
+      }
+    });
+
+    // Initialize
+    generateSidebar();
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>
