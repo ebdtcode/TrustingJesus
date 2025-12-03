@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Names of God and Their Meaning - 150+ Biblical Names Study Resource</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); color: #fff; overflow-x: hidden; }
+
+    /* Main Layout */
+    .presentation { position: relative; min-height: 100vh; padding-left: 280px; }
+
+    /* Sidebar Navigation */
+    .sidebar { position: fixed; left: 0; top: 0; width: 280px; height: 100vh; background: rgba(20, 33, 61, 0.98); backdrop-filter: blur(10px); overflow-y: auto; z-index: 1500; border-right: 2px solid #ffd166; }
+    .sidebar-header { padding: 1.5rem; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,209,102,0.3); }
+    .sidebar-header h3 { color: #ffd166; font-size: 1.2rem; margin: 0; }
+    .sidebar-header p { color: rgba(255,255,255,0.7); font-size: 0.85rem; margin-top: 0.3rem; }
+    .sidebar-nav { padding: 0.5rem 0; }
+    .sidebar-section { padding: 0.6rem 1.2rem; font-size: 0.75rem; color: rgba(255,209,102,0.8); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-top: 0.5rem; background: rgba(255,209,102,0.05); }
+    .sidebar-item { padding: 0.6rem 1.2rem; cursor: pointer; transition: all 0.3s ease; font-size: 0.85rem; border-left: 3px solid transparent; display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.85); }
+    .sidebar-item:hover { background: rgba(255,209,102,0.1); border-left-color: #ffd166; color: #fff; }
+    .sidebar-item.active { background: rgba(255,209,102,0.2); border-left-color: #ffd166; color: #ffd166; font-weight: 600; }
+
+    /* Home Button */
+    .home-btn { position: fixed; top: 20px; right: 20px; background: rgba(255,209,102,0.9); color: #14213d; padding: 0.6rem 1.2rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; z-index: 1000; display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; }
+    .home-btn:hover { background: #ffd166; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255,209,102,0.4); }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle { display: none; position: fixed; top: 20px; left: 20px; z-index: 2000; background: rgba(255,209,102,0.9); color: #14213d; border: none; padding: 0.6rem 0.8rem; border-radius: 8px; cursor: pointer; font-size: 1.2rem; }
+
+    /* Content Area */
+    .content { padding: 2rem 3rem 3rem; max-width: 1400px; margin: 0 auto; }
+
+    /* Page Header */
+    .page-header { text-align: center; margin-bottom: 3rem; padding: 2rem 0; }
+    .page-header h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 0.8rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); color: #fff; }
+    .page-header h2 { font-size: 1.5rem; font-weight: 400; color: #ffd166; margin-bottom: 1rem; }
+    .page-header .intro { font-size: 1.1rem; color: rgba(255,255,255,0.85); max-width: 900px; margin: 0 auto; line-height: 1.7; }
+    .name-count { display: inline-block; background: linear-gradient(135deg, #06d6a0, #118ab2); padding: 0.5rem 1.5rem; border-radius: 25px; font-weight: 700; margin-top: 1rem; font-size: 1rem; }
+
+    /* Section Titles */
+    .section-title { font-size: 1.8rem; font-weight: 700; color: #ffd166; margin: 2.5rem 0 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid rgba(255,209,102,0.3); display: flex; align-items: center; gap: 0.75rem; }
+    .section-title::before { content: attr(data-icon); font-size: 1.5rem; }
+
+    /* Name Cards Grid */
+    .names-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.2rem; margin-bottom: 2rem; }
+
+    /* Compact Name Card */
+    .name-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,209,102,0.2); border-radius: 12px; padding: 1.2rem; transition: all 0.3s ease; backdrop-filter: blur(8px); }
+    .name-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); border-color: rgba(255,209,102,0.5); }
+    .name-card .hebrew-name { font-size: 1.2rem; font-weight: 700; color: #ffd166; margin-bottom: 0.2rem; }
+    .name-card .english-name { font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-bottom: 0.5rem; font-style: italic; }
+    .name-card .meaning { font-size: 0.95rem; color: #fff; line-height: 1.5; }
+    .name-card .scripture-ref { font-size: 0.8rem; color: #ffd166; font-weight: 600; margin-top: 0.5rem; display: block; }
+
+    /* Featured Name Card */
+    .name-card.featured { background: linear-gradient(135deg, rgba(255,209,102,0.15), rgba(255,209,102,0.05)); border-color: #ffd166; }
+    .name-card.featured .scripture { background: rgba(255,209,102,0.1); border-left: 3px solid #ffd166; padding: 0.8rem 1rem; border-radius: 0 8px 8px 0; margin-top: 0.8rem; }
+    .name-card.featured .scripture-text { font-size: 0.9rem; font-style: italic; color: rgba(255,255,255,0.9); line-height: 1.5; margin-bottom: 0.3rem; }
+
+    /* Compact Grid for Lists */
+    .names-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.8rem; margin-bottom: 2rem; }
+    .name-item { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,209,102,0.15); border-radius: 8px; padding: 0.8rem 1rem; transition: all 0.2s ease; }
+    .name-item:hover { background: rgba(255,209,102,0.1); border-color: rgba(255,209,102,0.4); }
+    .name-item .name { font-weight: 600; color: #ffd166; font-size: 0.95rem; }
+    .name-item .desc { font-size: 0.85rem; color: rgba(255,255,255,0.8); margin-top: 0.2rem; }
+    .name-item .ref { font-size: 0.75rem; color: rgba(255,209,102,0.8); margin-top: 0.3rem; }
+
+    /* Prayer Section */
+    .prayer-section { background: rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; margin: 3rem 0; backdrop-filter: blur(12px); box-shadow: 0 12px 40px rgba(0,0,0,0.28); }
+    .prayer-section h3 { color: #ffd166; font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center; }
+    .prayer-points { display: grid; gap: 1rem; }
+    .prayer-point { background: rgba(255,255,255,0.08); padding: 1rem 1.5rem; border-radius: 10px; border-left: 4px solid #ffd166; }
+    .prayer-point p { font-size: 0.95rem; line-height: 1.6; color: rgba(255,255,255,0.9); }
+
+    /* Closing Section */
+    .closing { text-align: center; margin: 3rem 0; padding: 2rem; background: linear-gradient(135deg, #06d6a0, #118ab2); border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+    .closing h3 { font-size: 2rem; margin-bottom: 1rem; color: #fff; }
+    .closing p { font-size: 1.1rem; line-height: 1.6; color: rgba(255,255,255,0.95); max-width: 700px; margin: 0 auto; }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .names-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+      .names-list { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+      .content { padding: 1.5rem 2rem; }
+    }
+
+    @media (max-width: 768px) {
+      .presentation { padding-left: 0; }
+      .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+      .sidebar.open { transform: translateX(0); }
+      .menu-toggle { display: block; }
+      .home-btn { right: auto; left: 70px; }
+      .content { padding: 80px 1.5rem 2rem; }
+      .page-header h1 { font-size: 2rem; }
+      .page-header h2 { font-size: 1.2rem; }
+      .names-grid { grid-template-columns: 1fr; }
+      .names-list { grid-template-columns: 1fr; }
+      .section-title { font-size: 1.4rem; }
+    }
+
+    /* Print Styles */
+    @media print {
+      body { background: white; color: black; }
+      .sidebar, .menu-toggle, .home-btn { display: none; }
+      .presentation { padding-left: 0; }
+      .name-card, .name-item { background: #f8f9fa; border: 1px solid #ddd; color: black; page-break-inside: avoid; }
+      .name-card .hebrew-name, .section-title, .scripture-ref, .name-item .name { color: #333; }
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="presentation">
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation menu">&#9776;</button>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar" aria-label="Names of God navigation">
+      <div class="sidebar-header">
+        <h3>Names of God</h3>
+        <p>150+ Biblical Names</p>
+      </div>
+      <div class="sidebar-nav">
+        <div class="sidebar-section">Overview</div>
+        <div class="sidebar-item active" onclick="scrollToSection('header')">Introduction</div>
+
+        <div class="sidebar-section">Hebrew Names</div>
+        <div class="sidebar-item" onclick="scrollToSection('primary-names')">Primary Names (4)</div>
+        <div class="sidebar-item" onclick="scrollToSection('el-compound')">El Compounds (18)</div>
+        <div class="sidebar-item" onclick="scrollToSection('yahweh-compound')">Yahweh Compounds (16)</div>
+
+        <div class="sidebar-section">Names of Jesus</div>
+        <div class="sidebar-item" onclick="scrollToSection('nt-names')">NT Names (20)</div>
+        <div class="sidebar-item" onclick="scrollToSection('i-am')">I AM Statements (7)</div>
+
+        <div class="sidebar-section">Divine Titles</div>
+        <div class="sidebar-item" onclick="scrollToSection('titles-a-d')">A - D (25)</div>
+        <div class="sidebar-item" onclick="scrollToSection('titles-e-g')">E - G (20)</div>
+        <div class="sidebar-item" onclick="scrollToSection('titles-h-l')">H - L (25)</div>
+        <div class="sidebar-item" onclick="scrollToSection('titles-m-r')">M - R (20)</div>
+        <div class="sidebar-item" onclick="scrollToSection('titles-s-z')">S - Z (20)</div>
+
+        <div class="sidebar-section">Application</div>
+        <div class="sidebar-item" onclick="scrollToSection('prayer')">Prayer Focus</div>
+        <div class="sidebar-item" onclick="scrollToSection('closing')">Closing</div>
+      </div>
+    </nav>
+
+    <!-- Home Button -->
+    <a href="../index.html" class="home-btn">
+      <span>&#127968;</span>
+      <span>Dashboard</span>
+    </a>
+
+    <!-- Main Content -->
+    <main class="content">
+      <!-- Page Header -->
+      <header class="page-header" id="header">
+        <h1>The Names of God</h1>
+        <h2>And Their Meaning</h2>
+        <div class="name-count">150+ Biblical Names with Scripture References</div>
+        <p class="intro">
+          Throughout Scripture, God reveals Himself through His names. Each name unveils an aspect of His character,
+          His relationship with His people, and His redemptive work. Understanding these names deepens our worship,
+          strengthens our faith, and transforms how we approach God in prayer. This comprehensive study covers
+          Hebrew names, compound names, New Testament names of Jesus, and divine titles found throughout the Bible.
+        </p>
+      </header>
+
+      <!-- ==================== PRIMARY NAMES OF GOD ==================== -->
+      <section id="primary-names">
+        <h2 class="section-title" data-icon="&#9733;">Primary Names of God</h2>
+        <div class="names-grid">
+
+          <div class="name-card featured">
+            <div class="hebrew-name">Elohim (אלהים)</div>
+            <div class="english-name">"God" - The Supreme Creator</div>
+            <div class="meaning">
+              The plural form emphasizes God's majesty, power, and the Trinity. Used over 2,500 times in Scripture,
+              this name reveals God as the all-powerful Creator who spoke the universe into existence.
+            </div>
+            <div class="scripture">
+              <div class="scripture-text">"In the beginning God [Elohim] created the heavens and the earth."</div>
+              <div class="scripture-ref">Genesis 1:1 (NIV)</div>
+            </div>
+          </div>
+
+          <div class="name-card featured">
+            <div class="hebrew-name">YHWH / Yahweh (יהוה)</div>
+            <div class="english-name">"I AM" - The Self-Existent One</div>
+            <div class="meaning">
+              The most sacred name of God, revealed to Moses at the burning bush. This covenant name emphasizes
+              God's eternal, self-existent nature - He was, is, and always will be. Rendered as "LORD" in English.
+            </div>
+            <div class="scripture">
+              <div class="scripture-text">"God said to Moses, 'I AM WHO I AM. This is what you are to say to the Israelites: I AM has sent me to you.'"</div>
+              <div class="scripture-ref">Exodus 3:14 (NIV)</div>
+            </div>
+          </div>
+
+          <div class="name-card featured">
+            <div class="hebrew-name">Adonai (אדני)</div>
+            <div class="english-name">"Lord" - Master, Owner</div>
+            <div class="meaning">
+              Acknowledges God's authority and lordship over all creation. Occurs 434 times in the Old Testament.
+              When we call God "Adonai," we recognize His right to rule our lives completely.
+            </div>
+            <div class="scripture">
+              <div class="scripture-text">"O Sovereign LORD, you have begun to show to your servant your greatness and your strong hand."</div>
+              <div class="scripture-ref">Deuteronomy 3:24 (NIV)</div>
+            </div>
+          </div>
+
+          <div class="name-card featured">
+            <div class="hebrew-name">El (אל)</div>
+            <div class="english-name">"God" - The Mighty One</div>
+            <div class="meaning">
+              The singular form of Elohim, emphasizing God's strength and power. Often used in compound
+              names to describe specific attributes of God. El is the strong God who fulfills His promises.
+            </div>
+            <div class="scripture">
+              <div class="scripture-text">"The Mighty One, God, the LORD, speaks and summons the earth."</div>
+              <div class="scripture-ref">Psalm 50:1 (NIV)</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==================== EL COMPOUND NAMES ==================== -->
+      <section id="el-compound">
+        <h2 class="section-title" data-icon="&#9830;">El Compound Names (18 Names)</h2>
+        <div class="names-grid">
+
+          <div class="name-card">
+            <div class="hebrew-name">El Shaddai (אל שדי)</div>
+            <div class="english-name">"God Almighty" - All-Sufficient One</div>
+            <div class="meaning">Reveals God as the all-sufficient, almighty God who supplies all our needs. He nourishes, satisfies, and supplies His people with invincible strength.</div>
+            <span class="scripture-ref">Genesis 17:1; Psalm 91:1</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">El Elyon (אל עליון)</div>
+            <div class="english-name">"God Most High" - Supreme Ruler</div>
+            <div class="meaning">Declares that God is exalted above all gods, powers, and authorities. None is higher than El Elyon - He rules with absolute sovereignty.</div>
+            <span class="scripture-ref">Genesis 14:18-20; Psalm 7:17</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">El Roi (אל ראי)</div>
+            <div class="english-name">"The God Who Sees"</div>
+            <div class="meaning">Named by Hagar in the wilderness. God sees our circumstances, pain, struggles, and needs. We are never invisible or forgotten.</div>
+            <span class="scripture-ref">Genesis 16:13-14</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">El Olam (אל עולם)</div>
+            <div class="english-name">"The Everlasting God"</div>
+            <div class="meaning">Reveals God's eternal nature - no beginning, no end. His love, faithfulness, and promises endure forever beyond all time.</div>
+            <span class="scripture-ref">Genesis 21:33; Isaiah 40:28</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">El Gibhor (אל גבור)</div>
+            <div class="english-name">"Mighty God"</div>
+            <div class="meaning">The Mighty God who rescues and delivers. A messianic title pointing to Christ's power to save and conquer.</div>
+            <span class="scripture-ref">Isaiah 9:6</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">El Qanna (אל קנא)</div>
+            <div class="english-name">"Jealous God"</div>
+            <div class="meaning">God's zealous protection of His relationship with His people. His jealousy is holy - He will not share His glory with idols.</div>
+            <span class="scripture-ref">Exodus 20:5; 34:14</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">El Chaiyai (אל חיי)</div>
+            <div class="english-name">"God of My Life"</div>
+            <div class="meaning">The source and sustainer of all life. Every breath we take is a gift from El Chaiyai.</div>
+            <span class="scripture-ref">Psalm 42:8</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">El Chanuun (אל חנון)</div>
+            <div class="english-name">"Gracious God"</div>
+            <div class="meaning">God who shows unmerited favor and compassion. His grace extends to the undeserving.</div>
+            <span class="scripture-ref">Jonah 4:2; Exodus 34:6</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">El Hakkadosh (אל הקדוש)</div>
+            <div class="english-name">"The Holy God"</div>
+            <div class="meaning">Set apart, pure, and morally perfect. There is no comparison to the Holy One of Israel.</div>
+            <span class="scripture-ref">Isaiah 5:16; 40:25</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">El Oseh Phela</div>
+            <div class="english-name">"God Who Works Wonders"</div>
+            <div class="meaning">The miracle-working God who does the impossible. His wonders display His glory.</div>
+            <span class="scripture-ref">Psalm 77:14</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">El Simchath Giyl</div>
+            <div class="english-name">"God of My Exceeding Joy"</div>
+            <div class="meaning">The source of our deepest joy. In His presence is fullness of joy.</div>
+            <span class="scripture-ref">Psalm 43:4</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">El Deah</div>
+            <div class="english-name">"God of Knowledge"</div>
+            <div class="meaning">Omniscient God who knows all things - past, present, future. Nothing is hidden from Him.</div>
+            <span class="scripture-ref">1 Samuel 2:3</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">El Chay (אל חי)</div>
+            <div class="english-name">"The Living God"</div>
+            <div class="meaning">Unlike dead idols, our God is alive! He acts, speaks, and intervenes in human history.</div>
+            <span class="scripture-ref">Joshua 3:10; Psalm 42:2</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">El Chuwl</div>
+            <div class="english-name">"The God Who Gave You Birth"</div>
+            <div class="meaning">God as our spiritual parent who brought us into being with purpose and love.</div>
+            <span class="scripture-ref">Deuteronomy 32:18</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Elohei Chasdi</div>
+            <div class="english-name">"God of Steadfast Love"</div>
+            <div class="meaning">His covenant love (chesed) is unfailing, loyal, and endures forever.</div>
+            <span class="scripture-ref">Psalm 59:10, 17</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Elohei Mikkarov</div>
+            <div class="english-name">"God Who Is Near"</div>
+            <div class="meaning">God is not distant or detached - He is close to the brokenhearted.</div>
+            <span class="scripture-ref">Jeremiah 23:23; Psalm 34:18</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Elohim Emet</div>
+            <div class="english-name">"The True God"</div>
+            <div class="meaning">In contrast to false gods, He alone is true, real, and faithful.</div>
+            <span class="scripture-ref">Jeremiah 10:10</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Ha El Hanne'eman</div>
+            <div class="english-name">"The Faithful God"</div>
+            <div class="meaning">God keeps His covenant and steadfast love to a thousand generations.</div>
+            <span class="scripture-ref">Deuteronomy 7:9</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==================== YAHWEH COMPOUND NAMES ==================== -->
+      <section id="yahweh-compound">
+        <h2 class="section-title" data-icon="&#10070;">Yahweh/Jehovah Compound Names (16 Names)</h2>
+        <div class="names-grid">
+
+          <div class="name-card featured">
+            <div class="hebrew-name">Yahweh Yireh (יהוה יראה)</div>
+            <div class="english-name">"The LORD Will Provide"</div>
+            <div class="meaning">Abraham named the place where God provided a ram in place of Isaac. God sees our needs before we do and provides at the right time.</div>
+            <div class="scripture">
+              <div class="scripture-text">"So Abraham called that place The LORD Will Provide. And to this day it is said, 'On the mountain of the LORD it will be provided.'"</div>
+              <div class="scripture-ref">Genesis 22:14 (NIV)</div>
+            </div>
+          </div>
+
+          <div class="name-card featured">
+            <div class="hebrew-name">Yahweh Rapha (יהוה רפא)</div>
+            <div class="english-name">"The LORD Who Heals"</div>
+            <div class="meaning">God revealed Himself as Healer after the Exodus. Yahweh Rapha heals physically, emotionally, spiritually, and relationally.</div>
+            <div class="scripture">
+              <div class="scripture-text">"...for I am the LORD, who heals you."</div>
+              <div class="scripture-ref">Exodus 15:26 (NIV)</div>
+            </div>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Yahweh Nissi (יהוה נסי)</div>
+            <div class="english-name">"The LORD Is My Banner"</div>
+            <div class="meaning">After victory over the Amalekites, Moses built this altar. God is our rallying point and source of triumph.</div>
+            <span class="scripture-ref">Exodus 17:15</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Yahweh Shalom (יהוה שלום)</div>
+            <div class="english-name">"The LORD Is Peace"</div>
+            <div class="meaning">Gideon built this altar when God gave him peace. Shalom means completeness, wholeness, and prosperity.</div>
+            <span class="scripture-ref">Judges 6:24</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Yahweh Rohi (יהוה רעי)</div>
+            <div class="english-name">"The LORD Is My Shepherd"</div>
+            <div class="meaning">David understood God as the perfect Shepherd who guides, protects, and provides for His flock.</div>
+            <span class="scripture-ref">Psalm 23:1</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Yahweh Tsidkenu (יהוה צדקנו)</div>
+            <div class="english-name">"The LORD Our Righteousness"</div>
+            <div class="meaning">Prophetic name pointing to Christ, through whom we receive righteousness by faith.</div>
+            <span class="scripture-ref">Jeremiah 23:6</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Yahweh Shammah (יהוה שמה)</div>
+            <div class="english-name">"The LORD Is There"</div>
+            <div class="meaning">Name of the restored Jerusalem. God's abiding presence is with His people always.</div>
+            <span class="scripture-ref">Ezekiel 48:35</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Yahweh Sabaoth (יהוה צבאות)</div>
+            <div class="english-name">"The LORD of Hosts"</div>
+            <div class="meaning">Commander of heavenly armies. He leads angelic hosts and fights for His people.</div>
+            <span class="scripture-ref">1 Samuel 1:3; Psalm 24:10</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Yahweh M'Kaddesh (יהוה מקדש)</div>
+            <div class="english-name">"The LORD Who Sanctifies"</div>
+            <div class="meaning">God sets His people apart, making them holy for His purposes and glory.</div>
+            <span class="scripture-ref">Exodus 31:13; Ezekiel 37:28</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Yahweh Bore</div>
+            <div class="english-name">"The LORD Creator"</div>
+            <div class="meaning">The Creator of the ends of the earth, who speaks worlds into existence.</div>
+            <span class="scripture-ref">Isaiah 40:28</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Yahweh Baal Perez</div>
+            <div class="english-name">"LORD of Breakthrough"</div>
+            <div class="meaning">God breaks through obstacles and barriers on behalf of His people.</div>
+            <span class="scripture-ref">2 Samuel 5:20</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Yahweh Kesel</div>
+            <div class="english-name">"The LORD My Confidence"</div>
+            <div class="meaning">Our trust and confidence rest securely in the LORD alone.</div>
+            <span class="scripture-ref">Proverbs 3:26</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Yahweh Mephalti</div>
+            <div class="english-name">"The LORD My Deliverer"</div>
+            <div class="meaning">God rescues us from trouble, enemies, and the power of sin.</div>
+            <span class="scripture-ref">Psalm 18:2; 32:7</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Yahweh Shomreka</div>
+            <div class="english-name">"The LORD Your Keeper"</div>
+            <div class="meaning">God watches over and protects His people day and night.</div>
+            <span class="scripture-ref">Psalm 121:5</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Yahweh Tsaba</div>
+            <div class="english-name">"The LORD Our Warrior"</div>
+            <div class="meaning">God fights battles on behalf of His people with mighty power.</div>
+            <span class="scripture-ref">1 Samuel 17:45</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Yahweh Tsuri</div>
+            <div class="english-name">"The LORD My Rock"</div>
+            <div class="meaning">Solid, unmovable foundation. A fortress of protection and stability.</div>
+            <span class="scripture-ref">Isaiah 26:4; Psalm 18:2</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==================== NEW TESTAMENT NAMES OF JESUS ==================== -->
+      <section id="nt-names">
+        <h2 class="section-title" data-icon="&#10013;">Names of Jesus Christ (20 Names)</h2>
+        <div class="names-grid">
+
+          <div class="name-card featured">
+            <div class="hebrew-name">Immanuel</div>
+            <div class="english-name">"God With Us"</div>
+            <div class="meaning">In Jesus, God became flesh and dwelt among us. He has come near, sharing in our humanity and walking with us through life.</div>
+            <div class="scripture">
+              <div class="scripture-text">"The virgin will conceive and give birth to a son, and they will call him Immanuel - which means, 'God with us.'"</div>
+              <div class="scripture-ref">Matthew 1:23 (NIV)</div>
+            </div>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Logos (The Word)</div>
+            <div class="english-name">Divine Expression of God</div>
+            <div class="meaning">Jesus is God's Word made flesh - the perfect expression of God's nature and will.</div>
+            <span class="scripture-ref">John 1:1, 14</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Lamb of God</div>
+            <div class="english-name">The Sacrificial Savior</div>
+            <div class="meaning">The ultimate sacrifice who takes away the sin of the world. His blood cleanses us.</div>
+            <span class="scripture-ref">John 1:29</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Good Shepherd</div>
+            <div class="english-name">Protector and Guide</div>
+            <div class="meaning">Lays down His life for the sheep. Knows each by name and leads to abundant life.</div>
+            <span class="scripture-ref">John 10:11, 14</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Chief Shepherd</div>
+            <div class="english-name">Head of All Shepherds</div>
+            <div class="meaning">The supreme shepherd who will appear and reward faithful under-shepherds.</div>
+            <span class="scripture-ref">1 Peter 5:4</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Great Shepherd</div>
+            <div class="english-name">Shepherd of Souls</div>
+            <div class="meaning">Brought back from the dead through the blood of the eternal covenant.</div>
+            <span class="scripture-ref">Hebrews 13:20</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Messiah / Christ</div>
+            <div class="english-name">The Anointed One</div>
+            <div class="meaning">The long-awaited King anointed by God to save His people.</div>
+            <span class="scripture-ref">Matthew 1:16; John 1:41</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Son of God</div>
+            <div class="english-name">Divine Son</div>
+            <div class="meaning">The eternal Son, fully God, second person of the Trinity.</div>
+            <span class="scripture-ref">Matthew 3:17; John 3:16</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Son of Man</div>
+            <div class="english-name">Fully Human</div>
+            <div class="meaning">Jesus' favorite self-designation, emphasizing His humanity and fulfillment of Daniel 7.</div>
+            <span class="scripture-ref">Mark 10:45; Daniel 7:13</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Lion of Judah</div>
+            <div class="english-name">Conquering King</div>
+            <div class="meaning">The triumphant King from David's line who has conquered sin and death.</div>
+            <span class="scripture-ref">Revelation 5:5</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Bridegroom</div>
+            <div class="english-name">Husband of the Church</div>
+            <div class="meaning">Christ's loving, covenant relationship with His bride, the Church.</div>
+            <span class="scripture-ref">Matthew 9:15; Ephesians 5:25-27</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Great High Priest</div>
+            <div class="english-name">Our Mediator</div>
+            <div class="meaning">He sympathizes with our weaknesses and intercedes for us before the Father.</div>
+            <span class="scripture-ref">Hebrews 4:14-16</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Advocate</div>
+            <div class="english-name">Our Defense Attorney</div>
+            <div class="meaning">Jesus speaks in our defense when we sin, standing as our righteous representative.</div>
+            <span class="scripture-ref">1 John 2:1</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Mediator</div>
+            <div class="english-name">Bridge Between God and Man</div>
+            <div class="meaning">The one who stands between holy God and sinful humanity to bring reconciliation.</div>
+            <span class="scripture-ref">1 Timothy 2:5</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Author and Perfecter of Faith</div>
+            <div class="english-name">Pioneer and Completer</div>
+            <div class="meaning">Jesus began our faith and will bring it to completion.</div>
+            <span class="scripture-ref">Hebrews 12:2</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Chief Cornerstone</div>
+            <div class="english-name">Foundation Stone</div>
+            <div class="meaning">The essential stone upon which the entire building (Church) rests.</div>
+            <span class="scripture-ref">Ephesians 2:20; 1 Peter 2:6</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Head of the Church</div>
+            <div class="english-name">Supreme Leader</div>
+            <div class="meaning">Christ governs, directs, and gives life to His body, the Church.</div>
+            <span class="scripture-ref">Colossians 1:18; Ephesians 1:22</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Last Adam</div>
+            <div class="english-name">Second Man</div>
+            <div class="meaning">Where the first Adam failed, Christ succeeded - bringing life instead of death.</div>
+            <span class="scripture-ref">1 Corinthians 15:45</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Firstborn from the Dead</div>
+            <div class="english-name">First to Resurrect</div>
+            <div class="meaning">The first to rise never to die again, guaranteeing our resurrection.</div>
+            <span class="scripture-ref">Colossians 1:18; Revelation 1:5</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">Yeshua (Jesus)</div>
+            <div class="english-name">"The LORD Saves"</div>
+            <div class="meaning">His very name declares His mission: to save His people from their sins.</div>
+            <span class="scripture-ref">Matthew 1:21</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==================== I AM STATEMENTS ==================== -->
+      <section id="i-am">
+        <h2 class="section-title" data-icon="&#10024;">The Seven "I AM" Statements of Jesus</h2>
+        <div class="names-grid">
+
+          <div class="name-card featured">
+            <div class="hebrew-name">I AM the Bread of Life</div>
+            <div class="english-name">Spiritual Sustenance</div>
+            <div class="meaning">Jesus sustains spiritual life just as bread sustains physical life. Whoever comes to Him will never go hungry.</div>
+            <div class="scripture">
+              <div class="scripture-text">"I am the bread of life. Whoever comes to me will never go hungry, and whoever believes in me will never be thirsty."</div>
+              <div class="scripture-ref">John 6:35 (NIV)</div>
+            </div>
+          </div>
+
+          <div class="name-card featured">
+            <div class="hebrew-name">I AM the Light of the World</div>
+            <div class="english-name">Divine Illumination</div>
+            <div class="meaning">Jesus dispels darkness of sin, ignorance, and death. Those who follow Him have the light of life.</div>
+            <div class="scripture">
+              <div class="scripture-text">"I am the light of the world. Whoever follows me will never walk in darkness, but will have the light of life."</div>
+              <div class="scripture-ref">John 8:12 (NIV)</div>
+            </div>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">I AM the Gate</div>
+            <div class="english-name">The Door to Salvation</div>
+            <div class="meaning">Jesus is the only entrance to salvation and abundant life.</div>
+            <span class="scripture-ref">John 10:9</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">I AM the Good Shepherd</div>
+            <div class="english-name">Sacrificial Protector</div>
+            <div class="meaning">Lays down His life for the sheep, unlike hired hands who abandon.</div>
+            <span class="scripture-ref">John 10:11</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">I AM the Resurrection and the Life</div>
+            <div class="english-name">Conqueror of Death</div>
+            <div class="meaning">Those who believe in Him will live even though they die.</div>
+            <span class="scripture-ref">John 11:25</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">I AM the Way, Truth, and Life</div>
+            <div class="english-name">The Only Path to God</div>
+            <div class="meaning">No one comes to the Father except through Jesus - the exclusive way to God.</div>
+            <span class="scripture-ref">John 14:6</span>
+          </div>
+
+          <div class="name-card">
+            <div class="hebrew-name">I AM the True Vine</div>
+            <div class="english-name">Source of Spiritual Life</div>
+            <div class="meaning">We must remain connected to Jesus to bear fruit. Apart from Him we can do nothing.</div>
+            <span class="scripture-ref">John 15:1, 5</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==================== DIVINE TITLES A-D ==================== -->
+      <section id="titles-a-d">
+        <h2 class="section-title" data-icon="&#128220;">Divine Titles: A - D (25 Names)</h2>
+        <div class="names-list">
+          <div class="name-item"><div class="name">Abba Father</div><div class="desc">"Daddy" - Intimate, loving Father</div><div class="ref">Mark 14:36; Galatians 4:6</div></div>
+          <div class="name-item"><div class="name">Almighty One</div><div class="desc">All-powerful, omnipotent God</div><div class="ref">Revelation 1:8</div></div>
+          <div class="name-item"><div class="name">Alpha and Omega</div><div class="desc">The First and the Last, Beginning and End</div><div class="ref">Revelation 22:13</div></div>
+          <div class="name-item"><div class="name">Amen</div><div class="desc">The faithful and true witness</div><div class="ref">Revelation 3:14</div></div>
+          <div class="name-item"><div class="name">Ancient of Days</div><div class="desc">Eternal, venerable God</div><div class="ref">Daniel 7:9, 13, 22</div></div>
+          <div class="name-item"><div class="name">Angel of the LORD</div><div class="desc">Divine messenger, pre-incarnate Christ</div><div class="ref">Genesis 16:7; Exodus 3:2</div></div>
+          <div class="name-item"><div class="name">Anointed One</div><div class="desc">Chosen and empowered by God</div><div class="ref">Psalm 2:2; Acts 4:26</div></div>
+          <div class="name-item"><div class="name">Apostle</div><div class="desc">Sent One, messenger from God</div><div class="ref">Hebrews 3:1</div></div>
+          <div class="name-item"><div class="name">Author of Life</div><div class="desc">Creator and giver of life</div><div class="ref">Acts 3:15</div></div>
+          <div class="name-item"><div class="name">Beginning</div><div class="desc">Source and origin of all things</div><div class="ref">Revelation 21:6</div></div>
+          <div class="name-item"><div class="name">Beloved Son</div><div class="desc">Father's dearly loved Son</div><div class="ref">Matthew 3:17; 17:5</div></div>
+          <div class="name-item"><div class="name">Bishop of Souls</div><div class="desc">Overseer and guardian of souls</div><div class="ref">1 Peter 2:25</div></div>
+          <div class="name-item"><div class="name">Branch</div><div class="desc">Righteous sprout from David's line</div><div class="ref">Zechariah 3:8; 6:12</div></div>
+          <div class="name-item"><div class="name">Bright Morning Star</div><div class="desc">Herald of the new day</div><div class="ref">Revelation 22:16</div></div>
+          <div class="name-item"><div class="name">Carpenter</div><div class="desc">Humble craftsman of Nazareth</div><div class="ref">Mark 6:3</div></div>
+          <div class="name-item"><div class="name">Comforter</div><div class="desc">One who brings comfort and consolation</div><div class="ref">Jeremiah 8:18; John 14:16</div></div>
+          <div class="name-item"><div class="name">Consolation of Israel</div><div class="desc">Hope and comfort of God's people</div><div class="ref">Luke 2:25</div></div>
+          <div class="name-item"><div class="name">Counselor</div><div class="desc">Wonderful advisor and guide</div><div class="ref">Isaiah 9:6</div></div>
+          <div class="name-item"><div class="name">Creator</div><div class="desc">Maker of heaven and earth</div><div class="ref">Genesis 1:1; Isaiah 40:28</div></div>
+          <div class="name-item"><div class="name">Dayspring</div><div class="desc">Rising sun from on high</div><div class="ref">Luke 1:78</div></div>
+          <div class="name-item"><div class="name">Day Star</div><div class="desc">Morning star rising in hearts</div><div class="ref">2 Peter 1:19</div></div>
+          <div class="name-item"><div class="name">Deliverer</div><div class="desc">One who rescues and saves</div><div class="ref">Romans 11:26</div></div>
+          <div class="name-item"><div class="name">Desire of Nations</div><div class="desc">Longing of all peoples</div><div class="ref">Haggai 2:7</div></div>
+          <div class="name-item"><div class="name">Door</div><div class="desc">Entrance to salvation</div><div class="ref">John 10:7, 9</div></div>
+          <div class="name-item"><div class="name">Dwelling Place</div><div class="desc">Our eternal home and refuge (Ma'on)</div><div class="ref">Psalm 90:1</div></div>
+        </div>
+      </section>
+
+      <!-- ==================== DIVINE TITLES E-G ==================== -->
+      <section id="titles-e-g">
+        <h2 class="section-title" data-icon="&#128220;">Divine Titles: E - G (20 Names)</h2>
+        <div class="names-list">
+          <div class="name-item"><div class="name">End</div><div class="desc">The final goal and completion</div><div class="ref">Revelation 21:6</div></div>
+          <div class="name-item"><div class="name">Eternal God</div><div class="desc">Without beginning or end</div><div class="ref">Deuteronomy 33:27</div></div>
+          <div class="name-item"><div class="name">Everlasting Father</div><div class="desc">Father of eternity</div><div class="ref">Isaiah 9:6</div></div>
+          <div class="name-item"><div class="name">Faithful and True</div><div class="desc">Completely reliable and honest</div><div class="ref">Revelation 19:11</div></div>
+          <div class="name-item"><div class="name">Father</div><div class="desc">Loving heavenly parent</div><div class="ref">Matthew 6:9</div></div>
+          <div class="name-item"><div class="name">Father of Lights</div><div class="desc">Source of all good gifts</div><div class="ref">James 1:17</div></div>
+          <div class="name-item"><div class="name">First and Last</div><div class="desc">Eternal, from beginning to end</div><div class="ref">Revelation 1:17</div></div>
+          <div class="name-item"><div class="name">Firstborn</div><div class="desc">Preeminent over all creation</div><div class="ref">Colossians 1:15</div></div>
+          <div class="name-item"><div class="name">First Fruits</div><div class="desc">Guarantee of resurrection harvest</div><div class="ref">1 Corinthians 15:23</div></div>
+          <div class="name-item"><div class="name">Fortress</div><div class="desc">Strong protection and defense</div><div class="ref">Psalm 18:2</div></div>
+          <div class="name-item"><div class="name">Foundation</div><div class="desc">Solid base upon which to build</div><div class="ref">Isaiah 28:16</div></div>
+          <div class="name-item"><div class="name">Fountain</div><div class="desc">Source of cleansing and life</div><div class="ref">Zechariah 13:1</div></div>
+          <div class="name-item"><div class="name">Friend of Sinners</div><div class="desc">Welcomes the outcast</div><div class="ref">Matthew 11:19</div></div>
+          <div class="name-item"><div class="name">Gift of God</div><div class="desc">Indescribable gift to humanity</div><div class="ref">2 Corinthians 9:15</div></div>
+          <div class="name-item"><div class="name">Glory of God</div><div class="desc">Radiance of divine presence</div><div class="ref">Isaiah 60:1; John 1:14</div></div>
+          <div class="name-item"><div class="name">God of All Comfort</div><div class="desc">Source of all consolation</div><div class="ref">2 Corinthians 1:3</div></div>
+          <div class="name-item"><div class="name">God of All Grace</div><div class="desc">Giver of every grace needed</div><div class="ref">1 Peter 5:10</div></div>
+          <div class="name-item"><div class="name">God of Hope</div><div class="desc">Source of all hope</div><div class="ref">Romans 15:13</div></div>
+          <div class="name-item"><div class="name">Governor</div><div class="desc">Ruler who guides and directs</div><div class="ref">Matthew 2:6</div></div>
+          <div class="name-item"><div class="name">Guide</div><div class="desc">Leads us through life</div><div class="ref">Psalm 48:14</div></div>
+        </div>
+      </section>
+
+      <!-- ==================== DIVINE TITLES H-L ==================== -->
+      <section id="titles-h-l">
+        <h2 class="section-title" data-icon="&#128220;">Divine Titles: H - L (25 Names)</h2>
+        <div class="names-list">
+          <div class="name-item"><div class="name">Healer</div><div class="desc">Restorer of body, soul, and spirit</div><div class="ref">Exodus 15:26</div></div>
+          <div class="name-item"><div class="name">Helper</div><div class="desc">Present help in trouble</div><div class="ref">Psalm 54:4; Hebrews 13:6</div></div>
+          <div class="name-item"><div class="name">Hiding Place</div><div class="desc">Secret place of protection</div><div class="ref">Psalm 32:7</div></div>
+          <div class="name-item"><div class="name">Holy One</div><div class="desc">Set apart, morally perfect</div><div class="ref">Isaiah 43:15; Acts 2:27</div></div>
+          <div class="name-item"><div class="name">Holy One of Israel</div><div class="desc">Israel's covenant-keeping Holy God</div><div class="ref">Isaiah 41:14</div></div>
+          <div class="name-item"><div class="name">Holy Servant</div><div class="desc">God's chosen servant</div><div class="ref">Acts 4:27</div></div>
+          <div class="name-item"><div class="name">Horn of Salvation</div><div class="desc">Powerful deliverer</div><div class="ref">Luke 1:69</div></div>
+          <div class="name-item"><div class="name">Image of God</div><div class="desc">Exact representation of the Father</div><div class="ref">Colossians 1:15; Hebrews 1:3</div></div>
+          <div class="name-item"><div class="name">Jealous</div><div class="desc">Zealous for His relationship with us</div><div class="ref">Exodus 34:14</div></div>
+          <div class="name-item"><div class="name">Judge</div><div class="desc">Righteous judge of all</div><div class="ref">Acts 10:42; 2 Timothy 4:8</div></div>
+          <div class="name-item"><div class="name">Just One</div><div class="desc">Perfectly righteous and fair</div><div class="ref">Acts 7:52</div></div>
+          <div class="name-item"><div class="name">King</div><div class="desc">Sovereign ruler over all</div><div class="ref">Psalm 47:7; 1 Timothy 1:17</div></div>
+          <div class="name-item"><div class="name">King of Glory</div><div class="desc">Glorious, majestic King</div><div class="ref">Psalm 24:7-10</div></div>
+          <div class="name-item"><div class="name">King of Israel</div><div class="desc">Rightful King of God's people</div><div class="ref">John 1:49</div></div>
+          <div class="name-item"><div class="name">King of Kings</div><div class="desc">Supreme over all rulers</div><div class="ref">Revelation 19:16</div></div>
+          <div class="name-item"><div class="name">King of the Jews</div><div class="desc">Messiah of the Jewish people</div><div class="ref">Matthew 2:2; 27:37</div></div>
+          <div class="name-item"><div class="name">Lawgiver</div><div class="desc">Giver of divine law</div><div class="ref">James 4:12</div></div>
+          <div class="name-item"><div class="name">Life</div><div class="desc">Source of all life</div><div class="ref">John 11:25; 14:6</div></div>
+          <div class="name-item"><div class="name">Light</div><div class="desc">Divine illumination in darkness</div><div class="ref">John 1:9; 8:12</div></div>
+          <div class="name-item"><div class="name">Living Stone</div><div class="desc">Alive and foundational</div><div class="ref">1 Peter 2:4</div></div>
+          <div class="name-item"><div class="name">Living Water</div><div class="desc">Source of spiritual refreshment</div><div class="ref">Jeremiah 17:13; John 4:10</div></div>
+          <div class="name-item"><div class="name">Lord of All</div><div class="desc">Master over everything</div><div class="ref">Acts 10:36</div></div>
+          <div class="name-item"><div class="name">Lord of Glory</div><div class="desc">Glorious, majestic Lord</div><div class="ref">1 Corinthians 2:8</div></div>
+          <div class="name-item"><div class="name">Lord of Hosts</div><div class="desc">Commander of heavenly armies</div><div class="ref">Isaiah 1:24</div></div>
+          <div class="name-item"><div class="name">Lord of Lords</div><div class="desc">Supreme over all authorities</div><div class="ref">Revelation 19:16</div></div>
+        </div>
+      </section>
+
+      <!-- ==================== DIVINE TITLES M-R ==================== -->
+      <section id="titles-m-r">
+        <h2 class="section-title" data-icon="&#128220;">Divine Titles: M - R (20 Names)</h2>
+        <div class="names-list">
+          <div class="name-item"><div class="name">Maker</div><div class="desc">Creator who formed us</div><div class="ref">Isaiah 17:7; 54:5</div></div>
+          <div class="name-item"><div class="name">Man of Sorrows</div><div class="desc">Acquainted with grief</div><div class="ref">Isaiah 53:3</div></div>
+          <div class="name-item"><div class="name">Master</div><div class="desc">Lord and owner</div><div class="ref">Luke 5:5; 2 Timothy 2:21</div></div>
+          <div class="name-item"><div class="name">Mighty God</div><div class="desc">Powerful warrior and deliverer</div><div class="ref">Isaiah 9:6</div></div>
+          <div class="name-item"><div class="name">Mighty One of Jacob</div><div class="desc">Strong protector of Israel</div><div class="ref">Genesis 49:24; Isaiah 49:26</div></div>
+          <div class="name-item"><div class="name">Most High</div><div class="desc">Exalted above all</div><div class="ref">Psalm 91:1</div></div>
+          <div class="name-item"><div class="name">Nazarene</div><div class="desc">Man from Nazareth</div><div class="ref">Matthew 2:23</div></div>
+          <div class="name-item"><div class="name">Omega</div><div class="desc">The final, the last</div><div class="ref">Revelation 1:8</div></div>
+          <div class="name-item"><div class="name">Only Begotten Son</div><div class="desc">Unique, one-of-a-kind Son</div><div class="ref">John 3:16</div></div>
+          <div class="name-item"><div class="name">Potter</div><div class="desc">Shapes and molds us</div><div class="ref">Isaiah 64:8; Romans 9:21</div></div>
+          <div class="name-item"><div class="name">Prince of Life</div><div class="desc">Author and source of life</div><div class="ref">Acts 3:15</div></div>
+          <div class="name-item"><div class="name">Prince of Peace</div><div class="desc">Bringer of true peace</div><div class="ref">Isaiah 9:6</div></div>
+          <div class="name-item"><div class="name">Prophet</div><div class="desc">Spokesman for God</div><div class="ref">Deuteronomy 18:15; Acts 3:22</div></div>
+          <div class="name-item"><div class="name">Propitiation</div><div class="desc">Atoning sacrifice for sin</div><div class="ref">Romans 3:25; 1 John 2:2</div></div>
+          <div class="name-item"><div class="name">Rabbi/Teacher</div><div class="desc">Master instructor</div><div class="ref">John 1:38; 3:2</div></div>
+          <div class="name-item"><div class="name">Redeemer</div><div class="desc">One who buys back</div><div class="ref">Isaiah 44:6; 59:20</div></div>
+          <div class="name-item"><div class="name">Refiner</div><div class="desc">Purifies like silver and gold</div><div class="ref">Malachi 3:2-3</div></div>
+          <div class="name-item"><div class="name">Refuge</div><div class="desc">Safe place in danger</div><div class="ref">Psalm 46:1; 91:2</div></div>
+          <div class="name-item"><div class="name">Resurrection</div><div class="desc">Conqueror of death</div><div class="ref">John 11:25</div></div>
+          <div class="name-item"><div class="name">Rock</div><div class="desc">Solid, immovable foundation</div><div class="ref">Deuteronomy 32:4; 1 Corinthians 10:4</div></div>
+        </div>
+      </section>
+
+      <!-- ==================== DIVINE TITLES S-Z ==================== -->
+      <section id="titles-s-z">
+        <h2 class="section-title" data-icon="&#128220;">Divine Titles: S - Z (20 Names)</h2>
+        <div class="names-list">
+          <div class="name-item"><div class="name">Savior</div><div class="desc">Rescuer from sin and death</div><div class="ref">Luke 2:11; Titus 2:13</div></div>
+          <div class="name-item"><div class="name">Seed of Abraham</div><div class="desc">Fulfillment of promise</div><div class="ref">Galatians 3:16</div></div>
+          <div class="name-item"><div class="name">Seed of the Woman</div><div class="desc">Promised deliverer</div><div class="ref">Genesis 3:15</div></div>
+          <div class="name-item"><div class="name">Servant</div><div class="desc">Humble servant of all</div><div class="ref">Isaiah 42:1; Matthew 12:18</div></div>
+          <div class="name-item"><div class="name">Shield</div><div class="desc">Protection from harm</div><div class="ref">Genesis 15:1; Psalm 3:3</div></div>
+          <div class="name-item"><div class="name">Son of David</div><div class="desc">Heir to David's throne</div><div class="ref">Matthew 1:1; 21:9</div></div>
+          <div class="name-item"><div class="name">Strength</div><div class="desc">Source of power</div><div class="ref">Psalm 18:1; 28:7</div></div>
+          <div class="name-item"><div class="name">Stronghold</div><div class="desc">Fortress of defense</div><div class="ref">Psalm 9:9; 18:2</div></div>
+          <div class="name-item"><div class="name">Sun of Righteousness</div><div class="desc">Rising with healing</div><div class="ref">Malachi 4:2</div></div>
+          <div class="name-item"><div class="name">Teacher</div><div class="desc">Divine instructor</div><div class="ref">John 3:2; 13:13</div></div>
+          <div class="name-item"><div class="name">Tower</div><div class="desc">High place of safety</div><div class="ref">Proverbs 18:10</div></div>
+          <div class="name-item"><div class="name">Truth</div><div class="desc">Absolute reality and certainty</div><div class="ref">John 14:6</div></div>
+          <div class="name-item"><div class="name">Vine</div><div class="desc">Source of spiritual life</div><div class="ref">John 15:1, 5</div></div>
+          <div class="name-item"><div class="name">Way</div><div class="desc">Path to the Father</div><div class="ref">John 14:6</div></div>
+          <div class="name-item"><div class="name">Wisdom of God</div><div class="desc">Divine wisdom personified</div><div class="ref">1 Corinthians 1:24, 30</div></div>
+          <div class="name-item"><div class="name">Witness</div><div class="desc">Faithful testifier of truth</div><div class="ref">Revelation 1:5; 3:14</div></div>
+          <div class="name-item"><div class="name">Wonderful</div><div class="desc">Full of wonder and awe</div><div class="ref">Isaiah 9:6; Judges 13:18</div></div>
+          <div class="name-item"><div class="name">Word of God</div><div class="desc">Divine communication</div><div class="ref">Revelation 19:13</div></div>
+          <div class="name-item"><div class="name">Word of Life</div><div class="desc">Message that gives life</div><div class="ref">1 John 1:1</div></div>
+          <div class="name-item"><div class="name">Worthy One</div><div class="desc">Deserving of all praise</div><div class="ref">Revelation 5:12</div></div>
+        </div>
+      </section>
+
+      <!-- ==================== PRAYER SECTION ==================== -->
+      <section id="prayer" class="prayer-section">
+        <h3>Prayer Focus: Knowing God Through His Names</h3>
+        <div class="prayer-points">
+          <div class="prayer-point">
+            <p><strong>Elohim, Creator God:</strong> Father, I worship You as the Creator of all things. Help me to trust in Your power to create new beginnings in my life. You who spoke the universe into existence can speak transformation into my circumstances.</p>
+          </div>
+          <div class="prayer-point">
+            <p><strong>Yahweh, I AM:</strong> Eternal God, You are the same yesterday, today, and forever. In a world of constant change, anchor me in Your unchanging nature. Be my I AM in every situation I face.</p>
+          </div>
+          <div class="prayer-point">
+            <p><strong>Yahweh Yireh, My Provider:</strong> Lord, I trust You to provide for all my needs according to Your riches in glory. You see what I need before I ask. Help me to rest in Your faithful provision.</p>
+          </div>
+          <div class="prayer-point">
+            <p><strong>Yahweh Rapha, My Healer:</strong> Healing God, I bring my brokenness to You - physical, emotional, spiritual, and relational. Touch me with Your healing power and make me whole.</p>
+          </div>
+          <div class="prayer-point">
+            <p><strong>Yahweh Shalom, My Peace:</strong> Lord of Peace, in the midst of life's storms, be my calm. Guard my heart and mind with Your peace that surpasses all understanding.</p>
+          </div>
+          <div class="prayer-point">
+            <p><strong>El Roi, The God Who Sees:</strong> You see me, Lord. You know my struggles, fears, hopes, and needs. Thank You that I am never invisible, never forgotten, never alone.</p>
+          </div>
+          <div class="prayer-point">
+            <p><strong>Immanuel, God With Us:</strong> Thank You, Jesus, for coming to be with us. Help me to live in constant awareness of Your presence. You are with me always, even to the end of the age.</p>
+          </div>
+          <div class="prayer-point">
+            <p><strong>Good Shepherd:</strong> Lead me, Lord, in paths of righteousness for Your name's sake. Protect me from the enemy, restore my soul, and cause me to dwell in Your house forever.</p>
+          </div>
+          <div class="prayer-point">
+            <p><strong>Alpha and Omega:</strong> You are the Beginning and the End. Help me trust that You hold my life from start to finish. Nothing surprises You; my times are in Your hands.</p>
+          </div>
+          <div class="prayer-point">
+            <p><strong>King of Kings:</strong> I bow before Your majesty and declare that You alone are Lord. Rule in my heart, my home, and my life. May Your kingdom come and Your will be done.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== CLOSING ==================== -->
+      <section id="closing" class="closing">
+        <h3>Know His Name, Know His Nature</h3>
+        <p>
+          As you study and meditate on these 150+ names of God, let them transform how you pray,
+          how you worship, and how you live. Each name is an invitation to know God more deeply
+          and trust Him more completely. He has revealed Himself through His names - will you draw near?
+        </p>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    function scrollToSection(id) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        updateActiveNavItem(id);
+        if (window.innerWidth <= 768) {
+          document.getElementById('sidebar').classList.remove('open');
+        }
+      }
+    }
+
+    function updateActiveNavItem(activeId) {
+      const items = document.querySelectorAll('.sidebar-item');
+      items.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('onclick') && item.getAttribute('onclick').includes(activeId)) {
+          item.classList.add('active');
+        }
+      });
+    }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+
+    // Update active nav item on scroll
+    window.addEventListener('scroll', function() {
+      const sections = ['header', 'primary-names', 'el-compound', 'yahweh-compound', 'nt-names', 'i-am', 'titles-a-d', 'titles-e-g', 'titles-h-l', 'titles-m-r', 'titles-s-z', 'prayer', 'closing'];
+      let currentSection = 'header';
+
+      sections.forEach(sectionId => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 150) {
+            currentSection = sectionId;
+          }
+        }
+      });
+
+      updateActiveNavItem(currentSection);
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape' && window.innerWidth <= 768) {
+        document.getElementById('sidebar').classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>
