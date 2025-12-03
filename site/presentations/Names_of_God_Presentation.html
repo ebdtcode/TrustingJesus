@@ -991,7 +991,8 @@
           const verse = match[3];
           const urlBook = bookMappings[bookName];
           if (urlBook) {
-            return `https://biblehub.com/niv/${urlBook}/${chapter}.htm`;
+            // Format: https://biblehub.com/psalms/48-14.htm (book/chapter-verse.htm)
+            return `https://biblehub.com/${urlBook}/${chapter}-${verse}.htm`;
           }
         }
         return null;

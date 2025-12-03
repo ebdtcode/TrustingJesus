@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How God Leads His People - Prayer & Meditation Guide</title>
+    <style>
+        /* CONSISTENT STYLE TEMPLATE FOR ALL PRESENTATIONS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #03396C;
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Sidebar Navigation (PowerPoint Style) */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100vh;
+            background: rgba(3, 57, 108, 0.95);
+            backdrop-filter: blur(10px);
+            border-right: 2px solid #FF8D21;
+            z-index: 2000;
+            transition: left 0.3s ease;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 141, 33, 0.3);
+            text-align: center;
+        }
+
+        .sidebar-header h3 {
+            color: #FF8D21;
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .sidebar-nav {
+            padding: 10px 0;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+            font-size: 0.9rem;
+        }
+
+        .sidebar-item:hover {
+            background: rgba(255, 141, 33, 0.1);
+            border-left-color: #FF8D21;
+        }
+
+        .sidebar-item.active {
+            background: rgba(255, 141, 33, 0.2);
+            border-left-color: #FF8D21;
+            color: #FF8D21;
+        }
+
+        .sidebar-item-number {
+            background: #FF8D21;
+            color: #03396C;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .sidebar-item.active .sidebar-item-number {
+            background: white;
+            color: #03396C;
+        }
+
+        .sidebar-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #FF8D21;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 2100;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            width: clamp(44px, 8vw, 55px);
+            height: clamp(44px, 8vw, 55px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            touch-action: manipulation;
+        }
+
+        .sidebar-toggle:hover {
+            background: #ff6b00;
+            transform: scale(1.1);
+        }
+
+        .sidebar-toggle:active {
+            transform: scale(1.05);
+        }
+
+        /* Slide Styles */
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            transition: transform 0.3s ease, width 0.3s ease;
+        }
+
+        body.sidebar-open .presentation {
+            transform: translateX(300px);
+            width: calc(100vw - 300px);
+        }
+
+        body.sidebar-open .slide-counter {
+            left: 330px;
+        }
+
+        body.sidebar-open .sidebar-toggle {
+            left: 320px;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 80px;
+            text-align: center;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        /* Typography Standards - Fully Responsive */
+        .slide h1 {
+            font-size: clamp(1.8rem, 5vw, 4rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: clamp(15px, 3vh, 30px);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .slide h2 {
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            font-weight: 600;
+            color: #FF8D21;
+            margin-bottom: clamp(15px, 3vh, 30px);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            line-height: 1.3;
+        }
+
+        .slide h3 {
+            font-size: clamp(1.3rem, 3.5vw, 2.5rem);
+            font-weight: 600;
+            color: #FFD700;
+            margin-bottom: clamp(15px, 2vh, 25px);
+            line-height: 1.3;
+        }
+
+        .slide p {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            line-height: 1.6;
+        }
+
+        .scripture {
+            background: rgba(255, 141, 33, 0.1);
+            border-left: 4px solid #FF8D21;
+            padding: clamp(15px, 3vw, 30px);
+            margin: clamp(15px, 3vh, 30px) auto;
+            max-width: 900px;
+            font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+            line-height: 1.6;
+            text-align: left;
+            border-radius: 8px;
+            width: 90%;
+        }
+
+        .scripture-reference {
+            text-align: right;
+            color: #FFD700;
+            font-size: clamp(1rem, 2vw, 1.4rem);
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        .bullet-list {
+            text-align: left;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 90%;
+        }
+
+        .bullet-list li {
+            font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+            margin: clamp(10px, 2vh, 20px) 0;
+            line-height: 1.5;
+            position: relative;
+            padding-left: clamp(30px, 5vw, 40px);
+        }
+
+        .bullet-list li:before {
+            content: "▶";
+            color: #FF8D21;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        .prayer-point {
+            background: rgba(255, 141, 33, 0.15);
+            border: 2px solid #FF8D21;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 900px;
+            border-radius: 12px;
+        }
+
+        .prayer-point h3 {
+            color: #FFD700;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .two-column {
+            display: flex;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .column {
+            flex: 1;
+            text-align: left;
+        }
+
+        /* Navigation Controls */
+        .nav-controls {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .home-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 141, 33, 0.9);
+            color: white;
+            border: 2px solid #FF8D21;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            z-index: 2100;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .home-button:hover {
+            background: #FF8D21;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            text-decoration: none;
+            color: white;
+        }
+
+        .home-button-icon {
+            font-size: 1.2rem;
+        }
+
+        .nav-button {
+            background: #FF8D21;
+            color: white;
+            border: none;
+            padding: clamp(10px, 2vh, 15px) clamp(20px, 3vw, 30px);
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            transition: all 0.3s ease;
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            touch-action: manipulation;
+        }
+
+        .nav-button:hover {
+            background: #ff6b00;
+            transform: translateY(-2px);
+        }
+
+        .nav-button:active {
+            transform: translateY(0);
+        }
+
+        .nav-button:disabled {
+            background: rgba(255, 141, 33, 0.3);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1.1rem;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: #FF8D21;
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        .icon {
+            font-size: clamp(3rem, 8vw, 6rem);
+            margin-bottom: clamp(20px, 3vh, 30px);
+        }
+
+        /* Responsive Design - Multi-Breakpoint System */
+        @media (max-width: 1280px) {
+            .slide {
+                padding: 50px 60px;
+            }
+        }
+
+        @media (max-width: 1023px) {
+            .slide {
+                padding: 40px 40px;
+            }
+
+            .two-column {
+                gap: 20px;
+            }
+
+            .nav-controls {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .sidebar {
+                width: 280px;
+                left: -280px;
+            }
+
+            body.sidebar-open .presentation {
+                transform: translateX(280px);
+                width: calc(100vw - 280px);
+            }
+
+            body.sidebar-open .slide-counter {
+                left: 310px;
+            }
+
+            body.sidebar-open .sidebar-toggle {
+                left: 300px;
+            }
+
+            .slide {
+                padding: 30px 20px;
+            }
+
+            .two-column {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .home-button {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+                top: 70px;
+                right: 15px;
+            }
+
+            .home-button span:not(.home-button-icon) {
+                display: none;
+            }
+
+            .nav-controls {
+                bottom: 15px;
+                right: 15px;
+                gap: 10px;
+            }
+
+            .slide-counter {
+                bottom: 15px;
+                left: 15px;
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 599px) {
+            .sidebar {
+                width: 250px;
+                left: -250px;
+            }
+
+            body.sidebar-open .presentation {
+                transform: translateX(250px);
+                width: calc(100vw - 250px);
+            }
+
+            body.sidebar-open .sidebar-toggle {
+                left: 270px;
+            }
+
+            body.sidebar-open .slide-counter {
+                left: 270px;
+            }
+
+            .slide {
+                padding: 20px 15px;
+            }
+
+            .prayer-point {
+                padding: 20px;
+                margin: 20px auto;
+            }
+
+            .prayer-point h3 {
+                font-size: 1.5rem;
+            }
+
+            .sidebar-toggle {
+                top: 15px;
+                left: 15px;
+            }
+
+            .home-button {
+                top: 65px;
+                right: 10px;
+            }
+        }
+
+        @media (max-height: 600px) and (orientation: landscape) {
+            .slide {
+                padding: 20px 40px;
+                justify-content: flex-start;
+                overflow-y: auto;
+            }
+
+            .slide h1 {
+                margin-bottom: 15px;
+            }
+
+            .slide h2 {
+                margin-bottom: 15px;
+            }
+
+            .scripture {
+                margin: 15px auto;
+                padding: 15px;
+            }
+
+            .nav-controls {
+                bottom: 10px;
+            }
+
+            .slide-counter {
+                bottom: 10px;
+            }
+        }
+
+        @media (max-width: 374px) {
+            .sidebar {
+                width: 220px;
+                left: -220px;
+            }
+
+            body.sidebar-open .presentation {
+                transform: translateX(220px);
+                width: calc(100vw - 220px);
+            }
+
+            .slide {
+                padding: 15px 10px;
+            }
+
+            .sidebar-item {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media print {
+            .sidebar, .sidebar-toggle, .nav-controls, .slide-counter, .progress-bar, .home-button {
+                display: none !important;
+            }
+
+            .slide {
+                display: flex !important;
+                page-break-after: always;
+                background: white;
+                color: black;
+            }
+
+            .slide h1, .slide h2 {
+                color: #03396C;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar Toggle -->
+    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+
+    <!-- Home Button -->
+    <a href="../index.html" class="home-button" title="Return to Dashboard">
+        <span class="home-button-icon">🏠</span>
+        <span>Dashboard</span>
+    </a>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Slide Navigation</h3>
+        </div>
+        <div class="sidebar-nav" id="sidebarNav">
+            <!-- Navigation items will be auto-generated -->
+        </div>
+    </div>
+
+    <div class="presentation">
+        <div class="progress-bar" id="progressBar"></div>
+
+        <!-- SLIDE 1: Title Slide -->
+        <div class="slide active">
+            <h1>How God Leads His People</h1>
+            <h2>Understanding Divine Guidance for Believers</h2>
+            <div class="scripture">
+                "Your word is a lamp for my feet, a light on my path."
+                <div class="scripture-reference">Psalm 119:105 (NIV)</div>
+            </div>
+            <p style="margin-top: 40px; font-size: 1.6rem; color: #FF8D21;">Prayer & Meditation Guide</p>
+            <p style="margin-top: 20px; font-size: 1.4rem; color: #FFD700;">November 13, 2025</p>
+        </div>
+
+        <!-- SLIDE 2: Overview -->
+        <div class="slide">
+            <h2>Seven Ways God Leads His Children</h2>
+            <div class="two-column">
+                <div class="column">
+                    <ul class="bullet-list">
+                        <li><strong style="color: #FF8D21;">Through His Word</strong><br>
+                            <span style="font-size: 1.3rem; color: #FFD700;">Psalm 119:105</span></li>
+                        <li><strong style="color: #FF8D21;">Through the Holy Spirit</strong><br>
+                            <span style="font-size: 1.3rem; color: #FFD700;">John 16:13</span></li>
+                        <li><strong style="color: #FF8D21;">Through Prayer</strong><br>
+                            <span style="font-size: 1.3rem; color: #FFD700;">Proverbs 3:6</span></li>
+                        <li><strong style="color: #FF8D21;">Through Godly Counsel</strong><br>
+                            <span style="font-size: 1.3rem; color: #FFD700;">Proverbs 15:22</span></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <ul class="bullet-list">
+                        <li><strong style="color: #FF8D21;">Through Circumstances</strong><br>
+                            <span style="font-size: 1.3rem; color: #FFD700;">Romans 8:28</span></li>
+                        <li><strong style="color: #FF8D21;">Through Peace</strong><br>
+                            <span style="font-size: 1.3rem; color: #FFD700;">Colossians 3:15</span></li>
+                        <li><strong style="color: #FF8D21;">Through Providence</strong><br>
+                            <span style="font-size: 1.3rem; color: #FFD700;">Genesis 12:1</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: Through His Word -->
+        <div class="slide">
+            <div class="icon">📖</div>
+            <h2>1. Through His Word (The Bible)</h2>
+            <div class="scripture">
+                "Your word is a lamp for my feet, a light on my path."
+                <div class="scripture-reference">Psalm 119:105 (NIV)</div>
+            </div>
+            <p style="margin-top: 30px; font-size: 1.4rem;">God's Word is our primary guide, revealing His character, will, and promises.</p>
+        </div>
+
+        <!-- SLIDE 4: His Word - Details -->
+        <div class="slide">
+            <h2>📖 His Word Provides Guidance</h2>
+            <div class="scripture">
+                "Keep this Book of the Law always on your lips; meditate on it day and night, so that you may be careful to do everything written in it. Then you will be prosperous and successful."
+                <div class="scripture-reference">Joshua 1:8 (NIV)</div>
+            </div>
+            <div class="prayer-point">
+                <p style="font-size: 1.3rem; line-height: 1.6;">When we study and meditate on His Word, He gives clarity, conviction, and direction.</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: Through the Holy Spirit -->
+        <div class="slide">
+            <div class="icon">🕊️</div>
+            <h2>2. Through the Holy Spirit</h2>
+            <div class="scripture">
+                "But when he, the Spirit of truth, comes, he will guide you into all the truth. He will not speak on his own; he will speak only what he hears, and he will tell you what is yet to come."
+                <div class="scripture-reference">John 16:13 (NIV)</div>
+            </div>
+            <p style="margin-top: 30px; font-size: 1.4rem;">The Holy Spirit is our internal guide and counselor.</p>
+        </div>
+
+        <!-- SLIDE 6: Holy Spirit - Details -->
+        <div class="slide">
+            <h2>🕊️ The Spirit Directs Our Path</h2>
+            <ul class="bullet-list">
+                <li>The Spirit brings conviction, peace, and wisdom</li>
+                <li>He redirects our plans when necessary</li>
+                <li>He speaks what He hears from the Father</li>
+            </ul>
+            <div class="scripture">
+                "Paul and his companions traveled throughout the region of Phrygia and Galatia, having been kept by the Holy Spirit from preaching the word in the province of Asia."
+                <div class="scripture-reference">Acts 16:6 (NIV)</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: Through Prayer -->
+        <div class="slide">
+            <div class="icon">🙏</div>
+            <h2>3. Through Prayer and Seeking God's Will</h2>
+            <div class="scripture">
+                "in all your ways submit to him, and he will make your paths straight."
+                <div class="scripture-reference">Proverbs 3:6 (NIV)</div>
+            </div>
+            <p style="margin-top: 30px; font-size: 1.4rem;">Prayer opens the way for God to give guidance through peace, scripture, or circumstances.</p>
+        </div>
+
+        <!-- SLIDE 8: Prayer - Details -->
+        <div class="slide">
+            <h2>🙏 Prayer Aligns Our Hearts</h2>
+            <ul class="bullet-list">
+                <li>Trust in the LORD with all your heart</li>
+                <li>Lean not on your own understanding</li>
+                <li>Submit to Him in all your ways</li>
+                <li>He will make your paths straight</li>
+            </ul>
+            <div class="prayer-point">
+                <p style="font-size: 1.2rem;"><strong>Example:</strong> David often sought God's counsel before making decisions in battle (1 Samuel 23:2, 30:8).</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: Through Godly Counsel -->
+        <div class="slide">
+            <div class="icon">👥</div>
+            <h2>4. Through Godly Counsel and Fellowship</h2>
+            <div class="scripture">
+                "Plans fail for lack of counsel, but with many advisers they succeed."
+                <div class="scripture-reference">Proverbs 15:22 (NIV)</div>
+            </div>
+            <p style="margin-top: 30px; font-size: 1.4rem;">God sometimes leads us through the wisdom of mature believers.</p>
+        </div>
+
+        <!-- SLIDE 10: Godly Counsel - Details -->
+        <div class="slide">
+            <h2>👥 The Value of Wise Advisers</h2>
+            <ul class="bullet-list">
+                <li>Mentors and pastors can confirm what God is stirring in your heart</li>
+                <li>Many advisers help plans succeed</li>
+                <li>Seek godly counsel before major decisions</li>
+            </ul>
+            <div class="prayer-point">
+                <p style="font-size: 1.2rem;"><strong>Example:</strong> Paul and Barnabas were commissioned for ministry after prayer and counsel from the church in Antioch (Acts 13:2-3).</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 11: Through Circumstances -->
+        <div class="slide">
+            <div class="icon">🚪</div>
+            <h2>5. Through Circumstances and Open Doors</h2>
+            <div class="scripture">
+                "And we know that in all things God works for the good of those who love him, who have been called according to his purpose."
+                <div class="scripture-reference">Romans 8:28 (NIV)</div>
+            </div>
+            <p style="margin-top: 30px; font-size: 1.4rem;">God can orchestrate events to move His people where He wants them.</p>
+        </div>
+
+        <!-- SLIDE 12: Circumstances - Details -->
+        <div class="slide">
+            <h2>🚪 Open and Closed Doors</h2>
+            <ul class="bullet-list">
+                <li>Closed doors can be as much guidance as open ones</li>
+                <li>God works all things together for good</li>
+                <li>Trust His sovereignty in every circumstance</li>
+            </ul>
+            <div class="scripture">
+                "You intended to harm me, but God intended it for good to accomplish what is now being done, the saving of many lives."
+                <div class="scripture-reference">Genesis 50:20 (NIV)</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 13: Through Peace -->
+        <div class="slide">
+            <div class="icon">☮️</div>
+            <h2>6. Through Peace in the Heart</h2>
+            <div class="scripture">
+                "Let the peace of Christ rule in your hearts, since as members of one body you were called to peace. And be thankful."
+                <div class="scripture-reference">Colossians 3:15 (NIV)</div>
+            </div>
+            <p style="margin-top: 30px; font-size: 1.4rem;">God's leading is often marked by inner peace rather than confusion or anxiety.</p>
+        </div>
+
+        <!-- SLIDE 14: Peace - Details -->
+        <div class="slide">
+            <h2>☮️ The Peace That Rules</h2>
+            <div class="prayer-point">
+                <h3>Key Truth</h3>
+                <p style="font-size: 1.4rem; line-height: 1.6;">When you're walking in His will, even difficult paths come with a quiet assurance. Let the peace of Christ be the deciding factor in your heart.</p>
+            </div>
+            <ul class="bullet-list" style="margin-top: 30px;">
+                <li>Peace indicates His presence</li>
+                <li>Confusion rarely accompanies God's will</li>
+                <li>Be thankful in all circumstances</li>
+            </ul>
+        </div>
+
+        <!-- SLIDE 15: Through Providence -->
+        <div class="slide">
+            <div class="icon">⏳</div>
+            <h2>7. Through His Providence Over Time</h2>
+            <div class="scripture">
+                "The Lord had said to Abram, 'Go from your country, your people and your father's household to the land I will show you.'"
+                <div class="scripture-reference">Genesis 12:1 (NIV)</div>
+            </div>
+            <p style="margin-top: 30px; font-size: 1.4rem;">Sometimes His guidance unfolds gradually.</p>
+        </div>
+
+        <!-- SLIDE 16: Providence - Details -->
+        <div class="slide">
+            <h2>⏳ Step by Step Guidance</h2>
+            <div class="prayer-point">
+                <p style="font-size: 1.3rem; line-height: 1.6;">God didn't give Abraham every detail—He led him step by step. Trust God's timing when He doesn't reveal everything at once.</p>
+            </div>
+            <ul class="bullet-list" style="margin-top: 30px;">
+                <li>Walk by faith, not by sight</li>
+                <li>Obey even when you don't see the full picture</li>
+                <li>Trust His providence in every season</li>
+            </ul>
+        </div>
+
+        <!-- SLIDE 17: Prayer Points (1) -->
+        <div class="slide">
+            <h2>🙏 Prayer Points (Part 1)</h2>
+            <ul class="bullet-list">
+                <li><strong style="color: #FFD700;">Word:</strong> Pray for hunger to study and meditate on Scripture daily</li>
+                <li><strong style="color: #FFD700;">Spirit:</strong> Ask for sensitivity to the Holy Spirit's promptings</li>
+                <li><strong style="color: #FFD700;">Prayer:</strong> Commit to seeking God's will before all decisions</li>
+                <li><strong style="color: #FFD700;">Counsel:</strong> Thank God for wise mentors and advisers</li>
+            </ul>
+        </div>
+
+        <!-- SLIDE 18: Prayer Points (2) -->
+        <div class="slide">
+            <h2>🙏 Prayer Points (Part 2)</h2>
+            <ul class="bullet-list">
+                <li><strong style="color: #FFD700;">Circumstances:</strong> Trust God's hand in both open and closed doors</li>
+                <li><strong style="color: #FFD700;">Peace:</strong> Let the peace of Christ rule in your heart</li>
+                <li><strong style="color: #FFD700;">Providence:</strong> Be patient with God's step-by-step guidance</li>
+            </ul>
+        </div>
+
+        <!-- SLIDE 19: Action Points -->
+        <div class="slide">
+            <h2>This Week's Action Points</h2>
+            <ul class="bullet-list">
+                <li>Meditate on Psalm 119:105 and Proverbs 3:5-6 daily</li>
+                <li>Set aside quiet time to listen for the Spirit's promptings</li>
+                <li>Seek godly counsel for one decision you're facing</li>
+                <li>Journal one way God has guided you this week</li>
+                <li>Before decisions, pray: "Not my will, but Yours"</li>
+                <li>Thank God for closed doors—He may be redirecting you</li>
+                <li>Check for the peace of Christ before important choices</li>
+            </ul>
+        </div>
+
+        <!-- SLIDE 20: Reflection Questions -->
+        <div class="slide">
+            <h2>Reflection Questions</h2>
+            <div class="two-column">
+                <div class="column">
+                    <ul class="bullet-list">
+                        <li>Am I regularly reading God's Word?</li>
+                        <li>Am I sensitive to the Spirit's promptings?</li>
+                        <li>Do I seek God in prayer before decisions?</li>
+                        <li>Do I have godly advisers in my life?</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <ul class="bullet-list">
+                        <li>Can I see God's hand in circumstances?</li>
+                        <li>Is Christ's peace ruling my heart?</li>
+                        <li>Am I patient with God's timing?</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 21: Weekly Declaration -->
+        <div class="slide">
+            <h2>Weekly Declaration</h2>
+            <div class="prayer-point">
+                <p style="font-size: 1.3rem; line-height: 1.8; text-align: left;">
+                    "Father, I thank You that You lead me in multiple ways—through Your Word, by Your Spirit, in prayer, through godly counsel, by circumstances, with Your peace, and over time according to Your providence. I submit my ways to You and trust You to make my paths straight. I will not lean on my own understanding but acknowledge You in all my ways. Lead me, guide me, and give me a heart that quickly obeys Your voice. In Jesus' name, Amen!"
+                </p>
+            </div>
+        </div>
+
+        <!-- SLIDE 22: Key Truths -->
+        <div class="slide">
+            <h2>Key Truths to Remember</h2>
+            <ul class="bullet-list">
+                <li>Scripture is our primary and most reliable source of guidance</li>
+                <li>The Holy Spirit actively guides believers into truth</li>
+                <li>Through prayer, God aligns our hearts with His purposes</li>
+                <li>Godly advisers help confirm what God is speaking</li>
+                <li>God works through circumstances, both favorable and challenging</li>
+                <li>Inner peace is often a sign of God's will</li>
+                <li>God's guidance often unfolds gradually; trust the process</li>
+            </ul>
+        </div>
+
+        <!-- SLIDE 23: Closing Scripture -->
+        <div class="slide">
+            <h2>God's Promise to You</h2>
+            <div class="scripture">
+                "The Lord will guide you always; he will satisfy your needs in a sun-scorched land and will strengthen your frame. You will be like a well-watered garden, like a spring whose waters never fail."
+                <div class="scripture-reference">Isaiah 58:11 (NIV)</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 24: Closing -->
+        <div class="slide">
+            <h1>How God Leads His People</h1>
+            <p style="font-size: 2rem; margin: 30px 0;">Trust His guidance in every season of life</p>
+            <div class="scripture">
+                "in all your ways submit to him, and he will make your paths straight."
+                <div class="scripture-reference">Proverbs 3:6 (NIV)</div>
+            </div>
+            <p style="font-size: 1.4rem; color: #FFD700; margin-top: 40px;">Prayer & Meditation Guide</p>
+        </div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="nav-controls">
+        <button class="nav-button" id="prevBtn" onclick="changeSlide(-1)">Previous</button>
+        <button class="nav-button" id="nextBtn" onclick="changeSlide(1)">Next</button>
+    </div>
+
+    <!-- Slide Counter -->
+    <div class="slide-counter" id="slideCounter">1 / 24</div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const progressBar = document.getElementById('progressBar');
+        const slideCounter = document.getElementById('slideCounter');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarNav = document.getElementById('sidebarNav');
+
+        const slideTitles = [
+            "How God Leads His People",
+            "Seven Ways God Leads",
+            "🙏 Through His Word",
+            "🙏 His Word Provides Guidance",
+            "🙏 Through the Holy Spirit",
+            "🙏 The Spirit Directs Our Path",
+            "🙏 Through Prayer",
+            "🙏 Prayer Aligns Our Hearts",
+            "🙏 Through Godly Counsel",
+            "🙏 The Value of Wise Advisers",
+            "🙏 Through Circumstances",
+            "🙏 Open and Closed Doors",
+            "🙏 Through Peace",
+            "🙏 The Peace That Rules",
+            "🙏 Through Providence",
+            "🙏 Step by Step Guidance",
+            "🙏 Prayer Points (Part 1)",
+            "🙏 Prayer Points (Part 2)",
+            "Action Points",
+            "Reflection Questions",
+            "🙏 Weekly Declaration",
+            "Key Truths to Remember",
+            "God's Promise to You",
+            "Closing"
+        ];
+
+        function generateSidebarNav() {
+            sidebarNav.innerHTML = '';
+            slides.forEach((slide, index) => {
+                const navItem = document.createElement('div');
+                navItem.className = 'sidebar-item';
+                if (index === currentSlide) navItem.classList.add('active');
+
+                let title = slideTitles[index] || `Slide ${index + 1}`;
+
+                navItem.innerHTML = `
+                    <div class="sidebar-item-number">${index + 1}</div>
+                    <div class="sidebar-item-title">${title}</div>
+                `;
+
+                navItem.addEventListener('click', () => {
+                    goToSlide(index);
+                    closeSidebar();
+                });
+
+                sidebarNav.appendChild(navItem);
+            });
+        }
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('open');
+            document.body.classList.toggle('sidebar-open');
+        }
+
+        function closeSidebar() {
+            sidebar.classList.remove('open');
+            document.body.classList.remove('sidebar-open');
+        }
+
+        function goToSlide(slideIndex) {
+            if (slideIndex >= 0 && slideIndex < totalSlides) {
+                currentSlide = slideIndex;
+                updateSlide();
+            }
+        }
+
+        function updateSlide() {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide].classList.add('active');
+            progressBar.style.width = ((currentSlide + 1) / totalSlides * 100) + '%';
+            slideCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+            updateSidebarActive();
+        }
+
+        function updateSidebarActive() {
+            document.querySelectorAll('.sidebar-item').forEach((item, index) => {
+                if (index === currentSlide) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        function changeSlide(direction) {
+            const newSlide = currentSlide + direction;
+            if (newSlide >= 0 && newSlide < totalSlides) {
+                currentSlide = newSlide;
+                updateSlide();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case 'ArrowLeft': changeSlide(-1); break;
+                case 'ArrowRight':
+                case ' ': changeSlide(1); break;
+                case 'Home': goToSlide(0); break;
+                case 'End': goToSlide(totalSlides - 1); break;
+                case 'Escape': closeSidebar(); break;
+            }
+        });
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let touchStartY = 0;
+        let touchEndY = 0;
+        const minSwipeDistance = 50;
+
+        const presentationElement = document.querySelector('.presentation');
+
+        presentationElement.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        presentationElement.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeDistanceX = touchEndX - touchStartX;
+            const swipeDistanceY = touchEndY - touchStartY;
+
+            if (Math.abs(swipeDistanceX) > Math.abs(swipeDistanceY)) {
+                if (Math.abs(swipeDistanceX) > minSwipeDistance) {
+                    if (swipeDistanceX > 0) {
+                        changeSlide(-1);
+                    } else {
+                        changeSlide(1);
+                    }
+                }
+            }
+        }
+
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', (e) => {
+            const now = new Date().getTime();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+
+        generateSidebarNav();
+        updateSlide();
+    </script>
+</body>
+</html>
