@@ -50,6 +50,8 @@
     .name-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,209,102,0.2); border-radius: 12px; padding: 1.2rem; transition: all 0.3s ease; backdrop-filter: blur(8px); }
     .name-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); border-color: rgba(255,209,102,0.5); }
     .name-card .hebrew-name { font-size: 1.2rem; font-weight: 700; color: #ffd166; margin-bottom: 0.2rem; }
+    .name-card .pronunciation { font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-bottom: 0.4rem; font-style: italic; letter-spacing: 0.5px; }
+    .name-card .pronunciation::before { content: "Pronounced: "; color: rgba(255,209,102,0.7); }
     .name-card .english-name { font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-bottom: 0.5rem; font-style: italic; }
     .name-card .meaning { font-size: 0.95rem; color: #fff; line-height: 1.5; }
     .name-card .scripture-ref { font-size: 0.8rem; color: #ffd166; font-weight: 600; margin-top: 0.5rem; display: block; }
@@ -185,6 +187,7 @@
 
           <div class="name-card featured">
             <div class="hebrew-name">Elohim (אלהים)</div>
+            <div class="pronunciation">el-oh-HEEM</div>
             <div class="english-name">"God" - The Supreme Creator</div>
             <div class="meaning">
               The plural form emphasizes God's majesty, power, and the Trinity. Used over 2,500 times in Scripture,
@@ -198,6 +201,7 @@
 
           <div class="name-card featured">
             <div class="hebrew-name">YHWH / Yahweh (יהוה)</div>
+            <div class="pronunciation">YAH-way</div>
             <div class="english-name">"I AM" - The Self-Existent One</div>
             <div class="meaning">
               The most sacred name of God, revealed to Moses at the burning bush. This covenant name emphasizes
@@ -211,6 +215,7 @@
 
           <div class="name-card featured">
             <div class="hebrew-name">Adonai (אדני)</div>
+            <div class="pronunciation">ah-doh-NYE</div>
             <div class="english-name">"Lord" - Master, Owner</div>
             <div class="meaning">
               Acknowledges God's authority and lordship over all creation. Occurs 434 times in the Old Testament.
@@ -224,6 +229,7 @@
 
           <div class="name-card featured">
             <div class="hebrew-name">El (אל)</div>
+            <div class="pronunciation">EL</div>
             <div class="english-name">"God" - The Mighty One</div>
             <div class="meaning">
               The singular form of Elohim, emphasizing God's strength and power. Often used in compound
@@ -245,6 +251,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">El Shaddai (אל שדי)</div>
+            <div class="pronunciation">el shad-DYE</div>
             <div class="english-name">"God Almighty" - All-Sufficient One</div>
             <div class="meaning">Reveals God as the all-sufficient, almighty God who supplies all our needs. He nourishes, satisfies, and supplies His people with invincible strength.</div>
             <span class="scripture-ref">Genesis 17:1; Psalm 91:1</span>
@@ -252,6 +259,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">El Elyon (אל עליון)</div>
+            <div class="pronunciation">el el-YOHN</div>
             <div class="english-name">"God Most High" - Supreme Ruler</div>
             <div class="meaning">Declares that God is exalted above all gods, powers, and authorities. None is higher than El Elyon - He rules with absolute sovereignty.</div>
             <span class="scripture-ref">Genesis 14:18-20; Psalm 7:17</span>
@@ -259,6 +267,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">El Roi (אל ראי)</div>
+            <div class="pronunciation">el ROH-ee</div>
             <div class="english-name">"The God Who Sees"</div>
             <div class="meaning">Named by Hagar in the wilderness. God sees our circumstances, pain, struggles, and needs. We are never invisible or forgotten.</div>
             <span class="scripture-ref">Genesis 16:13-14</span>
@@ -266,6 +275,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">El Olam (אל עולם)</div>
+            <div class="pronunciation">el oh-LAHM</div>
             <div class="english-name">"The Everlasting God"</div>
             <div class="meaning">Reveals God's eternal nature - no beginning, no end. His love, faithfulness, and promises endure forever beyond all time.</div>
             <span class="scripture-ref">Genesis 21:33; Isaiah 40:28</span>
@@ -273,6 +283,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">El Gibhor (אל גבור)</div>
+            <div class="pronunciation">el gib-BOHR</div>
             <div class="english-name">"Mighty God"</div>
             <div class="meaning">The Mighty God who rescues and delivers. A messianic title pointing to Christ's power to save and conquer.</div>
             <span class="scripture-ref">Isaiah 9:6</span>
@@ -280,6 +291,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">El Qanna (אל קנא)</div>
+            <div class="pronunciation">el kah-NAH</div>
             <div class="english-name">"Jealous God"</div>
             <div class="meaning">God's zealous protection of His relationship with His people. His jealousy is holy - He will not share His glory with idols.</div>
             <span class="scripture-ref">Exodus 20:5; 34:14</span>
@@ -287,6 +299,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">El Chaiyai (אל חיי)</div>
+            <div class="pronunciation">el khay-YAY</div>
             <div class="english-name">"God of My Life"</div>
             <div class="meaning">The source and sustainer of all life. Every breath we take is a gift from El Chaiyai.</div>
             <span class="scripture-ref">Psalm 42:8</span>
@@ -294,6 +307,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">El Chanuun (אל חנון)</div>
+            <div class="pronunciation">el khah-NOON</div>
             <div class="english-name">"Gracious God"</div>
             <div class="meaning">God who shows unmerited favor and compassion. His grace extends to the undeserving.</div>
             <span class="scripture-ref">Jonah 4:2; Exodus 34:6</span>
@@ -301,6 +315,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">El Hakkadosh (אל הקדוש)</div>
+            <div class="pronunciation">el hah-kah-DOHSH</div>
             <div class="english-name">"The Holy God"</div>
             <div class="meaning">Set apart, pure, and morally perfect. There is no comparison to the Holy One of Israel.</div>
             <span class="scripture-ref">Isaiah 5:16; 40:25</span>
@@ -308,6 +323,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">El Oseh Phela</div>
+            <div class="pronunciation">el oh-SEH PEH-lah</div>
             <div class="english-name">"God Who Works Wonders"</div>
             <div class="meaning">The miracle-working God who does the impossible. His wonders display His glory.</div>
             <span class="scripture-ref">Psalm 77:14</span>
@@ -315,6 +331,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">El Simchath Giyl</div>
+            <div class="pronunciation">el sim-KHAT GEEL</div>
             <div class="english-name">"God of My Exceeding Joy"</div>
             <div class="meaning">The source of our deepest joy. In His presence is fullness of joy.</div>
             <span class="scripture-ref">Psalm 43:4</span>
@@ -322,6 +339,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">El Deah</div>
+            <div class="pronunciation">el day-AH</div>
             <div class="english-name">"God of Knowledge"</div>
             <div class="meaning">Omniscient God who knows all things - past, present, future. Nothing is hidden from Him.</div>
             <span class="scripture-ref">1 Samuel 2:3</span>
@@ -329,6 +347,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">El Chay (אל חי)</div>
+            <div class="pronunciation">el KHAI</div>
             <div class="english-name">"The Living God"</div>
             <div class="meaning">Unlike dead idols, our God is alive! He acts, speaks, and intervenes in human history.</div>
             <span class="scripture-ref">Joshua 3:10; Psalm 42:2</span>
@@ -336,6 +355,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">El Chuwl</div>
+            <div class="pronunciation">el KHOOL</div>
             <div class="english-name">"The God Who Gave You Birth"</div>
             <div class="meaning">God as our spiritual parent who brought us into being with purpose and love.</div>
             <span class="scripture-ref">Deuteronomy 32:18</span>
@@ -343,6 +363,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">Elohei Chasdi</div>
+            <div class="pronunciation">el-oh-HAY KHAS-dee</div>
             <div class="english-name">"God of Steadfast Love"</div>
             <div class="meaning">His covenant love (chesed) is unfailing, loyal, and endures forever.</div>
             <span class="scripture-ref">Psalm 59:10, 17</span>
@@ -350,6 +371,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">Elohei Mikkarov</div>
+            <div class="pronunciation">el-oh-HAY mee-kah-ROHV</div>
             <div class="english-name">"God Who Is Near"</div>
             <div class="meaning">God is not distant or detached - He is close to the brokenhearted.</div>
             <span class="scripture-ref">Jeremiah 23:23; Psalm 34:18</span>
@@ -357,6 +379,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">Elohim Emet</div>
+            <div class="pronunciation">el-oh-HEEM eh-MET</div>
             <div class="english-name">"The True God"</div>
             <div class="meaning">In contrast to false gods, He alone is true, real, and faithful.</div>
             <span class="scripture-ref">Jeremiah 10:10</span>
@@ -364,6 +387,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">Ha El Hanne'eman</div>
+            <div class="pronunciation">hah EL hah-neh-eh-MAHN</div>
             <div class="english-name">"The Faithful God"</div>
             <div class="meaning">God keeps His covenant and steadfast love to a thousand generations.</div>
             <span class="scripture-ref">Deuteronomy 7:9</span>
@@ -379,6 +403,7 @@
 
           <div class="name-card featured">
             <div class="hebrew-name">Yahweh Yireh (יהוה יראה)</div>
+            <div class="pronunciation">YAH-way yir-EH</div>
             <div class="english-name">"The LORD Will Provide"</div>
             <div class="meaning">Abraham named the place where God provided a ram in place of Isaac. God sees our needs before we do and provides at the right time.</div>
             <div class="scripture">
@@ -389,6 +414,7 @@
 
           <div class="name-card featured">
             <div class="hebrew-name">Yahweh Rapha (יהוה רפא)</div>
+            <div class="pronunciation">YAH-way rah-FAH</div>
             <div class="english-name">"The LORD Who Heals"</div>
             <div class="meaning">God revealed Himself as Healer after the Exodus. Yahweh Rapha heals physically, emotionally, spiritually, and relationally.</div>
             <div class="scripture">
@@ -399,6 +425,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">Yahweh Nissi (יהוה נסי)</div>
+            <div class="pronunciation">YAH-way nis-SEE</div>
             <div class="english-name">"The LORD Is My Banner"</div>
             <div class="meaning">After victory over the Amalekites, Moses built this altar. God is our rallying point and source of triumph.</div>
             <span class="scripture-ref">Exodus 17:15</span>
@@ -406,6 +433,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">Yahweh Shalom (יהוה שלום)</div>
+            <div class="pronunciation">YAH-way shah-LOHM</div>
             <div class="english-name">"The LORD Is Peace"</div>
             <div class="meaning">Gideon built this altar when God gave him peace. Shalom means completeness, wholeness, and prosperity.</div>
             <span class="scripture-ref">Judges 6:24</span>
@@ -413,6 +441,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">Yahweh Rohi (יהוה רעי)</div>
+            <div class="pronunciation">YAH-way roh-EE</div>
             <div class="english-name">"The LORD Is My Shepherd"</div>
             <div class="meaning">David understood God as the perfect Shepherd who guides, protects, and provides for His flock.</div>
             <span class="scripture-ref">Psalm 23:1</span>
@@ -420,6 +449,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">Yahweh Tsidkenu (יהוה צדקנו)</div>
+            <div class="pronunciation">YAH-way tsid-KAY-noo</div>
             <div class="english-name">"The LORD Our Righteousness"</div>
             <div class="meaning">Prophetic name pointing to Christ, through whom we receive righteousness by faith.</div>
             <span class="scripture-ref">Jeremiah 23:6</span>
@@ -427,6 +457,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">Yahweh Shammah (יהוה שמה)</div>
+            <div class="pronunciation">YAH-way SHAHM-mah</div>
             <div class="english-name">"The LORD Is There"</div>
             <div class="meaning">Name of the restored Jerusalem. God's abiding presence is with His people always.</div>
             <span class="scripture-ref">Ezekiel 48:35</span>
@@ -434,6 +465,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">Yahweh Sabaoth (יהוה צבאות)</div>
+            <div class="pronunciation">YAH-way sah-bah-OHT</div>
             <div class="english-name">"The LORD of Hosts"</div>
             <div class="meaning">Commander of heavenly armies. He leads angelic hosts and fights for His people.</div>
             <span class="scripture-ref">1 Samuel 1:3; Psalm 24:10</span>
@@ -441,6 +473,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">Yahweh M'Kaddesh (יהוה מקדש)</div>
+            <div class="pronunciation">YAH-way meh-kah-DESH</div>
             <div class="english-name">"The LORD Who Sanctifies"</div>
             <div class="meaning">God sets His people apart, making them holy for His purposes and glory.</div>
             <span class="scripture-ref">Exodus 31:13; Ezekiel 37:28</span>
@@ -448,6 +481,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">Yahweh Bore</div>
+            <div class="pronunciation">YAH-way boh-REH</div>
             <div class="english-name">"The LORD Creator"</div>
             <div class="meaning">The Creator of the ends of the earth, who speaks worlds into existence.</div>
             <span class="scripture-ref">Isaiah 40:28</span>
@@ -455,6 +489,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">Yahweh Baal Perez</div>
+            <div class="pronunciation">YAH-way BAH-al PEH-rets</div>
             <div class="english-name">"LORD of Breakthrough"</div>
             <div class="meaning">God breaks through obstacles and barriers on behalf of His people.</div>
             <span class="scripture-ref">2 Samuel 5:20</span>
@@ -462,6 +497,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">Yahweh Kesel</div>
+            <div class="pronunciation">YAH-way KEH-sel</div>
             <div class="english-name">"The LORD My Confidence"</div>
             <div class="meaning">Our trust and confidence rest securely in the LORD alone.</div>
             <span class="scripture-ref">Proverbs 3:26</span>
@@ -469,6 +505,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">Yahweh Mephalti</div>
+            <div class="pronunciation">YAH-way meh-fahl-TEE</div>
             <div class="english-name">"The LORD My Deliverer"</div>
             <div class="meaning">God rescues us from trouble, enemies, and the power of sin.</div>
             <span class="scripture-ref">Psalm 18:2; 32:7</span>
@@ -476,6 +513,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">Yahweh Shomreka</div>
+            <div class="pronunciation">YAH-way shohm-reh-KAH</div>
             <div class="english-name">"The LORD Your Keeper"</div>
             <div class="meaning">God watches over and protects His people day and night.</div>
             <span class="scripture-ref">Psalm 121:5</span>
@@ -483,6 +521,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">Yahweh Tsaba</div>
+            <div class="pronunciation">YAH-way tsah-BAH</div>
             <div class="english-name">"The LORD Our Warrior"</div>
             <div class="meaning">God fights battles on behalf of His people with mighty power.</div>
             <span class="scripture-ref">1 Samuel 17:45</span>
@@ -490,6 +529,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">Yahweh Tsuri</div>
+            <div class="pronunciation">YAH-way tsoo-REE</div>
             <div class="english-name">"The LORD My Rock"</div>
             <div class="meaning">Solid, unmovable foundation. A fortress of protection and stability.</div>
             <span class="scripture-ref">Isaiah 26:4; Psalm 18:2</span>
@@ -505,6 +545,7 @@
 
           <div class="name-card featured">
             <div class="hebrew-name">Immanuel</div>
+            <div class="pronunciation">im-MAN-yoo-el</div>
             <div class="english-name">"God With Us"</div>
             <div class="meaning">In Jesus, God became flesh and dwelt among us. He has come near, sharing in our humanity and walking with us through life.</div>
             <div class="scripture">
@@ -515,6 +556,7 @@
 
           <div class="name-card">
             <div class="hebrew-name">Logos (The Word)</div>
+            <div class="pronunciation">LOH-gos</div>
             <div class="english-name">Divine Expression of God</div>
             <div class="meaning">Jesus is God's Word made flesh - the perfect expression of God's nature and will.</div>
             <span class="scripture-ref">John 1:1, 14</span>
