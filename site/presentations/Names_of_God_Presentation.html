@@ -66,6 +66,8 @@
     .name-item .name { font-weight: 600; color: #ffd166; font-size: 0.95rem; }
     .name-item .desc { font-size: 0.85rem; color: rgba(255,255,255,0.8); margin-top: 0.2rem; }
     .name-item .ref { font-size: 0.75rem; color: rgba(255,209,102,0.8); margin-top: 0.3rem; }
+    .name-item .ref a, .scripture-ref a, .name-card .scripture-ref a { color: #ffd166; text-decoration: none; transition: all 0.2s ease; }
+    .name-item .ref a:hover, .scripture-ref a:hover, .name-card .scripture-ref a:hover { color: #fff; text-decoration: underline; }
 
     /* Prayer Section */
     .prayer-section { background: rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; margin: 3rem 0; backdrop-filter: blur(12px); box-shadow: 0 12px 40px rgba(0,0,0,0.28); }
@@ -956,6 +958,79 @@
         document.getElementById('sidebar').classList.remove('open');
       }
     });
+
+    // Convert scripture references to clickable BibleHub links (NIV)
+    function convertScriptureToLinks() {
+      // Book name mappings for BibleHub URL format
+      const bookMappings = {
+        'Genesis': 'genesis', 'Exodus': 'exodus', 'Leviticus': 'leviticus', 'Numbers': 'numbers',
+        'Deuteronomy': 'deuteronomy', 'Joshua': 'joshua', 'Judges': 'judges', 'Ruth': 'ruth',
+        '1 Samuel': '1_samuel', '2 Samuel': '2_samuel', '1 Kings': '1_kings', '2 Kings': '2_kings',
+        '1 Chronicles': '1_chronicles', '2 Chronicles': '2_chronicles', 'Ezra': 'ezra',
+        'Nehemiah': 'nehemiah', 'Esther': 'esther', 'Job': 'job', 'Psalm': 'psalms', 'Psalms': 'psalms',
+        'Proverbs': 'proverbs', 'Ecclesiastes': 'ecclesiastes', 'Song of Solomon': 'songs',
+        'Isaiah': 'isaiah', 'Jeremiah': 'jeremiah', 'Lamentations': 'lamentations',
+        'Ezekiel': 'ezekiel', 'Daniel': 'daniel', 'Hosea': 'hosea', 'Joel': 'joel', 'Amos': 'amos',
+        'Obadiah': 'obadiah', 'Jonah': 'jonah', 'Micah': 'micah', 'Nahum': 'nahum',
+        'Habakkuk': 'habakkuk', 'Zephaniah': 'zephaniah', 'Haggai': 'haggai', 'Zechariah': 'zechariah',
+        'Malachi': 'malachi', 'Matthew': 'matthew', 'Mark': 'mark', 'Luke': 'luke', 'John': 'john',
+        'Acts': 'acts', 'Romans': 'romans', '1 Corinthians': '1_corinthians', '2 Corinthians': '2_corinthians',
+        'Galatians': 'galatians', 'Ephesians': 'ephesians', 'Philippians': 'philippians',
+        'Colossians': 'colossians', '1 Thessalonians': '1_thessalonians', '2 Thessalonians': '2_thessalonians',
+        '1 Timothy': '1_timothy', '2 Timothy': '2_timothy', 'Titus': 'titus', 'Philemon': 'philemon',
+        'Hebrews': 'hebrews', 'James': 'james', '1 Peter': '1_peter', '2 Peter': '2_peter',
+        '1 John': '1_john', '2 John': '2_john', '3 John': '3_john', 'Jude': 'jude', 'Revelation': 'revelation'
+      };
+
+      function createBibleHubUrl(reference) {
+        // Parse reference like "Genesis 1:1" or "Psalm 23:1-3" or "John 3:16"
+        const match = reference.trim().match(/^(\d?\s?[A-Za-z]+)\s+(\d+):(\d+)(?:-\d+)?/);
+        if (match) {
+          const bookName = match[1].trim();
+          const chapter = match[2];
+          const verse = match[3];
+          const urlBook = bookMappings[bookName];
+          if (urlBook) {
+            return `https://biblehub.com/niv/${urlBook}/${chapter}.htm`;
+          }
+        }
+        return null;
+      }
+
+      function linkifyReference(text) {
+        // Split by semicolons and commas for multiple references
+        const parts = text.split(/;\s*/);
+        const linkedParts = parts.map(part => {
+          // Handle multiple comma-separated references within the same book
+          const subParts = part.split(/,\s*/);
+          return subParts.map((ref, idx) => {
+            const url = createBibleHubUrl(ref.trim());
+            if (url) {
+              return `<a href="${url}" target="_blank" rel="noopener noreferrer" title="Read ${ref.trim()} on BibleHub (NIV)">${ref.trim()}</a>`;
+            }
+            return ref.trim();
+          }).join(', ');
+        });
+        return linkedParts.join('; ');
+      }
+
+      // Process all scripture reference elements
+      const scriptureRefs = document.querySelectorAll('.scripture-ref, .ref');
+      scriptureRefs.forEach(el => {
+        const text = el.textContent.replace(' (NIV)', '').trim();
+        if (text && !el.querySelector('a')) { // Don't process if already has links
+          const linkedText = linkifyReference(text);
+          if (el.classList.contains('scripture-ref') && text.includes('(NIV)')) {
+            el.innerHTML = linkedText + ' (NIV)';
+          } else {
+            el.innerHTML = linkedText;
+          }
+        }
+      });
+    }
+
+    // Run on page load
+    document.addEventListener('DOMContentLoaded', convertScriptureToLinks);
   </script>
 </body>
 </html>
