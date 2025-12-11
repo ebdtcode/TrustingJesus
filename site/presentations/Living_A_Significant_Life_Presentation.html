@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Living A Significant Life - Pastor James Muyango</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); color: #fff; overflow: hidden; }
+    .presentation { position: relative; width: 100vw; height: 100vh; }
+    .slide { display: none; position: absolute; width: 100%; height: 100%; padding: 60px 80px 60px 320px; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); }
+    .slide.active { display: flex; }
+    h1 { font-size: 4.2rem; font-weight: 800; margin-bottom: 1.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); line-height: 1.2; color: #fff; }
+    h2 { font-size: 3.2rem; font-weight: 700; margin-bottom: 1.2rem; color: #ffd166; text-shadow: 1px 2px 4px rgba(0,0,0,0.4); line-height: 1.3; }
+    h3 { font-size: 2.4rem; font-weight: 700; margin-bottom: 1rem; color: #fff; text-shadow: 1px 2px 3px rgba(0,0,0,0.35); }
+    .subtitle { font-size: 1.8rem; font-weight: 400; margin-bottom: 0.6rem; color: #e8f4f8; line-height: 1.4; }
+    .scripture { background: rgba(255,255,255,0.14); border-left: 6px solid #ffd166; padding: 1.5rem; margin: 1.2rem 0; border-radius: 10px; backdrop-filter: blur(8px); box-shadow: 0 8px 32px rgba(0,0,0,0.25); max-width: 1100px; }
+    .scripture-text { font-size: 1.8rem; font-style: italic; line-height: 1.6; margin-bottom: 0.6rem; color: #fff; }
+    .scripture-ref { font-size: 1.2rem; font-weight: 700; color: #ffd166; text-align: right; }
+    .content-list { text-align: left; max-width: 1000px; margin: 0 auto; }
+    .content-list li { font-size: 1.5rem; margin: 0.9rem 0; padding-left: 1rem; line-height: 1.55; list-style: none; position: relative; }
+    .content-list li:before { content: "\25B6"; color: #ffd166; font-weight: bold; position: absolute; left: -1rem; }
+    .quote { font-size: 1.9rem; font-style: italic; text-align: center; padding: 1.5rem; border-radius: 12px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); margin: 1.2rem 0; box-shadow: 0 8px 32px rgba(0,0,0,0.2); line-height: 1.5; }
+    .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; width: 100%; max-width: 1100px; }
+    .column { text-align: left; }
+    .column h4 { font-size: 1.9rem; color: #ffd166; margin-bottom: 1rem; text-align: center; }
+    .column ul { list-style: none; padding: 0; }
+    .column li { font-size: 1.4rem; margin: 0.7rem 0; padding-left: 1.5rem; line-height: 1.5; position: relative; }
+    .column li:before { content: "\2713"; color: #ffd166; font-weight: bold; position: absolute; left: 0; }
+    .prayer-points { background: rgba(255,255,255,0.12); border-radius: 14px; padding: 2rem; backdrop-filter: blur(12px); box-shadow: 0 12px 40px rgba(0,0,0,0.28); max-width: 1100px; margin: 1.2rem auto; }
+    .prayer-points h3 { color: #ffd166; margin-bottom: 1rem; font-size: 2.1rem; }
+    .navigation { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 1rem; z-index: 1000; }
+    .nav-btn { background: rgba(255,255,255,0.22); border: 2px solid rgba(255,255,255,0.3); color: white; padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 600; backdrop-filter: blur(10px); transition: all 0.3s ease; }
+    .nav-btn:hover { background: rgba(255,255,255,0.32); border-color: #ffd166; color: #ffd166; }
+    .nav-btn:disabled { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); cursor: not-allowed; }
+    .slide-counter { position: fixed; top: 30px; right: 30px; background: rgba(0,0,0,0.45); padding: 0.5rem 1rem; border-radius: 20px; font-size: 1rem; backdrop-filter: blur(10px); }
+    .emphasis { color: #ffd166; font-weight: 800; }
+    .call-to-action { background: linear-gradient(135deg, #06d6a0, #118ab2); color: white; padding: 2rem; border-radius: 14px; margin: 1.2rem 0; box-shadow: 0 12px 40px rgba(0,0,0,0.3); text-align: center; }
+    .call-to-action h3 { font-size: 2.6rem; margin-bottom: 1rem; }
+    .call-to-action p { font-size: 1.6rem; line-height: 1.6; }
+    .section-break { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .section-break h1 { color: #ffd166 !important; }
+    .section-break h2 { color: #e8f4f8 !important; }
+    .cta-slide { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .cta-slide h1 { color: #ffd166 !important; }
+    .cta-slide .content-list li { color: #fff; }
+    .prayer-slide .scripture { background: rgba(255,209,102,0.15); border-left-color: #ffd166; }
+
+    /* Sidebar Navigation */
+    .sidebar { position: fixed; left: 0; top: 0; width: 280px; height: 100vh; background: rgba(20, 33, 61, 0.95); backdrop-filter: blur(10px); overflow-y: auto; z-index: 1500; border-right: 2px solid #ffd166; }
+    .sidebar-header { padding: 1.5rem; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,209,102,0.3); }
+    .sidebar-header h3 { color: #ffd166; font-size: 1.3rem; margin: 0; }
+    .sidebar-nav { padding: 1rem 0; }
+    .sidebar-item { padding: 0.8rem 1.5rem; cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem; border-left: 3px solid transparent; display: flex; align-items: center; gap: 0.5rem; }
+    .sidebar-item:hover { background: rgba(255,209,102,0.1); border-left-color: #ffd166; }
+    .sidebar-item.active { background: rgba(255,209,102,0.2); border-left-color: #ffd166; color: #ffd166; font-weight: 600; }
+    .sidebar-item.section { background: rgba(255,209,102,0.1); font-weight: 600; color: #ffd166; margin-top: 0.5rem; }
+    .slide-num { display: inline-block; width: 25px; color: rgba(255,255,255,0.6); }
+    .sidebar-item.active .slide-num { color: #ffd166; }
+
+    /* Home Button */
+    .home-btn { position: fixed; top: 30px; left: 300px; background: rgba(255,209,102,0.9); color: #14213d; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; z-index: 1000; display: flex; align-items: center; gap: 0.5rem; }
+    .home-btn:hover { background: #ffd166; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255,209,102,0.4); }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle { display: none; position: fixed; top: 30px; left: 20px; z-index: 2000; background: rgba(255,209,102,0.9); color: #14213d; border: none; padding: 0.75rem; border-radius: 8px; cursor: pointer; }
+    .menu-toggle:hover { background: #ffd166; }
+
+    @media (max-width: 1024px) {
+      .slide{ padding: 40px 50px 40px 320px; }
+      h1{ font-size: 3.4rem; }
+      h2{ font-size: 2.8rem; }
+      h3{ font-size: 2.2rem; }
+      .subtitle{ font-size: 1.5rem; }
+      .content-list li{ font-size: 1.35rem; }
+      .quote{ font-size: 1.6rem; }
+      .two-column{ grid-template-columns: 1fr; gap: 1.2rem; }
+    }
+    @media (max-width: 768px) {
+      .slide{ padding: 80px 30px 30px 30px; }
+      h1{ font-size: 2.6rem; }
+      h2{ font-size: 2.2rem; }
+      h3{ font-size: 1.9rem; }
+      .subtitle{ font-size: 1.3rem; }
+      .content-list li{ font-size: 1.2rem; }
+      .scripture-text{ font-size: 1.4rem; }
+      .quote{ font-size: 1.3rem; }
+      .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+      .sidebar.open { transform: translateX(0); }
+      .menu-toggle { display: block; }
+      .home-btn { left: auto; right: 30px; }
+    }
+    @media print { body{ background: white; color: black; } .slide{ display: block !important; page-break-after: always; position: static; background: white; color: black; padding: 2cm; } .navigation, .slide-counter{ display: none; } .scripture, .prayer-points, .call-to-action{ background: #f8f9fa; border: 2px solid #ddd; color: black; } h2, .scripture-ref, .emphasis{ color: #000; } }
+  </style>
+</head>
+<body>
+  <div class="presentation">
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Significant Life</h3>
+      </div>
+      <div class="sidebar-nav" id="sidebarNav">
+        <!-- Navigation items will be generated by JavaScript -->
+      </div>
+    </nav>
+
+    <!-- Home Button -->
+    <a href="../index.html" class="home-btn">
+      <span>🏠</span>
+      <span>Dashboard</span>
+    </a>
+
+    <div class="slide-counter"><span id="current-slide">1</span> / <span id="total-slides">13</span></div>
+
+    <!-- 1. Title Slide -->
+    <div class="slide active" data-slide="1">
+      <h1>Living A Significant Life</h1>
+      <div class="scripture">
+        <div class="scripture-text">"So it was, as the multitude pressed about Him to hear the word of God, that He stood by the Lake of Gennesaret, and saw two boats standing by the lake..."</div>
+        <div class="scripture-ref">Luke 5:1-11</div>
+      </div>
+      <div class="subtitle" style="margin-top: 2rem;">Pastor James Muyango</div>
+      <div class="subtitle">Harvest Intercontinental Church - Olney</div>
+    </div>
+
+    <!-- 2. Three Levels of Living -->
+    <div class="slide" data-slide="2">
+      <h2>Three Levels of Living</h2>
+      <div class="content-list"><ul>
+        <li><span class="emphasis">Survival</span> - Characterized by scarcity, just getting by day to day</li>
+        <li><span class="emphasis">Success</span> - The level of abundance, multiple options, material prosperity</li>
+        <li><span class="emphasis">Significance</span> - Life transcends self to serve others and bring glory to God</li>
+      </ul></div>
+      <div class="quote" style="margin-top: 1.5rem;">"Jesus did not come so we could merely survive, but that we might have life abundantly"</div>
+    </div>
+
+    <!-- 3. Section Break -->
+    <div class="slide section-break" data-slide="3">
+      <h1>Significance</h1>
+      <h2>The Highest Level of Living</h2>
+    </div>
+
+    <!-- 4. Two Great Commandments -->
+    <div class="slide" data-slide="4">
+      <h2>The Heart of Significance</h2>
+      <div class="two-column">
+        <div class="column">
+          <h4>Loving God</h4>
+          <ul>
+            <li>With all your heart</li>
+            <li>With all your strength</li>
+            <li>With all your mind</li>
+            <li>This is worship</li>
+          </ul>
+        </div>
+        <div class="column">
+          <h4>Loving Your Neighbor</h4>
+          <ul>
+            <li>As yourself</li>
+            <li>This is ministry</li>
+            <li>Serving others</li>
+            <li>Bringing glory to God</li>
+          </ul>
+        </div>
+      </div>
+      <div class="scripture" style="margin-top: 1.5rem;">
+        <div class="scripture-text">"Love the Lord your God with all your heart, strength, and mind, and love your neighbor as yourself"</div>
+        <div class="scripture-ref">Matthew 22:37-39</div>
+      </div>
+    </div>
+
+    <!-- 5. Section Break -->
+    <div class="slide section-break" data-slide="5">
+      <h1>Four Principles</h1>
+      <h2>For Living A Significant Life</h2>
+    </div>
+
+    <!-- 6. Principle 1: Acknowledge Grace -->
+    <div class="slide" data-slide="6">
+      <h2>1. Acknowledge the Grace of God</h2>
+      <div class="content-list"><ul>
+        <li>Peter was discouraged - fished all night, caught nothing</li>
+        <li>Jesus chose Peter's boat out of two available boats</li>
+        <li>Grace located Peter when he was at his lowest point</li>
+        <li>Everything we are and have is by grace, not our own strength</li>
+      </ul></div>
+      <div class="scripture" style="margin-top: 1.5rem;">
+        <div class="scripture-text">"By the grace of God I am what I am"</div>
+        <div class="scripture-ref">1 Corinthians 15:10</div>
+      </div>
+    </div>
+
+    <!-- 7. Principle 2: Surrender Your Boats -->
+    <div class="slide" data-slide="7">
+      <h2>2. Surrender Your Boats</h2>
+      <div class="content-list"><ul>
+        <li>Peter allowed Jesus to use his boat to minister to crowds</li>
+        <li>The boat represented his investment, business, asset, treasure</li>
+        <li>What are your "boats"? Gifts, talents, time, money, career?</li>
+        <li>Put kingdom needs first, even when personal needs seem pressing</li>
+      </ul></div>
+      <div class="quote" style="margin-top: 1.5rem;">"Like the widow who gave her mite, we must release what we have, no matter how small or desperate our circumstances"</div>
+    </div>
+
+    <!-- 8. Principle 3: Empowered to Do Exploits -->
+    <div class="slide" data-slide="8">
+      <h2>3. What You Surrender is Empowered</h2>
+      <div class="content-list"><ul>
+        <li>The same boat and nets that caught nothing all night</li>
+        <li>Became supernaturally productive when surrendered to Jesus</li>
+        <li>They caught so many fish the nets began to tear</li>
+        <li>Both boats began to sink from the abundance</li>
+      </ul></div>
+      <div class="call-to-action" style="margin-top: 1.5rem;">
+        <h3>God Multiplies What We Release</h3>
+        <p>What seems useless in our hands becomes fruitful in His</p>
+      </div>
+    </div>
+
+    <!-- 9. The Miraculous Catch -->
+    <div class="slide" data-slide="9">
+      <h2>The Miraculous Catch</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Master, we have toiled all night and caught nothing; nevertheless at Your word I will let down the net. And when they had done this, they caught a great number of fish, and their net was breaking."</div>
+        <div class="scripture-ref">Luke 5:5-6</div>
+      </div>
+      <div class="quote" style="margin-top: 1.5rem;">"Nevertheless at Your word" - Obedience despite disappointment leads to supernatural breakthrough</div>
+    </div>
+
+    <!-- 10. Principle 4: Beyond the Boat -->
+    <div class="slide" data-slide="10">
+      <h2>4. Beyond the Boat, Surrender Your Life</h2>
+      <div class="content-list"><ul>
+        <li>Peter started by surrendering his boat</li>
+        <li>After the miracle, he fell at Jesus' feet recognizing his sinfulness</li>
+        <li>He ultimately left everything to follow Christ</li>
+        <li>We cannot truly love God without loving Him with our resources</li>
+      </ul></div>
+      <div class="scripture" style="margin-top: 1.5rem;">
+        <div class="scripture-text">"Where your treasure is, there your heart will also be"</div>
+        <div class="scripture-ref">Matthew 6:21</div>
+      </div>
+    </div>
+
+    <!-- 11. Prayer Points 1 -->
+    <div class="slide prayer-slide" data-slide="11">
+      <h2>Prayer Focus</h2>
+      <div class="prayer-points">
+        <h3>Transition from Survival to Significance</h3>
+        <div class="scripture">
+          <div class="scripture-text">"Lord, lift me from merely surviving to living a life of eternal significance. Transform my seasons of disappointment into demonstrations of Your glory. Help me embrace the call to love You with all my heart and to love my neighbor as myself. Let my life be marked by how I glorify You and bless others."</div>
+          <div class="scripture-ref">Based on John 10:10; Matthew 22:37-39</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12. Prayer Points 2 -->
+    <div class="slide prayer-slide" data-slide="12">
+      <h2>Prayer Focus</h2>
+      <div class="prayer-points">
+        <h3>Surrendering Our Resources</h3>
+        <div class="scripture">
+          <div class="scripture-text">"Lord Jesus, like Peter who surrendered his boat when struggling, I release my gifts, talents, time, and resources into Your hands. Help me put Your kingdom first. Enable me to give sacrificially, trusting that what I surrender will be multiplied for Your glory."</div>
+          <div class="scripture-ref">Based on Matthew 6:33; Luke 5:1-11</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 13. Closing -->
+    <div class="slide cta-slide" data-slide="13">
+      <h1>Live A Significant Life</h1>
+      <h2>Faithful Service for God's Glory</h2>
+      <div class="content-list" style="margin-top: 1.5rem;"><ul>
+        <li>Move beyond the rat race of seeking human approval</li>
+        <li>Be faithful, keep serving</li>
+        <li>Let your life serve God and His people</li>
+        <li>Bring glory to His holy name</li>
+      </ul></div>
+      <div class="scripture" style="margin-top: 1.5rem;">
+        <div class="scripture-text">"I glorified You on the earth, having accomplished the work which You have given Me to do"</div>
+        <div class="scripture-ref">John 17:4</div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+      <button class="nav-btn" onclick="previousSlide()">← Previous</button>
+      <button class="nav-btn" onclick="nextSlide()">Next →</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = document.querySelectorAll('.slide').length;
+    document.getElementById('total-slides').textContent = totalSlides;
+
+    // Slide titles for sidebar navigation
+    const slideTitles = [
+      'Title',
+      'Three Levels',
+      'Significance',
+      'Two Commandments',
+      'Four Principles',
+      'Acknowledge Grace',
+      'Surrender Boats',
+      'Empowered to Do Exploits',
+      'Miraculous Catch',
+      'Beyond the Boat',
+      'Prayer: Significance',
+      'Prayer: Surrender',
+      'Closing'
+    ];
+
+    // Generate sidebar navigation
+    function generateSidebar() {
+      const sidebarNav = document.getElementById('sidebarNav');
+      sidebarNav.innerHTML = '';
+
+      slideTitles.forEach((title, index) => {
+        const item = document.createElement('div');
+        item.className = 'sidebar-item';
+
+        // Mark section breaks
+        if ([2, 4].includes(index)) {
+          item.classList.add('section');
+        }
+
+        if (index === currentSlide - 1) {
+          item.classList.add('active');
+        }
+
+        item.innerHTML = `
+          <span class="slide-num">${index + 1}</span>
+          <span>${title}</span>
+        `;
+
+        item.onclick = () => {
+          showSlide(index + 1);
+        };
+
+        sidebarNav.appendChild(item);
+      });
+    }
+
+    function showSlide(n) {
+      const slides = document.querySelectorAll('.slide');
+      if (n > totalSlides) n = 1;
+      if (n < 1) n = totalSlides;
+      currentSlide = n;
+      slides.forEach(s => s.classList.remove('active'));
+      slides[currentSlide - 1].classList.add('active');
+      document.getElementById('current-slide').textContent = currentSlide;
+
+      // Update navigation buttons
+      const prevBtn = document.querySelector('.nav-btn');
+      const nextBtn = document.querySelectorAll('.nav-btn')[1];
+      prevBtn.disabled = currentSlide === 1;
+      nextBtn.disabled = currentSlide === totalSlides;
+
+      // Update sidebar
+      generateSidebar();
+    }
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function previousSlide() { showSlide(currentSlide - 1); }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+
+    document.addEventListener('keydown', function(event) {
+      switch(event.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+        case ' ': // Space
+        case 'Enter':
+          nextSlide();
+          event.preventDefault();
+          break;
+        case 'ArrowLeft':
+        case 'ArrowUp':
+          previousSlide();
+          event.preventDefault();
+          break;
+        case 'Home':
+          currentSlide = 1; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'End':
+          currentSlide = totalSlides; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'PageDown':
+          showSlide(Math.min(currentSlide + 10, totalSlides)); event.preventDefault();
+          break;
+        case 'PageUp':
+          showSlide(Math.max(currentSlide - 10, 1)); event.preventDefault();
+          break;
+      }
+    });
+
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let startY = 0;
+
+    document.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    });
+
+    document.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const endY = e.changedTouches[0].clientY;
+      const deltaX = endX - startX;
+      const deltaY = endY - startY;
+
+      // Only trigger if horizontal swipe is longer than vertical and over 50px
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+        if (deltaX > 0) {
+          previousSlide(); // Swipe right = previous
+        } else {
+          nextSlide();  // Swipe left = next
+        }
+      }
+    });
+
+    // Initialize
+    generateSidebar();
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>
