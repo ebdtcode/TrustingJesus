@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fake Worship: When Worshipping Is Not For Real - Bishop Darlingston Johnson</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); color: #fff; overflow: hidden; }
+    .presentation { position: relative; width: 100vw; height: 100vh; }
+    .slide { display: none; position: absolute; width: 100%; height: 100%; padding: 60px 80px 60px 320px; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); }
+    .slide.active { display: flex; }
+    h1 { font-size: 4.2rem; font-weight: 800; margin-bottom: 1.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); line-height: 1.2; color: #fff; }
+    h2 { font-size: 3.2rem; font-weight: 700; margin-bottom: 1.2rem; color: #ffd166; text-shadow: 1px 2px 4px rgba(0,0,0,0.4); line-height: 1.3; }
+    h3 { font-size: 2.4rem; font-weight: 700; margin-bottom: 1rem; color: #fff; text-shadow: 1px 2px 3px rgba(0,0,0,0.35); }
+    .subtitle { font-size: 1.8rem; font-weight: 400; margin-bottom: 0.6rem; color: #e8f4f8; line-height: 1.4; }
+    .scripture { background: rgba(255,255,255,0.14); border-left: 6px solid #ffd166; padding: 1.5rem; margin: 1.2rem 0; border-radius: 10px; backdrop-filter: blur(8px); box-shadow: 0 8px 32px rgba(0,0,0,0.25); max-width: 1100px; }
+    .scripture-text { font-size: 1.8rem; font-style: italic; line-height: 1.6; margin-bottom: 0.6rem; color: #fff; }
+    .scripture-ref { font-size: 1.2rem; font-weight: 700; color: #ffd166; text-align: right; }
+    .content-list { text-align: left; max-width: 1000px; margin: 0 auto; }
+    .content-list li { font-size: 1.5rem; margin: 0.9rem 0; padding-left: 1rem; line-height: 1.55; list-style: none; position: relative; }
+    .content-list li:before { content: "\25B6"; color: #ffd166; font-weight: bold; position: absolute; left: -1rem; }
+    .quote { font-size: 1.9rem; font-style: italic; text-align: center; padding: 1.5rem; border-radius: 12px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); margin: 1.2rem 0; box-shadow: 0 8px 32px rgba(0,0,0,0.2); line-height: 1.5; }
+    .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; width: 100%; max-width: 1100px; }
+    .column { text-align: left; }
+    .column h4 { font-size: 1.9rem; color: #ffd166; margin-bottom: 1rem; text-align: center; }
+    .column ul { list-style: none; padding: 0; }
+    .column li { font-size: 1.4rem; margin: 0.7rem 0; padding-left: 1.5rem; line-height: 1.5; position: relative; }
+    .column li:before { content: "\2713"; color: #ffd166; font-weight: bold; position: absolute; left: 0; }
+    .prayer-points { background: rgba(255,255,255,0.12); border-radius: 14px; padding: 2rem; backdrop-filter: blur(12px); box-shadow: 0 12px 40px rgba(0,0,0,0.28); max-width: 1100px; margin: 1.2rem auto; }
+    .prayer-points h3 { color: #ffd166; margin-bottom: 1rem; font-size: 2.1rem; }
+    .navigation { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 1rem; z-index: 1000; }
+    .nav-btn { background: rgba(255,255,255,0.22); border: 2px solid rgba(255,255,255,0.3); color: white; padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 600; backdrop-filter: blur(10px); transition: all 0.3s ease; }
+    .nav-btn:hover { background: rgba(255,255,255,0.32); border-color: #ffd166; color: #ffd166; }
+    .nav-btn:disabled { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); cursor: not-allowed; }
+    .slide-counter { position: fixed; top: 30px; right: 30px; background: rgba(0,0,0,0.45); padding: 0.5rem 1rem; border-radius: 20px; font-size: 1rem; backdrop-filter: blur(10px); }
+    .emphasis { color: #ffd166; font-weight: 800; }
+    .call-to-action { background: linear-gradient(135deg, #06d6a0, #118ab2); color: white; padding: 2rem; border-radius: 14px; margin: 1.2rem 0; box-shadow: 0 12px 40px rgba(0,0,0,0.3); text-align: center; }
+    .call-to-action h3 { font-size: 2.6rem; margin-bottom: 1rem; }
+    .call-to-action p { font-size: 1.6rem; line-height: 1.6; }
+    .section-break { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .section-break h1 { color: #ffd166 !important; }
+    .section-break h2 { color: #e8f4f8 !important; }
+    .cta-slide { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .cta-slide h1 { color: #ffd166 !important; }
+    .cta-slide .content-list li { color: #fff; }
+    .prayer-slide .scripture { background: rgba(255,209,102,0.15); border-left-color: #ffd166; }
+    .framework-box { background: rgba(255,209,102,0.15); border: 2px solid #ffd166; border-radius: 12px; padding: 1.5rem; margin: 1rem 0; }
+    .framework-box h4 { color: #ffd166; font-size: 1.8rem; margin-bottom: 1rem; }
+
+    /* Sidebar Navigation */
+    .sidebar { position: fixed; left: 0; top: 0; width: 280px; height: 100vh; background: rgba(20, 33, 61, 0.95); backdrop-filter: blur(10px); overflow-y: auto; z-index: 1500; border-right: 2px solid #ffd166; }
+    .sidebar-header { padding: 1.5rem; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,209,102,0.3); }
+    .sidebar-header h3 { color: #ffd166; font-size: 1.3rem; margin: 0; }
+    .sidebar-nav { padding: 1rem 0; }
+    .sidebar-item { padding: 0.8rem 1.5rem; cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem; border-left: 3px solid transparent; display: flex; align-items: center; gap: 0.5rem; }
+    .sidebar-item:hover { background: rgba(255,209,102,0.1); border-left-color: #ffd166; }
+    .sidebar-item.active { background: rgba(255,209,102,0.2); border-left-color: #ffd166; color: #ffd166; font-weight: 600; }
+    .sidebar-item.section { background: rgba(255,209,102,0.1); font-weight: 600; color: #ffd166; margin-top: 0.5rem; }
+    .slide-num { display: inline-block; width: 25px; color: rgba(255,255,255,0.6); }
+    .sidebar-item.active .slide-num { color: #ffd166; }
+
+    /* Home Button */
+    .home-btn { position: fixed; top: 30px; left: 300px; background: rgba(255,209,102,0.9); color: #14213d; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; z-index: 1000; display: flex; align-items: center; gap: 0.5rem; }
+    .home-btn:hover { background: #ffd166; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255,209,102,0.4); }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle { display: none; position: fixed; top: 30px; left: 20px; z-index: 2000; background: rgba(255,209,102,0.9); color: #14213d; border: none; padding: 0.75rem; border-radius: 8px; cursor: pointer; }
+    .menu-toggle:hover { background: #ffd166; }
+
+    /* Tablet Landscape & Small Desktops (1024px - 1280px) */
+    @media (max-width: 1280px) {
+      .slide { padding: 50px 60px 50px 320px; }
+      h1 { font-size: 3.8rem; }
+      h2 { font-size: 3rem; }
+      h3 { font-size: 2.3rem; }
+      .subtitle { font-size: 1.6rem; }
+      .content-list li { font-size: 1.4rem; }
+      .quote { font-size: 1.7rem; }
+      .scripture { max-width: 900px; }
+      .content-list { max-width: 850px; }
+    }
+
+    /* Tablet Portrait (768px - 1024px) */
+    @media (max-width: 1024px) {
+      .slide { padding: 40px 40px 40px 300px; }
+      .sidebar { width: 260px; }
+      h1 { font-size: 3.2rem; }
+      h2 { font-size: 2.6rem; }
+      h3 { font-size: 2rem; }
+      .subtitle { font-size: 1.4rem; }
+      .content-list li { font-size: 1.3rem; }
+      .quote { font-size: 1.5rem; }
+      .scripture-text { font-size: 1.6rem; }
+      .scripture-ref { font-size: 1.1rem; }
+      .two-column { grid-template-columns: 1fr; gap: 1.2rem; }
+      .home-btn { left: 280px; font-size: 0.9rem; padding: 0.6rem 1.2rem; }
+      .navigation { bottom: 20px; }
+      .nav-btn { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
+    }
+
+    /* Mobile Landscape & Small Tablets (600px - 768px) */
+    @media (max-width: 768px) {
+      .slide { padding: 100px 30px 80px 30px; }
+      h1 { font-size: 2.4rem; }
+      h2 { font-size: 2rem; }
+      h3 { font-size: 1.7rem; }
+      .subtitle { font-size: 1.2rem; }
+      .content-list li { font-size: 1.1rem; margin: 0.7rem 0; }
+      .scripture-text { font-size: 1.3rem; }
+      .scripture-ref { font-size: 1rem; }
+      .quote { font-size: 1.2rem; padding: 1.2rem; }
+      .scripture { padding: 1.2rem; margin: 1rem 0; }
+      .prayer-points { padding: 1.5rem; }
+      .call-to-action h3 { font-size: 2rem; }
+      .call-to-action p { font-size: 1.3rem; }
+      .framework-box { padding: 1.2rem; }
+      .framework-box h4 { font-size: 1.5rem; }
+      .column h4 { font-size: 1.6rem; }
+      .column li { font-size: 1.2rem; }
+
+      /* Hide sidebar by default on mobile */
+      .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; width: 280px; }
+      .sidebar.open { transform: translateX(0); box-shadow: 4px 0 20px rgba(0,0,0,0.5); }
+
+      /* Show mobile menu toggle */
+      .menu-toggle { display: block; font-size: 1.2rem; }
+
+      /* Move home button to right side */
+      .home-btn {
+        left: auto;
+        right: 20px;
+        top: 20px;
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+      }
+      .home-btn span:last-child { display: none; }
+
+      /* Adjust slide counter */
+      .slide-counter {
+        top: 20px;
+        right: 80px;
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+      }
+
+      /* Navigation buttons */
+      .navigation {
+        bottom: 15px;
+        gap: 0.6rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
+        max-width: 400px;
+      }
+      .nav-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+        flex: 1;
+      }
+    }
+
+    /* Mobile Portrait (480px - 600px) */
+    @media (max-width: 600px) {
+      .slide { padding: 90px 20px 70px 20px; }
+      h1 { font-size: 2rem; line-height: 1.15; }
+      h2 { font-size: 1.7rem; margin-bottom: 1rem; }
+      h3 { font-size: 1.5rem; }
+      .subtitle { font-size: 1.1rem; line-height: 1.35; }
+      .content-list li { font-size: 1rem; margin: 0.6rem 0; padding-left: 0.8rem; }
+      .content-list li:before { left: -0.8rem; }
+      .scripture-text { font-size: 1.15rem; line-height: 1.5; }
+      .scripture-ref { font-size: 0.95rem; }
+      .quote { font-size: 1.1rem; padding: 1rem; }
+      .scripture { padding: 1rem; border-left-width: 4px; }
+      .prayer-points { padding: 1.2rem; margin: 0.8rem auto; }
+      .prayer-points h3 { font-size: 1.6rem; }
+      .call-to-action { padding: 1.5rem; }
+      .call-to-action h3 { font-size: 1.7rem; }
+      .call-to-action p { font-size: 1.15rem; }
+      .framework-box { padding: 1rem; }
+      .framework-box h4 { font-size: 1.3rem; }
+      .column h4 { font-size: 1.4rem; }
+      .column li { font-size: 1.05rem; }
+
+      .sidebar { width: 260px; }
+      .sidebar-header h3 { font-size: 1.1rem; }
+      .sidebar-item { font-size: 0.85rem; padding: 0.7rem 1.2rem; }
+
+      .navigation {
+        bottom: 10px;
+        width: calc(100% - 20px);
+        gap: 0.5rem;
+      }
+      .nav-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+        border-radius: 20px;
+      }
+
+      .slide-counter {
+        right: 70px;
+        font-size: 0.85rem;
+        padding: 0.35rem 0.7rem;
+      }
+
+      .home-btn {
+        padding: 0.5rem 0.8rem;
+        right: 15px;
+        top: 15px;
+      }
+      .home-btn span:first-child { font-size: 1.1rem; }
+    }
+
+    /* Small Mobile Portrait (320px - 480px) */
+    @media (max-width: 480px) {
+      .slide { padding: 80px 15px 65px 15px; }
+      h1 { font-size: 1.7rem; margin-bottom: 0.8rem; }
+      h2 { font-size: 1.5rem; margin-bottom: 0.8rem; }
+      h3 { font-size: 1.3rem; }
+      .subtitle { font-size: 1rem; margin-bottom: 0.5rem; }
+      .content-list li { font-size: 0.95rem; margin: 0.5rem 0; }
+      .scripture-text { font-size: 1.05rem; }
+      .scripture-ref { font-size: 0.9rem; }
+      .quote { font-size: 1rem; padding: 0.9rem; }
+      .scripture { padding: 0.9rem; margin: 0.8rem 0; }
+      .prayer-points { padding: 1rem; }
+      .prayer-points h3 { font-size: 1.4rem; margin-bottom: 0.8rem; }
+      .call-to-action { padding: 1.2rem; margin: 0.8rem 0; }
+      .call-to-action h3 { font-size: 1.5rem; margin-bottom: 0.8rem; }
+      .call-to-action p { font-size: 1.05rem; }
+      .framework-box { padding: 0.9rem; margin: 0.8rem 0; }
+      .framework-box h4 { font-size: 1.2rem; }
+      .column h4 { font-size: 1.3rem; }
+      .column li { font-size: 1rem; margin: 0.5rem 0; }
+
+      .sidebar { width: 240px; }
+      .sidebar-header { padding: 1.2rem; }
+      .sidebar-header h3 { font-size: 1rem; }
+      .sidebar-item { font-size: 0.8rem; padding: 0.65rem 1rem; }
+      .slide-num { width: 20px; font-size: 0.75rem; }
+
+      .menu-toggle {
+        padding: 0.6rem;
+        font-size: 1.1rem;
+        top: 15px;
+        left: 15px;
+      }
+
+      .navigation {
+        bottom: 8px;
+        width: calc(100% - 16px);
+        gap: 0.4rem;
+      }
+      .nav-btn {
+        padding: 0.45rem 0.7rem;
+        font-size: 0.75rem;
+        border-radius: 18px;
+      }
+
+      .slide-counter {
+        top: 15px;
+        right: 60px;
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+      }
+
+      .home-btn {
+        padding: 0.45rem 0.7rem;
+        right: 12px;
+        top: 12px;
+        border-radius: 20px;
+      }
+      .home-btn span:first-child { font-size: 1rem; }
+    }
+    @media print { body{ background: white; color: black; } .slide{ display: block !important; page-break-after: always; position: static; background: white; color: black; padding: 2cm; } .navigation, .slide-counter, .sidebar, .home-btn, .menu-toggle{ display: none; } .scripture, .prayer-points, .call-to-action{ background: #f8f9fa; border: 2px solid #ddd; color: black; } h2, .scripture-ref, .emphasis{ color: #000; } }
+  </style>
+</head>
+<body>
+  <div class="presentation">
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Fake Worship</h3>
+      </div>
+      <div class="sidebar-nav" id="sidebarNav">
+        <!-- Navigation items will be generated by JavaScript -->
+      </div>
+    </nav>
+
+    <!-- Home Button -->
+    <a href="../index.html" class="home-btn">
+      <span>🏠</span>
+      <span>Dashboard</span>
+    </a>
+
+    <div class="slide-counter"><span id="current-slide">1</span> / <span id="total-slides">14</span></div>
+
+    <!-- 1. Title Slide -->
+    <div class="slide active" data-slide="1">
+      <h1>Fake Worship</h1>
+      <h2>When Worshipping Is Not For Real</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Where is He who has been born King of the Jews? For we have seen His star in the East and have come to worship Him."</div>
+        <div class="scripture-ref">Matthew 2:2 (NKJV)</div>
+      </div>
+      <div class="subtitle" style="margin-top: 2rem;">Bishop Dr. Darlingston Johnson</div>
+      <div class="subtitle">December 15, 2025</div>
+    </div>
+
+    <!-- 2. Key Scripture -->
+    <div class="slide" data-slide="2">
+      <h2>The Christmas Story Revisited</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Now after Jesus was born in Bethlehem of Judea in the days of Herod the king, behold, wise men from the East came to Jerusalem, saying, 'Where is He who has been born King of the Jews? For we have seen His star in the East and have come to worship Him.' When Herod the king heard this, he was troubled, and all Jerusalem with him."</div>
+        <div class="scripture-ref">Matthew 2:1-3 (NKJV)</div>
+      </div>
+    </div>
+
+    <!-- 3. The Core Message -->
+    <div class="slide" data-slide="3">
+      <h2>The Critical Question</h2>
+      <div class="quote">"The revelation of Jesus as King always demands a response, and that response will determine whether we are fake or real in our worship."</div>
+      <div class="content-list"><ul>
+        <li>Same message about the same King</li>
+        <li>Two completely different responses</li>
+        <li>Both called "worship"</li>
+        <li>One joyful, one troubled</li>
+        <li>One led to surrender, one to destruction</li>
+      </ul></div>
+    </div>
+
+    <!-- 4. Section Break: Real Worship -->
+    <div class="slide section-break" data-slide="4">
+      <h1>Real Worship</h1>
+      <h2>The Example of the Wise Men</h2>
+    </div>
+
+    <!-- 5. Real Worship: Hunger -->
+    <div class="slide" data-slide="5">
+      <h2>Real Worship Begins with Hunger</h2>
+      <div class="content-list"><ul>
+        <li>Genuine, serious hunger to know, meet, and discover the King</li>
+        <li>Not casual seekers or merely being religious</li>
+        <li>Wanted to meet Him personally, not just hear about Him</li>
+        <li>Made an extraordinarily long journey from Persia</li>
+        <li>Left everything behind because they were hungry</li>
+      </ul></div>
+      <div class="quote" style="margin-top: 1rem;">"They were genuinely hungry for the revelation of Jesus Christ"</div>
+    </div>
+
+    <!-- 6. Real Worship: Pursuit and Focus -->
+    <div class="slide" data-slide="6">
+      <h2>Real Worship Pursues at Great Cost</h2>
+      <div class="two-column">
+        <div class="column">
+          <h4>Focused Pursuit</h4>
+          <ul>
+            <li>Saw His star among countless stars</li>
+            <li>Ignored everything else</li>
+            <li>Fixed their eyes exclusively on Jesus</li>
+            <li>Where your focus is reveals your worship</li>
+          </ul>
+        </div>
+        <div class="column">
+          <h4>Willing to Pay the Price</h4>
+          <ul>
+            <li>Journey was long and expensive</li>
+            <li>Nothing was too much</li>
+            <li>No price was too great</li>
+            <li>Reordered entire lives around the King</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Real Worship: Surrender -->
+    <div class="slide" data-slide="7">
+      <h2>Real Worship Ends in Surrender</h2>
+      <div class="scripture">
+        <div class="scripture-text">"And when they had come into the house, they saw the young child with Mary His mother, and fell down and worshiped Him. And when they had opened their treasures, they presented gifts to Him: gold, frankincense, and myrrh."</div>
+        <div class="scripture-ref">Matthew 2:11 (NKJV)</div>
+      </div>
+      <div class="content-list"><ul>
+        <li>They <span class="emphasis">bowed down</span> - surrendered themselves</li>
+        <li>Brought their gifts - honored Him with their treasures</li>
+        <li>"These no longer belong to us - they are Yours"</li>
+        <li>"You are King, we're not. You are Lord, we're not"</li>
+      </ul></div>
+      <div class="quote">"Anything short of surrender comes short of worship"</div>
+    </div>
+
+    <!-- 8. Section Break: Fake Worship -->
+    <div class="slide section-break" data-slide="8">
+      <h1>Fake Worship</h1>
+      <h2>The Example of King Herod</h2>
+    </div>
+
+    <!-- 9. Fake Worship: Troubled by Lordship -->
+    <div class="slide" data-slide="9">
+      <h2>Fake Worship: Troubled by Jesus's Kingship</h2>
+      <div class="scripture">
+        <div class="scripture-text">"When Herod the king heard this, he was troubled."</div>
+        <div class="scripture-ref">Matthew 2:3</div>
+      </div>
+      <div class="content-list"><ul>
+        <li>Not joyful, not excited, not glad - <span class="emphasis">troubled</span></li>
+        <li>Fake worshipers love Jesus as Savior, Healer, Forgiver</li>
+        <li>But they struggle with Jesus as <span class="emphasis">King and Lord</span></li>
+        <li>Kingship demands surrender of themselves</li>
+        <li>Means abdicating the throne of their own lives</li>
+        <li>Can no longer be "the decider in chief"</li>
+      </ul></div>
+    </div>
+
+    <!-- 10. Fake Worship Characteristics -->
+    <div class="slide" data-slide="10">
+      <h2>Five Signs of Fake Worship</h2>
+      <div class="content-list"><ul>
+        <li><span class="emphasis">Troubled by lordship</span> - struggle with control and surrender</li>
+        <li><span class="emphasis">Information without transformation</span> - want knowledge but no change</li>
+        <li><span class="emphasis">Delegate the hard work</span> - only worship when it's easy</li>
+        <li><span class="emphasis">Worship with the crowd</span> - no personal relationship or convictions</li>
+        <li><span class="emphasis">Simply pretending</span> - honor with lips, but heart is far away</li>
+      </ul></div>
+    </div>
+
+    <!-- 11. The Core Issue -->
+    <div class="slide" data-slide="11">
+      <h2>The Devastating Truth</h2>
+      <div class="quote">"Worship without surrender is simply an attempt to manage God"</div>
+      <div class="content-list"><ul>
+        <li>We sing, pray, attend church, but still keep control</li>
+        <li>We're still on the throne</li>
+        <li>We want God close enough to bless us</li>
+        <li>But not close enough to confront or change us</li>
+        <li>We've made God a <span class="emphasis">consultant</span>, not the <span class="emphasis">King</span></li>
+      </ul></div>
+      <div class="framework-box" style="margin-top: 1.5rem;">
+        <h4>You Cannot Worship the Person You're Trying to Manage</h4>
+      </div>
+    </div>
+
+    <!-- 12. The Invitation -->
+    <div class="slide cta-slide" data-slide="12">
+      <h1>The Three-Part Invitation</h1>
+      <div class="call-to-action">
+        <h3>Stop Trying to Manage God</h3>
+        <p>That's fake worship</p>
+      </div>
+      <div class="call-to-action">
+        <h3>Step Off the Throne - He is King</h3>
+        <p>That's real worship</p>
+      </div>
+      <div class="call-to-action">
+        <h3>Lay Down Control and Trust Him</h3>
+        <p>That's real worship</p>
+      </div>
+    </div>
+
+    <!-- 13. Prayer Points -->
+    <div class="slide section-break" data-slide="13">
+      <h1>Prayer Points</h1>
+      <h2>Moving from Fake to Real Worship</h2>
+    </div>
+
+    <!-- 14. Prayer 1: Hunger -->
+    <div class="slide prayer-slide" data-slide="14">
+      <h2>Prayer for Genuine Hunger</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Father God, I ask for a genuine hunger for Jesus that goes beyond religious formality. Like the wise men who left Persia and traveled far to meet the King, give me a heart that is not satisfied with secondhand information about Jesus. I don't want to be a casual seeker; I want to be a serious seeker hungry for truth. Holy Spirit, stir up within me an insatiable appetite for the presence of Jesus. Every encounter with Jesus should make me hunger for more.</div>
+          <div class="scripture-ref">Matthew 2:2; John 14:6</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 15. Prayer 2: Focus -->
+    <div class="slide prayer-slide" data-slide="15">
+      <h2>Prayer for Focused Pursuit</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Lord Jesus, in a world with countless distractions—ambitions, goals, dreams, relationships, money, status—help me to identify Your star and focus exclusively on You. The wise men saw many stars in the heavens, but they ignored all the others when they identified His star. Father, I confess that I have allowed many things to absorb my attention. Today I choose to fix my eyes on Jesus. When I fix my eyes on You, it brings peace, hope, power, and true fulfillment.</div>
+          <div class="scripture-ref">Hebrews 12:1-2; Matthew 6:21</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 16. Prayer 3: Surrender -->
+    <div class="slide prayer-slide" data-slide="16">
+      <h2>Prayer for Complete Surrender</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Heavenly Father, the defining mark of true worship is surrender. When the wise men found Jesus, they bowed down. I present my body as a living sacrifice, holy and acceptable to You. I confess that there are areas where I have been troubled by Your kingship because I know it demands that I surrender control. Today, I choose to abdicate the throne of my life. I surrender my time, treasure, gifts, finances, relationships, career—every single area. You are King; I'm not. You are Lord; I'm not.</div>
+          <div class="scripture-ref">Romans 12:1; Matthew 2:11</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 17. Prayer 4: Transformation -->
+    <div class="slide prayer-slide" data-slide="17">
+      <h2>Prayer for Transformation, Not Just Information</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Father God, I confess that like Herod, there have been times when I inquired and wanted information about You, but never truly intended for that information to transform me. Today I repent of this fake worship. Transform me by the renewing of my mind. Real worshipers bow and surrender, inviting You to have Your way. I don't want to remain the same. I want to change more and more into the image of Christ. Let the information concerning Jesus produce transformation in my life.</div>
+          <div class="scripture-ref">Romans 12:2; James 1:22</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 18. Prayer 5: Stop Managing -->
+    <div class="slide prayer-slide" data-slide="18">
+      <h2>Prayer to Stop Managing God</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Heavenly Father, worship without surrender is simply an attempt to manage You. I confess that I have been guilty of trying to manage You instead of worship You. I have said, "God, bless my plans, but don't change them. God, heal me, but don't touch this part." I have made You a consultant instead of recognizing You as King. I cannot worship the person I'm trying to manage. Today I stop negotiating with You because You do not negotiate Your kingship. I bow and surrender to You. I step off the throne because You are King.</div>
+          <div class="scripture-ref">John 4:23-24; Matthew 2:11</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 19. Prayer 6: Personal Conviction -->
+    <div class="slide prayer-slide" data-slide="19">
+      <h2>Prayer for Personal Conviction</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Lord Jesus, I don't want to be like those who worship only because others are doing it—those who are part of the crowd but have no personal relationship or personal convictions. I want my worship to flow from deep personal conviction and intimate relationship with You, not from what's popular or who's around me. Whether anyone else worships or not, whether friends stay or leave, let me worship You because I know You personally and am motivated from within by the Holy Spirit.</div>
+          <div class="scripture-ref">John 4:23-24</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 20. Prayer 7: Obedience -->
+    <div class="slide prayer-slide" data-slide="20">
+      <h2>Prayer for Obedience That Demonstrates Love</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Father, Jesus declared, "These people honor Me with their lips, but their heart is far from Me." I don't want to be guilty of honoring You with words while my heart remains far from You. Jesus said, "If you love Me, keep My commandments." True worship will be demonstrated in my works of obedience. I will show my faith by my works. Let my worship be real, flowing from my heart and evidenced in my obedience, my love for others, and my works of righteousness.</div>
+          <div class="scripture-ref">John 14:15; Matthew 15:8; James 2:18</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 21. Prayer 8: Honoring with Substance -->
+    <div class="slide prayer-slide" data-slide="21">
+      <h2>Prayer for Honoring God with Our Treasures</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Lord, the wise men didn't come to Jesus empty-handed. They brought their gifts and worshiped Him with their treasures—gold, frankincense, and myrrh. Jesus, You said, "Where your treasure is, there your heart will be also." Our whole life is to be a gift to You because You gave Your whole life for us. Father, I present my body as a living sacrifice. I honor You not just with words but with the gift of my surrendered heart, my time, my talents, and my treasures.</div>
+          <div class="scripture-ref">Matthew 2:11; Matthew 6:21; Romans 12:1</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 22. Final Call -->
+    <div class="slide cta-slide" data-slide="22">
+      <h1>Is Your Worship Real or Fake?</h1>
+      <div class="quote" style="font-size: 2rem; margin: 2rem 0;">"Worship is not measured by how loudly we sing but by how deeply we surrender"</div>
+      <div class="content-list"><ul>
+        <li>Jesus is both a great King who deserves our surrender</li>
+        <li>And a humble, servant King who rules with grace and mercy</li>
+        <li>He loves us more than we love ourselves</li>
+        <li>We can surrender to Him because He is trustworthy</li>
+        <li>The revelation of Jesus as King demands our response</li>
+      </ul></div>
+      <div class="framework-box" style="margin-top: 2rem;">
+        <h4>Not Debate, Not Delay, But Surrender</h4>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+      <button class="nav-btn" onclick="previousSlide()">← Previous</button>
+      <button class="nav-btn" onclick="nextSlide()">Next →</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = document.querySelectorAll('.slide').length;
+    document.getElementById('total-slides').textContent = totalSlides;
+
+    // Slide titles for sidebar navigation
+    const slideTitles = [
+      'Title',
+      'Key Scripture',
+      'Core Message',
+      'Real Worship',
+      'Hunger for Jesus',
+      'Pursuit & Focus',
+      'Surrender',
+      'Fake Worship',
+      'Troubled by Lordship',
+      'Five Signs',
+      'Core Issue',
+      'The Invitation',
+      'Prayer Points',
+      'Prayer: Hunger',
+      'Prayer: Focus',
+      'Prayer: Surrender',
+      'Prayer: Transformation',
+      'Prayer: Stop Managing',
+      'Prayer: Conviction',
+      'Prayer: Obedience',
+      'Prayer: Treasures',
+      'Final Call'
+    ];
+
+    // Generate sidebar navigation
+    function generateSidebar() {
+      const sidebarNav = document.getElementById('sidebarNav');
+      sidebarNav.innerHTML = '';
+
+      slideTitles.forEach((title, index) => {
+        const item = document.createElement('div');
+        item.className = 'sidebar-item';
+
+        // Mark section breaks
+        if ([3, 7, 12].includes(index)) {
+          item.classList.add('section');
+        }
+
+        if (index === currentSlide - 1) {
+          item.classList.add('active');
+        }
+
+        item.innerHTML = `
+          <span class="slide-num">${index + 1}</span>
+          <span>${title}</span>
+        `;
+
+        item.onclick = () => {
+          showSlide(index + 1);
+        };
+
+        sidebarNav.appendChild(item);
+      });
+    }
+
+    function showSlide(n) {
+      const slides = document.querySelectorAll('.slide');
+      if (n > totalSlides) n = 1;
+      if (n < 1) n = totalSlides;
+      currentSlide = n;
+      slides.forEach(s => s.classList.remove('active'));
+      slides[currentSlide - 1].classList.add('active');
+      document.getElementById('current-slide').textContent = currentSlide;
+
+      // Update navigation buttons
+      const prevBtn = document.querySelector('.nav-btn');
+      const nextBtn = document.querySelectorAll('.nav-btn')[1];
+      prevBtn.disabled = currentSlide === 1;
+      nextBtn.disabled = currentSlide === totalSlides;
+
+      // Update sidebar
+      generateSidebar();
+    }
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function previousSlide() { showSlide(currentSlide - 1); }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+
+    document.addEventListener('keydown', function(event) {
+      switch(event.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+        case ' ':
+        case 'Enter':
+          nextSlide();
+          event.preventDefault();
+          break;
+        case 'ArrowLeft':
+        case 'ArrowUp':
+          previousSlide();
+          event.preventDefault();
+          break;
+        case 'Home':
+          currentSlide = 1; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'End':
+          currentSlide = totalSlides; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'PageDown':
+          showSlide(Math.min(currentSlide + 10, totalSlides)); event.preventDefault();
+          break;
+        case 'PageUp':
+          showSlide(Math.max(currentSlide - 10, 1)); event.preventDefault();
+          break;
+      }
+    });
+
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let startY = 0;
+
+    document.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    });
+
+    document.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const endY = e.changedTouches[0].clientY;
+      const deltaX = endX - startX;
+      const deltaY = endY - startY;
+
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+        if (deltaX > 0) {
+          previousSlide();
+        } else {
+          nextSlide();
+        }
+      }
+    });
+
+    // Initialize
+    generateSidebar();
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>
