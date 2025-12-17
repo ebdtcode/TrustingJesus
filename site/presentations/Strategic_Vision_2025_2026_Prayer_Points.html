@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Vision 2025-2026 Prayer Points - Harvest Intercontinental Church</title>
+    <style>
+        /* CONSISTENT STYLE TEMPLATE FOR ALL PRESENTATIONS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #03396C;
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Sidebar Navigation (PowerPoint Style) */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100vh;
+            background: rgba(3, 57, 108, 0.95);
+            backdrop-filter: blur(10px);
+            border-right: 2px solid #FF8D21;
+            z-index: 2000;
+            transition: left 0.3s ease;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 141, 33, 0.3);
+            text-align: center;
+        }
+
+        .sidebar-header h3 {
+            color: #FF8D21;
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .sidebar-nav {
+            padding: 10px 0;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+            font-size: 0.9rem;
+        }
+
+        .sidebar-item:hover {
+            background: rgba(255, 141, 33, 0.1);
+            border-left-color: #FF8D21;
+        }
+
+        .sidebar-item.active {
+            background: rgba(255, 141, 33, 0.2);
+            border-left-color: #FF8D21;
+            color: #FF8D21;
+        }
+
+        .sidebar-item-number {
+            background: #FF8D21;
+            color: #03396C;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .sidebar-item.active .sidebar-item-number {
+            background: white;
+            color: #03396C;
+        }
+
+        .sidebar-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #FF8D21;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 2100;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            width: clamp(44px, 8vw, 55px);
+            height: clamp(44px, 8vw, 55px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            touch-action: manipulation;
+        }
+
+        .sidebar-toggle:hover {
+            background: #ff6b00;
+            transform: scale(1.1);
+        }
+
+        .sidebar-toggle:active {
+            transform: scale(1.05);
+        }
+
+        /* Slide Styles */
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            transition: transform 0.3s ease, width 0.3s ease;
+        }
+
+        body.sidebar-open .presentation {
+            transform: translateX(300px);
+            width: calc(100vw - 300px);
+        }
+
+        body.sidebar-open .slide-counter {
+            left: 330px;
+        }
+
+        body.sidebar-open .sidebar-toggle {
+            left: 320px;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 80px;
+            text-align: center;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        /* Typography Standards - Fully Responsive */
+        .slide h1 {
+            font-size: clamp(1.8rem, 5vw, 4rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: clamp(15px, 3vh, 30px);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .slide h2 {
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            font-weight: 600;
+            color: #FF8D21;
+            margin-bottom: clamp(15px, 3vh, 30px);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            line-height: 1.3;
+        }
+
+        .slide p {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            line-height: 1.6;
+        }
+
+        .scripture {
+            background: rgba(255, 141, 33, 0.1);
+            border-left: 4px solid #FF8D21;
+            padding: clamp(15px, 3vw, 30px);
+            margin: clamp(15px, 3vh, 30px) auto;
+            max-width: 900px;
+            font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+            line-height: 1.6;
+            text-align: left;
+            border-radius: 8px;
+            width: 90%;
+        }
+
+        .scripture-reference {
+            text-align: right;
+            color: #FFD700;
+            font-size: clamp(1rem, 2vw, 1.4rem);
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        .bullet-list {
+            text-align: left;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 90%;
+        }
+
+        .bullet-list li {
+            font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+            margin: clamp(10px, 2vh, 20px) 0;
+            line-height: 1.5;
+            position: relative;
+            padding-left: clamp(30px, 5vw, 40px);
+        }
+
+        .bullet-list li:before {
+            content: "🔥";
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        .prayer-point {
+            background: rgba(255, 141, 33, 0.15);
+            border: 2px solid #FF8D21;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 900px;
+            border-radius: 12px;
+        }
+
+        .prayer-point h3 {
+            color: #FFD700;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 20px;
+        }
+
+        .prayer-point p {
+            font-size: clamp(1rem, 2vw, 1.4rem);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .two-column {
+            display: flex;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .column {
+            flex: 1;
+            text-align: left;
+        }
+
+        /* Navigation Controls */
+        .nav-controls {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        /* Home Button */
+        .home-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 141, 33, 0.9);
+            color: white;
+            border: 2px solid #FF8D21;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            z-index: 2100;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .home-button:hover {
+            background: #FF8D21;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            text-decoration: none;
+            color: white;
+        }
+
+        .home-button-icon {
+            font-size: 1.2rem;
+        }
+
+        .nav-button {
+            background: #FF8D21;
+            color: white;
+            border: none;
+            padding: clamp(10px, 2vh, 15px) clamp(20px, 3vw, 30px);
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            transition: all 0.3s ease;
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            touch-action: manipulation;
+        }
+
+        .nav-button:hover {
+            background: #ff6b00;
+            transform: translateY(-2px);
+        }
+
+        .nav-button:active {
+            transform: translateY(0);
+        }
+
+        .nav-button:disabled {
+            background: rgba(255, 141, 33, 0.3);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1.1rem;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: #FF8D21;
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1280px) {
+            .slide {
+                padding: 50px 60px;
+            }
+        }
+
+        @media (max-width: 1023px) {
+            .slide {
+                padding: 40px 40px;
+            }
+
+            .two-column {
+                gap: 20px;
+            }
+
+            .nav-controls {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .sidebar {
+                width: 280px;
+                left: -280px;
+            }
+
+            body.sidebar-open .presentation {
+                transform: translateX(280px);
+                width: calc(100vw - 280px);
+            }
+
+            body.sidebar-open .slide-counter {
+                left: 310px;
+            }
+
+            body.sidebar-open .sidebar-toggle {
+                left: 300px;
+            }
+
+            .slide {
+                padding: 30px 20px;
+            }
+
+            .two-column {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .home-button {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+                top: 70px;
+                right: 15px;
+            }
+
+            .home-button span:not(.home-button-icon) {
+                display: none;
+            }
+
+            .nav-controls {
+                bottom: 15px;
+                right: 15px;
+                gap: 10px;
+            }
+
+            .slide-counter {
+                bottom: 15px;
+                left: 15px;
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 599px) {
+            .sidebar {
+                width: 250px;
+                left: -250px;
+            }
+
+            body.sidebar-open .presentation {
+                transform: translateX(250px);
+                width: calc(100vw - 250px);
+            }
+
+            body.sidebar-open .sidebar-toggle {
+                left: 270px;
+            }
+
+            body.sidebar-open .slide-counter {
+                left: 270px;
+            }
+
+            .slide {
+                padding: 20px 15px;
+            }
+
+            .prayer-point {
+                padding: 20px;
+                margin: 20px auto;
+            }
+
+            .sidebar-toggle {
+                top: 15px;
+                left: 15px;
+            }
+
+            .home-button {
+                top: 65px;
+                right: 10px;
+            }
+        }
+
+        @media print {
+            .sidebar, .sidebar-toggle, .nav-controls, .slide-counter, .progress-bar, .home-button {
+                display: none !important;
+            }
+
+            .slide {
+                display: flex !important;
+                page-break-after: always;
+                background: white;
+                color: black;
+            }
+
+            .slide h1, .slide h2 {
+                color: #03396C;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar Toggle -->
+    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+
+    <!-- Home Button -->
+    <a href="../index.html" class="home-button" title="Return to Dashboard">
+        <span class="home-button-icon">🏠</span>
+        <span>Dashboard</span>
+    </a>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Slide Navigation</h3>
+        </div>
+        <div class="sidebar-nav" id="sidebarNav">
+            <!-- Navigation items will be auto-generated -->
+        </div>
+    </div>
+
+    <div class="presentation">
+        <div class="progress-bar" id="progressBar"></div>
+
+        <!-- SLIDE 1: Title Slide -->
+        <div class="slide active">
+            <h1>🔥 Strategic Vision 2025-2026</h1>
+            <h2>Prayer Points for Our Next Season</h2>
+            <div class="scripture">
+                "For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, plans to give you hope and a future."
+                <div class="scripture-reference">Jeremiah 29:11 (NIV)</div>
+            </div>
+            <p style="margin-top: 40px; font-size: 1.6rem; color: #FF8D21;">Harvest Intercontinental Church</p>
+            <p style="margin-top: 20px; font-size: 1.4rem; color: #FFD700;">Olney, MD • December 2025</p>
+        </div>
+
+        <!-- SLIDE 2: Prayer Focus Overview -->
+        <div class="slide">
+            <h2>Our Prayer Focus Areas</h2>
+            <div class="two-column">
+                <div class="column">
+                    <ul class="bullet-list">
+                        <li><strong style="color: #FF8D21;">Second Service Launch (April 2026)</strong><br>
+                            <span style="font-size: 1.3rem; color: #FFD700;">Divine Expansion & Growth</span></li>
+                        <li><strong style="color: #FF8D21;">Emerging Leaders Initiative</strong><br>
+                            <span style="font-size: 1.3rem; color: #FFD700;">Empowering Ages 25-45</span></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <ul class="bullet-list">
+                        <li><strong style="color: #FF8D21;">5 Nights of Fire (Dec 1-23)</strong><br>
+                            <span style="font-size: 1.3rem; color: #FFD700;">Unprecedented Glory & Souls</span></li>
+                        <li><strong style="color: #FF8D21;">Shekinah Glory Manifestation</strong><br>
+                            <span style="font-size: 1.3rem; color: #FFD700;">Signs, Wonders & Miracles</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: Foundation Scripture -->
+        <div class="slide">
+            <h2>Our Foundation Scripture</h2>
+            <div class="scripture">
+                "Enlarge the place of your tent, stretch your tent curtains wide, do not hold back; lengthen your cords, strengthen your stakes. For you will spread out to the right and to the left; your descendants will dispossess nations and settle in their desolate cities."
+                <div class="scripture-reference">Isaiah 54:2-3 (NIV)</div>
+            </div>
+            <p style="margin-top: 30px; font-size: 1.4rem; color: #FFD700;">God is calling us to expand, to stretch, and to prepare for the increase He is bringing!</p>
+        </div>
+
+        <!-- SLIDE 4: Prayer Point 1 - Second Service Expansion -->
+        <div class="slide">
+            <h2>🔥 Prayer Point 1</h2>
+            <div class="prayer-point">
+                <h3>Divine Expansion for the Second Service</h3>
+                <p><strong>Focus:</strong> Pray that God enlarges our capacity to accommodate the growth He is bringing to Harvest Intercontinental Church. Ask for wisdom in planning, anointed leadership, and supernatural provision for the second service launching on April 5, 2026.</p>
+                <div class="scripture" style="margin: 20px 0;">
+                    "Enlarge the place of your tent, stretch your tent curtains wide, do not hold back; lengthen your cords, strengthen your stakes."
+                    <div class="scripture-reference">Isaiah 54:2-3 (NIV)</div>
+                </div>
+                <p><strong>Declaration:</strong> "We declare that our tent is enlarging! God is making room for the multitudes He is sending to Harvest Church. The second service will be filled with hungry souls ready to encounter the living God!"</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: Prayer Point 2 - Anointed Worship & Teaching -->
+        <div class="slide">
+            <h2>🔥 Prayer Point 2</h2>
+            <div class="prayer-point">
+                <h3>Spirit-Led Worship & Anointed Teaching</h3>
+                <p><strong>Focus:</strong> Pray for the anointing of the Holy Spirit to rest upon every aspect of the second service - worship, teaching, ministry, and fellowship. Ask that unity and the presence of God flow like precious oil over both services.</p>
+                <div class="scripture" style="margin: 20px 0;">
+                    "How good and pleasant it is when God's people live together in unity! It is like precious oil poured on the head, running down on the beard, running down on Aaron's beard, down on the collar of his robe. For there the Lord bestows his blessing, even life forevermore."
+                    <div class="scripture-reference">Psalm 133:1-3 (NIV)</div>
+                </div>
+                <p><strong>Declaration:</strong> "We declare that the oil of God's anointing flows upon both services at Harvest Church! Where there is unity, God commands His blessing. The second service will be a place of powerful worship and life-transforming teaching!"</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: Prayer Point 3 - Emerging Leaders Raised Up -->
+        <div class="slide">
+            <h2>🔥 Prayer Point 3</h2>
+            <div class="prayer-point">
+                <h3>Emerging Leaders Initiative - Raised Up & Ready</h3>
+                <p><strong>Focus:</strong> Pray that young leaders between ages 25-45 will answer God's call to step into leadership roles. Ask for boldness, wisdom, and a servant's heart as they take their places in ministry and service.</p>
+                <div class="scripture" style="margin: 20px 0;">
+                    "Don't let anyone look down on you because you are young, but set an example for the believers in speech, in conduct, in love, in faith and in purity."
+                    <div class="scripture-reference">1 Timothy 4:12 (NIV)</div>
+                </div>
+                <p><strong>Declaration:</strong> "We declare that this generation of leaders will not be despised for their youth! They are examples in word, conduct, love, faith, and purity. God is raising them up NOW to lead with power and integrity!"</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: Prayer Point 4 - Bold & Equipped Leaders -->
+        <div class="slide">
+            <h2>🔥 Prayer Point 4</h2>
+            <div class="prayer-point">
+                <h3>Bold Leaders - "Here Am I, Send Me!"</h3>
+                <p><strong>Focus:</strong> Pray for the Emerging Leaders Initiative to produce leaders who eagerly respond to God's call with Isaiah's famous cry: "Here am I, send me!" Ask for supernatural equipping through the Holy Spirit to fulfill their assignments.</p>
+                <div class="scripture" style="margin: 20px 0;">
+                    "Then I heard the voice of the Lord saying, 'Whom shall I send? And who will go for us?' And I said, 'Here am I. Send me!'"
+                    <div class="scripture-reference">Isaiah 6:8 (NIV)</div>
+                </div>
+                <p><strong>Declaration:</strong> "We declare that emerging leaders at Harvest Church are answering the call! With boldness they cry, 'Here am I, send me!' They are equipped, anointed, and ready to serve in this new season!"</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: Prayer Point 5 - Unprecedented Glory -->
+        <div class="slide">
+            <h2>🔥 Prayer Point 5</h2>
+            <div class="prayer-point">
+                <h3>5 Nights of Fire - Shekinah Glory Manifestation</h3>
+                <p><strong>Focus:</strong> Pray for the 5 Nights of Fire (December 1-23, 2025) to be marked by unprecedented manifestations of God's glory. Ask that His presence fills the earth and our gatherings as the waters cover the sea - completely, fully, undeniably!</p>
+                <div class="scripture" style="margin: 20px 0;">
+                    "For the earth will be filled with the knowledge of the glory of the Lord as the waters cover the sea."
+                    <div class="scripture-reference">Habakkuk 2:14 (NIV)</div>
+                </div>
+                <p><strong>Declaration:</strong> "We declare that the Shekinah glory of the Lord will manifest in a way we have never seen before! The 5 Nights of Fire will be saturated with His presence. Men and women will hunger for His glory more than they crave for bread!"</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: Prayer Point 6 - Tsunami of Souls & Miracles -->
+        <div class="slide">
+            <h2>🔥 Prayer Point 6</h2>
+            <div class="prayer-point">
+                <h3>Tsunami of Souls - Unusual Miracles, Signs & Wonders</h3>
+                <p><strong>Focus:</strong> Pray for a tsunami of souls to flood into the Kingdom during the 5 Nights of Fire and beyond. Ask for unusual miracles, signs, and wonders that will authenticate the Gospel and draw multitudes to Christ through Watchnight and into 2026.</p>
+                <div class="scripture" style="margin: 20px 0;">
+                    "In the last days, God says, I will pour out my Spirit on all people. Your sons and daughters will prophesy, your young men will see visions, your old men will dream dreams. Even on my servants, both men and women, I will pour out my Spirit in those days, and they will prophesy. I will show wonders in the heavens above and signs on the earth below."
+                    <div class="scripture-reference">Acts 2:17-18 (NIV)</div>
+                </div>
+                <p><strong>Declaration:</strong> "We declare a tsunami of souls is coming to Harvest Church! The Lord is pouring out His Spirit. We will see unusual miracles, signs, and wonders that confirm His Word. Multitudes will be saved. Let it manifest in an unprecedented way!"</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: Call to Action -->
+        <div class="slide">
+            <h2>This Season's Challenge</h2>
+            <ul class="bullet-list">
+                <li>Commit to praying daily for the second service launch and divine expansion</li>
+                <li>If you're 25-45, seek the Lord about your role in the Emerging Leaders Initiative</li>
+                <li>Prepare your heart for the 5 Nights of Fire - December 1-23, 2025</li>
+                <li>Fast and pray for the tsunami of souls and manifestation of God's glory</li>
+                <li>Invite friends and family to experience God's presence with us</li>
+                <li>Declare these prophetic promises over Harvest Church daily</li>
+            </ul>
+        </div>
+
+        <!-- SLIDE 11: Corporate Declaration -->
+        <div class="slide">
+            <h2>Our Corporate Declaration</h2>
+            <div class="prayer-point">
+                <p style="font-size: 1.5rem; line-height: 1.7; color: white;">
+                    "We declare that Harvest Intercontinental Church is entering a season of unprecedented growth and glory! The second service will overflow with hungry souls. Emerging leaders are rising up with boldness and anointing. The 5 Nights of Fire will be marked by the Shekinah glory of God, unusual miracles, signs, and wonders. A tsunami of souls is coming! We are going higher! The glory of the Lord is being revealed as the waters cover the sea!"
+                </p>
+                <p style="margin-top: 30px; font-size: 1.8rem; color: #FFD700; font-weight: 700;">
+                    In Jesus' Mighty Name, AMEN! 🔥
+                </p>
+            </div>
+        </div>
+
+        <!-- SLIDE 12: Closing Slide -->
+        <div class="slide">
+            <h1>🔥 Let's Go Higher!</h1>
+            <p style="font-size: 2rem; margin: 30px 0;">It is a season of His glory being revealed<br>as the waters cover the sea.</p>
+            <div class="scripture">
+                "Now to him who is able to do immeasurably more than all we ask or imagine, according to his power that is at work within us, to him be glory in the church and in Christ Jesus throughout all generations, for ever and ever! Amen."
+                <div class="scripture-reference">Ephesians 3:20-21 (NIV)</div>
+            </div>
+            <p style="font-size: 1.4rem; color: #FFD700; margin-top: 40px;">Harvest Intercontinental Church, Olney, MD</p>
+        </div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="nav-controls">
+        <button class="nav-button" id="prevBtn" onclick="changeSlide(-1)">Previous</button>
+        <button class="nav-button" id="nextBtn" onclick="changeSlide(1)">Next</button>
+    </div>
+
+    <!-- Slide Counter -->
+    <div class="slide-counter" id="slideCounter">1 / 12</div>
+
+    <script>
+        // STANDARD NAVIGATION SCRIPT
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const progressBar = document.getElementById('progressBar');
+        const slideCounter = document.getElementById('slideCounter');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarNav = document.getElementById('sidebarNav');
+
+        const slideTitles = [
+            "Strategic Vision 2025-2026",
+            "Our Prayer Focus Areas",
+            "Foundation Scripture",
+            "🔥 Prayer Point 1: Divine Expansion",
+            "🔥 Prayer Point 2: Anointed Worship",
+            "🔥 Prayer Point 3: Emerging Leaders",
+            "🔥 Prayer Point 4: Bold & Equipped",
+            "🔥 Prayer Point 5: Unprecedented Glory",
+            "🔥 Prayer Point 6: Tsunami of Souls",
+            "This Season's Challenge",
+            "Our Corporate Declaration",
+            "Let's Go Higher!"
+        ];
+
+        function generateSidebarNav() {
+            sidebarNav.innerHTML = '';
+            slides.forEach((slide, index) => {
+                const navItem = document.createElement('div');
+                navItem.className = 'sidebar-item';
+                if (index === currentSlide) navItem.classList.add('active');
+
+                let title = slideTitles[index] || `Slide ${index + 1}`;
+
+                navItem.innerHTML = `
+                    <div class="sidebar-item-number">${index + 1}</div>
+                    <div class="sidebar-item-title">${title}</div>
+                `;
+
+                navItem.addEventListener('click', () => {
+                    goToSlide(index);
+                    closeSidebar();
+                });
+
+                sidebarNav.appendChild(navItem);
+            });
+        }
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('open');
+            document.body.classList.toggle('sidebar-open');
+        }
+
+        function closeSidebar() {
+            sidebar.classList.remove('open');
+            document.body.classList.remove('sidebar-open');
+        }
+
+        function goToSlide(slideIndex) {
+            if (slideIndex >= 0 && slideIndex < totalSlides) {
+                currentSlide = slideIndex;
+                updateSlide();
+            }
+        }
+
+        function updateSlide() {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide].classList.add('active');
+            progressBar.style.width = ((currentSlide + 1) / totalSlides * 100) + '%';
+            slideCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+            updateSidebarActive();
+        }
+
+        function updateSidebarActive() {
+            document.querySelectorAll('.sidebar-item').forEach((item, index) => {
+                if (index === currentSlide) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        function changeSlide(direction) {
+            const newSlide = currentSlide + direction;
+            if (newSlide >= 0 && newSlide < totalSlides) {
+                currentSlide = newSlide;
+                updateSlide();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case 'ArrowLeft': changeSlide(-1); break;
+                case 'ArrowRight':
+                case ' ': changeSlide(1); break;
+                case 'Home': goToSlide(0); break;
+                case 'End': goToSlide(totalSlides - 1); break;
+                case 'Escape': closeSidebar(); break;
+            }
+        });
+
+        // Touch/Swipe Navigation for Mobile Devices
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let touchStartY = 0;
+        let touchEndY = 0;
+        const minSwipeDistance = 50;
+
+        const presentationElement = document.querySelector('.presentation');
+
+        presentationElement.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        presentationElement.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeDistanceX = touchEndX - touchStartX;
+            const swipeDistanceY = touchEndY - touchStartY;
+
+            if (Math.abs(swipeDistanceX) > Math.abs(swipeDistanceY)) {
+                if (Math.abs(swipeDistanceX) > minSwipeDistance) {
+                    if (swipeDistanceX > 0) {
+                        changeSlide(-1);
+                    } else {
+                        changeSlide(1);
+                    }
+                }
+            }
+        }
+
+        // Prevent accidental zooming on double-tap (iOS Safari)
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', (e) => {
+            const now = new Date().getTime();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+
+        // Initialize
+        generateSidebarNav();
+        updateSlide();
+    </script>
+</body>
+</html>
