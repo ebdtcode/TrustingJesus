@@ -1,881 +1,712 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Angels On Call - Sermon Presentation</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Angels On Call - Bishop Darlingston Johnson</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); color: #fff; overflow: hidden; }
+    .presentation { position: relative; width: 100vw; height: 100vh; }
+    .slide { display: none; position: absolute; width: 100%; height: 100%; padding: 60px 80px 60px 320px; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); }
+    .slide.active { display: flex; }
+    h1 { font-size: 4.2rem; font-weight: 800; margin-bottom: 1.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); line-height: 1.2; color: #fff; }
+    h2 { font-size: 3.2rem; font-weight: 700; margin-bottom: 1.2rem; color: #ffd166; text-shadow: 1px 2px 4px rgba(0,0,0,0.4); line-height: 1.3; }
+    h3 { font-size: 2.4rem; font-weight: 700; margin-bottom: 1rem; color: #fff; text-shadow: 1px 2px 3px rgba(0,0,0,0.35); }
+    .subtitle { font-size: 1.8rem; font-weight: 400; margin-bottom: 0.6rem; color: #e8f4f8; line-height: 1.4; }
+    .scripture { background: rgba(255,255,255,0.14); border-left: 6px solid #ffd166; padding: 1.5rem; margin: 1.2rem 0; border-radius: 10px; backdrop-filter: blur(8px); box-shadow: 0 8px 32px rgba(0,0,0,0.25); max-width: 1100px; }
+    .scripture-text { font-size: 1.8rem; font-style: italic; line-height: 1.6; margin-bottom: 0.6rem; color: #fff; }
+    .scripture-ref { font-size: 1.2rem; font-weight: 700; color: #ffd166; text-align: right; }
+    .content-list { text-align: left; max-width: 1000px; margin: 0 auto; }
+    .content-list li { font-size: 1.5rem; margin: 0.9rem 0; padding-left: 1rem; line-height: 1.55; list-style: none; position: relative; }
+    .content-list li:before { content: "\25B6"; color: #ffd166; font-weight: bold; position: absolute; left: -1rem; }
+    .quote { font-size: 1.9rem; font-style: italic; text-align: center; padding: 1.5rem; border-radius: 12px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); margin: 1.2rem 0; box-shadow: 0 8px 32px rgba(0,0,0,0.2); line-height: 1.5; }
+    .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; width: 100%; max-width: 1100px; }
+    .column { text-align: left; }
+    .column h4 { font-size: 1.9rem; color: #ffd166; margin-bottom: 1rem; text-align: center; }
+    .column ul { list-style: none; padding: 0; }
+    .column li { font-size: 1.4rem; margin: 0.7rem 0; padding-left: 1.5rem; line-height: 1.5; position: relative; }
+    .column li:before { content: "\2713"; color: #ffd166; font-weight: bold; position: absolute; left: 0; }
+    .prayer-points { background: rgba(255,255,255,0.12); border-radius: 14px; padding: 2rem; backdrop-filter: blur(12px); box-shadow: 0 12px 40px rgba(0,0,0,0.28); max-width: 1100px; margin: 1.2rem auto; }
+    .prayer-points h3 { color: #ffd166; margin-bottom: 1rem; font-size: 2.1rem; }
+    .navigation { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 1rem; z-index: 1000; }
+    .nav-btn { background: rgba(255,255,255,0.22); border: 2px solid rgba(255,255,255,0.3); color: white; padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 600; backdrop-filter: blur(10px); transition: all 0.3s ease; }
+    .nav-btn:hover { background: rgba(255,255,255,0.32); border-color: #ffd166; color: #ffd166; }
+    .nav-btn:disabled { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); cursor: not-allowed; }
+    .slide-counter { position: fixed; top: 30px; right: 30px; background: rgba(0,0,0,0.45); padding: 0.5rem 1rem; border-radius: 20px; font-size: 1rem; backdrop-filter: blur(10px); }
+    .emphasis { color: #ffd166; font-weight: 800; }
+    .call-to-action { background: linear-gradient(135deg, #06d6a0, #118ab2); color: white; padding: 2rem; border-radius: 14px; margin: 1.2rem 0; box-shadow: 0 12px 40px rgba(0,0,0,0.3); text-align: center; }
+    .call-to-action h3 { font-size: 2.6rem; margin-bottom: 1rem; }
+    .call-to-action p { font-size: 1.6rem; line-height: 1.6; }
+    .section-break { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .section-break h1 { color: #ffd166 !important; }
+    .section-break h2 { color: #e8f4f8 !important; }
+    .cta-slide { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .cta-slide h1 { color: #ffd166 !important; }
+    .cta-slide .content-list li { color: #fff; }
+    .prayer-slide .scripture { background: rgba(255,209,102,0.15); border-left-color: #ffd166; }
+    .framework-box { background: rgba(255,209,102,0.15); border: 2px solid #ffd166; border-radius: 12px; padding: 1.5rem; margin: 1rem 0; }
+    .framework-box h4 { color: #ffd166; font-size: 1.8rem; margin-bottom: 1rem; }
 
-        :root {
-            --primary-blue: #2563a8;
-            --dark-blue: #1e4a7c;
-            --accent-blue: #3b82f6;
-            --white: #ffffff;
-            --light-gray: #f5f5f5;
-            --dark-gray: #333333;
-            --border-color: #e0e0e0;
-        }
+    /* Sidebar Navigation */
+    .sidebar { position: fixed; left: 0; top: 0; width: 280px; height: 100vh; background: rgba(20, 33, 61, 0.95); backdrop-filter: blur(10px); overflow-y: auto; z-index: 1500; border-right: 2px solid #ffd166; }
+    .sidebar-header { padding: 1.5rem; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,209,102,0.3); }
+    .sidebar-header h3 { color: #ffd166; font-size: 1.3rem; margin: 0; }
+    .sidebar-nav { padding: 1rem 0; }
+    .sidebar-item { padding: 0.8rem 1.5rem; cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem; border-left: 3px solid transparent; display: flex; align-items: center; gap: 0.5rem; }
+    .sidebar-item:hover { background: rgba(255,209,102,0.1); border-left-color: #ffd166; }
+    .sidebar-item.active { background: rgba(255,209,102,0.2); border-left-color: #ffd166; color: #ffd166; font-weight: 600; }
+    .sidebar-item.section { background: rgba(255,209,102,0.1); font-weight: 600; color: #ffd166; margin-top: 0.5rem; }
+    .slide-num { display: inline-block; width: 25px; color: rgba(255,255,255,0.6); }
+    .sidebar-item.active .slide-num { color: #ffd166; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--primary-blue);
-            color: var(--white);
-            overflow: hidden;
-            height: 100vh;
-        }
+    /* Home Button */
+    .home-btn { position: fixed; top: 30px; left: 300px; background: rgba(255,209,102,0.9); color: #14213d; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; z-index: 1000; display: flex; align-items: center; gap: 0.5rem; }
+    .home-btn:hover { background: #ffd166; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255,209,102,0.4); }
 
-        .presentation {
-            display: flex;
-            height: 100vh;
-        }
+    /* Mobile Menu Toggle */
+    .menu-toggle { display: none; position: fixed; top: 30px; left: 20px; z-index: 2000; background: rgba(255,209,102,0.9); color: #14213d; border: none; padding: 0.75rem; border-radius: 8px; cursor: pointer; }
+    .menu-toggle:hover { background: #ffd166; }
 
-        .sidebar {
-            width: 280px;
-            background: rgba(30, 74, 124, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 2rem 1.5rem;
-            overflow-y: auto;
-            border-right: 2px solid var(--accent-blue);
-            position: fixed;
-            height: 100vh;
-            left: 0;
-            top: 0;
-            z-index: 100;
-            transition: transform 0.3s ease;
-        }
+    /* Tablet Landscape & Small Desktops (1024px - 1280px) */
+    @media (max-width: 1280px) {
+      .slide { padding: 50px 60px 50px 320px; }
+      h1 { font-size: 3.8rem; }
+      h2 { font-size: 3rem; }
+      h3 { font-size: 2.3rem; }
+      .subtitle { font-size: 1.6rem; }
+      .content-list li { font-size: 1.4rem; }
+      .quote { font-size: 1.7rem; }
+      .scripture { max-width: 900px; }
+      .content-list { max-width: 850px; }
+    }
 
-        .sidebar.hidden {
-            transform: translateX(-100%);
-        }
+    /* Tablet Portrait (768px - 1024px) */
+    @media (max-width: 1024px) {
+      .slide { padding: 40px 40px 40px 300px; }
+      .sidebar { width: 260px; }
+      h1 { font-size: 3.2rem; }
+      h2 { font-size: 2.6rem; }
+      h3 { font-size: 2rem; }
+      .subtitle { font-size: 1.4rem; }
+      .content-list li { font-size: 1.3rem; }
+      .quote { font-size: 1.5rem; }
+      .scripture-text { font-size: 1.6rem; }
+      .scripture-ref { font-size: 1.1rem; }
+      .two-column { grid-template-columns: 1fr; gap: 1.2rem; }
+      .home-btn { left: 280px; font-size: 0.9rem; padding: 0.6rem 1.2rem; }
+      .navigation { bottom: 20px; }
+      .nav-btn { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
+    }
 
-        .sidebar h1 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--white);
-        }
+    /* Mobile Landscape & Small Tablets (600px - 768px) */
+    @media (max-width: 768px) {
+      .slide { padding: 100px 30px 80px 30px; }
+      h1 { font-size: 2.4rem; }
+      h2 { font-size: 2rem; }
+      h3 { font-size: 1.7rem; }
+      .subtitle { font-size: 1.2rem; }
+      .content-list li { font-size: 1.1rem; margin: 0.7rem 0; }
+      .scripture-text { font-size: 1.3rem; }
+      .scripture-ref { font-size: 1rem; }
+      .quote { font-size: 1.2rem; padding: 1.2rem; }
+      .scripture { padding: 1.2rem; margin: 1rem 0; }
+      .prayer-points { padding: 1.5rem; }
+      .call-to-action h3 { font-size: 2rem; }
+      .call-to-action p { font-size: 1.3rem; }
+      .framework-box { padding: 1.2rem; }
+      .framework-box h4 { font-size: 1.5rem; }
+      .column h4 { font-size: 1.6rem; }
+      .column li { font-size: 1.2rem; }
 
-        .slide-menu {
-            list-style: none;
-            margin-top: 2rem;
-        }
+      /* Hide sidebar by default on mobile */
+      .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; width: 280px; }
+      .sidebar.open { transform: translateX(0); box-shadow: 4px 0 20px rgba(0,0,0,0.5); }
 
-        .slide-menu li {
-            padding: 0.75rem;
-            margin-bottom: 0.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
+      /* Show mobile menu toggle */
+      .menu-toggle { display: block; font-size: 1.2rem; }
 
-        .slide-menu li:hover {
-            background: rgba(59, 130, 246, 0.3);
-            transform: translateX(5px);
-        }
+      /* Move home button to right side */
+      .home-btn {
+        left: auto;
+        right: 20px;
+        top: 20px;
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+      }
+      .home-btn span:last-child { display: none; }
 
-        .slide-menu li.active {
-            background: rgba(59, 130, 246, 0.5);
-            border-left: 4px solid var(--white);
-        }
+      /* Adjust slide counter */
+      .slide-counter {
+        top: 20px;
+        right: 80px;
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+      }
 
-        .main-content {
-            flex: 1;
-            margin-left: 280px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
+      /* Navigation buttons */
+      .navigation {
+        bottom: 15px;
+        gap: 0.6rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
+        max-width: 400px;
+      }
+      .nav-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+        flex: 1;
+      }
+    }
 
-        .slide {
-            display: none;
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
+    /* Mobile Portrait (480px - 600px) */
+    @media (max-width: 600px) {
+      .slide { padding: 90px 20px 70px 20px; }
+      h1 { font-size: 2rem; line-height: 1.15; }
+      h2 { font-size: 1.7rem; margin-bottom: 1rem; }
+      h3 { font-size: 1.5rem; }
+      .subtitle { font-size: 1.1rem; line-height: 1.35; }
+      .content-list li { font-size: 1rem; margin: 0.6rem 0; padding-left: 0.8rem; }
+      .content-list li:before { left: -0.8rem; }
+      .scripture-text { font-size: 1.15rem; line-height: 1.5; }
+      .scripture-ref { font-size: 0.95rem; }
+      .quote { font-size: 1.1rem; padding: 1rem; }
+      .scripture { padding: 1rem; border-left-width: 4px; }
+      .prayer-points { padding: 1.2rem; margin: 0.8rem auto; }
+      .prayer-points h3 { font-size: 1.6rem; }
+      .call-to-action { padding: 1.5rem; }
+      .call-to-action h3 { font-size: 1.7rem; }
+      .call-to-action p { font-size: 1.15rem; }
+      .framework-box { padding: 1rem; }
+      .framework-box h4 { font-size: 1.3rem; }
+      .column h4 { font-size: 1.4rem; }
+      .column li { font-size: 1.05rem; }
 
-        .slide.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
+      .sidebar { width: 260px; }
+      .sidebar-header h3 { font-size: 1.1rem; }
+      .sidebar-item { font-size: 0.85rem; padding: 0.7rem 1.2rem; }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+      .navigation {
+        bottom: 10px;
+        width: calc(100% - 20px);
+        gap: 0.5rem;
+      }
+      .nav-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+        border-radius: 20px;
+      }
 
-        .date-badge {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            background: transparent;
-            color: var(--white);
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
-            font-weight: 600;
-            border-bottom: 2px solid var(--white);
-        }
+      .slide-counter {
+        right: 70px;
+        font-size: 0.85rem;
+        padding: 0.35rem 0.7rem;
+      }
 
-        .chevron-left {
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            padding-left: 2rem;
-        }
+      .home-btn {
+        padding: 0.5rem 0.8rem;
+        right: 15px;
+        top: 15px;
+      }
+      .home-btn span:first-child { font-size: 1.1rem; }
+    }
 
-        .chevron-right {
-            position: absolute;
-            right: 2rem;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
+    /* Small Mobile Portrait (320px - 480px) */
+    @media (max-width: 480px) {
+      .slide { padding: 80px 15px 65px 15px; }
+      h1 { font-size: 1.7rem; margin-bottom: 0.8rem; }
+      h2 { font-size: 1.5rem; margin-bottom: 0.8rem; }
+      h3 { font-size: 1.3rem; }
+      .subtitle { font-size: 1rem; margin-bottom: 0.5rem; }
+      .content-list li { font-size: 0.95rem; margin: 0.5rem 0; }
+      .scripture-text { font-size: 1.05rem; }
+      .scripture-ref { font-size: 0.9rem; }
+      .quote { font-size: 1rem; padding: 0.9rem; }
+      .scripture { padding: 0.9rem; margin: 0.8rem 0; }
+      .prayer-points { padding: 1rem; }
+      .prayer-points h3 { font-size: 1.4rem; margin-bottom: 0.8rem; }
+      .call-to-action { padding: 1.2rem; margin: 0.8rem 0; }
+      .call-to-action h3 { font-size: 1.5rem; margin-bottom: 0.8rem; }
+      .call-to-action p { font-size: 1.05rem; }
+      .framework-box { padding: 0.9rem; margin: 0.8rem 0; }
+      .framework-box h4 { font-size: 1.2rem; }
+      .column h4 { font-size: 1.3rem; }
+      .column li { font-size: 1rem; margin: 0.5rem 0; }
 
-        .chevron-icon {
-            width: 80px;
-            height: 80px;
-            border: 3px solid var(--white);
-            border-right: none;
-            border-top: none;
-            transform: rotate(135deg);
-        }
+      .sidebar { width: 240px; }
+      .sidebar-header { padding: 1.2rem; }
+      .sidebar-header h3 { font-size: 1rem; }
+      .sidebar-item { font-size: 0.8rem; padding: 0.65rem 1rem; }
+      .slide-num { width: 20px; font-size: 0.75rem; }
 
-        .chevron-icon-right {
-            width: 80px;
-            height: 80px;
-            border: 3px solid var(--white);
-            border-left: none;
-            border-bottom: none;
-            transform: rotate(135deg);
-        }
+      .menu-toggle {
+        padding: 0.6rem;
+        font-size: 1.1rem;
+        top: 15px;
+        left: 15px;
+      }
 
-        .title-slide {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            height: 100%;
-            gap: 0;
-        }
+      .navigation {
+        bottom: 8px;
+        width: calc(100% - 16px);
+        gap: 0.4rem;
+      }
+      .nav-btn {
+        padding: 0.45rem 0.7rem;
+        font-size: 0.75rem;
+        border-radius: 18px;
+      }
 
-        .title-content {
-            background: var(--white);
-            color: var(--dark-gray);
-            padding: 4rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-        }
+      .slide-counter {
+        top: 15px;
+        right: 60px;
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+      }
 
-        .title-content h1 {
-            font-size: 5rem;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 2rem;
-            color: var(--dark-gray);
-        }
-
-        .title-content p {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            color: var(--dark-gray);
-        }
-
-        .title-image {
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
-        }
-
-        .title-overlay {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            background: var(--primary-blue);
-            color: var(--white);
-            padding: 3rem;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .title-overlay h3 {
-            font-size: 1.8rem;
-            font-weight: 600;
-        }
-
-        .content-slide {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            height: 100%;
-        }
-
-        .content-left {
-            background: var(--primary-blue);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 4rem;
-            position: relative;
-        }
-
-        .content-right {
-            background: var(--white);
-            color: var(--dark-gray);
-            padding: 4rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .content-title {
-            font-size: 4rem;
-            font-weight: 900;
-            color: var(--white);
-            text-align: center;
-        }
-
-        .content-subtitle {
-            display: inline-block;
-            background: transparent;
-            border: 3px solid var(--white);
-            padding: 1rem 2rem;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin: 2rem auto;
-            color: var(--white);
-        }
-
-        .content-text {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            color: var(--dark-gray);
-        }
-
-        .list-slide {
-            padding: 4rem 8rem 4rem 4rem;
-            background: var(--primary-blue);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .list-title {
-            font-size: 4rem;
-            font-weight: 900;
-            margin-bottom: 3rem;
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .list-content ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .list-content li {
-            font-size: 1.8rem;
-            margin: 1.5rem 0;
-            padding-left: 2rem;
-            position: relative;
-        }
-
-        .list-content li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--white);
-            font-weight: bold;
-            font-size: 2rem;
-        }
-
-        .scripture-slide {
-            background: var(--white);
-            color: var(--dark-gray);
-            padding: 6rem 8rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .scripture-text {
-            font-size: 2.5rem;
-            line-height: 1.6;
-            font-style: italic;
-            margin-bottom: 2rem;
-            font-family: Georgia, serif;
-        }
-
-        .scripture-ref {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-blue);
-        }
-
-        .navigation {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            display: flex;
-            gap: 1rem;
-            z-index: 50;
-        }
-
-        .nav-btn {
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--primary-blue);
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-        }
-
-        .nav-btn:hover {
-            background: var(--white);
-            transform: scale(1.05);
-        }
-
-        .nav-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .slide-counter {
-            position: fixed;
-            top: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.2);
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            font-weight: bold;
-            z-index: 50;
-        }
-
-        .toggle-sidebar {
-            position: fixed;
-            top: 2rem;
-            left: 2rem;
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--primary-blue);
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            z-index: 101;
-            transition: all 0.3s ease;
-        }
-
-        .toggle-sidebar:hover {
-            background: var(--white);
-        }
-
-        .home-btn {
-            position: fixed;
-            bottom: 2rem;
-            left: 2rem;
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--primary-blue);
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            z-index: 101;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .home-btn:hover {
-            background: var(--white);
-            transform: scale(1.05);
-        }
-
-        .prayer-slide {
-            background: var(--primary-blue);
-            padding: 4rem 6rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .prayer-title {
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 2rem;
-            color: var(--white);
-        }
-
-        .prayer-text {
-            font-size: 1.5rem;
-            line-height: 1.8;
-            color: var(--white);
-            margin-bottom: 2rem;
-        }
-
-        .prayer-scripture {
-            font-size: 1.2rem;
-            font-style: italic;
-            color: rgba(255, 255, 255, 0.9);
-            border-left: 4px solid var(--white);
-            padding-left: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .sidebar {
-                transform: translateX(-100%);
-            }
-
-            .sidebar.visible {
-                transform: translateX(0);
-            }
-
-            .main-content {
-                margin-left: 0;
-            }
-
-            .title-slide,
-            .content-slide {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media print {
-            .sidebar,
-            .navigation,
-            .slide-counter,
-            .toggle-sidebar,
-            .home-btn {
-                display: none;
-            }
-
-            .main-content {
-                margin-left: 0;
-            }
-
-            .slide {
-                display: block !important;
-                page-break-after: always;
-            }
-        }
-    </style>
+      .home-btn {
+        padding: 0.45rem 0.7rem;
+        right: 12px;
+        top: 12px;
+        border-radius: 20px;
+      }
+      .home-btn span:first-child { font-size: 1rem; }
+    }
+    @media print { body{ background: white; color: black; } .slide{ display: block !important; page-break-after: always; position: static; background: white; color: black; padding: 2cm; } .navigation, .slide-counter, .sidebar, .home-btn, .menu-toggle{ display: none; } .scripture, .prayer-points, .call-to-action{ background: #f8f9fa; border: 2px solid #ddd; color: black; } h2, .scripture-ref, .emphasis{ color: #000; } }
+  </style>
 </head>
 <body>
-    <button class="toggle-sidebar" onclick="toggleSidebar()">☰ Menu</button>
-    <a href="../index.html" class="home-btn">🏠 Home</a>
-    <div class="slide-counter">
-        <span id="currentSlide">1</span> / <span id="totalSlides">0</span>
+  <div class="presentation">
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Angels On Call</h3>
+      </div>
+      <div class="sidebar-nav" id="sidebarNav">
+        <!-- Navigation items will be generated by JavaScript -->
+      </div>
+    </nav>
+
+    <!-- Home Button -->
+    <a href="../index.html" class="home-btn">
+      <span>🏠</span>
+      <span>Dashboard</span>
+    </a>
+
+    <div class="slide-counter"><span id="current-slide">1</span> / <span id="total-slides">19</span></div>
+
+    <!-- 1. Title Slide -->
+    <div class="slide active" data-slide="1">
+      <h1>Angels On Call</h1>
+      <h2>Ministering Spirits Sent to Serve You</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Are they not all ministering spirits sent forth to minister for those who will inherit salvation?"</div>
+        <div class="scripture-ref">Hebrews 1:14 (NKJV)</div>
+      </div>
+      <div class="subtitle" style="margin-top: 2rem;">Bishop Dr. Darlingston Johnson</div>
+      <div class="subtitle">December 21, 2025</div>
     </div>
 
-    <div class="presentation">
-        <nav class="sidebar" id="sidebar">
-            <h1>Angels On Call</h1>
-            <p style="color: rgba(255,255,255,0.7); margin-bottom: 1rem;">Bishop Dr. Darlingston Johnson</p>
-            <ul class="slide-menu" id="slideMenu"></ul>
-        </nav>
-
-        <main class="main-content">
-            <!-- Slide 1: Title Slide -->
-            <div class="slide active" data-title="Welcome">
-                <div class="title-slide">
-                    <div class="title-content">
-                        <h1>ANGELS ON CALL</h1>
-                        <p><strong>Bishop Dr. Darlingston Johnson</strong></p>
-                        <p style="margin-top: 1rem;">Understanding the Ministry of Angels</p>
-                        <p style="margin-top: 1rem; font-size: 1.1rem;">December 21, 2025</p>
-                    </div>
-                    <div class="title-image">
-                        <div class="title-overlay">
-                            <div class="chevron-icon-right"></div>
-                            <div class="chevron-icon-right"></div>
-                            <div class="chevron-icon-right"></div>
-                            <h3>Ministering Spirits Sent to Serve You</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 2: Foundation Scripture -->
-            <div class="slide" data-title="Hebrews 1:14">
-                <div class="scripture-slide">
-                    <div class="scripture-text">
-                        "Are they not all ministering spirits sent forth to minister for those who will inherit salvation?"
-                    </div>
-                    <div class="scripture-ref">Hebrews 1:14</div>
-                </div>
-            </div>
-
-            <!-- Slide 3: The Reality -->
-            <div class="slide" data-title="We Are Not Alone">
-                <div class="date-badge">December 21, 2025</div>
-                <div class="content-slide">
-                    <div class="content-left">
-                        <div class="chevron-left">
-                            <div class="chevron-icon"></div>
-                            <div class="chevron-icon"></div>
-                        </div>
-                        <h2 class="content-title">WE ARE NOT ALONE</h2>
-                        <div class="chevron-right">
-                            <div class="chevron-icon-right"></div>
-                            <div class="chevron-icon-right"></div>
-                        </div>
-                    </div>
-                    <div class="content-right">
-                        <div class="content-text">
-                            <p>Many believers live as though heaven is quiet and help is scarce. We pray as if God is far away and face battles as though we are alone and unsupported.</p>
-                            <p style="margin-top: 1.5rem;"><strong>But Scripture reveals something radically different: angels are among us, on assignment, actively ministering to the heirs of salvation.</strong></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 4: What Are Angels? -->
-            <div class="slide" data-title="What Are Angels?">
-                <div class="date-badge">December 21, 2025</div>
-                <div class="list-slide">
-                    <h2 class="list-title">What Are Angels?</h2>
-                    <div class="list-content">
-                        <ul>
-                            <li>Spiritual beings created by God</li>
-                            <li>Created to serve God</li>
-                            <li>Extremely powerful</li>
-                            <li>Commanded by God to serve you</li>
-                        </ul>
-                        <p style="font-size: 1.5rem; margin-top: 2rem; font-style: italic;">Angels are a covenant blessing for ALL of God's children.</p>
-                    </div>
-                    <div class="chevron-right">
-                        <div class="chevron-icon-right"></div>
-                        <div class="chevron-icon-right"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 5: Three Roles of Angels -->
-            <div class="slide" data-title="Three Roles of Angels">
-                <div class="date-badge">December 21, 2025</div>
-                <div class="list-slide">
-                    <h2 class="list-title">Three Roles of Angels</h2>
-                    <div class="list-content">
-                        <ul>
-                            <li><strong>Heaven's Worshipers</strong> - They behold God and worship Him continually</li>
-                            <li><strong>Heaven's Warriors</strong> - Fighting battles in the unseen realm so we are not overwhelmed</li>
-                            <li><strong>Protective Services</strong> - Rendering service on your behalf as an heir of salvation</li>
-                        </ul>
-                    </div>
-                    <div class="chevron-right">
-                        <div class="chevron-icon-right"></div>
-                        <div class="chevron-icon-right"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 6: Angels Are Powerful -->
-            <div class="slide" data-title="Angelic Power">
-                <div class="date-badge">December 21, 2025</div>
-                <div class="content-slide">
-                    <div class="content-left">
-                        <div class="chevron-left">
-                            <div class="chevron-icon"></div>
-                            <div class="chevron-icon"></div>
-                        </div>
-                        <h2 class="content-title">POWERFUL WARRIORS</h2>
-                        <div class="chevron-right">
-                            <div class="chevron-icon-right"></div>
-                            <div class="chevron-icon-right"></div>
-                        </div>
-                    </div>
-                    <div class="content-right">
-                        <div class="content-text">
-                            <p><strong>One Angel = 185,000 Soldiers</strong></p>
-                            <p style="margin-top: 1.5rem;">When King Hezekiah prayed, God sent just ONE angel who killed 185,000 enemy soldiers in a single night.</p>
-                            <p style="margin-top: 1.5rem; font-style: italic;">"Imagine such powerful creatures created by God to serve Him. He has charged them to minister to you as an heir of salvation."</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 7: Angels Operate Legally -->
-            <div class="slide" data-title="Angels Operate Legally">
-                <div class="date-badge">December 21, 2025</div>
-                <div class="content-slide">
-                    <div class="content-left">
-                        <div class="chevron-left">
-                            <div class="chevron-icon"></div>
-                            <div class="chevron-icon"></div>
-                        </div>
-                        <h2 class="content-title">UNDER AUTHORITY</h2>
-                        <div class="chevron-right">
-                            <div class="chevron-icon-right"></div>
-                            <div class="chevron-icon-right"></div>
-                        </div>
-                    </div>
-                    <div class="content-right">
-                        <div class="content-text">
-                            <p>Angels operate legally. They don't act independently or respond to emotions.</p>
-                            <p style="margin-top: 1.5rem;"><strong>They are servants under authority, responding only to the voice of God's Word.</strong></p>
-                            <p style="margin-top: 1.5rem;">Those who experience greater angelic activity are more aligned with the spiritual laws that angels obey.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 8: Key Scripture - Psalm 103:20 -->
-            <div class="slide" data-title="Psalm 103:20">
-                <div class="scripture-slide">
-                    <div class="scripture-text">
-                        "Bless the Lord, you His angels, who excel in strength, who do His word, heeding the voice of His word."
-                    </div>
-                    <div class="scripture-ref">Psalm 103:20</div>
-                </div>
-            </div>
-
-            <!-- Slide 9: How to Activate Angels -->
-            <div class="slide" data-title="How to Activate Angels">
-                <div class="date-badge">December 21, 2025</div>
-                <div class="list-slide">
-                    <h2 class="list-title">Activating Angelic Ministry</h2>
-                    <div class="list-content">
-                        <ul>
-                            <li><strong>Speak God's Word</strong> - Voice the word consistently, not just think it</li>
-                            <li><strong>Pray Based on the Word</strong> - Prayer and the Word create legal authority</li>
-                            <li><strong>Declare God's Promises</strong> - Say "The Lord is my refuge," "No weapon formed against me will prosper"</li>
-                            <li><strong>Don't Be Silent</strong> - Angels wait for the spoken Word to act</li>
-                        </ul>
-                    </div>
-                    <div class="chevron-right">
-                        <div class="chevron-icon-right"></div>
-                        <div class="chevron-icon-right"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 10: The Power of Your Words -->
-            <div class="slide" data-title="The Power of Words">
-                <div class="date-badge">December 21, 2025</div>
-                <div class="content-slide">
-                    <div class="content-left">
-                        <div class="chevron-left">
-                            <div class="chevron-icon"></div>
-                            <div class="chevron-icon"></div>
-                        </div>
-                        <h2 class="content-title">YOUR WORDS CREATE LEGAL ENVIRONMENTS</h2>
-                        <div class="chevron-right">
-                            <div class="chevron-icon-right"></div>
-                            <div class="chevron-icon-right"></div>
-                        </div>
-                    </div>
-                    <div class="content-right">
-                        <div class="content-text">
-                            <p><strong>When you speak God's Word:</strong> Angels have legal authority to enforce it.</p>
-                            <p style="margin-top: 1.5rem;"><strong>When you speak fear and doubt:</strong> You create a legal environment for demons.</p>
-                            <p style="margin-top: 1.5rem; font-style: italic;">"The word spoken creates the legal environment and gives angels the legal authority they need to act."</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 11: Prayer Point 1 -->
-            <div class="slide" data-title="Prayer: Awareness of Angels">
-                <div class="prayer-slide">
-                    <h2 class="prayer-title">Prayer for Awareness of Angelic Ministry</h2>
-                    <div class="prayer-text">
-                        <p>Father, I thank You for the ministry of angels. I acknowledge that I am never alone and never without resources. Angels are present with me right now, charged by You to minister on my behalf. I will not live as though heaven is quiet or help is scarce. I declare that I am an heir of salvation, and angels are my covenant blessing.</p>
-                    </div>
-                    <div class="prayer-scripture">
-                        "Are they not all ministering spirits sent forth to minister for those who will inherit salvation?" - Hebrews 1:14
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 12: Prayer Point 2 -->
-            <div class="slide" data-title="Prayer: Speaking God's Word">
-                <div class="prayer-slide">
-                    <h2 class="prayer-title">Prayer for Consistency in Speaking God's Word</h2>
-                    <div class="prayer-text">
-                        <p>Lord, I will not be silent. I will give voice to Your Word consistently. I will create the legal environment that allows angels to function freely in my life. I declare: The Lord is my refuge and my fortress. No weapon formed against me will prosper. My God supplies all my needs according to His riches in glory. Angels, you have the legal authority to enforce these words in Jesus' name.</p>
-                    </div>
-                    <div class="prayer-scripture">
-                        "Bless the Lord, you His angels, who excel in strength, who do His word, heeding the voice of His word." - Psalm 103:20
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 13: Prayer Point 3 -->
-            <div class="slide" data-title="Prayer: Protection">
-                <div class="prayer-slide">
-                    <h2 class="prayer-title">Prayer for Angelic Protection</h2>
-                    <div class="prayer-text">
-                        <p>Heavenly Father, I thank You that angels are fighting battles in the unseen so that I will not be overwhelmed in the seen. Thank You for protective services that surpass even presidential security. I ask for the ministry of angels to strengthen me when I am weary, to guide me when I need direction, and to protect me from seen and unseen dangers. I receive their ministry now in Jesus' name.</p>
-                    </div>
-                    <div class="prayer-scripture">
-                        "He shall give His angels charge over you, to keep you in all your ways." - Psalm 91:11
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 14: Remember -->
-            <div class="slide" data-title="Remember">
-                <div class="date-badge">December 21, 2025</div>
-                <div class="list-slide">
-                    <h2 class="list-title">Remember</h2>
-                    <div class="list-content">
-                        <p style="font-size: 2rem; margin: 2rem 0; line-height: 1.6;">You have angels present with you every day. They are busy on your behalf, though you may not always see them.</p>
-                        <p style="font-size: 1.8rem; margin: 2rem 0; line-height: 1.6; font-style: italic;">"As great as angels are, there's One far greater. Thank God for angels, but your greatest gift is Jesus."</p>
-                    </div>
-                    <div class="chevron-right">
-                        <div class="chevron-icon-right"></div>
-                        <div class="chevron-icon-right"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 15: Watch on YouTube -->
-            <div class="slide" data-title="Watch on YouTube">
-                <div class="date-badge">December 21, 2025</div>
-                <div class="list-slide">
-                    <h2 class="list-title">Watch Full Sermon</h2>
-                    <div class="list-content">
-                        <p style="font-size: 2rem; margin: 3rem 0; line-height: 1.6;">Watch the complete message on YouTube:</p>
-                        <p style="font-size: 1.5rem; margin: 2rem 0; font-family: monospace; background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px;">youtube.com/watch?v=rEs5qPF8Rno</p>
-                    </div>
-                    <div class="chevron-right">
-                        <div class="chevron-icon-right"></div>
-                        <div class="chevron-icon-right"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 16: Thank You -->
-            <div class="slide" data-title="Thank You">
-                <div class="title-slide">
-                    <div class="title-content">
-                        <h1>THANK YOU</h1>
-                        <p style="font-size: 1.8rem; margin-top: 2rem;"><strong>Bishop Dr. Darlingston Johnson</strong></p>
-                        <p style="margin-top: 2rem; font-size: 1.3rem;">Angels On Call</p>
-                        <p style="margin-top: 3rem; font-size: 1.2rem; font-style: italic;">"I will not be silent. I will voice Your word. I will create the legal environment that allows angels to function freely in my life."</p>
-                    </div>
-                    <div class="title-image">
-                        <div class="title-overlay">
-                            <div class="chevron-icon-right"></div>
-                            <div class="chevron-icon-right"></div>
-                            <div class="chevron-icon-right"></div>
-                            <h3>May you experience the full ministry of angels</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
+    <!-- 2. Key Scripture -->
+    <div class="slide" data-slide="2">
+      <h2>Key Scripture</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Are they not all ministering spirits sent forth to minister for those who will inherit salvation?"</div>
+        <div class="scripture-ref">Hebrews 1:14 (NKJV)</div>
+      </div>
+      <div class="quote" style="margin-top: 2rem;">Angels are spiritual beings created by God to serve God, and God has commanded them to serve you.</div>
     </div>
 
+    <!-- 3. We Are Not Alone -->
+    <div class="slide" data-slide="3">
+      <h2>We Are Not Alone</h2>
+      <div class="content-list"><ul>
+        <li>Many believers live as though heaven is quiet and help is scarce</li>
+        <li>We pray as if God is far away</li>
+        <li>We face battles as though we are alone and unsupported</li>
+        <li>But scripture reveals something radically different</li>
+        <li>There are angels among us on assignment right now</li>
+        <li>In this room, there are probably more angels than human beings</li>
+      </ul></div>
+      <div class="quote" style="margin-top: 1.5rem;">"The scriptures reveal that we are not alone"</div>
+    </div>
+
+    <!-- 4. What Are Angels? -->
+    <div class="slide" data-slide="4">
+      <h2>What Are Angels?</h2>
+      <div class="content-list"><ul>
+        <li>Angels are <span class="emphasis">spiritual beings</span> created by God to serve God</li>
+        <li>They are <span class="emphasis">extremely powerful</span></li>
+        <li>We cannot see them ordinarily, but they can manifest physically</li>
+        <li>They are not people who died and became angels</li>
+        <li>You had angels assigned to you long before you were born</li>
+        <li>God created angels and assigned them to care for His children</li>
+      </ul></div>
+      <div class="framework-box" style="margin-top: 1.5rem;">
+        <h4>Angels are a covenant blessing - they are your inheritance</h4>
+      </div>
+    </div>
+
+    <!-- 5. Section Break: Three Roles -->
+    <div class="slide section-break" data-slide="5">
+      <h1>Three Roles of Angels</h1>
+      <h2>How Angels Serve God and You</h2>
+    </div>
+
+    <!-- 6. Heaven's Worshipers -->
+    <div class="slide" data-slide="6">
+      <h2>Heaven's Worshipers</h2>
+      <div class="content-list"><ul>
+        <li>Worship is probably the most important thing angels do</li>
+        <li>They behold God and worship Him continually</li>
+        <li>Angels are very aware they are not to be worshiped</li>
+        <li>All worship belongs to the Lord alone</li>
+        <li>Angels always point to God, never to themselves</li>
+        <li>We worship God the Father, God the Son, and God the Holy Spirit</li>
+      </ul></div>
+      <div class="quote" style="margin-top: 1.5rem;">"Even John the Apostle fell down before an angel, and the angel said: 'Don't do that! Worship God!'"</div>
+    </div>
+
+    <!-- 7. Heaven's Warriors -->
+    <div class="slide" data-slide="7">
+      <h2>Heaven's Warriors</h2>
+      <div class="content-list"><ul>
+        <li>Angels fight battles in the unseen realm</li>
+        <li>Thank God we don't know all the battles being fought</li>
+        <li>They fight so we cannot be overwhelmed in the seen</li>
+        <li>Some battles are about your future and destiny</li>
+        <li>Angels are extremely powerful warriors</li>
+      </ul></div>
+      <div class="scripture" style="margin-top: 1.5rem;">
+        <div class="scripture-text">"That night one angel killed 185,000 soldiers in the camp of the Assyrian army."</div>
+        <div class="scripture-ref">2 Kings 19:35</div>
+      </div>
+      <div class="quote">Just one angel. Imagine such powerful creatures assigned to serve you!</div>
+    </div>
+
+    <!-- 8. Protective Services -->
+    <div class="slide" data-slide="8">
+      <h2>Protective Services</h2>
+      <div class="content-list"><ul>
+        <li>Angels provide protection every day</li>
+        <li>They minister to us physically when we are weary</li>
+        <li>Angels strengthened Jesus after His 40-day fast</li>
+        <li>Angels strengthened Jesus in the Garden of Gethsemane</li>
+        <li>An angel fed Elijah and strengthened him for 40 days</li>
+        <li>God has charged them to bear us up in their hands</li>
+      </ul></div>
+      <div class="framework-box" style="margin-top: 1.5rem;">
+        <h4>You think the President is the only one with secret service? You don't know whose children you are!</h4>
+      </div>
+    </div>
+
+    <!-- 9. Section Break: How Angels Operate -->
+    <div class="slide section-break" data-slide="9">
+      <h1>How Angels Operate</h1>
+      <h2>Understanding Angelic Activity</h2>
+    </div>
+
+    <!-- 10. Angels Operate Legally -->
+    <div class="slide" data-slide="10">
+      <h2>Angels Operate Legally</h2>
+      <div class="content-list"><ul>
+        <li>Angels don't act independently or based on emotions</li>
+        <li>They are <span class="emphasis">servants under authority</span></li>
+        <li>There are spiritual laws that govern their activity</li>
+        <li>They don't respond to tears, complaining, or need alone</li>
+        <li>Angels wait for legal authority to act</li>
+        <li>Like a well-trained army waiting for orders</li>
+      </ul></div>
+      <div class="quote" style="margin-top: 1.5rem;">"Angels may see you need help, but they can't move until they have the word. They need legal authority to act."</div>
+    </div>
+
+    <!-- 11. Psalm 103:20 -->
+    <div class="slide" data-slide="11">
+      <h2>Angels Heed the Voice of His Word</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Bless the Lord, you His angels, who excel in strength, who do His word, heeding the voice of His word."</div>
+        <div class="scripture-ref">Psalm 103:20 (NKJV)</div>
+      </div>
+      <div class="content-list"><ul>
+        <li>Angels heed the <span class="emphasis">voice</span> of God's word</li>
+        <li>Not just the word on the page</li>
+        <li>Not the word in your mind</li>
+        <li>The word must be <span class="emphasis">spoken</span></li>
+        <li>When we speak God's word, angels get legal authority to act</li>
+      </ul></div>
+    </div>
+
+    <!-- 12. Activating Angelic Ministry -->
+    <div class="slide" data-slide="12">
+      <h2>Activating Angelic Ministry</h2>
+      <div class="two-column">
+        <div class="column">
+          <h4>Create Legal Environment</h4>
+          <ul>
+            <li>Voice and declare God's word</li>
+            <li>Open your mouth and speak it</li>
+            <li>Speak consistently every day</li>
+            <li>Take promises and declare them</li>
+            <li>Align with spiritual laws angels obey</li>
+          </ul>
+        </div>
+        <div class="column">
+          <h4>Pray Based on God's Word</h4>
+          <ul>
+            <li>Angels respond to believing prayer</li>
+            <li>No prayer means no angelic ministry</li>
+            <li>Prayer plus God's word creates conditions</li>
+            <li>Angels were dispatched the moment Daniel prayed</li>
+            <li>Keep believing and standing in faith</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 13. The Power of Words -->
+    <div class="slide" data-slide="13">
+      <h2>The Power of Your Words</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Death and life are in the power of the tongue."</div>
+        <div class="scripture-ref">Proverbs 18:21 (NKJV)</div>
+      </div>
+      <div class="content-list"><ul>
+        <li>When you say "The Lord is my refuge," angels enforce that</li>
+        <li>When you say "No weapon formed against me will prosper," they act</li>
+        <li>When you say "My God will supply all my needs," they move</li>
+        <li>You create legal environment that allows them to function</li>
+        <li>Your words give life to God's will in your life</li>
+      </ul></div>
+      <div class="framework-box" style="margin-top: 1.5rem;">
+        <h4>Don't confuse your angels - speak God's word consistently!</h4>
+      </div>
+    </div>
+
+    <!-- 14. Prayer Point 1: Awareness and Gratitude -->
+    <div class="slide prayer-slide" data-slide="14">
+      <h2>Prayer for Awareness</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Father God, I thank You for the ministry of angels in my life. Open my eyes to see that I am not alone, not unsupported, not without help. Thank You that right now, angels are present with me on assignment. Help me to be more aware of their presence and activity. I acknowledge that angels are a covenant blessing and my inheritance as a child of God. I will not live as though heaven is quiet or help is scarce. I declare that angels are ministering spirits sent to serve me as an heir of salvation. Thank You for blessing me with a host of angels whose job is to look after me, care for me, and be present with me.</div>
+          <div class="scripture-ref">Hebrews 1:14; Psalm 103:20</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 15. Prayer Point 2: Speaking God's Word -->
+    <div class="slide prayer-slide" data-slide="15">
+      <h2>Prayer for Speaking God's Word</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Lord Jesus, I understand that angels heed the voice of Your word. Help me to be consistent in voicing and declaring Your word over my life. I will not be silent. I will open my mouth and speak Your promises. I will create the legal environment that allows angels to function freely in my life. I resist the temptation to give life to fears, anxieties, and negative thoughts with my words. Instead, I choose to declare: The Lord is my refuge and my fortress. No weapon formed against me will prosper. My God will supply all my needs according to His riches in glory. I am more than a conqueror through Christ.</div>
+          <div class="scripture-ref">Psalm 103:20; Proverbs 18:21; Romans 8:37</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 16. Prayer Point 3: Prayer and Angelic Activity -->
+    <div class="slide prayer-slide" data-slide="16">
+      <h2>Prayer for Increased Angelic Activity</h2>
+      <div class="prayer-points">
+        <div class="scripture">
+          <div class="scripture-text">Heavenly Father, I recognize that prayer activates angelic ministry in my life. Like Jesus who said He could ask and 72,000 angels would come, I come to You now asking for the full measure of angelic assistance You have provided for me. I don't believe the lie that I am alone or under-resourced. I pray believing prayers based on Your word. Like Daniel who prayed and angels were immediately dispatched, I stand in faith knowing that as soon as I pray according to Your will, angels move on my behalf. I will back up my prayers by declaring Your word consistently. Increase angelic activity in my life for Your glory.</div>
+          <div class="scripture-ref">Daniel 10; Matthew 26:53; James 5:16</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 17. Remember -->
+    <div class="slide cta-slide" data-slide="17">
+      <h1>Remember This</h1>
+      <div class="content-list"><ul>
+        <li>Angels are present with you right now</li>
+        <li>They are waiting to serve you as an heir of salvation</li>
+        <li>They operate legally under God's authority</li>
+        <li>Your words and prayers activate their ministry</li>
+        <li>Speak God's word consistently to create legal environment</li>
+        <li>Angels are your covenant blessing and inheritance</li>
+      </ul></div>
+      <div class="framework-box" style="margin-top: 2rem;">
+        <h4>As Great As Angels Are, There Is One Far Greater: Jesus</h4>
+      </div>
+      <div class="quote" style="margin-top: 1rem;">Learn from the angels to bow before Him</div>
+    </div>
+
+    <!-- 18. YouTube Link -->
+    <div class="slide cta-slide" data-slide="18">
+      <h1>Watch Full Message</h1>
+      <div class="call-to-action">
+        <h3>YouTube</h3>
+        <p>Bishop Dr. Darlingston Johnson</p>
+        <p style="margin-top: 1rem; font-size: 1.2rem; color: rgba(255,255,255,0.9);">youtube.com/watch?v=rEs5qPF8Rno</p>
+      </div>
+      <div class="content-list" style="margin-top: 2rem;"><ul>
+        <li>Views: 59 | Likes: 3</li>
+        <li>Uploaded: December 22, 2025</li>
+        <li>Duration: 44:34</li>
+      </ul></div>
+    </div>
+
+    <!-- 19. Thank You -->
+    <div class="slide section-break" data-slide="19">
+      <h1>Thank You</h1>
+      <h2>God Bless You</h2>
+      <div class="quote" style="margin-top: 2rem; font-size: 2.2rem;">"Angels are on call for you today. Open your mouth and declare God's word!"</div>
+    </div>
+
+    <!-- Navigation -->
     <div class="navigation">
-        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
-        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+      <button class="nav-btn" onclick="previousSlide()">← Previous</button>
+      <button class="nav-btn" onclick="nextSlide()">Next →</button>
     </div>
+  </div>
 
-    <script>
-        let currentSlide = 1;
-        const slides = document.querySelectorAll('.slide');
-        const totalSlides = slides.length;
-        const slideMenu = document.getElementById('slideMenu');
+  <script>
+    let currentSlide = 1;
+    const totalSlides = document.querySelectorAll('.slide').length;
+    document.getElementById('total-slides').textContent = totalSlides;
 
-        // Initialize slide menu
-        slides.forEach((slide, index) => {
-            const li = document.createElement('li');
-            li.textContent = `${index + 1}. ${slide.dataset.title}`;
-            li.onclick = () => showSlide(index + 1);
-            slideMenu.appendChild(li);
-        });
+    // Slide titles for sidebar navigation
+    const slideTitles = [
+      'Title',
+      'Key Scripture',
+      'We Are Not Alone',
+      'What Are Angels?',
+      'Three Roles',
+      "Heaven's Worshipers",
+      "Heaven's Warriors",
+      'Protective Services',
+      'How Angels Operate',
+      'Operate Legally',
+      'Psalm 103:20',
+      'Activating Ministry',
+      'Power of Words',
+      'Prayer: Awareness',
+      'Prayer: Speaking',
+      'Prayer: Activity',
+      'Remember',
+      'YouTube',
+      'Thank You'
+    ];
 
-        function showSlide(n) {
-            if (n > totalSlides) currentSlide = totalSlides;
-            if (n < 1) currentSlide = 1;
-            currentSlide = n;
+    // Generate sidebar navigation
+    function generateSidebar() {
+      const sidebarNav = document.getElementById('sidebarNav');
+      sidebarNav.innerHTML = '';
 
-            slides.forEach(slide => slide.classList.remove('active'));
-            slides[currentSlide - 1].classList.add('active');
+      slideTitles.forEach((title, index) => {
+        const item = document.createElement('div');
+        item.className = 'sidebar-item';
 
-            document.getElementById('currentSlide').textContent = currentSlide;
-            document.getElementById('totalSlides').textContent = totalSlides;
-
-            // Update menu
-            const menuItems = slideMenu.querySelectorAll('li');
-            menuItems.forEach((item, index) => {
-                item.classList.toggle('active', index === currentSlide - 1);
-            });
-
-            // Update navigation buttons
-            document.getElementById('prevBtn').disabled = currentSlide === 1;
-            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+        // Mark section breaks
+        if ([4, 8, 13].includes(index)) {
+          item.classList.add('section');
         }
 
-        function changeSlide(n) {
-            showSlide(currentSlide + n);
+        if (index === currentSlide - 1) {
+          item.classList.add('active');
         }
 
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('hidden');
+        item.innerHTML = `
+          <span class="slide-num">${index + 1}</span>
+          <span>${title}</span>
+        `;
+
+        item.onclick = () => {
+          showSlide(index + 1);
+        };
+
+        sidebarNav.appendChild(item);
+      });
+    }
+
+    function showSlide(n) {
+      const slides = document.querySelectorAll('.slide');
+      if (n > totalSlides) n = 1;
+      if (n < 1) n = totalSlides;
+      currentSlide = n;
+      slides.forEach(s => s.classList.remove('active'));
+      slides[currentSlide - 1].classList.add('active');
+      document.getElementById('current-slide').textContent = currentSlide;
+
+      // Update navigation buttons
+      const prevBtn = document.querySelector('.nav-btn');
+      const nextBtn = document.querySelectorAll('.nav-btn')[1];
+      prevBtn.disabled = currentSlide === 1;
+      nextBtn.disabled = currentSlide === totalSlides;
+
+      // Update sidebar
+      generateSidebar();
+    }
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function previousSlide() { showSlide(currentSlide - 1); }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+
+    document.addEventListener('keydown', function(event) {
+      switch(event.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+        case ' ':
+        case 'Enter':
+          nextSlide();
+          event.preventDefault();
+          break;
+        case 'ArrowLeft':
+        case 'ArrowUp':
+          previousSlide();
+          event.preventDefault();
+          break;
+        case 'Home':
+          currentSlide = 1; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'End':
+          currentSlide = totalSlides; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'PageDown':
+          showSlide(Math.min(currentSlide + 10, totalSlides)); event.preventDefault();
+          break;
+        case 'PageUp':
+          showSlide(Math.max(currentSlide - 10, 1)); event.preventDefault();
+          break;
+      }
+    });
+
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let startY = 0;
+
+    document.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    });
+
+    document.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const endY = e.changedTouches[0].clientY;
+      const deltaX = endX - startX;
+      const deltaY = endY - startY;
+
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+        if (deltaX > 0) {
+          previousSlide();
+        } else {
+          nextSlide();
         }
+      }
+    });
 
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') changeSlide(-1);
-            if (e.key === 'ArrowRight') changeSlide(1);
-            if (e.key === 'Home') showSlide(1);
-            if (e.key === 'End') showSlide(totalSlides);
-            if (e.key === ' ') {
-                e.preventDefault();
-                changeSlide(1);
-            }
-        });
-
-        // Touch support
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        document.querySelector('.main-content').addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        });
-
-        document.querySelector('.main-content').addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        });
-
-        function handleSwipe() {
-            if (touchEndX < touchStartX - 50) changeSlide(1);
-            if (touchEndX > touchStartX + 50) changeSlide(-1);
-        }
-
-        // Initialize
-        showSlide(1);
-    </script>
+    // Initialize
+    generateSidebar();
+    showSlide(currentSlide);
+  </script>
 </body>
 </html>
