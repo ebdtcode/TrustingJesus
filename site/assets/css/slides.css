@@ -67,11 +67,96 @@ h3 { font-size: clamp(1.4rem, 3.5vw, 2.4rem); font-weight: 700; margin: 0 0 0.6r
 .btn:hover { background: #2b3e59; border-color: var(--accent); color: var(--accent); }
 .btn[disabled] { opacity: 0.6; cursor: not-allowed; }
 
+/* Sidebar Navigation */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 280px;
+  height: 100vh;
+  background: rgba(20, 33, 61, 0.95);
+  backdrop-filter: blur(10px);
+  overflow-y: auto;
+  z-index: 1500;
+  border-right: 2px solid var(--accent);
+}
+.sidebar-header {
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 209, 102, 0.3);
+}
+.sidebar-header h3 {
+  color: var(--accent);
+  font-size: 1.3rem;
+  margin: 0;
+}
+.sidebar-nav {
+  padding: 1rem 0;
+}
+.sidebar-item {
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  border-left: 3px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.sidebar-item:hover {
+  background: rgba(255, 209, 102, 0.1);
+  border-left-color: var(--accent);
+}
+.sidebar-item.active {
+  background: rgba(255, 209, 102, 0.2);
+  border-left-color: var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+.sidebar-item.section {
+  background: rgba(255, 209, 102, 0.1);
+  font-weight: 600;
+  color: var(--accent);
+  margin-top: 0.5rem;
+}
+.slide-num {
+  display: inline-block;
+  width: 25px;
+  color: rgba(255, 255, 255, 0.6);
+}
+.sidebar-item.active .slide-num {
+  color: var(--accent);
+}
+
+/* Adjust presentation for sidebar */
+.presentation.with-sidebar .slide {
+  padding-left: 320px;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2000;
+  background: rgba(255, 209, 102, 0.9);
+  color: #14213d;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+.menu-toggle:hover {
+  background: var(--accent);
+}
+
 /* Home Button */
 .home-btn {
   position: fixed;
   top: 1rem;
-  left: 1rem;
+  left: 300px;
   background: rgba(255, 209, 102, 0.9);
   color: #14213d;
   padding: 0.75rem 1.5rem;
@@ -91,14 +176,30 @@ h3 { font-size: clamp(1.4rem, 3.5vw, 2.4rem); font-weight: 700; margin: 0 0 0.6r
   text-decoration: none;
 }
 
-/* Mobile adjustments for home button */
+/* Mobile & Tablet adjustments */
 @media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  .sidebar.open {
+    transform: translateX(0);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .presentation.with-sidebar .slide {
+    padding-left: 4.5rem;
+  }
   .home-btn {
+    left: auto;
+    right: 1rem;
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
   }
   .home-btn span:last-child {
-    display: none; /* Hide "Dashboard" text on mobile */
+    display: none;
   }
 }
 
