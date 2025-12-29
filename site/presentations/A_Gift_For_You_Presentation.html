@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Gift For You - Sermon Presentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2563a8;
+            --dark-blue: #1e4a7c;
+            --accent-blue: #3b82f6;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--primary-blue);
+            color: var(--white);
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .presentation {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 280px;
+            background: rgba(30, 74, 124, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem 1.5rem;
+            overflow-y: auto;
+            border-right: 2px solid var(--accent-blue);
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar.hidden {
+            transform: translateX(-100%);
+        }
+
+        .sidebar h1 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+        }
+
+        .slide-menu {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .slide-menu li {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .slide-menu li:hover {
+            background: rgba(59, 130, 246, 0.3);
+            transform: translateX(5px);
+        }
+
+        .slide-menu li.active {
+            background: rgba(59, 130, 246, 0.5);
+            border-left: 4px solid var(--white);
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .date-badge {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-bottom: 2px solid var(--white);
+        }
+
+        .chevron-left {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding-left: 2rem;
+        }
+
+        .chevron-right {
+            position: absolute;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .chevron-icon {
+            width: 80px;
+            height: 80px;
+            border: 3px solid var(--white);
+            border-right: none;
+            border-top: none;
+            transform: rotate(135deg);
+        }
+
+        .chevron-icon-right {
+            width: 80px;
+            height: 80px;
+            border: 3px solid var(--white);
+            border-left: none;
+            border-bottom: none;
+            transform: rotate(135deg);
+        }
+
+        .title-slide {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 100%;
+            gap: 0;
+        }
+
+        .title-content {
+            background: var(--white);
+            color: var(--dark-gray);
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .title-content h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: var(--dark-gray);
+        }
+
+        .title-content p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: var(--dark-gray);
+        }
+
+        .title-image {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+        }
+
+        .title-overlay {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 3rem;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .title-overlay h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .content-slide {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 100%;
+        }
+
+        .content-left {
+            background: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem;
+            position: relative;
+        }
+
+        .content-right {
+            background: var(--white);
+            color: var(--dark-gray);
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .content-title {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .content-subtitle {
+            display: inline-block;
+            background: transparent;
+            border: 3px solid var(--white);
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem auto;
+            color: var(--white);
+        }
+
+        .content-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: var(--dark-gray);
+        }
+
+        .list-slide {
+            padding: 4rem 8rem 4rem 4rem;
+            background: var(--primary-blue);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .list-title {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .list-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list-content li {
+            font-size: 1.8rem;
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .list-content li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 2rem;
+        }
+
+        .scripture-slide {
+            background: var(--white);
+            color: var(--dark-gray);
+            padding: 6rem 8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .scripture-text {
+            font-size: 2.5rem;
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: 2rem;
+            font-family: Georgia, serif;
+        }
+
+        .scripture-ref {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 50;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-blue);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .nav-btn:hover {
+            background: var(--white);
+            transform: scale(1.05);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            z-index: 50;
+        }
+
+        .toggle-sidebar {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-blue);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 101;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-sidebar:hover {
+            background: var(--white);
+        }
+
+        .home-btn {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-blue);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 101;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .home-btn:hover {
+            background: var(--white);
+            transform: scale(1.05);
+        }
+
+        .prayer-slide {
+            background: var(--primary-blue);
+            padding: 4rem 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .prayer-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            color: var(--white);
+        }
+
+        .prayer-text {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            color: var(--white);
+            margin-bottom: 2rem;
+        }
+
+        .prayer-scripture {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+            border-left: 4px solid var(--white);
+            padding-left: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.visible {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .title-slide,
+            .content-slide {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            .sidebar,
+            .navigation,
+            .slide-counter,
+            .toggle-sidebar,
+            .home-btn {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .slide {
+                display: block !important;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="toggle-sidebar" onclick="toggleSidebar()">☰ Menu</button>
+    <a href="../index.html" class="home-btn">🏠 Home</a>
+    <div class="slide-counter">
+        <span id="currentSlide">1</span> / <span id="totalSlides">0</span>
+    </div>
+
+    <div class="presentation">
+        <nav class="sidebar" id="sidebar">
+            <h1>A Gift For You</h1>
+            <p style="color: rgba(255,255,255,0.7); margin-bottom: 1rem;">Bishop Darlingston Johnson</p>
+            <ul class="slide-menu" id="slideMenu"></ul>
+        </nav>
+
+        <main class="main-content">
+            <!-- Slide 1: Title Slide -->
+            <div class="slide active" data-title="Welcome">
+                <div class="title-slide">
+                    <div class="title-content">
+                        <h1>A GIFT FOR YOU</h1>
+                        <p><strong>Bishop Darlingston Johnson</strong></p>
+                        <p style="margin-top: 1rem; font-size: 1.1rem;">December 29, 2025</p>
+                        <p style="margin-top: 2rem; font-style: italic;">"For there is born to you this day in the city of David, a Savior who is Christ the Lord."</p>
+                        <p style="margin-top: 0.5rem; font-size: 1rem;">- Luke 2:10-11</p>
+                    </div>
+                    <div class="title-image">
+                        <div class="title-overlay">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                            <h3>Jesus Christ is God's Personal Gift to You</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Key Scripture -->
+            <div class="slide" data-title="Luke 2:10-11">
+                <div class="scripture-slide">
+                    <div class="scripture-text">
+                        "Then the angel said to them, 'Do not be afraid, for behold, I bring you good tidings of great joy which will be to all people. For there is born to you this day in the city of David, a Savior who is Christ the Lord.'"
+                    </div>
+                    <div class="scripture-ref">Luke 2:10-11</div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Big Idea -->
+            <div class="slide" data-title="Big Idea">
+                <div class="date-badge">December 29, 2025</div>
+                <div class="content-slide">
+                    <div class="content-left">
+                        <div class="chevron-left">
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                        </div>
+                        <h2 class="content-title">BIG IDEA</h2>
+                        <div class="chevron-right">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <div class="content-text">
+                            <p>Jesus Christ is God's personal gift to each individual - a gift that must be unwrapped, received personally, and celebrated as the fulfillment of God's eternal promise.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: God Chooses the Excluded -->
+            <div class="slide" data-title="God Chooses the Excluded">
+                <div class="date-badge">December 29, 2025</div>
+                <div class="content-slide">
+                    <div class="content-left">
+                        <div class="chevron-left">
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                        </div>
+                        <h2 class="content-title">GOD CHOOSES THE EXCLUDED</h2>
+                        <div class="chevron-right">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <div class="content-text">
+                            <p>God deliberately chose shepherds - society's rejects, the unclean, those looked down upon - to receive history's most important announcement. This reveals God's heart: He doesn't value people according to worldly titles, education, possessions, or positions. Every person has equal worth and value in God's eyes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Unto YOU - The Personal Gift -->
+            <div class="slide" data-title="Unto YOU">
+                <div class="date-badge">December 29, 2025</div>
+                <div class="content-slide">
+                    <div class="content-left">
+                        <div class="chevron-left">
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                        </div>
+                        <h2 class="content-title">UNTO YOU</h2>
+                        <div class="content-subtitle">Your Name is on the Gift</div>
+                        <div class="chevron-right">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <div class="content-text">
+                            <p>The angel said "unto YOU" - not just to all people, but to YOU personally. Many believers hear God's promises but disqualify themselves based on self-evaluation or comparison with others. Jesus is the gift to all people, but He is also God's gift to ME. Your name is on that gift.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: Unwrap the Gift -->
+            <div class="slide" data-title="Unwrap the Gift">
+                <div class="date-badge">December 29, 2025</div>
+                <div class="list-slide">
+                    <h2 class="list-title">Unwrap the Gift</h2>
+                    <div class="list-content">
+                        <p style="font-size: 1.8rem; line-height: 1.8; margin-bottom: 2rem;">Many Christians lack joy not because they don't have the gift, but because they haven't unwrapped it.</p>
+                        <ul>
+                            <li>Take possession of Jesus personally</li>
+                            <li>Appropriate what He has given you</li>
+                            <li>Experience the fullness of who He is</li>
+                            <li>The greater the revelation, the greater the joy</li>
+                        </ul>
+                    </div>
+                    <div class="chevron-right">
+                        <div class="chevron-icon-right"></div>
+                        <div class="chevron-icon-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 7: Rooted in History -->
+            <div class="slide" data-title="Rooted in History">
+                <div class="date-badge">December 29, 2025</div>
+                <div class="content-slide">
+                    <div class="content-left">
+                        <div class="chevron-left">
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                        </div>
+                        <h2 class="content-title">ROOTED IN HISTORY</h2>
+                        <div class="content-subtitle">Not Myth, But Reality</div>
+                        <div class="chevron-right">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <div class="content-text">
+                            <p>This is not abstract philosophy or myth. On a certain day in history, during King Augustus's reign, in Bethlehem, a baby was born. Shepherds saw Him. He lived, performed miracles, was crucified, died, and rose on the third day. There were eyewitnesses. Jesus is a real Savior who provides real salvation for real people with real needs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 8: God Always Keeps His Word -->
+            <div class="slide" data-title="God Keeps His Word">
+                <div class="date-badge">December 29, 2025</div>
+                <div class="content-slide">
+                    <div class="content-left">
+                        <div class="chevron-left">
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                        </div>
+                        <h2 class="content-title">"HE WILL COME" TO "HE HAS COME"</h2>
+                        <div class="chevron-right">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <div class="content-text">
+                            <p>For 5,000 years God promised "He will come." Then came 400 years of silence. But at the fullness of time, "He will come" changed to "He has come." Over 400 prophecies fulfilled to the letter. Silence doesn't mean God has forgotten. No word of God is void of power. It is impossible for God's word not to come to pass.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 9: A "This Day" God -->
+            <div class="slide" data-title="This Day">
+                <div class="date-badge">December 29, 2025</div>
+                <div class="list-slide">
+                    <h2 class="list-title">A "This Day" God</h2>
+                    <div class="list-content">
+                        <p style="font-size: 1.8rem; line-height: 1.8; margin-bottom: 2rem;">While we can look back and forward, our God is a "THIS DAY" God:</p>
+                        <ul>
+                            <li>This day, Christ is your Savior</li>
+                            <li>This day, Christ is your Lord</li>
+                            <li>This day, God is answering prayer</li>
+                            <li>This day, God is working miracles</li>
+                            <li>This day, God is being faithful</li>
+                        </ul>
+                        <p style="font-size: 1.5rem; margin-top: 2rem; font-style: italic;">We serve a right now God and an on-time God.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 10: The Gift IS God -->
+            <div class="slide" data-title="The Gift IS God">
+                <div class="date-badge">December 29, 2025</div>
+                <div class="content-slide">
+                    <div class="content-left">
+                        <div class="chevron-left">
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                            <div class="chevron-icon"></div>
+                        </div>
+                        <h2 class="content-title">THE GIFT IS GOD</h2>
+                        <div class="chevron-right">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <div class="content-text">
+                            <p>In Christ, the giver is God and the gift is God. God has not only given you a gift - God has given you God. If God has given you God, then this day God has given you the answer (because God IS the answer), the breakthrough (because God IS the breakthrough), the healer and the healing (because God IS).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 11: Prayer Section Header -->
+            <div class="slide" data-title="Prayer Points">
+                <div class="date-badge">December 29, 2025</div>
+                <div class="list-slide">
+                    <h2 class="list-title">Prayer Points</h2>
+                    <div class="list-content">
+                        <p style="font-size: 2rem; margin: 2rem 0; line-height: 1.6;">Let us pray together, receiving and unwrapping God's gift of Jesus Christ.</p>
+                    </div>
+                    <div class="chevron-right">
+                        <div class="chevron-icon-right"></div>
+                        <div class="chevron-icon-right"></div>
+                        <div class="chevron-icon-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 12: Prayer 1 - Personal Value -->
+            <div class="slide" data-title="Prayer: Personal Value">
+                <div class="prayer-slide">
+                    <h2 class="prayer-title">Prayer for Recognition of Personal Value</h2>
+                    <div class="prayer-text">
+                        <p>Father, we thank You that You don't value us according to titles, education, possessions, or social standing. Just as You chose shepherds to receive the announcement of Jesus' birth, You choose us. Forgive us for times we've felt inferior or superior. Help us to stand straight, knowing we are just as valuable in Your eyes as anyone else. Break off every chain of comparison and every root of pride. Help us to stop excluding ourselves when You have included us.</p>
+                    </div>
+                    <div class="prayer-scripture">
+                        Luke 2:10-11 - God sent the most important announcement to shepherds, society's rejects; 1 Samuel 16:7 - "The Lord looks at the heart"
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 13: Prayer 2 - Personal Appropriation -->
+            <div class="slide" data-title="Prayer: Receive the Gift">
+                <div class="prayer-slide">
+                    <h2 class="prayer-title">Prayer for Personal Appropriation of Jesus</h2>
+                    <div class="prayer-text">
+                        <p>Lord Jesus, we declare today that You are not just the gift to the world - You are the gift to ME. My name is on this gift of salvation. I refuse to exclude myself from Your promises. Though You love the whole world, You also love me individually and personally. I receive You, I take possession of You, I appropriate You, and I will begin to enjoy the fullness of all that You are. Jesus, You are MY Savior, MY Lord, MY answer, MY everything.</p>
+                    </div>
+                    <div class="prayer-scripture">
+                        Luke 2:10-11 - "Unto YOU is born this day a Savior"; John 1:12 - "As many as received Him, to them He gave the right to become children of God"
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 14: Prayer 3 - Unwrapping the Gift -->
+            <div class="slide" data-title="Prayer: Unwrap Jesus">
+                <div class="prayer-slide">
+                    <h2 class="prayer-title">Prayer for Help in Unwrapping the Gift</h2>
+                    <div class="prayer-text">
+                        <p>Holy Spirit, help me to unwrap the gift of Jesus so I can truly see what I have. I confess that I've left so much of Jesus wrapped up. Like a child surprised at how big the gift is once unwrapped, surprise me with the magnitude of who Jesus is. Give me revelation upon revelation of His love, power, presence, and provision. Thank You for sending helpers to lead me into all truth. Open my eyes to see Jesus more clearly. The greater my revelation of who He is, the greater my joy will be.</p>
+                    </div>
+                    <div class="prayer-scripture">
+                        Ephesians 1:17-18 - "That God may give you the spirit of wisdom and revelation in the knowledge of Him, the eyes of your understanding being enlightened"
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 15: Prayer 4 - Trusting God's Faithfulness -->
+            <div class="slide" data-title="Prayer: God's Faithfulness">
+                <div class="prayer-slide">
+                    <h2 class="prayer-title">Prayer for Trusting God's Faithfulness</h2>
+                    <div class="prayer-text">
+                        <p>Lord, I thank You that Your word is sure. For 5,000 years You promised "He will come." After 400 years of silence, "He will come" became "He has come." Father, I'm in a season where I've heard from You but now there's silence. This story encourages me. No word of Yours is void of power. It is IMPOSSIBLE for Your word not to come to pass. I will not doubt during the silence. I will meditate on Your promises. What You promised me WILL come to pass.</p>
+                    </div>
+                    <div class="prayer-scripture">
+                        Isaiah 55:11 - "My word shall not return void"; Numbers 23:19 - "God is not a man, that He should lie. Has He said, and will He not do?"
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 16: Prayer 5 - Bold Witness -->
+            <div class="slide" data-title="Prayer: Bold Witness">
+                <div class="prayer-slide">
+                    <h2 class="prayer-title">Prayer for Bold Witness and Proclamation</h2>
+                    <div class="prayer-text">
+                        <p>Lord, like the shepherds who believed the good news, went to see, and then told everyone, help me to respond rightly to this gift of Jesus. I believe this good news - that unto me is born this day a Savior who is Christ the Lord. I will act upon this truth. And I will not keep my mouth shut. I will tell the whole world because Jesus is not just a gift for me - He's a gift for all people. Give me boldness to proclaim the good news. Let my life and words point others to the Savior.</p>
+                    </div>
+                    <div class="prayer-scripture">
+                        Luke 2:17-18 - "When they had seen Him, they made widely known the saying concerning this Child"; Mark 16:15 - "Go into all the world and preach the gospel"
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 17: Call to Action -->
+            <div class="slide" data-title="Call to Action">
+                <div class="date-badge">December 29, 2025</div>
+                <div class="list-slide">
+                    <h2 class="list-title">Our Response</h2>
+                    <div class="list-content">
+                        <p style="font-size: 1.8rem; line-height: 1.8; margin-bottom: 2rem;">Like the shepherds, we must:</p>
+                        <ul>
+                            <li>Believe the good news that Jesus is our personal Savior</li>
+                            <li>Act upon this truth</li>
+                            <li>Tell the whole world - proclaim it</li>
+                            <li>Receive Jesus as both Savior and Lord</li>
+                        </ul>
+                        <p style="font-size: 1.5rem; margin-top: 2rem; font-style: italic;">Only as Lord can He save us.</p>
+                    </div>
+                    <div class="chevron-right">
+                        <div class="chevron-icon-right"></div>
+                        <div class="chevron-icon-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 18: Thank You -->
+            <div class="slide" data-title="Thank You">
+                <div class="title-slide">
+                    <div class="title-content">
+                        <h1>THANK YOU</h1>
+                        <p style="font-size: 1.8rem; margin-top: 2rem;"><strong>Bishop Darlingston Johnson</strong></p>
+                        <p style="margin-top: 2rem; font-size: 1.3rem;">A Gift For You</p>
+                        <p style="margin-top: 3rem; font-size: 1.2rem; font-style: italic;">"For there is born to you this day in the city of David, a Savior who is Christ the Lord."</p>
+                        <p style="font-size: 1rem; margin-top: 1rem;">- Luke 2:10-11</p>
+                    </div>
+                    <div class="title-image">
+                        <div class="title-overlay">
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                            <div class="chevron-icon-right"></div>
+                            <h3>Unwrap the gift. Receive Him personally. Celebrate God's faithfulness.</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const slideMenu = document.getElementById('slideMenu');
+
+        // Initialize slide menu
+        slides.forEach((slide, index) => {
+            const li = document.createElement('li');
+            li.textContent = `${index + 1}. ${slide.dataset.title}`;
+            li.onclick = () => showSlide(index + 1);
+            slideMenu.appendChild(li);
+        });
+
+        function showSlide(n) {
+            if (n > totalSlides) currentSlide = totalSlides;
+            if (n < 1) currentSlide = 1;
+            currentSlide = n;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+
+            document.getElementById('currentSlide').textContent = currentSlide;
+            document.getElementById('totalSlides').textContent = totalSlides;
+
+            // Update menu
+            const menuItems = slideMenu.querySelectorAll('li');
+            menuItems.forEach((item, index) => {
+                item.classList.toggle('active', index === currentSlide - 1);
+            });
+
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+        }
+
+        function changeSlide(n) {
+            showSlide(currentSlide + n);
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('hidden');
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+            if (e.key === 'Home') showSlide(1);
+            if (e.key === 'End') showSlide(totalSlides);
+            if (e.key === ' ') {
+                e.preventDefault();
+                changeSlide(1);
+            }
+        });
+
+        // Touch support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.querySelector('.main-content').addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.querySelector('.main-content').addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) changeSlide(1);
+            if (touchEndX > touchStartX + 50) changeSlide(-1);
+        }
+
+        // Initialize
+        showSlide(1);
+    </script>
+</body>
+</html>
