@@ -67,6 +67,41 @@ h3 { font-size: clamp(1.4rem, 3.5vw, 2.4rem); font-weight: 700; margin: 0 0 0.6r
 .btn:hover { background: #2b3e59; border-color: var(--accent); color: var(--accent); }
 .btn[disabled] { opacity: 0.6; cursor: not-allowed; }
 
+/* Home Button */
+.home-btn {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(255, 209, 102, 0.9);
+  color: #14213d;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.home-btn:hover {
+  background: #ffd166;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 209, 102, 0.4);
+  text-decoration: none;
+}
+
+/* Mobile adjustments for home button */
+@media (max-width: 768px) {
+  .home-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  .home-btn span:last-child {
+    display: none; /* Hide "Dashboard" text on mobile */
+  }
+}
+
 .counter {
   position: fixed; top: 1rem; right: 1rem; background: rgba(0,0,0,0.5); padding: 0.4rem 0.8rem; border-radius: 999px;
 }
