@@ -399,7 +399,7 @@
     </a>
   </main>
 
-  <script>
+    <script>
     (function() {
       const slides = Array.from(document.querySelectorAll('.slide'));
       const total = slides.length;
@@ -410,6 +410,7 @@
 
       let current = 1;
       totalEl.textContent = total;
+
       // Slide titles for sidebar navigation
       const slideTitles = [
         'Title',
@@ -466,8 +467,6 @@
         });
       }
 
-
-
       function setHiddenStates() {
         slides.forEach((s, i) => {
           const hidden = i !== (current - 1);
@@ -514,8 +513,6 @@
       });
 
       generateSidebar();
-
-
       showSlide(1);
     })();
   </script>
