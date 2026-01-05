@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Love And Faith: Heaven's Dynamic Duo - Bishop Dr. Darlingston Johnson</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); color: #fff; overflow: hidden; }
+    .presentation { position: relative; width: 100vw; height: 100vh; }
+    .slide { display: none; position: absolute; width: 100%; height: 100%; padding: 60px 80px 60px 320px; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); }
+    .slide.active { display: flex; }
+    h1 { font-size: 4.2rem; font-weight: 800; margin-bottom: 1.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); line-height: 1.2; color: #fff; }
+    h2 { font-size: 3.2rem; font-weight: 700; margin-bottom: 1.2rem; color: #ffd166; text-shadow: 1px 2px 4px rgba(0,0,0,0.4); line-height: 1.3; }
+    h3 { font-size: 2.4rem; font-weight: 700; margin-bottom: 1rem; color: #fff; text-shadow: 1px 2px 3px rgba(0,0,0,0.35); }
+    .subtitle { font-size: 1.8rem; font-weight: 400; margin-bottom: 0.6rem; color: #e8f4f8; line-height: 1.4; }
+    .scripture { background: rgba(255,255,255,0.14); border-left: 6px solid #ffd166; padding: 1.5rem; margin: 1.2rem 0; border-radius: 10px; backdrop-filter: blur(8px); box-shadow: 0 8px 32px rgba(0,0,0,0.25); max-width: 1100px; }
+    .scripture-text { font-size: 1.8rem; font-style: italic; line-height: 1.6; margin-bottom: 0.6rem; color: #fff; }
+    .scripture-ref { font-size: 1.2rem; font-weight: 700; color: #ffd166; text-align: right; }
+    .content-list { text-align: left; max-width: 1000px; margin: 0 auto; }
+    .content-list li { font-size: 1.5rem; margin: 0.9rem 0; padding-left: 1rem; line-height: 1.55; list-style: none; position: relative; }
+    .content-list li:before { content: "\25B6"; color: #ffd166; font-weight: bold; position: absolute; left: -1rem; }
+    .quote { font-size: 1.9rem; font-style: italic; text-align: center; padding: 1.5rem; border-radius: 12px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); margin: 1.2rem 0; box-shadow: 0 8px 32px rgba(0,0,0,0.2); line-height: 1.5; }
+    .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; width: 100%; max-width: 1100px; }
+    .column { text-align: left; }
+    .column h4 { font-size: 1.9rem; color: #ffd166; margin-bottom: 1rem; text-align: center; }
+    .column ul { list-style: none; padding: 0; }
+    .column li { font-size: 1.4rem; margin: 0.7rem 0; padding-left: 1.5rem; line-height: 1.5; position: relative; }
+    .column li:before { content: "\2713"; color: #ffd166; font-weight: bold; position: absolute; left: 0; }
+    .prayer-points { background: rgba(255,255,255,0.12); border-radius: 14px; padding: 2rem; backdrop-filter: blur(12px); box-shadow: 0 12px 40px rgba(0,0,0,0.28); max-width: 1100px; margin: 1.2rem auto; }
+    .prayer-points h3 { color: #ffd166; margin-bottom: 1rem; font-size: 2.1rem; }
+    .navigation { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 1rem; z-index: 1000; }
+    .nav-btn { background: rgba(255,255,255,0.22); border: 2px solid rgba(255,255,255,0.3); color: white; padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 600; backdrop-filter: blur(10px); transition: all 0.3s ease; }
+    .nav-btn:hover { background: rgba(255,255,255,0.32); border-color: #ffd166; color: #ffd166; }
+    .nav-btn:disabled { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); cursor: not-allowed; }
+    .slide-counter { position: fixed; top: 30px; right: 30px; background: rgba(0,0,0,0.45); padding: 0.5rem 1rem; border-radius: 20px; font-size: 1rem; backdrop-filter: blur(10px); }
+    .emphasis { color: #ffd166; font-weight: 800; }
+    .call-to-action { background: linear-gradient(135deg, #06d6a0, #118ab2); color: white; padding: 2rem; border-radius: 14px; margin: 1.2rem 0; box-shadow: 0 12px 40px rgba(0,0,0,0.3); text-align: center; }
+    .call-to-action h3 { font-size: 2.6rem; margin-bottom: 1rem; }
+    .call-to-action p { font-size: 1.6rem; line-height: 1.6; }
+    .section-break { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .section-break h1 { color: #ffd166 !important; }
+    .section-break h2 { color: #e8f4f8 !important; }
+    .cta-slide { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .cta-slide h1 { color: #ffd166 !important; }
+    .cta-slide .content-list li { color: #fff; }
+    .prayer-slide .scripture { background: rgba(255,209,102,0.15); border-left-color: #ffd166; }
+
+    /* Sidebar Navigation */
+    .sidebar { position: fixed; left: 0; top: 0; width: 280px; height: 100vh; background: rgba(20, 33, 61, 0.95); backdrop-filter: blur(10px); overflow-y: auto; z-index: 1500; border-right: 2px solid #ffd166; }
+    .sidebar-header { padding: 1.5rem; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,209,102,0.3); }
+    .sidebar-header h3 { color: #ffd166; font-size: 1.3rem; margin: 0; }
+    .sidebar-nav { padding: 1rem 0; }
+    .sidebar-item { padding: 0.8rem 1.5rem; cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem; border-left: 3px solid transparent; display: flex; align-items: center; gap: 0.5rem; }
+    .sidebar-item:hover { background: rgba(255,209,102,0.1); border-left-color: #ffd166; }
+    .sidebar-item.active { background: rgba(255,209,102,0.2); border-left-color: #ffd166; color: #ffd166; font-weight: 600; }
+    .sidebar-item.section { background: rgba(255,209,102,0.1); font-weight: 600; color: #ffd166; margin-top: 0.5rem; }
+    .slide-num { display: inline-block; width: 25px; color: rgba(255,255,255,0.6); }
+    .sidebar-item.active .slide-num { color: #ffd166; }
+
+    /* Home Button */
+    .home-btn { position: fixed; top: 30px; left: 300px; background: rgba(255,209,102,0.9); color: #14213d; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; z-index: 1000; display: flex; align-items: center; gap: 0.5rem; }
+    .home-btn:hover { background: #ffd166; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255,209,102,0.4); }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle { display: none; position: fixed; top: 30px; left: 20px; z-index: 2000; background: rgba(255,209,102,0.9); color: #14213d; border: none; padding: 0.75rem; border-radius: 8px; cursor: pointer; }
+    .menu-toggle:hover { background: #ffd166; }
+
+    @media (max-width: 1024px) {
+      .slide{ padding: 40px 50px 40px 320px; }
+      h1{ font-size: 3.4rem; }
+      h2{ font-size: 2.8rem; }
+      h3{ font-size: 2.2rem; }
+      .subtitle{ font-size: 1.5rem; }
+      .content-list li{ font-size: 1.35rem; }
+      .quote{ font-size: 1.6rem; }
+      .two-column{ grid-template-columns: 1fr; gap: 1.2rem; }
+    }
+    @media (max-width: 768px) {
+      .slide{ padding: 80px 30px 30px 30px; }
+      h1{ font-size: 2.6rem; }
+      h2{ font-size: 2.2rem; }
+      h3{ font-size: 1.9rem; }
+      .subtitle{ font-size: 1.3rem; }
+      .content-list li{ font-size: 1.2rem; }
+      .scripture-text{ font-size: 1.4rem; }
+      .quote{ font-size: 1.3rem; }
+      .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+      .sidebar.open { transform: translateX(0); }
+      .menu-toggle { display: block; }
+      .home-btn { left: auto; right: 30px; }
+    }
+    @media print { body{ background: white; color: black; } .slide{ display: block !important; page-break-after: always; position: static; background: white; color: black; padding: 2cm; } .navigation, .slide-counter{ display: none; } .scripture, .prayer-points, .call-to-action{ background: #f8f9fa; border: 2px solid #ddd; color: black; } h2, .scripture-ref, .emphasis{ color: #000; } }
+  </style>
+</head>
+<body>
+  <div class="presentation">
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" onclick="toggleSidebar()">&#9776;</button>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Love & Faith</h3>
+      </div>
+      <div class="sidebar-nav" id="sidebarNav">
+        <!-- Navigation items will be generated by JavaScript -->
+      </div>
+    </nav>
+
+    <!-- Home Button -->
+    <a href="../index.html" class="home-btn">
+      <span>&#127968;</span>
+      <span>Dashboard</span>
+    </a>
+
+    <div class="slide-counter"><span id="current-slide">1</span> / <span id="total-slides">16</span></div>
+
+    <!-- 1. Title Slide -->
+    <div class="slide active" data-slide="1">
+      <h1>Love And Faith</h1>
+      <h2>Heaven's Dynamic Duo</h2>
+      <div class="scripture">
+        <div class="scripture-text">"For I am persuaded that neither death nor life, nor angels nor principalities nor powers, nor things present nor things to come... shall be able to separate us from the love of God which is in Christ Jesus our Lord."</div>
+        <div class="scripture-ref">Romans 8:38-39</div>
+      </div>
+      <div class="subtitle" style="margin-top: 2rem;">Bishop Dr. Darlingston Johnson</div>
+      <div class="subtitle">Harvest Intercontinental Church - Olney | January 5, 2026</div>
+    </div>
+
+    <!-- 2. Year of Unfailing Love -->
+    <div class="slide" data-slide="2">
+      <h2>2026: Year of God's Unfailing Love</h2>
+      <div class="content-list"><ul>
+        <li>God's love is <span class="emphasis">everlasting</span> - no beginning, no end</li>
+        <li>There's never been a day when God didn't love you</li>
+        <li>One thing will remain constant throughout 2026: God's love for you</li>
+        <li>Don't tie God's love to your performance - He loved you before you were born</li>
+      </ul></div>
+      <div class="quote" style="margin-top: 1.5rem;">"Even when you were messing up, God says: 'I have always loved you with an everlasting love.'"</div>
+    </div>
+
+    <!-- 3. Section Break -->
+    <div class="slide section-break" data-slide="3">
+      <h1>The Power of God's Love</h1>
+      <h2>The Strongest Force in the Universe</h2>
+    </div>
+
+    <!-- 4. Love Never Fails -->
+    <div class="slide" data-slide="4">
+      <h2>God's Love: The Strongest Force</h2>
+      <div class="content-list"><ul>
+        <li>God's love is not passive sentiment - it's the <span class="emphasis">greatest power</span> in the universe</li>
+        <li>If God is for you, who can be against you? (Romans 8:31)</li>
+        <li>Love never fails - it is as strong as God Himself (1 Corinthians 13)</li>
+        <li>Everything else can fail - knowledge, people, money - but God's love cannot</li>
+      </ul></div>
+      <div class="scripture" style="margin-top: 1.5rem;">
+        <div class="scripture-text">"Love never fails."</div>
+        <div class="scripture-ref">1 Corinthians 13:8</div>
+      </div>
+    </div>
+
+    <!-- 5. Love is Action -->
+    <div class="slide" data-slide="5">
+      <h2>Love is God in Action</h2>
+      <div class="content-list"><ul>
+        <li>Love is not passive - love is <span class="emphasis">action</span></li>
+        <li>When God says "I love you," He means: "I am acting on your behalf"</li>
+        <li>God's love = God eternally committed to using His power for your good</li>
+        <li>Right now, God is using His almighty power in your interest</li>
+      </ul></div>
+      <div class="call-to-action" style="margin-top: 1.5rem;">
+        <h3>Nothing Can Overcome God's Love</h3>
+        <p>No obstacle, no problem, no challenge is strong enough to prevent God's love from accomplishing His will for you!</p>
+      </div>
+    </div>
+
+    <!-- 6. Section Break - Dynamic Duo -->
+    <div class="slide section-break" data-slide="6">
+      <h1>The Dynamic Duo</h1>
+      <h2>How Love and Faith Work Together</h2>
+    </div>
+
+    <!-- 7. Love and Faith Partnership -->
+    <div class="slide" data-slide="7">
+      <h2>Love Provides, Faith Receives</h2>
+      <div class="two-column">
+        <div class="column">
+          <h4>God's Love</h4>
+          <ul>
+            <li>The power that provides</li>
+            <li>Already supplied all we need</li>
+            <li>Constantly flowing in abundance</li>
+            <li>Never takes a vacation</li>
+          </ul>
+        </div>
+        <div class="column">
+          <h4>Our Faith</h4>
+          <ul>
+            <li>The mechanism that receives</li>
+            <li>Brings us into alignment</li>
+            <li>Releases love's provision</li>
+            <li>Is actually a rest, not striving</li>
+          </ul>
+        </div>
+      </div>
+      <div class="quote" style="margin-top: 1.5rem;">"Faith is not hard. Faith is actually a rest - resting in the love of God."</div>
+    </div>
+
+    <!-- 8. Faith Brings Alignment -->
+    <div class="slide" data-slide="8">
+      <h2>Faith Aligns Us With Love</h2>
+      <div class="content-list"><ul>
+        <li>Faith doesn't make God do anything - love has already caused God to do everything</li>
+        <li>In Christ, we are complete - God supplied all our needs (Philippians 4:19)</li>
+        <li>Faith is how we get into <span class="emphasis">alignment</span> with what love has already done</li>
+        <li>Like putting your cup under water that's already flowing</li>
+      </ul></div>
+      <div class="scripture" style="margin-top: 1.5rem;">
+        <div class="scripture-text">"For God so loved the world that He gave His only begotten Son..."</div>
+        <div class="scripture-ref">John 3:16</div>
+      </div>
+    </div>
+
+    <!-- 9. Section Break - Activating Faith -->
+    <div class="slide section-break" data-slide="9">
+      <h1>Activating Faith</h1>
+      <h2>Two Keys to Release God's Power</h2>
+    </div>
+
+    <!-- 10. Key 1: Walking in Love -->
+    <div class="slide" data-slide="10">
+      <h2>Key 1: Walk in Love</h2>
+      <div class="content-list"><ul>
+        <li>Faith works by love (Galatians 5:6)</li>
+        <li>When we walk in love, we activate faith</li>
+        <li>Love gives, serves, and sacrifices - when you do this, you align with God's love</li>
+        <li>"I will show you my faith by my works" - works of love (James 2:18)</li>
+      </ul></div>
+      <div class="quote" style="margin-top: 1.5rem;">"When I choose to walk in love - giving, serving, sacrificing - I'm activating the power of faith that allows me to receive and release God's love."</div>
+    </div>
+
+    <!-- 11. Key 2: Speaking -->
+    <div class="slide" data-slide="11">
+      <h2>Key 2: Open Your Mouth</h2>
+      <div class="content-list"><ul>
+        <li>The spirit of faith: "We believe, therefore we <span class="emphasis">speak</span>" (2 Corinthians 4:13)</li>
+        <li>With the heart one believes, with the mouth confession is made (Romans 10:10)</li>
+        <li>Jesus said: "Say to this mountain, be removed" - speaking is spiritual law</li>
+        <li>Your mouth was given primarily to activate the covenant, not just to eat!</li>
+      </ul></div>
+      <div class="scripture" style="margin-top: 1.5rem;">
+        <div class="scripture-text">"If you confess with your mouth the Lord Jesus and believe in your heart that God has raised Him from the dead, you will be saved."</div>
+        <div class="scripture-ref">Romans 10:9</div>
+      </div>
+    </div>
+
+    <!-- 12. Put Your Mouth Where Love Is Flowing -->
+    <div class="slide" data-slide="12">
+      <h2>Put Your Mouth Where Love Flows</h2>
+      <div class="content-list"><ul>
+        <li>Love is flowing in Jesus - put your mouth where Jesus is!</li>
+        <li>Declare who Jesus is, what He has done, who you are in Him</li>
+        <li>Declare: He's my righteousness, my supply, my healing, my protection</li>
+        <li>Get your mouth off your problems and onto God's promises!</li>
+      </ul></div>
+      <div class="call-to-action" style="margin-top: 1.5rem;">
+        <h3>A Silent Christian is a Weak Christian</h3>
+        <p>Not because power is unavailable - but because silence neutralizes our receiving!</p>
+      </div>
+    </div>
+
+    <!-- 13. Corporate Agreement -->
+    <div class="slide" data-slide="13">
+      <h2>The Power of Corporate Agreement</h2>
+      <div class="content-list"><ul>
+        <li>If two agree concerning anything, it shall be done (Matthew 18:19)</li>
+        <li>Imagine a whole church vocalizing agreement with God's Word!</li>
+        <li>Corporate vocal prayer creates a <span class="emphasis">legal environment</span> for heaven to move</li>
+        <li>This is what terrifies the devil - not our silence, but our unified declaration</li>
+      </ul></div>
+      <div class="quote" style="margin-top: 1.5rem;">"When we vocalize our agreement, we create a legal environment that allows heaven to work powerfully and forces the enemy to flee."</div>
+    </div>
+
+    <!-- 14. Prayer Point 1 -->
+    <div class="slide prayer-slide" data-slide="14">
+      <h2>Prayer Focus</h2>
+      <div class="prayer-points">
+        <h3>Revelation of God's Unfailing Love</h3>
+        <div class="scripture">
+          <div class="scripture-text">"Father, open the eyes of my heart to comprehend the width, length, depth, and height of Your love. Let me be rooted and grounded in this love so firmly that no circumstance can make me doubt Your goodness. Fill me to all the fullness of God through this revelation."</div>
+          <div class="scripture-ref">Based on Ephesians 3:17-19</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 15. Prayer Point 2 -->
+    <div class="slide prayer-slide" data-slide="15">
+      <h2>Prayer Focus</h2>
+      <div class="prayer-points">
+        <h3>Bold Vocal Declaration</h3>
+        <div class="scripture">
+          <div class="scripture-text">"Lord, break off every spirit of silence and timidity. Release the spirit of faith upon me so that I believe and therefore speak. Teach me to use my mouth as a weapon of warfare, declaring Your Word with boldness. Let my life be filled with declarations of Your goodness, power, and promises."</div>
+          <div class="scripture-ref">Based on 2 Corinthians 4:13; Romans 10:8-10</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 16. Closing -->
+    <div class="slide cta-slide" data-slide="16">
+      <h1>2026: Walk in Love, Speak in Faith</h1>
+      <h2>Heaven's Dynamic Duo at Work in You</h2>
+      <div class="content-list" style="margin-top: 1.5rem;"><ul>
+        <li>Rest in the confidence that God's love has already won every battle</li>
+        <li>Activate your faith by walking in love - giving, serving, sacrificing</li>
+        <li>Open your mouth and declare your agreement with God's Word</li>
+        <li>Join together in corporate vocal prayer - terrify the enemy!</li>
+      </ul></div>
+      <div class="scripture" style="margin-top: 1.5rem;">
+        <div class="scripture-text">"In all these things we are more than conquerors through Him who loved us."</div>
+        <div class="scripture-ref">Romans 8:37</div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+      <button class="nav-btn" onclick="previousSlide()">&larr; Previous</button>
+      <button class="nav-btn" onclick="nextSlide()">Next &rarr;</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = document.querySelectorAll('.slide').length;
+    document.getElementById('total-slides').textContent = totalSlides;
+
+    // Slide titles for sidebar navigation
+    const slideTitles = [
+      'Title',
+      'Year of Unfailing Love',
+      'Power of God\'s Love',
+      'Love Never Fails',
+      'Love is Action',
+      'The Dynamic Duo',
+      'Love & Faith Partnership',
+      'Faith Brings Alignment',
+      'Activating Faith',
+      'Key 1: Walk in Love',
+      'Key 2: Open Your Mouth',
+      'Put Your Mouth...',
+      'Corporate Agreement',
+      'Prayer: Revelation',
+      'Prayer: Declaration',
+      'Closing'
+    ];
+
+    // Generate sidebar navigation
+    function generateSidebar() {
+      const sidebarNav = document.getElementById('sidebarNav');
+      sidebarNav.innerHTML = '';
+
+      slideTitles.forEach((title, index) => {
+        const item = document.createElement('div');
+        item.className = 'sidebar-item';
+
+        // Mark section breaks
+        if ([2, 5, 8].includes(index)) {
+          item.classList.add('section');
+        }
+
+        if (index === currentSlide - 1) {
+          item.classList.add('active');
+        }
+
+        item.innerHTML = `
+          <span class="slide-num">${index + 1}</span>
+          <span>${title}</span>
+        `;
+
+        item.onclick = () => {
+          showSlide(index + 1);
+        };
+
+        sidebarNav.appendChild(item);
+      });
+    }
+
+    function showSlide(n) {
+      const slides = document.querySelectorAll('.slide');
+      if (n > totalSlides) n = 1;
+      if (n < 1) n = totalSlides;
+      currentSlide = n;
+      slides.forEach(s => s.classList.remove('active'));
+      slides[currentSlide - 1].classList.add('active');
+      document.getElementById('current-slide').textContent = currentSlide;
+
+      // Update navigation buttons
+      const prevBtn = document.querySelector('.nav-btn');
+      const nextBtn = document.querySelectorAll('.nav-btn')[1];
+      prevBtn.disabled = currentSlide === 1;
+      nextBtn.disabled = currentSlide === totalSlides;
+
+      // Update sidebar
+      generateSidebar();
+    }
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function previousSlide() { showSlide(currentSlide - 1); }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+
+    document.addEventListener('keydown', function(event) {
+      switch(event.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+        case ' ': // Space
+        case 'Enter':
+          nextSlide();
+          event.preventDefault();
+          break;
+        case 'ArrowLeft':
+        case 'ArrowUp':
+          previousSlide();
+          event.preventDefault();
+          break;
+        case 'Home':
+          currentSlide = 1; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'End':
+          currentSlide = totalSlides; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'PageDown':
+          showSlide(Math.min(currentSlide + 10, totalSlides)); event.preventDefault();
+          break;
+        case 'PageUp':
+          showSlide(Math.max(currentSlide - 10, 1)); event.preventDefault();
+          break;
+      }
+    });
+
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let startY = 0;
+
+    document.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    });
+
+    document.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const endY = e.changedTouches[0].clientY;
+      const deltaX = endX - startX;
+      const deltaY = endY - startY;
+
+      // Only trigger if horizontal swipe is longer than vertical and over 50px
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+        if (deltaX > 0) {
+          previousSlide(); // Swipe right = previous
+        } else {
+          nextSlide();  // Swipe left = next
+        }
+      }
+    });
+
+    // Initialize
+    generateSidebar();
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>
