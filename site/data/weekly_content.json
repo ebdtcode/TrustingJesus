@@ -1,5 +1,66 @@
 [
   {
+    "week": "2026-W01",
+    "weekOf": "January 5, 2026",
+    "title": "Love And Faith: Heaven's Dynamic Duo",
+    "theme": "How Love and Faith Work Together - Year of God's Unfailing Love Part 2",
+    "speaker": "Bishop Dr. Darlingston Johnson",
+    "church": "Harvest Intercontinental Church - Olney",
+    "scripture": "Romans 8:31-39, 1 Corinthians 13, 2 Corinthians 4:13, Galatians 5:6",
+    "content": {
+      "sermon": {
+        "title": "Love And Faith: Heaven's Dynamic Duo",
+        "speaker": "Bishop Dr. Darlingston Johnson",
+        "date": "2026-01-05",
+        "transcriptPath": "transcripts/sermon/Love_And_Faith_Heavens_Dynamic_Duo__Bishop_Darlingston_Johnson/transcript.md",
+        "summary": "Bishop Dr. Darlingston Johnson launches 2026 as the 'Year of God's Unfailing Love,' declaring that God's love is the strongest, most powerful force in the universe. The core revelation is that love and faith function as heaven's 'dynamic duo' - love provides, faith receives and releases. Faith is activated by walking in love (giving, serving, sacrificing) and speaking with our mouths - 'we believe, therefore we speak.'",
+        "keyPoints": [
+          "2026 is the Year of God's Unfailing Love - constant, unchanging, never fails",
+          "God's love is the strongest force in the universe (Romans 8:38-39)",
+          "Love and Faith are heaven's 'dynamic duo' - love provides, faith receives",
+          "Faith is not striving but resting in what love has already done",
+          "Faith is activated by walking in love - giving, serving, sacrificing",
+          "Vocal declaration is essential: 'We believe, therefore we speak'",
+          "A silent Christian is a weak Christian",
+          "Corporate vocal prayer creates legal spiritual environments for heaven to move"
+        ]
+      },
+      "presentation": {
+        "title": "Love And Faith: Heaven's Dynamic Duo - 16 Slides",
+        "path": "presentations/Love_And_Faith_Heavens_Dynamic_Duo_Presentation.html",
+        "slideCount": 16,
+        "features": [
+          "Left sidebar navigation",
+          "Two keys to activating faith",
+          "Prayer points included",
+          "Mobile responsive design",
+          "Interactive slide navigation"
+        ]
+      },
+      "prayerPoints": {
+        "title": "Week of January 5, 2026 Prayer Focus",
+        "path": "sermons_summaries/Love_And_Faith_Heavens_Dynamic_Duo.md",
+        "count": 6,
+        "topics": [
+          "Deeper Revelation of God's Unfailing Love",
+          "Faith That Rests in God's Finished Work",
+          "Love Activated Through Action",
+          "Bold Vocal Declaration and Agreement",
+          "Nothing Can Separate Us from God's Love",
+          "Corporate Unity and Vocal Authority"
+        ],
+        "actionSteps": [
+          "Memorize Romans 8:38-39",
+          "Practice walking in love - giving, serving, sacrificing",
+          "Open your mouth and declare God's Word daily",
+          "Participate in corporate vocal prayer",
+          "Put your mouth where love is flowing - in Jesus"
+        ]
+      }
+    },
+    "featured": true
+  },
+  {
     "week": "2025-W46",
     "weekOf": "November 16, 2025",
     "title": "How to Live a Life of True Worship",
