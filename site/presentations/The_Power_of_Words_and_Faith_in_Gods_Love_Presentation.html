@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Power of Words and Faith in God's Love - Bishop Dr. Darlingston Johnson</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); color: #fff; overflow: hidden; }
+    .presentation { position: relative; width: 100vw; height: 100vh; }
+    .slide { display: none; position: absolute; width: 100%; height: 100%; padding: 60px 80px 60px 320px; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #14213d 0%, #1f4068 100%); }
+    .slide.active { display: flex; }
+    h1 { font-size: 4.2rem; font-weight: 800; margin-bottom: 1.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); line-height: 1.2; color: #fff; }
+    h2 { font-size: 3.2rem; font-weight: 700; margin-bottom: 1.2rem; color: #ffd166; text-shadow: 1px 2px 4px rgba(0,0,0,0.4); line-height: 1.3; }
+    h3 { font-size: 2.4rem; font-weight: 700; margin-bottom: 1rem; color: #fff; text-shadow: 1px 2px 3px rgba(0,0,0,0.35); }
+    .subtitle { font-size: 1.8rem; font-weight: 400; margin-bottom: 0.6rem; color: #e8f4f8; line-height: 1.4; }
+    .scripture { background: rgba(255,255,255,0.14); border-left: 6px solid #ffd166; padding: 1.5rem; margin: 1.2rem 0; border-radius: 10px; backdrop-filter: blur(8px); box-shadow: 0 8px 32px rgba(0,0,0,0.25); max-width: 1100px; }
+    .scripture-text { font-size: 1.8rem; font-style: italic; line-height: 1.6; margin-bottom: 0.6rem; color: #fff; }
+    .scripture-ref { font-size: 1.2rem; font-weight: 700; color: #ffd166; text-align: right; }
+    .content-list { text-align: left; max-width: 1000px; margin: 0 auto; }
+    .content-list li { font-size: 1.5rem; margin: 0.9rem 0; padding-left: 1rem; line-height: 1.55; list-style: none; position: relative; }
+    .content-list li:before { content: "\25B6"; color: #ffd166; font-weight: bold; position: absolute; left: -1rem; }
+    .quote { font-size: 1.9rem; font-style: italic; text-align: center; padding: 1.5rem; border-radius: 12px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); margin: 1.2rem 0; box-shadow: 0 8px 32px rgba(0,0,0,0.2); line-height: 1.5; }
+    .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; width: 100%; max-width: 1100px; }
+    .column { text-align: left; }
+    .column h4 { font-size: 1.9rem; color: #ffd166; margin-bottom: 1rem; text-align: center; }
+    .column ul { list-style: none; padding: 0; }
+    .column li { font-size: 1.4rem; margin: 0.7rem 0; padding-left: 1.5rem; line-height: 1.5; position: relative; }
+    .column li:before { content: "\2713"; color: #ffd166; font-weight: bold; position: absolute; left: 0; }
+    .prayer-points { background: rgba(255,255,255,0.12); border-radius: 14px; padding: 2rem; backdrop-filter: blur(12px); box-shadow: 0 12px 40px rgba(0,0,0,0.28); max-width: 1100px; margin: 1.2rem auto; }
+    .prayer-points h3 { color: #ffd166; margin-bottom: 1rem; font-size: 2.1rem; }
+    .navigation { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 1rem; z-index: 1000; }
+    .nav-btn { background: rgba(255,255,255,0.22); border: 2px solid rgba(255,255,255,0.3); color: white; padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 600; backdrop-filter: blur(10px); transition: all 0.3s ease; }
+    .nav-btn:hover { background: rgba(255,255,255,0.32); border-color: #ffd166; color: #ffd166; }
+    .nav-btn:disabled { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); cursor: not-allowed; }
+    .slide-counter { position: fixed; top: 30px; right: 30px; background: rgba(0,0,0,0.45); padding: 0.5rem 1rem; border-radius: 20px; font-size: 1rem; backdrop-filter: blur(10px); }
+    .emphasis { color: #ffd166; font-weight: 800; }
+    .call-to-action { background: linear-gradient(135deg, #06d6a0, #118ab2); color: white; padding: 2rem; border-radius: 14px; margin: 1.2rem 0; box-shadow: 0 12px 40px rgba(0,0,0,0.3); text-align: center; }
+    .call-to-action h3 { font-size: 2.6rem; margin-bottom: 1rem; }
+    .call-to-action p { font-size: 1.6rem; line-height: 1.6; }
+    .section-break { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .section-break h1 { color: #ffd166 !important; }
+    .section-break h2 { color: #e8f4f8 !important; }
+    .cta-slide { background: linear-gradient(135deg, #14213d 0%, #1f4068 100%) !important; }
+    .cta-slide h1 { color: #ffd166 !important; }
+    .cta-slide .content-list li { color: #fff; }
+    .prayer-slide .scripture { background: rgba(255,209,102,0.15); border-left-color: #ffd166; }
+
+    /* Sidebar Navigation */
+    .sidebar { position: fixed; left: 0; top: 0; width: 280px; height: 100vh; background: rgba(20, 33, 61, 0.95); backdrop-filter: blur(10px); overflow-y: auto; z-index: 1500; border-right: 2px solid #ffd166; }
+    .sidebar-header { padding: 1.5rem; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,209,102,0.3); }
+    .sidebar-header h3 { color: #ffd166; font-size: 1.3rem; margin: 0; }
+    .sidebar-nav { padding: 1rem 0; }
+    .sidebar-item { padding: 0.8rem 1.5rem; cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem; border-left: 3px solid transparent; display: flex; align-items: center; gap: 0.5rem; }
+    .sidebar-item:hover { background: rgba(255,209,102,0.1); border-left-color: #ffd166; }
+    .sidebar-item.active { background: rgba(255,209,102,0.2); border-left-color: #ffd166; color: #ffd166; font-weight: 600; }
+    .sidebar-item.section { background: rgba(255,209,102,0.1); font-weight: 600; color: #ffd166; margin-top: 0.5rem; }
+    .slide-num { display: inline-block; width: 25px; color: rgba(255,255,255,0.6); }
+    .sidebar-item.active .slide-num { color: #ffd166; }
+
+    /* Home Button */
+    .home-btn { position: fixed; top: 30px; left: 300px; background: rgba(255,209,102,0.9); color: #14213d; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; z-index: 1000; display: flex; align-items: center; gap: 0.5rem; }
+    .home-btn:hover { background: #ffd166; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255,209,102,0.4); }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle { display: none; position: fixed; top: 30px; left: 20px; z-index: 2000; background: rgba(255,209,102,0.9); color: #14213d; border: none; padding: 0.75rem; border-radius: 8px; cursor: pointer; }
+    .menu-toggle:hover { background: #ffd166; }
+
+    @media (max-width: 1024px) {
+      .slide{ padding: 40px 50px 40px 320px; }
+      h1{ font-size: 3.4rem; }
+      h2{ font-size: 2.8rem; }
+      h3{ font-size: 2.2rem; }
+      .subtitle{ font-size: 1.5rem; }
+      .content-list li{ font-size: 1.35rem; }
+      .quote{ font-size: 1.6rem; }
+      .two-column{ grid-template-columns: 1fr; gap: 1.2rem; }
+    }
+    @media (max-width: 768px) {
+      .slide{ padding: 80px 30px 30px 30px; }
+      h1{ font-size: 2.6rem; }
+      h2{ font-size: 2.2rem; }
+      h3{ font-size: 1.9rem; }
+      .subtitle{ font-size: 1.3rem; }
+      .content-list li{ font-size: 1.2rem; }
+      .scripture-text{ font-size: 1.4rem; }
+      .quote{ font-size: 1.3rem; }
+      .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+      .sidebar.open { transform: translateX(0); }
+      .menu-toggle { display: block; }
+      .home-btn { left: auto; right: 30px; }
+    }
+    @media print { body{ background: white; color: black; } .slide{ display: block !important; page-break-after: always; position: static; background: white; color: black; padding: 2cm; } .navigation, .slide-counter{ display: none; } .scripture, .prayer-points, .call-to-action{ background: #f8f9fa; border: 2px solid #ddd; color: black; } h2, .scripture-ref, .emphasis{ color: #000; } }
+  </style>
+</head>
+<body>
+  <div class="presentation">
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" onclick="toggleSidebar()">&#9776;</button>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Power of Words</h3>
+      </div>
+      <div class="sidebar-nav" id="sidebarNav">
+        <!-- Navigation items will be generated by JavaScript -->
+      </div>
+    </nav>
+
+    <!-- Home Button -->
+    <a href="../index.html" class="home-btn">
+      <span>&#127968;</span>
+      <span>Dashboard</span>
+    </a>
+
+    <div class="slide-counter"><span id="current-slide">1</span> / <span id="total-slides">18</span></div>
+
+    <!-- 1. Title Slide -->
+    <div class="slide active" data-slide="1">
+      <h1>The Power of Words and Faith in God's Love</h1>
+      <div class="scripture">
+        <div class="scripture-text">"Death and life are in the power of the tongue, and those who love it will eat its fruit."</div>
+        <div class="scripture-ref">Proverbs 18:21</div>
+      </div>
+      <div class="subtitle" style="margin-top: 2rem;">Bishop Dr. Darlingston Johnson</div>
+      <div class="subtitle">Harvest Intercontinental Church - Olney</div>
+      <div class="subtitle">January 11, 2026</div>
+    </div>
+
+    <!-- 2. God's Love Requires Agreement -->
+    <div class="slide" data-slide="2">
+      <h2>God's Love Requires Our Agreement</h2>
+      <div class="content-list"><ul>
+        <li>God's love is almighty and can do <span class="emphasis">anything</span></li>
+        <li>The question is not "Does God love me?" - that's a fact</li>
+        <li>The question is: Am I <span class="emphasis">agreeing</span> with His love?</li>
+        <li>Agreement is expressed through our <span class="emphasis">words</span> and <span class="emphasis">works</span></li>
+        <li>Your experience is affected by the choices you make</li>
+      </ul></div>
+      <div class="quote" style="margin-top: 1.5rem;">"God's love opens the door, but you have a choice to walk through it or not"</div>
+    </div>
+
+    <!-- 3. Section Break -->
+    <div class="slide section-break" data-slide="3">
+      <h1>Words Release Authority</h1>
+      <h2>The Creative Power of Speech</h2>
+    </div>
+
+    <!-- 4. God Creates by Speaking -->
+    <div class="slide" data-slide="4">
+      <h2>God Creates by Speaking</h2>
+      <div class="scripture">
+        <div class="scripture-text">"And God said, 'Let there be light,' and there was light."</div>
+        <div class="scripture-ref">Genesis 1:3</div>
+      </div>
+      <div class="content-list" style="margin-top: 1.5rem;"><ul>
+        <li>Every star, every planet - created by <span class="emphasis">speaking</span></li>
+        <li>God didn't have to move - He just had to <span class="emphasis">speak</span></li>
+        <li>All things were framed by the word of God (Hebrews 11:3)</li>
+        <li>His Word continues to hold everything together</li>
+      </ul></div>
+    </div>
+
+    <!-- 5. Woman with Issue of Blood -->
+    <div class="slide" data-slide="5">
+      <h2>The Woman with the Issue of Blood</h2>
+      <div class="content-list"><ul>
+        <li>12 years of suffering - doctors couldn't help</li>
+        <li>She <span class="emphasis">heard</span> about Jesus - faith comes by hearing</li>
+        <li>She <span class="emphasis">kept saying</span>: "If I just touch His garment, I will be healed"</li>
+        <li>Her words and works came together in alignment with who Jesus was</li>
+        <li>Jesus said: "Your <span class="emphasis">faith</span> has made you whole"</li>
+      </ul></div>
+      <div class="quote" style="margin-top: 1.5rem;">"She began to speak the healing out of her mouth"</div>
+    </div>
+
+    <!-- 6. The Roman Centurion -->
+    <div class="slide" data-slide="6">
+      <h2>The Roman Centurion</h2>
+      <div class="content-list"><ul>
+        <li>His servant was sick unto death - hopeless situation</li>
+        <li>He understood <span class="emphasis">authority</span> and how it works</li>
+        <li>Said to Jesus: "You don't have to come, just <span class="emphasis">speak the word</span>"</li>
+        <li>Jesus <span class="emphasis">marveled</span> at his faith</li>
+        <li>Words carry authority and <span class="emphasis">command power</span></li>
+      </ul></div>
+      <div class="scripture" style="margin-top: 1.5rem;">
+        <div class="scripture-text">"Just speak the word, and my servant will be healed... I also am a man under authority."</div>
+        <div class="scripture-ref">Matthew 8:8-9</div>
+      </div>
+    </div>
+
+    <!-- 7. Section Break -->
+    <div class="slide section-break" data-slide="7">
+      <h1>Created in God's Image</h1>
+      <h2>Dominion Through Speech</h2>
+    </div>
+
+    <!-- 8. Man Given Dominion -->
+    <div class="slide" data-slide="8">
+      <h2>Man Created to Govern with Words</h2>
+      <div class="two-column">
+        <div class="column">
+          <h4>Why Only Man Can Speak</h4>
+          <ul>
+            <li>Animals have greater senses</li>
+            <li>But only man can speak</li>
+            <li>Speech is for the governor</li>
+            <li>Authority is exercised through words</li>
+          </ul>
+        </div>
+        <div class="column">
+          <h4>Adam Named the Animals</h4>
+          <ul>
+            <li>God brought animals to Adam</li>
+            <li>Whatever Adam said, that was its name</li>
+            <li>God respected Adam's authority</li>
+            <li>Adam governed through his words</li>
+          </ul>
+        </div>
+      </div>
+      <div class="scripture" style="margin-top: 1.5rem;">
+        <div class="scripture-text">"Let them have dominion over the fish of the sea, over the birds of the air, and over every living thing..."</div>
+        <div class="scripture-ref">Genesis 1:26</div>
+      </div>
+    </div>
+
+    <!-- 9. Words Create Reality -->
+    <div class="slide" data-slide="9">
+      <h2>Words Create, Not Just Describe</h2>
+      <div class="content-list"><ul>
+        <li>God doesn't use words to <span class="emphasis">describe</span> reality</li>
+        <li>God uses words to <span class="emphasis">create</span> reality</li>
+        <li>If you keep describing your problems, you reinforce them</li>
+        <li>Use your words to create the reality you want to see</li>
+        <li>Speak to your mountain and command it to move</li>
+      </ul></div>
+      <div class="scripture" style="margin-top: 1.5rem;">
+        <div class="scripture-text">"Whoever says to this mountain, 'Be removed and be cast into the sea,' and does not doubt in his heart... he will have whatever he says."</div>
+        <div class="scripture-ref">Mark 11:23</div>
+      </div>
+    </div>
+
+    <!-- 10. Life and Death in the Tongue -->
+    <div class="slide" data-slide="10">
+      <h2>Life and Death in the Tongue</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Death and life are in the power of the tongue, and those who love it will eat its fruit."</div>
+        <div class="scripture-ref">Proverbs 18:21</div>
+      </div>
+      <div class="two-column" style="margin-top: 1.5rem;">
+        <div class="column">
+          <h4>Words of Life Release:</h4>
+          <ul>
+            <li>Faith</li>
+            <li>Hope</li>
+            <li>Love</li>
+          </ul>
+        </div>
+        <div class="column">
+          <h4>Words of Death Release:</h4>
+          <ul>
+            <li>Fear</li>
+            <li>Hopelessness</li>
+            <li>Hatred</li>
+          </ul>
+        </div>
+      </div>
+      <div class="quote" style="margin-top: 1.5rem;">"With our words we create the conditions that allow the spirit of life or the spirit of death to work"</div>
+    </div>
+
+    <!-- 11. Inherit the Blessing -->
+    <div class="slide" data-slide="11">
+      <h2>Speak Blessing, Inherit Blessing</h2>
+      <div class="scripture">
+        <div class="scripture-text">"Not returning evil for evil or reviling for reviling, but on the contrary blessing, knowing that you were called to this, that you may inherit a blessing."</div>
+        <div class="scripture-ref">1 Peter 3:9</div>
+      </div>
+      <div class="content-list" style="margin-top: 1.5rem;"><ul>
+        <li>Don't curse back when cursed - <span class="emphasis">bless instead</span></li>
+        <li>Your words impact whether you possess your blessings</li>
+        <li>Many have unclaimed blessings because of careless speech</li>
+        <li>When you let emotions control your speech, you block your inheritance</li>
+      </ul></div>
+    </div>
+
+    <!-- 12. Bridle Your Tongue -->
+    <div class="slide" data-slide="12">
+      <h2>Bridle Your Tongue</h2>
+      <div class="scripture">
+        <div class="scripture-text">"If anyone among you thinks he is religious, and does not bridle his tongue but deceives his own heart, this one's religion is useless."</div>
+        <div class="scripture-ref">James 1:26</div>
+      </div>
+      <div class="content-list" style="margin-top: 1.5rem;"><ul>
+        <li>You can come to church, pay tithe, do good works...</li>
+        <li>But if you don't <span class="emphasis">bridle your tongue</span>, it's worthless</li>
+        <li>No matter how much we fast and pray - without controlling speech, it's useless</li>
+        <li>Don't let feelings control your speech</li>
+      </ul></div>
+    </div>
+
+    <!-- 13. The Tongue is a Rudder -->
+    <div class="slide" data-slide="13">
+      <h2>The Tongue Steers Your Life</h2>
+      <div class="content-list"><ul>
+        <li>The tongue is like a <span class="emphasis">rudder</span> that turns the ship</li>
+        <li>A small rudder turns a massive ship</li>
+        <li>Your words set the <span class="emphasis">direction</span> of your life</li>
+        <li>Keep the rudder where you want to go</li>
+        <li>Don't let circumstances change your confession</li>
+      </ul></div>
+      <div class="scripture" style="margin-top: 1.5rem;">
+        <div class="scripture-text">"Look also at ships: although they are so large and are driven by fierce winds, they are turned by a very small rudder..."</div>
+        <div class="scripture-ref">James 3:4</div>
+      </div>
+    </div>
+
+    <!-- 14. Section Break -->
+    <div class="slide section-break" data-slide="14">
+      <h1>Choose Life</h1>
+      <h2>With Your Words</h2>
+    </div>
+
+    <!-- 15. Choose Life -->
+    <div class="slide" data-slide="15">
+      <h2>Choose Life Through Your Words</h2>
+      <div class="scripture">
+        <div class="scripture-text">"I call heaven and earth as witnesses today against you, that I have set before you life and death, blessing and cursing; therefore choose life..."</div>
+        <div class="scripture-ref">Deuteronomy 30:19</div>
+      </div>
+      <div class="content-list" style="margin-top: 1.5rem;"><ul>
+        <li>Speak what <span class="emphasis">God says</span>, not what circumstances say</li>
+        <li>My God supplies all my needs according to His riches</li>
+        <li>By His stripes I am healed</li>
+        <li>I will live and not die</li>
+        <li>Spend time speaking the reality you're believing for</li>
+      </ul></div>
+    </div>
+
+    <!-- 16. Prayer Points 1 -->
+    <div class="slide prayer-slide" data-slide="16">
+      <h2>Prayer Focus</h2>
+      <div class="prayer-points">
+        <h3>For a Transformed Tongue</h3>
+        <div class="scripture">
+          <div class="scripture-text">"Father, I ask for a complete transformation of my speech patterns. Help me bridle my tongue and speak only words that align with Your Word and character. Remove from me all complaining, murmuring, and negative declarations that contradict Your promises. Let every word I speak release faith, hope, and love."</div>
+          <div class="scripture-ref">Based on Psalm 19:14, James 1:26</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 17. Prayer Points 2 -->
+    <div class="slide prayer-slide" data-slide="17">
+      <h2>Prayer Focus</h2>
+      <div class="prayer-points">
+        <h3>For Faith-Filled Declarations</h3>
+        <div class="scripture">
+          <div class="scripture-text">"Lord Jesus, You taught that if we speak to the mountain with faith and do not doubt in our hearts, whatever we say will come to pass. I declare Your Word over every impossible situation in my life. I will not merely describe my problems; I will speak directly to them with the authority You have given me in Your name."</div>
+          <div class="scripture-ref">Based on Mark 11:23</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 18. Closing -->
+    <div class="slide cta-slide" data-slide="18">
+      <h1>Choose Words of Life</h1>
+      <h2>Align Your Speech with God's Word</h2>
+      <div class="content-list" style="margin-top: 1.5rem;"><ul>
+        <li>Your words carry <span class="emphasis">authority</span> and <span class="emphasis">command power</span></li>
+        <li>Speak to create reality, not just describe it</li>
+        <li>Bridle your tongue - control your future</li>
+        <li>Every time you speak God's Word, you exercise spiritual authority</li>
+      </ul></div>
+      <div class="call-to-action" style="margin-top: 1.5rem;">
+        <h3>Declaration</h3>
+        <p>I choose life! I choose to speak words of life over myself, my family, and my circumstances. I align my words with God's Word and His character in Jesus' name!</p>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+      <button class="nav-btn" onclick="previousSlide()">&#8592; Previous</button>
+      <button class="nav-btn" onclick="nextSlide()">Next &#8594;</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = document.querySelectorAll('.slide').length;
+    document.getElementById('total-slides').textContent = totalSlides;
+
+    // Slide titles for sidebar navigation
+    const slideTitles = [
+      'Title',
+      'Agreement Required',
+      'Words Release Authority',
+      'God Creates by Speaking',
+      'Woman with Issue of Blood',
+      'Roman Centurion',
+      'Created in God\'s Image',
+      'Dominion Through Speech',
+      'Words Create Reality',
+      'Life and Death',
+      'Inherit the Blessing',
+      'Bridle Your Tongue',
+      'Tongue as Rudder',
+      'Choose Life',
+      'Choose Life Through Words',
+      'Prayer: Transformed Tongue',
+      'Prayer: Faith Declarations',
+      'Closing'
+    ];
+
+    // Generate sidebar navigation
+    function generateSidebar() {
+      const sidebarNav = document.getElementById('sidebarNav');
+      sidebarNav.innerHTML = '';
+
+      slideTitles.forEach((title, index) => {
+        const item = document.createElement('div');
+        item.className = 'sidebar-item';
+
+        // Mark section breaks
+        if ([2, 6, 13].includes(index)) {
+          item.classList.add('section');
+        }
+
+        if (index === currentSlide - 1) {
+          item.classList.add('active');
+        }
+
+        item.innerHTML = `
+          <span class="slide-num">${index + 1}</span>
+          <span>${title}</span>
+        `;
+
+        item.onclick = () => {
+          showSlide(index + 1);
+        };
+
+        sidebarNav.appendChild(item);
+      });
+    }
+
+    function showSlide(n) {
+      const slides = document.querySelectorAll('.slide');
+      if (n > totalSlides) n = 1;
+      if (n < 1) n = totalSlides;
+      currentSlide = n;
+      slides.forEach(s => s.classList.remove('active'));
+      slides[currentSlide - 1].classList.add('active');
+      document.getElementById('current-slide').textContent = currentSlide;
+
+      // Update navigation buttons
+      const prevBtn = document.querySelector('.nav-btn');
+      const nextBtn = document.querySelectorAll('.nav-btn')[1];
+      prevBtn.disabled = currentSlide === 1;
+      nextBtn.disabled = currentSlide === totalSlides;
+
+      // Update sidebar
+      generateSidebar();
+    }
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function previousSlide() { showSlide(currentSlide - 1); }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+
+    document.addEventListener('keydown', function(event) {
+      switch(event.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+        case ' ': // Space
+        case 'Enter':
+          nextSlide();
+          event.preventDefault();
+          break;
+        case 'ArrowLeft':
+        case 'ArrowUp':
+          previousSlide();
+          event.preventDefault();
+          break;
+        case 'Home':
+          currentSlide = 1; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'End':
+          currentSlide = totalSlides; showSlide(currentSlide); event.preventDefault();
+          break;
+        case 'PageDown':
+          showSlide(Math.min(currentSlide + 10, totalSlides)); event.preventDefault();
+          break;
+        case 'PageUp':
+          showSlide(Math.max(currentSlide - 10, 1)); event.preventDefault();
+          break;
+      }
+    });
+
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let startY = 0;
+
+    document.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    });
+
+    document.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const endY = e.changedTouches[0].clientY;
+      const deltaX = endX - startX;
+      const deltaY = endY - startY;
+
+      // Only trigger if horizontal swipe is longer than vertical and over 50px
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+        if (deltaX > 0) {
+          previousSlide(); // Swipe right = previous
+        } else {
+          nextSlide();  // Swipe left = next
+        }
+      }
+    });
+
+    // Initialize
+    generateSidebar();
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>
