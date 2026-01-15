@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>January 2026 - 21 Days Prayer & Fasting - Week 1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #14213d 0%, #1f4068 100%);
+            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .presentation {
+            margin-left: 280px;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: rgba(20, 33, 61, 0.95);
+            backdrop-filter: blur(10px);
+            border-right: 2px solid rgba(255, 209, 102, 0.3);
+            overflow-y: auto;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .sidebar-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 209, 102, 0.3);
+        }
+
+        .sidebar-header h2 {
+            color: #ffd166;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .sidebar-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .home-btn {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213d;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .home-btn:hover {
+            background: #ffd166;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 209, 102, 0.4);
+        }
+
+        .slide-menu {
+            list-style: none;
+        }
+
+        .slide-menu li {
+            margin-bottom: 8px;
+        }
+
+        .slide-menu a {
+            display: block;
+            padding: 10px 15px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            border-left: 3px solid transparent;
+        }
+
+        .slide-menu a:hover {
+            background: rgba(255, 209, 102, 0.1);
+            border-left-color: #ffd166;
+            color: white;
+        }
+
+        .slide-menu a.active {
+            background: rgba(255, 209, 102, 0.2);
+            border-left-color: #ffd166;
+            color: #ffd166;
+            font-weight: 600;
+        }
+
+        .slide {
+            display: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #ffd166;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #ffd166;
+            border-bottom: 3px solid #ffd166;
+            padding-bottom: 15px;
+        }
+
+        .slide h3 {
+            font-size: 1.8rem;
+            margin: 25px 0 15px 0;
+            color: #ffd166;
+        }
+
+        .slide p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .slide ul {
+            margin: 20px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .slide ul li {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .slide ul li:before {
+            content: "\2713";
+            position: absolute;
+            left: 0;
+            color: #ffd166;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+
+        .scripture {
+            background: rgba(255, 255, 255, 0.14);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 6px solid #ffd166;
+            margin: 25px 0;
+        }
+
+        .scripture-text {
+            font-size: 1.4rem;
+            font-style: italic;
+            line-height: 1.9;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .scripture-ref {
+            font-size: 1.2rem;
+            color: #ffd166;
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .prayer-icon {
+            font-size: 4rem;
+            margin: 20px 0;
+            display: block;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+        }
+
+        .date-range {
+            font-size: 1.5rem;
+            color: #ffd166;
+            margin-bottom: 30px;
+        }
+
+        .highlight-box {
+            background: rgba(255, 209, 102, 0.15);
+            border: 2px solid #ffd166;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213d;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: #ffd166;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 209, 102, 0.4);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 30px;
+            left: 320px;
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213d;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213d;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .theme-badge {
+            display: inline-block;
+            background: rgba(255, 209, 102, 0.2);
+            border: 1px solid #ffd166;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 1rem;
+            color: #ffd166;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 968px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .presentation {
+                margin-left: 0;
+                padding: 80px 20px 100px 20px;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .slide-counter {
+                left: 20px;
+                bottom: 90px;
+            }
+
+            .navigation {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .slide h1 {
+                font-size: 2.5rem;
+            }
+
+            .slide h2 {
+                font-size: 2rem;
+            }
+
+            .slide h3 {
+                font-size: 1.5rem;
+            }
+
+            .slide p, .slide ul li {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media print {
+            .sidebar, .navigation, .slide-counter, .mobile-menu-toggle {
+                display: none;
+            }
+
+            .presentation {
+                margin-left: 0;
+            }
+
+            .slide {
+                display: block;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="mobile-menu-toggle" onclick="toggleMenu()">&#9776; Menu</button>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>January 2026</h2>
+            <p>21 Days Prayer & Fasting</p>
+            <p style="color: #ffd166; margin-top: 5px;">Week 1: Jan 10-15</p>
+        </div>
+        <a href="../../index.html" class="home-btn">&#127968; Home</a>
+        <ul class="slide-menu" id="slideMenu"></ul>
+    </div>
+
+    <div class="presentation">
+        <!-- Slide 1: Title Slide -->
+        <div class="slide active" data-title="Title">
+            <span class="prayer-icon">&#128591;</span>
+            <h1>21 Days of Prayer & Fasting</h1>
+            <p class="subtitle">God's Unfailing Love</p>
+            <p class="date-range">January 2026 - Week 1: January 10-15</p>
+            <div class="theme-badge">Year of Unfailing Love - Jeremiah 31:3</div>
+        </div>
+
+        <!-- Slide 2: Theme Scripture -->
+        <div class="slide" data-title="Theme Scripture">
+            <h2>Year of Unfailing Love</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Long ago the Lord said to Israel: 'I have loved you, my people, with an everlasting love. With unfailing love I have drawn you to myself.'"</p>
+                <p class="scripture-ref">Jeremiah 31:3 (NLT)</p>
+            </div>
+            <div class="scripture">
+                <p class="scripture-text">"And I am convinced that nothing can ever separate us from God's love. Neither death nor life, neither angels nor demons, neither our fears for today nor our worries about tomorrow - not even the powers of hell can separate us from God's love."</p>
+                <p class="scripture-ref">Romans 8:38-39 (NLT)</p>
+            </div>
+        </div>
+
+        <!-- Slide 3: Fasting Guidelines -->
+        <div class="slide" data-title="Fasting Guidelines">
+            <h2>21 Days Fasting Guidelines</h2>
+            <ul>
+                <li>Week One: Daniel Fast - fruits and vegetables</li>
+                <li>Week Two: Continue fruits/vegetables OR one meal a day</li>
+                <li>Week Three: Continue fruits/vegetables OR one meal a day</li>
+                <li>Remember to drink water to avoid dehydration</li>
+                <li>For those with medical issues, decide what is best for you</li>
+            </ul>
+        </div>
+
+        <!-- Slide 4: Week 1 Overview -->
+        <div class="slide" data-title="Week 1 Overview">
+            <h1>Week 1: God's Unfailing Love</h1>
+            <p class="subtitle">Theme: Walking in His Love</p>
+            <div class="highlight-box">
+                <p style="font-size: 1.5rem; text-align: center;">6 Days of Love-Filled Prayer</p>
+                <p style="font-size: 1.2rem; text-align: center; margin-top: 10px;">January 10-15, 2026</p>
+            </div>
+        </div>
+
+        <!-- Day 1: January 10th -->
+        <div class="slide" data-title="Day 1: Jan 10 - Consecration">
+            <h2>Day 1 - January 10th</h2>
+            <h1>Consecration & Preparation</h1>
+            <div class="scripture">
+                <p class="scripture-text">"Joshua said to the priests, 'Take up the ark of the covenant and pass on ahead of the people.' So they took it up and went ahead of them."</p>
+                <p class="scripture-ref">Joshua 3:6</p>
+            </div>
+        </div>
+
+        <div class="slide" data-title="Day 1: Consecration Prayer">
+            <h2>Prayer: Consecration</h2>
+            <ul>
+                <li>Pray that we will consecrate ourselves individually and corporately throughout 2026 unto the Lord</li>
+                <li>Pray that we will prepare our hearts and minds to walk in the way of the Lord throughout the year</li>
+                <li>Pray that we will expect to see and allow transformation in our lives, families, and HIMU</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 1: Spirit of Wisdom">
+            <h2>Spirit of Wisdom & Revelation</h2>
+            <div class="scripture">
+                <p class="scripture-text">"I keep asking that the God of our Lord Jesus Christ, the glorious Father, may give you the Spirit of wisdom and revelation, so that you may know him better."</p>
+                <p class="scripture-ref">Ephesians 1:17</p>
+            </div>
+            <ul>
+                <li>Pray that we may have divine insight into mysteries and secrets of God</li>
+                <li>Pray that our relationship and knowledge of God will grow deeper</li>
+                <li>Pray that we may know and experience the riches of His inheritance: spiritual blessings in heavenly places, God's immense power working in and through us</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 1: Renewed Strength">
+            <h2>Renewed Strength in the Lord</h2>
+            <div class="scripture">
+                <p class="scripture-text">"But those who hope in the Lord will renew their strength. They will soar on wings like eagles; they will run and not grow weary; they will walk and not be faint."</p>
+                <p class="scripture-ref">Isaiah 40:31</p>
+            </div>
+            <ul>
+                <li>Pray that we will spend quality time in the Word and in prayer to receive God's strength throughout the year</li>
+                <li>Pray that we will overcome challenges and obstacles and go deeper in our walk with God</li>
+                <li>Pray that we will not grow weary nor faint because our eyes are on Jesus to the end</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 1: Seeking God">
+            <h2>Seeking God's Presence</h2>
+            <div class="scripture">
+                <p class="scripture-text">"You, God, are my God, earnestly I seek you. I thirst for you, my whole being longs for you, in a dry and parched land where there is no water. I have seen you in the sanctuary and beheld your power and your glory."</p>
+                <p class="scripture-ref">Psalm 63:1-2</p>
+            </div>
+            <ul>
+                <li>Pray that we shall make God's presence a priority</li>
+                <li>Pray that we shall seek Him earnestly</li>
+                <li>Pray that we shall dwell in the secret place</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 1: Power of the Word">
+            <h2>The Power of God's Word</h2>
+            <div class="scripture">
+                <p class="scripture-text">"It is the same with my word. I send it out, and it always produces fruit. It will accomplish all I want it to, and it will prosper everywhere I send it."</p>
+                <p class="scripture-ref">Isaiah 55:11</p>
+            </div>
+            <ul>
+                <li>Declare that as we read and speak the Word over our situations, the Word will always produce fruit</li>
+                <li>Declare that the Word will always accomplish what it says</li>
+                <li>Declare that the Word will always prosper</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 1: Love One Another">
+            <h2>Love One Another</h2>
+            <div class="scripture">
+                <p class="scripture-text">"God showed how much He loved us by sending his one and only Son into the world so that we might have eternal life through Him."</p>
+                <p class="scripture-ref">1 John 4:9</p>
+            </div>
+            <div class="scripture">
+                <p class="scripture-text">"A new command I give you: Love one another. As I have loved you, so you must love one another."</p>
+                <p class="scripture-ref">John 13:34</p>
+            </div>
+            <ul>
+                <li>Ask the Holy Spirit to help us love each other the way God loved us - not by words or feelings but by actions</li>
+                <li>He showed how much He loved us... May we also learn to show our love by our actions</li>
+            </ul>
+        </div>
+
+        <!-- Day 2: January 11th -->
+        <div class="slide" data-title="Day 2: Jan 11 - Unfailing Love">
+            <h2>Day 2 - January 11th</h2>
+            <h1>His Unfailing Love</h1>
+            <div class="scripture">
+                <p class="scripture-text">"For his unfailing love toward those who fear Him is as great as the height of the heavens above the earth. He has removed our sins as far from us as the east is from the west."</p>
+                <p class="scripture-ref">Psalm 103:11-12 (NLT)</p>
+            </div>
+        </div>
+
+        <div class="slide" data-title="Day 2: Sin Removed">
+            <h2>Sins Removed by His Love</h2>
+            <ul>
+                <li>Contemplate how His unfailing love dealt away with our sins and made us righteous</li>
+                <li>Sin no longer has dominion upon us</li>
+                <li>Give Him thanks! Praise Him!</li>
+            </ul>
+            <div class="scripture">
+                <p class="scripture-text">"Though the mountains be shaken and the hills be removed, yet my unfailing love for you will not be shaken nor my covenant of peace be removed," says the Lord, who has compassion on you.</p>
+                <p class="scripture-ref">Isaiah 54:10 (NIV)</p>
+            </div>
+            <ul>
+                <li>Thank God for His unfailing love that even when we go astray, He still loves us</li>
+                <li>He is a compassionate and merciful Father</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 2: Rooted in Love">
+            <h2>Rooted and Established in Love</h2>
+            <div class="scripture">
+                <p class="scripture-text">"For this reason I kneel before the Father... I pray that out of his glorious riches he may strengthen you with power through his Spirit in your inner being, so that Christ may dwell in your hearts through faith. And I pray that you, being rooted and established in love, may have power... to grasp how wide and long and high and deep is the love of Christ."</p>
+                <p class="scripture-ref">Ephesians 3:14-18</p>
+            </div>
+            <ul>
+                <li>Pray that God will strengthen Harvesters in our inner being by His Spirit</li>
+                <li>Pray that Christ may dwell in our hearts through faith, rooted in love</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 2: Unity in Love">
+            <h2>Unity in the Spirit</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Always be humble and gentle. Be patient with each other, making allowance for each other's faults because of your love. Make every effort to keep yourselves united in the Spirit, binding yourselves together with peace."</p>
+                <p class="scripture-ref">Ephesians 4:2-6 (NLT)</p>
+            </div>
+            <ul>
+                <li>Pray that the Holy Spirit will help us to be humble and gentle, patient with each other</li>
+                <li>Declare that we are united in Christ Jesus amid diversity - bearing one another in love</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 2: Abiding in Love">
+            <h2>Abiding in God's Love</h2>
+            <div class="scripture">
+                <p class="scripture-text">"If anyone confesses that Jesus is the Son of God, God abides in him, and he in God. And we have come to know and believe the love that God has for us. God is love; whoever abides in love abides in God, and God in him."</p>
+                <p class="scripture-ref">1 John 4:15-16 (BSB)</p>
+            </div>
+            <ul>
+                <li>Pray that in this year of God's unfailing love, the entire church will come to know and believe the love that God has for us</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 2: Love Abounding">
+            <h2>Love Abounding in Knowledge</h2>
+            <div class="scripture">
+                <p class="scripture-text">"And this is my prayer: that your love may abound more and more in knowledge and depth of insight, so that you may be able to discern what is best and may be pure and blameless for the day of Christ, filled with the fruit of righteousness."</p>
+                <p class="scripture-ref">Philippians 1:9-11</p>
+            </div>
+            <ul>
+                <li>Pray that at Harvest Olney, our love for God and His people will overflow with knowledge and deep understanding</li>
+                <li>Pray that this will enable us to discern what is best and live pure lives</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 2: Nothing Separates">
+            <h2>Nothing Can Separate Us</h2>
+            <div class="scripture">
+                <p class="scripture-text">"And I am convinced that nothing can ever separate us from God's love. Neither death nor life, neither angels nor demons, neither our fears for today nor our worries about tomorrow - not even the powers of hell can separate us from God's love."</p>
+                <p class="scripture-ref">Romans 8:38-39 (NLT)</p>
+            </div>
+            <ul>
+                <li>Declare that nothing can separate us from God's everlasting, unfailing love!</li>
+            </ul>
+        </div>
+
+        <!-- Day 3: January 12th -->
+        <div class="slide" data-title="Day 3: Jan 12 - Ordered Steps">
+            <h2>Day 3 - January 12th</h2>
+            <h1>Ordered Steps & Bold Declarations</h1>
+            <div class="scripture">
+                <p class="scripture-text">"Long ago the Lord said to Israel: 'I have loved you, my people, with an everlasting love. With unfailing love I have drawn you to myself.'"</p>
+                <p class="scripture-ref">Jeremiah 31:3</p>
+            </div>
+            <ul>
+                <li>Thank God for His everlasting, unfailing love</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 3: Steps Ordered">
+            <h2>Steps Ordered by the Lord</h2>
+            <div class="scripture">
+                <p class="scripture-text">"The Lord directs the steps of the godly. He delights in every detail of their lives."</p>
+                <p class="scripture-ref">Psalm 37:23</p>
+            </div>
+            <ul>
+                <li>Declare that our steps are ordered by the Lord in 2026</li>
+                <li>Declare that we shall look always, not just for what seems good, but what is Godly in every detail of our lives</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 3: Spirit of Power">
+            <h2>Spirit of Power, Love & Self-Discipline</h2>
+            <div class="scripture">
+                <p class="scripture-text">"For God has not given us a spirit of fear and timidity, but of power, love, and self-discipline."</p>
+                <p class="scripture-ref">2 Timothy 1:7</p>
+            </div>
+            <ul>
+                <li>Declare that we shall not accept what our God has not given us - we will not accept a spirit of fear</li>
+                <li>We will accept what He has given us</li>
+                <li>We declare that we have a spirit of love, of power, and of self-discipline/sound mind!</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 3: Plans to Prosper">
+            <h2>Plans to Prosper</h2>
+            <div class="scripture">
+                <p class="scripture-text">"For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, plans to give you hope and a future."</p>
+                <p class="scripture-ref">Jeremiah 29:11 (NIV)</p>
+            </div>
+            <ul>
+                <li>Declare that in 2026, we shall prosper because God has plans to prosper us</li>
+                <li>Declare plans to give us hope and a future</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 3: Love by Actions">
+            <h2>Love Demonstrated by Actions</h2>
+            <div class="scripture">
+                <p class="scripture-text">"God showed how much he loved us by sending his one and only Son into the world so that we might have eternal life through him."</p>
+                <p class="scripture-ref">1 John 4:9</p>
+            </div>
+            <ul>
+                <li>Ask the Holy Spirit to help us love each other the way God loved us - not by words or feelings but by actions</li>
+                <li>He demonstrated, by His actions, how much He loved us</li>
+                <li>May we also learn to show our love by our actions</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 3: Commit Tomorrow">
+            <h2>Commit Your Tomorrows to God</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Do not boast about tomorrow, for you do not know what a day may bring."</p>
+                <p class="scripture-ref">Proverbs 27:1</p>
+            </div>
+            <ul>
+                <li>Commit our tomorrows to God, the only one who knows what tomorrow may bring</li>
+            </ul>
+            <div class="scripture">
+                <p class="scripture-text">"But in a great house there are not only vessels of gold and silver, but also of wood and clay... Therefore if anyone cleanses himself from the latter, he will be a vessel for honor, sanctified and useful for the Master, prepared for every good work."</p>
+                <p class="scripture-ref">2 Timothy 2:20-21</p>
+            </div>
+            <ul>
+                <li>Pray that every Harvester will surrender wholly to the Lord to be a vessel of honor</li>
+            </ul>
+        </div>
+
+        <!-- Day 4: January 13th -->
+        <div class="slide" data-title="Day 4: Jan 13 - Real Love">
+            <h2>Day 4 - January 13th</h2>
+            <h1>Real Love & Holiness</h1>
+            <div class="scripture">
+                <p class="scripture-text">"God showed how much he loved us by sending his one and only Son into the world so that we might have eternal life through him. This is real love - not that we loved God, but that he loved us and sent his Son as a sacrifice to take away our sins."</p>
+                <p class="scripture-ref">1 John 4:9-10 (NLT)</p>
+            </div>
+            <ul>
+                <li>Thank God for loving us first and for sending His Son as a sacrifice to take away our sins</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 4: Vast Love">
+            <h2>Love Vast as the Heavens</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Your unfailing love, O LORD, is as vast as the heavens; Your faithfulness reaches beyond the clouds."</p>
+                <p class="scripture-ref">Psalm 36:5 (NLT)</p>
+            </div>
+            <ul>
+                <li>Thank God for his unfailing love to you that is unmeasurable and has no boundaries</li>
+            </ul>
+            <div class="scripture">
+                <p class="scripture-text">"But because of His great love for us, God, who is rich in mercy, made us alive with Christ even when we were dead in our trespasses. It is by grace you have been saved!"</p>
+                <p class="scripture-ref">Ephesians 2:4-5 (BSB)</p>
+            </div>
+            <ul>
+                <li>Praise God who is rich in mercy</li>
+                <li>Declare that because of His great and wonderful love for you, God made you alive with Christ Jesus</li>
+                <li>Declare that by grace, you are saved!</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 4: Called to Holiness">
+            <h2>Called to Be Holy</h2>
+            <div class="scripture">
+                <p class="scripture-text">"But as He which hath called you is holy, so be ye holy in all manner of conversation; because it is written, be ye holy; for I am holy."</p>
+                <p class="scripture-ref">1 Peter 1:15-16</p>
+            </div>
+            <ul>
+                <li>Pray that all Harvesters will embrace their identity and grow in the revelation that we are called to be holy</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 4: Joy of the Lord">
+            <h2>The Joy of the Lord</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Go and celebrate with a feast of rich foods and sweet drinks, and share gifts of food with people who have nothing prepared. This is a sacred day before our Lord. Don't be dejected and sad, for the joy of the Lord is your strength!"</p>
+                <p class="scripture-ref">Nehemiah 8:10</p>
+            </div>
+            <ul>
+                <li>Declare that no matter what we go through in 2026, we will not be dejected and sad</li>
+                <li>We will not depend on our feelings</li>
+                <li>Instead, we declare that the joy of the Lord is our strength!</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 4: Powerful Prayer">
+            <h2>Powerful & Effective Prayer</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Therefore confess your sins to each other and pray for each other so that you may be healed. The prayer of a righteous person is powerful and effective."</p>
+                <p class="scripture-ref">James 5:16</p>
+            </div>
+            <ul>
+                <li>Declare that we do not pray in vain because when we pray our prayers are powerful and effective</li>
+                <li>Our prayers produce wonderful results</li>
+            </ul>
+        </div>
+
+        <!-- Day 5: January 14th -->
+        <div class="slide" data-title="Day 5: Jan 14 - Shelter">
+            <h2>Day 5 - January 14th</h2>
+            <h1>Shelter in His Love</h1>
+            <div class="scripture">
+                <p class="scripture-text">"How precious is Your unfailing love, O God! All humanity finds shelter in the shadow of Your wings."</p>
+                <p class="scripture-ref">Psalm 36:7 (NLT)</p>
+            </div>
+            <ul>
+                <li>Thank God for His unfailing love that has made us find hope, shelter, peace, comfort, and rest in Him</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 5: Close to Brokenhearted">
+            <h2>Close to the Brokenhearted</h2>
+            <div class="scripture">
+                <p class="scripture-text">"The Lord is close to the brokenhearted; He rescues those whose spirits are crushed."</p>
+                <p class="scripture-ref">Psalm 34:18 (NLT)</p>
+            </div>
+            <ul>
+                <li>Pray that the Holy Spirit will minister to those who are hurting in our midst - that God is their keeper</li>
+                <li>That He is the "shade" on their right hand</li>
+                <li>Pray that they will experience God as Jehovah Ezer, the Lord their Helper</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 5: Trust in the Lord">
+            <h2>Trust in the Lord</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Trust in the Lord with all your heart; do not depend on your own understanding. Seek His will in all you do and He will show you which path to take."</p>
+                <p class="scripture-ref">Proverbs 3:5-6 (NLT)</p>
+            </div>
+            <ul>
+                <li>Pray that we will seek, not just what seems to be a "good" way</li>
+                <li>But that we will seek the Lord's way first, asking wisdom from the one who sees everything at the same time from start to finish, the Lord, our God</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 5: Know His Ways">
+            <h2>Knowing God's Ways</h2>
+            <div class="scripture">
+                <p class="scripture-text">"He made known His ways to Moses, His acts to the children of Israel."</p>
+                <p class="scripture-ref">Psalm 103:7</p>
+            </div>
+            <ul>
+                <li>Pray that every Harvester will seek to know the ways of the Lord in this new season</li>
+            </ul>
+            <div class="scripture">
+                <p class="scripture-text">"For the earnest expectation of the creature waits for the manifestation of the sons of God."</p>
+                <p class="scripture-ref">Romans 8:19</p>
+            </div>
+            <ul>
+                <li>Pray that every Harvester will arise and submit to the Lord to be used in a greater way for His glory - No excuses</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 5: Spirit of Prayer">
+            <h2>Spirit of Grace & Supplication</h2>
+            <div class="scripture">
+                <p class="scripture-text">"And I will pour upon the house of David, and upon the inhabitants of Jerusalem, the spirit of grace and of supplications."</p>
+                <p class="scripture-ref">Zechariah 12:10</p>
+            </div>
+            <ul>
+                <li>Thank God for a fresh baptism of prayer and supplication upon every Harvester</li>
+            </ul>
+            <div class="scripture">
+                <p class="scripture-text">"Are not all angels ministering spirits sent to serve those who will inherit salvation?"</p>
+                <p class="scripture-ref">Hebrews 1:14</p>
+            </div>
+            <ul>
+                <li>Pray that at Harvest Olney, we will experience a greater dimension of angelic ministration in 2026, both in the church and in our personal lives</li>
+            </ul>
+        </div>
+
+        <!-- Day 6: January 15th -->
+        <div class="slide" data-title="Day 6: Jan 15 - Faithful Love">
+            <h2>Day 6 - January 15th</h2>
+            <h1>Faithful Love & Fresh Outpouring</h1>
+            <div class="scripture">
+                <p class="scripture-text">"Yet I still dare to hope when I remember this: The faithful love of the Lord never ends! His mercies never cease. Great is His faithfulness; His mercies begin afresh each morning."</p>
+                <p class="scripture-ref">Lamentations 3:21-23</p>
+            </div>
+        </div>
+
+        <div class="slide" data-title="Day 6: Dare to Hope">
+            <h2>We Still Dare to Hope</h2>
+            <ul>
+                <li>Declare that no matter the circumstance, we still dare to hope in our God because:</li>
+                <li>His faithful love never ends!</li>
+                <li>His mercies can never end because they are new every morning!</li>
+                <li>His faithfulness is great!</li>
+            </ul>
+            <div class="scripture">
+                <p class="scripture-text">"I am with you and will watch over you wherever you go, and I will bring you back to this land. I will not leave you until I have done what I have promised you."</p>
+                <p class="scripture-ref">Genesis 28:15</p>
+            </div>
+            <ul>
+                <li>God made this promise thousands of years ago, and the promise stands for us today as well</li>
+                <li>Let us thank God that He never abandons His children</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 6: Knowledge of His Will">
+            <h2>Filled with Knowledge of His Will</h2>
+            <div class="scripture">
+                <p class="scripture-text">"For this reason, since the day we heard about you, we have not stopped praying for you. We continually ask God to fill you with the knowledge of His will through all the wisdom and understanding that the Spirit gives, so that you may live a life worthy of the Lord and please Him in every way."</p>
+                <p class="scripture-ref">Colossians 1:9-10</p>
+            </div>
+            <ul>
+                <li>Pray to be filled with the knowledge of God's will, spiritual wisdom, and understanding</li>
+                <li>Pray that we may live a life worthy of the Lord and please Him in every way</li>
+                <li>Pray that we will bear fruits in 2026</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 6: Outpouring of Spirit">
+            <h2>Fresh Outpouring of the Spirit</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Then, after doing all those things, I will pour out my Spirit upon all people. Your sons and daughters will prophesy. Your old men will dream dreams, and your young men will see visions. In those days I will pour out my Spirit even on servants - men and women alike."</p>
+                <p class="scripture-ref">Joel 2:28-29</p>
+            </div>
+            <ul>
+                <li>Pray and thank God for His manifested glory in our midst as the Lord pours a fresh outpouring of the Holy Spirit on us</li>
+                <li>Pray that there will be an awakening and that God will use us as agents of change in the Body of Christ, in communities, and wherever we go</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 6: Secret Place">
+            <h2>Dwelling in the Secret Place</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Those who live in the shelter of the Most High will find rest in the shadow of the Almighty."</p>
+                <p class="scripture-ref">Psalm 91:1</p>
+            </div>
+            <ul>
+                <li>Pray that we shall desire, and become dwellers in the secret place of the Most High</li>
+                <li>Seeking to know Him and His ways</li>
+                <li>Experiencing His presence as we abide under the shadow of the Almighty</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 6: Children Blessed">
+            <h2>Prayer for Our Children</h2>
+            <div class="scripture">
+                <p class="scripture-text">"...young men without any physical defect, handsome, showing aptitude for every kind of learning, well informed, quick to understand, and qualified to serve in the king's palace."</p>
+                <p class="scripture-ref">Daniel 1:4</p>
+            </div>
+            <ul>
+                <li>Pray that our children will be healthy and well favored</li>
+                <li>Skillful in all wisdom, cunning in knowledge, understanding all things</li>
+                <li>Leaders who will occupy influential positions</li>
+                <li>People who will also know their God and be rooted and grounded in the Word</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 6: Prayers Answered">
+            <h2>Our Prayers Are Answered</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Confess your sins to each other and pray for each other so that you may be healed. The earnest prayer of a righteous person has great power and produces wonderful results."</p>
+                <p class="scripture-ref">James 5:16</p>
+            </div>
+            <ul>
+                <li>Thank God that our prayers are heard and answered and have great power</li>
+                <li>Thank God that He is not only willing to answer us, but He is able to do what we ask according to His Word</li>
+            </ul>
+        </div>
+
+        <!-- Closing Slides -->
+        <div class="slide" data-title="Week 1 Complete">
+            <h1>Week 1 Complete</h1>
+            <span class="prayer-icon">&#128591;</span>
+            <p class="subtitle">Continue in Prayer</p>
+            <div class="highlight-box">
+                <p style="font-size: 1.4rem;">You are walking in God's Unfailing Love</p>
+                <p style="font-size: 1.2rem; margin-top: 10px; color: #ffd166;">"Nothing can separate us from the love of God that is revealed in Christ Jesus our Lord." - Romans 8:39</p>
+            </div>
+        </div>
+
+        <div class="slide" data-title="Thank You">
+            <h1>Thank You</h1>
+            <span class="prayer-icon">&#128591;</span>
+            <p class="subtitle">May God's Unfailing Love overflow in your life</p>
+            <p>Continue in faith, prayer, and fasting</p>
+            <div class="highlight-box" style="margin-top: 30px;">
+                <p style="font-size: 1.2rem;">Week 2 coming soon: January 16-22</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-counter" id="slideCounter"></div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="changeSlide(-1)" id="prevBtn">&#8592; Previous</button>
+        <button class="nav-btn" onclick="changeSlide(1)" id="nextBtn">Next &#8594;</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function generateSlideMenu() {
+            const menu = document.getElementById('slideMenu');
+            slides.forEach((slide, index) => {
+                const title = slide.getAttribute('data-title');
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = '#';
+                a.textContent = (index + 1) + '. ' + title;
+                a.onclick = (e) => {
+                    e.preventDefault();
+                    showSlide(index + 1);
+                };
+                li.appendChild(a);
+                menu.appendChild(li);
+            });
+        }
+
+        function updateSlideMenu() {
+            const menuItems = document.querySelectorAll('.slide-menu a');
+            menuItems.forEach((item, index) => {
+                if (index + 1 === currentSlide) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        function showSlide(n) {
+            if (n > totalSlides) {
+                currentSlide = totalSlides;
+                return;
+            }
+            if (n < 1) {
+                currentSlide = 1;
+                return;
+            }
+
+            currentSlide = n;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+
+            document.getElementById('slideCounter').textContent = currentSlide + ' / ' + totalSlides;
+
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+
+            updateSlideMenu();
+        }
+
+        function changeSlide(n) {
+            showSlide(currentSlide + n);
+        }
+
+        function toggleMenu() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+                e.preventDefault();
+                changeSlide(1);
+            } else if (e.key === 'Home') {
+                showSlide(1);
+            } else if (e.key === 'End') {
+                showSlide(totalSlides);
+            }
+        });
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                changeSlide(1);
+            }
+            if (touchEndX > touchStartX + 50) {
+                changeSlide(-1);
+            }
+        }
+
+        generateSlideMenu();
+        showSlide(1);
+    </script>
+</body>
+</html>
