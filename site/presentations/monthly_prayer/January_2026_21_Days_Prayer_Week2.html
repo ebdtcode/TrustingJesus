@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>January 2026 - 21 Days Prayer & Fasting - Week 2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #14213d 0%, #1f4068 100%);
+            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .presentation {
+            margin-left: 280px;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: rgba(20, 33, 61, 0.95);
+            backdrop-filter: blur(10px);
+            border-right: 2px solid rgba(255, 209, 102, 0.3);
+            overflow-y: auto;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .sidebar-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 209, 102, 0.3);
+        }
+
+        .sidebar-header h2 {
+            color: #ffd166;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .sidebar-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .home-btn {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213d;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .home-btn:hover {
+            background: #ffd166;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 209, 102, 0.4);
+        }
+
+        .week-nav {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .week-nav a {
+            flex: 1;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .week-nav a:hover {
+            background: rgba(255, 209, 102, 0.2);
+            color: white;
+        }
+
+        .week-nav a.active {
+            background: rgba(255, 209, 102, 0.3);
+            color: #ffd166;
+            font-weight: 600;
+        }
+
+        .slide-menu {
+            list-style: none;
+        }
+
+        .slide-menu li {
+            margin-bottom: 8px;
+        }
+
+        .slide-menu a {
+            display: block;
+            padding: 10px 15px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            border-left: 3px solid transparent;
+        }
+
+        .slide-menu a:hover {
+            background: rgba(255, 209, 102, 0.1);
+            border-left-color: #ffd166;
+            color: white;
+        }
+
+        .slide-menu a.active {
+            background: rgba(255, 209, 102, 0.2);
+            border-left-color: #ffd166;
+            color: #ffd166;
+            font-weight: 600;
+        }
+
+        .slide {
+            display: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #ffd166;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #ffd166;
+            border-bottom: 3px solid #ffd166;
+            padding-bottom: 15px;
+        }
+
+        .slide h3 {
+            font-size: 1.8rem;
+            margin: 25px 0 15px 0;
+            color: #ffd166;
+        }
+
+        .slide p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .slide ul {
+            margin: 20px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .slide ul li {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .slide ul li:before {
+            content: "\2713";
+            position: absolute;
+            left: 0;
+            color: #ffd166;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+
+        .scripture {
+            background: rgba(255, 255, 255, 0.14);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 6px solid #ffd166;
+            margin: 25px 0;
+        }
+
+        .scripture-text {
+            font-size: 1.4rem;
+            font-style: italic;
+            line-height: 1.9;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .scripture-ref {
+            font-size: 1.2rem;
+            color: #ffd166;
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .prayer-icon {
+            font-size: 4rem;
+            margin: 20px 0;
+            display: block;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+        }
+
+        .date-range {
+            font-size: 1.5rem;
+            color: #ffd166;
+            margin-bottom: 30px;
+        }
+
+        .highlight-box {
+            background: rgba(255, 209, 102, 0.15);
+            border: 2px solid #ffd166;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213d;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: #ffd166;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 209, 102, 0.4);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 30px;
+            left: 320px;
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213d;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            background: rgba(255, 209, 102, 0.9);
+            color: #14213d;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .theme-badge {
+            display: inline-block;
+            background: rgba(255, 209, 102, 0.2);
+            border: 1px solid #ffd166;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 1rem;
+            color: #ffd166;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 968px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .presentation {
+                margin-left: 0;
+                padding: 80px 20px 100px 20px;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .slide-counter {
+                left: 20px;
+                bottom: 90px;
+            }
+
+            .navigation {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .slide h1 {
+                font-size: 2.5rem;
+            }
+
+            .slide h2 {
+                font-size: 2rem;
+            }
+
+            .slide h3 {
+                font-size: 1.5rem;
+            }
+
+            .slide p, .slide ul li {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media print {
+            .sidebar, .navigation, .slide-counter, .mobile-menu-toggle {
+                display: none;
+            }
+
+            .presentation {
+                margin-left: 0;
+            }
+
+            .slide {
+                display: block;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="mobile-menu-toggle" onclick="toggleMenu()">&#9776; Menu</button>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>January 2026</h2>
+            <p>21 Days Prayer & Fasting</p>
+            <p style="color: #ffd166; margin-top: 5px;">Week 2: Jan 16-22</p>
+        </div>
+        <a href="../../index.html" class="home-btn">&#127968; Home</a>
+        <div class="week-nav">
+            <a href="January_2026_21_Days_Prayer_Week1.html">Week 1</a>
+            <a href="January_2026_21_Days_Prayer_Week2.html" class="active">Week 2</a>
+        </div>
+        <ul class="slide-menu" id="slideMenu"></ul>
+    </div>
+
+    <div class="presentation">
+        <!-- Slide 1: Title Slide -->
+        <div class="slide active" data-title="Title">
+            <span class="prayer-icon">&#128591;</span>
+            <h1>21 Days of Prayer & Fasting</h1>
+            <p class="subtitle">Week 2: Our Mission</p>
+            <p class="date-range">January 16-22, 2026</p>
+            <div class="theme-badge">Kingdom Growth, Salvation, Invest Beyond, HIMU, ELI</div>
+        </div>
+
+        <!-- Slide 2: Week 2 Theme -->
+        <div class="slide" data-title="Week 2 Theme">
+            <h2>Week 2: Our Mission</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Constantly praising God and being in favor and goodwill with all the people; and the Lord kept adding [to their number] daily those who were being saved [from spiritual death]."</p>
+                <p class="scripture-ref">Acts 2:47 (AMPC)</p>
+            </div>
+            <div class="highlight-box">
+                <p style="font-size: 1.3rem; text-align: center;">Kingdom Growth | Salvation | Invest Beyond | HIMU | ELI</p>
+            </div>
+        </div>
+
+        <!-- Day 8: January 16th - Review -->
+        <div class="slide" data-title="Day 8: Jan 16 - Review">
+            <h2>Day 8 - January 16th</h2>
+            <h1>Review Week 1</h1>
+            <div class="highlight-box">
+                <p style="font-size: 1.4rem; text-align: center;">Review and choose from the Prayer Points from the 1st Week</p>
+            </div>
+            <ul>
+                <li>Revisit the prayer points that resonated most with you</li>
+                <li>Continue to pray over areas where you need breakthrough</li>
+                <li>Thank God for answered prayers from Week 1</li>
+            </ul>
+        </div>
+
+        <!-- Day 9: January 17th -->
+        <div class="slide" data-title="Day 9: Jan 17 - Church Growth">
+            <h2>Day 9 - January 17th</h2>
+            <h1>Church Growth & Souls</h1>
+            <div class="scripture">
+                <p class="scripture-text">"Constantly praising God and being in favor and goodwill with all the people; and the Lord kept adding [to their number] daily those who were being saved [from spiritual death]."</p>
+                <p class="scripture-ref">Acts 2:47 (AMPC)</p>
+            </div>
+            <ul>
+                <li>Pray for numerical growth in Harvest Olney and HIMU</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 9: Open Doors">
+            <h2>Open Doors for the Gospel</h2>
+            <div class="scripture">
+                <p class="scripture-text">"For a great and effective door has opened to me, and there are many adversaries."</p>
+                <p class="scripture-ref">1 Corinthians 16:9 (NKJV)</p>
+            </div>
+            <ul>
+                <li>Thank God for the souls in Olney that are coming to the Kingdom via Harvest Olney</li>
+                <li>Pray that God will give us strategies to win Olney/Greater Silver Spring for Him</li>
+                <li>Pray against adversaries occupying the gates of Olney/Greater Silver Spring and not allowing the people to receive Jesus Christ in their lives</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 9: Green Pastures">
+            <h2>A Resting Place</h2>
+            <div class="scripture">
+                <p class="scripture-text">"He makes me lie down in green pastures. He leads me beside quiet waters."</p>
+                <p class="scripture-ref">Psalm 23:2 (NIV)</p>
+            </div>
+            <ul>
+                <li>Pray that the Word preached and the worship in Harvest Olney will cause those visiting and regular attendees to find a resting place</li>
+                <li>Pray they will be established in the faith and decide to become members</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 9: Great Work">
+            <h2>The Great Work Continues</h2>
+            <div class="scripture">
+                <p class="scripture-text">"I'm doing a great work; I can't come down. Why should the work come to a standstill just so I can come down to see you?"</p>
+                <p class="scripture-ref">Nehemiah 6:3 (MSG)</p>
+            </div>
+            <ul>
+                <li>Thank God for the great work that He is doing through us in building His Sanctuary</li>
+                <li>Pray that despite the internal or external pressures, this great work will not stop until completed</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 9: Not Weary">
+            <h2>Do Not Grow Weary</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Let us not become weary in doing good, for at the proper time we will reap a harvest if we do not give up."</p>
+                <p class="scripture-ref">Galatians 6:9 (NIV)</p>
+            </div>
+            <ul>
+                <li>Pray that Harvesters will not be weary (fatigued/reluctant to) in giving towards Invest Beyond</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 9: ELI Generation">
+            <h2>The ELI Generation</h2>
+            <div class="scripture">
+                <p class="scripture-text">"So, the priests and Levites consecrated themselves to bring up the Chest of the God of Israel. The Levites carried the Chest of God exactly as Moses, instructed by God, commanded."</p>
+                <p class="scripture-ref">1 Chronicles 15:15 (MSG)</p>
+            </div>
+            <ul>
+                <li>Pray that the ELI generation will consecrate themselves for the work of God</li>
+                <li>Pray that the ELI generation will be obedient to the instructions of God through the church leadership</li>
+                <li>Pray that the ELI generation will take the work that God is entrusting them seriously</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 9: Seek God">
+            <h2>Seeking God for Themselves</h2>
+            <div class="scripture">
+                <p class="scripture-text">"And so the Lord used to speak to Moses face to face, just as a man speaks to his friend. When Moses returned to the camp, his attendant Joshua, the son of Nun, a young man, would not depart from the tent."</p>
+                <p class="scripture-ref">Exodus 33:11 (AMP)</p>
+            </div>
+            <ul>
+                <li>Pray that the ELI generation will not just serve but that they will be people who seek God for themselves</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 9: HIMU Faithfulness">
+            <h2>God's Faithfulness to HIMU</h2>
+            <div class="scripture">
+                <p class="scripture-text">"The Lord's acts of mercy indeed do not end, For His compassions do not fail. They are new every morning; Great is Your faithfulness."</p>
+                <p class="scripture-ref">Lamentations 3:22-23 (NASB)</p>
+            </div>
+            <ul>
+                <li>Thank God for His faithfulness towards HIMU</li>
+                <li>Declare that His act of mercy indeed will not end and His compassions will not fail</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 9: Leadership Prayer">
+            <h2>Prayer for Leadership</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Dear brothers and sisters, pray for us."</p>
+                <p class="scripture-ref">1 Thessalonians 5:25 (NLT)</p>
+            </div>
+            <ul>
+                <li>Pray that Bishop Johnson and Lady Chrys will continue walking in divine health, the wisdom of God, divine protection, joy, strength and the anointing of the Lord</li>
+                <li>Pray for all Diocesan Bishops, that God give them wisdom and strength as they lead HIM-U</li>
+                <li>Pray for God's continuous protection, provision, and leading upon all HIM-U Pastors and Ministers and their spouses, and all missionaries</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 9: Message Growing">
+            <h2>The Message Keeps Growing</h2>
+            <div class="scripture">
+                <p class="scripture-text">"And the message of God kept on growing and spreading, and the number of disciples continued to increase greatly in Jerusalem; and a large number of the priests were becoming obedient to the faith."</p>
+                <p class="scripture-ref">Acts 6:7 (AMP)</p>
+            </div>
+            <ul>
+                <li>Declare that the message of God will keep growing and spreading in all countries and cities where HIM-U is established</li>
+                <li>Declare that number of souls coming to Christ and disciples continue to increase greatly in all areas where Harvest Churches have been planted</li>
+            </ul>
+        </div>
+
+        <!-- Day 10: January 18th -->
+        <div class="slide" data-title="Day 10: Jan 18 - Open Doors">
+            <h2>Day 10 - January 18th</h2>
+            <h1>Open Doors & Unity</h1>
+            <div class="scripture">
+                <p class="scripture-text">"Meanwhile praying also for us, that God would open to us a door for the word, to speak the mystery of Christ, for which I am also in chains, that I may make it manifest, as I ought to speak."</p>
+                <p class="scripture-ref">Colossians 4:3-4</p>
+            </div>
+            <ul>
+                <li>Pray that the Lord will open more doors to HIM-U to plant vibrant churches and raise up disciples in the nations</li>
+                <li>Pray that the entire HIM-U will more fully embrace its apostolic mandate and its spiritual DNA to win the lost at costs and make disciples</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 10: No Weapon">
+            <h2>No Weapon Shall Prosper</h2>
+            <div class="scripture">
+                <p class="scripture-text">"No weapon formed against you shall prosper, and every tongue which rises against you in judgment You shall condemn. This is the heritage of the servants of the Lord, and their righteousness is from Me," says the Lord.</p>
+                <p class="scripture-ref">Isaiah 54:17 (NKJV)</p>
+            </div>
+            <ul>
+                <li>Declare no weapon formed against HIM-U, the Bishops, Pastors and members shall prosper</li>
+                <li>Declare that HIM-U goes from faith to faith, from strength to strength, and from glory to glory through Christ Jesus</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 10: Angelic Protection">
+            <h2>Angelic Protection</h2>
+            <div class="scripture">
+                <p class="scripture-text">"For He will command His angels concerning you to guard you in all your ways."</p>
+                <p class="scripture-ref">Psalm 91:11</p>
+            </div>
+            <div class="scripture">
+                <p class="scripture-text">"The angel of the LORD encamps around those who fear Him, and He delivers them."</p>
+                <p class="scripture-ref">Psalm 34:7</p>
+            </div>
+            <ul>
+                <li>Declare that the angels of the Lord encamp around all conference participants and deliver them</li>
+                <li>Declare that all delegates are protected in all their ways</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 10: Unity">
+            <h2>Walk in Unity</h2>
+            <div class="scripture">
+                <p class="scripture-text">"I appeal to you, dear brothers and sisters, by the authority of our Lord Jesus Christ, to live in harmony with each other. Let there be no divisions in the church. Rather, be of one mind, united in thought and purpose."</p>
+                <p class="scripture-ref">1 Corinthians 1:10 (NLT)</p>
+            </div>
+            <div class="scripture">
+                <p class="scripture-text">"Love one another with brotherly affection. Outdo one another in showing honor and sincere love for each other."</p>
+                <p class="scripture-ref">Romans 12:10 (ESV)</p>
+            </div>
+            <ul>
+                <li>Declare that Harvesters will always walk in unity, being one mind, and united in thought and purpose</li>
+                <li>Pray against any form of division in the church</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 10: Triumph">
+            <h2>Led in Triumph</h2>
+            <div class="scripture">
+                <p class="scripture-text">"But thanks be to God, who in Christ always leads us in triumphal procession, and through us spreads the fragrance of the knowledge of him everywhere."</p>
+                <p class="scripture-ref">2 Corinthians 2:14 (ESV)</p>
+            </div>
+            <ul>
+                <li>Thank God for causing Harvesters to prevail and triumph</li>
+                <li>Pray that He will use us to spread the fragrance of His knowledge everywhere</li>
+                <li>Declare that regardless of the challenges we face, we expect a breakthrough, for if God is for us, who can possibly be against us?</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 10: Witnesses">
+            <h2>Power to Be Witnesses</h2>
+            <div class="scripture">
+                <p class="scripture-text">"But you shall receive power after that the Holy Ghost is come upon you: and you shall be witnesses unto me both in Jerusalem, and in all Judea, and in Samaria, and unto the uttermost part of the earth."</p>
+                <p class="scripture-ref">Acts 1:8</p>
+            </div>
+            <ul>
+                <li>Pray for evangelistic grace upon Harvesters</li>
+                <li>Pray for souls in our Jerusalem and to the uttermost parts of the earth</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 10: Demonstration">
+            <h2>Demonstration of Power</h2>
+            <div class="scripture">
+                <p class="scripture-text">"And my preaching was not with enticing words of man's wisdom, but in demonstration of the Spirit and of power."</p>
+                <p class="scripture-ref">1 Corinthians 2:4</p>
+            </div>
+            <ul>
+                <li>Pray that Harvest will continue to preach the unadulterated Word of God</li>
+                <li>Pray that miracles, signs wonders, and the manifested Presence of God will be evident in our gatherings</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 10: Same Mind">
+            <h2>United in Vision</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Now I beseech you, brethren, by the Name of our Lord Jesus Christ, that you all speak the same thing, and that there be no divisions among you; but that you be perfectly joined together in the same mind and in the same judgment."</p>
+                <p class="scripture-ref">1 Corinthians 1:10</p>
+            </div>
+            <ul>
+                <li>Pray that HIM-U will remain focused and united on the vision of a world where no one lives or dies without Christ</li>
+                <li>Pray that HIM-U and individual congregations will walk in unity of spirit and of mind</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 10: Prayer & Word">
+            <h2>Prayer and the Word</h2>
+            <div class="scripture">
+                <p class="scripture-text">"But we will give ourselves continually to prayer and the ministry of the Word."</p>
+                <p class="scripture-ref">Acts 6:4</p>
+            </div>
+            <ul>
+                <li>Pray for a fresh hunger and thirst for prayer and for numerical increase in prayer meetings</li>
+                <li>Pray that Harvesters will make spending time in the Word a priority</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 10: Government">
+            <h2>Prayer for Government</h2>
+            <div class="scripture">
+                <p class="scripture-text">"And seek the peace of the city whither I have caused you to be carried away captives, and pray unto God for it: For in the peace thereof shall you have peace."</p>
+                <p class="scripture-ref">Jeremiah 29:7</p>
+            </div>
+            <ul>
+                <li>Pray that God will give wisdom to President Trump and all government leaders</li>
+                <li>Pray for peace to reign over chaos, and for godly leaders</li>
+            </ul>
+        </div>
+
+        <!-- Day 11: January 19th -->
+        <div class="slide" data-title="Day 11: Jan 19 - Nations">
+            <h2>Day 11 - January 19th</h2>
+            <h1>Discipling Nations</h1>
+            <div class="scripture">
+                <p class="scripture-text">"Go therefore and make disciples of all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost: teaching them to observe all that I have commanded you: And behold, I am with you always, to the end of the age."</p>
+                <p class="scripture-ref">Matthew 28:19-20</p>
+            </div>
+            <ul>
+                <li>Pray that God will raise Church Planters throughout HIM-U who will go to the nations to start new churches/fellowships</li>
+                <li>Pray that discipling nations and Harvest members will remain key in all our endeavors</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 11: House of Prayer">
+            <h2>House of Prayer for All Nations</h2>
+            <div class="scripture">
+                <p class="scripture-text">"And he began to teach and say to them, 'Is it not written: my house will be called a house of prayer for all the nations?'"</p>
+                <p class="scripture-ref">Mark 11:17</p>
+            </div>
+            <ul>
+                <li>Thank God for the vision "a world where no one lives or dies without Christ"</li>
+                <li>Pray that HIM-U shall indeed focus on praying for the nations this year and beyond</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 11: Wisdom">
+            <h2>Wisdom for Leaders</h2>
+            <div class="scripture">
+                <p class="scripture-text">"If any of you lacks wisdom, you should ask God, who gives generously to all without finding fault, and it will be given to you."</p>
+                <p class="scripture-ref">James 1:5</p>
+            </div>
+            <ul>
+                <li>Ask wisdom for the Bishops, National and District Overseers, Senior and Lead Pastors as they lead HIM-U</li>
+                <li>Pray for the grace to submit themselves to the counsel of the Holy Spirit</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 11: Unity Blessing">
+            <h2>The Blessing of Unity</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Behold how good and how pleasant it is for brethren to dwell together in unity! It is like the precious ointment upon the head... for there the Lord commanded the blessing, even life for evermore."</p>
+                <p class="scripture-ref">Psalm 133:1-3</p>
+            </div>
+            <ul>
+                <li>Pray for unity in decision making meetings in Sierra Leone</li>
+                <li>Pray that HIM-U will receive and work with plans discussed and agreed upon for the next three years</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 11: Growth">
+            <h2>Spiritual and Numerical Growth</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Praising God, and having favor with all the people. And the Lord added to the church daily such as should be saved."</p>
+                <p class="scripture-ref">Acts 2:47</p>
+            </div>
+            <ul>
+                <li>Pray that HIM-U will experience spiritual and numerical growth like never before</li>
+                <li>Pray that many churches and fellowships will be established in 2026</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 11: Wake Up">
+            <h2>Time to Wake Up</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Besides this, you know the time, that the hour has come for you to wake from sleep. For salvation is nearer to us now than when we first believed."</p>
+                <p class="scripture-ref">Romans 13:11</p>
+            </div>
+            <ul>
+                <li>Pray that HIM-U will arise and know that there is urgency in the realm of the Spirit when it comes to the Harvest of souls</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 11: New Thing">
+            <h2>A New Thing</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Forget the former things; do not dwell on the past. See, I am doing a new thing! Now it springs up; do you not perceive it? I am making a way in the wilderness and streams in the wasteland."</p>
+                <p class="scripture-ref">Isaiah 43:18-19</p>
+            </div>
+            <ul>
+                <li>Pray that HIM-U will embrace the new things that the Lord is doing in our midst</li>
+                <li>It is a new day and HIM-U will never remain the same</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 11: Revival Fire">
+            <h2>Baptized with Fire</h2>
+            <div class="scripture">
+                <p class="scripture-text">"I baptize you with water for repentance. But after me comes one who is more powerful than I, whose sandals I am not worthy to carry. He will baptize you with the Holy Spirit and fire."</p>
+                <p class="scripture-ref">Matthew 3:11</p>
+            </div>
+            <ul>
+                <li>Pray that Apostolic grace upon HIM-U to carry revival fire to nations will be multiplied exponentially</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 11: Signs & Wonders">
+            <h2>Mighty Signs and Wonders</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Through mighty signs and wonders, by the power of the Spirit of God; so that from Jerusalem, and round about unto Illyricum, I have fully preached the gospel of Christ."</p>
+                <p class="scripture-ref">Romans 15:19</p>
+            </div>
+            <ul>
+                <li>Pray that all Harvest gatherings will experience mighty signs and wonders</li>
+                <li>Pray for the demonstration of the Gifts of the Holy Spirit</li>
+            </ul>
+        </div>
+
+        <!-- Day 12: January 20th -->
+        <div class="slide" data-title="Day 12: Jan 20 - Conference">
+            <h2>Day 12 - January 20th</h2>
+            <h1>International Conference Prayer</h1>
+            <div class="scripture">
+                <p class="scripture-text">"Commit to the Lord whatever you do, and He will establish your plans."</p>
+                <p class="scripture-ref">Proverbs 16:3</p>
+            </div>
+            <ul>
+                <li>Pray for the successful planning and implementation by the International and Local Planning Committees for the conference in Sierra Leone</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 12: Safe Travel">
+            <h2>Safe Travel & Protection</h2>
+            <div class="scripture">
+                <p class="scripture-text">"The Lord keeps you from all harm and watches over your life. The Lord keeps watch over you as you come and go, both now and forever."</p>
+                <p class="scripture-ref">Psalm 121:7-8</p>
+            </div>
+            <ul>
+                <li>Pray for safe-travel of all delegates coming from outside of Freetown</li>
+            </ul>
+            <div class="scripture">
+                <p class="scripture-text">"I will say of the Lord, 'He is my refuge and my fortress, my God, in whom I trust.'"</p>
+                <p class="scripture-ref">Psalm 91:2</p>
+            </div>
+            <ul>
+                <li>Pray for the preservation of the health and safety of Presiding Bishop Johnson and Lady Chrys</li>
+                <li>Pray for good health and preservation of all Diocesan Bishops, Ordained and Licensed Ministers planning to attend</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 12: Peace in Nation">
+            <h2>Peace and Stability</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Therefore I exhort first of all that supplication, prayers, intercessions, and giving of thanks be made for all men, for kings and all who are in authority, that we may lead a quiet and peaceable life in all godliness and reverence."</p>
+                <p class="scripture-ref">1 Timothy 2:1-3</p>
+            </div>
+            <ul>
+                <li>Pray for peace and stability in the city of Freetown and the nation of Sierra Leone in general</li>
+            </ul>
+            <div class="scripture">
+                <p class="scripture-text">"God is our refuge and strength, a very present help in trouble."</p>
+                <p class="scripture-ref">Psalm 46:1-2</p>
+            </div>
+            <ul>
+                <li>Pray against any form of disaster at the conference venue and its surroundings</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 12: Anointed Preaching">
+            <h2>Spirit-Inspired Messages</h2>
+            <div class="scripture">
+                <p class="scripture-text">"And my speech and my preaching were not with persuasive words of human wisdom, but in demonstration of the Spirit and of power, that your faith should not be in the wisdom of men but in the power of God."</p>
+                <p class="scripture-ref">1 Corinthians 2:4-5</p>
+            </div>
+            <ul>
+                <li>Pray that the Lord will give our Presiding Bishop a word and let the Holy Spirit inspire all the other speakers</li>
+                <li>Pray that this coming conference will have a great impact on the lives of the people that will attend</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 12: Inheritance">
+            <h2>Our Inheritance in Christ</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Furthermore, because we are united with Christ, we have received an inheritance from God, for he chose us in advance, and he makes everything work out according to his plan."</p>
+                <p class="scripture-ref">Ephesians 1:11 (NLT)</p>
+            </div>
+            <ul>
+                <li>Declare and Thank God that we are united with Christ</li>
+                <li>Declare that we have received an inheritance from God</li>
+                <li>Declare that He chose us in advance</li>
+                <li>Declare that He makes everything work out according to His plan</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 12: Ordered Steps">
+            <h2>Steps Ordered by God</h2>
+            <div class="scripture">
+                <p class="scripture-text">"The Lord directs the steps of the godly. He delights in every detail of their lives."</p>
+                <p class="scripture-ref">Psalm 37:23 (NLT)</p>
+            </div>
+            <ul>
+                <li>Declare and Thank God that in 2026, the steps of Harvest Intercontinental Church Olney are ordered by the Lord</li>
+            </ul>
+            <div class="scripture">
+                <p class="scripture-text">"Now to Him who is able to do exceedingly abundantly above all that we ask or think, according to the power that works in us..."</p>
+                <p class="scripture-ref">Ephesians 3:20 (NKJV)</p>
+            </div>
+            <ul>
+                <li>Declare that for all that He has promised to do in Harvest, our God is able and willing to do exceedingly, abundantly above all that we can imagine</li>
+                <li>Thank God for His power that is at work in Harvesters!</li>
+            </ul>
+        </div>
+
+        <!-- Day 13: January 21st -->
+        <div class="slide" data-title="Day 13: Jan 21 - Answered Prayer">
+            <h2>Day 13 - January 21st</h2>
+            <h1>Answered Prayers & Wisdom</h1>
+            <div class="scripture">
+                <p class="scripture-text">"I will answer them before they even call to me. While they are still talking about their needs, I will go ahead and answer their prayers!"</p>
+                <p class="scripture-ref">Isaiah 65:24 (NLT)</p>
+            </div>
+            <ul>
+                <li>Declare that God is willing and able to answer all our prayers for all we prayed for in 2025 and for what we will pray for in 2026, even these ones as we pray now</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 13: Spiritual Wisdom">
+            <h2>Spiritual Wisdom and Insight</h2>
+            <div class="scripture">
+                <p class="scripture-text">"I have not stopped thanking God for you. I pray for you constantly, asking God, the glorious Father of our Lord Jesus Christ, to give you spiritual wisdom and insight so that you might grow in your knowledge of God."</p>
+                <p class="scripture-ref">Ephesians 1:16-17 (NLT)</p>
+            </div>
+            <ul>
+                <li>Pray asking God to give us spiritual wisdom and insight so that we might grow in our knowledge of Him</li>
+                <li>Pray that the Holy Spirit will help us understand the confident hope God has given to us - His holy people who are His rich and glorious inheritance</li>
+                <li>Pray that we will understand the incredible greatness of God's power for us who believe Him</li>
+                <li>Thank God that we are God's rich and glorious inheritance!</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 13: Draw to Jesus">
+            <h2>Drawing Souls to Jesus</h2>
+            <div class="scripture">
+                <p class="scripture-text">"For no one can come to me unless the Father, who sent me, draws them to me, and at the last day I will raise them up."</p>
+                <p class="scripture-ref">John 6:44</p>
+            </div>
+            <div class="scripture">
+                <p class="scripture-text">"And the seed that fell on good soil represents those who hear and accept God's word and produce a harvest of thirty, sixty, or even a hundred times as much as had been planted!"</p>
+                <p class="scripture-ref">Mark 4:20</p>
+            </div>
+            <ul>
+                <li>Pray for those who come to our services and do not know the Lord, that the Father will draw them to Jesus</li>
+                <li>Pray that as the Word is preached, the hearts of the people will be touched and the Word will bring forth fruit - 30, 60, 100-fold</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 13: Passion for Souls">
+            <h2>Passion for Souls</h2>
+            <div class="scripture">
+                <p class="scripture-text">"And when Silas and Timotheus were come from Macedonia, Paul was pressed in the spirit, and testified to the Jews that Jesus was Christ."</p>
+                <p class="scripture-ref">Acts 18:5 (KJV)</p>
+            </div>
+            <ul>
+                <li>Pray that the Holy Spirit will give us a passion for souls to be poured afresh upon all our churches</li>
+                <li>Pray that there will be a great hunger to see souls come into the kingdom</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 13: Prophetic">
+            <h2>The Prophetic Ministry</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Let love be your highest goal! But you should also desire the special abilities the Spirit gives - especially the ability to prophesy."</p>
+                <p class="scripture-ref">1 Corinthians 14:1</p>
+            </div>
+            <ul>
+                <li>Pray that the prophetic in this ministry will be manifested more powerfully as compelling evidence of the reality of the supernatural ministry of Jesus in the earth</li>
+            </ul>
+            <div class="scripture">
+                <p class="scripture-text">"And they went out and preached everywhere, the Lord working with them and confirming the word through the accompanying signs. Amen."</p>
+                <p class="scripture-ref">Mark 16:20</p>
+            </div>
+            <ul>
+                <li>Pray that the Word preached at our service will be confirmed with signs and wonders</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 13: Young People">
+            <h2>Return of the Young Generation</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Return home, you wayward children," says the Lord, "for I am your master." I will bring you back to the land of Israel - one from this town and two from that family - from wherever you are scattered.</p>
+                <p class="scripture-ref">Jeremiah 3:14-15</p>
+            </div>
+            <ul>
+                <li>Pray that the prophetic word the Lord gave about bringing back home the generation of young people that began with us at the start of this ministry in Silver Spring will come to pass</li>
+                <li>Pray that He will touch their hearts, and they will return and fulfill destiny</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 13: Shepherds">
+            <h2>Thankful for Shepherds</h2>
+            <div class="scripture">
+                <p class="scripture-text">"And I will give you shepherds after my own heart, who will guide you with knowledge and understanding."</p>
+                <p class="scripture-ref">Jeremiah 3:15</p>
+            </div>
+            <ul>
+                <li>Thank God for the leaders He has given us: our senior and assistant pastors!</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 13: Spiritual Warfare">
+            <h2>Our Weapons of Warfare</h2>
+            <div class="scripture">
+                <p class="scripture-text">"For we do not wrestle against flesh and blood, but against principalities, against powers, against the rulers of the darkness of this age, against spiritual hosts of wickedness in the heavenly places."</p>
+                <p class="scripture-ref">Ephesians 6:12</p>
+            </div>
+            <div class="scripture">
+                <p class="scripture-text">"For the weapons of our warfare are not carnal but mighty in God for pulling down strongholds..."</p>
+                <p class="scripture-ref">2 Corinthians 10:4</p>
+            </div>
+            <ul>
+                <li>Thank God for the powerful, Godly weapons of our warfare in a war that is not against flesh and blood enemies</li>
+                <li>Thank God that He knew what kind of weapons we needed in this type of war</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 13: Missions">
+            <h2>Answer the Call</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Then I heard the voice of the Lord saying, 'Whom shall I send? And who will go for us?' And I said, 'Here am I. Send me!'"</p>
+                <p class="scripture-ref">Isaiah 6:8 (KJV)</p>
+            </div>
+            <ul>
+                <li>Pray that Harvesters will have the desire to answer the call for missions</li>
+            </ul>
+        </div>
+
+        <!-- Day 14: January 22nd -->
+        <div class="slide" data-title="Day 14: Jan 22 - Holy Spirit Power">
+            <h2>Day 14 - January 22nd</h2>
+            <h1>Power of the Holy Spirit</h1>
+            <div class="scripture">
+                <p class="scripture-text">"But you will receive power when the Holy Spirit has come upon you, and you will be my witnesses in Jerusalem and in all Judea and Samaria, and to the ends of the earth."</p>
+                <p class="scripture-ref">Acts 1:8 (NKJV)</p>
+            </div>
+            <ul>
+                <li>Declare that the power of the Holy Spirit dwells in us to preach the Gospel to everyone and to make disciples</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 14: Humility">
+            <h2>Humility in Service</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Do nothing out of selfish ambition or vain conceit. Rather, in humility value others above yourselves, not looking to your own interests but each of you to the interests of the others."</p>
+                <p class="scripture-ref">Philippians 2:3-4 (NIV)</p>
+            </div>
+            <ul>
+                <li>Pray that Harvesters will do the work of God with a pure heart and not out of selfish ambitions such as fame, recognition, position</li>
+                <li>Pray that Harvesters will love, honor and respect those God has sent our way</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 14: Abide in Christ">
+            <h2>Abide and Bear Fruit</h2>
+            <div class="scripture">
+                <p class="scripture-text">"I am the vine; you are the branches. The one who remains in me and I in him produces much fruit, because you can do nothing without me."</p>
+                <p class="scripture-ref">John 15:5 (NKJV)</p>
+            </div>
+            <ul>
+                <li>Pray that Harvesters will continue to abide in Him and will bear fruits</li>
+            </ul>
+            <div class="scripture">
+                <p class="scripture-text">"Like newborn infants, desire the pure milk of the word, so that by it you may grow up into your salvation."</p>
+                <p class="scripture-ref">1 Peter 2:2 (CSB)</p>
+            </div>
+            <ul>
+                <li>Pray that Harvesters will have an increasing desire to read and grow in the knowledge of God's Word, and that the Holy Spirit Himself will teach us</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 14: Financial Blessing">
+            <h2>Financial Stewardship</h2>
+            <div class="scripture">
+                <p class="scripture-text">"But remember the Lord your God, for it is He who gives you the ability to produce wealth."</p>
+                <p class="scripture-ref">Deuteronomy 8:18 (NIV)</p>
+            </div>
+            <ul>
+                <li>Thank God for blessing us with financial resources to be a blessing to His Kingdom</li>
+                <li>Pray for wisdom to be good stewards of the resources He has given us</li>
+                <li>Pray for open financial doors</li>
+            </ul>
+            <div class="scripture">
+                <p class="scripture-text">"For where your treasure is, there your heart will be also."</p>
+                <p class="scripture-ref">Matthew 6:21 (NIV)</p>
+            </div>
+            <ul>
+                <li>Pray that Harvesters will be Kingdom-minded and willingly give for Invest Beyond</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 14: Teach Children">
+            <h2>Teaching Our Children</h2>
+            <div class="scripture">
+                <p class="scripture-text">"And these words that I command you today shall be on your heart. You shall teach them diligently to your children, and shall talk of them when you sit in your house, and when you walk by the way, and when you lie down, and when you rise."</p>
+                <p class="scripture-ref">Deuteronomy 6:6-7</p>
+            </div>
+            <ul>
+                <li>Pray for the wisdom, urgency and diligence to teach our children the Word of God and the ways of the Lord</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 14: Families">
+            <h2>Consecrated Families</h2>
+            <div class="scripture">
+                <p class="scripture-text">"And if it is evil in your eyes to serve the Lord, choose this day whom you will serve... But as for me and my house, we will serve the Lord."</p>
+                <p class="scripture-ref">Joshua 24:15</p>
+            </div>
+            <ul>
+                <li>Pray that we will dedicate and consecrate our families to the Lord</li>
+                <li>Pray that God will be at the center of every decision concerning our homes this year</li>
+                <li>Pray for God to strengthen and protect marriages among us</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 14: Kept from Falling">
+            <h2>Kept from Falling</h2>
+            <div class="scripture">
+                <p class="scripture-text">"Now all glory to God, who is able to keep you from falling away and will bring you with great joy into his glorious presence without a single fault."</p>
+                <p class="scripture-ref">Jude 1:24 (NLT)</p>
+            </div>
+            <ul>
+                <li>Thank the Lord that He is able to carry us up and keep us from falling away</li>
+                <li>Pray that the Holy Spirit will sustain us and give us the ability and power to continue to walk in the Truth</li>
+            </ul>
+        </div>
+
+        <div class="slide" data-title="Day 14: Strength to Strength">
+            <h2>From Strength to Strength</h2>
+            <div class="scripture">
+                <p class="scripture-text">"They go from strength to strength, every one of them in Zion appeared before God."</p>
+                <p class="scripture-ref">Psalm 84:7</p>
+            </div>
+            <ul>
+                <li>Declare that we shall increase in strength as we remain consistent before the Lord</li>
+                <li>Pray that we will grow in the understanding of the Grace of God in our lives</li>
+                <li>Pray for growth and excellence in the areas of our lives that need improvements</li>
+            </ul>
+        </div>
+
+        <!-- Closing Slides -->
+        <div class="slide" data-title="Week 2 Complete">
+            <h1>Week 2 Complete</h1>
+            <span class="prayer-icon">&#128591;</span>
+            <p class="subtitle">Continue in Prayer</p>
+            <div class="highlight-box">
+                <p style="font-size: 1.4rem;">Our Mission: Kingdom Growth, Salvation, Invest Beyond</p>
+                <p style="font-size: 1.2rem; margin-top: 10px; color: #ffd166;">"Go therefore and make disciples of all nations" - Matthew 28:19</p>
+            </div>
+        </div>
+
+        <div class="slide" data-title="Thank You">
+            <h1>Thank You</h1>
+            <span class="prayer-icon">&#128591;</span>
+            <p class="subtitle">May God's Unfailing Love overflow in your life</p>
+            <p>Continue in faith, prayer, and fasting</p>
+            <div class="highlight-box" style="margin-top: 30px;">
+                <p style="font-size: 1.2rem;">Week 3 coming soon: January 23-30</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-counter" id="slideCounter"></div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="changeSlide(-1)" id="prevBtn">&#8592; Previous</button>
+        <button class="nav-btn" onclick="changeSlide(1)" id="nextBtn">Next &#8594;</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function generateSlideMenu() {
+            const menu = document.getElementById('slideMenu');
+            slides.forEach((slide, index) => {
+                const title = slide.getAttribute('data-title');
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = '#';
+                a.textContent = (index + 1) + '. ' + title;
+                a.onclick = (e) => {
+                    e.preventDefault();
+                    showSlide(index + 1);
+                };
+                li.appendChild(a);
+                menu.appendChild(li);
+            });
+        }
+
+        function updateSlideMenu() {
+            const menuItems = document.querySelectorAll('.slide-menu a');
+            menuItems.forEach((item, index) => {
+                if (index + 1 === currentSlide) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        function showSlide(n) {
+            if (n > totalSlides) {
+                currentSlide = totalSlides;
+                return;
+            }
+            if (n < 1) {
+                currentSlide = 1;
+                return;
+            }
+
+            currentSlide = n;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+
+            document.getElementById('slideCounter').textContent = currentSlide + ' / ' + totalSlides;
+
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+
+            updateSlideMenu();
+        }
+
+        function changeSlide(n) {
+            showSlide(currentSlide + n);
+        }
+
+        function toggleMenu() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+                e.preventDefault();
+                changeSlide(1);
+            } else if (e.key === 'Home') {
+                showSlide(1);
+            } else if (e.key === 'End') {
+                showSlide(totalSlides);
+            }
+        });
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                changeSlide(1);
+            }
+            if (touchEndX > touchStartX + 50) {
+                changeSlide(-1);
+            }
+        }
+
+        generateSlideMenu();
+        showSlide(1);
+    </script>
+</body>
+</html>
