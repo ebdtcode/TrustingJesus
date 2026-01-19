@@ -114,7 +114,7 @@
       <span>Dashboard</span>
     </a>
 
-    <div class="slide-counter"><span id="current-slide">1</span> / <span id="total-slides">16</span></div>
+    <div class="slide-counter"><span id="current-slide">1</span> / <span id="total-slides">22</span></div>
 
     <!-- 1. Title Slide -->
     <div class="slide active" data-slide="1">
@@ -318,8 +318,74 @@
       </div>
     </div>
 
-    <!-- 16. Closing -->
-    <div class="slide cta-slide" data-slide="16">
+    <!-- 16. Section Break - New Creation Prayers -->
+    <div class="slide section-break" data-slide="16">
+      <h1>You Are A New Creation</h1>
+      <h2>Prayer Points Based on 2 Corinthians 5:17</h2>
+    </div>
+
+    <!-- 17. Prayer Point 1 - New Creation -->
+    <div class="slide prayer-slide" data-slide="17">
+      <h2>Prayer Focus</h2>
+      <div class="prayer-points">
+        <h3>1. Gratitude for Transformation</h3>
+        <div class="scripture">
+          <div class="scripture-text">"Thank You, Father, that in Christ all things are made new. I am not who I used to be - I am a new creation! The old has passed away; behold, the new has come. Help me understand the depth of this transformation that occurred the moment I believed. I belong to a new and heavenly creation in Christ. Let this truth renew my mind daily."</div>
+          <div class="scripture-ref">2 Corinthians 5:17</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 18. Prayer Point 2 - Putting On the New Self -->
+    <div class="slide prayer-slide" data-slide="18">
+      <h2>Prayer Focus</h2>
+      <div class="prayer-points">
+        <h3>2. Putting On the New Self</h3>
+        <div class="scripture">
+          <div class="scripture-text">"Heavenly Father, thank You that belief in Christ has transformed me into a new creation reflecting Your likeness. Help me to walk in spirit and truth as one created in true righteousness and holiness. Remove all former ways of life which would quench the working of Your Spirit. I choose to put on the new self, created to be like You in every way."</div>
+          <div class="scripture-ref">Ephesians 4:24</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 19. Prayer Point 3 - Renewed in Knowledge -->
+    <div class="slide prayer-slide" data-slide="19">
+      <h2>Prayer Focus</h2>
+      <div class="prayer-points">
+        <h3>3. Renewed in Knowledge of God</h3>
+        <div class="scripture">
+          <div class="scripture-text">"Lord, I thank You that I am a new creation in Christ and that old things are done away with. I pray that I might walk in spirit and truth, submitting to the working of the Holy Spirit, so that day by day I come to know You more and love You better. Renew me in the knowledge of my Creator. Let me be transformed into Your image with ever-increasing glory."</div>
+          <div class="scripture-ref">Colossians 3:10</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 20. Prayer Point 4 - Christ Lives In Me -->
+    <div class="slide prayer-slide" data-slide="20">
+      <h2>Prayer Focus</h2>
+      <div class="prayer-points">
+        <h3>4. Christ Living Through Me</h3>
+        <div class="scripture">
+          <div class="scripture-text">"Father, thank You for the indwelling Holy Spirit. Help me recognize Your guidance and increasingly surrender my desires to Your purposes. I have been crucified with Christ; it is no longer I who live, but Christ lives in me. The life I now live in the flesh, I live by faith in the Son of God who loved me and gave Himself for me. Live through me today!"</div>
+          <div class="scripture-ref">Galatians 2:20</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 21. Prayer Point 5 - Ambassador of Reconciliation -->
+    <div class="slide prayer-slide" data-slide="21">
+      <h2>Prayer Focus</h2>
+      <div class="prayer-points">
+        <h3>5. Ambassador of Reconciliation</h3>
+        <div class="scripture">
+          <div class="scripture-text">"Lord, You have reconciled me to Yourself through Jesus Christ and given me the ministry of reconciliation. Make me an effective ambassador for Christ, as though You were pleading through me. Help me to implore others on Christ's behalf to be reconciled to God. You made Jesus who knew no sin to be sin for us, that we might become the righteousness of God in Him. Use my new life to draw others to You."</div>
+          <div class="scripture-ref">2 Corinthians 5:18-21</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 22. Closing -->
+    <div class="slide cta-slide" data-slide="22">
       <h1>The Key to Walking in Love</h1>
       <h2>Revelation and Reliance</h2>
       <div class="content-list" style="margin-top: 1.5rem;"><ul>
@@ -360,6 +426,12 @@
       'God\'s Answer to Enemy',
       'Prayer: Revelation',
       'Prayer: Walking in Love',
+      'New Creation Prayers',
+      'Prayer: Transformation',
+      'Prayer: New Self',
+      'Prayer: Renewed Knowledge',
+      'Prayer: Christ In Me',
+      'Prayer: Ambassador',
       'Closing'
     ];
 
@@ -373,7 +445,7 @@
         item.className = 'sidebar-item';
 
         // Mark section breaks
-        if ([2, 6].includes(index)) {
+        if ([2, 6, 15].includes(index)) {
           item.classList.add('section');
         }
 
