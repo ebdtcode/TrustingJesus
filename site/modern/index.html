@@ -751,16 +751,24 @@
                 return matchesFilter && matchesSearch;
             });
 
-            // Group by category (exclude featured items when showing featured section)
-            const showFeaturedSection = currentFilter === 'all' && currentSearch === '';
+            // Group by category and sort: featured first, then by title
             const grouped = {};
             filtered.forEach(p => {
-                // Skip featured items in category sections when featured section is shown
-                if (showFeaturedSection && p.featured) return;
                 const cat = p.category;
                 if (!grouped[cat]) grouped[cat] = [];
                 grouped[cat].push(p);
             });
+
+            // Sort each category: featured items first, then alphabetically
+            for (const cat in grouped) {
+                grouped[cat].sort((a, b) => {
+                    // Featured items come first
+                    if (a.featured && !b.featured) return -1;
+                    if (!a.featured && b.featured) return 1;
+                    // Then sort alphabetically by title
+                    return a.title.localeCompare(b.title);
+                });
+            }
 
             const categoryNames = {
                 sermon: 'Sermon Presentations',
@@ -769,53 +777,6 @@
             };
 
             let html = '';
-
-            // Render featured section first (only when showing all and no search)
-            if (currentFilter === 'all' && currentSearch === '') {
-                const featured = presentations.filter(p => p.featured);
-                if (featured.length > 0) {
-                    html += `
-                        <section class="category-section featured-section">
-                            <div class="category-header">
-                                <h2>Featured Resources</h2>
-                                <span class="category-count">${featured.length} featured</span>
-                            </div>
-                            <div class="presentations-grid">
-                                ${featured.map(p => `
-                                    <article class="presentation-card featured-card" data-id="${p.id}">
-                                        <div class="card-preview featured-preview">
-                                            <div class="card-preview-text">${p.title}</div>
-                                        </div>
-                                        <div class="card-content">
-                                            <h3 class="card-title">${p.title}</h3>
-                                            ${p.description ? `<p class="card-description">${p.description}</p>` : ''}
-                                            <div class="card-meta">
-                                                ${p.speaker ? `<span>${p.speaker}</span>` : ''}
-                                                <span>${p.slides} slides</span>
-                                            </div>
-                                            <div class="card-actions">
-                                                <a href="${p.file}" class="btn btn-primary">
-                                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                                        <polygon points="5,3 19,12 5,21"/>
-                                                    </svg>
-                                                    Present
-                                                </a>
-                                                <button class="btn btn-secondary" onclick="openPresenterModal('${p.id}')">
-                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                        <circle cx="12" cy="12" r="3"/>
-                                                        <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/>
-                                                    </svg>
-                                                    Options
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </article>
-                                `).join('')}
-                            </div>
-                        </section>
-                    `;
-                }
-            }
 
             if (filtered.length === 0) {
                 html = `
@@ -838,12 +799,13 @@
                             </div>
                             <div class="presentations-grid">
                                 ${items.map(p => `
-                                    <article class="presentation-card" data-id="${p.id}">
-                                        <div class="card-preview">
+                                    <article class="presentation-card${p.featured ? ' featured-card' : ''}" data-id="${p.id}">
+                                        <div class="card-preview${p.featured ? ' featured-preview' : ''}">
                                             <div class="card-preview-text">${p.title}</div>
                                         </div>
                                         <div class="card-content">
                                             <h3 class="card-title">${p.title}</h3>
+                                            ${p.description ? `<p class="card-description">${p.description}</p>` : ''}
                                             <div class="card-meta">
                                                 ${p.speaker ? `<span>${p.speaker}</span>` : ''}
                                                 <span>${p.slides} slides</span>
