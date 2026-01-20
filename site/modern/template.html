@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Prayer Presentation - Reveal.js Template">
+    <title>{{PRESENTATION_TITLE}} - Prayer Presentation</title>
+
+    <!-- Reveal.js Core CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+
+    <!-- Custom Prayer Theme -->
+    <link rel="stylesheet" href="css/theme-prayer.css">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+    <style>
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent, #ffd166);
+            color: #14213d;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 9999;
+            font-weight: 600;
+            border-radius: 0 0 8px 0;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip link for screen readers -->
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <!-- Home Button -->
+    <a href="index.html" class="home-btn" aria-label="Return to presentations list">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+        <span>Home</span>
+    </a>
+
+    <div class="reveal" id="main-content">
+        <div class="slides">
+
+            <!-- ============================================
+                 SLIDE TYPE: Title Slide
+                 Use for: Opening slide of presentation
+            ============================================= -->
+            <section data-auto-animate data-background-gradient="radial-gradient(ellipse at center, #1b263b 0%, #0d1b2a 100%)">
+                <h1>{{PRESENTATION_TITLE}}</h1>
+                <p class="subtitle">{{SUBTITLE}}</p>
+                <p class="subtitle" style="margin-top: 1em; font-size: 0.9em;">{{SPEAKER_OR_DATE}}</p>
+                <aside class="notes">
+                    Speaker notes go here. Press 'S' to open speaker view.
+                </aside>
+            </section>
+
+            <!-- ============================================
+                 SLIDE TYPE: Section Divider
+                 Use for: Major topic transitions
+            ============================================= -->
+            <section data-auto-animate data-background-color="#14213d">
+                <h2 data-id="section-title">Section Title</h2>
+                <p class="subtitle fragment fade-up">Brief description of this section</p>
+            </section>
+
+            <!-- ============================================
+                 SLIDE TYPE: Scripture Slide
+                 Use for: Bible verses and references
+            ============================================= -->
+            <section data-auto-animate>
+                <h2>Scripture Reference</h2>
+                <div class="scripture" data-id="scripture-box">
+                    <p class="scripture-text">
+                        "For I know the plans I have for you, declares the LORD,
+                        plans for welfare and not for evil, to give you a future and a hope."
+                    </p>
+                    <p class="scripture-ref">Jeremiah 29:11 (ESV)</p>
+                </div>
+            </section>
+
+            <!-- ============================================
+                 SLIDE TYPE: Content with Bullet Points
+                 Use for: Main teaching content
+            ============================================= -->
+            <section>
+                <h2>Key Points</h2>
+                <ul>
+                    <li class="fragment fade-up">First important point with clear explanation</li>
+                    <li class="fragment fade-up">Second key insight for understanding</li>
+                    <li class="fragment fade-up">Third practical application</li>
+                    <li class="fragment fade-up">Fourth takeaway message</li>
+                </ul>
+            </section>
+
+            <!-- ============================================
+                 SLIDE TYPE: Two Column Layout
+                 Use for: Comparisons, before/after, pros/cons
+            ============================================= -->
+            <section>
+                <h2>Two Perspectives</h2>
+                <div class="two-columns">
+                    <div class="column fragment fade-right">
+                        <h4>Without Faith</h4>
+                        <ul>
+                            <li>Fear and anxiety</li>
+                            <li>Doubt in difficult times</li>
+                            <li>Reliance on self alone</li>
+                        </ul>
+                    </div>
+                    <div class="column fragment fade-left">
+                        <h4>With Faith</h4>
+                        <ul>
+                            <li>Peace in all circumstances</li>
+                            <li>Trust in God's plan</li>
+                            <li>Strength from above</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================
+                 SLIDE TYPE: Quote Slide
+                 Use for: Inspiring quotes, testimonies
+            ============================================= -->
+            <section data-auto-animate>
+                <h2>Reflection</h2>
+                <div class="quote" data-id="quote-box">
+                    <p>
+                        "Faith is taking the first step even when you don't see
+                        the whole staircase."
+                    </p>
+                    <p class="quote-author">- Martin Luther King Jr.</p>
+                </div>
+            </section>
+
+            <!-- ============================================
+                 SLIDE TYPE: Panel/Card Content
+                 Use for: Highlighted information, key concepts
+            ============================================= -->
+            <section>
+                <h2>Important Concept</h2>
+                <div class="panel fragment fade-up">
+                    <h3>Understanding Grace</h3>
+                    <p>Grace is the unmerited favor of God toward humanity.
+                    It is not something we earn, but a gift freely given
+                    through faith in Jesus Christ.</p>
+                </div>
+            </section>
+
+            <!-- ============================================
+                 SLIDE TYPE: Three Column Layout
+                 Use for: Process steps, multiple categories
+            ============================================= -->
+            <section>
+                <h2>The Path Forward</h2>
+                <div class="three-columns">
+                    <div class="column panel fragment fade-up" data-fragment-index="1">
+                        <h4>Step 1: Seek</h4>
+                        <p>Draw near to God through prayer and His Word</p>
+                    </div>
+                    <div class="column panel fragment fade-up" data-fragment-index="2">
+                        <h4>Step 2: Trust</h4>
+                        <p>Believe in His promises and timing</p>
+                    </div>
+                    <div class="column panel fragment fade-up" data-fragment-index="3">
+                        <h4>Step 3: Obey</h4>
+                        <p>Follow His guidance in faith</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================
+                 SLIDE TYPE: Prayer Points
+                 Use for: Specific prayer items
+            ============================================= -->
+            <section>
+                <h2>Prayer Points</h2>
+                <div class="prayer-points">
+                    <ul>
+                        <li class="fragment fade-up">
+                            <strong>For Faith:</strong> Lord, increase our faith to trust You completely
+                        </li>
+                        <li class="fragment fade-up">
+                            <strong>For Guidance:</strong> Guide our steps according to Your perfect will
+                        </li>
+                        <li class="fragment fade-up">
+                            <strong>For Strength:</strong> Strengthen us when we feel weak
+                        </li>
+                        <li class="fragment fade-up">
+                            <strong>For Peace:</strong> Grant us Your peace that surpasses understanding
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ============================================
+                 SLIDE TYPE: Auto-Animate Example
+                 Use for: Progressive reveal, emphasis
+            ============================================= -->
+            <section data-auto-animate>
+                <h2 data-id="animate-title">Growing in Faith</h2>
+                <div data-id="animate-box" style="background: var(--panel-bg); width: 200px; height: 100px; margin: 0 auto; border-radius: 16px;"></div>
+            </section>
+
+            <section data-auto-animate>
+                <h2 data-id="animate-title" style="color: var(--accent);">Growing in Faith</h2>
+                <div data-id="animate-box" style="background: var(--gradient-cta); width: 400px; height: 200px; margin: 0 auto; border-radius: 16px; display: flex; align-items: center; justify-content: center;">
+                    <p style="color: #001219; font-weight: 700; margin: 0;">Faith Grows!</p>
+                </div>
+            </section>
+
+            <!-- ============================================
+                 SLIDE TYPE: Image with Caption
+                 Use for: Visual content, illustrations
+            ============================================= -->
+            <section>
+                <h2>Visual Teaching</h2>
+                <img src="https://via.placeholder.com/800x400/14213d/ffd166?text=Image+Placeholder"
+                     alt="Description of image for accessibility"
+                     class="r-stretch">
+                <p class="subtitle">Caption describing the image content</p>
+            </section>
+
+            <!-- ============================================
+                 SLIDE TYPE: Numbered List
+                 Use for: Ordered steps, rankings
+            ============================================= -->
+            <section>
+                <h2>Steps to Spiritual Growth</h2>
+                <ol>
+                    <li class="fragment fade-up">Daily time in Scripture</li>
+                    <li class="fragment fade-up">Consistent prayer life</li>
+                    <li class="fragment fade-up">Fellowship with believers</li>
+                    <li class="fragment fade-up">Service to others</li>
+                    <li class="fragment fade-up">Sharing your faith</li>
+                </ol>
+            </section>
+
+            <!-- ============================================
+                 SLIDE TYPE: Vertical Slides (Nested)
+                 Use for: Deep dives, optional content
+            ============================================= -->
+            <section>
+                <section>
+                    <h2>Deep Dive Topic</h2>
+                    <p class="subtitle">Press down arrow for more details</p>
+                    <p style="margin-top: 2em; font-size: 0.7em; color: var(--muted);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle;">
+                            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/>
+                        </svg>
+                    </p>
+                </section>
+                <section>
+                    <h3>Additional Details</h3>
+                    <p>This vertical slide contains supplementary information
+                    that expands on the main topic above.</p>
+                </section>
+                <section>
+                    <h3>Further Reading</h3>
+                    <ul>
+                        <li>Reference 1</li>
+                        <li>Reference 2</li>
+                        <li>Reference 3</li>
+                    </ul>
+                </section>
+            </section>
+
+            <!-- ============================================
+                 SLIDE TYPE: Call to Action
+                 Use for: Response slides, invitations
+            ============================================= -->
+            <section data-auto-animate>
+                <h2>Your Response</h2>
+                <div class="cta fragment fade-up" data-id="cta-box">
+                    <h3>Take the Next Step</h3>
+                    <p>Will you trust God with your situation today?
+                    He is faithful and His promises are sure.</p>
+                </div>
+            </section>
+
+            <!-- ============================================
+                 SLIDE TYPE: Closing/Thank You
+                 Use for: Final slide, summary
+            ============================================= -->
+            <section data-background-gradient="radial-gradient(ellipse at center, #1b263b 0%, #0d1b2a 100%)">
+                <h1>Thank You</h1>
+                <p class="subtitle">May God bless you and keep you</p>
+                <div class="scripture" style="margin-top: 2em;">
+                    <p class="scripture-text">
+                        "The LORD bless you and keep you; the LORD make his face
+                        shine on you and be gracious to you."
+                    </p>
+                    <p class="scripture-ref">Numbers 6:24-25</p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Reveal.js Core -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+
+    <!-- Initialize Reveal.js -->
+    <script>
+        Reveal.initialize({
+            // Display configuration
+            width: 1920,
+            height: 1080,
+            margin: 0.04,
+            minScale: 0.2,
+            maxScale: 2.0,
+
+            // Navigation
+            hash: true,
+            history: true,
+            hashOneBasedIndex: true,
+            respondToHashChanges: true,
+            navigationMode: 'linear',
+
+            // Controls
+            controls: true,
+            controlsTutorial: true,
+            controlsLayout: 'bottom-right',
+            controlsBackArrows: 'faded',
+            progress: true,
+            slideNumber: 'c/t',
+            showSlideNumber: 'all',
+
+            // Transitions
+            transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+
+            // Auto-animate
+            autoAnimate: true,
+            autoAnimateDuration: 0.8,
+            autoAnimateEasing: 'ease-out',
+            autoAnimateUnmatched: true,
+
+            // Fragments
+            fragments: true,
+            fragmentInURL: true,
+
+            // Interaction
+            keyboard: true,
+            touch: true,
+            loop: false,
+            center: true,
+
+            // Behavior
+            embedded: false,
+            help: true,
+            pause: true,
+            previewLinks: false,
+
+            // Accessibility
+            hideInactiveCursor: true,
+            hideCursorTime: 3000,
+
+            // PDF Export
+            pdfSeparateFragments: true,
+            pdfMaxPagesPerSlide: 1,
+        });
+
+        // Keyboard shortcut for home
+        Reveal.addKeyBinding({ keyCode: 72, key: 'H', description: 'Go to home page' }, () => {
+            window.location.href = '../presentations.html';
+        });
+
+        // Announce slide changes for screen readers
+        Reveal.on('slidechanged', event => {
+            const slideTitle = event.currentSlide.querySelector('h1, h2, h3');
+            if (slideTitle) {
+                const announcement = document.createElement('div');
+                announcement.setAttribute('role', 'status');
+                announcement.setAttribute('aria-live', 'polite');
+                announcement.setAttribute('aria-atomic', 'true');
+                announcement.className = 'sr-only';
+                announcement.style.cssText = 'position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;';
+                announcement.textContent = `Slide ${event.indexh + 1}: ${slideTitle.textContent}`;
+                document.body.appendChild(announcement);
+                setTimeout(() => announcement.remove(), 1000);
+            }
+        });
+    </script>
+</body>
+</html>

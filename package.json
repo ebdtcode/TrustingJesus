@@ -4,7 +4,9 @@
   "description": "# Ministry Guide: Sermons, Summaries, and Weekly Prayer Points",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx playwright test",
+    "test:revealjs": "npx playwright test tests/revealjs-slides.spec.js",
+    "test:contrast": "node tests/contrast-checker.js"
   },
   "keywords": [],
   "author": "",
