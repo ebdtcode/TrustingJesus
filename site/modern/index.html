@@ -751,9 +751,12 @@
                 return matchesFilter && matchesSearch;
             });
 
-            // Group by category
+            // Group by category (exclude featured items when showing featured section)
+            const showFeaturedSection = currentFilter === 'all' && currentSearch === '';
             const grouped = {};
             filtered.forEach(p => {
+                // Skip featured items in category sections when featured section is shown
+                if (showFeaturedSection && p.featured) return;
                 const cat = p.category;
                 if (!grouped[cat]) grouped[cat] = [];
                 grouped[cat].push(p);
