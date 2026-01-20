@@ -314,6 +314,41 @@ ${cleanContent(slide.content)}
 </html>`;
 }
 
+// Extract date from filename or use file modification time
+function extractDate(filename, sourcePath) {
+    const months = {
+        'january': '01', 'february': '02', 'march': '03', 'april': '04',
+        'may': '05', 'june': '06', 'july': '07', 'august': '08',
+        'september': '09', 'october': '10', 'november': '11', 'december': '12'
+    };
+
+    const lowerName = filename.toLowerCase();
+
+    // Try to extract date from filename (e.g., January_2026, December_2025)
+    for (const [month, num] of Object.entries(months)) {
+        if (lowerName.includes(month)) {
+            const yearMatch = lowerName.match(/20\d{2}/);
+            if (yearMatch) {
+                return `${yearMatch[0]}-${num}-01`;
+            }
+        }
+    }
+
+    // Check for year patterns like 2025, 2026 in filename
+    const yearMatch = lowerName.match(/20(2[4-9])/);
+    if (yearMatch) {
+        return `${yearMatch[0]}-01-01`;
+    }
+
+    // Fall back to file modification time
+    try {
+        const stats = fs.statSync(sourcePath);
+        return stats.mtime.toISOString().split('T')[0];
+    } catch {
+        return '2024-01-01';
+    }
+}
+
 // Convert a single file
 function convertFile(sourcePath, targetPath, isMonthlyPrayer = false) {
     try {
@@ -329,7 +364,10 @@ function convertFile(sourcePath, targetPath, isMonthlyPrayer = false) {
         const output = generateRevealHTML(title, slides, isMonthlyPrayer);
         fs.writeFileSync(targetPath, output, 'utf8');
 
-        console.log(`  Converted: ${path.basename(sourcePath)} (${slides.length} slides)`);
+        const filename = path.basename(sourcePath);
+        const date = extractDate(filename, sourcePath);
+
+        console.log(`  Converted: ${filename} (${slides.length} slides, ${date})`);
 
         const category = sourcePath.includes('monthly_prayer') ? 'prayer' :
                       (sourcePath.toLowerCase().includes('prayer') ? 'prayer' : 'sermon');
@@ -343,7 +381,8 @@ function convertFile(sourcePath, targetPath, isMonthlyPrayer = false) {
             id: path.basename(sourcePath, '.html').toLowerCase().replace(/_/g, '-'),
             category,
             tags,
-            featured: false
+            featured: false,
+            date
         };
     } catch (err) {
         console.error(`  Error: ${path.basename(sourcePath)} - ${err.message}`);

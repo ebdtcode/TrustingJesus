@@ -395,7 +395,8 @@ const newEntry = {
     category: 'sermon',
     tags: ['names', 'god', 'hebrew', 'greek', 'elohim', 'yahweh', 'adonai', 'jehovah', 'jesus', 'i am', 'study', 'reference', 'biblical names', '150+ names'],
     featured: true,
-    description: '150+ Biblical Names with Scripture References - A comprehensive study of Hebrew names, compound names, and New Testament names of Jesus.'
+    description: '150+ Biblical Names with Scripture References - A comprehensive study of Hebrew names, compound names, and New Testament names of Jesus.',
+    date: '2099-12-31'  // Always show first (featured resource)
 };
 
 if (existingIdx >= 0) {

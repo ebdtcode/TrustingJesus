@@ -751,11 +751,14 @@
                 return matchesFilter && matchesSearch;
             });
 
-            // Sort: featured first, then alphabetically
+            // Sort: featured first, then by date (newest first)
             const sorted = [...filtered].sort((a, b) => {
                 if (a.featured && !b.featured) return -1;
                 if (!a.featured && b.featured) return 1;
-                return a.title.localeCompare(b.title);
+                // Sort by date descending (newest first)
+                const dateA = a.date || '2024-01-01';
+                const dateB = b.date || '2024-01-01';
+                return dateB.localeCompare(dateA);
             });
 
             let html = '';

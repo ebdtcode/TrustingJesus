@@ -23,7 +23,8 @@ const presentations = [
       "150+ names"
     ],
     "featured": true,
-    "description": "150+ Biblical Names with Scripture References - A comprehensive study of Hebrew names, compound names, and New Testament names of Jesus."
+    "description": "150+ Biblical Names with Scripture References - A comprehensive study of Hebrew names, compound names, and New Testament names of Jesus.",
+    "date": "2099-12-31"
   },
   {
     "title": "A Gift For You",
@@ -36,7 +37,8 @@ const presentations = [
       "prayer",
       "prayer points"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-12-29"
   },
   {
     "title": "A Steadfast Hope",
@@ -50,7 +52,8 @@ const presentations = [
       "prayer points",
       "hope"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-10-27"
   },
   {
     "title": "Angels On Call",
@@ -64,7 +67,8 @@ const presentations = [
       "prayer points",
       "angels"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-12-22"
   },
   {
     "title": "Biblical Meditation: The Key to Success",
@@ -78,7 +82,8 @@ const presentations = [
       "prayer points",
       "meditation"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-11-03"
   },
   {
     "title": "Do You Love Me More Than These?",
@@ -92,7 +97,8 @@ const presentations = [
       "prayer points",
       "love"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-10-27"
   },
   {
     "title": "Fake Worship: When Worshipping Is Not For Real",
@@ -106,7 +112,8 @@ const presentations = [
       "prayer points",
       "worship"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-12-15"
   },
   {
     "title": "Finding Yourself Among The Grateful",
@@ -119,7 +126,8 @@ const presentations = [
       "prayer",
       "prayer points"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-12-02"
   },
   {
     "title": "The Gospel of Grace",
@@ -134,7 +142,8 @@ const presentations = [
       "gospel",
       "grace"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-10-27"
   },
   {
     "title": "The Gospel of Grace",
@@ -149,7 +158,8 @@ const presentations = [
       "gospel",
       "grace"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-10-27"
   },
   {
     "title": "The Gospel of Grace",
@@ -164,7 +174,8 @@ const presentations = [
       "gospel",
       "grace"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-10-27"
   },
   {
     "title": "Jesus Christ, the Peace Child",
@@ -179,7 +190,8 @@ const presentations = [
       "jesus",
       "christ"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-10-27"
   },
   {
     "title": "HIMU Men's Conference 2025",
@@ -192,7 +204,8 @@ const presentations = [
       "prayer",
       "prayer points"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-01-01"
   },
   {
     "title": "How God Leads His People",
@@ -206,7 +219,8 @@ const presentations = [
       "prayer points",
       "god"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-11-13"
   },
   {
     "title": "How to Live a Life of True Worship",
@@ -220,7 +234,8 @@ const presentations = [
       "prayer points",
       "worship"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-11-20"
   },
   {
     "title": "How to Meditate God's Way",
@@ -234,7 +249,8 @@ const presentations = [
       "prayer points",
       "god"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-11-10"
   },
   {
     "title": "Living A Significant Life",
@@ -247,7 +263,8 @@ const presentations = [
       "prayer",
       "prayer points"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-12-11"
   },
   {
     "title": "Living the Higher Life",
@@ -260,7 +277,8 @@ const presentations = [
       "prayer",
       "prayer points"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-11-24"
   },
   {
     "title": "Love And Faith: Heaven's Dynamic Duo",
@@ -275,7 +293,8 @@ const presentations = [
       "faith",
       "love"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2026-01-05"
   },
   {
     "title": "Making is Greater Than Blessing",
@@ -289,7 +308,8 @@ const presentations = [
       "prayer points",
       "sin"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-10-27"
   },
   {
     "title": "Marriage Series 1: Spiritual Leadership for Husbands",
@@ -304,7 +324,8 @@ const presentations = [
       "marriage",
       "leadership"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-12-29"
   },
   {
     "title": "Marriage Series 2: Loving Your Wife Like Christ",
@@ -319,7 +340,8 @@ const presentations = [
       "christ",
       "marriage"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-12-30"
   },
   {
     "title": "Marriage Series 3: Communication & Love Languages",
@@ -334,7 +356,8 @@ const presentations = [
       "love",
       "marriage"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-12-30"
   },
   {
     "title": "Marriage Series 4: Biblical Conflict Resolution",
@@ -348,7 +371,8 @@ const presentations = [
       "prayer points",
       "marriage"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-12-29"
   },
   {
     "title": "Strategic Vision 2025-2026 Prayer Points",
@@ -362,7 +386,8 @@ const presentations = [
       "prayer points",
       "vision"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-01-01"
   },
   {
     "title": "Thanksgiving to the Lord",
@@ -376,7 +401,8 @@ const presentations = [
       "prayer points",
       "thanksgiving"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-11-28"
   },
   {
     "title": "The Power of Words and Faith in God's Love",
@@ -392,7 +418,8 @@ const presentations = [
       "love",
       "god"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2026-01-11"
   },
   {
     "title": "The Secret of Victory Over Sin, Satan And Self",
@@ -407,7 +434,8 @@ const presentations = [
       "victory",
       "sin"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-10-27"
   },
   {
     "title": "Three Treasures of Justification",
@@ -421,7 +449,8 @@ const presentations = [
       "prayer points",
       "justification"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-10-27"
   },
   {
     "title": "Unfailing Love 2026",
@@ -435,7 +464,8 @@ const presentations = [
       "prayer points",
       "love"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2026-01-01"
   },
   {
     "title": "Additional Weekly Prayer Points",
@@ -448,7 +478,8 @@ const presentations = [
       "prayer",
       "prayer points"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-10-27"
   },
   {
     "title": "When God's Life Becomes Yours",
@@ -462,7 +493,8 @@ const presentations = [
       "prayer points",
       "god"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2026-01-19"
   },
   {
     "title": "You MUST Be Born Again",
@@ -476,7 +508,8 @@ const presentations = [
       "prayer points",
       "born again"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-10-27"
   },
   {
     "title": "April 2025",
@@ -492,7 +525,8 @@ const presentations = [
       "2025",
       "2026"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-04-01"
   },
   {
     "title": "August 2025 Prayer Points",
@@ -508,7 +542,8 @@ const presentations = [
       "2025",
       "2026"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-08-01"
   },
   {
     "title": "December 2024",
@@ -524,7 +559,8 @@ const presentations = [
       "2025",
       "2026"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2024-12-01"
   },
   {
     "title": "December 2025 Prayer Points",
@@ -540,7 +576,8 @@ const presentations = [
       "2025",
       "2026"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-12-01"
   },
   {
     "title": "February 2025",
@@ -556,7 +593,8 @@ const presentations = [
       "2025",
       "2026"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-02-01"
   },
   {
     "title": "January 2025",
@@ -572,7 +610,8 @@ const presentations = [
       "2025",
       "2026"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-01-01"
   },
   {
     "title": "January 2026",
@@ -588,7 +627,8 @@ const presentations = [
       "2025",
       "2026"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2026-01-01"
   },
   {
     "title": "January 2026",
@@ -604,7 +644,8 @@ const presentations = [
       "2025",
       "2026"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2026-01-01"
   },
   {
     "title": "July 2025 Prayer & Fasting",
@@ -621,7 +662,8 @@ const presentations = [
       "2025",
       "2026"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-07-01"
   },
   {
     "title": "June 2025 Prayer Points",
@@ -637,7 +679,8 @@ const presentations = [
       "2025",
       "2026"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-06-01"
   },
   {
     "title": "March 2025",
@@ -653,7 +696,8 @@ const presentations = [
       "2025",
       "2026"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-03-01"
   },
   {
     "title": "May 2025 Prayer & Fasting",
@@ -670,7 +714,8 @@ const presentations = [
       "2025",
       "2026"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-05-01"
   },
   {
     "title": "November 2025 Prayer & Fasting",
@@ -687,7 +732,8 @@ const presentations = [
       "2025",
       "2026"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-11-01"
   },
   {
     "title": "October 2024",
@@ -703,7 +749,8 @@ const presentations = [
       "2025",
       "2026"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2024-10-01"
   },
   {
     "title": "October 2025 Prayer & Fasting",
@@ -720,7 +767,8 @@ const presentations = [
       "2025",
       "2026"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-10-01"
   },
   {
     "title": "September 2024",
@@ -736,7 +784,8 @@ const presentations = [
       "2025",
       "2026"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2024-09-01"
   },
   {
     "title": "September 2025 Prayer & Fasting",
@@ -753,6 +802,7 @@ const presentations = [
       "2025",
       "2026"
     ],
-    "featured": false
+    "featured": false,
+    "date": "2025-09-01"
   }
 ];
