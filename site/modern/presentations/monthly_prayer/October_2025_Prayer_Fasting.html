@@ -444,8 +444,9 @@
             }
 
             function buildNavGrid() {
-                const slides = document.querySelectorAll('.reveal .slides > section');
-                const total = slides.length;
+                // Use Reveal.js API for reliable slide detection on all devices
+                const slides = Reveal.getSlides();
+                const total = Reveal.getTotalSlides();
                 const current = Reveal.getIndices().h;
                 countEl.textContent = total + ' slides';
                 grid.innerHTML = '';
