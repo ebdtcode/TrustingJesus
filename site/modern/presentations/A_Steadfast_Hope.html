@@ -773,6 +773,34 @@
         </div>
     </div>
 
+    <!-- Slide Navigator Trigger Button -->
+    <button class="slide-nav-trigger" aria-label="Open slide navigator" title="View all slides">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1"/>
+            <rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/>
+            <rect x="14" y="14" width="7" height="7" rx="1"/>
+        </svg>
+    </button>
+
+    <!-- Slide Navigator Modal -->
+    <div class="slide-nav-modal" id="slideNavModal" role="dialog" aria-label="Slide navigator" aria-modal="true">
+        <div class="slide-nav-header">
+            <div>
+                <h2>Slide Navigator</h2>
+                <span class="slide-count" id="slideNavCount"></span>
+            </div>
+            <button class="slide-nav-close" aria-label="Close navigator">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="slide-nav-content">
+            <div class="slide-nav-grid" id="slideNavGrid"></div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
     <script>
         // Responsive dimensions based on screen size
@@ -804,6 +832,144 @@
         if (new URLSearchParams(window.location.search).get('overview') === 'true') {
             Reveal.addEventListener('ready', () => Reveal.toggleOverview(true));
         }
+
+        // Slide Navigator functionality
+        (function() {
+            const modal = document.getElementById('slideNavModal');
+            const grid = document.getElementById('slideNavGrid');
+            const countEl = document.getElementById('slideNavCount');
+            const trigger = document.querySelector('.slide-nav-trigger');
+            const closeBtn = document.querySelector('.slide-nav-close');
+
+            function getSlideType(section) {
+                const text = section.textContent.toLowerCase();
+                const html = section.innerHTML.toLowerCase();
+                if (section.querySelector('h1') && !section.querySelector('h2')) return 'title';
+                if (html.includes('prayer') || html.includes('lord,') || html.includes('father,')) return 'prayer';
+                if (section.querySelector('.scripture') || html.includes('scripture')) return 'scripture';
+                return 'content';
+            }
+
+            function getSlideTitle(section, index) {
+                const h1 = section.querySelector('h1');
+                const h2 = section.querySelector('h2');
+                const h3 = section.querySelector('h3');
+                if (h1) return h1.textContent.trim().substring(0, 40);
+                if (h2) return h2.textContent.trim().substring(0, 40);
+                if (h3) return h3.textContent.trim().substring(0, 40);
+                return 'Slide ' + (index + 1);
+            }
+
+            function getSlidePreview(section) {
+                const h1 = section.querySelector('h1');
+                const h2 = section.querySelector('h2');
+                const p = section.querySelector('p');
+                const scripture = section.querySelector('.scripture-text');
+                let text = '';
+                if (h1) text += h1.textContent.trim() + ' ';
+                if (h2) text += h2.textContent.trim() + ' ';
+                if (scripture) text += scripture.textContent.trim().substring(0, 80);
+                else if (p) text += p.textContent.trim().substring(0, 80);
+                return text.trim() || 'Slide content';
+            }
+
+            function buildNavGrid() {
+                const slides = document.querySelectorAll('.reveal .slides > section');
+                const total = slides.length;
+                const current = Reveal.getIndices().h;
+                countEl.textContent = total + ' slides';
+                grid.innerHTML = '';
+
+                slides.forEach((section, index) => {
+                    const type = getSlideType(section);
+                    const title = getSlideTitle(section, index);
+                    const preview = getSlidePreview(section);
+                    const isActive = index === current;
+
+                    const card = document.createElement('div');
+                    card.className = 'slide-nav-card' + (isActive ? ' active' : '');
+                    card.dataset.type = type;
+                    card.dataset.index = index;
+                    card.setAttribute('role', 'button');
+                    card.setAttribute('tabindex', '0');
+                    card.setAttribute('aria-label', 'Go to slide ' + (index + 1) + ': ' + title);
+
+                    card.innerHTML = `
+                        <div class="slide-nav-preview">
+                            <span class="preview-text">${preview}</span>
+                        </div>
+                        <div class="slide-nav-info">
+                            <span class="slide-nav-number">${index + 1}</span>
+                            <span class="slide-nav-title">${title}</span>
+                        </div>
+                    `;
+
+                    card.addEventListener('click', () => goToSlide(index));
+                    card.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            goToSlide(index);
+                        }
+                    });
+
+                    grid.appendChild(card);
+                });
+            }
+
+            function goToSlide(index) {
+                Reveal.slide(index);
+                closeModal();
+            }
+
+            function openModal() {
+                buildNavGrid();
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                closeBtn.focus();
+                // Scroll to active slide
+                setTimeout(() => {
+                    const activeCard = grid.querySelector('.slide-nav-card.active');
+                    if (activeCard) {
+                        activeCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }, 100);
+            }
+
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                trigger.focus();
+            }
+
+            // Event listeners
+            trigger.addEventListener('click', openModal);
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeModal();
+                }
+                // 'G' key to open navigator
+                if (e.key === 'g' || e.key === 'G') {
+                    if (!modal.classList.contains('active')) {
+                        e.preventDefault();
+                        openModal();
+                    }
+                }
+            });
+
+            // Update active state on slide change
+            Reveal.on('slidechanged', () => {
+                if (modal.classList.contains('active')) {
+                    const current = Reveal.getIndices().h;
+                    grid.querySelectorAll('.slide-nav-card').forEach((card, idx) => {
+                        card.classList.toggle('active', idx === current);
+                    });
+                }
+            });
+        })();
     </script>
 </body>
 </html>

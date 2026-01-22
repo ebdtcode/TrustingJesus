@@ -614,7 +614,7 @@ const presentations = [
     "date": "2025-01-01"
   },
   {
-    "title": "January 2026",
+    "title": "21 Days of Prayer 2026 - Week 1",
     "speaker": "",
     "slides": 43,
     "file": "presentations/monthly_prayer/January_2026_21_Days_Prayer_Week1.html",
@@ -624,14 +624,15 @@ const presentations = [
       "prayer",
       "prayer points",
       "january",
-      "2025",
-      "2026"
+      "2026",
+      "21 days",
+      "fasting"
     ],
     "featured": false,
     "date": "2026-01-01"
   },
   {
-    "title": "January 2026",
+    "title": "21 Days of Prayer 2026 - Weeks 2 & 3",
     "speaker": "",
     "slides": 57,
     "file": "presentations/monthly_prayer/January_2026_21_Days_Prayer_Week2.html",
@@ -641,11 +642,12 @@ const presentations = [
       "prayer",
       "prayer points",
       "january",
-      "2025",
-      "2026"
+      "2026",
+      "21 days",
+      "fasting"
     ],
     "featured": false,
-    "date": "2026-01-01"
+    "date": "2026-01-08"
   },
   {
     "title": "July 2025 Prayer & Fasting",
