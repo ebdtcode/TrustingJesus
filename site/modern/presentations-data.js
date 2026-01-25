@@ -607,7 +607,7 @@ const presentations = [
   {
     "title": "21 Days of Prayer 2026 - Weeks 2 & 3",
     "speaker": "",
-    "slides": 57,
+    "slides": 87,
     "file": "presentations/monthly_prayer/January_2026_21_Days_Prayer_Week2.html",
     "id": "january-2026-21-days-prayer-week2",
     "category": "prayer",
@@ -617,10 +617,13 @@ const presentations = [
       "january",
       "2026",
       "21 days",
-      "fasting"
+      "fasting",
+      "healing",
+      "marriage",
+      "provision"
     ],
-    "featured": false,
-    "date": "2026-01-08"
+    "featured": true,
+    "date": "2026-01-25"
   },
   {
     "title": "July 2025 Prayer & Fasting",
@@ -779,5 +782,22 @@ const presentations = [
     ],
     "featured": false,
     "date": "2025-09-01"
+  },
+  {
+    "title": "Walking in God's Love: Four Keys",
+    "speaker": "Harvest Intercontinental Church",
+    "slides": 24,
+    "file": "presentations/Walking_in_Gods_Love.html",
+    "id": "walking-in-gods-love-presentation",
+    "category": "sermon",
+    "tags": [
+      "love",
+      "unfailing love",
+      "eternal life",
+      "abiding",
+      "prayer points"
+    ],
+    "featured": true,
+    "date": "2026-01-25"
   }
 ];

@@ -515,7 +515,10 @@
             }
 
             function goToSlide(index) {
-                Reveal.slide(index);
+                // Use hash navigation which works in both regular and scroll view modes
+                // hashOneBasedIndex is true, so we need index + 1
+                const hashIndex = index + 1;
+                window.location.hash = '#/' + hashIndex;
                 closeModal();
             }
 
