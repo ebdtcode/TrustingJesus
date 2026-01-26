@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Developing A Plan For My Life - A 3-Part Series by Pastor Mensa Otabil">
+    <title>Developing A Plan For My Life - Pastor Mensa Otabil</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+    <link rel="stylesheet" href="../../modern/css/theme-prayer.css">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <style>
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent, #ffd166);
+            color: #14213d;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 9999;
+            font-weight: 600;
+            border-radius: 0 0 8px 0;
+        }
+        .skip-link:focus { top: 0; }
+
+        /* Resources button */
+        .resources-btn {
+            position: fixed;
+            top: 1rem;
+            left: 7rem;
+            background: rgba(13, 27, 42, 0.85);
+            color: #ffd166;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.02em;
+            transition: all 0.25s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 209, 102, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        .resources-btn svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+            transition: transform 0.25s ease;
+        }
+        .resources-btn:hover {
+            background: rgba(255, 209, 102, 0.15);
+            color: #ffd166;
+            border-color: rgba(255, 209, 102, 0.6);
+            box-shadow: 0 4px 16px rgba(255, 209, 102, 0.2);
+            transform: translateY(-1px);
+        }
+        .resources-btn:hover svg {
+            transform: scale(1.1);
+        }
+        @media screen and (max-width: 768px) {
+            .resources-btn {
+                top: 0.5rem;
+                left: 3rem;
+                padding: 0.5rem;
+                font-size: 11px;
+                border-radius: 50%;
+                width: 36px;
+                height: 36px;
+                justify-content: center;
+            }
+            .resources-btn span { display: none; }
+            .resources-btn svg { width: 18px; height: 18px; }
+        }
+        @media screen and (max-width: 480px) {
+            .resources-btn {
+                left: 2.5rem;
+                width: 32px;
+                height: 32px;
+            }
+            .resources-btn svg { width: 16px; height: 16px; }
+        }
+
+        /* Section break styling */
+        .section-break {
+            background: linear-gradient(135deg, var(--accent, #ffd166) 0%, #f0c040 100%) !important;
+        }
+        .section-break h1, .section-break h2, .section-break p {
+            color: #0d1b2a !important;
+            text-shadow: none !important;
+        }
+        .section-break .part-label {
+            font-size: 0.5em;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            opacity: 0.8;
+            margin-bottom: 0.5em;
+        }
+
+        /* Two column layout */
+        .two-columns {
+            display: flex;
+            gap: 2em;
+            text-align: left;
+            margin-top: 1em;
+        }
+        .two-columns .column {
+            flex: 1;
+        }
+        .two-columns h4 {
+            color: var(--accent);
+            margin-bottom: 0.5em;
+        }
+
+        /* Three column layout */
+        .three-columns {
+            display: flex;
+            gap: 1.5em;
+            text-align: left;
+            margin-top: 1em;
+        }
+        .three-columns .column {
+            flex: 1;
+        }
+
+        /* Concept box */
+        .concept-box {
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 12px;
+            padding: 1em 1.2em;
+            margin: 0.5em 0;
+        }
+        .concept-box h4 {
+            color: var(--accent);
+            margin: 0 0 0.3em 0;
+            font-size: 1em;
+        }
+        .concept-box p {
+            margin: 0;
+            font-size: 0.8em;
+        }
+
+        /* Emphasis text */
+        .emphasis {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Arrow indicator */
+        .arrow {
+            color: var(--accent);
+            font-size: 2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Call to action slides */
+        .cta-slide {
+            background: linear-gradient(135deg, #118ab2 0%, #06d6a0 100%) !important;
+        }
+        .cta-slide h1, .cta-slide h2, .cta-slide p, .cta-slide li {
+            color: white !important;
+        }
+
+        /* Fix list styling */
+        .reveal ul {
+            text-align: left;
+        }
+        .reveal li {
+            margin-bottom: 0.5em;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <a href="../../modern/index.html" class="home-btn" aria-label="Return to presentations list">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+        <span>Home</span>
+    </a>
+    <a href="resources.html" class="resources-btn" aria-label="View summaries and transcripts">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+        </svg>
+        <span>Resources</span>
+    </a>
+
+    <div class="reveal" id="main-content">
+        <div class="slides">
+            <!-- TITLE SLIDE -->
+            <section data-auto-animate data-background-gradient="radial-gradient(ellipse at center, #1b263b 0%, #0d1b2a 100%)">
+                <h1>Developing A Plan For My Life</h1>
+                <h2>A Biblical Framework for Life Planning</h2>
+                <div class="subtitle" style="margin-top: 2rem;">Pastor Mensa Otabil</div>
+                <div class="subtitle">ICGC Christ Temple</div>
+                <p style="margin-top: 2rem; font-size: 0.7em; color: var(--muted);">A 3-Part Series for Creating Your 10-Year Life Plan (2024-2034)</p>
+            </section>
+
+            <!-- SERIES OVERVIEW -->
+            <section>
+                <h2>Series Overview</h2>
+                <div class="three-columns">
+                    <div class="column">
+                        <div class="concept-box">
+                            <h4>Part 1</h4>
+                            <p class="emphasis">To Plan Or Not To Plan</p>
+                            <p style="font-size: 0.7em; color: var(--muted);">The Biblical foundation for planning</p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="concept-box">
+                            <h4>Part 2</h4>
+                            <p class="emphasis">From Here To There</p>
+                            <p style="font-size: 0.7em; color: var(--muted);">Practical steps for the journey</p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="concept-box">
+                            <h4>Part 3</h4>
+                            <p class="emphasis">Becoming And Winning</p>
+                            <p style="font-size: 0.7em; color: var(--muted);">Mindset transformation</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="margin-top: 2rem; font-size: 0.8em;">Mid-term review of a 20-year plan (2014-2034)</p>
+            </section>
+
+            <!-- PART 1 SECTION BREAK -->
+            <section class="section-break">
+                <p class="part-label">Part One</p>
+                <h1>To Plan Or Not To Plan</h1>
+                <h2>Should Christians Plan Their Lives?</h2>
+            </section>
+
+            <!-- PART 1: Core Question -->
+            <section>
+                <h2>The Core Question</h2>
+                <div class="quote">
+                    Should Christians plan their lives, or should we "let go and let God"?
+                </div>
+                <p style="margin-top: 1.5em;">Many believers struggle with whether planning conflicts with trusting God.</p>
+            </section>
+
+            <!-- PART 1: Three Philosophies -->
+            <section>
+                <h2>Three Philosophies of Life</h2>
+                <div class="three-columns">
+                    <div class="column">
+                        <div class="concept-box">
+                            <h4>The Fatalist</h4>
+                            <p>"Whatever will be, will be"</p>
+                            <p style="font-size: 0.7em; color: #ef6461;">Passive. Abandons responsibility.</p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="concept-box">
+                            <h4>The Humanist</h4>
+                            <p>"I can be whatever I want"</p>
+                            <p style="font-size: 0.7em; color: #ef6461;">Self-reliant. Excludes God.</p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="concept-box">
+                            <h4>The Biblical</h4>
+                            <p>"I choose what God wants"</p>
+                            <p style="font-size: 0.7em; color: var(--success);">Active partnership with God.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PART 1: Biblical View -->
+            <section>
+                <h2>The Biblical View</h2>
+                <div class="quote">
+                    "God has a plan for me but I'm not passive in that plan. I must be active. I must do something about it. I choose what God wants for my life."
+                </div>
+                <p style="margin-top: 1.5em;">Partnership between divine purpose and human action.</p>
+            </section>
+
+            <!-- PART 1: Jesus on Planning -->
+            <section>
+                <h2>Jesus on Planning</h2>
+                <div class="two-columns">
+                    <div class="column">
+                        <div class="scripture">
+                            <p class="scripture-text">"Do not worry about tomorrow..."</p>
+                            <p class="scripture-ref">Matthew 6:31-34</p>
+                        </div>
+                        <p style="font-size: 0.7em;">Seems to discourage planning</p>
+                    </div>
+                    <div class="column">
+                        <div class="scripture">
+                            <p class="scripture-text">"Count the cost before building..."</p>
+                            <p class="scripture-ref">Luke 14:28-31</p>
+                        </div>
+                        <p style="font-size: 0.7em;">Encourages thoughtful planning</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PART 1: Resolution -->
+            <section>
+                <h2>Resolving the Tension</h2>
+                <ul>
+                    <li class="fragment fade-up"><span class="emphasis">Don't be preoccupied</span> with what you need<br><span style="font-size: 0.7em; color: var(--muted);">Don't let your life consist of your needs and ambitions</span></li>
+                    <li class="fragment fade-up"><span class="emphasis">Make God's will your priority</span><br><span style="font-size: 0.7em; color: var(--muted);">"Seek first the kingdom of God and His righteousness"</span></li>
+                    <li class="fragment fade-up"><span class="emphasis">Plan adequately</span> for the things you want<br><span style="font-size: 0.7em; color: var(--muted);">Your life is more important than any building you construct</span></li>
+                </ul>
+            </section>
+
+            <!-- PART 1: Proverbs 16 -->
+            <section>
+                <h2>Wisdom from Proverbs 16</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"A man's heart plans his way, but the LORD directs his steps."</p>
+                    <p class="scripture-ref">Proverbs 16:9</p>
+                </div>
+                <div class="two-columns" style="margin-top: 1.5em;">
+                    <div class="column">
+                        <h4>We Make Plans</h4>
+                        <p style="font-size: 0.8em;">Set the direction we want to go</p>
+                    </div>
+                    <div class="column">
+                        <h4>God Directs Steps</h4>
+                        <p style="font-size: 0.8em;">Opens doors, arranges relationships, creates favor</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PART 1: Why Plan -->
+            <section>
+                <h2>Why You Must Plan</h2>
+                <div class="quote">
+                    "If you're going to build, you have to plan. Now if you plan to build a house, a building, don't you think your life is more important than a building?"
+                </div>
+                <p style="margin-top: 1.5em;">If we plan for buildings, shouldn't we plan for our lives?</p>
+            </section>
+
+            <!-- PART 1: Favor -->
+            <section>
+                <h2>Don't Plan for Favor</h2>
+                <div class="quote">
+                    "Don't sit and say I'm waiting for favor... Favor happens when you are not looking. But you don't plan with favor. Favor is a bonus."
+                </div>
+                <p style="margin-top: 1.5em;">God's supernatural favor enhances your plan, but shouldn't replace it.</p>
+            </section>
+
+            <!-- PART 2 SECTION BREAK -->
+            <section class="section-break">
+                <p class="part-label">Part Two</p>
+                <h1>From Here To There</h1>
+                <h2>The Journey of Life Planning</h2>
+            </section>
+
+            <!-- PART 2: The Journey -->
+            <section>
+                <h2>The Planning Journey</h2>
+                <div class="three-columns" style="align-items: center;">
+                    <div class="column">
+                        <div class="concept-box" style="text-align: center;">
+                            <h4>HERE</h4>
+                            <p>Where you are now</p>
+                            <p style="font-size: 0.7em; color: var(--muted);">Your present reality</p>
+                        </div>
+                    </div>
+                    <div class="column arrow">&#8594;</div>
+                    <div class="column">
+                        <div class="concept-box" style="text-align: center;">
+                            <h4>THERE</h4>
+                            <p>Where God wants you</p>
+                            <p style="font-size: 0.7em; color: var(--muted);">Your destination</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="quote" style="margin-top: 1.5em;">
+                    "That's what a life plan is all about. Moving you from where you are to where you ought to be."
+                </div>
+            </section>
+
+            <!-- PART 2: Upward Call -->
+            <section>
+                <h2>The Upward Call</h2>
+                <div class="quote">
+                    "Paul doesn't call it a forward call, but he calls it upward. There's a big difference between forward and upward."
+                </div>
+                <div class="two-columns" style="margin-top: 1.5em;">
+                    <div class="column" style="text-align: center;">
+                        <h4>FORWARD</h4>
+                        <p>Same level, easier path</p>
+                    </div>
+                    <div class="column" style="text-align: center;">
+                        <h4>UPWARD</h4>
+                        <p>Against gravity, requires effort</p>
+                    </div>
+                </div>
+                <p style="margin-top: 1em; font-size: 0.8em;">Your 10-year plan is an anti-gravity movement.</p>
+            </section>
+
+            <!-- PART 2: What Got Me Here -->
+            <section>
+                <h2>What Got Me Here?</h2>
+                <div class="two-columns">
+                    <div class="column">
+                        <h4>External Forces</h4>
+                        <ul style="font-size: 0.8em;">
+                            <li class="fragment fade-up">Country of birth</li>
+                            <li class="fragment fade-up">Family background</li>
+                            <li class="fragment fade-up">Economic conditions</li>
+                            <li class="fragment fade-up">Cultural factors</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h4>Internal Choices</h4>
+                        <ul style="font-size: 0.8em;">
+                            <li class="fragment fade-up">Education decisions</li>
+                            <li class="fragment fade-up">Relationship choices</li>
+                            <li class="fragment fade-up">Habits formed</li>
+                            <li class="fragment fade-up">Values adopted</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="quote" style="margin-top: 1em; font-size: 0.9em;">
+                    "Your life is not an accident. There's always a logic behind everybody's life."
+                </div>
+            </section>
+
+            <!-- PART 2: Four Steps -->
+            <section>
+                <h2>Four Steps to Get There</h2>
+                <p style="color: var(--muted); font-size: 0.8em; margin-bottom: 1em;">From 1 Kings 17:3-4 (Elijah at Brook Cherith)</p>
+                <div class="two-columns">
+                    <div class="column">
+                        <ul>
+                            <li class="fragment fade-up"><span class="emphasis">GET AWAY</span><br><span style="font-size: 0.7em;">Make a move, take a step</span></li>
+                            <li class="fragment fade-up"><span class="emphasis">TURN</span><br><span style="font-size: 0.7em;">Change direction, break patterns</span></li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <ul>
+                            <li class="fragment fade-up"><span class="emphasis">HIDE</span><br><span style="font-size: 0.7em;">Set yourself apart, work privately</span></li>
+                            <li class="fragment fade-up"><span class="emphasis">DRINK</span><br><span style="font-size: 0.7em;">Receive fresh input, keep learning</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PART 2: Get Away -->
+            <section>
+                <h2>Step 1: Get Away</h2>
+                <div class="quote">
+                    "You can't move from here to there by staying here. You have to get away. You have to take a step."
+                </div>
+                <ul style="margin-top: 1em;">
+                    <li class="fragment fade-up">Talk to that person</li>
+                    <li class="fragment fade-up">Register for that course</li>
+                    <li class="fragment fade-up">Apply for that opportunity</li>
+                    <li class="fragment fade-up">Small steps lead to big outcomes</li>
+                </ul>
+            </section>
+
+            <!-- PART 2: Turn -->
+            <section>
+                <h2>Step 2: Turn</h2>
+                <div class="quote">
+                    "You always end up in a place where you are headed."
+                </div>
+                <p style="margin-top: 1em; font-size: 0.9em;">What people call "generational curses" are often simply repeated patterns:</p>
+                <ul style="margin-top: 0.5em; font-size: 0.85em;">
+                    <li class="fragment fade-up">Eat different food = Different health outcomes</li>
+                    <li class="fragment fade-up">Make different marriage choices = Different relationships</li>
+                    <li class="fragment fade-up">Choose different financial habits = Different prosperity</li>
+                </ul>
+                <p class="emphasis" style="margin-top: 1em;">You have the power to TURN.</p>
+            </section>
+
+            <!-- PART 2: Hide -->
+            <section>
+                <h2>Step 3: Hide</h2>
+                <div class="quote">
+                    "Many of the important things we have to do must be done alone. Most of the things done in public are for show. The things that really change our lives are done privately."
+                </div>
+                <ul style="margin-top: 1em;">
+                    <li class="fragment fade-up">Work on character when no one is watching</li>
+                    <li class="fragment fade-up">Pray intimately with God</li>
+                    <li class="fragment fade-up">Seek God's approval over people's applause</li>
+                </ul>
+            </section>
+
+            <!-- PART 2: Drink -->
+            <section>
+                <h2>Step 4: Drink</h2>
+                <div class="quote">
+                    "You're going to learn things that are different from what you have known. You're going to expose yourself to new knowledge, new information, new relationships, new concepts."
+                </div>
+                <ul style="margin-top: 1em;">
+                    <li class="fragment fade-up">New books and learning</li>
+                    <li class="fragment fade-up">Different perspectives</li>
+                    <li class="fragment fade-up">Digital/tech skills</li>
+                    <li class="fragment fade-up">Diverse relationships</li>
+                </ul>
+            </section>
+
+            <!-- PART 2: Plan or Be Shocked -->
+            <section>
+                <h2>Plan or Be Shocked</h2>
+                <div class="quote">
+                    "I don't want the next 10 years to shock any one of us. Please, be a fool now. Not there. Take all the right steps now."
+                </div>
+                <div class="two-columns" style="margin-top: 1.5em;">
+                    <div class="column">
+                        <h4 style="color: #ef6461;">Without Planning:</h4>
+                        <p style="font-size: 0.8em;">10 years later: "I've been a fool"</p>
+                    </div>
+                    <div class="column">
+                        <h4 style="color: var(--success);">With Planning:</h4>
+                        <p style="font-size: 0.8em;">10 years later: "Wow, look at what I've achieved!"</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PART 3 SECTION BREAK -->
+            <section class="section-break">
+                <p class="part-label">Part Three</p>
+                <h1>Becoming And Winning</h1>
+                <h2>Mindset Transformation</h2>
+            </section>
+
+            <!-- PART 3: Freedom Paradox -->
+            <section>
+                <h2>The Freedom Paradox</h2>
+                <div class="scripture">
+                    <p class="scripture-text">"For though I am free from all men, I have made myself a servant to all, that I might win the more."</p>
+                    <p class="scripture-ref">1 Corinthians 9:19</p>
+                </div>
+                <div class="quote" style="margin-top: 1.5em;">
+                    "I am free, but I have made myself a servant."
+                </div>
+                <p style="margin-top: 1em;">True freedom is choosing what enslaves you.</p>
+            </section>
+
+            <!-- PART 3: Choose Your Slavery -->
+            <section>
+                <h2>Choose Your Slavery</h2>
+                <div class="two-columns">
+                    <div class="column">
+                        <h4 style="color: var(--success);">Positive Slaveries</h4>
+                        <ul style="font-size: 0.75em;">
+                            <li class="fragment fade-up">Christ and the Holy Spirit</li>
+                            <li class="fragment fade-up">The Word of God</li>
+                            <li class="fragment fade-up">Righteousness, integrity, honor</li>
+                            <li class="fragment fade-up">Wisdom and learning</li>
+                            <li class="fragment fade-up">Excellence and quality</li>
+                            <li class="fragment fade-up">Discipline and hard work</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h4 style="color: #ef6461;">Negative Slaveries</h4>
+                        <ul style="font-size: 0.75em;">
+                            <li class="fragment fade-up">Sin and comfort</li>
+                            <li class="fragment fade-up">Food and entertainment</li>
+                            <li class="fragment fade-up">Spending and materialism</li>
+                            <li class="fragment fade-up">Excuses and blame</li>
+                            <li class="fragment fade-up">Laziness and procrastination</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PART 3: Becoming IS Winning -->
+            <section>
+                <h2>Becoming IS Winning</h2>
+                <div class="quote">
+                    "The greatest achievement is not what you get, it's becoming and doing what God wants for your life."
+                </div>
+                <div class="two-columns" style="margin-top: 1.5em;">
+                    <div class="column">
+                        <div class="concept-box">
+                            <h4>Part 1: Becoming</h4>
+                            <p>The person God wants you to be</p>
+                            <p style="font-size: 0.7em; color: var(--muted);">Character transformation</p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="concept-box">
+                            <h4>Part 2: Doing</h4>
+                            <p>The things God wants you to do</p>
+                            <p style="font-size: 0.7em; color: var(--muted);">Purposeful action</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PART 3: Transformation Sequence -->
+            <section>
+                <h2>The Transformation Sequence</h2>
+                <div class="three-columns" style="align-items: center; text-align: center;">
+                    <div class="column">
+                        <div class="concept-box">
+                            <h4>MINDSET</h4>
+                            <p style="font-size: 0.7em;">How you think</p>
+                        </div>
+                    </div>
+                    <div class="column arrow" style="font-size: 1.5em;">&#8594;</div>
+                    <div class="column">
+                        <div class="concept-box">
+                            <h4>BEING</h4>
+                            <p style="font-size: 0.7em;">Who you become</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="three-columns" style="align-items: center; text-align: center; margin-top: 0.5em;">
+                    <div class="column">
+                        <div class="concept-box">
+                            <h4>DOING</h4>
+                            <p style="font-size: 0.7em;">What you do</p>
+                        </div>
+                    </div>
+                    <div class="column arrow" style="font-size: 1.5em;">&#8594;</div>
+                    <div class="column">
+                        <div class="concept-box">
+                            <h4>HAVING</h4>
+                            <p style="font-size: 0.7em;">What you get</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="quote" style="margin-top: 1em; font-size: 0.85em;">
+                    "The greatest change happens in your head before it comes into your hand."
+                </div>
+            </section>
+
+            <!-- PART 3: I Have Become -->
+            <section>
+                <h2>"I Have Become"</h2>
+                <div class="quote">
+                    "You are what you choose to be. I am making myself what I want to be."
+                </div>
+                <ul style="margin-top: 1em;">
+                    <li class="fragment fade-up">Though I am not highly educated, I will make myself a specialist</li>
+                    <li class="fragment fade-up">Though I was born into poverty, I will work myself out</li>
+                    <li class="fragment fade-up">Though I didn't choose my mother, I can choose my lifestyle</li>
+                    <li class="fragment fade-up">Though I didn't choose my village, I can choose my values</li>
+                </ul>
+            </section>
+
+            <!-- PART 3: Choice Over Circumstance -->
+            <section>
+                <h2>Choice Over Circumstance</h2>
+                <div class="quote">
+                    "The core of the Bible is that no matter what was imposed on you by life, you can choose differently."
+                </div>
+                <ul style="margin-top: 1em;">
+                    <li class="fragment fade-up">Your origin doesn't determine your destiny</li>
+                    <li class="fragment fade-up">The greatest achievers often come from disruptive backgrounds</li>
+                    <li class="fragment fade-up">You didn't choose your starting point, but you choose your direction</li>
+                </ul>
+            </section>
+
+            <!-- PART 3: Mindset Over Money -->
+            <section>
+                <h2>Mindset Matters More Than Money</h2>
+                <div class="quote">
+                    "If you have a poverty mindset, no matter how much money you are thrown into, if you are thrown into an ocean of money, you still come out poor, because it doesn't start with money. It starts with a mindset."
+                </div>
+                <p style="margin-top: 1.5em;">Change your thinking before changing your circumstances.</p>
+            </section>
+
+            <!-- PART 3: Measuring Success -->
+            <section>
+                <h2>Measuring Success Correctly</h2>
+                <div class="two-columns">
+                    <div class="column">
+                        <h4 style="color: #ef6461;">Wrong Metrics</h4>
+                        <ul style="font-size: 0.8em;">
+                            <li>Money accumulated</li>
+                            <li>Buildings constructed</li>
+                            <li>Fame achieved</li>
+                            <li>Material possessions</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h4 style="color: var(--success);">Right Metrics</h4>
+                        <ul style="font-size: 0.8em;">
+                            <li><span class="emphasis">Fulfillment:</span> Internal satisfaction</li>
+                            <li><span class="emphasis">Significance:</span> External impact</li>
+                            <li><span class="emphasis">Financial Freedom:</span> Not controlled by others</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="quote" style="margin-top: 1em; font-size: 0.85em;">
+                    "Don't measure your life by acquisitions. Measure it by fulfillment and significance."
+                </div>
+            </section>
+
+            <!-- PART 3: Discipline -->
+            <section>
+                <h2>Discipline as Life Routine</h2>
+                <div class="quote">
+                    "I keep running. I keep fighting. I keep running. I keep fighting... That's my action. If I face it and it's tough, I keep running and I keep fighting. I don't quit."
+                </div>
+                <p style="margin-top: 1em; font-size: 0.9em;">Like your heart beats routinely, your discipline must become automatic.</p>
+                <ul style="margin-top: 0.5em; font-size: 0.85em;">
+                    <li class="fragment fade-up">Create non-negotiable routines</li>
+                    <li class="fragment fade-up">Don't wait for external accountability</li>
+                    <li class="fragment fade-up">Maintain standards when no one is watching</li>
+                </ul>
+            </section>
+
+            <!-- PART 3: Life is Hard -->
+            <section>
+                <h2>Life is Hard But Livable</h2>
+                <div class="quote">
+                    "Life is hard. But it is livable. It is livable. We can overcome."
+                </div>
+                <p style="margin-top: 1.5em; font-size: 1.1em;">No matter what life has imposed on you, you can choose differently.</p>
+            </section>
+
+            <!-- ACTION FRAMEWORK SECTION BREAK -->
+            <section class="section-break">
+                <p class="part-label">Application</p>
+                <h1>Your Action Framework</h1>
+                <h2>Creating Your 10-Year Plan</h2>
+            </section>
+
+            <!-- Seven Life Areas -->
+            <section>
+                <h2>Seven Life Areas to Plan</h2>
+                <div class="two-columns">
+                    <div class="column">
+                        <ul>
+                            <li class="fragment fade-up"><span class="emphasis">Spiritual Growth</span></li>
+                            <li class="fragment fade-up"><span class="emphasis">Family & Relationships</span></li>
+                            <li class="fragment fade-up"><span class="emphasis">Career & Finance</span></li>
+                            <li class="fragment fade-up"><span class="emphasis">Health & Wellness</span></li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <ul>
+                            <li class="fragment fade-up"><span class="emphasis">Education & Skills</span></li>
+                            <li class="fragment fade-up"><span class="emphasis">Ministry & Service</span></li>
+                            <li class="fragment fade-up"><span class="emphasis">Legacy & Impact</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="margin-top: 1.5em; font-size: 0.85em;">For each area ask: Where am I now? Where do I want to be in 10 years?</p>
+            </section>
+
+            <!-- Assignment -->
+            <section>
+                <h2>Your Assignment</h2>
+                <div class="three-columns">
+                    <div class="column">
+                        <div class="concept-box">
+                            <h4>Assessment</h4>
+                            <p style="font-size: 0.7em;">Take your life snapshot</p>
+                            <ul style="font-size: 0.6em; margin-top: 0.5em;">
+                                <li>Where am I now?</li>
+                                <li>What shaped me?</li>
+                                <li>What choices did I make?</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="concept-box">
+                            <h4>Vision</h4>
+                            <p style="font-size: 0.7em;">Define your THERE</p>
+                            <ul style="font-size: 0.6em; margin-top: 0.5em;">
+                                <li>Where does God want me?</li>
+                                <li>What is my upward call?</li>
+                                <li>Who must I become?</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="concept-box">
+                            <h4>Action</h4>
+                            <p style="font-size: 0.7em;">Bridge the gap</p>
+                            <ul style="font-size: 0.6em; margin-top: 0.5em;">
+                                <li>GET AWAY: First step?</li>
+                                <li>TURN: Patterns to break?</li>
+                                <li>HIDE: Private work?</li>
+                                <li>DRINK: What to learn?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Quotes -->
+            <section>
+                <h2>Key Quotes to Remember</h2>
+                <ul style="text-align: left; font-size: 0.85em;">
+                    <li class="fragment fade-up" style="color: var(--accent);">"I choose what God wants for my life."</li>
+                    <li class="fragment fade-up" style="color: var(--accent);">"Your life is more important than any building."</li>
+                    <li class="fragment fade-up" style="color: var(--accent);">"You can't move from here to there by staying here."</li>
+                    <li class="fragment fade-up" style="color: var(--accent);">"I am free, but I have made myself a servant."</li>
+                    <li class="fragment fade-up" style="color: var(--accent);">"Becoming IS winning."</li>
+                    <li class="fragment fade-up" style="color: var(--accent);">"Measure by fulfillment and significance."</li>
+                </ul>
+            </section>
+
+            <!-- PRAYER SECTION BREAK -->
+            <section class="section-break">
+                <p class="part-label">Application</p>
+                <h1>Prayer Points</h1>
+                <h2>Applying These Truths</h2>
+            </section>
+
+            <!-- Prayer 1 -->
+            <section>
+                <h2>Prayer for Divine Partnership</h2>
+                <div class="prayer-points">
+                    <div class="scripture">
+                        <p class="scripture-text">"Father, help me to embrace the Biblical view of planning - not passive fatalism, not self-reliant humanism, but active partnership with Your purposes. Let me choose what You want for my life."</p>
+                        <p class="scripture-ref">Based on Proverbs 16:9</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Prayer 2 -->
+            <section>
+                <h2>Prayer for the Upward Call</h2>
+                <div class="prayer-points">
+                    <div class="scripture">
+                        <p class="scripture-text">"Lord, I commit to pressing upward, not just forward. Give me the strength to move against the gravity of comfort and complacency. Help me forget what is behind and reach forward to what You have for me."</p>
+                        <p class="scripture-ref">Based on Philippians 3:13-14</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Prayer 3 -->
+            <section>
+                <h2>Prayer for Transformation</h2>
+                <div class="prayer-points">
+                    <div class="scripture">
+                        <p class="scripture-text">"God, transform my mindset before my circumstances. Help me understand that becoming the person You want me to be IS winning. Change my thinking so I can change my doing and having."</p>
+                        <p class="scripture-ref">Based on Romans 12:2</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Prayer 4 -->
+            <section>
+                <h2>Prayer for Chosen Discipline</h2>
+                <div class="prayer-points">
+                    <div class="scripture">
+                        <p class="scripture-text">"Lord, I choose to enslave myself to Christ, to righteousness, to excellence, and to discipline. Help me work like a servant even when I'm free. Let my discipline become as routine as my heartbeat."</p>
+                        <p class="scripture-ref">Based on 1 Corinthians 9:27</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA: Next 10 Years -->
+            <section class="cta-slide">
+                <h1>The Next 10 Years</h1>
+                <h2>2024 - 2034</h2>
+                <div class="quote" style="background: rgba(255,255,255,0.15); border-left-color: white;">
+                    "Whether you like it or not, 2034 is coming. The question is: who will you be when you get there?"
+                </div>
+            </section>
+
+            <!-- CTA: What Will You Choose -->
+            <section class="cta-slide">
+                <h1>What Will You Choose?</h1>
+                <ul style="margin-top: 1em;">
+                    <li class="fragment fade-up">Will you embrace the Biblical view of planning?</li>
+                    <li class="fragment fade-up">Will you move from HERE to THERE?</li>
+                    <li class="fragment fade-up">Will you choose positive slavery?</li>
+                    <li class="fragment fade-up">Will you become before trying to win?</li>
+                    <li class="fragment fade-up">Will you create your 10-year plan?</li>
+                </ul>
+            </section>
+
+            <!-- CLOSING -->
+            <section>
+                <h1>Developing A Plan For My Life</h1>
+                <h2>Pastor Mensa Otabil</h2>
+                <div class="quote">
+                    "10 years from now, you can take your notes and look back and say: Wow. Look at what I have achieved. Look at the things I've done. I'm a better person. My life is better. I'm happier with myself. I'm living better for God."
+                </div>
+                <p style="margin-top: 2rem; color: var(--accent);">May this series transform your next decade.</p>
+                <p style="margin-top: 1rem; font-size: 0.8em;">ICGC Christ Temple | centralgospel.com</p>
+            </section>
+        </div>
+    </div>
+
+    <!-- Slide Navigator Trigger Button -->
+    <button class="slide-nav-trigger" aria-label="Open slide navigator" title="View all slides (G)">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1"/>
+            <rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/>
+            <rect x="14" y="14" width="7" height="7" rx="1"/>
+        </svg>
+    </button>
+
+    <!-- Slide Navigator Modal -->
+    <div class="slide-nav-modal" id="slideNavModal" role="dialog" aria-label="Slide navigator" aria-modal="true">
+        <div class="slide-nav-header">
+            <div>
+                <h2>Slide Navigator</h2>
+                <span class="slide-count" id="slideNavCount"></span>
+            </div>
+            <button class="slide-nav-close" aria-label="Close navigator">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="slide-nav-content">
+            <div class="slide-nav-grid" id="slideNavGrid"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script>
+        const isMobile = window.innerWidth <= 768;
+        const isSmallPhone = window.innerWidth <= 480;
+
+        Reveal.initialize({
+            width: isSmallPhone ? 375 : (isMobile ? 768 : 1920),
+            height: isSmallPhone ? 667 : (isMobile ? 1024 : 1080),
+            margin: isSmallPhone ? 0.02 : (isMobile ? 0.05 : 0.04),
+            minScale: 0.1, maxScale: 2.0,
+            hash: true, history: true, hashOneBasedIndex: true,
+            controls: true, controlsTutorial: false,
+            controlsLayout: 'bottom-right', controlsBackArrows: 'faded',
+            progress: true, slideNumber: isMobile ? false : 'c/t', showSlideNumber: 'all',
+            transition: isMobile ? 'none' : 'slide', transitionSpeed: 'fast',
+            backgroundTransition: 'none',
+            autoAnimate: !isMobile, autoAnimateDuration: 0.5,
+            fragments: true, fragmentInURL: false,
+            keyboard: true, touch: true, center: true,
+            embedded: false, help: true, pause: true,
+            hideInactiveCursor: true, hideCursorTime: 3000,
+            disableLayout: false,
+            pdfSeparateFragments: false, pdfMaxPagesPerSlide: 1,
+        });
+
+        Reveal.addKeyBinding({ keyCode: 72, key: 'H' }, function() {
+            window.location.href = '../../modern/index.html';
+        });
+
+        if (new URLSearchParams(window.location.search).get('overview') === 'true') {
+            Reveal.addEventListener('ready', function() { Reveal.toggleOverview(true); });
+        }
+
+        // Slide Navigator functionality
+        (function() {
+            var modal = document.getElementById('slideNavModal');
+            var grid = document.getElementById('slideNavGrid');
+            var countEl = document.getElementById('slideNavCount');
+            var trigger = document.querySelector('.slide-nav-trigger');
+            var closeBtn = document.querySelector('.slide-nav-close');
+
+            function getSlideType(section) {
+                var html = section.innerHTML.toLowerCase();
+                if (section.classList.contains('section-break')) return 'title';
+                if (section.classList.contains('cta-slide')) return 'cta';
+                if (section.querySelector('h1') && !section.querySelector('h2')) return 'title';
+                if (html.indexOf('prayer') !== -1 || html.indexOf('lord,') !== -1 || html.indexOf('father,') !== -1) return 'prayer';
+                if (section.querySelector('.scripture') || html.indexOf('scripture') !== -1) return 'scripture';
+                return 'content';
+            }
+
+            function getSlideTitle(section, index) {
+                var h1 = section.querySelector('h1');
+                var h2 = section.querySelector('h2');
+                var h3 = section.querySelector('h3');
+                if (h1) return h1.textContent.trim().substring(0, 40);
+                if (h2) return h2.textContent.trim().substring(0, 40);
+                if (h3) return h3.textContent.trim().substring(0, 40);
+                return 'Slide ' + (index + 1);
+            }
+
+            function getSlidePreview(section) {
+                var h1 = section.querySelector('h1');
+                var h2 = section.querySelector('h2');
+                var scripture = section.querySelector('.scripture-text');
+                var p = section.querySelector('p');
+                var text = '';
+                if (h1) text += h1.textContent.trim() + ' ';
+                if (h2) text += h2.textContent.trim() + ' ';
+                if (scripture) text += scripture.textContent.trim().substring(0, 80);
+                else if (p) text += p.textContent.trim().substring(0, 80);
+                return text.trim() || 'Slide content';
+            }
+
+            function buildNavGrid() {
+                var slides = Reveal.getSlides();
+                var total = Reveal.getTotalSlides();
+                var current = Reveal.getIndices().h;
+                countEl.textContent = total + ' slides';
+                grid.textContent = '';
+
+                slides.forEach(function(section, index) {
+                    var type = getSlideType(section);
+                    var title = getSlideTitle(section, index);
+                    var preview = getSlidePreview(section);
+                    var isActive = index === current;
+
+                    var card = document.createElement('div');
+                    card.className = 'slide-nav-card' + (isActive ? ' active' : '');
+                    card.dataset.type = type;
+                    card.dataset.index = index;
+                    card.setAttribute('role', 'button');
+                    card.setAttribute('tabindex', '0');
+                    card.setAttribute('aria-label', 'Go to slide ' + (index + 1) + ': ' + title);
+
+                    var previewDiv = document.createElement('div');
+                    previewDiv.className = 'slide-nav-preview';
+                    var previewSpan = document.createElement('span');
+                    previewSpan.className = 'preview-text';
+                    previewSpan.textContent = preview;
+                    previewDiv.appendChild(previewSpan);
+
+                    var infoDiv = document.createElement('div');
+                    infoDiv.className = 'slide-nav-info';
+                    var numSpan = document.createElement('span');
+                    numSpan.className = 'slide-nav-number';
+                    numSpan.textContent = index + 1;
+                    var titleSpan = document.createElement('span');
+                    titleSpan.className = 'slide-nav-title';
+                    titleSpan.textContent = title;
+                    infoDiv.appendChild(numSpan);
+                    infoDiv.appendChild(titleSpan);
+
+                    card.appendChild(previewDiv);
+                    card.appendChild(infoDiv);
+
+                    card.addEventListener('click', function() { goToSlide(index); });
+                    card.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            goToSlide(index);
+                        }
+                    });
+
+                    grid.appendChild(card);
+                });
+            }
+
+            function goToSlide(index) {
+                var hashIndex = index + 1;
+                window.location.hash = '#/' + hashIndex;
+                closeModal();
+            }
+
+            function openModal() {
+                buildNavGrid();
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                closeBtn.focus();
+                setTimeout(function() {
+                    var activeCard = grid.querySelector('.slide-nav-card.active');
+                    if (activeCard) {
+                        activeCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }, 100);
+            }
+
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                trigger.focus();
+            }
+
+            trigger.addEventListener('click', openModal);
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) closeModal();
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeModal();
+                }
+                if (e.key === 'g' || e.key === 'G') {
+                    if (!modal.classList.contains('active')) {
+                        e.preventDefault();
+                        openModal();
+                    }
+                }
+            });
+
+            Reveal.on('slidechanged', function() {
+                if (modal.classList.contains('active')) {
+                    var current = Reveal.getIndices().h;
+                    grid.querySelectorAll('.slide-nav-card').forEach(function(card, idx) {
+                        card.classList.toggle('active', idx === current);
+                    });
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

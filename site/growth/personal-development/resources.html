@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resources for Developing A Plan For My Life Series by Pastor Mensa Otabil">
+    <title>Resources - Developing A Plan For My Life</title>
+    <style>
+        :root {
+            --bg-primary: #0d1b2a;
+            --bg-secondary: #1b263b;
+            --bg-card: #243447;
+            --text-primary: #e0e6ed;
+            --text-secondary: #a8b2c1;
+            --accent: #ffd166;
+            --accent-hover: #ffdb85;
+            --success: #06d6a0;
+            --border: #3d5a73;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 3rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--accent) 0%, #f0c040 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-secondary);
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .nav-btn:hover {
+            background: var(--accent);
+            color: var(--bg-primary);
+            transform: translateY(-2px);
+        }
+
+        .nav-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Section titles */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 1.5rem;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* Parts Grid */
+        .parts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .part-card {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .part-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .part-header {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--accent) 0%, #f0c040 100%);
+        }
+
+        .part-number {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(13, 27, 42, 0.7);
+            margin-bottom: 0.25rem;
+        }
+
+        .part-title {
+            font-size: 1.4rem;
+            color: var(--bg-primary);
+            font-weight: 700;
+        }
+
+        .part-subtitle {
+            font-size: 0.9rem;
+            color: rgba(13, 27, 42, 0.8);
+            margin-top: 0.25rem;
+        }
+
+        .part-content {
+            padding: 1.5rem;
+        }
+
+        .part-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .part-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .resource-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .resource-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem 1rem;
+            background: var(--bg-card);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .resource-link:hover {
+            background: var(--bg-primary);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .resource-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .resource-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--accent);
+        }
+
+        .resource-info {
+            flex: 1;
+        }
+
+        .resource-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .resource-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .resource-arrow {
+            color: var(--text-secondary);
+            transition: transform 0.2s ease;
+        }
+
+        .resource-link:hover .resource-arrow {
+            transform: translateX(4px);
+            color: var(--accent);
+        }
+
+        /* Quick Jump Section */
+        .quick-jump {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border);
+        }
+
+        .jump-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .jump-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: var(--bg-card);
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .jump-link:hover {
+            border-color: var(--accent);
+            background: var(--bg-primary);
+        }
+
+        .jump-link .num {
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            color: var(--bg-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .jump-link .text {
+            font-size: 0.9rem;
+        }
+
+        /* Master Summary Card */
+        .master-card {
+            background: linear-gradient(135deg, #118ab2 0%, #06d6a0 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .master-info h3 {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .master-info p {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .master-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: white;
+            color: #118ab2;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: transform 0.2s ease;
+        }
+
+        .master-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            header h1 {
+                font-size: 1.75rem;
+            }
+
+            .parts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .master-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-bar {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Developing A Plan For My Life</h1>
+            <p>Sermon Resources by Pastor Mensa Otabil | ICGC Christ Temple</p>
+            <nav class="nav-bar">
+                <a href="index.html" class="nav-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 8v8l5-4-5-4zm9-5H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>
+                    View Slides
+                </a>
+                <a href="../../modern/index.html" class="nav-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                    All Presentations
+                </a>
+            </nav>
+        </header>
+
+        <!-- Quick Jump to Slides -->
+        <section class="quick-jump">
+            <h2 class="section-title">Quick Jump to Slides</h2>
+            <div class="jump-grid">
+                <a href="index.html#/2" class="jump-link">
+                    <span class="num">1</span>
+                    <span class="text">To Plan Or Not To Plan</span>
+                </a>
+                <a href="index.html#/12" class="jump-link">
+                    <span class="num">2</span>
+                    <span class="text">From Here To There</span>
+                </a>
+                <a href="index.html#/24" class="jump-link">
+                    <span class="num">3</span>
+                    <span class="text">Becoming And Winning</span>
+                </a>
+                <a href="index.html#/34" class="jump-link">
+                    <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;fill:var(--success)"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    <span class="text">Action Framework</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Master Summary -->
+        <section class="master-card">
+            <div class="master-info">
+                <h3>Complete Series Summary</h3>
+                <p>Comprehensive overview of all three parts with key themes, action steps, and Biblical references</p>
+            </div>
+            <a href="transcripts/SERIES_MASTER_SUMMARY.md" class="master-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                Open Master Summary
+            </a>
+        </section>
+
+        <!-- Parts Grid -->
+        <h2 class="section-title">Individual Part Resources</h2>
+        <div class="parts-grid">
+            <!-- Part 1 -->
+            <article class="part-card">
+                <div class="part-header">
+                    <div class="part-number">Part One</div>
+                    <h3 class="part-title">To Plan Or Not To Plan</h3>
+                    <p class="part-subtitle">The Biblical Foundation for Planning</p>
+                </div>
+                <div class="part-content">
+                    <div class="part-meta">
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                            36:10
+                        </span>
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                            33.8K views
+                        </span>
+                    </div>
+                    <div class="resource-links">
+                        <a href="transcripts/Developing_A_Plan_For_My_Life_1_To_Plan_Or_Not_To_Plan__Pastor_Mensa_Otabil__ICGC_Christ_Temple/SUMMARY.md" class="resource-link">
+                            <div class="resource-icon">
+                                <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                            </div>
+                            <div class="resource-info">
+                                <div class="resource-title">Comprehensive Summary</div>
+                                <div class="resource-desc">Key insights, quotes, and action steps</div>
+                            </div>
+                            <span class="resource-arrow">&rarr;</span>
+                        </a>
+                        <a href="transcripts/Developing_A_Plan_For_My_Life_1_To_Plan_Or_Not_To_Plan__Pastor_Mensa_Otabil__ICGC_Christ_Temple/concise_transcript.md" class="resource-link">
+                            <div class="resource-icon">
+                                <svg viewBox="0 0 24 24"><path d="M3 18h12v-2H3v2zM3 6v2h18V6H3zm0 7h18v-2H3v2z"/></svg>
+                            </div>
+                            <div class="resource-info">
+                                <div class="resource-title">Concise Transcript</div>
+                                <div class="resource-desc">Clean, readable full transcript</div>
+                            </div>
+                            <span class="resource-arrow">&rarr;</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=gRhcEPmq9Dc" target="_blank" class="resource-link">
+                            <div class="resource-icon">
+                                <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+                            </div>
+                            <div class="resource-info">
+                                <div class="resource-title">Watch on YouTube</div>
+                                <div class="resource-desc">Original video sermon</div>
+                            </div>
+                            <span class="resource-arrow">&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Part 2 -->
+            <article class="part-card">
+                <div class="part-header">
+                    <div class="part-number">Part Two</div>
+                    <h3 class="part-title">From Here To There</h3>
+                    <p class="part-subtitle">Practical Steps for the Journey</p>
+                </div>
+                <div class="part-content">
+                    <div class="part-meta">
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                            37:17
+                        </span>
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                            18.7K views
+                        </span>
+                    </div>
+                    <div class="resource-links">
+                        <a href="transcripts/Developing_A_Plan_For_My_Life_2_From_Here_To_There___Pastor_Mensa_Otabil__ICGC_Christ_Temple/SUMMARY.md" class="resource-link">
+                            <div class="resource-icon">
+                                <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                            </div>
+                            <div class="resource-info">
+                                <div class="resource-title">Comprehensive Summary</div>
+                                <div class="resource-desc">Key insights, quotes, and action steps</div>
+                            </div>
+                            <span class="resource-arrow">&rarr;</span>
+                        </a>
+                        <a href="transcripts/Developing_A_Plan_For_My_Life_2_From_Here_To_There___Pastor_Mensa_Otabil__ICGC_Christ_Temple/concise_transcript.md" class="resource-link">
+                            <div class="resource-icon">
+                                <svg viewBox="0 0 24 24"><path d="M3 18h12v-2H3v2zM3 6v2h18V6H3zm0 7h18v-2H3v2z"/></svg>
+                            </div>
+                            <div class="resource-info">
+                                <div class="resource-title">Concise Transcript</div>
+                                <div class="resource-desc">Clean, readable full transcript</div>
+                            </div>
+                            <span class="resource-arrow">&rarr;</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=KHbSfT9RoMk" target="_blank" class="resource-link">
+                            <div class="resource-icon">
+                                <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+                            </div>
+                            <div class="resource-info">
+                                <div class="resource-title">Watch on YouTube</div>
+                                <div class="resource-desc">Original video sermon</div>
+                            </div>
+                            <span class="resource-arrow">&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Part 3 -->
+            <article class="part-card">
+                <div class="part-header">
+                    <div class="part-number">Part Three</div>
+                    <h3 class="part-title">Becoming And Winning</h3>
+                    <p class="part-subtitle">Mindset Transformation</p>
+                </div>
+                <div class="part-content">
+                    <div class="part-meta">
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                            35:37
+                        </span>
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                            12.2K views
+                        </span>
+                    </div>
+                    <div class="resource-links">
+                        <a href="transcripts/Developing_A_Plan_For_My_Life_3_Becoming_And_Winning__Pastor_Mensa_Otabil__ICGC_Christ_Temple/SUMMARY.md" class="resource-link">
+                            <div class="resource-icon">
+                                <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                            </div>
+                            <div class="resource-info">
+                                <div class="resource-title">Comprehensive Summary</div>
+                                <div class="resource-desc">Key insights, quotes, and action steps</div>
+                            </div>
+                            <span class="resource-arrow">&rarr;</span>
+                        </a>
+                        <a href="transcripts/Developing_A_Plan_For_My_Life_3_Becoming_And_Winning__Pastor_Mensa_Otabil__ICGC_Christ_Temple/concise_transcript.md" class="resource-link">
+                            <div class="resource-icon">
+                                <svg viewBox="0 0 24 24"><path d="M3 18h12v-2H3v2zM3 6v2h18V6H3zm0 7h18v-2H3v2z"/></svg>
+                            </div>
+                            <div class="resource-info">
+                                <div class="resource-title">Concise Transcript</div>
+                                <div class="resource-desc">Clean, readable full transcript</div>
+                            </div>
+                            <span class="resource-arrow">&rarr;</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=-ijYKTS_rsM" target="_blank" class="resource-link">
+                            <div class="resource-icon">
+                                <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+                            </div>
+                            <div class="resource-info">
+                                <div class="resource-title">Watch on YouTube</div>
+                                <div class="resource-desc">Original video sermon</div>
+                            </div>
+                            <span class="resource-arrow">&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <footer>
+            <p>Developed for personal study and reflection</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="index.html">View Presentation</a> &bull;
+                <a href="../../modern/index.html">All Presentations</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
