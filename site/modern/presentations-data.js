@@ -799,5 +799,25 @@ const presentations = [
     ],
     "featured": true,
     "date": "2026-01-25"
+  },
+  {
+    "title": "Developing A Plan For My Life",
+    "speaker": "Pastor Mensa Otabil",
+    "description": "A 3-part series on biblical life planning: To Plan Or Not To Plan, From Here To There, and Becoming And Winning.",
+    "slides": 44,
+    "file": "../growth/personal-development/index.html",
+    "id": "developing-a-plan-for-my-life-series",
+    "category": "series",
+    "tags": [
+      "series",
+      "life planning",
+      "personal development",
+      "growth",
+      "mindset",
+      "becoming",
+      "winning"
+    ],
+    "featured": true,
+    "date": "2026-01-26"
   }
 ];
