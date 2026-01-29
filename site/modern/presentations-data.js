@@ -607,7 +607,7 @@ const presentations = [
   {
     "title": "21 Days of Prayer 2026 - Weeks 2 & 3",
     "speaker": "",
-    "slides": 87,
+    "slides": 100,
     "file": "presentations/monthly_prayer/January_2026_21_Days_Prayer_Week2.html",
     "id": "january-2026-21-days-prayer-week2",
     "category": "prayer",
@@ -620,10 +620,12 @@ const presentations = [
       "fasting",
       "healing",
       "marriage",
-      "provision"
+      "provision",
+      "abiding",
+      "unity"
     ],
     "featured": true,
-    "date": "2026-01-25"
+    "date": "2026-01-28"
   },
   {
     "title": "July 2025 Prayer & Fasting",
