@@ -607,7 +607,7 @@ const presentations = [
   {
     "title": "21 Days of Prayer 2026 - Weeks 2 & 3",
     "speaker": "",
-    "slides": 100,
+    "slides": 99,
     "file": "presentations/monthly_prayer/January_2026_21_Days_Prayer_Week2.html",
     "id": "january-2026-21-days-prayer-week2",
     "category": "prayer",
