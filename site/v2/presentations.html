@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presentations | Prayer Trusting Jesus</title>
+  <meta name="description" content="Beautiful scripture-based presentations for personal study, group teaching, and spiritual growth.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/design-system.css">
+
+  <style>
+    body {
+      padding-top: 64px;
+      background: var(--color-parchment-100);
+      min-height: 100vh;
+    }
+
+    @media screen and (min-width: 768px) {
+      body { padding-top: 72px; }
+    }
+
+    .page-header {
+      padding: var(--space-12) 0;
+      background: linear-gradient(180deg, var(--color-primary-900), var(--color-primary-800));
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(212, 168, 83, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .page-header-content { position: relative; z-index: 1; }
+
+    .page-title {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      color: var(--color-parchment-100);
+      margin-bottom: var(--space-4);
+      letter-spacing: var(--tracking-wide);
+    }
+
+    @media screen and (min-width: 768px) {
+      .page-title { font-size: var(--text-4xl); }
+    }
+
+    .page-subtitle {
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      font-style: italic;
+      color: var(--color-parchment-300);
+      max-width: 50ch;
+      margin: 0 auto;
+    }
+
+    .page-stats {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-8);
+      margin-top: var(--space-6);
+      font-family: var(--font-ui);
+      font-size: var(--text-sm);
+      color: var(--color-parchment-400);
+    }
+
+    .page-stat { display: flex; align-items: center; gap: var(--space-2); }
+
+    .page-stat-number {
+      font-weight: var(--font-bold);
+      color: var(--color-gold-500);
+      font-size: var(--text-lg);
+    }
+
+    .filter-section {
+      padding: var(--space-4) 0;
+      background: var(--color-parchment-200);
+      border-bottom: 1px solid var(--color-parchment-400);
+      position: sticky;
+      top: 64px;
+      z-index: 50;
+    }
+
+    @media screen and (min-width: 768px) {
+      .filter-section { top: 72px; padding: var(--space-6) 0; }
+    }
+
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      justify-content: center;
+      list-style: none;
+    }
+
+    .filter-tab {
+      padding: var(--space-2) var(--space-3);
+      font-family: var(--font-ui);
+      font-size: var(--text-xs);
+      font-weight: var(--font-medium);
+      color: var(--color-neutral-600);
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: all var(--duration-fast) var(--ease-default);
+      white-space: nowrap;
+    }
+
+    @media screen and (min-width: 768px) {
+      .filter-tab { padding: var(--space-2) var(--space-4); font-size: var(--text-sm); }
+    }
+
+    .filter-tab:hover { color: var(--color-primary-700); background: var(--color-parchment-100); }
+
+    .filter-tab.active {
+      color: var(--color-primary-900);
+      background: var(--color-gold-400);
+      border-color: var(--color-gold-500);
+    }
+
+    .filter-count {
+      display: inline-block;
+      margin-left: var(--space-1);
+      padding: 0 6px;
+      background: rgba(0,0,0,0.1);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+    }
+
+    .filter-tab.active .filter-count { background: rgba(0,0,0,0.2); }
+
+    .presentations-section { padding: var(--space-8) 0 var(--space-12); }
+
+    @media screen and (min-width: 768px) {
+      .presentations-section { padding: var(--space-12) 0; }
+    }
+
+    .presentations-grid { display: grid; gap: var(--space-4); }
+
+    @media screen and (min-width: 480px) {
+      .presentations-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-5); }
+    }
+
+    @media screen and (min-width: 1024px) {
+      .presentations-grid { grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+    }
+
+    @media screen and (min-width: 1280px) {
+      .presentations-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .pres-card {
+      background: var(--color-parchment-100);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: all var(--duration-normal) var(--ease-default);
+      text-decoration: none;
+      display: block;
+    }
+
+    .pres-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); }
+
+    .pres-card-thumbnail {
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--text-4xl);
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-900));
+    }
+
+    @media screen and (min-width: 768px) {
+      .pres-card-thumbnail { font-size: var(--text-5xl); }
+    }
+
+    .pres-card-thumbnail::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.3) 100%);
+    }
+
+    .pres-card[data-category="family"] .pres-card-thumbnail { background: linear-gradient(135deg, #be123c, #7f1d1d); }
+    .pres-card[data-category="names-of-god"] .pres-card-thumbnail { background: linear-gradient(135deg, #0d9488, #134e4a); }
+    .pres-card[data-category="faith"] .pres-card-thumbnail { background: linear-gradient(135deg, #047857, #064e3b); }
+    .pres-card[data-category="grace"] .pres-card-thumbnail { background: linear-gradient(135deg, #7c3aed, #4c1d95); }
+    .pres-card[data-category="prayer"] .pres-card-thumbnail { background: linear-gradient(135deg, #d97706, #92400e); }
+    .pres-card[data-category="sermon"] .pres-card-thumbnail { background: linear-gradient(135deg, #1d4ed8, #1e3a8a); }
+    .pres-card[data-category="marriage"] .pres-card-thumbnail { background: linear-gradient(135deg, #be185d, #831843); }
+    .pres-card[data-category="series"] .pres-card-thumbnail { background: linear-gradient(135deg, #6366f1, #4338ca); }
+
+    .pres-card-body { padding: var(--space-4); }
+
+    @media screen and (min-width: 768px) {
+      .pres-card-body { padding: var(--space-5); }
+    }
+
+    .pres-card-category {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      font-weight: var(--font-semibold);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--color-gold-700);
+      margin-bottom: var(--space-1);
+    }
+
+    @media screen and (min-width: 768px) {
+      .pres-card-category { font-size: var(--text-xs); margin-bottom: var(--space-2); }
+    }
+
+    .pres-card-title {
+      font-family: var(--font-heading);
+      font-size: var(--text-base);
+      font-weight: var(--font-semibold);
+      color: var(--color-primary-800);
+      margin-bottom: var(--space-1);
+      line-height: var(--leading-snug);
+    }
+
+    @media screen and (min-width: 768px) {
+      .pres-card-title { font-size: var(--text-lg); margin-bottom: var(--space-2); }
+    }
+
+    .pres-card-speaker {
+      font-size: var(--text-xs);
+      color: var(--color-neutral-500);
+      font-style: italic;
+      margin-bottom: var(--space-2);
+    }
+
+    .pres-card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-ui);
+      font-size: 10px;
+      color: var(--color-neutral-500);
+    }
+
+    @media screen and (min-width: 768px) {
+      .pres-card-meta { font-size: var(--text-xs); }
+    }
+
+    .pres-card-slides { display: flex; align-items: center; gap: var(--space-1); }
+    .pres-card-date { color: var(--color-neutral-400); }
+
+    .pres-card-featured {
+      padding: 2px 6px;
+      background: var(--color-gold-200);
+      color: var(--color-gold-800);
+      border-radius: var(--radius-sm);
+      font-weight: var(--font-semibold);
+      font-size: 9px;
+    }
+
+    .featured-presentation { margin-bottom: var(--space-8); }
+
+    @media screen and (min-width: 768px) {
+      .featured-presentation { margin-bottom: var(--space-12); }
+    }
+
+    .featured-card {
+      display: grid;
+      background: linear-gradient(135deg, var(--color-primary-800), var(--color-primary-900));
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      text-decoration: none;
+      transition: all var(--duration-normal) var(--ease-default);
+    }
+
+    @media screen and (min-width: 768px) {
+      .featured-card { grid-template-columns: 1fr 1fr; border-radius: var(--radius-2xl); }
+    }
+
+    .featured-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-2xl), var(--glow-gold); }
+
+    .featured-thumbnail {
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(ellipse at center, rgba(212, 168, 83, 0.2) 0%, transparent 70%);
+      font-size: var(--text-6xl);
+      color: var(--color-gold-500);
+    }
+
+    @media screen and (min-width: 768px) {
+      .featured-thumbnail { aspect-ratio: auto; font-size: var(--text-7xl); }
+    }
+
+    .featured-content { padding: var(--space-6); display: flex; flex-direction: column; justify-content: center; }
+
+    @media screen and (min-width: 768px) {
+      .featured-content { padding: var(--space-8); }
+    }
+
+    .featured-eyebrow {
+      font-family: var(--font-ui);
+      font-size: var(--text-xs);
+      font-weight: var(--font-semibold);
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: var(--color-gold-500);
+      margin-bottom: var(--space-2);
+    }
+
+    .featured-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      color: var(--color-parchment-100);
+      margin-bottom: var(--space-3);
+      letter-spacing: var(--tracking-wide);
+    }
+
+    @media screen and (min-width: 768px) {
+      .featured-title { font-size: var(--text-2xl); margin-bottom: var(--space-4); }
+    }
+
+    @media screen and (min-width: 1024px) {
+      .featured-title { font-size: var(--text-3xl); }
+    }
+
+    .featured-description {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-parchment-300);
+      line-height: var(--leading-relaxed);
+      margin-bottom: var(--space-4);
+    }
+
+    @media screen and (min-width: 768px) {
+      .featured-description { font-size: var(--text-base); margin-bottom: var(--space-6); }
+    }
+
+    .featured-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-ui);
+      font-size: var(--text-sm);
+      font-weight: var(--font-semibold);
+      color: var(--color-gold-500);
+      letter-spacing: var(--tracking-wide);
+    }
+
+    .featured-cta-arrow { transition: transform var(--duration-fast) var(--ease-default); }
+    .featured-card:hover .featured-cta-arrow { transform: translateX(4px); }
+
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin: var(--space-6) 0;
+    }
+
+    @media screen and (min-width: 768px) {
+      .section-divider { margin: var(--space-8) 0; }
+    }
+
+    .section-divider::before,
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--color-parchment-400);
+    }
+
+    .section-divider-text {
+      font-family: var(--font-display);
+      font-size: var(--text-xs);
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: var(--color-neutral-500);
+    }
+
+    .results-info {
+      text-align: center;
+      margin-bottom: var(--space-6);
+      font-family: var(--font-ui);
+      font-size: var(--text-sm);
+      color: var(--color-neutral-500);
+    }
+
+    .no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: var(--space-16);
+      color: var(--color-neutral-500);
+    }
+
+    .no-results-icon { font-size: var(--text-5xl); margin-bottom: var(--space-4); opacity: 0.5; }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">Prayer Trusting Jesus</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="presentations.html" class="nav-link active">Presentations</a></li>
+        <li><a href="prayer-rooms.html" class="nav-link">Prayer Rooms</a></li>
+        <li><a href="sermons.html" class="nav-link">Sermons</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" aria-hidden="true">
+      <ul class="nav-mobile-links">
+        <li><a href="index.html" class="nav-mobile-link">Home</a></li>
+        <li><a href="dashboard.html" class="nav-mobile-link">Dashboard</a></li>
+        <li><a href="presentations.html" class="nav-mobile-link">Presentations</a></li>
+        <li><a href="prayer-rooms.html" class="nav-mobile-link">Prayer Rooms</a></li>
+        <li><a href="sermons.html" class="nav-mobile-link">Sermons</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <header class="page-header">
+      <div class="container page-header-content">
+        <h1 class="page-title">Presentations</h1>
+        <p class="page-subtitle">Beautiful scripture-based presentations for personal study, group teaching, and spiritual growth</p>
+        <div class="page-stats">
+          <span class="page-stat"><span class="page-stat-number" id="total-count">0</span> presentations</span>
+          <span class="page-stat"><span class="page-stat-number" id="total-slides">0</span> slides</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="filter-section" aria-label="Filter presentations">
+      <div class="container">
+        <ul class="filter-tabs" role="tablist" id="filter-tabs"></ul>
+      </div>
+    </section>
+
+    <section class="presentations-section" aria-labelledby="presentations-heading">
+      <div class="container">
+        <div class="featured-presentation" id="featured-container"></div>
+        <div class="section-divider"><span class="section-divider-text">All Presentations</span></div>
+        <p class="results-info" id="results-info"></p>
+        <h2 id="presentations-heading" class="sr-only">All Presentations</h2>
+        <div class="presentations-grid" id="presentations-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; margin-top: 0; padding-top: 0;">
+        <p class="footer-brand" style="margin-bottom: var(--space-2);">Prayer Trusting Jesus</p>
+        <p>Trusting in Jesus, one prayer at a time.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data/presentations.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var sortedPresentations = presentations.slice().sort(function(a, b) {
+        return new Date(b.date) - new Date(a.date);
+      });
+
+      var totalSlides = presentations.reduce(function(sum, p) { return sum + p.slides; }, 0);
+      document.getElementById('total-count').textContent = presentations.length;
+      document.getElementById('total-slides').textContent = totalSlides.toLocaleString();
+
+      var categoryCounts = {};
+      presentations.forEach(function(p) {
+        categoryCounts[p.category] = (categoryCounts[p.category] || 0) + 1;
+      });
+
+      var filterTabsContainer = document.getElementById('filter-tabs');
+      var categoryOrder = ['all', 'prayer', 'faith', 'grace', 'sermon', 'family', 'marriage', 'names-of-god', 'series'];
+
+      categoryOrder.forEach(function(catKey) {
+        if (catKey === 'all' || categoryCounts[catKey]) {
+          var cat = categories[catKey];
+          var count = catKey === 'all' ? presentations.length : categoryCounts[catKey];
+          var li = document.createElement('li');
+          var btn = document.createElement('button');
+          btn.className = 'filter-tab' + (catKey === 'all' ? ' active' : '');
+          btn.setAttribute('role', 'tab');
+          btn.setAttribute('data-filter', catKey);
+          btn.textContent = cat.label + ' ';
+          var countSpan = document.createElement('span');
+          countSpan.className = 'filter-count';
+          countSpan.textContent = count;
+          btn.appendChild(countSpan);
+          li.appendChild(btn);
+          filterTabsContainer.appendChild(li);
+        }
+      });
+
+      var featuredContainer = document.getElementById('featured-container');
+      var featuredPres = sortedPresentations.find(function(p) { return p.featured; });
+
+      if (featuredPres) {
+        var featuredCard = document.createElement('a');
+        featuredCard.href = featuredPres.file;
+        featuredCard.className = 'featured-card reveal visible';
+
+        var thumb = document.createElement('div');
+        thumb.className = 'featured-thumbnail';
+        thumb.innerHTML = featuredPres.icon;
+
+        var content = document.createElement('div');
+        content.className = 'featured-content';
+
+        var eyebrow = document.createElement('p');
+        eyebrow.className = 'featured-eyebrow';
+        eyebrow.textContent = 'Featured Presentation';
+
+        var title = document.createElement('h2');
+        title.className = 'featured-title';
+        title.textContent = featuredPres.title;
+
+        var desc = document.createElement('p');
+        desc.className = 'featured-description';
+        desc.textContent = featuredPres.description;
+
+        var cta = document.createElement('span');
+        cta.className = 'featured-cta';
+        cta.textContent = 'View Presentation ';
+        var arrow = document.createElement('span');
+        arrow.className = 'featured-cta-arrow';
+        arrow.textContent = '\u2192';
+        cta.appendChild(arrow);
+
+        content.appendChild(eyebrow);
+        content.appendChild(title);
+        content.appendChild(desc);
+        content.appendChild(cta);
+
+        featuredCard.appendChild(thumb);
+        featuredCard.appendChild(content);
+        featuredContainer.appendChild(featuredCard);
+      }
+
+      var grid = document.getElementById('presentations-grid');
+
+      function formatDate(dateStr) {
+        var date = new Date(dateStr);
+        return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+      }
+
+      function renderPresentations(filter) {
+        filter = filter || 'all';
+        grid.textContent = '';
+
+        var filtered = filter === 'all'
+          ? sortedPresentations
+          : sortedPresentations.filter(function(p) { return p.category === filter; });
+
+        document.getElementById('results-info').textContent =
+          'Showing ' + filtered.length + ' presentation' + (filtered.length !== 1 ? 's' : '');
+
+        if (filtered.length === 0) {
+          var noResults = document.createElement('div');
+          noResults.className = 'no-results';
+          var icon = document.createElement('div');
+          icon.className = 'no-results-icon';
+          icon.textContent = '\uD83D\uDD0D';
+          var msg = document.createElement('p');
+          msg.textContent = 'No presentations found in this category.';
+          noResults.appendChild(icon);
+          noResults.appendChild(msg);
+          grid.appendChild(noResults);
+          return;
+        }
+
+        filtered.forEach(function(pres) {
+          var card = document.createElement('a');
+          card.href = pres.file;
+          card.className = 'pres-card reveal visible';
+          card.setAttribute('data-category', pres.category);
+
+          var thumbnail = document.createElement('div');
+          thumbnail.className = 'pres-card-thumbnail';
+          thumbnail.innerHTML = pres.icon;
+
+          var body = document.createElement('div');
+          body.className = 'pres-card-body';
+
+          var catLabel = categories[pres.category] ? categories[pres.category].label : pres.category;
+          var category = document.createElement('p');
+          category.className = 'pres-card-category';
+          category.textContent = catLabel;
+
+          var titleEl = document.createElement('h3');
+          titleEl.className = 'pres-card-title';
+          titleEl.textContent = pres.title;
+
+          body.appendChild(category);
+          body.appendChild(titleEl);
+
+          if (pres.speaker) {
+            var speaker = document.createElement('p');
+            speaker.className = 'pres-card-speaker';
+            speaker.textContent = pres.speaker;
+            body.appendChild(speaker);
+          }
+
+          var meta = document.createElement('div');
+          meta.className = 'pres-card-meta';
+
+          var slides = document.createElement('span');
+          slides.className = 'pres-card-slides';
+          slides.textContent = '\uD83D\uDCC4 ' + pres.slides + ' slides';
+
+          meta.appendChild(slides);
+
+          if (pres.featured) {
+            var badge = document.createElement('span');
+            badge.className = 'pres-card-featured';
+            badge.textContent = 'Featured';
+            meta.appendChild(badge);
+          } else {
+            var dateEl = document.createElement('span');
+            dateEl.className = 'pres-card-date';
+            dateEl.textContent = formatDate(pres.date);
+            meta.appendChild(dateEl);
+          }
+
+          body.appendChild(meta);
+          card.appendChild(thumbnail);
+          card.appendChild(body);
+          grid.appendChild(card);
+        });
+      }
+
+      renderPresentations();
+
+      filterTabsContainer.addEventListener('click', function(e) {
+        if (e.target.classList.contains('filter-tab')) {
+          document.querySelectorAll('.filter-tab').forEach(function(t) { t.classList.remove('active'); });
+          e.target.classList.add('active');
+          renderPresentations(e.target.dataset.filter);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

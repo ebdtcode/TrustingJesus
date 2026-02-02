@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sermons | Prayer Trusting Jesus</title>
+  <meta name="description" content="Sermon summaries, insights, and prayer points from powerful teachings to deepen your faith.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/design-system.css">
+
+  <style>
+    body {
+      padding-top: 64px;
+      background: linear-gradient(180deg, var(--color-parchment-200), var(--color-parchment-300));
+      min-height: 100vh;
+    }
+
+    @media screen and (min-width: 768px) {
+      body { padding-top: 72px; }
+    }
+
+    .page-header {
+      padding: var(--space-12) 0;
+      background: linear-gradient(180deg, var(--color-primary-900), var(--color-primary-800));
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(212, 168, 83, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .page-header-content { position: relative; z-index: 1; }
+
+    .page-title {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      color: var(--color-parchment-100);
+      margin-bottom: var(--space-4);
+      letter-spacing: var(--tracking-wide);
+    }
+
+    @media screen and (min-width: 768px) {
+      .page-title { font-size: var(--text-4xl); }
+    }
+
+    .page-subtitle {
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      font-style: italic;
+      color: var(--color-parchment-300);
+      max-width: 50ch;
+      margin: 0 auto;
+    }
+
+    .sermons-section { padding: var(--space-8) 0 var(--space-12); }
+
+    @media screen and (min-width: 768px) {
+      .sermons-section { padding: var(--space-12) 0; }
+    }
+
+    .sermon-card {
+      background: linear-gradient(135deg, var(--color-parchment-100), var(--color-parchment-200));
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-parchment-400);
+      overflow: hidden;
+      margin-bottom: var(--space-6);
+      transition: all var(--duration-normal) var(--ease-default);
+      position: relative;
+    }
+
+    .sermon-card::before {
+      content: '';
+      position: absolute;
+      top: var(--space-2);
+      left: var(--space-2);
+      right: var(--space-2);
+      bottom: var(--space-2);
+      border: 1px solid var(--color-gold-300);
+      border-radius: var(--radius-lg);
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .sermon-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--color-gold-400);
+    }
+
+    .sermon-card-header {
+      padding: var(--space-5);
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    @media screen and (min-width: 768px) {
+      .sermon-card-header {
+        padding: var(--space-6);
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+      }
+    }
+
+    .sermon-icon {
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--color-gold-300), var(--color-gold-500));
+      border-radius: var(--radius-lg);
+      font-size: var(--text-xl);
+    }
+
+    @media screen and (min-width: 768px) {
+      .sermon-icon { width: 64px; height: 64px; font-size: var(--text-2xl); }
+    }
+
+    .sermon-info { flex: 1; }
+
+    .sermon-series {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      font-weight: var(--font-semibold);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--color-gold-700);
+      margin-bottom: var(--space-1);
+    }
+
+    @media screen and (min-width: 768px) {
+      .sermon-series { font-size: var(--text-xs); }
+    }
+
+    .sermon-title {
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      font-weight: var(--font-semibold);
+      color: var(--color-primary-800);
+      margin-bottom: var(--space-2);
+      line-height: var(--leading-snug);
+    }
+
+    @media screen and (min-width: 768px) {
+      .sermon-title { font-size: var(--text-xl); }
+    }
+
+    .sermon-meta {
+      font-family: var(--font-ui);
+      font-size: var(--text-xs);
+      color: var(--color-neutral-500);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+
+    .sermon-meta-item { display: flex; align-items: center; gap: var(--space-1); }
+
+    .sermon-actions { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+
+    .sermon-content { padding: 0 var(--space-5) var(--space-5); }
+
+    @media screen and (min-width: 768px) {
+      .sermon-content { padding: 0 var(--space-6) var(--space-6); }
+    }
+
+    .sermon-description {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-neutral-700);
+      line-height: var(--leading-relaxed);
+      margin-bottom: var(--space-4);
+    }
+
+    @media screen and (min-width: 768px) {
+      .sermon-description { font-size: var(--text-base); margin-bottom: var(--space-6); }
+    }
+
+    .key-points {
+      background: rgba(212, 168, 83, 0.1);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+      margin-bottom: var(--space-4);
+    }
+
+    @media screen and (min-width: 768px) {
+      .key-points { padding: var(--space-5); }
+    }
+
+    .key-points-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xs);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--color-gold-700);
+      margin-bottom: var(--space-3);
+    }
+
+    .key-points-list { list-style: none; margin: 0; padding: 0; }
+
+    .key-points-item {
+      padding: var(--space-2) 0;
+      padding-left: var(--space-5);
+      position: relative;
+      font-size: var(--text-sm);
+      color: var(--color-neutral-700);
+      border-bottom: 1px solid rgba(212, 168, 83, 0.2);
+    }
+
+    .key-points-item:last-child { border-bottom: none; }
+
+    .key-points-item::before {
+      content: '\2020';
+      position: absolute;
+      left: 0;
+      color: var(--color-gold-500);
+    }
+
+    .scripture-refs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+
+    .scripture-tag {
+      display: inline-flex;
+      padding: var(--space-1) var(--space-2);
+      background: var(--color-parchment-100);
+      border: 1px solid var(--color-parchment-400);
+      border-radius: var(--radius-full);
+      font-family: var(--font-ui);
+      font-size: 10px;
+      color: var(--color-primary-700);
+      text-decoration: none;
+      transition: all var(--duration-fast) var(--ease-default);
+    }
+
+    @media screen and (min-width: 768px) {
+      .scripture-tag { font-size: var(--text-xs); padding: var(--space-1) var(--space-3); }
+    }
+
+    .scripture-tag:hover {
+      border-color: var(--color-gold-400);
+      background: var(--color-gold-100);
+    }
+
+    .sermon-card-featured {
+      background: linear-gradient(135deg, var(--color-primary-800), var(--color-primary-900));
+      border: 1px solid rgba(212, 168, 83, 0.3);
+      color: var(--color-parchment-100);
+    }
+
+    .sermon-card-featured::before {
+      border-color: var(--color-gold-500);
+      opacity: 0.3;
+    }
+
+    .sermon-card-featured .sermon-title { color: var(--color-parchment-100); }
+    .sermon-card-featured .sermon-description { color: var(--color-parchment-300); }
+    .sermon-card-featured .sermon-series { color: var(--color-gold-500); }
+    .sermon-card-featured .sermon-meta { color: var(--color-parchment-400); }
+    .sermon-card-featured .key-points { background: rgba(212, 168, 83, 0.15); }
+    .sermon-card-featured .key-points-title { color: var(--color-gold-500); }
+    .sermon-card-featured .key-points-item { color: var(--color-parchment-200); border-color: rgba(212, 168, 83, 0.2); }
+
+    .sermon-card-featured .scripture-tag {
+      background: rgba(212, 168, 83, 0.2);
+      border-color: var(--color-gold-500);
+      color: var(--color-gold-400);
+    }
+
+    .sermon-card-featured .scripture-tag:hover {
+      background: var(--color-gold-500);
+      color: var(--color-primary-900);
+    }
+
+    .featured-badge {
+      display: inline-block;
+      padding: 2px var(--space-2);
+      background: var(--color-gold-500);
+      color: var(--color-primary-900);
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: var(--font-semibold);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-2);
+    }
+
+    @media screen and (min-width: 768px) {
+      .featured-badge { font-size: 10px; padding: var(--space-1) var(--space-3); }
+    }
+
+    .results-count {
+      text-align: center;
+      font-family: var(--font-ui);
+      font-size: var(--text-sm);
+      color: var(--color-neutral-500);
+      margin-bottom: var(--space-6);
+    }
+
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin: var(--space-8) 0;
+    }
+
+    .section-divider::before,
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--color-parchment-400);
+    }
+
+    .section-divider-text {
+      font-family: var(--font-display);
+      font-size: var(--text-sm);
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: var(--color-neutral-500);
+    }
+
+    .expand-btn {
+      background: none;
+      border: none;
+      color: var(--color-gold-600);
+      font-family: var(--font-ui);
+      font-size: var(--text-xs);
+      cursor: pointer;
+      padding: var(--space-1) 0;
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+    }
+
+    .expand-btn:hover { color: var(--color-gold-500); }
+
+    .key-points-list.collapsed .key-points-item:nth-child(n+5) { display: none; }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">Prayer Trusting Jesus</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="presentations.html" class="nav-link">Presentations</a></li>
+        <li><a href="prayer-rooms.html" class="nav-link">Prayer Rooms</a></li>
+        <li><a href="sermons.html" class="nav-link active">Sermons</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" aria-hidden="true">
+      <ul class="nav-mobile-links">
+        <li><a href="index.html" class="nav-mobile-link">Home</a></li>
+        <li><a href="dashboard.html" class="nav-mobile-link">Dashboard</a></li>
+        <li><a href="presentations.html" class="nav-mobile-link">Presentations</a></li>
+        <li><a href="prayer-rooms.html" class="nav-mobile-link">Prayer Rooms</a></li>
+        <li><a href="sermons.html" class="nav-mobile-link">Sermons</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <header class="page-header">
+      <div class="container page-header-content">
+        <h1 class="page-title">Sermons</h1>
+        <p class="page-subtitle">Summaries, insights, and prayer points from powerful teachings</p>
+      </div>
+    </header>
+
+    <section class="sermons-section" aria-labelledby="sermons-heading">
+      <div class="container">
+        <h2 id="sermons-heading" class="sr-only">Sermon Collection</h2>
+        <p class="results-count" id="results-count"></p>
+        <div id="sermons-container"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; margin-top: 0; padding-top: 0;">
+        <p class="footer-brand" style="margin-bottom: var(--space-2);">Prayer Trusting Jesus</p>
+        <p>Trusting in Jesus, one prayer at a time.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    var sermons = [
+      {
+        id: "when-gods-life-becomes-yours-2026-01-19",
+        title: "When God's Life Becomes Yours",
+        date: "2026-01-19",
+        speaker: "Bishop Dr. Darlingston Johnson",
+        series: "God's Unfailing Love (Part 4)",
+        scripture: ["1 John 5:11-13", "John 3:16", "John 10:10", "Colossians 3:3-4"],
+        summary: "The revelation is that the capacity to love comes not from human effort but from the gift of eternal life (Zoe) received at salvation. Eternal life is not a future promise but a present reality - the very life of Christ Himself dwelling in and energizing our spirits.",
+        keyPoints: ["Eternal life is a present possession, not a future hope", "Christ's life in you - He IS the life", "God doesn't improve human nature - He replaces it", "The law of the Spirit of life overcomes the law of sin and death"],
+        featured: true,
+        presentationPath: "presentations/sermons/When_Gods_Life_Becomes_Yours.html"
+      },
+      {
+        id: "the-power-of-words-2026-01-11",
+        title: "The Power of Words and Faith in God's Love",
+        date: "2026-01-11",
+        speaker: "Bishop Dr. Darlingston Johnson",
+        scripture: ["Proverbs 18:21", "Genesis 1:3", "Mark 11:23", "James 3:2-6"],
+        summary: "A powerful message on the creative power of words and their connection to experiencing God's love. God's love is almighty but believers must actively agree with His purposes through their words.",
+        keyPoints: ["Words release authority and command power", "Life and death are in the power of the tongue", "Use words to create reality, not just describe circumstances", "The tongue is like a rudder that steers your entire life"],
+        featured: false,
+        presentationPath: "presentations/sermons/The_Power_of_Words_and_Faith_in_Gods_Love.html"
+      },
+      {
+        id: "love-and-faith-2026-01-05",
+        title: "Love And Faith: Heaven's Dynamic Duo",
+        date: "2026-01-05",
+        speaker: "Bishop Dr. Darlingston Johnson",
+        scripture: ["Romans 8:31-39", "1 Corinthians 13", "Galatians 5:6"],
+        summary: "2026 is the 'Year of God's Unfailing Love.' Love and faith function as heaven's dynamic duo - inseparable partners in God's redemptive plan.",
+        keyPoints: ["God's love is the strongest force in the universe", "Love provides, faith receives and releases", "Faith is activated through walking in love", "A silent Christian is a weak Christian"],
+        featured: false,
+        presentationPath: "presentations/sermons/Love_And_Faith_Heavens_Dynamic_Duo.html"
+      },
+      {
+        id: "living-a-significant-life-2025-12-08",
+        title: "Living A Significant Life",
+        date: "2025-12-08",
+        speaker: "Pastor James Muyango",
+        scripture: ["Luke 5:1-11", "John 10:10", "Matthew 22:37-39"],
+        summary: "A transformative message about living beyond mere survival and success to achieve true significance in God's kingdom.",
+        keyPoints: ["Three levels: Survival, Success, Significance", "Jesus came to give life abundantly", "Surrender your boats - your resources and talents", "Where your treasure is, there your heart will be"],
+        featured: false,
+        presentationPath: "presentations/sermons/Living_A_Significant_Life.html"
+      },
+      {
+        id: "living-the-higher-life-2025-11-23",
+        title: "Living the Higher Life",
+        date: "2025-11-23",
+        speaker: "Bishop Dr. Darlingston Johnson",
+        scripture: ["Colossians 3:1-10", "Colossians 2:9-10"],
+        summary: "Challenging believers to embrace their true spiritual identity in Christ and live from their heavenly position rather than earthly circumstances.",
+        keyPoints: ["Higher is better - living from above provides peace", "Christ is our singular, all-sufficient Source", "We are complete in Him", "Seek things which are above"],
+        featured: false,
+        presentationPath: "presentations/sermons/Living_the_Higher_Life.html"
+      },
+      {
+        id: "how-to-live-true-worship-2025-11-16",
+        title: "How to Live a Life of True Worship",
+        date: "2025-11-16",
+        speaker: "Rev. Casimir Bilong",
+        scripture: ["Romans 12:1-18"],
+        summary: "True worship is not limited to Sunday services but is a lifestyle of total consecration and dedication to God.",
+        keyPoints: ["True worship is offering your whole being as a living sacrifice", "Don't copy the world's behavior and customs", "Use your gifts faithfully", "Build genuine relationships"],
+        featured: false,
+        presentationPath: "presentations/sermons/How_to_Live_a_Life_of_True_Worship.html"
+      },
+      {
+        id: "how-to-meditate-gods-way-2025-11-09",
+        title: "How to Meditate God's Way",
+        date: "2025-11-09",
+        speaker: "Bishop Dr. Darlingston Johnson",
+        scripture: ["Joshua 1:8", "Romans 12:1-2", "Psalm 1:1-3"],
+        summary: "Biblical meditation as God's chosen method for spiritual transformation and success.",
+        keyPoints: ["Reading gives information; meditation produces transformation", "MUSE framework: Muse, Mutter, Mouth, Memorize", "Meditation sets prayer and worship on fire", "Exchange your thoughts for God's thoughts"],
+        featured: false,
+        presentationPath: "presentations/sermons/How_to_Meditate_Gods_Way.html"
+      },
+      {
+        id: "biblical-meditation-2025-11-02",
+        title: "Biblical Meditation - The Key to Success",
+        date: "2025-11-02",
+        speaker: "Bishop Dr. Darlingston Johnson",
+        scripture: ["Joshua 1:8"],
+        summary: "Biblical meditation as the most critical spiritual discipline for believers.",
+        keyPoints: ["Meditation is the most important spiritual discipline", "The Word must move from head to heart", "Everyone already knows how to meditate - redirect it to God's Word", "Meditation leads to prosperity and success"],
+        featured: false,
+        presentationPath: "presentations/sermons/Biblical_Meditation_The_Key_to_Success.html"
+      },
+      {
+        id: "you-must-be-born-again-2025-10-27",
+        title: "You MUST Be Born Again!",
+        date: "2025-10-27",
+        speaker: "Pastor Zangai Peabody",
+        scripture: ["John 3:1-12", "Romans 5:12", "1 Peter 1:23"],
+        summary: "An uncompromising message that being born again is not optional but essential for entering God's kingdom.",
+        keyPoints: ["Spiritual death inherited from Adam affects all humanity", "The natural man cannot receive spiritual things", "New birth through God's incorruptible Word", "Righteousness is imputed, not earned"],
+        featured: false,
+        presentationPath: "presentations/sermons/You_MUST_Be_Born_Again.html"
+      },
+      {
+        id: "secret-of-victory-2025-10-20",
+        title: "The Secret of Victory Over Sin, Satan And Self",
+        date: "2025-10-20",
+        speaker: "Bishop Dr. Darlingston Johnson",
+        series: "Salvation Explained: From Guilt to Glory (Part 4)",
+        scripture: ["Romans 6:1-14"],
+        summary: "The Christian life is not about striving but about letting the victory that Christ has already won work itself out in our lives.",
+        keyPoints: ["Victory comes through letting, not fighting", "We ARE dead to sin - already accomplished", "Four steps: KNOW, RECKON, LET NOT, PRESENT", "Victory is standing IN Christ's work"],
+        featured: false,
+        presentationPath: "presentations/sermons/The_Secret_of_Victory_Over_Sin.html"
+      },
+      {
+        id: "a-steadfast-hope-2025-10-13",
+        title: "A Steadfast Hope",
+        date: "2025-10-13",
+        speaker: "Bishop Dr. Darlingston Johnson",
+        series: "Salvation Explained: From Guilt to Glory (Part 3)",
+        scripture: ["Romans 5:1-5", "Hebrews 6:13-20"],
+        summary: "Believers have a steadfast and secure hope anchored in Jesus Christ - unlike earthly anchors that can fail.",
+        keyPoints: ["Christ as the believer's anchor", "God's immutable promise and oath", "Glorification: the ultimate hope", "Self-encouragement through God's Word"],
+        featured: false,
+        presentationPath: "presentations/sermons/A_Steadfast_Hope.html"
+      },
+      {
+        id: "do-you-love-me-2025-10-06",
+        title: "Do You Love Me More Than These?",
+        date: "2025-10-06",
+        speaker: "Pastor Maima Moore",
+        scripture: ["John 21:15-22"],
+        summary: "A powerful call to radical discipleship using Jesus' restoration of Peter as a framework.",
+        keyPoints: ["The call to willing troops in God's power", "Love as the foundation of all Christian service", "Jesus restores Peter after his denial", "Focus on your own calling without comparing"],
+        featured: false,
+        presentationPath: "presentations/sermons/Do_You_Love_Me_More_Than_These.html"
+      },
+      {
+        id: "three-treasures-2025-09-29",
+        title: "Three Treasures of Justification",
+        date: "2025-09-29",
+        speaker: "Bishop Darlingston Johnson",
+        series: "Salvation Explained: From Guilt to Glory (Part 2)",
+        scripture: ["Romans 5:1-5"],
+        summary: "Being declared righteous before God through faith in Jesus Christ brings three precious treasures: Peace with God, Access to Grace, and Hope.",
+        keyPoints: ["Justification - declared righteous by faith, not works", "Peace with God - complete reconciliation", "Access to Grace - standing in God's favor", "Hope that does not disappoint"],
+        featured: false,
+        presentationPath: "presentations/sermons/Three_Treasures_of_Justification.html"
+      },
+      {
+        id: "gospel-of-grace-2025-09-21",
+        title: "The Gospel of Grace",
+        date: "2025-09-21",
+        speaker: "Bishop Darlingston Johnson",
+        scripture: ["Romans 5:1-2", "Romans 8:31", "Romans 8:38-39"],
+        summary: "Jesus as the Peace Child who legally secured our peace with God. Salvation is not emotional but legal - Christ satisfied every requirement of the law.",
+        keyPoints: ["The Peace Child story - ending the war", "Our legal standing before God", "God is not just neutral but actively FOR us", "Nothing can separate us from God's love"],
+        featured: false,
+        presentationPath: "presentations/sermons/Gospel_of_Grace.html"
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var container = document.getElementById('sermons-container');
+      document.getElementById('results-count').textContent = 'Showing ' + sermons.length + ' sermons (newest first)';
+
+      function formatDate(dateStr) {
+        var date = new Date(dateStr);
+        return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      sermons.forEach(function(sermon, index) {
+        var card = document.createElement('article');
+        card.className = 'sermon-card' + (sermon.featured ? ' sermon-card-featured' : '') + ' reveal visible';
+
+        var header = document.createElement('div');
+        header.className = 'sermon-card-header';
+
+        var icon = document.createElement('div');
+        icon.className = 'sermon-icon';
+        icon.textContent = sermon.featured ? '\uD83D\uDCD6' : '\uD83C\uDF99';
+
+        var info = document.createElement('div');
+        info.className = 'sermon-info';
+
+        if (sermon.featured) {
+          var badge = document.createElement('span');
+          badge.className = 'featured-badge';
+          badge.textContent = 'Latest Sermon';
+          info.appendChild(badge);
+        }
+
+        if (sermon.series) {
+          var series = document.createElement('p');
+          series.className = 'sermon-series';
+          series.textContent = sermon.series;
+          info.appendChild(series);
+        }
+
+        var title = document.createElement('h3');
+        title.className = 'sermon-title';
+        title.textContent = sermon.title;
+        info.appendChild(title);
+
+        var meta = document.createElement('div');
+        meta.className = 'sermon-meta';
+
+        var dateItem = document.createElement('span');
+        dateItem.className = 'sermon-meta-item';
+        dateItem.textContent = '\uD83D\uDCC5 ' + formatDate(sermon.date);
+        meta.appendChild(dateItem);
+
+        var speakerItem = document.createElement('span');
+        speakerItem.className = 'sermon-meta-item';
+        speakerItem.textContent = '\uD83C\uDFA4 ' + sermon.speaker;
+        meta.appendChild(speakerItem);
+
+        info.appendChild(meta);
+
+        var actions = document.createElement('div');
+        actions.className = 'sermon-actions';
+
+        if (sermon.presentationPath) {
+          var presLink = document.createElement('a');
+          presLink.href = sermon.presentationPath;
+          presLink.className = 'btn ' + (sermon.featured ? 'btn-primary' : 'btn-secondary') + ' btn-sm';
+          presLink.textContent = 'View Presentation';
+          actions.appendChild(presLink);
+        }
+
+        header.appendChild(icon);
+        header.appendChild(info);
+        header.appendChild(actions);
+
+        var content = document.createElement('div');
+        content.className = 'sermon-content';
+
+        var desc = document.createElement('p');
+        desc.className = 'sermon-description';
+        desc.textContent = sermon.summary;
+        content.appendChild(desc);
+
+        if (sermon.keyPoints && sermon.keyPoints.length > 0) {
+          var keyPointsDiv = document.createElement('div');
+          keyPointsDiv.className = 'key-points';
+
+          var keyPointsTitle = document.createElement('h4');
+          keyPointsTitle.className = 'key-points-title';
+          keyPointsTitle.textContent = 'Key Points';
+          keyPointsDiv.appendChild(keyPointsTitle);
+
+          var keyPointsList = document.createElement('ul');
+          keyPointsList.className = 'key-points-list' + (sermon.keyPoints.length > 4 ? ' collapsed' : '');
+
+          sermon.keyPoints.forEach(function(point) {
+            var li = document.createElement('li');
+            li.className = 'key-points-item';
+            li.textContent = point;
+            keyPointsList.appendChild(li);
+          });
+
+          keyPointsDiv.appendChild(keyPointsList);
+
+          if (sermon.keyPoints.length > 4) {
+            var expandBtn = document.createElement('button');
+            expandBtn.className = 'expand-btn';
+            expandBtn.textContent = 'Show all ' + sermon.keyPoints.length + ' points \u25BC';
+            expandBtn.addEventListener('click', function() {
+              var list = this.previousElementSibling;
+              if (list.classList.contains('collapsed')) {
+                list.classList.remove('collapsed');
+                this.textContent = 'Show less \u25B2';
+              } else {
+                list.classList.add('collapsed');
+                this.textContent = 'Show all ' + sermon.keyPoints.length + ' points \u25BC';
+              }
+            });
+            keyPointsDiv.appendChild(expandBtn);
+          }
+
+          content.appendChild(keyPointsDiv);
+        }
+
+        if (sermon.scripture && sermon.scripture.length > 0) {
+          var scriptureDiv = document.createElement('div');
+          scriptureDiv.className = 'scripture-refs';
+
+          sermon.scripture.forEach(function(ref) {
+            var tag = document.createElement('span');
+            tag.className = 'scripture-tag';
+            tag.textContent = ref;
+            scriptureDiv.appendChild(tag);
+          });
+
+          content.appendChild(scriptureDiv);
+        }
+
+        card.appendChild(header);
+        card.appendChild(content);
+        container.appendChild(card);
+
+        if (index === 0 && sermons.length > 1) {
+          var divider = document.createElement('div');
+          divider.className = 'section-divider';
+          var dividerText = document.createElement('span');
+          dividerText.className = 'section-divider-text';
+          dividerText.textContent = 'Previous Sermons';
+          divider.appendChild(dividerText);
+          container.appendChild(divider);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

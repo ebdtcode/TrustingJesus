@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prayer Rooms | Prayer Trusting Jesus</title>
+  <meta name="description" content="Cover every room of your home with scripture-based prayers. A room-by-room guide to blessing and protecting your family.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/design-system.css">
+
+  <style>
+    body {
+      padding-top: 64px;
+      background: linear-gradient(180deg, #1a1510 0%, #0d0a08 100%);
+      min-height: 100vh;
+      color: var(--color-parchment-100);
+    }
+
+    @media screen and (min-width: 768px) {
+      body { padding-top: 72px; }
+    }
+
+    /* Page Header */
+    .page-header {
+      padding: var(--space-16) 0 var(--space-12);
+      text-align: center;
+      position: relative;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(217, 119, 6, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(212, 168, 83, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .page-header-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-eyebrow {
+      font-family: var(--font-ui);
+      font-size: var(--text-xs);
+      font-weight: var(--font-semibold);
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: var(--color-gold-500);
+      margin-bottom: var(--space-4);
+    }
+
+    .page-title {
+      font-family: var(--font-display);
+      font-size: var(--text-4xl);
+      color: var(--color-parchment-100);
+      margin-bottom: var(--space-4);
+      letter-spacing: var(--tracking-wide);
+    }
+
+    @media screen and (min-width: 768px) {
+      .page-title { font-size: var(--text-5xl); }
+    }
+
+    .page-subtitle {
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      font-style: italic;
+      color: var(--color-parchment-300);
+      max-width: 50ch;
+      margin: 0 auto;
+    }
+
+    /* Room Navigation */
+    .room-nav {
+      padding: var(--space-6) 0;
+      position: sticky;
+      top: 64px;
+      background: rgba(13, 10, 8, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 50;
+      border-bottom: 1px solid rgba(217, 119, 6, 0.2);
+    }
+
+    @media screen and (min-width: 768px) {
+      .room-nav { top: 72px; }
+    }
+
+    .room-nav-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      list-style: none;
+    }
+
+    .room-nav-link {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-4);
+      font-family: var(--font-ui);
+      font-size: var(--text-sm);
+      color: var(--color-parchment-300);
+      text-decoration: none;
+      border-radius: var(--radius-full);
+      border: 1px solid transparent;
+      transition: all var(--duration-fast) var(--ease-default);
+    }
+
+    .room-nav-link:hover {
+      color: var(--color-gold-400);
+      border-color: rgba(217, 119, 6, 0.3);
+    }
+
+    .room-nav-link.active {
+      color: var(--color-primary-900);
+      background: var(--color-gold-500);
+      border-color: var(--color-gold-500);
+    }
+
+    /* Room Sections */
+    .rooms-container {
+      padding: var(--space-8) 0 var(--space-16);
+    }
+
+    .room-section {
+      margin-bottom: var(--space-16);
+      scroll-margin-top: 140px;
+    }
+
+    .room-card {
+      max-width: var(--container-4xl);
+      margin: 0 auto;
+      background: linear-gradient(135deg, rgba(26, 21, 16, 0.8), rgba(13, 10, 8, 0.9));
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      border: 1px solid rgba(217, 119, 6, 0.2);
+      position: relative;
+    }
+
+    .room-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+    }
+
+    .room-card[data-room="front-door"]::before {
+      background: linear-gradient(90deg, var(--color-ruby), #f43f5e);
+    }
+
+    .room-card[data-room="living-room"]::before {
+      background: linear-gradient(90deg, var(--color-sapphire), #3b82f6);
+    }
+
+    .room-card[data-room="dining"]::before {
+      background: linear-gradient(90deg, var(--color-emerald), #10b981);
+    }
+
+    .room-card[data-room="kitchen"]::before {
+      background: linear-gradient(90deg, var(--color-amber), #f59e0b);
+    }
+
+    .room-card[data-room="bedroom"]::before {
+      background: linear-gradient(90deg, var(--color-amethyst), #8b5cf6);
+    }
+
+    .room-header {
+      padding: var(--space-8);
+      text-align: center;
+      position: relative;
+    }
+
+    .room-icon {
+      font-size: var(--text-5xl);
+      margin-bottom: var(--space-4);
+      display: block;
+    }
+
+    .room-title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      color: var(--color-parchment-100);
+      margin-bottom: var(--space-2);
+      letter-spacing: var(--tracking-wide);
+    }
+
+    @media screen and (min-width: 768px) {
+      .room-title { font-size: var(--text-3xl); }
+    }
+
+    .room-theme {
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      font-style: italic;
+      color: var(--color-gold-400);
+    }
+
+    /* Scripture Content */
+    .room-content {
+      padding: 0 var(--space-8) var(--space-8);
+    }
+
+    .scripture-block {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      margin-bottom: var(--space-6);
+      border-left: 3px solid var(--color-gold-500);
+    }
+
+    .scripture-text {
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      font-style: italic;
+      color: var(--color-parchment-200);
+      line-height: var(--leading-relaxed);
+      margin-bottom: var(--space-4);
+    }
+
+    @media screen and (min-width: 768px) {
+      .scripture-text { font-size: var(--text-xl); }
+    }
+
+    .scripture-ref {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+
+    .scripture-reference {
+      font-family: var(--font-ui);
+      font-size: var(--text-sm);
+      font-weight: var(--font-medium);
+      color: var(--color-gold-500);
+      letter-spacing: var(--tracking-wide);
+    }
+
+    .scripture-link {
+      font-family: var(--font-ui);
+      font-size: var(--text-sm);
+      color: var(--color-parchment-400);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      transition: color var(--duration-fast) var(--ease-default);
+    }
+
+    .scripture-link:hover {
+      color: var(--color-gold-400);
+    }
+
+    /* Prayer Section */
+    .prayer-section {
+      background: rgba(212, 168, 83, 0.1);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      margin-top: var(--space-6);
+    }
+
+    .prayer-label {
+      font-family: var(--font-display);
+      font-size: var(--text-sm);
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: var(--color-gold-500);
+      margin-bottom: var(--space-4);
+    }
+
+    .prayer-text {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-parchment-200);
+      line-height: var(--leading-loose);
+      font-style: italic;
+    }
+
+    /* Room Glow Effects */
+    .room-card[data-room="front-door"] {
+      box-shadow: 0 0 60px rgba(190, 18, 60, 0.1);
+    }
+
+    .room-card[data-room="living-room"] {
+      box-shadow: 0 0 60px rgba(29, 78, 216, 0.1);
+    }
+
+    .room-card[data-room="dining"] {
+      box-shadow: 0 0 60px rgba(4, 120, 87, 0.1);
+    }
+
+    .room-card[data-room="kitchen"] {
+      box-shadow: 0 0 60px rgba(217, 119, 6, 0.1);
+    }
+
+    .room-card[data-room="bedroom"] {
+      box-shadow: 0 0 60px rgba(124, 58, 237, 0.1);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      text-align: center;
+      padding: var(--space-12) 0;
+      border-top: 1px solid rgba(217, 119, 6, 0.2);
+    }
+
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      color: var(--color-parchment-100);
+      margin-bottom: var(--space-4);
+    }
+
+    .cta-text {
+      font-family: var(--font-body);
+      color: var(--color-parchment-300);
+      margin-bottom: var(--space-6);
+      max-width: 50ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Footer adjustments for dark theme */
+    .footer {
+      background: #0a0806;
+      border-top: 1px solid rgba(217, 119, 6, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">Prayer Trusting Jesus</a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="presentations.html" class="nav-link">Presentations</a></li>
+        <li><a href="prayer-rooms.html" class="nav-link active">Prayer Rooms</a></li>
+        <li><a href="sermons.html" class="nav-link">Sermons</a></li>
+      </ul>
+
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="nav-mobile" aria-hidden="true">
+      <ul class="nav-mobile-links">
+        <li><a href="index.html" class="nav-mobile-link">Home</a></li>
+        <li><a href="dashboard.html" class="nav-mobile-link">Dashboard</a></li>
+        <li><a href="presentations.html" class="nav-mobile-link">Presentations</a></li>
+        <li><a href="prayer-rooms.html" class="nav-mobile-link">Prayer Rooms</a></li>
+        <li><a href="sermons.html" class="nav-mobile-link">Sermons</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Page Header -->
+    <header class="page-header">
+      <div class="container page-header-content">
+        <p class="page-eyebrow">Family Prayer</p>
+        <h1 class="page-title">Prayer Rooms</h1>
+        <p class="page-subtitle">
+          Cover every corner of your home with scripture-based prayers
+        </p>
+      </div>
+    </header>
+
+    <!-- Room Navigation -->
+    <nav class="room-nav" aria-label="Room navigation">
+      <div class="container">
+        <ul class="room-nav-list">
+          <li><a href="#front-door" class="room-nav-link">&#128682; Front Door</a></li>
+          <li><a href="#living-room" class="room-nav-link">&#128715; Living Room</a></li>
+          <li><a href="#dining" class="room-nav-link">&#127869; Dining</a></li>
+          <li><a href="#kitchen" class="room-nav-link">&#127859; Kitchen</a></li>
+          <li><a href="#bedroom" class="room-nav-link">&#128716; Bedroom</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Room Sections -->
+    <div class="rooms-container">
+      <div class="container">
+        <!-- Front Door -->
+        <section id="front-door" class="room-section reveal">
+          <article class="room-card" data-room="front-door">
+            <header class="room-header">
+              <span class="room-icon">&#128682;</span>
+              <h2 class="room-title">Front Door</h2>
+              <p class="room-theme">Protection & Welcome</p>
+            </header>
+
+            <div class="room-content">
+              <div class="scripture-block">
+                <p class="scripture-text">
+                  "The Lord will watch over your coming and going both now and forevermore."
+                </p>
+                <div class="scripture-ref">
+                  <span class="scripture-reference">Psalm 121:8 (NIV)</span>
+                  <a href="https://www.bible.com/bible/111/PSA.121.8.NIV" target="_blank" rel="noopener" class="scripture-link">
+                    Read on Bible.com &#8594;
+                  </a>
+                </div>
+              </div>
+
+              <div class="scripture-block">
+                <p class="scripture-text">
+                  "When you enter a house, first say, 'Peace to this house.'"
+                </p>
+                <div class="scripture-ref">
+                  <span class="scripture-reference">Luke 10:5 (NIV)</span>
+                  <a href="https://www.bible.com/bible/111/LUK.10.5.NIV" target="_blank" rel="noopener" class="scripture-link">
+                    Read on Bible.com &#8594;
+                  </a>
+                </div>
+              </div>
+
+              <div class="prayer-section">
+                <p class="prayer-label">Prayer</p>
+                <p class="prayer-text">
+                  Lord, we dedicate this entrance to You. May everyone who enters this home feel Your peace and presence. Protect all who come and go. Let this doorway be a threshold of blessing, where Your angels stand guard and Your love welcomes all.
+                </p>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- Living Room -->
+        <section id="living-room" class="room-section reveal">
+          <article class="room-card" data-room="living-room">
+            <header class="room-header">
+              <span class="room-icon">&#128715;</span>
+              <h2 class="room-title">Living Room</h2>
+              <p class="room-theme">Family Unity & Worship</p>
+            </header>
+
+            <div class="room-content">
+              <div class="scripture-block">
+                <p class="scripture-text">
+                  "But as for me and my household, we will serve the Lord."
+                </p>
+                <div class="scripture-ref">
+                  <span class="scripture-reference">Joshua 24:15 (NIV)</span>
+                  <a href="https://www.bible.com/bible/111/JOS.24.15.NIV" target="_blank" rel="noopener" class="scripture-link">
+                    Read on Bible.com &#8594;
+                  </a>
+                </div>
+              </div>
+
+              <div class="scripture-block">
+                <p class="scripture-text">
+                  "How good and pleasant it is when God's people live together in unity!"
+                </p>
+                <div class="scripture-ref">
+                  <span class="scripture-reference">Psalm 133:1 (NIV)</span>
+                  <a href="https://www.bible.com/bible/111/PSA.133.1.NIV" target="_blank" rel="noopener" class="scripture-link">
+                    Read on Bible.com &#8594;
+                  </a>
+                </div>
+              </div>
+
+              <div class="prayer-section">
+                <p class="prayer-label">Prayer</p>
+                <p class="prayer-text">
+                  Father, let this room be a place of unity, love, and joy. May our family gather here in peace, sharing laughter and building memories that honor You. Let this space be filled with Your presence, where we worship together and grow in faith.
+                </p>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- Dining Room -->
+        <section id="dining" class="room-section reveal">
+          <article class="room-card" data-room="dining">
+            <header class="room-header">
+              <span class="room-icon">&#127869;</span>
+              <h2 class="room-title">Dining Room</h2>
+              <p class="room-theme">Provision & Gratitude</p>
+            </header>
+
+            <div class="room-content">
+              <div class="scripture-block">
+                <p class="scripture-text">
+                  "You prepare a table before me in the presence of my enemies. You anoint my head with oil; my cup overflows."
+                </p>
+                <div class="scripture-ref">
+                  <span class="scripture-reference">Psalm 23:5 (NIV)</span>
+                  <a href="https://www.bible.com/bible/111/PSA.23.5.NIV" target="_blank" rel="noopener" class="scripture-link">
+                    Read on Bible.com &#8594;
+                  </a>
+                </div>
+              </div>
+
+              <div class="scripture-block">
+                <p class="scripture-text">
+                  "Give us today our daily bread."
+                </p>
+                <div class="scripture-ref">
+                  <span class="scripture-reference">Matthew 6:11 (NIV)</span>
+                  <a href="https://www.bible.com/bible/111/MAT.6.11.NIV" target="_blank" rel="noopener" class="scripture-link">
+                    Read on Bible.com &#8594;
+                  </a>
+                </div>
+              </div>
+
+              <div class="prayer-section">
+                <p class="prayer-label">Prayer</p>
+                <p class="prayer-text">
+                  Lord, we thank You for Your faithful provision. Bless this table where we gather to nourish our bodies. May our meals be times of gratitude and fellowship. Let every conversation here build up and encourage. Thank You for being Jehovah Jireh, our Provider.
+                </p>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- Kitchen -->
+        <section id="kitchen" class="room-section reveal">
+          <article class="room-card" data-room="kitchen">
+            <header class="room-header">
+              <span class="room-icon">&#127859;</span>
+              <h2 class="room-title">Kitchen</h2>
+              <p class="room-theme">Nourishment & Service</p>
+            </header>
+
+            <div class="room-content">
+              <div class="scripture-block">
+                <p class="scripture-text">
+                  "She gets up while it is still night; she provides food for her family."
+                </p>
+                <div class="scripture-ref">
+                  <span class="scripture-reference">Proverbs 31:15 (NIV)</span>
+                  <a href="https://www.bible.com/bible/111/PRO.31.15.NIV" target="_blank" rel="noopener" class="scripture-link">
+                    Read on Bible.com &#8594;
+                  </a>
+                </div>
+              </div>
+
+              <div class="scripture-block">
+                <p class="scripture-text">
+                  "Whatever you do, work at it with all your heart, as working for the Lord."
+                </p>
+                <div class="scripture-ref">
+                  <span class="scripture-reference">Colossians 3:23 (NIV)</span>
+                  <a href="https://www.bible.com/bible/111/COL.3.23.NIV" target="_blank" rel="noopener" class="scripture-link">
+                    Read on Bible.com &#8594;
+                  </a>
+                </div>
+              </div>
+
+              <div class="prayer-section">
+                <p class="prayer-label">Prayer</p>
+                <p class="prayer-text">
+                  Heavenly Father, bless the hands that prepare meals in this kitchen. May every dish be made with love and gratitude. Let this space be a place of joyful service, where we care for our family's needs. Fill our home with the aroma of Your love and provision.
+                </p>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- Bedroom -->
+        <section id="bedroom" class="room-section reveal">
+          <article class="room-card" data-room="bedroom">
+            <header class="room-header">
+              <span class="room-icon">&#128716;</span>
+              <h2 class="room-title">Bedroom</h2>
+              <p class="room-theme">Rest & Peace</p>
+            </header>
+
+            <div class="room-content">
+              <div class="scripture-block">
+                <p class="scripture-text">
+                  "In peace I will lie down and sleep, for you alone, Lord, make me dwell in safety."
+                </p>
+                <div class="scripture-ref">
+                  <span class="scripture-reference">Psalm 4:8 (NIV)</span>
+                  <a href="https://www.bible.com/bible/111/PSA.4.8.NIV" target="_blank" rel="noopener" class="scripture-link">
+                    Read on Bible.com &#8594;
+                  </a>
+                </div>
+              </div>
+
+              <div class="scripture-block">
+                <p class="scripture-text">
+                  "He who dwells in the shelter of the Most High will rest in the shadow of the Almighty."
+                </p>
+                <div class="scripture-ref">
+                  <span class="scripture-reference">Psalm 91:1 (NIV)</span>
+                  <a href="https://www.bible.com/bible/111/PSA.91.NIV" target="_blank" rel="noopener" class="scripture-link">
+                    Read full Psalm &#8594;
+                  </a>
+                </div>
+              </div>
+
+              <div class="prayer-section">
+                <p class="prayer-label">Prayer</p>
+                <p class="prayer-text">
+                  Lord, we consecrate this room for rest and renewal. Guard our sleep and fill our dreams with Your peace. May we wake refreshed and ready to serve You. Let this bedroom be a sanctuary where we find comfort in Your presence and strength for each new day.
+                </p>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+          <h2 class="cta-title">View the Full Presentation</h2>
+          <p class="cta-text">
+            Experience the complete Prayer for the Family presentation with beautiful slides and additional scriptures.
+          </p>
+          <a href="presentations/family/Prayer_For_The_Family.html" class="btn btn-primary btn-lg">
+            Open Presentation
+          </a>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; margin-top: 0; padding-top: 0;">
+        <p class="footer-brand" style="margin-bottom: var(--space-2);">Prayer Trusting Jesus</p>
+        <p>Trusting in Jesus, one prayer at a time.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Highlight active room in navigation on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('.room-section');
+      const navLinks = document.querySelectorAll('.room-nav-link');
+
+      function updateActiveLink() {
+        let current = '';
+
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          if (window.scrollY >= sectionTop - 200) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveLink, { passive: true });
+      updateActiveLink();
+    });
+  </script>
+</body>
+</html>

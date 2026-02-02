@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Prayer for the Family - A Stained Glass Journey Through Your Home">
+    <title>Prayer for the Family | Stained Glass Edition</title>
+
+    <!-- Reveal.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+    <!-- V2 Presentation Theme -->
+    <link rel="stylesheet" href="../../assets/css/presentation-theme.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <a href="../../presentations.html" class="home-btn" aria-label="Return to presentations list">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+        <span>Home</span>
+    </a>
+
+    <!-- Slide Navigator Trigger -->
+    <button class="slide-nav-trigger" aria-label="Open slide navigator" title="View all slides (G)">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1"/>
+            <rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/>
+            <rect x="14" y="14" width="7" height="7" rx="1"/>
+        </svg>
+    </button>
+
+    <!-- Slide Navigator Modal -->
+    <div class="slide-nav-modal" id="slideNavModal" role="dialog" aria-label="Slide navigator" aria-modal="true" aria-hidden="true">
+        <div class="slide-nav-header">
+            <div>
+                <h2>Slide Navigator</h2>
+                <span class="slide-count" id="slideNavCount"></span>
+            </div>
+            <button class="slide-nav-close" aria-label="Close navigator">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="slide-nav-content">
+            <div class="slide-nav-grid" id="slideNavGrid"></div>
+        </div>
+    </div>
+
+    <div class="reveal" id="main-content">
+        <div class="slides">
+
+            <!-- TITLE SLIDE -->
+            <section data-background-gradient="radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a12 100%)">
+                <div class="light-rays"></div>
+                <span class="room-icon">&#127968;</span>
+                <h1>Prayer for the Family</h1>
+                <p class="subtitle">A Stained Glass Journey Through Your Home</p>
+                <p style="font-size: 0.6em; color: var(--text-muted); margin-top: 1.5em;">Scripture Prayers for Every Room</p>
+            </section>
+
+            <!-- OVERVIEW SLIDE -->
+            <section>
+                <h2>Praying Through Your Home</h2>
+                <p class="subtitle">Each room becomes a sanctuary</p>
+                <div class="room-grid">
+                    <div class="room-grid-item fragment fade-up">
+                        <span class="icon">&#128682;</span>
+                        <span class="name">Front Door</span>
+                    </div>
+                    <div class="room-grid-item fragment fade-up">
+                        <span class="icon">&#128715;</span>
+                        <span class="name">Living Room</span>
+                    </div>
+                    <div class="room-grid-item fragment fade-up">
+                        <span class="icon">&#127869;</span>
+                        <span class="name">Dining</span>
+                    </div>
+                    <div class="room-grid-item fragment fade-up">
+                        <span class="icon">&#127859;</span>
+                        <span class="name">Kitchen</span>
+                    </div>
+                    <div class="room-grid-item fragment fade-up" style="grid-column: span 2; justify-self: center; width: 60%;">
+                        <span class="icon">&#128716;</span>
+                        <span class="name">Bedroom</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FRONT DOOR - INTRO -->
+            <section class="room-door" data-background-gradient="radial-gradient(ellipse at center, #2d1a1f 0%, #0a0a12 100%)">
+                <div class="room-accent"></div>
+                <span class="room-icon">&#128682;</span>
+                <span class="room-badge">Front Door</span>
+                <h2>God's Protection Over Our Coming and Going</h2>
+            </section>
+
+            <!-- FRONT DOOR - SCRIPTURE -->
+            <section class="room-door">
+                <div class="room-accent"></div>
+                <span class="room-badge">Front Door</span>
+                <h2>Psalm 121:8</h2>
+                <div class="scripture-glass" style="border-left-color: var(--ruby);">
+                    <p class="scripture-text">
+                        "The LORD will watch over your coming and going both now and forevermore."
+                    </p>
+                    <p class="scripture-ref">Psalm 121:8 (NIV)</p>
+                </div>
+                <div class="prayer-panel fragment fade-up">
+                    <h4>Prayer Focus</h4>
+                    <p>Lord, guard every person who enters and leaves through this door. Watch over our family as we go out and come back home.</p>
+                </div>
+            </section>
+
+            <!-- LIVING ROOM - INTRO -->
+            <section class="room-living" data-background-gradient="radial-gradient(ellipse at center, #1a2a3f 0%, #0a0a12 100%)">
+                <div class="room-accent"></div>
+                <span class="room-icon">&#128715;</span>
+                <span class="room-badge">Living Room</span>
+                <h2>Unity and Harmony in the Home</h2>
+            </section>
+
+            <!-- LIVING ROOM - SCRIPTURE -->
+            <section class="room-living">
+                <div class="room-accent"></div>
+                <span class="room-badge">Living Room</span>
+                <h2>Psalm 133:1</h2>
+                <div class="scripture-glass" style="border-left-color: var(--sapphire);">
+                    <p class="scripture-text">
+                        "How good and pleasant it is when God's people live together in unity!"
+                    </p>
+                    <p class="scripture-ref">Psalm 133:1 (NIV)</p>
+                </div>
+                <div class="prayer-panel fragment fade-up">
+                    <h4>Prayer Focus</h4>
+                    <p>Father, let this room be filled with love, peace, and unity. May every conversation here bring glory to You.</p>
+                </div>
+            </section>
+
+            <!-- DINING ROOM - INTRO -->
+            <section class="room-dining" data-background-gradient="radial-gradient(ellipse at center, #2d2a1a 0%, #0a0a12 100%)">
+                <div class="room-accent"></div>
+                <span class="room-icon">&#127869;</span>
+                <span class="room-badge">Dining Room</span>
+                <h2>Fellowship and Grateful Hearts</h2>
+            </section>
+
+            <!-- DINING ROOM - SCRIPTURE -->
+            <section class="room-dining">
+                <div class="room-accent"></div>
+                <span class="room-badge">Dining Room</span>
+                <h2>Acts 2:46</h2>
+                <div class="scripture-glass" style="border-left-color: var(--amber);">
+                    <p class="scripture-text">
+                        "Every day they continued to meet together in the temple courts. They broke bread in their homes and ate together with glad and sincere hearts."
+                    </p>
+                    <p class="scripture-ref">Acts 2:46 (NIV)</p>
+                </div>
+                <div class="prayer-panel fragment fade-up">
+                    <h4>Prayer Focus</h4>
+                    <p>Lord, may our meals be times of genuine fellowship. Fill our hearts with gladness and sincerity.</p>
+                </div>
+            </section>
+
+            <!-- KITCHEN - INTRO -->
+            <section class="room-kitchen" data-background-gradient="radial-gradient(ellipse at center, #1a2d28 0%, #0a0a12 100%)">
+                <div class="room-accent"></div>
+                <span class="room-icon">&#127859;</span>
+                <span class="room-badge">Kitchen</span>
+                <h2>Daily Provision and Sustenance</h2>
+            </section>
+
+            <!-- KITCHEN - SCRIPTURE -->
+            <section class="room-kitchen">
+                <div class="room-accent"></div>
+                <span class="room-badge">Kitchen</span>
+                <h2>Matthew 6:11</h2>
+                <div class="scripture-glass" style="border-left-color: var(--emerald);">
+                    <p class="scripture-text">
+                        "Give us today our daily bread."
+                    </p>
+                    <p class="scripture-ref">Matthew 6:11 (NIV)</p>
+                </div>
+                <div class="prayer-panel fragment fade-up">
+                    <h4>Prayer Focus</h4>
+                    <p>Father, thank You for Your faithful provision. Bless the food prepared in this kitchen.</p>
+                </div>
+            </section>
+
+            <!-- BEDROOM - INTRO -->
+            <section class="room-bedroom" data-background-gradient="radial-gradient(ellipse at center, #2a1f3d 0%, #0a0a12 100%)">
+                <div class="room-accent"></div>
+                <span class="room-icon">&#128716;</span>
+                <span class="room-badge">Bedroom</span>
+                <h2>Rest, Protection, and Divine Shelter</h2>
+            </section>
+
+            <!-- BEDROOM - PSALM 91:1-2 -->
+            <section class="room-bedroom">
+                <div class="room-accent"></div>
+                <span class="room-badge">Bedroom</span>
+                <h2>Psalm 91 - The Protection Psalm</h2>
+                <div class="scripture-glass" style="border-left-color: var(--amethyst);">
+                    <p class="scripture-text">
+                        "Whoever dwells in the shelter of the Most High will rest in the shadow of the Almighty. I will say of the LORD, 'He is my refuge and my fortress, my God, in whom I trust.'"
+                    </p>
+                    <p class="scripture-ref">Psalm 91:1-2 (NIV)</p>
+                </div>
+            </section>
+
+            <!-- BEDROOM - PSALM 91:3-4 -->
+            <section class="room-bedroom">
+                <div class="room-accent"></div>
+                <span class="room-badge">Bedroom</span>
+                <h2>Protected from Danger</h2>
+                <div class="scripture-glass" style="border-left-color: var(--amethyst);">
+                    <p class="scripture-text">
+                        "Surely he will save you from the fowler's snare and from the deadly pestilence. He will cover you with his feathers, and under his wings you will find refuge."
+                    </p>
+                    <p class="scripture-ref">Psalm 91:3-4 (NIV)</p>
+                </div>
+            </section>
+
+            <!-- BEDROOM - PSALM 91:5-7 -->
+            <section class="room-bedroom">
+                <div class="room-accent"></div>
+                <span class="room-badge">Bedroom</span>
+                <h2>No Fear in the Night</h2>
+                <div class="scripture-glass" style="border-left-color: var(--amethyst);">
+                    <p class="scripture-text">
+                        "You will not fear the terror of night, nor the arrow that flies by day, nor the pestilence that stalks in the darkness, nor the plague that destroys at midday."
+                    </p>
+                    <p class="scripture-ref">Psalm 91:5-6 (NIV)</p>
+                </div>
+            </section>
+
+            <!-- BEDROOM - PSALM 91:9-12 -->
+            <section class="room-bedroom">
+                <div class="room-accent"></div>
+                <span class="room-badge">Bedroom</span>
+                <h2>Angelic Protection</h2>
+                <div class="scripture-glass" style="border-left-color: var(--amethyst);">
+                    <p class="scripture-text">
+                        "For he will command his angels concerning you to guard you in all your ways; they will lift you up in their hands, so that you will not strike your foot against a stone."
+                    </p>
+                    <p class="scripture-ref">Psalm 91:11-12 (NIV)</p>
+                </div>
+            </section>
+
+            <!-- BEDROOM - PSALM 91:14-16 -->
+            <section class="room-bedroom">
+                <div class="room-accent"></div>
+                <span class="room-badge">Bedroom</span>
+                <h2>God's Promise</h2>
+                <div class="scripture-glass" style="border-left-color: var(--amethyst);">
+                    <p class="scripture-text">
+                        "'Because he loves me,' says the LORD, 'I will rescue him; I will protect him, for he acknowledges my name. He will call on me, and I will answer him.'"
+                    </p>
+                    <p class="scripture-ref">Psalm 91:14-15 (NIV)</p>
+                </div>
+                <a href="https://www.bible.com/bible/111/PSA.91.NIV" target="_blank" rel="noopener noreferrer" class="bible-link fragment fade-up">
+                    Read Full Psalm 91 &rarr;
+                </a>
+            </section>
+
+            <!-- BEDROOM - PRAYER FOCUS -->
+            <section class="room-bedroom">
+                <div class="room-accent"></div>
+                <span class="room-badge">Bedroom</span>
+                <h2>Prayer for Rest and Protection</h2>
+                <ul class="prayer-list">
+                    <li class="fragment fade-up">Thank God for being our refuge and fortress</li>
+                    <li class="fragment fade-up">Ask for peaceful, restful sleep</li>
+                    <li class="fragment fade-up">Declare protection from all fears and dangers</li>
+                    <li class="fragment fade-up">Invite His angels to guard over your family</li>
+                    <li class="fragment fade-up">Claim His promise of answered prayer</li>
+                </ul>
+            </section>
+
+            <!-- SUMMARY SLIDE -->
+            <section>
+                <h2>Your Home, Covered in Prayer</h2>
+                <div class="summary-grid">
+                    <div class="summary-card fragment fade-up">
+                        <span class="icon">&#128682;</span>
+                        <p class="room">Front Door</p>
+                        <p class="verse">Psalm 121:8</p>
+                    </div>
+                    <div class="summary-card fragment fade-up">
+                        <span class="icon">&#128715;</span>
+                        <p class="room">Living Room</p>
+                        <p class="verse">Psalm 133:1</p>
+                    </div>
+                    <div class="summary-card fragment fade-up">
+                        <span class="icon">&#127869;</span>
+                        <p class="room">Dining</p>
+                        <p class="verse">Acts 2:46</p>
+                    </div>
+                    <div class="summary-card fragment fade-up">
+                        <span class="icon">&#127859;</span>
+                        <p class="room">Kitchen</p>
+                        <p class="verse">Matthew 6:11</p>
+                    </div>
+                    <div class="summary-card fragment fade-up">
+                        <span class="icon">&#128716;</span>
+                        <p class="room">Bedroom</p>
+                        <p class="verse">Psalm 91</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CLOSING SLIDE -->
+            <section data-background-gradient="radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a12 100%)">
+                <div class="light-rays"></div>
+                <span class="room-icon">&#127968;</span>
+                <h1>Bless This Home</h1>
+                <p class="subtitle">May the peace of Christ dwell in every room</p>
+                <div class="scripture-glass" style="margin-top: 1.5em; border-left-color: var(--gold);">
+                    <p class="scripture-text">
+                        "As for me and my household, we will serve the LORD."
+                    </p>
+                    <p class="scripture-ref">Joshua 24:15 (NIV)</p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script src="../../assets/js/presentation.js"></script>
+    <script>
+        Reveal.initialize({
+            width: 960,
+            height: 700,
+            margin: 0.1,
+            minScale: 0.2,
+            maxScale: 2.0,
+            hash: true,
+            history: true,
+            hashOneBasedIndex: true,
+            navigationMode: 'linear',
+            controls: true,
+            controlsTutorial: true,
+            progress: true,
+            slideNumber: 'c/t',
+            showSlideNumber: 'all',
+            transition: 'fade',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+            autoAnimate: true,
+            autoAnimateDuration: 0.6,
+            fragments: true,
+            fragmentInURL: true,
+            keyboard: true,
+            touch: true,
+            center: true,
+            help: true,
+        });
+
+        Reveal.addKeyBinding({ keyCode: 72, key: 'H', description: 'Go home' }, () => {
+            window.location.href = '../../presentations.html';
+        });
+    </script>
+</body>
+</html>

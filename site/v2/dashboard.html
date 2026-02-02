@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spiritual Growth Dashboard | Prayer Trusting Jesus</title>
+  <meta name="description" content="Track your spiritual growth journey with prayer resources, scripture readings, and faith-building content.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/design-system.css">
+
+  <style>
+    /* Dashboard-specific styles */
+
+    body {
+      padding-top: 64px;
+      background: linear-gradient(180deg, var(--color-parchment-200) 0%, var(--color-parchment-300) 100%);
+      min-height: 100vh;
+    }
+
+    @media screen and (min-width: 768px) {
+      body { padding-top: 72px; }
+    }
+
+    /* Page Header */
+    .page-header {
+      padding: var(--space-8) 0 var(--space-6);
+      text-align: center;
+      border-bottom: 1px solid var(--color-parchment-400);
+      margin-bottom: var(--space-8);
+    }
+
+    .page-title {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      color: var(--color-primary-800);
+      margin-bottom: var(--space-2);
+    }
+
+    @media screen and (min-width: 768px) {
+      .page-title { font-size: var(--text-4xl); }
+    }
+
+    .page-subtitle {
+      font-family: var(--font-heading);
+      font-style: italic;
+      color: var(--color-neutral-600);
+    }
+
+    /* Dashboard Grid */
+    .dashboard-grid {
+      display: grid;
+      gap: var(--space-6);
+      margin-bottom: var(--space-8);
+    }
+
+    @media screen and (min-width: 768px) {
+      .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media screen and (min-width: 1024px) {
+      .dashboard-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Dashboard Card */
+    .dashboard-card {
+      background: linear-gradient(135deg, var(--color-parchment-100), var(--color-parchment-200));
+      border: 1px solid var(--color-parchment-400);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      position: relative;
+      transition: all var(--duration-normal) var(--ease-default);
+    }
+
+    .dashboard-card::before {
+      content: '';
+      position: absolute;
+      top: var(--space-2);
+      left: var(--space-2);
+      right: var(--space-2);
+      bottom: var(--space-2);
+      border: 1px solid var(--color-gold-300);
+      border-radius: var(--radius-lg);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .dashboard-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-gold-400);
+    }
+
+    .dashboard-card-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+
+    .dashboard-card-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--color-gold-300), var(--color-gold-500));
+      border-radius: var(--radius-lg);
+      font-size: var(--text-xl);
+    }
+
+    .dashboard-card-title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: var(--font-semibold);
+      color: var(--color-primary-800);
+      letter-spacing: var(--tracking-wide);
+    }
+
+    .dashboard-card-content {
+      font-size: var(--text-base);
+      color: var(--color-neutral-700);
+      line-height: var(--leading-relaxed);
+    }
+
+    /* Featured Card - Larger */
+    .dashboard-card-featured {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, var(--color-primary-800), var(--color-primary-900));
+      color: var(--color-parchment-100);
+    }
+
+    @media screen and (min-width: 1024px) {
+      .dashboard-card-featured {
+        grid-column: span 2;
+      }
+    }
+
+    .dashboard-card-featured::before {
+      border-color: var(--color-gold-500);
+      opacity: 0.3;
+    }
+
+    .dashboard-card-featured .dashboard-card-title {
+      color: var(--color-parchment-100);
+    }
+
+    .dashboard-card-featured .dashboard-card-content {
+      color: var(--color-parchment-300);
+    }
+
+    /* Quick Links */
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-top: var(--space-4);
+    }
+
+    .quick-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-4);
+      background: rgba(212, 168, 83, 0.2);
+      border: 1px solid var(--color-gold-400);
+      border-radius: var(--radius-full);
+      font-family: var(--font-ui);
+      font-size: var(--text-sm);
+      color: var(--color-gold-600);
+      text-decoration: none;
+      transition: all var(--duration-fast) var(--ease-default);
+    }
+
+    .quick-link:hover {
+      background: var(--color-gold-500);
+      color: var(--color-primary-900);
+    }
+
+    .dashboard-card-featured .quick-link {
+      background: rgba(212, 168, 83, 0.3);
+      color: var(--color-gold-400);
+    }
+
+    .dashboard-card-featured .quick-link:hover {
+      background: var(--color-gold-500);
+      color: var(--color-primary-900);
+    }
+
+    /* Scripture of the Day */
+    .scripture-card {
+      text-align: center;
+      padding: var(--space-8);
+    }
+
+    .scripture-card .scripture-text {
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      font-style: italic;
+      color: var(--color-primary-700);
+      line-height: var(--leading-relaxed);
+      margin-bottom: var(--space-4);
+    }
+
+    @media screen and (min-width: 768px) {
+      .scripture-card .scripture-text { font-size: var(--text-xl); }
+    }
+
+    .scripture-card .scripture-ref {
+      font-family: var(--font-ui);
+      font-size: var(--text-sm);
+      font-weight: var(--font-medium);
+      color: var(--color-gold-700);
+      letter-spacing: var(--tracking-wide);
+    }
+
+    /* Prayer Room List */
+    .room-list {
+      list-style: none;
+      margin-top: var(--space-4);
+    }
+
+    .room-list-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid var(--color-parchment-400);
+    }
+
+    .room-list-item:last-child {
+      border-bottom: none;
+    }
+
+    .room-list-icon {
+      font-size: var(--text-lg);
+    }
+
+    .room-list-link {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-primary-700);
+      text-decoration: none;
+      flex: 1;
+    }
+
+    .room-list-link:hover {
+      color: var(--color-gold-600);
+    }
+
+    .room-list-verse {
+      font-size: var(--text-sm);
+      color: var(--color-neutral-500);
+      font-style: italic;
+    }
+
+    /* Presentation List */
+    .presentation-list {
+      margin-top: var(--space-4);
+    }
+
+    .presentation-list-item {
+      display: block;
+      padding: var(--space-4);
+      margin-bottom: var(--space-3);
+      background: var(--color-parchment-100);
+      border: 1px solid var(--color-parchment-400);
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      transition: all var(--duration-fast) var(--ease-default);
+    }
+
+    .presentation-list-item:hover {
+      border-color: var(--color-gold-400);
+      box-shadow: var(--shadow-md);
+    }
+
+    .presentation-list-category {
+      font-family: var(--font-ui);
+      font-size: var(--text-xs);
+      font-weight: var(--font-semibold);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--color-gold-700);
+    }
+
+    .presentation-list-title {
+      font-family: var(--font-heading);
+      font-size: var(--text-base);
+      font-weight: var(--font-semibold);
+      color: var(--color-primary-800);
+      margin-top: var(--space-1);
+    }
+
+    /* Ornate Dividers */
+    .ornate-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      margin: var(--space-12) 0;
+      color: var(--color-gold-500);
+    }
+
+    .ornate-divider::before,
+    .ornate-divider::after {
+      content: '';
+      flex: 1;
+      max-width: 200px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-gold-400), transparent);
+    }
+
+    .ornate-divider-icon {
+      font-size: var(--text-xl);
+      opacity: 0.7;
+    }
+
+    /* Section Title */
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      color: var(--color-primary-800);
+      text-align: center;
+      margin-bottom: var(--space-8);
+      letter-spacing: var(--tracking-wide);
+    }
+
+    @media screen and (min-width: 768px) {
+      .section-heading { font-size: var(--text-2xl); }
+    }
+
+    /* Monthly Prayer */
+    .monthly-prayer-card {
+      background: linear-gradient(135deg, #1a2f4a, var(--color-primary-900));
+      color: var(--color-parchment-100);
+    }
+
+    .monthly-prayer-card::before {
+      border-color: var(--color-gold-500);
+      opacity: 0.3;
+    }
+
+    .monthly-theme {
+      font-family: var(--font-display);
+      font-size: var(--text-sm);
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: var(--color-gold-500);
+      margin-bottom: var(--space-2);
+    }
+
+    .monthly-title {
+      font-family: var(--font-heading);
+      font-size: var(--text-2xl);
+      color: var(--color-parchment-100);
+      margin-bottom: var(--space-4);
+    }
+
+    .monthly-scripture {
+      font-family: var(--font-body);
+      font-style: italic;
+      color: var(--color-parchment-300);
+      font-size: var(--text-base);
+      line-height: var(--leading-relaxed);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">Prayer Trusting Jesus</a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+        <li><a href="presentations.html" class="nav-link">Presentations</a></li>
+        <li><a href="prayer-rooms.html" class="nav-link">Prayer Rooms</a></li>
+        <li><a href="sermons.html" class="nav-link">Sermons</a></li>
+      </ul>
+
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="nav-mobile" aria-hidden="true">
+      <ul class="nav-mobile-links">
+        <li><a href="index.html" class="nav-mobile-link">Home</a></li>
+        <li><a href="dashboard.html" class="nav-mobile-link">Dashboard</a></li>
+        <li><a href="presentations.html" class="nav-mobile-link">Presentations</a></li>
+        <li><a href="prayer-rooms.html" class="nav-mobile-link">Prayer Rooms</a></li>
+        <li><a href="sermons.html" class="nav-mobile-link">Sermons</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <!-- Page Header -->
+      <header class="page-header">
+        <h1 class="page-title">Spiritual Growth Dashboard</h1>
+        <p class="page-subtitle">Your sacred space for prayer and spiritual development</p>
+      </header>
+
+      <!-- Main Dashboard Grid -->
+      <div class="dashboard-grid">
+        <!-- Scripture of the Day -->
+        <article class="dashboard-card scripture-card reveal">
+          <div class="dashboard-card-header" style="justify-content: center;">
+            <div class="dashboard-card-icon">&#128216;</div>
+            <h2 class="dashboard-card-title">Scripture of the Day</h2>
+          </div>
+          <div class="dashboard-card-content">
+            <p class="scripture-text">
+              "The Lord is my shepherd, I lack nothing. He makes me lie down in green pastures, he leads me beside quiet waters, he refreshes my soul."
+            </p>
+            <p class="scripture-ref">Psalm 23:1-3 (NIV)</p>
+          </div>
+        </article>
+
+        <!-- Monthly Prayer Focus -->
+        <article class="dashboard-card monthly-prayer-card reveal">
+          <div class="dashboard-card-header">
+            <div class="dashboard-card-icon">&#128197;</div>
+            <h2 class="dashboard-card-title" style="color: var(--color-parchment-100);">Monthly Focus</h2>
+          </div>
+          <div class="dashboard-card-content">
+            <p class="monthly-theme">February 2026</p>
+            <p class="monthly-title">Trust in God's Provision</p>
+            <p class="monthly-scripture">
+              "And my God will meet all your needs according to the riches of his glory in Christ Jesus." - Philippians 4:19
+            </p>
+          </div>
+        </article>
+
+        <!-- Featured Presentation -->
+        <article class="dashboard-card dashboard-card-featured reveal">
+          <div class="dashboard-card-header">
+            <div class="dashboard-card-icon">&#127775;</div>
+            <h2 class="dashboard-card-title">Featured Presentation</h2>
+          </div>
+          <div class="dashboard-card-content">
+            <h3 style="font-family: var(--font-heading); font-size: var(--text-xl); margin-bottom: var(--space-2); color: var(--color-parchment-100);">Prayer for the Family</h3>
+            <p>Cover your home with scripture-based prayers, room by room. From the front door to the bedroom, protect and bless your family through the Word of God.</p>
+            <div class="quick-links">
+              <a href="presentations/family/Prayer_For_The_Family.html" class="quick-link">View Presentation</a>
+              <a href="prayer-rooms.html" class="quick-link">Explore Prayer Rooms</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Prayer Rooms -->
+        <article class="dashboard-card reveal">
+          <div class="dashboard-card-header">
+            <div class="dashboard-card-icon">&#127968;</div>
+            <h2 class="dashboard-card-title">Prayer Rooms</h2>
+          </div>
+          <div class="dashboard-card-content">
+            <p>Room-by-room prayers for your home</p>
+            <ul class="room-list">
+              <li class="room-list-item">
+                <span class="room-list-icon">&#128682;</span>
+                <a href="prayer-rooms.html#front-door" class="room-list-link">Front Door</a>
+                <span class="room-list-verse">Psalm 121:8</span>
+              </li>
+              <li class="room-list-item">
+                <span class="room-list-icon">&#128715;</span>
+                <a href="prayer-rooms.html#living-room" class="room-list-link">Living Room</a>
+                <span class="room-list-verse">Joshua 24:15</span>
+              </li>
+              <li class="room-list-item">
+                <span class="room-list-icon">&#127869;</span>
+                <a href="prayer-rooms.html#dining" class="room-list-link">Dining Room</a>
+                <span class="room-list-verse">Psalm 23:5</span>
+              </li>
+              <li class="room-list-item">
+                <span class="room-list-icon">&#127859;</span>
+                <a href="prayer-rooms.html#kitchen" class="room-list-link">Kitchen</a>
+                <span class="room-list-verse">Proverbs 31:15</span>
+              </li>
+              <li class="room-list-item">
+                <span class="room-list-icon">&#128716;</span>
+                <a href="prayer-rooms.html#bedroom" class="room-list-link">Bedroom</a>
+                <span class="room-list-verse">Psalm 4:8</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Quick Access Presentations -->
+        <article class="dashboard-card reveal">
+          <div class="dashboard-card-header">
+            <div class="dashboard-card-icon">&#128250;</div>
+            <h2 class="dashboard-card-title">Presentations</h2>
+          </div>
+          <div class="dashboard-card-content">
+            <div class="presentation-list">
+              <a href="presentations.html" class="presentation-list-item">
+                <span class="presentation-list-category">Names of God</span>
+                <span class="presentation-list-title">Jehovah Jireh</span>
+              </a>
+              <a href="presentations.html" class="presentation-list-item">
+                <span class="presentation-list-category">Faith</span>
+                <span class="presentation-list-title">Have I Not Called You</span>
+              </a>
+              <a href="presentations.html" class="presentation-list-item">
+                <span class="presentation-list-category">Grace</span>
+                <span class="presentation-list-title">Gospel of Grace</span>
+              </a>
+            </div>
+            <a href="presentations.html" class="btn btn-secondary btn-sm" style="margin-top: var(--space-4); width: 100%;">View All Presentations</a>
+          </div>
+        </article>
+
+        <!-- Sermon Insights -->
+        <article class="dashboard-card reveal">
+          <div class="dashboard-card-header">
+            <div class="dashboard-card-icon">&#127897;</div>
+            <h2 class="dashboard-card-title">Sermon Insights</h2>
+          </div>
+          <div class="dashboard-card-content">
+            <p>Recent sermon summaries and prayer points extracted from powerful teachings.</p>
+            <div class="quick-links">
+              <a href="sermons.html" class="quick-link">Browse Sermons</a>
+              <a href="#" class="quick-link">Prayer Points</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Ornate Divider -->
+      <div class="ornate-divider reveal">
+        <span class="ornate-divider-icon">&#10013;</span>
+      </div>
+
+      <!-- Additional Resources Section -->
+      <section aria-labelledby="resources-title">
+        <h2 id="resources-title" class="section-heading reveal">Additional Resources</h2>
+
+        <div class="dashboard-grid">
+          <!-- Names of God Series -->
+          <article class="dashboard-card reveal">
+            <div class="dashboard-card-header">
+              <div class="dashboard-card-icon">&#9769;</div>
+              <h3 class="dashboard-card-title">Names of God</h3>
+            </div>
+            <div class="dashboard-card-content">
+              <p>Explore the powerful names of God and their meaning for your life today.</p>
+              <div class="quick-links">
+                <a href="#" class="quick-link">Jehovah Jireh</a>
+                <a href="#" class="quick-link">Jehovah Shalom</a>
+                <a href="#" class="quick-link">El Shaddai</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Prayer Points -->
+          <article class="dashboard-card reveal">
+            <div class="dashboard-card-header">
+              <div class="dashboard-card-icon">&#128591;</div>
+              <h3 class="dashboard-card-title">Prayer Points</h3>
+            </div>
+            <div class="dashboard-card-content">
+              <p>Scripture-based prayer points organized by topic and need.</p>
+              <div class="quick-links">
+                <a href="#" class="quick-link">Protection</a>
+                <a href="#" class="quick-link">Healing</a>
+                <a href="#" class="quick-link">Provision</a>
+                <a href="#" class="quick-link">Guidance</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Growth Tracker -->
+          <article class="dashboard-card reveal">
+            <div class="dashboard-card-header">
+              <div class="dashboard-card-icon">&#127793;</div>
+              <h3 class="dashboard-card-title">Spiritual Growth</h3>
+            </div>
+            <div class="dashboard-card-content">
+              <p>Track your spiritual journey and set prayer goals for continued growth in faith.</p>
+              <a href="#" class="btn btn-secondary btn-sm" style="margin-top: var(--space-4);">Coming Soon</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; margin-top: 0; padding-top: 0;">
+        <p class="footer-brand" style="margin-bottom: var(--space-2);">Prayer Trusting Jesus</p>
+        <p>Trusting in Jesus, one prayer at a time.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

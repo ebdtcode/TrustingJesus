@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prayer Trusting Jesus | A Sacred Space for Spiritual Growth</title>
+  <meta name="description" content="Deepen your faith through scripture-based prayers, sermon insights, and spiritual growth resources. A sacred digital sanctuary for your prayer journey.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Prayer Trusting Jesus">
+  <meta property="og:description" content="A sacred space for spiritual growth through prayer and scripture.">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/design-system.css">
+
+  <style>
+    /* Page-specific styles */
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: var(--space-16) var(--space-4);
+      background: linear-gradient(180deg,
+        var(--color-primary-900) 0%,
+        var(--color-primary-800) 50%,
+        #1a2f4a 100%
+      );
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(212, 168, 83, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(212, 168, 83, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: var(--container-3xl);
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-ui);
+      font-size: var(--text-xs);
+      font-weight: var(--font-semibold);
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: var(--color-gold-500);
+      margin-bottom: var(--space-6);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: var(--text-4xl);
+      font-weight: var(--font-bold);
+      color: var(--color-parchment-100);
+      line-height: var(--leading-tight);
+      margin-bottom: var(--space-6);
+      letter-spacing: var(--tracking-wide);
+    }
+
+    @media screen and (min-width: 768px) {
+      .hero-title { font-size: var(--text-5xl); }
+    }
+
+    @media screen and (min-width: 1024px) {
+      .hero-title { font-size: var(--text-6xl); }
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      font-style: italic;
+      color: var(--color-parchment-300);
+      max-width: 50ch;
+      margin: 0 auto var(--space-8);
+      line-height: var(--leading-relaxed);
+    }
+
+    @media screen and (min-width: 768px) {
+      .hero-subtitle { font-size: var(--text-xl); }
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      align-items: center;
+    }
+
+    @media screen and (min-width: 480px) {
+      .hero-cta {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: var(--space-8);
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--color-gold-500);
+      opacity: 0.6;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+
+    /* Features Section */
+    .features {
+      padding: var(--space-16) 0;
+      background: var(--color-parchment-200);
+    }
+
+    @media screen and (min-width: 768px) {
+      .features { padding: var(--space-20) 0; }
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--space-12);
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-ui);
+      font-size: var(--text-xs);
+      font-weight: var(--font-semibold);
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: var(--color-gold-700);
+      margin-bottom: var(--space-4);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      color: var(--color-primary-800);
+    }
+
+    .feature-card {
+      background: var(--color-parchment-100);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      text-align: center;
+      border: 1px solid var(--color-parchment-400);
+      transition: all var(--duration-normal) var(--ease-default);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--color-gold-400);
+    }
+
+    .feature-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto var(--space-6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--color-gold-300), var(--color-gold-500));
+      border-radius: var(--radius-full);
+      font-size: var(--text-2xl);
+    }
+
+    .feature-title {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      color: var(--color-primary-800);
+      margin-bottom: var(--space-3);
+    }
+
+    .feature-description {
+      font-size: var(--text-base);
+      color: var(--color-neutral-600);
+      line-height: var(--leading-relaxed);
+    }
+
+    /* Scripture Spotlight */
+    .scripture-spotlight {
+      padding: var(--space-16) 0;
+      background: linear-gradient(180deg, var(--color-primary-800), var(--color-primary-900));
+      position: relative;
+    }
+
+    @media screen and (min-width: 768px) {
+      .scripture-spotlight { padding: var(--space-24) 0; }
+    }
+
+    .scripture-spotlight::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at center, rgba(212, 168, 83, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .scripture-content {
+      position: relative;
+      z-index: 1;
+      max-width: var(--container-3xl);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .scripture-quote {
+      font-family: var(--font-heading);
+      font-size: var(--text-2xl);
+      font-style: italic;
+      color: var(--color-parchment-100);
+      line-height: var(--leading-relaxed);
+      margin-bottom: var(--space-6);
+    }
+
+    @media screen and (min-width: 768px) {
+      .scripture-quote { font-size: var(--text-3xl); }
+    }
+
+    .scripture-reference {
+      font-family: var(--font-ui);
+      font-size: var(--text-sm);
+      font-weight: var(--font-medium);
+      letter-spacing: var(--tracking-wide);
+      color: var(--color-gold-500);
+    }
+
+    .scripture-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--color-gold-500), transparent);
+      margin: var(--space-8) auto;
+    }
+
+    /* Prayer Rooms Preview */
+    .prayer-rooms {
+      padding: var(--space-16) 0;
+      background: var(--color-parchment-100);
+    }
+
+    @media screen and (min-width: 768px) {
+      .prayer-rooms { padding: var(--space-20) 0; }
+    }
+
+    .room-card {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+      transition: all var(--duration-normal) var(--ease-default);
+    }
+
+    .room-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.8) 100%);
+      z-index: 1;
+    }
+
+    .room-card:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-2xl);
+    }
+
+    .room-card-ruby { background: linear-gradient(135deg, #6b1a2d, #3d0f19); }
+    .room-card-sapphire { background: linear-gradient(135deg, #1a3a6b, #0f1f3d); }
+    .room-card-emerald { background: linear-gradient(135deg, #1a6b4d, #0f3d2d); }
+    .room-card-amber { background: linear-gradient(135deg, #6b4a1a, #3d2b0f); }
+    .room-card-amethyst { background: linear-gradient(135deg, #4a1a6b, #2b0f3d); }
+
+    .room-card-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: var(--space-6);
+      z-index: 2;
+    }
+
+    .room-card-icon {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-2);
+    }
+
+    .room-card-title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: var(--font-semibold);
+      color: var(--color-parchment-100);
+      letter-spacing: var(--tracking-wide);
+      margin-bottom: var(--space-1);
+    }
+
+    .room-card-verse {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-parchment-300);
+      font-style: italic;
+    }
+
+    /* Presentations Preview */
+    .presentations {
+      padding: var(--space-16) 0;
+      background: linear-gradient(180deg, var(--color-parchment-300), var(--color-parchment-200));
+    }
+
+    @media screen and (min-width: 768px) {
+      .presentations { padding: var(--space-20) 0; }
+    }
+
+    .presentation-card {
+      background: var(--color-parchment-100);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: all var(--duration-normal) var(--ease-default);
+    }
+
+    .presentation-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .presentation-thumbnail {
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-900));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-gold-500);
+      font-size: var(--text-4xl);
+    }
+
+    .presentation-content {
+      padding: var(--space-6);
+    }
+
+    .presentation-category {
+      font-family: var(--font-ui);
+      font-size: var(--text-xs);
+      font-weight: var(--font-semibold);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--color-gold-700);
+      margin-bottom: var(--space-2);
+    }
+
+    .presentation-title {
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      font-weight: var(--font-semibold);
+      color: var(--color-primary-800);
+      margin-bottom: var(--space-2);
+    }
+
+    .presentation-meta {
+      font-size: var(--text-sm);
+      color: var(--color-neutral-500);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: var(--space-16) 0;
+      background: var(--color-primary-900);
+      text-align: center;
+    }
+
+    @media screen and (min-width: 768px) {
+      .cta-section { padding: var(--space-24) 0; }
+    }
+
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      color: var(--color-parchment-100);
+      margin-bottom: var(--space-4);
+    }
+
+    @media screen and (min-width: 768px) {
+      .cta-title { font-size: var(--text-4xl); }
+    }
+
+    .cta-subtitle {
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      font-style: italic;
+      color: var(--color-parchment-300);
+      margin-bottom: var(--space-8);
+      max-width: 50ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Footer Grid */
+    .footer-grid {
+      display: grid;
+      gap: var(--space-8);
+      margin-bottom: var(--space-8);
+    }
+
+    @media screen and (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+      }
+    }
+
+    .footer-section-title {
+      font-family: var(--font-display);
+      font-size: var(--text-sm);
+      font-weight: var(--font-semibold);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--color-gold-500);
+      margin-bottom: var(--space-4);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">Prayer Trusting Jesus</a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="presentations.html" class="nav-link">Presentations</a></li>
+        <li><a href="prayer-rooms.html" class="nav-link">Prayer Rooms</a></li>
+        <li><a href="sermons.html" class="nav-link">Sermons</a></li>
+      </ul>
+
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="nav-mobile" aria-hidden="true">
+      <ul class="nav-mobile-links">
+        <li><a href="index.html" class="nav-mobile-link">Home</a></li>
+        <li><a href="dashboard.html" class="nav-mobile-link">Dashboard</a></li>
+        <li><a href="presentations.html" class="nav-mobile-link">Presentations</a></li>
+        <li><a href="prayer-rooms.html" class="nav-mobile-link">Prayer Rooms</a></li>
+        <li><a href="sermons.html" class="nav-mobile-link">Sermons</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="hero-eyebrow">A Sacred Digital Sanctuary</p>
+        <h1 id="hero-title" class="hero-title">Prayer Trusting Jesus</h1>
+        <p class="hero-subtitle">
+          "Trust in the Lord with all your heart and lean not on your own understanding;
+          in all your ways submit to him, and he will make your paths straight."
+        </p>
+        <div class="hero-cta">
+          <a href="dashboard.html" class="btn btn-primary btn-lg">Begin Your Journey</a>
+          <a href="presentations.html" class="btn btn-secondary btn-lg">Explore Presentations</a>
+        </div>
+      </div>
+      <div class="hero-scroll" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 4v16m0 0l-6-6m6 6l6-6" stroke="currentColor" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" aria-labelledby="features-title">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="section-eyebrow">What We Offer</p>
+          <h2 id="features-title" class="section-title">Deepen Your Faith</h2>
+        </header>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="feature-card reveal">
+            <div class="feature-icon">&#128214;</div>
+            <h3 class="feature-title">Scripture Prayers</h3>
+            <p class="feature-description">
+              Pray through powerful scriptures organized by theme and life situation.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon">&#127968;</div>
+            <h3 class="feature-title">Prayer Rooms</h3>
+            <p class="feature-description">
+              Room-by-room prayers to cover your home and family in God's protection.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon">&#128250;</div>
+            <h3 class="feature-title">Presentations</h3>
+            <p class="feature-description">
+              Beautiful slide presentations for personal study or group teaching.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon">&#127897;</div>
+            <h3 class="feature-title">Sermon Insights</h3>
+            <p class="feature-description">
+              Summaries and prayer points from powerful sermons and teachings.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scripture Spotlight -->
+    <section class="scripture-spotlight" aria-labelledby="scripture-title">
+      <div class="container">
+        <div class="scripture-content reveal">
+          <blockquote class="scripture-quote">
+            "He who dwells in the shelter of the Most High will rest in the shadow of the Almighty.
+            I will say of the Lord, 'He is my refuge and my fortress, my God, in whom I trust.'"
+          </blockquote>
+          <div class="scripture-divider"></div>
+          <cite class="scripture-reference">Psalm 91:1-2 (NIV)</cite>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prayer Rooms Preview -->
+    <section class="prayer-rooms" aria-labelledby="rooms-title">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="section-eyebrow">Family Prayer</p>
+          <h2 id="rooms-title" class="section-title">Prayer Rooms</h2>
+          <p class="lead text-center mx-auto">Cover every corner of your home with scripture-based prayers</p>
+        </header>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <a href="presentations/family/Prayer_For_The_Family.html" class="room-card room-card-ruby reveal">
+            <div class="room-card-content">
+              <div class="room-card-icon">&#128682;</div>
+              <h3 class="room-card-title">Front Door</h3>
+              <p class="room-card-verse">Psalm 121:8</p>
+            </div>
+          </a>
+
+          <a href="presentations/family/Prayer_For_The_Family.html" class="room-card room-card-sapphire reveal">
+            <div class="room-card-content">
+              <div class="room-card-icon">&#128715;</div>
+              <h3 class="room-card-title">Living Room</h3>
+              <p class="room-card-verse">Joshua 24:15</p>
+            </div>
+          </a>
+
+          <a href="presentations/family/Prayer_For_The_Family.html" class="room-card room-card-emerald reveal">
+            <div class="room-card-content">
+              <div class="room-card-icon">&#127869;</div>
+              <h3 class="room-card-title">Dining Room</h3>
+              <p class="room-card-verse">Psalm 23:5</p>
+            </div>
+          </a>
+
+          <a href="presentations/family/Prayer_For_The_Family.html" class="room-card room-card-amber reveal">
+            <div class="room-card-content">
+              <div class="room-card-icon">&#127859;</div>
+              <h3 class="room-card-title">Kitchen</h3>
+              <p class="room-card-verse">Proverbs 31:15</p>
+            </div>
+          </a>
+
+          <a href="presentations/family/Prayer_For_The_Family.html" class="room-card room-card-amethyst reveal">
+            <div class="room-card-content">
+              <div class="room-card-icon">&#128716;</div>
+              <h3 class="room-card-title">Bedroom</h3>
+              <p class="room-card-verse">Psalm 4:8</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="prayer-rooms.html" class="btn btn-secondary">Explore All Rooms</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Presentations Preview -->
+    <section class="presentations" aria-labelledby="presentations-title">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="section-eyebrow">Featured Content</p>
+          <h2 id="presentations-title" class="section-title">Presentations</h2>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3">
+          <article class="presentation-card reveal">
+            <div class="presentation-thumbnail">&#9769;</div>
+            <div class="presentation-content">
+              <p class="presentation-category">Names of God</p>
+              <h3 class="presentation-title">Jehovah Jireh - The Lord Will Provide</h3>
+              <p class="presentation-meta">12 slides</p>
+            </div>
+          </article>
+
+          <article class="presentation-card reveal">
+            <div class="presentation-thumbnail">&#128591;</div>
+            <div class="presentation-content">
+              <p class="presentation-category">Family</p>
+              <h3 class="presentation-title">Prayer for the Family</h3>
+              <p class="presentation-meta">17 slides</p>
+            </div>
+          </article>
+
+          <article class="presentation-card reveal">
+            <div class="presentation-thumbnail">&#127775;</div>
+            <div class="presentation-content">
+              <p class="presentation-category">Faith</p>
+              <h3 class="presentation-title">Have I Not Called You</h3>
+              <p class="presentation-meta">15 slides</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="presentations.html" class="btn btn-primary">View All Presentations</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="container">
+        <h2 id="cta-title" class="cta-title reveal">Begin Your Prayer Journey</h2>
+        <p class="cta-subtitle reveal">
+          Access your spiritual growth dashboard to track your journey and discover new resources.
+        </p>
+        <a href="dashboard.html" class="btn btn-primary btn-lg reveal">Go to Dashboard</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">Prayer Trusting Jesus</p>
+          <p class="footer-text">
+            A sacred digital sanctuary for spiritual growth, prayer, and deepening your relationship with God.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="footer-section-title">Navigate</h3>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="dashboard.html" class="footer-link">Dashboard</a></li>
+            <li><a href="presentations.html" class="footer-link">Presentations</a></li>
+            <li><a href="prayer-rooms.html" class="footer-link">Prayer Rooms</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-section-title">Resources</h3>
+          <ul class="footer-links">
+            <li><a href="sermons.html" class="footer-link">Sermons</a></li>
+            <li><a href="#" class="footer-link">Prayer Points</a></li>
+            <li><a href="#" class="footer-link">Scripture Index</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-section-title">Scripture</h3>
+          <p class="footer-text" style="font-style: italic;">
+            "The Lord bless you and keep you; the Lord make his face shine on you and be gracious to you."
+          </p>
+          <p class="scripture-ref" style="margin-top: var(--space-2);">Numbers 6:24-25</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Trusting in Jesus, one prayer at a time.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

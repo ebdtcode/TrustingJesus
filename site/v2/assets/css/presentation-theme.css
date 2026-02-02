@@ -1,0 +1,1055 @@
+/**
+ * V2 STAINED GLASS SANCTUARY PRESENTATION THEME
+ * Jewel tones, geometric patterns, light rays
+ *
+ * This theme provides a consistent "stained glass" look for all presentations
+ * in the v2 site. It uses deep backgrounds with jewel tone accents and
+ * gold highlights, reminiscent of cathedral stained glass windows.
+ */
+
+/* ========================================
+   CSS CUSTOM PROPERTIES
+======================================== */
+:root {
+    /* Deep Background */
+    --bg-deep: #0a0a12;
+    --bg-panel: rgba(15, 15, 25, 0.9);
+    --bg-panel-solid: #0f0f19;
+
+    /* Jewel Tones */
+    --ruby: #9b2335;
+    --ruby-light: #c13a4d;
+    --ruby-bg: #2d1a1f;
+    --sapphire: #1e3a5f;
+    --sapphire-light: #2d5a87;
+    --sapphire-bg: #1a2a3f;
+    --emerald: #1a4d3e;
+    --emerald-light: #2a7a5f;
+    --emerald-bg: #1a2d28;
+    --amber: #c9942e;
+    --amber-light: #e8b84a;
+    --amber-bg: #2d2a1a;
+    --amethyst: #5c3d6e;
+    --amethyst-light: #7d5a8f;
+    --amethyst-bg: #2a1f3d;
+
+    /* Gold Accents */
+    --gold: #d4a84b;
+    --gold-light: #e8c97a;
+    --gold-glow: rgba(212, 168, 75, 0.3);
+    --gold-border: rgba(212, 168, 75, 0.3);
+
+    /* Text Colors */
+    --text-primary: #f5f3ee;
+    --text-secondary: #c4c0b6;
+    --text-muted: #8a8578;
+
+    /* Typography */
+    --font-display: 'Cinzel', 'Times New Roman', serif;
+    --font-body: 'EB Garamond', Georgia, serif;
+
+    /* Spacing */
+    --spacing-xs: 0.25em;
+    --spacing-sm: 0.5em;
+    --spacing-md: 1em;
+    --spacing-lg: 1.5em;
+    --spacing-xl: 2em;
+
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* ========================================
+   REVEAL.JS OVERRIDES
+======================================== */
+.reveal-viewport {
+    background: var(--bg-deep);
+}
+
+.reveal {
+    font-family: var(--font-body);
+    font-size: 28px;
+    color: var(--text-primary);
+}
+
+.reveal .slides section {
+    padding: 20px;
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0.05em;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+}
+
+.reveal h1 {
+    font-size: 2.2em;
+    color: var(--gold);
+}
+
+.reveal h2 {
+    font-size: 1.6em;
+    color: var(--gold-light);
+}
+
+.reveal h3 {
+    font-size: 1.2em;
+    color: var(--text-primary);
+}
+
+.reveal h4 {
+    font-size: 1em;
+    color: var(--gold);
+}
+
+.reveal p {
+    line-height: 1.6;
+}
+
+.reveal ul, .reveal ol {
+    display: block;
+    text-align: left;
+    margin: 0 auto;
+    max-width: 85%;
+}
+
+.reveal li {
+    margin-bottom: 0.5em;
+    line-height: 1.5;
+}
+
+.reveal a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.reveal a:hover {
+    color: var(--gold-light);
+    text-decoration: underline;
+}
+
+/* Controls and Progress */
+.reveal .controls {
+    color: var(--gold);
+}
+
+.reveal .progress {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--gold);
+}
+
+.reveal .slide-number {
+    background: var(--bg-panel);
+    color: var(--gold);
+    font-family: var(--font-display);
+    font-size: 12px;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+/* ========================================
+   STAINED GLASS DECORATIONS
+======================================== */
+
+/* Geometric border frame */
+.glass-frame {
+    position: relative;
+    padding: var(--spacing-xl);
+}
+
+.glass-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid var(--gold);
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.glass-frame::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid var(--gold);
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+/* Corner ornaments */
+.corner-ornament {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--gold);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.corner-ornament.tl { top: 5px; left: 5px; border-right: none; border-bottom: none; }
+.corner-ornament.tr { top: 5px; right: 5px; border-left: none; border-bottom: none; }
+.corner-ornament.bl { bottom: 5px; left: 5px; border-right: none; border-top: none; }
+.corner-ornament.br { bottom: 5px; right: 5px; border-left: none; border-top: none; }
+
+/* Light ray effect */
+.light-rays {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200%;
+    height: 100%;
+    background: radial-gradient(ellipse at center top, var(--gold-glow) 0%, transparent 60%);
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+/* ========================================
+   ROOM/SECTION COLOR THEMES
+======================================== */
+
+/* Room theme colors - use these classes on sections */
+.room-door { --room-color: var(--ruby); --room-light: var(--ruby-light); --room-bg: var(--ruby-bg); }
+.room-living { --room-color: var(--sapphire); --room-light: var(--sapphire-light); --room-bg: var(--sapphire-bg); }
+.room-dining { --room-color: var(--amber); --room-light: var(--amber-light); --room-bg: var(--amber-bg); }
+.room-kitchen { --room-color: var(--emerald); --room-light: var(--emerald-light); --room-bg: var(--emerald-bg); }
+.room-bedroom { --room-color: var(--amethyst); --room-light: var(--amethyst-light); --room-bg: var(--amethyst-bg); }
+
+/* Generic theme classes for other presentations */
+.theme-ruby { --room-color: var(--ruby); --room-light: var(--ruby-light); --room-bg: var(--ruby-bg); }
+.theme-sapphire { --room-color: var(--sapphire); --room-light: var(--sapphire-light); --room-bg: var(--sapphire-bg); }
+.theme-emerald { --room-color: var(--emerald); --room-light: var(--emerald-light); --room-bg: var(--emerald-bg); }
+.theme-amber { --room-color: var(--amber); --room-light: var(--amber-light); --room-bg: var(--amber-bg); }
+.theme-amethyst { --room-color: var(--amethyst); --room-light: var(--amethyst-light); --room-bg: var(--amethyst-bg); }
+.theme-gold { --room-color: var(--gold); --room-light: var(--gold-light); --room-bg: #2a2a1a; }
+
+/* Room accent bar */
+.room-accent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--room-color, var(--gold)), var(--room-light, var(--gold-light)), var(--room-color, var(--gold)), transparent);
+    pointer-events: none;
+}
+
+/* ========================================
+   CUSTOM COMPONENTS
+======================================== */
+
+/* Room/Section label badge */
+.room-badge,
+.section-badge {
+    display: inline-block;
+    padding: 0.4em 1.2em;
+    background: var(--room-color, var(--gold));
+    color: white;
+    font-family: var(--font-display);
+    font-size: 0.5em;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    margin-bottom: 0.8em;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Room/Section icon */
+.room-icon,
+.section-icon {
+    font-size: 3em;
+    display: block;
+    margin-bottom: 0.3em;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+/* ========================================
+   SCRIPTURE COMPONENTS
+======================================== */
+
+/* Scripture panel - stained glass style */
+.scripture-glass {
+    background: linear-gradient(135deg,
+        rgba(212, 168, 75, 0.15) 0%,
+        rgba(15, 15, 25, 0.95) 50%,
+        rgba(212, 168, 75, 0.1) 100%
+    );
+    border: 1px solid var(--gold-border);
+    border-left: 4px solid var(--room-color, var(--gold));
+    padding: 1.2em 1.5em;
+    margin: 1em auto;
+    max-width: 90%;
+    text-align: left;
+    position: relative;
+    backdrop-filter: blur(5px);
+}
+
+.scripture-glass::before {
+    content: '\201C'; /* Opening quote mark */
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    font-family: var(--font-display);
+    font-size: 3em;
+    color: var(--gold);
+    opacity: 0.3;
+    line-height: 1;
+}
+
+/* Standard scripture component (alternative style) */
+.scripture {
+    background: var(--bg-panel);
+    border-left: 4px solid var(--room-color, var(--gold));
+    padding: 1.2em 1.5em;
+    margin: 1em auto;
+    max-width: 90%;
+    text-align: left;
+    position: relative;
+}
+
+.scripture-text {
+    font-family: var(--font-body);
+    font-size: 0.95em;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--text-primary);
+    margin-bottom: 0.8em;
+}
+
+.scripture-ref {
+    font-family: var(--font-display);
+    font-size: 0.7em;
+    color: var(--gold);
+    text-align: right;
+    letter-spacing: 0.1em;
+}
+
+/* ========================================
+   PRAYER COMPONENTS
+======================================== */
+
+/* Prayer panel */
+.prayer-panel {
+    background: var(--bg-panel);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.2em 1.5em;
+    margin-top: 1em;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.prayer-panel h4 {
+    font-family: var(--font-display);
+    font-size: 0.7em;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.6em;
+}
+
+.prayer-panel p {
+    font-size: 0.8em;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Prayer list */
+.prayer-list {
+    text-align: left;
+    max-width: 85%;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+}
+
+.prayer-list li {
+    padding: 0.5em 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.75em;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+}
+
+.prayer-list li::before {
+    content: '\271D'; /* Cross symbol */
+    color: var(--gold);
+    font-size: 0.8em;
+    flex-shrink: 0;
+}
+
+/* Prayer point styles */
+.prayer-point {
+    background: var(--bg-panel);
+    border-left: 3px solid var(--room-color, var(--gold));
+    padding: 1em 1.2em;
+    margin: 0.8em auto;
+    max-width: 90%;
+    text-align: left;
+}
+
+.prayer-point-title {
+    font-family: var(--font-display);
+    font-size: 0.8em;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5em;
+}
+
+.prayer-point-text {
+    font-size: 0.85em;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* ========================================
+   GRID LAYOUTS
+======================================== */
+
+/* Room/Item grid for overview */
+.room-grid,
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8em;
+    max-width: 85%;
+    margin: 1.5em auto 0;
+}
+
+.room-grid-item,
+.grid-item {
+    background: var(--bg-panel);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.8em;
+    text-align: center;
+    transition: all var(--transition-normal);
+}
+
+.room-grid-item:hover,
+.grid-item:hover {
+    border-color: var(--gold);
+    transform: scale(1.02);
+}
+
+.room-grid-item .icon,
+.grid-item .icon {
+    font-size: 1.8em;
+    display: block;
+    margin-bottom: 0.3em;
+}
+
+.room-grid-item .name,
+.grid-item .name {
+    font-family: var(--font-display);
+    font-size: 0.55em;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+}
+
+/* Summary cards */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.6em;
+    max-width: 95%;
+    margin: 1em auto;
+}
+
+.summary-card {
+    background: var(--bg-panel);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.8em 0.5em;
+    text-align: center;
+}
+
+.summary-card .icon {
+    font-size: 1.5em;
+    display: block;
+    margin-bottom: 0.2em;
+}
+
+.summary-card .room,
+.summary-card .title {
+    font-family: var(--font-display);
+    font-size: 0.5em;
+    color: var(--text-primary);
+    margin-bottom: 0.2em;
+}
+
+.summary-card .verse,
+.summary-card .subtitle {
+    font-size: 0.45em;
+    color: var(--gold);
+}
+
+/* Two column layout */
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+    max-width: 90%;
+    margin: 1em auto;
+}
+
+.column {
+    text-align: left;
+}
+
+.column h4 {
+    color: var(--gold);
+    font-size: 0.9em;
+    margin-bottom: 0.8em;
+    border-bottom: 1px solid var(--gold-border);
+    padding-bottom: 0.3em;
+}
+
+/* ========================================
+   CONTENT STYLES
+======================================== */
+
+/* Subtitle text */
+.subtitle {
+    font-family: var(--font-body);
+    font-size: 0.9em;
+    font-style: italic;
+    color: var(--text-secondary);
+    margin-top: 0.3em;
+}
+
+/* Quote blocks */
+.quote {
+    background: var(--bg-panel);
+    border-left: 4px solid var(--gold);
+    padding: 1.2em 1.5em;
+    margin: 1em auto;
+    max-width: 85%;
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.quote p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Emphasis text */
+.emphasis {
+    color: var(--gold);
+    font-weight: 500;
+}
+
+/* Content list styling */
+.content-list {
+    text-align: left;
+    max-width: 85%;
+    margin: 0 auto;
+}
+
+.content-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.content-list li {
+    padding: 0.8em 1em;
+    margin-bottom: 0.5em;
+    background: var(--bg-panel);
+    border-left: 3px solid var(--room-color, var(--gold));
+}
+
+/* ========================================
+   BUTTONS AND LINKS
+======================================== */
+
+/* Bible link button */
+.bible-link {
+    display: inline-block;
+    margin-top: 1em;
+    padding: 0.5em 1em;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: var(--font-display);
+    font-size: 0.6em;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    transition: all var(--transition-normal);
+}
+
+.bible-link:hover {
+    background: var(--gold);
+    color: var(--bg-deep);
+    text-decoration: none;
+}
+
+/* CTA Button */
+.btn-cta {
+    display: inline-block;
+    padding: 0.8em 1.5em;
+    background: var(--gold);
+    color: var(--bg-deep);
+    font-family: var(--font-display);
+    font-size: 0.7em;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.btn-cta:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--gold-glow);
+}
+
+/* Secondary button */
+.btn-secondary {
+    display: inline-block;
+    padding: 0.6em 1.2em;
+    background: transparent;
+    color: var(--gold);
+    font-family: var(--font-display);
+    font-size: 0.65em;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    border: 1px solid var(--gold-border);
+    transition: all var(--transition-normal);
+}
+
+.btn-secondary:hover {
+    background: var(--gold);
+    color: var(--bg-deep);
+    border-color: var(--gold);
+}
+
+/* ========================================
+   HOME BUTTON
+======================================== */
+.home-btn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background: var(--bg-panel);
+    color: var(--gold);
+    padding: 8px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--gold-border);
+    transition: all var(--transition-fast);
+}
+
+.home-btn:hover {
+    background: var(--gold);
+    color: var(--bg-deep);
+    border-color: var(--gold);
+    text-decoration: none;
+}
+
+.home-btn svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+}
+
+/* ========================================
+   SLIDE NAVIGATOR
+======================================== */
+.slide-nav-trigger {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background: var(--bg-panel);
+    border: 1px solid var(--gold-border);
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    padding: 0;
+}
+
+.slide-nav-trigger:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+}
+
+.slide-nav-trigger svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--gold);
+    transition: fill var(--transition-fast);
+}
+
+.slide-nav-trigger:hover svg {
+    fill: var(--bg-deep);
+}
+
+.slide-nav-modal {
+    position: fixed;
+    inset: 0;
+    background: #0a0a12; /* Fully opaque dark background */
+    z-index: 2000;
+    display: none;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.slide-nav-modal.active {
+    display: flex;
+}
+
+.slide-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--gold-border);
+    margin-bottom: 20px;
+    flex-shrink: 0;
+}
+
+.slide-nav-header h2 {
+    font-family: var(--font-display);
+    font-size: 1.4em;
+    color: var(--gold);
+    margin: 0;
+    letter-spacing: 0.05em;
+}
+
+.slide-nav-header .slide-count {
+    font-family: var(--font-body);
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    margin-left: 12px;
+}
+
+.slide-nav-close {
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: 1px solid var(--gold-border);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    padding: 0;
+}
+
+.slide-nav-close:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+}
+
+.slide-nav-close svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--gold);
+    transition: stroke var(--transition-fast);
+}
+
+.slide-nav-close:hover svg {
+    stroke: var(--bg-deep);
+}
+
+.slide-nav-content {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* Custom scrollbar for navigator */
+.slide-nav-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.slide-nav-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.slide-nav-content::-webkit-scrollbar-thumb {
+    background: var(--gold-border);
+    border-radius: 4px;
+}
+
+.slide-nav-content::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
+}
+
+.slide-nav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+@media screen and (min-width: 1024px) {
+    .slide-nav-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .slide-nav-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+.slide-nav-item {
+    background: #151520;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    color: #e8e6e0;
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: left;
+    min-height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.slide-nav-item:hover {
+    border-color: var(--gold);
+    background: #1a1a2e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.slide-nav-item.current {
+    border-color: var(--gold);
+    background: rgba(212, 168, 75, 0.15);
+    box-shadow: inset 0 0 0 1px var(--gold-border);
+}
+
+.slide-nav-item:focus {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+
+.slide-nav-item .slide-number {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+    flex-shrink: 0;
+}
+
+.slide-nav-item .slide-title {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    color: #e8e6e0;
+    line-height: 1.4;
+    /* Truncate to 2 lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 2.8em;
+}
+
+.slide-nav-item:hover .slide-title {
+    color: #fff;
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+/* Skip link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--gold);
+    color: var(--bg-deep);
+    padding: 8px 16px;
+    text-decoration: none;
+    z-index: 9999;
+    font-weight: 600;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Focus styles */
+:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+@media screen and (max-width: 768px) {
+    .reveal {
+        font-size: 24px;
+    }
+
+    .room-grid,
+    .item-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .summary-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .two-columns {
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+    }
+
+    .slide-nav-modal {
+        padding: 15px;
+    }
+
+    .slide-nav-header h2 {
+        font-size: 1.2em;
+    }
+
+    .slide-nav-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .slide-nav-item {
+        padding: 10px 12px;
+        min-height: 60px;
+    }
+
+    .slide-nav-item .slide-number {
+        font-size: 10px;
+    }
+
+    .slide-nav-item .slide-title {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .reveal {
+        font-size: 20px;
+    }
+
+    .room-grid,
+    .item-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .summary-grid .summary-card:last-child {
+        grid-column: span 2;
+    }
+
+    .scripture-glass,
+    .scripture {
+        padding: 1em;
+    }
+
+    .room-icon,
+    .section-icon {
+        font-size: 2.2em;
+    }
+
+    .home-btn span {
+        display: none;
+    }
+
+    .slide-nav-trigger {
+        width: 36px;
+        height: 36px;
+    }
+
+    .slide-nav-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .slide-nav-item {
+        padding: 8px 10px;
+        min-height: 55px;
+    }
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ========================================
+   PRINT STYLES
+======================================== */
+@media print {
+    .home-btn,
+    .slide-nav-trigger,
+    .slide-nav-modal,
+    .skip-link {
+        display: none !important;
+    }
+
+    .reveal {
+        background: white;
+        color: black;
+    }
+
+    .reveal h1, .reveal h2, .reveal h3 {
+        color: #333;
+        text-shadow: none;
+    }
+
+    .scripture-glass,
+    .scripture,
+    .prayer-panel,
+    .quote {
+        border-color: #999;
+        background: #f5f5f5;
+    }
+}
