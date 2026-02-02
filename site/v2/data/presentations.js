@@ -7,6 +7,19 @@
 const presentations = [
   // 2026 Presentations (Newest)
   {
+    title: "Let Love Continue",
+    speaker: "Bishop Darlingston Johnson",
+    description: "Part 6 of God's Unfailing Love series. Let brotherly love continue - choosing to love when tested by time, pressure, and disappointment. Also explores showing hospitality to strangers.",
+    slides: 24,
+    file: "presentations/sermons/Let_Love_Continue.html",
+    id: "let-love-continue-presentation",
+    category: "sermon",
+    icon: "&#128156;",
+    tags: ["love", "unfailing love", "brotherly love", "hospitality", "Hebrews 13"],
+    featured: true,
+    date: "2026-02-02"
+  },
+  {
     title: "Prayer for the Family",
     speaker: "",
     description: "Room by room scripture prayers covering your home - from the front door to the bedroom with Psalm 91.",
