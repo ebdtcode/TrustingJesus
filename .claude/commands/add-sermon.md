@@ -282,17 +282,24 @@ git push origin main --tags
     <h2>Three Key Points</h2>
     <div style="display: grid; gap: 1em; margin-top: 1em;">
         <div class="fragment fade-up" style="background: rgba(196, 77, 86, 0.15); border-left: 4px solid var(--ruby); padding: 1em; border-radius: 0 8px 8px 0;">
-            <strong style="color: var(--ruby);">1. First Point</strong>
+            <strong style="color: #f5b8bc;">1. First Point</strong>
             <p style="margin: 0.5em 0 0; color: var(--text-secondary);">Explanation</p>
         </div>
         <div class="fragment fade-up" style="background: rgba(77, 124, 196, 0.15); border-left: 4px solid var(--sapphire); padding: 1em; border-radius: 0 8px 8px 0;">
-            <strong style="color: var(--sapphire);">2. Second Point</strong>
+            <strong style="color: #a8c8f5;">2. Second Point</strong>
             <p style="margin: 0.5em 0 0; color: var(--text-secondary);">Explanation</p>
         </div>
         <div class="fragment fade-up" style="background: rgba(86, 196, 77, 0.15); border-left: 4px solid var(--emerald); padding: 1em; border-radius: 0 8px 8px 0;">
-            <strong style="color: var(--emerald);">3. Third Point</strong>
+            <strong style="color: #a8f5b8;">3. Third Point</strong>
             <p style="margin: 0.5em 0 0; color: var(--text-secondary);">Explanation</p>
         </div>
     </div>
 </section>
 ```
+
+**WCAG AA Contrast Note:** Use light tinted colors for titles on dark tinted backgrounds:
+- Ruby background: use `#f5b8bc` (light pink)
+- Sapphire background: use `#a8c8f5` (light blue)
+- Emerald background: use `#a8f5b8` (light green)
+- Amber background: use `#f5e0a8` (light gold)
+- Amethyst background: use `#d4a8f5` (light purple)
