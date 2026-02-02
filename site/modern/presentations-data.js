@@ -821,5 +821,24 @@ const presentations = [
     ],
     "featured": true,
     "date": "2026-01-26"
+  },
+  {
+    "title": "Prayer for the Family",
+    "speaker": "",
+    "description": "Room by room scripture prayers covering your home - from the front door to the bedroom with Psalm 91.",
+    "slides": 17,
+    "file": "presentations/family/Prayer_For_The_Family.html",
+    "id": "prayer-for-the-family",
+    "category": "family",
+    "tags": [
+      "family",
+      "prayer",
+      "home",
+      "protection",
+      "Psalm 91",
+      "blessing"
+    ],
+    "featured": true,
+    "date": "2026-02-01"
   }
 ];
