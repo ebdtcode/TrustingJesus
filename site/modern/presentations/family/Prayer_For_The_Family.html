@@ -62,6 +62,13 @@
             color: #14213d;
         }
 
+        /* Summary slide bottom row */
+        .summary-bottom-row {
+            max-width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .home-prayer-list {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -91,6 +98,7 @@
             font-size: 0.85em;
         }
 
+        /* Tablet screens */
         @media screen and (max-width: 768px) {
             .home-prayer-list {
                 grid-template-columns: repeat(3, 1fr);
@@ -105,14 +113,195 @@
             .home-prayer-item .room-name {
                 font-size: 0.7em;
             }
+            .room-icon {
+                font-size: 3rem;
+                margin-bottom: 0.3em;
+            }
+            .room-label {
+                font-size: 0.65em;
+                padding: 0.3em 0.8em;
+                margin-bottom: 0.5em;
+            }
+            .read-more-link {
+                padding: 0.5em 1em;
+                font-size: 0.85em;
+            }
         }
 
+        /* Phone screens */
         @media screen and (max-width: 480px) {
             .home-prayer-list {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 0.4rem;
+                margin-top: 1em;
+            }
+            .home-prayer-item {
+                padding: 0.5em;
+            }
+            .home-prayer-item .icon {
+                font-size: 1.3rem;
+                margin-bottom: 0.2em;
+            }
+            .home-prayer-item .room-name {
+                font-size: 0.6em;
             }
             .room-icon {
-                font-size: 2.5rem;
+                font-size: 2rem;
+                margin-bottom: 0.2em;
+            }
+            .room-label {
+                font-size: 0.55em;
+                padding: 0.25em 0.6em;
+                margin-bottom: 0.4em;
+            }
+            .read-more-link {
+                padding: 0.4em 0.8em;
+                font-size: 0.75em;
+                margin-top: 0.5em;
+            }
+
+            /* Fix three-columns and two-columns on mobile */
+            .reveal .three-columns {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 0.5em !important;
+            }
+            .reveal .three-columns .column.panel {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0.5em !important;
+            }
+            .reveal .three-columns .column.panel h4 {
+                font-size: 1.2em !important;
+                margin-bottom: 0.2em !important;
+            }
+            .reveal .three-columns .column.panel p {
+                font-size: 0.7em !important;
+            }
+
+            .reveal .two-columns,
+            .summary-bottom-row {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 0.5em !important;
+                max-width: 100% !important;
+            }
+            .reveal .two-columns .column.panel {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0.5em !important;
+            }
+            .reveal .two-columns .column.panel h4 {
+                font-size: 1.2em !important;
+                margin-bottom: 0.2em !important;
+            }
+            .reveal .two-columns .column.panel p {
+                font-size: 0.7em !important;
+            }
+
+            /* Scripture and panel fixes */
+            .reveal .scripture {
+                padding: 0.6em 0.8em !important;
+                margin: 0.5em auto !important;
+            }
+            .reveal .scripture-text {
+                font-size: 0.85em !important;
+                line-height: 1.4 !important;
+            }
+            .reveal .scripture-ref {
+                font-size: 0.7em !important;
+            }
+
+            .reveal .panel {
+                padding: 0.6em 0.8em !important;
+                margin: 0.5em auto !important;
+            }
+            .reveal .panel h4 {
+                font-size: 0.85em !important;
+                margin-bottom: 0.4em !important;
+            }
+            .reveal .panel p {
+                font-size: 0.75em !important;
+                line-height: 1.4 !important;
+            }
+            .reveal .panel ul {
+                font-size: 0.75em !important;
+                line-height: 1.5 !important;
+            }
+            .reveal .panel ul li {
+                margin-bottom: 0.3em !important;
+            }
+
+            /* Prayer points list */
+            .reveal .prayer-points ul li {
+                font-size: 0.75em !important;
+                padding-left: 1.5em !important;
+                margin-bottom: 0.5em !important;
+            }
+            .reveal .prayer-points ul li a {
+                font-size: 1em !important;
+            }
+        }
+
+        /* Very small phones */
+        @media screen and (max-width: 375px) {
+            .room-icon {
+                font-size: 1.8rem;
+            }
+            .room-label {
+                font-size: 0.5em;
+                padding: 0.2em 0.5em;
+            }
+            .home-prayer-list {
+                gap: 0.3rem;
+            }
+            .home-prayer-item {
+                padding: 0.4em;
+            }
+            .home-prayer-item .icon {
+                font-size: 1.1rem;
+            }
+            .home-prayer-item .room-name {
+                font-size: 0.55em;
+            }
+            .reveal .scripture-text {
+                font-size: 0.8em !important;
+            }
+            .reveal .panel p,
+            .reveal .panel ul {
+                font-size: 0.7em !important;
+            }
+        }
+
+        /* Landscape phone */
+        @media screen and (max-width: 900px) and (max-height: 500px) {
+            .room-icon {
+                font-size: 1.8rem;
+                margin-bottom: 0.2em;
+            }
+            .room-label {
+                font-size: 0.55em;
+                margin-bottom: 0.3em;
+            }
+            .home-prayer-list {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 0.3rem;
+                margin-top: 0.5em;
+            }
+            .home-prayer-item {
+                padding: 0.4em;
+            }
+            .home-prayer-item .icon {
+                font-size: 1rem;
+            }
+            .home-prayer-item .room-name {
+                font-size: 0.55em;
+            }
+            .reveal .scripture {
+                padding: 0.5em 0.8em !important;
+            }
+            .reveal .panel {
+                padding: 0.5em 0.8em !important;
             }
         }
     </style>
@@ -389,7 +578,7 @@
                         <p style="font-size: 0.75em; margin: 0;"><strong>Dining</strong><br>Acts 2:46</p>
                     </div>
                 </div>
-                <div class="two-columns" style="margin-top: 1em; max-width: 70%; margin-left: auto; margin-right: auto;">
+                <div class="two-columns summary-bottom-row" style="margin-top: 1em;">
                     <div class="column panel fragment fade-up">
                         <h4 style="font-size: 1.5em; margin-bottom: 0.3em;">🍳</h4>
                         <p style="font-size: 0.75em; margin: 0;"><strong>Kitchen</strong><br>Matthew 6:11</p>
