@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Prayer for the Family - A Stained Glass Journey Through Your Home">
+    <title>Prayer for the Family | Stained Glass Edition</title>
+
+    <!-- Reveal.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ========================================
+           STAINED GLASS SANCTUARY THEME
+           Jewel tones, geometric patterns, light rays
+        ======================================== */
+        :root {
+            /* Deep Background */
+            --bg-deep: #0a0a12;
+            --bg-panel: rgba(15, 15, 25, 0.9);
+
+            /* Jewel Tones */
+            --ruby: #9b2335;
+            --ruby-light: #c13a4d;
+            --sapphire: #1e3a5f;
+            --sapphire-light: #2d5a87;
+            --emerald: #1a4d3e;
+            --emerald-light: #2a7a5f;
+            --amber: #c9942e;
+            --amber-light: #e8b84a;
+            --amethyst: #5c3d6e;
+            --amethyst-light: #7d5a8f;
+
+            /* Gold Accents */
+            --gold: #d4a84b;
+            --gold-light: #e8c97a;
+            --gold-glow: rgba(212, 168, 75, 0.3);
+
+            /* Text */
+            --text-primary: #f5f3ee;
+            --text-secondary: #c4c0b6;
+            --text-muted: #8a8578;
+
+            /* Typography */
+            --font-display: 'Cinzel', 'Times New Roman', serif;
+            --font-body: 'EB Garamond', Georgia, serif;
+        }
+
+        /* ========================================
+           REVEAL.JS OVERRIDES
+        ======================================== */
+        .reveal-viewport {
+            background: var(--bg-deep);
+        }
+
+        .reveal {
+            font-family: var(--font-body);
+            font-size: 28px;
+            color: var(--text-primary);
+        }
+
+        .reveal .slides section {
+            padding: 20px;
+        }
+
+        .reveal h1, .reveal h2, .reveal h3 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            text-transform: none;
+            letter-spacing: 0.05em;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            margin-bottom: 0.5em;
+        }
+
+        .reveal h1 {
+            font-size: 2.2em;
+            color: var(--gold);
+        }
+
+        .reveal h2 {
+            font-size: 1.6em;
+            color: var(--gold-light);
+        }
+
+        .reveal h3 {
+            font-size: 1.2em;
+            color: var(--text-primary);
+        }
+
+        .reveal p {
+            line-height: 1.6;
+        }
+
+        .reveal .controls {
+            color: var(--gold);
+        }
+
+        .reveal .progress {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--gold);
+        }
+
+        .reveal .slide-number {
+            background: var(--bg-panel);
+            color: var(--gold);
+            font-family: var(--font-display);
+            font-size: 12px;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+
+        /* ========================================
+           STAINED GLASS DECORATIONS
+        ======================================== */
+
+        /* Geometric border frame */
+        .glass-frame {
+            position: relative;
+            padding: 2em;
+        }
+
+        .glass-frame::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 2px solid var(--gold);
+            opacity: 0.3;
+        }
+
+        .glass-frame::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid var(--gold);
+            opacity: 0.2;
+        }
+
+        /* Corner ornaments */
+        .corner-ornament {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--gold);
+            opacity: 0.5;
+        }
+
+        .corner-ornament.tl { top: 5px; left: 5px; border-right: none; border-bottom: none; }
+        .corner-ornament.tr { top: 5px; right: 5px; border-left: none; border-bottom: none; }
+        .corner-ornament.bl { bottom: 5px; left: 5px; border-right: none; border-top: none; }
+        .corner-ornament.br { bottom: 5px; right: 5px; border-left: none; border-top: none; }
+
+        /* Light ray effect */
+        .light-rays {
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200%;
+            height: 100%;
+            background: radial-gradient(ellipse at center top, var(--gold-glow) 0%, transparent 60%);
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        /* ========================================
+           ROOM COLOR THEMES
+        ======================================== */
+        .room-door { --room-color: var(--ruby); --room-light: var(--ruby-light); }
+        .room-living { --room-color: var(--sapphire); --room-light: var(--sapphire-light); }
+        .room-dining { --room-color: var(--amber); --room-light: var(--amber-light); }
+        .room-kitchen { --room-color: var(--emerald); --room-light: var(--emerald-light); }
+        .room-bedroom { --room-color: var(--amethyst); --room-light: var(--amethyst-light); }
+
+        /* Room accent bar */
+        .room-accent {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--room-color), var(--room-light), var(--room-color), transparent);
+        }
+
+        /* ========================================
+           CUSTOM COMPONENTS
+        ======================================== */
+
+        /* Room label badge */
+        .room-badge {
+            display: inline-block;
+            padding: 0.4em 1.2em;
+            background: var(--room-color, var(--gold));
+            color: white;
+            font-family: var(--font-display);
+            font-size: 0.5em;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            margin-bottom: 0.8em;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Room icon */
+        .room-icon {
+            font-size: 3em;
+            display: block;
+            margin-bottom: 0.3em;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+        }
+
+        /* Scripture panel - stained glass style */
+        .scripture-glass {
+            background: linear-gradient(135deg,
+                rgba(var(--room-color-rgb, 212, 168, 75), 0.15) 0%,
+                rgba(15, 15, 25, 0.95) 50%,
+                rgba(var(--room-color-rgb, 212, 168, 75), 0.1) 100%
+            );
+            border: 1px solid rgba(212, 168, 75, 0.3);
+            border-left: 4px solid var(--room-color, var(--gold));
+            padding: 1.2em 1.5em;
+            margin: 1em auto;
+            max-width: 90%;
+            text-align: left;
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+
+        .scripture-glass::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            font-family: var(--font-display);
+            font-size: 3em;
+            color: var(--gold);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .scripture-text {
+            font-family: var(--font-body);
+            font-size: 0.95em;
+            font-style: italic;
+            line-height: 1.7;
+            color: var(--text-primary);
+            margin-bottom: 0.8em;
+        }
+
+        .scripture-ref {
+            font-family: var(--font-display);
+            font-size: 0.7em;
+            color: var(--gold);
+            text-align: right;
+            letter-spacing: 0.1em;
+        }
+
+        /* Prayer panel */
+        .prayer-panel {
+            background: var(--bg-panel);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.2em 1.5em;
+            margin-top: 1em;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .prayer-panel h4 {
+            font-family: var(--font-display);
+            font-size: 0.7em;
+            color: var(--gold);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 0.6em;
+        }
+
+        .prayer-panel p {
+            font-size: 0.8em;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Room grid for overview */
+        .room-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.8em;
+            max-width: 85%;
+            margin: 1.5em auto 0;
+        }
+
+        .room-grid-item {
+            background: var(--bg-panel);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.8em;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .room-grid-item:hover {
+            border-color: var(--gold);
+            transform: scale(1.02);
+        }
+
+        .room-grid-item .icon {
+            font-size: 1.8em;
+            display: block;
+            margin-bottom: 0.3em;
+        }
+
+        .room-grid-item .name {
+            font-family: var(--font-display);
+            font-size: 0.55em;
+            color: var(--gold-light);
+            letter-spacing: 0.05em;
+        }
+
+        /* Summary cards */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.6em;
+            max-width: 95%;
+            margin: 1em auto;
+        }
+
+        .summary-card {
+            background: var(--bg-panel);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.8em 0.5em;
+            text-align: center;
+        }
+
+        .summary-card .icon {
+            font-size: 1.5em;
+            display: block;
+            margin-bottom: 0.2em;
+        }
+
+        .summary-card .room {
+            font-family: var(--font-display);
+            font-size: 0.5em;
+            color: var(--text-primary);
+            margin-bottom: 0.2em;
+        }
+
+        .summary-card .verse {
+            font-size: 0.45em;
+            color: var(--gold);
+        }
+
+        /* Bible link */
+        .bible-link {
+            display: inline-block;
+            margin-top: 1em;
+            padding: 0.5em 1em;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-family: var(--font-display);
+            font-size: 0.6em;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .bible-link:hover {
+            background: var(--gold);
+            color: var(--bg-deep);
+        }
+
+        /* Prayer list */
+        .prayer-list {
+            text-align: left;
+            max-width: 85%;
+            margin: 0 auto;
+            list-style: none;
+            padding: 0;
+        }
+
+        .prayer-list li {
+            padding: 0.5em 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.75em;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.8em;
+        }
+
+        .prayer-list li::before {
+            content: '✝';
+            color: var(--gold);
+            font-size: 0.8em;
+        }
+
+        /* Subtitle */
+        .subtitle {
+            font-family: var(--font-body);
+            font-size: 0.9em;
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-top: 0.3em;
+        }
+
+        /* ========================================
+           HOME BUTTON
+        ======================================== */
+        .home-btn {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background: var(--bg-panel);
+            color: var(--gold);
+            padding: 8px 14px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-family: var(--font-display);
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid rgba(212, 168, 75, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .home-btn:hover {
+            background: var(--gold);
+            color: var(--bg-deep);
+            border-color: var(--gold);
+        }
+
+        .home-btn svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+
+        /* Skip link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--gold);
+            color: var(--bg-deep);
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 9999;
+            font-weight: 600;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
+        @media screen and (max-width: 600px) {
+            .reveal {
+                font-size: 20px;
+            }
+
+            .room-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .summary-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .summary-grid .summary-card:last-child {
+                grid-column: span 2;
+            }
+
+            .scripture-glass {
+                padding: 1em;
+            }
+
+            .room-icon {
+                font-size: 2.2em;
+            }
+
+            .home-btn span {
+                display: none;
+            }
+        }
+
+        /* ========================================
+           REDUCED MOTION
+        ======================================== */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <a href="../../index.html" class="home-btn" aria-label="Return to presentations list">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+        <span>Home</span>
+    </a>
+
+    <div class="reveal" id="main-content">
+        <div class="slides">
+
+            <!-- TITLE SLIDE -->
+            <section data-background-gradient="radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a12 100%)">
+                <div class="light-rays"></div>
+                <span class="room-icon">🏠</span>
+                <h1>Prayer for the Family</h1>
+                <p class="subtitle">A Stained Glass Journey Through Your Home</p>
+                <p style="font-size: 0.6em; color: var(--text-muted); margin-top: 1.5em;">Scripture Prayers for Every Room</p>
+            </section>
+
+            <!-- OVERVIEW SLIDE -->
+            <section>
+                <h2>Praying Through Your Home</h2>
+                <p class="subtitle">Each room becomes a sanctuary</p>
+                <div class="room-grid">
+                    <div class="room-grid-item fragment fade-up">
+                        <span class="icon">🚪</span>
+                        <span class="name">Front Door</span>
+                    </div>
+                    <div class="room-grid-item fragment fade-up">
+                        <span class="icon">🛋️</span>
+                        <span class="name">Living Room</span>
+                    </div>
+                    <div class="room-grid-item fragment fade-up">
+                        <span class="icon">🍽️</span>
+                        <span class="name">Dining</span>
+                    </div>
+                    <div class="room-grid-item fragment fade-up">
+                        <span class="icon">🍳</span>
+                        <span class="name">Kitchen</span>
+                    </div>
+                    <div class="room-grid-item fragment fade-up" style="grid-column: span 2; justify-self: center; width: 60%;">
+                        <span class="icon">🛏️</span>
+                        <span class="name">Bedroom</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FRONT DOOR - INTRO -->
+            <section class="room-door" data-background-gradient="radial-gradient(ellipse at center, #2d1a1f 0%, #0a0a12 100%)">
+                <div class="room-accent"></div>
+                <span class="room-icon">🚪</span>
+                <span class="room-badge">Front Door</span>
+                <h2>God's Protection Over Our Coming and Going</h2>
+            </section>
+
+            <!-- FRONT DOOR - SCRIPTURE -->
+            <section class="room-door">
+                <div class="room-accent"></div>
+                <span class="room-badge">Front Door</span>
+                <h2>Psalm 121:8</h2>
+                <div class="scripture-glass" style="border-left-color: var(--ruby);">
+                    <p class="scripture-text">
+                        "The LORD will watch over your coming and going both now and forevermore."
+                    </p>
+                    <p class="scripture-ref">Psalm 121:8 (NIV)</p>
+                </div>
+                <div class="prayer-panel fragment fade-up">
+                    <h4>Prayer Focus</h4>
+                    <p>Lord, guard every person who enters and leaves through this door. Watch over our family as we go out and come back home.</p>
+                </div>
+            </section>
+
+            <!-- LIVING ROOM - INTRO -->
+            <section class="room-living" data-background-gradient="radial-gradient(ellipse at center, #1a2a3f 0%, #0a0a12 100%)">
+                <div class="room-accent"></div>
+                <span class="room-icon">🛋️</span>
+                <span class="room-badge">Living Room</span>
+                <h2>Unity and Harmony in the Home</h2>
+            </section>
+
+            <!-- LIVING ROOM - SCRIPTURE -->
+            <section class="room-living">
+                <div class="room-accent"></div>
+                <span class="room-badge">Living Room</span>
+                <h2>Psalm 133:1</h2>
+                <div class="scripture-glass" style="border-left-color: var(--sapphire);">
+                    <p class="scripture-text">
+                        "How good and pleasant it is when God's people live together in unity!"
+                    </p>
+                    <p class="scripture-ref">Psalm 133:1 (NIV)</p>
+                </div>
+                <div class="prayer-panel fragment fade-up">
+                    <h4>Prayer Focus</h4>
+                    <p>Father, let this room be filled with love, peace, and unity. May every conversation here bring glory to You.</p>
+                </div>
+            </section>
+
+            <!-- DINING ROOM - INTRO -->
+            <section class="room-dining" data-background-gradient="radial-gradient(ellipse at center, #2d2a1a 0%, #0a0a12 100%)">
+                <div class="room-accent"></div>
+                <span class="room-icon">🍽️</span>
+                <span class="room-badge">Dining Room</span>
+                <h2>Fellowship and Grateful Hearts</h2>
+            </section>
+
+            <!-- DINING ROOM - SCRIPTURE -->
+            <section class="room-dining">
+                <div class="room-accent"></div>
+                <span class="room-badge">Dining Room</span>
+                <h2>Acts 2:46</h2>
+                <div class="scripture-glass" style="border-left-color: var(--amber);">
+                    <p class="scripture-text">
+                        "Every day they continued to meet together in the temple courts. They broke bread in their homes and ate together with glad and sincere hearts."
+                    </p>
+                    <p class="scripture-ref">Acts 2:46 (NIV)</p>
+                </div>
+                <div class="prayer-panel fragment fade-up">
+                    <h4>Prayer Focus</h4>
+                    <p>Lord, may our meals be times of genuine fellowship. Fill our hearts with gladness and sincerity.</p>
+                </div>
+            </section>
+
+            <!-- KITCHEN - INTRO -->
+            <section class="room-kitchen" data-background-gradient="radial-gradient(ellipse at center, #1a2d28 0%, #0a0a12 100%)">
+                <div class="room-accent"></div>
+                <span class="room-icon">🍳</span>
+                <span class="room-badge">Kitchen</span>
+                <h2>Daily Provision and Sustenance</h2>
+            </section>
+
+            <!-- KITCHEN - SCRIPTURE -->
+            <section class="room-kitchen">
+                <div class="room-accent"></div>
+                <span class="room-badge">Kitchen</span>
+                <h2>Matthew 6:11</h2>
+                <div class="scripture-glass" style="border-left-color: var(--emerald);">
+                    <p class="scripture-text">
+                        "Give us today our daily bread."
+                    </p>
+                    <p class="scripture-ref">Matthew 6:11 (NIV)</p>
+                </div>
+                <div class="prayer-panel fragment fade-up">
+                    <h4>Prayer Focus</h4>
+                    <p>Father, thank You for Your faithful provision. Bless the food prepared in this kitchen.</p>
+                </div>
+            </section>
+
+            <!-- BEDROOM - INTRO -->
+            <section class="room-bedroom" data-background-gradient="radial-gradient(ellipse at center, #2a1f3d 0%, #0a0a12 100%)">
+                <div class="room-accent"></div>
+                <span class="room-icon">🛏️</span>
+                <span class="room-badge">Bedroom</span>
+                <h2>Rest, Protection, and Divine Shelter</h2>
+            </section>
+
+            <!-- BEDROOM - PSALM 91:1-2 -->
+            <section class="room-bedroom">
+                <div class="room-accent"></div>
+                <span class="room-badge">Bedroom</span>
+                <h2>Psalm 91 — The Protection Psalm</h2>
+                <div class="scripture-glass" style="border-left-color: var(--amethyst);">
+                    <p class="scripture-text">
+                        "Whoever dwells in the shelter of the Most High will rest in the shadow of the Almighty. I will say of the LORD, 'He is my refuge and my fortress, my God, in whom I trust.'"
+                    </p>
+                    <p class="scripture-ref">Psalm 91:1-2 (NIV)</p>
+                </div>
+            </section>
+
+            <!-- BEDROOM - PSALM 91:3-4 -->
+            <section class="room-bedroom">
+                <div class="room-accent"></div>
+                <span class="room-badge">Bedroom</span>
+                <h2>Protected from Danger</h2>
+                <div class="scripture-glass" style="border-left-color: var(--amethyst);">
+                    <p class="scripture-text">
+                        "Surely he will save you from the fowler's snare and from the deadly pestilence. He will cover you with his feathers, and under his wings you will find refuge."
+                    </p>
+                    <p class="scripture-ref">Psalm 91:3-4 (NIV)</p>
+                </div>
+            </section>
+
+            <!-- BEDROOM - PSALM 91:5-7 -->
+            <section class="room-bedroom">
+                <div class="room-accent"></div>
+                <span class="room-badge">Bedroom</span>
+                <h2>No Fear in the Night</h2>
+                <div class="scripture-glass" style="border-left-color: var(--amethyst);">
+                    <p class="scripture-text">
+                        "You will not fear the terror of night, nor the arrow that flies by day, nor the pestilence that stalks in the darkness, nor the plague that destroys at midday."
+                    </p>
+                    <p class="scripture-ref">Psalm 91:5-6 (NIV)</p>
+                </div>
+            </section>
+
+            <!-- BEDROOM - PSALM 91:9-12 -->
+            <section class="room-bedroom">
+                <div class="room-accent"></div>
+                <span class="room-badge">Bedroom</span>
+                <h2>Angelic Protection</h2>
+                <div class="scripture-glass" style="border-left-color: var(--amethyst);">
+                    <p class="scripture-text">
+                        "For he will command his angels concerning you to guard you in all your ways; they will lift you up in their hands, so that you will not strike your foot against a stone."
+                    </p>
+                    <p class="scripture-ref">Psalm 91:11-12 (NIV)</p>
+                </div>
+            </section>
+
+            <!-- BEDROOM - PSALM 91:14-16 -->
+            <section class="room-bedroom">
+                <div class="room-accent"></div>
+                <span class="room-badge">Bedroom</span>
+                <h2>God's Promise</h2>
+                <div class="scripture-glass" style="border-left-color: var(--amethyst);">
+                    <p class="scripture-text">
+                        "'Because he loves me,' says the LORD, 'I will rescue him; I will protect him, for he acknowledges my name. He will call on me, and I will answer him.'"
+                    </p>
+                    <p class="scripture-ref">Psalm 91:14-15 (NIV)</p>
+                </div>
+                <a href="https://www.bible.com/bible/111/PSA.91.NIV" target="_blank" rel="noopener noreferrer" class="bible-link fragment fade-up">
+                    Read Full Psalm 91 →
+                </a>
+            </section>
+
+            <!-- BEDROOM - PRAYER FOCUS -->
+            <section class="room-bedroom">
+                <div class="room-accent"></div>
+                <span class="room-badge">Bedroom</span>
+                <h2>Prayer for Rest and Protection</h2>
+                <ul class="prayer-list">
+                    <li class="fragment fade-up">Thank God for being our refuge and fortress</li>
+                    <li class="fragment fade-up">Ask for peaceful, restful sleep</li>
+                    <li class="fragment fade-up">Declare protection from all fears and dangers</li>
+                    <li class="fragment fade-up">Invite His angels to guard over your family</li>
+                    <li class="fragment fade-up">Claim His promise of answered prayer</li>
+                </ul>
+            </section>
+
+            <!-- SUMMARY SLIDE -->
+            <section>
+                <h2>Your Home, Covered in Prayer</h2>
+                <div class="summary-grid">
+                    <div class="summary-card fragment fade-up">
+                        <span class="icon">🚪</span>
+                        <p class="room">Front Door</p>
+                        <p class="verse">Psalm 121:8</p>
+                    </div>
+                    <div class="summary-card fragment fade-up">
+                        <span class="icon">🛋️</span>
+                        <p class="room">Living Room</p>
+                        <p class="verse">Psalm 133:1</p>
+                    </div>
+                    <div class="summary-card fragment fade-up">
+                        <span class="icon">🍽️</span>
+                        <p class="room">Dining</p>
+                        <p class="verse">Acts 2:46</p>
+                    </div>
+                    <div class="summary-card fragment fade-up">
+                        <span class="icon">🍳</span>
+                        <p class="room">Kitchen</p>
+                        <p class="verse">Matthew 6:11</p>
+                    </div>
+                    <div class="summary-card fragment fade-up">
+                        <span class="icon">🛏️</span>
+                        <p class="room">Bedroom</p>
+                        <p class="verse">Psalm 91</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CLOSING SLIDE -->
+            <section data-background-gradient="radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a12 100%)">
+                <div class="light-rays"></div>
+                <span class="room-icon">🏠</span>
+                <h1>Bless This Home</h1>
+                <p class="subtitle">May the peace of Christ dwell in every room</p>
+                <div class="scripture-glass" style="margin-top: 1.5em; border-left-color: var(--gold);">
+                    <p class="scripture-text">
+                        "As for me and my household, we will serve the LORD."
+                    </p>
+                    <p class="scripture-ref">Joshua 24:15 (NIV)</p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            width: 960,
+            height: 700,
+            margin: 0.1,
+            minScale: 0.2,
+            maxScale: 2.0,
+            hash: true,
+            history: true,
+            hashOneBasedIndex: true,
+            navigationMode: 'linear',
+            controls: true,
+            controlsTutorial: true,
+            progress: true,
+            slideNumber: 'c/t',
+            showSlideNumber: 'all',
+            transition: 'fade',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+            autoAnimate: true,
+            autoAnimateDuration: 0.6,
+            fragments: true,
+            fragmentInURL: true,
+            keyboard: true,
+            touch: true,
+            center: true,
+            help: true,
+        });
+
+        Reveal.addKeyBinding({ keyCode: 72, key: 'H', description: 'Go home' }, () => {
+            window.location.href = '../../index.html';
+        });
+    </script>
+</body>
+</html>

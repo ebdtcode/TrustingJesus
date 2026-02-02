@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trusting Jesus | Spiritual Growth Center</title>
+    <meta name="description" content="A sanctuary for spiritual growth - sermons, prayer points, and resources to deepen your faith.">
+
+    <!-- Distinctive Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ========================================
+           CSS VARIABLES - Editorial Dark Theme
+        ======================================== */
+        :root {
+            --bg-deep: #0a0a0c;
+            --bg-card: #111114;
+            --bg-elevated: #18181c;
+            --gold-primary: #d4a853;
+            --gold-light: #e8c97a;
+            --gold-muted: #a68a3a;
+            --gold-glow: rgba(212, 168, 83, 0.15);
+            --text-primary: #f5f5f7;
+            --text-secondary: #a1a1a6;
+            --text-muted: #6e6e73;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-gold: rgba(212, 168, 83, 0.3);
+
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Cormorant Garamond', Georgia, serif;
+            --font-ui: 'Outfit', -apple-system, sans-serif;
+
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* ========================================
+           RESET & BASE
+        ======================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Noise texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        ::selection {
+            background: var(--gold-primary);
+            color: var(--bg-deep);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ========================================
+           TYPOGRAPHY
+        ======================================== */
+        .headline-xl {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+        }
+
+        .headline-lg {
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 5vw, 3.5rem);
+            font-weight: 400;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+        }
+
+        .headline-md {
+            font-family: var(--font-display);
+            font-size: clamp(1.25rem, 3vw, 2rem);
+            font-weight: 500;
+            line-height: 1.25;
+        }
+
+        .body-lg {
+            font-family: var(--font-body);
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .body-md {
+            font-family: var(--font-body);
+            font-size: 1.0625rem;
+            line-height: 1.7;
+        }
+
+        .label {
+            font-family: var(--font-ui);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold-primary);
+        }
+
+        .accent-text {
+            color: var(--gold-primary);
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        /* ========================================
+           LAYOUT
+        ======================================== */
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 3rem;
+            }
+        }
+
+        /* ========================================
+           NAVIGATION
+        ======================================== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.25rem 0;
+            background: linear-gradient(to bottom, var(--bg-deep) 0%, transparent 100%);
+            transition: background 0.4s var(--ease-out-quart);
+        }
+
+        .nav.scrolled {
+            background: rgba(10, 10, 12, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-logo::before {
+            content: '✝';
+            color: var(--gold-primary);
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: none;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+
+        .nav-link {
+            font-family: var(--font-ui);
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold-primary);
+            transition: width 0.3s var(--ease-out-expo);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            font-family: var(--font-ui);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            padding: 0.625rem 1.25rem;
+            background: transparent;
+            border: 1px solid var(--border-gold);
+            color: var(--gold-primary);
+            transition: all 0.3s var(--ease-out-quart);
+        }
+
+        .nav-cta:hover {
+            background: var(--gold-primary);
+            color: var(--bg-deep);
+        }
+
+        /* ========================================
+           HERO SECTION
+        ======================================== */
+        .hero {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            padding: 6rem 0 4rem;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80vw;
+            height: 80vw;
+            background: radial-gradient(circle, var(--gold-glow) 0%, transparent 60%);
+            opacity: 0.5;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(to top, var(--bg-deep) 0%, transparent 100%);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-label {
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s var(--ease-out-expo) 0.2s forwards;
+        }
+
+        .hero-title {
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s var(--ease-out-expo) 0.4s forwards;
+        }
+
+        .hero-title .line {
+            display: block;
+        }
+
+        .hero-title .line:nth-child(2) {
+            margin-left: 0;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title .line:nth-child(2) {
+                margin-left: 3rem;
+            }
+        }
+
+        .hero-description {
+            max-width: 540px;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s var(--ease-out-expo) 0.6s forwards;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s var(--ease-out-expo) 0.8s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn {
+            font-family: var(--font-ui);
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 1rem 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s var(--ease-out-quart);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gold-primary);
+            color: var(--bg-deep);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px -10px var(--gold-glow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold-primary);
+            color: var(--gold-primary);
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-family: var(--font-ui);
+            font-size: 0.6875rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeIn 1s var(--ease-out-expo) 1.2s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .hero-scroll::after {
+            content: '';
+            width: 1px;
+            height: 3rem;
+            background: linear-gradient(to bottom, var(--gold-primary), transparent);
+            animation: scrollLine 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollLine {
+            0%, 100% { transform: scaleY(0); transform-origin: top; }
+            50% { transform: scaleY(1); transform-origin: top; }
+            51% { transform-origin: bottom; }
+            100% { transform: scaleY(0); transform-origin: bottom; }
+        }
+
+        /* ========================================
+           FEATURED SECTION
+        ======================================== */
+        .featured {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 4rem;
+            background: linear-gradient(to bottom, transparent, var(--border-gold));
+        }
+
+        .section-header {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .section-header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-end;
+            }
+        }
+
+        .section-header-text {
+            max-width: 600px;
+        }
+
+        .section-label {
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            color: var(--text-primary);
+        }
+
+        .section-link {
+            font-family: var(--font-ui);
+            font-size: 0.875rem;
+            color: var(--gold-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s var(--ease-out-quart);
+        }
+
+        .section-link:hover {
+            gap: 0.75rem;
+        }
+
+        .section-link::after {
+            content: '→';
+        }
+
+        /* Featured Grid */
+        .featured-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .featured-grid {
+                grid-template-columns: 1.2fr 1fr;
+                grid-template-rows: auto auto;
+                gap: 1.5rem;
+            }
+        }
+
+        .featured-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s var(--ease-out-quart);
+        }
+
+        .featured-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold-primary), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s var(--ease-out-expo);
+        }
+
+        .featured-card:hover {
+            border-color: var(--border-gold);
+            transform: translateY(-4px);
+        }
+
+        .featured-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .featured-card.large {
+            padding: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .featured-card.large {
+                grid-row: span 2;
+                padding: 3rem;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        .card-label {
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            margin-bottom: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .featured-card:hover .card-title {
+            color: var(--gold-primary);
+        }
+
+        .card-excerpt {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-meta {
+            font-family: var(--font-ui);
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .card-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+
+        .card-meta svg {
+            width: 14px;
+            height: 14px;
+            opacity: 0.6;
+        }
+
+        /* ========================================
+           QUICK ACCESS SECTION
+        ======================================== */
+        .quick-access {
+            padding: 6rem 0;
+            background: var(--bg-card);
+            position: relative;
+        }
+
+        .quick-access::before {
+            content: '"';
+            position: absolute;
+            top: -2rem;
+            right: 5%;
+            font-family: var(--font-display);
+            font-size: 20rem;
+            color: var(--gold-primary);
+            opacity: 0.03;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .access-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .access-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .access-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .access-card {
+            padding: 2rem 1.5rem;
+            background: var(--bg-deep);
+            border: 1px solid var(--border-subtle);
+            text-align: center;
+            transition: all 0.3s var(--ease-out-quart);
+            position: relative;
+        }
+
+        .access-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--gold-glow), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .access-card:hover {
+            border-color: var(--border-gold);
+            transform: translateY(-4px);
+        }
+
+        .access-card:hover::after {
+            opacity: 1;
+        }
+
+        .access-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+
+        .access-title {
+            font-family: var(--font-display);
+            font-size: 1.125rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .access-desc {
+            font-family: var(--font-ui);
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========================================
+           SCRIPTURE BANNER
+        ======================================== */
+        .scripture-banner {
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scripture-banner::before,
+        .scripture-banner::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 30%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+        }
+
+        .scripture-banner::before {
+            left: 0;
+        }
+
+        .scripture-banner::after {
+            right: 0;
+        }
+
+        .scripture-quote {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-style: italic;
+            font-weight: 400;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.4;
+        }
+
+        .scripture-ref {
+            font-family: var(--font-ui);
+            font-size: 0.875rem;
+            color: var(--gold-primary);
+            letter-spacing: 0.1em;
+        }
+
+        /* ========================================
+           FAMILY SECTION
+        ======================================== */
+        .family-section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .family-content {
+            display: grid;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .family-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+        }
+
+        .family-visual {
+            position: relative;
+        }
+
+        .family-visual-inner {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .room-card {
+            aspect-ratio: 1;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s var(--ease-out-quart);
+            cursor: pointer;
+        }
+
+        .room-card:hover {
+            border-color: var(--gold-primary);
+            background: var(--bg-elevated);
+        }
+
+        .room-card:nth-child(5) {
+            grid-column: span 2;
+            aspect-ratio: 2/1;
+        }
+
+        .room-icon {
+            font-size: 2rem;
+        }
+
+        .room-name {
+            font-family: var(--font-ui);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.05em;
+        }
+
+        .family-text .section-label {
+            margin-bottom: 1rem;
+        }
+
+        .family-text .headline-lg {
+            margin-bottom: 1.5rem;
+        }
+
+        .family-text .body-lg {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .family-rooms {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .family-rooms li {
+            font-family: var(--font-ui);
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .family-rooms li:first-child {
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .family-rooms .room {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .family-rooms .verse {
+            color: var(--gold-muted);
+            font-size: 0.8125rem;
+        }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+        .footer {
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-logo::before {
+            content: '✝';
+            color: var(--gold-primary);
+        }
+
+        .footer-tagline {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .footer-column h4 {
+            font-family: var(--font-ui);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-column a {
+            font-family: var(--font-ui);
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            transition: color 0.2s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--gold-primary);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        .footer-copyright {
+            font-family: var(--font-ui);
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        /* ========================================
+           SCROLL ANIMATIONS
+        ======================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s var(--ease-out-expo);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ========================================
+           ACCESSIBILITY
+        ======================================== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        *:focus-visible {
+            outline: 2px solid var(--gold-primary);
+            outline-offset: 3px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="container nav-inner">
+            <a href="#" class="nav-logo">Trusting Jesus</a>
+            <ul class="nav-links">
+                <li><a href="modern/index.html" class="nav-link">Presentations</a></li>
+                <li><a href="#featured" class="nav-link">Featured</a></li>
+                <li><a href="#family" class="nav-link">Family</a></li>
+                <li><a href="../spiritual_growth_dashboard.html" class="nav-link">Dashboard</a></li>
+            </ul>
+            <a href="modern/index.html" class="nav-cta">Explore</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <p class="label hero-label">Spiritual Growth Center</p>
+            <h1 class="headline-xl hero-title">
+                <span class="line">Draw Near</span>
+                <span class="line"><span class="italic accent-text">to God</span></span>
+            </h1>
+            <p class="body-lg hero-description">
+                A sanctuary for spiritual growth. Weekly sermons, prayer points, and resources crafted to deepen your walk with Christ.
+            </p>
+            <div class="hero-actions">
+                <a href="modern/index.html" class="btn btn-primary">
+                    View Presentations
+                    <span>→</span>
+                </a>
+                <a href="#featured" class="btn btn-secondary">This Week's Content</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- Featured Content -->
+    <section class="featured" id="featured">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-header-text">
+                    <p class="label section-label">Featured</p>
+                    <h2 class="headline-lg section-title">This Week's Message</h2>
+                </div>
+                <a href="modern/index.html" class="section-link">All presentations</a>
+            </div>
+
+            <div class="featured-grid">
+                <article class="featured-card large reveal reveal-delay-1">
+                    <p class="label card-label">Latest Sermon</p>
+                    <h3 class="headline-md card-title">Walking in God's Love: Four Keys</h3>
+                    <p class="body-md card-excerpt">
+                        Discover the transformative power of God's unfailing love. Learn the four essential keys to walking daily in His love and experiencing the abundant life He promises.
+                    </p>
+                    <div class="card-meta">
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            January 2026
+                        </span>
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                            24 slides
+                        </span>
+                    </div>
+                </article>
+
+                <article class="featured-card reveal reveal-delay-2">
+                    <p class="label card-label">Prayer Series</p>
+                    <h3 class="headline-md card-title">21 Days of Prayer</h3>
+                    <p class="body-md card-excerpt">
+                        Join us for 21 days of focused prayer and fasting as we seek God together.
+                    </p>
+                    <div class="card-meta">
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                            99 slides
+                        </span>
+                    </div>
+                </article>
+
+                <article class="featured-card reveal reveal-delay-3">
+                    <p class="label card-label">New</p>
+                    <h3 class="headline-md card-title">Love And Faith: Heaven's Dynamic Duo</h3>
+                    <p class="body-md card-excerpt">
+                        Exploring the powerful connection between love and faith in the believer's life.
+                    </p>
+                    <div class="card-meta">
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                            16 slides
+                        </span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Access -->
+    <section class="quick-access">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-header-text">
+                    <p class="label section-label">Resources</p>
+                    <h2 class="headline-lg section-title">Quick Access</h2>
+                </div>
+            </div>
+
+            <div class="access-grid">
+                <a href="modern/index.html" class="access-card reveal reveal-delay-1">
+                    <span class="access-icon">📊</span>
+                    <h3 class="access-title">Presentations</h3>
+                    <p class="access-desc">50+ slide decks ready to present</p>
+                </a>
+                <a href="../spiritual_growth_dashboard.html" class="access-card reveal reveal-delay-2">
+                    <span class="access-icon">🙏</span>
+                    <h3 class="access-title">Prayer Points</h3>
+                    <p class="access-desc">Weekly prayer guides</p>
+                </a>
+                <a href="modern/presentations/family/Prayer_For_The_Family.html" class="access-card reveal reveal-delay-3">
+                    <span class="access-icon">🏠</span>
+                    <h3 class="access-title">Family Prayers</h3>
+                    <p class="access-desc">Cover your home in prayer</p>
+                </a>
+                <a href="../spiritual_growth_dashboard.html" class="access-card reveal reveal-delay-4">
+                    <span class="access-icon">📖</span>
+                    <h3 class="access-title">Sermons</h3>
+                    <p class="access-desc">Transcripts & summaries</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripture Banner -->
+    <section class="scripture-banner reveal">
+        <div class="container">
+            <blockquote class="scripture-quote">
+                "Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight."
+            </blockquote>
+            <cite class="scripture-ref">— Proverbs 3:5-6 NIV</cite>
+        </div>
+    </section>
+
+    <!-- Family Prayer Section -->
+    <section class="family-section" id="family">
+        <div class="container">
+            <div class="family-content">
+                <div class="family-visual reveal">
+                    <div class="family-visual-inner">
+                        <div class="room-card">
+                            <span class="room-icon">🚪</span>
+                            <span class="room-name">Front Door</span>
+                        </div>
+                        <div class="room-card">
+                            <span class="room-icon">🛋️</span>
+                            <span class="room-name">Living Room</span>
+                        </div>
+                        <div class="room-card">
+                            <span class="room-icon">🍽️</span>
+                            <span class="room-name">Dining</span>
+                        </div>
+                        <div class="room-card">
+                            <span class="room-icon">🍳</span>
+                            <span class="room-name">Kitchen</span>
+                        </div>
+                        <div class="room-card">
+                            <span class="room-icon">🛏️</span>
+                            <span class="room-name">Bedroom</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="family-text reveal reveal-delay-2">
+                    <p class="label section-label">Family</p>
+                    <h2 class="headline-lg">Prayer for the Family</h2>
+                    <p class="body-lg">
+                        Cover every room of your home with Scripture and prayer. A guided journey through your living space, inviting God's presence and protection.
+                    </p>
+                    <ul class="family-rooms">
+                        <li>
+                            <span class="room">🚪 Front Door</span>
+                            <span class="verse">Psalm 121:8</span>
+                        </li>
+                        <li>
+                            <span class="room">🛋️ Living Room</span>
+                            <span class="verse">Psalm 133:1</span>
+                        </li>
+                        <li>
+                            <span class="room">🍽️ Dining Room</span>
+                            <span class="verse">Acts 2:46</span>
+                        </li>
+                        <li>
+                            <span class="room">🍳 Kitchen</span>
+                            <span class="verse">Matthew 6:11</span>
+                        </li>
+                        <li>
+                            <span class="room">🛏️ Bedroom</span>
+                            <span class="verse">Psalm 91</span>
+                        </li>
+                    </ul>
+                    <a href="modern/presentations/family/Prayer_For_The_Family.html" class="btn btn-primary">
+                        Begin Praying
+                        <span>→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">Trusting Jesus</div>
+                    <p class="footer-tagline">"As for me and my household, we will serve the Lord."</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="modern/index.html">Presentations</a></li>
+                            <li><a href="../spiritual_growth_dashboard.html">Dashboard</a></li>
+                            <li><a href="modern/presentations/family/Prayer_For_The_Family.html">Family Prayers</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Content</h4>
+                        <ul>
+                            <li><a href="modern/index.html?filter=sermon">Sermons</a></li>
+                            <li><a href="modern/index.html?filter=prayer">Prayer Points</a></li>
+                            <li><a href="modern/index.html?filter=series">Series</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2026 Trusting Jesus - Spiritual Growth Center</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        const nav = document.getElementById('nav');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Scroll reveal animations
+        const reveals = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            reveals.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+
+                if (rect.top < windowHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

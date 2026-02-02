@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trusting Jesus | Spiritual Growth Center</title>
+    <meta name="description" content="Your sanctuary for spiritual growth - sermons, prayer points, and presentations.">
+
+    <!-- Distinctive Fonts - Manuscript/Serif Style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* ========================================
+           SACRED MANUSCRIPT THEME
+           Inspired by illuminated manuscripts
+        ======================================== */
+        :root {
+            /* Parchment & Earth Tones */
+            --parchment-light: #f8f4e8;
+            --parchment: #f0e9d8;
+            --parchment-dark: #e5dcc6;
+            --ink-dark: #1a1612;
+            --ink-medium: #3d3529;
+            --ink-light: #6b5d4d;
+
+            /* Illumination Colors */
+            --gold-primary: #c9a227;
+            --gold-light: #ddb84d;
+            --gold-dark: #a67c00;
+            --gold-glow: rgba(201, 162, 39, 0.2);
+            --blue-deep: #1e3a5f;
+            --blue-royal: #2c5282;
+            --red-vermillion: #8b2635;
+            --green-forest: #2d5016;
+
+            /* Functional */
+            --border-ornate: #c4b896;
+            --shadow-warm: rgba(26, 22, 18, 0.1);
+
+            /* Typography */
+            --font-display: 'Cinzel', 'Times New Roman', serif;
+            --font-body: 'Crimson Pro', Georgia, serif;
+            --font-accent: 'Spectral', Georgia, serif;
+
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 0.75rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+        }
+
+        /* ========================================
+           RESET & BASE
+        ======================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--ink-dark);
+            background: var(--parchment);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Subtle paper texture */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        ::selection {
+            background: var(--gold-primary);
+            color: white;
+        }
+
+        a {
+            color: var(--blue-deep);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--gold-dark);
+        }
+
+        /* ========================================
+           DECORATIVE ELEMENTS
+        ======================================== */
+        .ornament {
+            display: block;
+            text-align: center;
+            color: var(--gold-primary);
+            font-size: 1.5rem;
+            line-height: 1;
+            margin: var(--space-lg) 0;
+        }
+
+        .ornament::before {
+            content: '❧';
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin: var(--space-xl) 0;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-ornate), transparent);
+        }
+
+        .divider-icon {
+            color: var(--gold-primary);
+            font-size: 1rem;
+        }
+
+        /* ========================================
+           LAYOUT
+        ======================================== */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        /* ========================================
+           HEADER
+        ======================================== */
+        .header {
+            padding: var(--space-2xl) 0;
+            text-align: center;
+            background: linear-gradient(to bottom, var(--parchment-light), var(--parchment));
+            border-bottom: 2px solid var(--border-ornate);
+            position: relative;
+        }
+
+        .header::before,
+        .header::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+        }
+
+        .header::before {
+            top: var(--space-md);
+        }
+
+        .header::after {
+            bottom: var(--space-md);
+        }
+
+        .header-icon {
+            font-size: 3rem;
+            color: var(--gold-primary);
+            margin-bottom: var(--space-md);
+            display: block;
+        }
+
+        .header-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 500;
+            color: var(--ink-dark);
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-sm);
+        }
+
+        .header-subtitle {
+            font-family: var(--font-accent);
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--ink-light);
+            font-weight: 300;
+        }
+
+        .header-date {
+            display: inline-block;
+            margin-top: var(--space-lg);
+            padding: var(--space-sm) var(--space-lg);
+            background: var(--gold-primary);
+            color: white;
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        /* ========================================
+           NAVIGATION RIBBON
+        ======================================== */
+        .nav-ribbon {
+            background: var(--blue-deep);
+            padding: var(--space-md) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px var(--shadow-warm);
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--space-sm) var(--space-xl);
+            list-style: none;
+        }
+
+        .nav-link {
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--parchment);
+            padding: var(--space-xs) 0;
+            position: relative;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold-light);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--gold-light);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* ========================================
+           SECTION STYLES
+        ======================================== */
+        .section {
+            padding: var(--space-2xl) 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+
+        .section-label {
+            font-family: var(--font-display);
+            font-size: 0.6875rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            margin-bottom: var(--space-xs);
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            font-weight: 500;
+            color: var(--ink-dark);
+            letter-spacing: 0.05em;
+        }
+
+        /* ========================================
+           QUICK ACCESS CARDS
+        ======================================== */
+        .card-grid {
+            display: grid;
+            gap: var(--space-lg);
+        }
+
+        @media (min-width: 640px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .card-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .card {
+            background: var(--parchment-light);
+            border: 1px solid var(--border-ornate);
+            padding: var(--space-xl);
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        /* Ornate corners */
+        .card::before,
+        .card::after {
+            content: '◆';
+            position: absolute;
+            font-size: 0.5rem;
+            color: var(--gold-primary);
+        }
+
+        .card::before {
+            top: 8px;
+            left: 8px;
+        }
+
+        .card::after {
+            bottom: 8px;
+            right: 8px;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px var(--shadow-warm);
+            border-color: var(--gold-primary);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-md);
+            display: block;
+        }
+
+        .card-title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-sm);
+            color: var(--ink-dark);
+        }
+
+        .card-desc {
+            font-size: 0.9375rem;
+            color: var(--ink-light);
+            margin-bottom: var(--space-md);
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-family: var(--font-display);
+            font-size: 0.6875rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--blue-deep);
+            padding: var(--space-sm) var(--space-md);
+            border: 1px solid var(--blue-deep);
+            transition: all 0.2s ease;
+        }
+
+        .card-link:hover {
+            background: var(--blue-deep);
+            color: var(--parchment);
+        }
+
+        /* ========================================
+           FEATURED CONTENT
+        ======================================== */
+        .featured {
+            background: var(--blue-deep);
+            color: var(--parchment);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(201, 162, 39, 0.1) 100%);
+            pointer-events: none;
+        }
+
+        .featured .section-label {
+            color: var(--gold-light);
+        }
+
+        .featured .section-title {
+            color: var(--parchment);
+        }
+
+        .featured-content {
+            display: grid;
+            gap: var(--space-xl);
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (min-width: 768px) {
+            .featured-content {
+                grid-template-columns: 1.5fr 1fr;
+                align-items: center;
+            }
+        }
+
+        .featured-main {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: var(--space-xl);
+        }
+
+        .featured-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 500;
+            margin-bottom: var(--space-sm);
+            letter-spacing: 0.03em;
+        }
+
+        .featured-meta {
+            font-family: var(--font-accent);
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: var(--space-md);
+        }
+
+        .featured-excerpt {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--space-lg);
+        }
+
+        .featured-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+        }
+
+        .featured-link {
+            font-family: var(--font-display);
+            font-size: 0.6875rem;
+            letter-spacing: 0.08em;
+            padding: var(--space-sm) var(--space-md);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--parchment);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        .featured-link:hover {
+            background: var(--gold-primary);
+            border-color: var(--gold-primary);
+            color: var(--ink-dark);
+        }
+
+        .featured-quote {
+            text-align: center;
+            padding: var(--space-xl);
+        }
+
+        .featured-quote blockquote {
+            font-family: var(--font-accent);
+            font-size: 1.25rem;
+            font-style: italic;
+            line-height: 1.6;
+            color: var(--gold-light);
+            margin-bottom: var(--space-md);
+        }
+
+        .featured-quote cite {
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            color: rgba(255, 255, 255, 0.6);
+            font-style: normal;
+        }
+
+        /* ========================================
+           FAMILY SECTION
+        ======================================== */
+        .family-section {
+            background: linear-gradient(to bottom, var(--parchment), var(--parchment-dark));
+            border-top: 3px double var(--border-ornate);
+            border-bottom: 3px double var(--border-ornate);
+        }
+
+        .family-grid {
+            display: grid;
+            gap: var(--space-xl);
+        }
+
+        @media (min-width: 768px) {
+            .family-grid {
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+            }
+        }
+
+        .family-info {
+            order: 2;
+        }
+
+        @media (min-width: 768px) {
+            .family-info {
+                order: 1;
+            }
+        }
+
+        .family-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 500;
+            margin-bottom: var(--space-md);
+            color: var(--ink-dark);
+        }
+
+        .family-desc {
+            color: var(--ink-medium);
+            margin-bottom: var(--space-lg);
+        }
+
+        .room-list {
+            list-style: none;
+            margin-bottom: var(--space-lg);
+        }
+
+        .room-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid var(--border-ornate);
+            font-size: 0.9375rem;
+        }
+
+        .room-list li:first-child {
+            border-top: 1px solid var(--border-ornate);
+        }
+
+        .room-list .room {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .room-list .verse {
+            font-family: var(--font-accent);
+            font-style: italic;
+            color: var(--ink-light);
+            font-size: 0.875rem;
+        }
+
+        .family-visual {
+            order: 1;
+        }
+
+        @media (min-width: 768px) {
+            .family-visual {
+                order: 2;
+            }
+        }
+
+        .room-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
+        }
+
+        .room-card {
+            aspect-ratio: 1;
+            background: var(--parchment-light);
+            border: 1px solid var(--border-ornate);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-xs);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .room-card:hover {
+            border-color: var(--gold-primary);
+            background: white;
+            transform: scale(1.02);
+        }
+
+        .room-card:last-child {
+            grid-column: span 2;
+            aspect-ratio: 2/1;
+        }
+
+        .room-card-icon {
+            font-size: 2rem;
+        }
+
+        .room-card-name {
+            font-family: var(--font-display);
+            font-size: 0.6875rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: var(--space-md) var(--space-xl);
+            background: var(--gold-primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+        }
+
+        /* ========================================
+           TIMELINE
+        ======================================== */
+        .timeline {
+            position: relative;
+            padding-left: var(--space-xl);
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--gold-primary), var(--border-ornate), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            background: var(--parchment-light);
+            border: 1px solid var(--border-ornate);
+            padding: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        .timeline-item::before {
+            content: '✝';
+            position: absolute;
+            left: calc(-1 * var(--space-xl) - 6px);
+            top: var(--space-lg);
+            width: 14px;
+            height: 14px;
+            font-size: 0.75rem;
+            color: var(--gold-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .timeline-date {
+            font-family: var(--font-display);
+            font-size: 0.6875rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            margin-bottom: var(--space-xs);
+        }
+
+        .timeline-title {
+            font-family: var(--font-display);
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+            color: var(--ink-dark);
+        }
+
+        .timeline-speaker {
+            font-family: var(--font-accent);
+            font-style: italic;
+            color: var(--ink-light);
+            margin-bottom: var(--space-sm);
+        }
+
+        .timeline-excerpt {
+            font-size: 0.9375rem;
+            color: var(--ink-medium);
+            margin-bottom: var(--space-md);
+        }
+
+        .timeline-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+        }
+
+        .timeline-link {
+            font-family: var(--font-display);
+            font-size: 0.625rem;
+            letter-spacing: 0.08em;
+            padding: var(--space-xs) var(--space-sm);
+            background: var(--parchment);
+            border: 1px solid var(--border-ornate);
+            color: var(--ink-medium);
+            transition: all 0.2s ease;
+        }
+
+        .timeline-link:hover {
+            background: var(--blue-deep);
+            border-color: var(--blue-deep);
+            color: var(--parchment);
+        }
+
+        /* ========================================
+           RESOURCE CATEGORIES
+        ======================================== */
+        .category-grid {
+            display: grid;
+            gap: var(--space-lg);
+        }
+
+        @media (min-width: 640px) {
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .category-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .category-card {
+            background: var(--parchment-light);
+            border: 1px solid var(--border-ornate);
+            padding: var(--space-xl);
+            text-align: center;
+            position: relative;
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-md);
+            display: block;
+        }
+
+        .category-title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-sm);
+            color: var(--ink-dark);
+        }
+
+        .category-desc {
+            font-size: 0.875rem;
+            color: var(--ink-light);
+            margin-bottom: var(--space-md);
+        }
+
+        .category-count {
+            display: inline-block;
+            padding: var(--space-xs) var(--space-md);
+            background: var(--gold-primary);
+            color: white;
+            font-family: var(--font-display);
+            font-size: 0.6875rem;
+            letter-spacing: 0.1em;
+        }
+
+        /* ========================================
+           QUICK LINKS
+        ======================================== */
+        .quick-links {
+            background: var(--parchment-dark);
+            border-top: 1px solid var(--border-ornate);
+            border-bottom: 1px solid var(--border-ornate);
+        }
+
+        .links-grid {
+            display: grid;
+            gap: var(--space-md);
+        }
+
+        @media (min-width: 640px) {
+            .links-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .links-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        .quick-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-lg);
+            background: var(--parchment-light);
+            border: 1px solid var(--border-ornate);
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .quick-link:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-2px);
+        }
+
+        .quick-link-icon {
+            font-size: 1.5rem;
+        }
+
+        .quick-link-text {
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            color: var(--ink-medium);
+        }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+        .footer {
+            background: var(--ink-dark);
+            color: var(--parchment);
+            padding: var(--space-2xl) 0 var(--space-lg);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-verse {
+            font-family: var(--font-accent);
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--gold-light);
+            max-width: 500px;
+            margin: 0 auto var(--space-lg);
+        }
+
+        .footer-copy {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ========================================
+           ACCESSIBILITY & REDUCED MOTION
+        ======================================== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        *:focus-visible {
+            outline: 2px solid var(--gold-primary);
+            outline-offset: 3px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <span class="header-icon">✝</span>
+        <h1 class="header-title">Trusting Jesus</h1>
+        <p class="header-subtitle">Spiritual Growth Center</p>
+        <span class="header-date">Anno Domini 2026</span>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-ribbon">
+        <ul class="nav-list">
+            <li><a href="#quick-access" class="nav-link">Resources</a></li>
+            <li><a href="#featured" class="nav-link">Featured</a></li>
+            <li><a href="#family" class="nav-link">Family</a></li>
+            <li><a href="#timeline" class="nav-link">Timeline</a></li>
+            <li><a href="site/modern/index.html" class="nav-link">Presentations</a></li>
+        </ul>
+    </nav>
+
+    <!-- Quick Access Section -->
+    <section class="section" id="quick-access">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Resources</p>
+                <h2 class="section-title">Quick Access</h2>
+            </div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <span class="card-icon">🎯</span>
+                    <h3 class="card-title">This Week</h3>
+                    <p class="card-desc">Current sermon and prayer focus</p>
+                    <a href="#featured" class="card-link">View →</a>
+                </div>
+                <div class="card">
+                    <span class="card-icon">📖</span>
+                    <h3 class="card-title">Sermons</h3>
+                    <p class="card-desc">Complete sermon library</p>
+                    <a href="site/sermons.html" class="card-link">Browse →</a>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🙏</span>
+                    <h3 class="card-title">Prayer Points</h3>
+                    <p class="card-desc">Weekly prayer guides</p>
+                    <a href="site/prayer.html" class="card-link">View →</a>
+                </div>
+                <div class="card">
+                    <span class="card-icon">📊</span>
+                    <h3 class="card-title">Presentations</h3>
+                    <p class="card-desc">Ready-to-present decks</p>
+                    <a href="site/modern/index.html" class="card-link">Gallery →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"><span class="divider-icon">❧</span></div>
+
+    <!-- Featured Content -->
+    <section class="section featured" id="featured">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Featured</p>
+                <h2 class="section-title">This Week's Message</h2>
+            </div>
+
+            <div class="featured-content">
+                <div class="featured-main">
+                    <h3 class="featured-title">Walking in God's Love: Four Keys</h3>
+                    <p class="featured-meta">Harvest Intercontinental Church • January 2026</p>
+                    <p class="featured-excerpt">
+                        Discover the transformative power of God's unfailing love. Learn the four essential keys to walking daily in His love and experiencing the abundant life He promises through Christ.
+                    </p>
+                    <div class="featured-links">
+                        <a href="site/modern/presentations/Walking_in_Gods_Love.html" class="featured-link">📊 Presentation</a>
+                        <a href="prayer_points/2025/Week-2025-09-21_Gospel_of_Grace.md" class="featured-link">🙏 Prayer Points</a>
+                    </div>
+                </div>
+
+                <div class="featured-quote">
+                    <blockquote>
+                        "This peace is mine legally!"
+                    </blockquote>
+                    <cite>— Romans 5:1-2</cite>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Family Section -->
+    <section class="section family-section" id="family">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Family</p>
+                <h2 class="section-title">Prayer for the Home</h2>
+            </div>
+
+            <div class="family-grid">
+                <div class="family-info">
+                    <h3 class="family-title">Cover Every Room in Prayer</h3>
+                    <p class="family-desc">
+                        Walk through your home and invite God's presence into every space. Each room receives a scripture blessing and prayer focus.
+                    </p>
+                    <ul class="room-list">
+                        <li>
+                            <span class="room">🚪 Front Door</span>
+                            <span class="verse">Psalm 121:8</span>
+                        </li>
+                        <li>
+                            <span class="room">🛋️ Living Room</span>
+                            <span class="verse">Psalm 133:1</span>
+                        </li>
+                        <li>
+                            <span class="room">🍽️ Dining Room</span>
+                            <span class="verse">Acts 2:46</span>
+                        </li>
+                        <li>
+                            <span class="room">🍳 Kitchen</span>
+                            <span class="verse">Matthew 6:11</span>
+                        </li>
+                        <li>
+                            <span class="room">🛏️ Bedroom</span>
+                            <span class="verse">Psalm 91</span>
+                        </li>
+                    </ul>
+                    <a href="site/modern/presentations/family/Prayer_For_The_Family.html" class="btn-primary">
+                        Begin Praying →
+                    </a>
+                </div>
+
+                <div class="family-visual">
+                    <div class="room-grid">
+                        <div class="room-card">
+                            <span class="room-card-icon">🚪</span>
+                            <span class="room-card-name">Front Door</span>
+                        </div>
+                        <div class="room-card">
+                            <span class="room-card-icon">🛋️</span>
+                            <span class="room-card-name">Living Room</span>
+                        </div>
+                        <div class="room-card">
+                            <span class="room-card-icon">🍽️</span>
+                            <span class="room-card-name">Dining</span>
+                        </div>
+                        <div class="room-card">
+                            <span class="room-card-icon">🍳</span>
+                            <span class="room-card-name">Kitchen</span>
+                        </div>
+                        <div class="room-card">
+                            <span class="room-card-icon">🛏️</span>
+                            <span class="room-card-name">Bedroom</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"><span class="divider-icon">✝</span></div>
+
+    <!-- Timeline Section -->
+    <section class="section" id="timeline">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Archive</p>
+                <h2 class="section-title">Content Timeline</h2>
+            </div>
+
+            <div class="timeline">
+                <article class="timeline-item">
+                    <p class="timeline-date">January 2026</p>
+                    <h3 class="timeline-title">21 Days of Prayer & Fasting</h3>
+                    <p class="timeline-speaker">Harvest Intercontinental Church</p>
+                    <p class="timeline-excerpt">A powerful journey through three weeks of focused prayer covering healing, marriage, provision, abiding, and unity.</p>
+                    <div class="timeline-links">
+                        <a href="site/modern/presentations/monthly_prayer/January_2026_21_Days_Prayer_Week1.html" class="timeline-link">Week 1</a>
+                        <a href="site/modern/presentations/monthly_prayer/January_2026_21_Days_Prayer_Week2.html" class="timeline-link">Weeks 2 & 3</a>
+                    </div>
+                </article>
+
+                <article class="timeline-item">
+                    <p class="timeline-date">December 2025</p>
+                    <h3 class="timeline-title">Angels On Call</h3>
+                    <p class="timeline-speaker">Bishop Dr. Darlingston Johnson</p>
+                    <p class="timeline-excerpt">Exploring the ministry of angels and their role in the believer's life.</p>
+                    <div class="timeline-links">
+                        <a href="site/modern/presentations/Angels_On_Call.html" class="timeline-link">Presentation</a>
+                    </div>
+                </article>
+
+                <article class="timeline-item">
+                    <p class="timeline-date">November 2025</p>
+                    <h3 class="timeline-title">How God Leads His People</h3>
+                    <p class="timeline-speaker">Ministry Teaching</p>
+                    <p class="timeline-excerpt">Understanding divine guidance and following God's direction for your life.</p>
+                    <div class="timeline-links">
+                        <a href="site/modern/presentations/How_God_Leads_His_People.html" class="timeline-link">Presentation</a>
+                        <a href="prayer_points/2025/Week-2025-11-13_How_God_Leads_His_People.md" class="timeline-link">Prayer Points</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resource Categories -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Library</p>
+                <h2 class="section-title">Resource Categories</h2>
+            </div>
+
+            <div class="category-grid">
+                <div class="category-card">
+                    <span class="category-icon">📖</span>
+                    <h3 class="category-title">Sermons</h3>
+                    <p class="category-desc">Full transcripts and summaries</p>
+                    <span class="category-count">50+ Available</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🙏</span>
+                    <h3 class="category-title">Prayer Points</h3>
+                    <p class="category-desc">Weekly guides with themes</p>
+                    <span class="category-count">24 Weeks</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">📊</span>
+                    <h3 class="category-title">Presentations</h3>
+                    <p class="category-desc">Interactive slide decks</p>
+                    <span class="category-count">50+ Decks</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">📄</span>
+                    <h3 class="category-title">Transcripts</h3>
+                    <p class="category-desc">Detailed message texts</p>
+                    <span class="category-count">Growing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="section quick-links">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Navigate</p>
+                <h2 class="section-title">Quick Links</h2>
+            </div>
+
+            <div class="links-grid">
+                <a href="prayer_points/2025/Week-2025-09-21_Gospel_of_Grace.md" class="quick-link">
+                    <span class="quick-link-icon">🎯</span>
+                    <span class="quick-link-text">Today's Prayer</span>
+                </a>
+                <a href="site/modern/presentations/Walking_in_Gods_Love.html" class="quick-link">
+                    <span class="quick-link-icon">📖</span>
+                    <span class="quick-link-text">Latest Sermon</span>
+                </a>
+                <a href="site/modern/presentations/family/Prayer_For_The_Family.html" class="quick-link">
+                    <span class="quick-link-icon">🏠</span>
+                    <span class="quick-link-text">Family Prayers</span>
+                </a>
+                <a href="site/modern/index.html" class="quick-link">
+                    <span class="quick-link-icon">📊</span>
+                    <span class="quick-link-text">All Presentations</span>
+                </a>
+                <a href="site/landing.html" class="quick-link">
+                    <span class="quick-link-icon">🌟</span>
+                    <span class="quick-link-text">New Landing Page</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-logo">✝ Trusting Jesus</p>
+            <p class="footer-verse">"As for me and my household, we will serve the Lord." — Joshua 24:15</p>
+            <p class="footer-copy">© 2026 Trusting Jesus - Spiritual Growth Center</p>
+        </div>
+    </footer>
+</body>
+</html>
