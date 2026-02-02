@@ -925,10 +925,41 @@
     .room-grid,
     .item-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 1em;
+    }
+
+    /* Larger grid items for better touch and readability */
+    .room-grid-item,
+    .grid-item {
+        padding: 1em;
+        min-height: 80px;
+    }
+
+    .room-grid-item .icon,
+    .grid-item .icon {
+        font-size: 2em;
+        margin-bottom: 0.4em;
+    }
+
+    /* CRITICAL: Minimum 14px for readability */
+    .room-grid-item .name,
+    .grid-item .name {
+        font-size: 14px;
+        letter-spacing: 0.03em;
     }
 
     .summary-grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .summary-card .room,
+    .summary-card .title {
+        font-size: 12px;
+    }
+
+    .summary-card .verse,
+    .summary-card .subtitle {
+        font-size: 11px;
     }
 
     .two-columns {
@@ -961,6 +992,21 @@
     .slide-nav-item .slide-title {
         font-size: 12px;
     }
+
+    /* Prayer list readable on tablet */
+    .prayer-list li {
+        font-size: 16px;
+        padding: 0.6em 0;
+    }
+
+    /* Prayer panel readable */
+    .prayer-panel h4 {
+        font-size: 14px;
+    }
+
+    .prayer-panel p {
+        font-size: 15px;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -968,17 +1014,65 @@
         font-size: 20px;
     }
 
+    .reveal h1 {
+        font-size: 1.8em;
+    }
+
+    .reveal h2 {
+        font-size: 1.4em;
+    }
+
     .room-grid,
     .item-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 0.8em;
+    }
+
+    /* Ensure minimum touch target and readability */
+    .room-grid-item,
+    .grid-item {
+        padding: 0.8em;
+        min-height: 70px;
+    }
+
+    .room-grid-item .icon,
+    .grid-item .icon {
+        font-size: 1.6em;
+        margin-bottom: 0.3em;
+    }
+
+    /* CRITICAL: Never below 14px for body text */
+    .room-grid-item .name,
+    .grid-item .name {
+        font-size: 13px;
+        letter-spacing: 0.02em;
     }
 
     .summary-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 0.5em;
     }
 
     .summary-grid .summary-card:last-child {
         grid-column: span 2;
+    }
+
+    .summary-card {
+        padding: 0.6em 0.4em;
+    }
+
+    .summary-card .icon {
+        font-size: 1.3em;
+    }
+
+    .summary-card .room,
+    .summary-card .title {
+        font-size: 11px;
+    }
+
+    .summary-card .verse,
+    .summary-card .subtitle {
+        font-size: 10px;
     }
 
     .scripture-glass,
@@ -986,9 +1080,24 @@
         padding: 1em;
     }
 
+    .scripture-text {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .scripture-ref {
+        font-size: 12px;
+    }
+
     .room-icon,
     .section-icon {
         font-size: 2.2em;
+    }
+
+    .room-badge,
+    .section-badge {
+        font-size: 10px;
+        padding: 0.3em 0.8em;
     }
 
     .home-btn span {
@@ -1007,6 +1116,55 @@
     .slide-nav-item {
         padding: 8px 10px;
         min-height: 55px;
+    }
+
+    /* Prayer list minimum readability */
+    .prayer-list li {
+        font-size: 15px;
+        padding: 0.5em 0;
+    }
+
+    .prayer-panel h4 {
+        font-size: 13px;
+    }
+
+    .prayer-panel p {
+        font-size: 14px;
+    }
+
+    /* Subtitle readable */
+    .subtitle {
+        font-size: 14px;
+    }
+}
+
+/* Extra small screens - prioritize readability */
+@media screen and (max-width: 380px) {
+    .reveal {
+        font-size: 18px;
+    }
+
+    .room-grid,
+    .item-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.6em;
+    }
+
+    .room-grid-item .name,
+    .grid-item .name {
+        font-size: 12px;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .scripture-text {
+        font-size: 14px;
+    }
+
+    .prayer-list li {
+        font-size: 14px;
     }
 }
 
