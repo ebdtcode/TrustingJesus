@@ -85,6 +85,19 @@ const presentations = [
     date: "2026-01-26"
   },
   {
+    title: "The 7 Habits of Highly Effective People",
+    speaker: "Stephen R. Covey",
+    description: "Key teachings and action steps from the transformational book. From dependence to independence to interdependence.",
+    slides: 22,
+    file: "presentations/personal-development/7_Habits_of_Highly_Effective_People.html",
+    id: "7-habits-highly-effective-people",
+    category: "personal-development",
+    icon: "&#128200;",
+    tags: ["personal development", "habits", "effectiveness", "growth", "leadership"],
+    featured: false,
+    date: "2026-02-02"
+  },
+  {
     title: "Walking in God's Love: Four Keys",
     speaker: "Harvest Intercontinental Church",
     description: "Four keys to walking in God's unfailing love.",
@@ -739,6 +752,7 @@ const categories = {
   sermon: { label: "Sermons", icon: "&#127897;", color: "#1d4ed8" },
   marriage: { label: "Marriage", icon: "&#128141;", color: "#be185d" },
   "names-of-god": { label: "Names of God", icon: "&#9769;", color: "#0d9488" },
+  "personal-development": { label: "Growth", icon: "&#128200;", color: "#059669" },
   series: { label: "Series", icon: "&#128218;", color: "#6366f1" }
 };
 

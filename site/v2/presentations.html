@@ -202,6 +202,7 @@
     .pres-card[data-category="sermon"] .pres-card-thumbnail { background: linear-gradient(135deg, #1d4ed8, #1e3a8a); }
     .pres-card[data-category="marriage"] .pres-card-thumbnail { background: linear-gradient(135deg, #be185d, #831843); }
     .pres-card[data-category="series"] .pres-card-thumbnail { background: linear-gradient(135deg, #6366f1, #4338ca); }
+    .pres-card[data-category="personal-development"] .pres-card-thumbnail { background: linear-gradient(135deg, #059669, #065f46); }
 
     .pres-card-body { padding: var(--space-4); }
 
@@ -489,7 +490,7 @@
       });
 
       var filterTabsContainer = document.getElementById('filter-tabs');
-      var categoryOrder = ['all', 'prayer', 'faith', 'grace', 'sermon', 'family', 'marriage', 'names-of-god', 'series'];
+      var categoryOrder = ['all', 'prayer', 'faith', 'grace', 'sermon', 'family', 'marriage', 'names-of-god', 'personal-development', 'series'];
 
       categoryOrder.forEach(function(catKey) {
         if (catKey === 'all' || categoryCounts[catKey]) {
