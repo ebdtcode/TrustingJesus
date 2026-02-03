@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The 7 Habits of Highly Effective People - Key Teachings and Action Steps from Stephen Covey">
+    <title>The 7 Habits of Highly Effective People | Personal Growth</title>
+
+    <!-- Reveal.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+    <!-- V2 Presentation Theme -->
+    <link rel="stylesheet" href="../../assets/css/presentation-theme.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <a href="../../presentations.html" class="home-btn" aria-label="Return to presentations list">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+        <span>Home</span>
+    </a>
+
+    <!-- Slide Navigator Trigger -->
+    <button class="slide-nav-trigger" aria-label="Open slide navigator" title="View all slides (G)">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1"/>
+            <rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/>
+            <rect x="14" y="14" width="7" height="7" rx="1"/>
+        </svg>
+    </button>
+
+    <!-- Slide Navigator Modal -->
+    <div class="slide-nav-modal" id="slideNavModal" role="dialog" aria-label="Slide navigator" aria-modal="true" aria-hidden="true">
+        <div class="slide-nav-header">
+            <div>
+                <h2>Slide Navigator</h2>
+                <span class="slide-count" id="slideNavCount"></span>
+            </div>
+            <button class="slide-nav-close" aria-label="Close navigator">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="slide-nav-content">
+            <div class="slide-nav-grid" id="slideNavGrid"></div>
+        </div>
+    </div>
+
+    <div class="reveal" id="main-content">
+        <div class="slides">
+
+            <!-- TITLE SLIDE -->
+            <section data-background-gradient="radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a12 100%)">
+                <div class="light-rays"></div>
+                <span class="room-badge" style="background: var(--gold);">Personal Growth</span>
+                <h1>The 7 Habits of Highly Effective People</h1>
+                <p class="subtitle">Powerful Lessons in Personal Change</p>
+                <p style="font-size: 0.6em; color: var(--text-muted); margin-top: 1em;">Stephen R. Covey</p>
+                <p style="font-size: 0.5em; color: var(--text-muted);">From Dependence to Independence to Interdependence</p>
+            </section>
+
+            <!-- OVERVIEW -->
+            <section>
+                <h2>The Path to Effectiveness</h2>
+                <div class="room-grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="room-grid-item fragment fade-up" style="border-color: var(--emerald);">
+                        <span class="icon">&#127793;</span>
+                        <span class="name">Private Victory</span>
+                        <p style="font-size: 0.45em; color: var(--text-muted); margin-top: 0.3em;">Habits 1-3</p>
+                    </div>
+                    <div class="room-grid-item fragment fade-up" style="border-color: var(--sapphire);">
+                        <span class="icon">&#129309;</span>
+                        <span class="name">Public Victory</span>
+                        <p style="font-size: 0.45em; color: var(--text-muted); margin-top: 0.3em;">Habits 4-6</p>
+                    </div>
+                    <div class="room-grid-item fragment fade-up" style="border-color: var(--amethyst);">
+                        <span class="icon">&#128260;</span>
+                        <span class="name">Renewal</span>
+                        <p style="font-size: 0.45em; color: var(--text-muted); margin-top: 0.3em;">Habit 7</p>
+                    </div>
+                </div>
+                <div class="scripture-glass fragment fade-up" style="margin-top: 1.5em; border-left-color: var(--gold);">
+                    <p class="scripture-text">"The 7 Habits are about moving from dependence to independence to interdependence."</p>
+                </div>
+            </section>
+
+            <!-- CHARACTER VS PERSONALITY -->
+            <section>
+                <h2>Character vs. Personality</h2>
+                <div class="two-columns">
+                    <div class="column">
+                        <h4 style="color: var(--ruby);">Personality Ethic</h4>
+                        <ul style="font-size: 0.7em;">
+                            <li>Quick fixes and techniques</li>
+                            <li>Focus on public image</li>
+                            <li>Surface-level change</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h4 style="color: var(--emerald);">Character Ethic</h4>
+                        <ul style="font-size: 0.7em;">
+                            <li>Principles and integrity</li>
+                            <li>Inner character focus</li>
+                            <li>Deep, lasting change</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="prayer-panel fragment fade-up">
+                    <h4>Key Insight</h4>
+                    <p>It's your character that needs to be cultivated for sustainable success, not your personality.</p>
+                </div>
+            </section>
+
+            <!-- PRIVATE VICTORY SECTION -->
+            <section data-background-gradient="radial-gradient(ellipse at center, #1a2d28 0%, #0a0a12 100%)">
+                <div class="light-rays"></div>
+                <span class="room-badge" style="background: var(--emerald);">Habits 1-3</span>
+                <h1>Private Victory</h1>
+                <p class="subtitle">From Dependence to Independence</p>
+            </section>
+
+            <!-- HABIT 1 -->
+            <section>
+                <span class="room-badge" style="background: var(--emerald);">Habit 1</span>
+                <h2>Be Proactive</h2>
+                <div class="scripture-glass" style="border-left-color: var(--emerald);">
+                    <p class="scripture-text">"Between stimulus and response lies a person's ability to choose how to react."</p>
+                </div>
+                <ul>
+                    <li class="fragment fade-up"><span class="emphasis">Take responsibility</span> for your life and choices</li>
+                    <li class="fragment fade-up"><span class="emphasis">Focus on your Circle of Influence</span>, not Circle of Concern</li>
+                    <li class="fragment fade-up"><span class="emphasis">Use proactive language</span>: "I choose" vs "I have to"</li>
+                    <li class="fragment fade-up"><span class="emphasis">Respond based on values</span>, not emotions</li>
+                </ul>
+            </section>
+
+            <!-- HABIT 1 ACTION -->
+            <section>
+                <span class="room-badge" style="background: var(--emerald);">Action Steps</span>
+                <h2>Habit 1: Apply It</h2>
+                <div class="prayer-point">
+                    <div class="prayer-point-title">This Week</div>
+                    <p class="prayer-point-text">Monitor your language. Notice reactive phrases ("I can't," "I have to," "If only"). Replace them with proactive alternatives.</p>
+                </div>
+                <div class="prayer-point fragment fade-up">
+                    <div class="prayer-point-title">Circle of Influence</div>
+                    <p class="prayer-point-text">Draw two circles. List concerns in the outer, what you control in the inner. Focus energy on the inner circle.</p>
+                </div>
+                <div class="prayer-point fragment fade-up">
+                    <div class="prayer-point-title">30-Day Challenge</div>
+                    <p class="prayer-point-text">Work only on your Circle of Influence. Watch it grow as you focus your efforts there.</p>
+                </div>
+            </section>
+
+            <!-- HABIT 2 -->
+            <section>
+                <span class="room-badge" style="background: var(--emerald);">Habit 2</span>
+                <h2>Begin with the End in Mind</h2>
+                <div class="scripture-glass" style="border-left-color: var(--emerald);">
+                    <p class="scripture-text">"All things are created twice: first mentally, then physically. Before you act, act in your mind first."</p>
+                </div>
+                <ul>
+                    <li class="fragment fade-up"><span class="emphasis">Define your personal mission statement</span></li>
+                    <li class="fragment fade-up"><span class="emphasis">Identify your core values</span> and principles</li>
+                    <li class="fragment fade-up"><span class="emphasis">Visualize the outcomes</span> you want in life</li>
+                    <li class="fragment fade-up"><span class="emphasis">Align daily actions</span> with your overarching purpose</li>
+                </ul>
+            </section>
+
+            <!-- HABIT 2 ACTION -->
+            <section>
+                <span class="room-badge" style="background: var(--emerald);">Action Steps</span>
+                <h2>Habit 2: Apply It</h2>
+                <div class="prayer-point">
+                    <div class="prayer-point-title">Funeral Exercise</div>
+                    <p class="prayer-point-text">Imagine your funeral. What would you want family, friends, and colleagues to say about you? Write it down.</p>
+                </div>
+                <div class="prayer-point fragment fade-up">
+                    <div class="prayer-point-title">Mission Statement</div>
+                    <p class="prayer-point-text">Draft a personal mission statement defining who you want to be and what you want to accomplish.</p>
+                </div>
+                <div class="prayer-point fragment fade-up">
+                    <div class="prayer-point-title">Role Review</div>
+                    <p class="prayer-point-text">Identify your key roles (parent, spouse, professional). Define what success looks like in each.</p>
+                </div>
+            </section>
+
+            <!-- HABIT 3 -->
+            <section>
+                <span class="room-badge" style="background: var(--emerald);">Habit 3</span>
+                <h2>Put First Things First</h2>
+                <div class="scripture-glass" style="border-left-color: var(--emerald);">
+                    <p class="scripture-text">"The key is not to prioritize your schedule, but to schedule your priorities."</p>
+                </div>
+                <div class="room-grid" style="grid-template-columns: repeat(2, 1fr); gap: 0.5em; margin-top: 1em;">
+                    <div class="room-grid-item" style="border-color: var(--ruby); padding: 0.6em;">
+                        <span style="font-size: 0.6em; color: var(--ruby);">Q1: Urgent + Important</span>
+                        <p style="font-size: 0.5em; margin: 0.3em 0;">Crises, deadlines</p>
+                        <span style="font-size: 0.55em; color: var(--ruby); font-weight: bold;">DO</span>
+                    </div>
+                    <div class="room-grid-item" style="border-color: var(--emerald); padding: 0.6em;">
+                        <span style="font-size: 0.6em; color: var(--emerald);">Q2: Not Urgent + Important</span>
+                        <p style="font-size: 0.5em; margin: 0.3em 0;">Planning, growth</p>
+                        <span style="font-size: 0.55em; color: var(--emerald); font-weight: bold;">SCHEDULE</span>
+                    </div>
+                    <div class="room-grid-item" style="border-color: var(--amber); padding: 0.6em;">
+                        <span style="font-size: 0.6em; color: var(--amber);">Q3: Urgent + Not Important</span>
+                        <p style="font-size: 0.5em; margin: 0.3em 0;">Interruptions</p>
+                        <span style="font-size: 0.55em; color: var(--amber); font-weight: bold;">DELEGATE</span>
+                    </div>
+                    <div class="room-grid-item" style="border-color: var(--text-muted); padding: 0.6em;">
+                        <span style="font-size: 0.6em; color: var(--text-muted);">Q4: Not Urgent + Not Important</span>
+                        <p style="font-size: 0.5em; margin: 0.3em 0;">Time wasters</p>
+                        <span style="font-size: 0.55em; color: var(--text-muted); font-weight: bold;">ELIMINATE</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HABIT 3 ACTION -->
+            <section>
+                <span class="room-badge" style="background: var(--emerald);">Action Steps</span>
+                <h2>Habit 3: Apply It</h2>
+                <div class="prayer-point">
+                    <div class="prayer-point-title">Weekly Planning</div>
+                    <p class="prayer-point-text">Spend 30 minutes every Sunday planning your week. Schedule Quadrant 2 activities first.</p>
+                </div>
+                <div class="prayer-point fragment fade-up">
+                    <div class="prayer-point-title">Time Audit</div>
+                    <p class="prayer-point-text">Track how you spend time for one week. Categorize by quadrant. How much is in Q2?</p>
+                </div>
+                <div class="prayer-point fragment fade-up">
+                    <div class="prayer-point-title">Say No</div>
+                    <p class="prayer-point-text">Practice saying "no" to Q3 and Q4 activities so you can say "yes" to what matters most.</p>
+                </div>
+            </section>
+
+            <!-- PUBLIC VICTORY SECTION -->
+            <section data-background-gradient="radial-gradient(ellipse at center, #1a2a3f 0%, #0a0a12 100%)">
+                <div class="light-rays"></div>
+                <span class="room-badge" style="background: var(--sapphire);">Habits 4-6</span>
+                <h1>Public Victory</h1>
+                <p class="subtitle">From Independence to Interdependence</p>
+            </section>
+
+            <!-- HABIT 4 -->
+            <section>
+                <span class="room-badge" style="background: var(--sapphire);">Habit 4</span>
+                <h2>Think Win-Win</h2>
+                <div class="scripture-glass" style="border-left-color: var(--sapphire);">
+                    <p class="scripture-text">"Win-Win isn't about being nice; it is a character-based code for human interaction and collaboration."</p>
+                </div>
+                <div class="two-columns">
+                    <div class="column">
+                        <h4 style="color: var(--ruby);">Scarcity Mindset</h4>
+                        <ul style="font-size: 0.65em;">
+                            <li>If you win, I lose</li>
+                            <li>Competition and hoarding</li>
+                            <li>Fear-based decisions</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h4 style="color: var(--emerald);">Abundance Mindset</h4>
+                        <ul style="font-size: 0.65em;">
+                            <li>Enough for everyone</li>
+                            <li>Collaboration and sharing</li>
+                            <li>Trust-based relationships</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HABIT 4 ACTION -->
+            <section>
+                <span class="room-badge" style="background: var(--sapphire);">Action Steps</span>
+                <h2>Habit 4: Apply It</h2>
+                <div class="prayer-point">
+                    <div class="prayer-point-title">Identify Relationships</div>
+                    <p class="prayer-point-text">Think of a relationship where you tend to think Win-Lose. What would Win-Win look like?</p>
+                </div>
+                <div class="prayer-point fragment fade-up">
+                    <div class="prayer-point-title">Abundance Practice</div>
+                    <p class="prayer-point-text">This week, share credit, celebrate others' wins, and find solutions that benefit everyone.</p>
+                </div>
+                <div class="prayer-point fragment fade-up">
+                    <div class="prayer-point-title">Win-Win or No Deal</div>
+                    <p class="prayer-point-text">In your next negotiation, seek solutions where both parties benefit. If not possible, agree to "No Deal."</p>
+                </div>
+            </section>
+
+            <!-- HABIT 5 -->
+            <section>
+                <span class="room-badge" style="background: var(--sapphire);">Habit 5</span>
+                <h2>Seek First to Understand</h2>
+                <p class="subtitle">Then to Be Understood</p>
+                <div class="scripture-glass" style="border-left-color: var(--sapphire);">
+                    <p class="scripture-text">"Most people do not listen with the intent to understand; they listen with the intent to reply."</p>
+                </div>
+                <ul>
+                    <li class="fragment fade-up"><span class="emphasis">Practice empathic listening</span> - listen to understand</li>
+                    <li class="fragment fade-up"><span class="emphasis">Diagnose before you prescribe</span></li>
+                    <li class="fragment fade-up"><span class="emphasis">Reflect feelings and meaning</span>, not just words</li>
+                    <li class="fragment fade-up"><span class="emphasis">Then present your ideas</span> in their terms</li>
+                </ul>
+            </section>
+
+            <!-- HABIT 5 ACTION -->
+            <section>
+                <span class="room-badge" style="background: var(--sapphire);">Action Steps</span>
+                <h2>Habit 5: Apply It</h2>
+                <div class="prayer-point">
+                    <div class="prayer-point-title">Empathic Listening</div>
+                    <p class="prayer-point-text">In your next conversation, focus entirely on understanding. Don't plan your response. Just listen.</p>
+                </div>
+                <div class="prayer-point fragment fade-up">
+                    <div class="prayer-point-title">Reflect Back</div>
+                    <p class="prayer-point-text">Practice saying "So what you're feeling is..." before sharing your perspective.</p>
+                </div>
+                <div class="prayer-point fragment fade-up">
+                    <div class="prayer-point-title">One-on-One Time</div>
+                    <p class="prayer-point-text">Schedule dedicated time with someone important. Spend that time only listening.</p>
+                </div>
+            </section>
+
+            <!-- HABIT 6 -->
+            <section>
+                <span class="room-badge" style="background: var(--sapphire);">Habit 6</span>
+                <h2>Synergize</h2>
+                <div class="scripture-glass" style="border-left-color: var(--sapphire);">
+                    <p class="scripture-text">"The whole is greater than the sum of its parts. Synergy is the highest activity of life."</p>
+                </div>
+                <ul>
+                    <li class="fragment fade-up"><span class="emphasis">Value differences</span> - don't just tolerate them</li>
+                    <li class="fragment fade-up"><span class="emphasis">Seek third alternatives</span> - not your way or my way</li>
+                    <li class="fragment fade-up"><span class="emphasis">Build on diverse strengths</span></li>
+                    <li class="fragment fade-up"><span class="emphasis">Create innovative solutions</span> through collaboration</li>
+                </ul>
+            </section>
+
+            <!-- HABIT 6 ACTION -->
+            <section>
+                <span class="room-badge" style="background: var(--sapphire);">Action Steps</span>
+                <h2>Habit 6: Apply It</h2>
+                <div class="prayer-point">
+                    <div class="prayer-point-title">Value Diversity</div>
+                    <p class="prayer-point-text">Identify someone who thinks differently. Ask: "What can I learn from their perspective?"</p>
+                </div>
+                <div class="prayer-point fragment fade-up">
+                    <div class="prayer-point-title">Third Alternative</div>
+                    <p class="prayer-point-text">When you disagree, ask: "Are we willing to search for a solution better than either has proposed?"</p>
+                </div>
+                <div class="prayer-point fragment fade-up">
+                    <div class="prayer-point-title">Team Synergy</div>
+                    <p class="prayer-point-text">In your next team project, create space for diverse ideas. Combine perspectives into something new.</p>
+                </div>
+            </section>
+
+            <!-- RENEWAL SECTION -->
+            <section data-background-gradient="radial-gradient(ellipse at center, #2a1f3d 0%, #0a0a12 100%)">
+                <div class="light-rays"></div>
+                <span class="room-badge" style="background: var(--amethyst);">Habit 7</span>
+                <h1>Sharpen the Saw</h1>
+                <p class="subtitle">Continuous Renewal and Growth</p>
+            </section>
+
+            <!-- HABIT 7 -->
+            <section>
+                <span class="room-badge" style="background: var(--amethyst);">Habit 7</span>
+                <h2>The Four Dimensions</h2>
+                <div class="scripture-glass" style="border-left-color: var(--amethyst);">
+                    <p class="scripture-text">"Give me six hours to chop down a tree and I will spend the first four sharpening the axe."</p>
+                </div>
+                <div class="room-grid" style="grid-template-columns: repeat(4, 1fr); margin-top: 1em;">
+                    <div class="room-grid-item fragment fade-up" style="border-color: var(--ruby);">
+                        <span class="icon">&#128170;</span>
+                        <span class="name">Physical</span>
+                        <p style="font-size: 0.4em; color: var(--text-muted);">Exercise, nutrition, rest</p>
+                    </div>
+                    <div class="room-grid-item fragment fade-up" style="border-color: var(--sapphire);">
+                        <span class="icon">&#128218;</span>
+                        <span class="name">Mental</span>
+                        <p style="font-size: 0.4em; color: var(--text-muted);">Learning, reading</p>
+                    </div>
+                    <div class="room-grid-item fragment fade-up" style="border-color: var(--amber);">
+                        <span class="icon">&#128591;</span>
+                        <span class="name">Spiritual</span>
+                        <p style="font-size: 0.4em; color: var(--text-muted);">Values, meditation</p>
+                    </div>
+                    <div class="room-grid-item fragment fade-up" style="border-color: var(--emerald);">
+                        <span class="icon">&#129309;</span>
+                        <span class="name">Social</span>
+                        <p style="font-size: 0.4em; color: var(--text-muted);">Relationships</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HABIT 7 ACTION -->
+            <section>
+                <span class="room-badge" style="background: var(--amethyst);">Action Steps</span>
+                <h2>Habit 7: Apply It</h2>
+                <div class="prayer-point">
+                    <div class="prayer-point-title">Weekly Renewal</div>
+                    <p class="prayer-point-text">Schedule one hour per week for each dimension: Physical, Mental, Spiritual, Social.</p>
+                </div>
+                <div class="prayer-point fragment fade-up">
+                    <div class="prayer-point-title">Daily Minimum</div>
+                    <p class="prayer-point-text">Establish a daily "sharpening" routine - 15 min reading, 30 min exercise, 10 min meditation.</p>
+                </div>
+                <div class="prayer-point fragment fade-up">
+                    <div class="prayer-point-title">P/PC Balance</div>
+                    <p class="prayer-point-text">Review: Are you producing results at the expense of your capacity to produce? Restore balance.</p>
+                </div>
+            </section>
+
+            <!-- SUMMARY -->
+            <section>
+                <h2>The 7 Habits Summary</h2>
+                <div class="summary-grid" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="summary-card" style="border-left: 3px solid var(--emerald);">
+                        <span class="title">1. Be Proactive</span>
+                        <span class="subtitle">Take responsibility</span>
+                    </div>
+                    <div class="summary-card" style="border-left: 3px solid var(--emerald);">
+                        <span class="title">2. Begin with End</span>
+                        <span class="subtitle">Define your mission</span>
+                    </div>
+                    <div class="summary-card" style="border-left: 3px solid var(--emerald);">
+                        <span class="title">3. First Things First</span>
+                        <span class="subtitle">Prioritize important</span>
+                    </div>
+                    <div class="summary-card" style="border-left: 3px solid var(--sapphire);">
+                        <span class="title">4. Think Win-Win</span>
+                        <span class="subtitle">Mutual benefit</span>
+                    </div>
+                    <div class="summary-card" style="border-left: 3px solid var(--sapphire);">
+                        <span class="title">5. Seek to Understand</span>
+                        <span class="subtitle">Listen first</span>
+                    </div>
+                    <div class="summary-card" style="border-left: 3px solid var(--sapphire);">
+                        <span class="title">6. Synergize</span>
+                        <span class="subtitle">Value differences</span>
+                    </div>
+                    <div class="summary-card" style="border-left: 3px solid var(--amethyst);">
+                        <span class="title">7. Sharpen the Saw</span>
+                        <span class="subtitle">Continuous renewal</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7-DAY CHALLENGE -->
+            <section data-background-gradient="radial-gradient(ellipse at center, #1a2d28 0%, #0a0a12 100%)">
+                <h2>Your 7-Day Challenge</h2>
+                <div class="two-columns" style="font-size: 0.8em;">
+                    <div class="column">
+                        <ul class="prayer-list">
+                            <li><strong>Day 1:</strong> Monitor your language</li>
+                            <li><strong>Day 2:</strong> Draft your mission</li>
+                            <li><strong>Day 3:</strong> Audit your time</li>
+                            <li><strong>Day 4:</strong> Find a Win-Win</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <ul class="prayer-list">
+                            <li><strong>Day 5:</strong> Practice listening</li>
+                            <li><strong>Day 6:</strong> Seek third alternative</li>
+                            <li><strong>Day 7:</strong> Plan your renewal</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CLOSING -->
+            <section data-background-gradient="radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a12 100%)">
+                <div class="light-rays"></div>
+                <div class="scripture-glass" style="border-left-color: var(--gold); max-width: 80%;">
+                    <p class="scripture-text" style="font-size: 1.1em;">"The greater the change and more difficult our challenges, the more relevant the habits become."</p>
+                    <p class="scripture-ref">Stephen R. Covey</p>
+                </div>
+                <p style="margin-top: 1.5em; font-size: 0.7em; color: var(--gold);">Start your transformation today. One habit at a time.</p>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            width: 960,
+            height: 700,
+            margin: 0.1,
+            minScale: 0.2,
+            maxScale: 2.0,
+            transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+            controls: true,
+            progress: true,
+            center: true,
+            touch: true,
+            keyboard: true,
+            overview: true,
+            help: true,
+            slideNumber: true
+        });
+
+        // Slide Navigator functionality
+        const slideNavTrigger = document.querySelector('.slide-nav-trigger');
+        const slideNavModal = document.getElementById('slideNavModal');
+        const slideNavClose = document.querySelector('.slide-nav-close');
+        const slideNavGrid = document.getElementById('slideNavGrid');
+        const slideNavCount = document.getElementById('slideNavCount');
+
+        function openSlideNav() {
+            slideNavModal.setAttribute('aria-hidden', 'false');
+            slideNavModal.classList.add('open');
+            updateSlideNav();
+        }
+
+        function closeSlideNav() {
+            slideNavModal.setAttribute('aria-hidden', 'true');
+            slideNavModal.classList.remove('open');
+        }
+
+        function updateSlideNav() {
+            const slides = document.querySelectorAll('.reveal .slides > section');
+            const currentSlide = Reveal.getIndices().h;
+            slideNavCount.textContent = slides.length + ' slides';
+            slideNavGrid.textContent = '';
+
+            slides.forEach((slide, index) => {
+                const item = document.createElement('button');
+                item.className = 'slide-nav-item' + (index === currentSlide ? ' active' : '');
+
+                const h1 = slide.querySelector('h1');
+                const h2 = slide.querySelector('h2');
+                const title = h1 ? h1.textContent : (h2 ? h2.textContent : 'Slide ' + (index + 1));
+
+                const numSpan = document.createElement('span');
+                numSpan.className = 'slide-num';
+                numSpan.textContent = index + 1;
+
+                const titleSpan = document.createElement('span');
+                titleSpan.className = 'slide-title';
+                titleSpan.textContent = title;
+
+                item.appendChild(numSpan);
+                item.appendChild(titleSpan);
+
+                item.onclick = function() {
+                    Reveal.slide(index);
+                    closeSlideNav();
+                };
+                slideNavGrid.appendChild(item);
+            });
+        }
+
+        if (slideNavTrigger) {
+            slideNavTrigger.addEventListener('click', openSlideNav);
+        }
+        if (slideNavClose) {
+            slideNavClose.addEventListener('click', closeSlideNav);
+        }
+        if (slideNavModal) {
+            slideNavModal.addEventListener('click', function(e) {
+                if (e.target === slideNavModal) closeSlideNav();
+            });
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'g' || e.key === 'G') {
+                if (slideNavModal.classList.contains('open')) {
+                    closeSlideNav();
+                } else {
+                    openSlideNav();
+                }
+            }
+            if (e.key === 'Escape' && slideNavModal.classList.contains('open')) {
+                closeSlideNav();
+            }
+        });
+
+        Reveal.on('slidechanged', updateSlideNav);
+    </script>
+</body>
+</html>
