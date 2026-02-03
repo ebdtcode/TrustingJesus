@@ -492,104 +492,39 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script src="../../assets/js/presentation.js"></script>
     <script>
         Reveal.initialize({
-            hash: true,
             width: 960,
             height: 700,
             margin: 0.1,
             minScale: 0.2,
             maxScale: 2.0,
-            transition: 'slide',
+            hash: true,
+            history: true,
+            hashOneBasedIndex: true,
+            navigationMode: 'linear',
+            controls: true,
+            controlsTutorial: true,
+            progress: true,
+            slideNumber: 'c/t',
+            showSlideNumber: 'all',
+            transition: 'fade',
             transitionSpeed: 'default',
             backgroundTransition: 'fade',
-            controls: true,
-            progress: true,
-            center: true,
-            touch: true,
+            autoAnimate: true,
+            autoAnimateDuration: 0.6,
+            fragments: true,
+            fragmentInURL: true,
             keyboard: true,
-            overview: true,
+            touch: true,
+            center: true,
             help: true,
-            slideNumber: true
         });
 
-        // Slide Navigator functionality
-        const slideNavTrigger = document.querySelector('.slide-nav-trigger');
-        const slideNavModal = document.getElementById('slideNavModal');
-        const slideNavClose = document.querySelector('.slide-nav-close');
-        const slideNavGrid = document.getElementById('slideNavGrid');
-        const slideNavCount = document.getElementById('slideNavCount');
-
-        function openSlideNav() {
-            slideNavModal.setAttribute('aria-hidden', 'false');
-            slideNavModal.classList.add('open');
-            updateSlideNav();
-        }
-
-        function closeSlideNav() {
-            slideNavModal.setAttribute('aria-hidden', 'true');
-            slideNavModal.classList.remove('open');
-        }
-
-        function updateSlideNav() {
-            const slides = document.querySelectorAll('.reveal .slides > section');
-            const currentSlide = Reveal.getIndices().h;
-            slideNavCount.textContent = slides.length + ' slides';
-            slideNavGrid.textContent = '';
-
-            slides.forEach((slide, index) => {
-                const item = document.createElement('button');
-                item.className = 'slide-nav-item' + (index === currentSlide ? ' active' : '');
-
-                const h1 = slide.querySelector('h1');
-                const h2 = slide.querySelector('h2');
-                const title = h1 ? h1.textContent : (h2 ? h2.textContent : 'Slide ' + (index + 1));
-
-                const numSpan = document.createElement('span');
-                numSpan.className = 'slide-num';
-                numSpan.textContent = index + 1;
-
-                const titleSpan = document.createElement('span');
-                titleSpan.className = 'slide-title';
-                titleSpan.textContent = title;
-
-                item.appendChild(numSpan);
-                item.appendChild(titleSpan);
-
-                item.onclick = function() {
-                    Reveal.slide(index);
-                    closeSlideNav();
-                };
-                slideNavGrid.appendChild(item);
-            });
-        }
-
-        if (slideNavTrigger) {
-            slideNavTrigger.addEventListener('click', openSlideNav);
-        }
-        if (slideNavClose) {
-            slideNavClose.addEventListener('click', closeSlideNav);
-        }
-        if (slideNavModal) {
-            slideNavModal.addEventListener('click', function(e) {
-                if (e.target === slideNavModal) closeSlideNav();
-            });
-        }
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'g' || e.key === 'G') {
-                if (slideNavModal.classList.contains('open')) {
-                    closeSlideNav();
-                } else {
-                    openSlideNav();
-                }
-            }
-            if (e.key === 'Escape' && slideNavModal.classList.contains('open')) {
-                closeSlideNav();
-            }
+        Reveal.addKeyBinding({ keyCode: 72, key: 'H', description: 'Go home' }, () => {
+            window.location.href = '../../presentations.html';
         });
-
-        Reveal.on('slidechanged', updateSlideNav);
     </script>
 </body>
 </html>
