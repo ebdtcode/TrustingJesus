@@ -7,6 +7,19 @@
 const presentations = [
   // 2026 Presentations (Newest)
   {
+    title: "Love That Endures",
+    speaker: "Harvest Intercontinental Church",
+    description: "Part 7 of God's Unfailing Love series. Love suffers long AND is kind - endurance with kindness, not resentment. Zoe life, two prongs of faith, and Paul's prayer from Ephesians 3.",
+    slides: 28,
+    file: "presentations/sermons/Love_That_Endures.html",
+    id: "love-that-endures-presentation",
+    category: "sermon",
+    icon: "&#128156;",
+    tags: ["love", "unfailing love", "endurance", "kindness", "1 Corinthians 13", "Ephesians 3"],
+    featured: true,
+    date: "2026-02-08"
+  },
+  {
     title: "Let Love Continue",
     speaker: "Bishop Darlingston Johnson",
     description: "Part 6 of God's Unfailing Love series. Let brotherly love continue - choosing to love when tested by time, pressure, and disappointment. Also explores showing hospitality to strangers.",
