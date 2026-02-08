@@ -8,7 +8,7 @@ const presentations = [
   // 2026 Presentations (Newest)
   {
     title: "Love That Endures",
-    speaker: "Harvest Intercontinental Church",
+    speaker: "Pastor Peabody",
     description: "Part 7 of God's Unfailing Love series. Love suffers long AND is kind - endurance with kindness, not resentment. Zoe life, two prongs of faith, and Paul's prayer from Ephesians 3.",
     slides: 28,
     file: "presentations/sermons/Love_That_Endures.html",
