@@ -7,6 +7,19 @@
 const presentations = [
   // 2026 Presentations (Newest)
   {
+    title: "Grace Giving",
+    speaker: "Pastor John Cuzick",
+    description: "Tithing flows from God's grace, not obligation. Tracing the biblical foundation from Abraham through Jesus, and the promises for the faithful tither.",
+    slides: 24,
+    file: "presentations/sermons/Grace_Giving.html",
+    id: "grace-giving-presentation",
+    category: "sermon",
+    icon: "&#128156;",
+    tags: ["giving", "tithing", "grace", "unfailing love", "Genesis 12", "Malachi 3", "Luke 6:38"],
+    featured: true,
+    date: "2026-02-16"
+  },
+  {
     title: "Love That Endures",
     speaker: "Pastor Peabody",
     description: "Part 7 of God's Unfailing Love series. Love suffers long AND is kind - endurance with kindness, not resentment. Zoe life, two prongs of faith, and Paul's prayer from Ephesians 3.",
