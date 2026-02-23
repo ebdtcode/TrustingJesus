@@ -7,6 +7,19 @@
 const presentations = [
   // 2026 Presentations (Newest)
   {
+    title: "My Sentence",
+    speaker: "Apostle Dr. Billy Lubansa",
+    description: "The Court of Heaven, our legal standing in Christ, and God's decree of full and complete restoration with seven times speed.",
+    slides: 22,
+    file: "presentations/sermons/My_Sentence.html",
+    id: "my-sentence-presentation",
+    category: "sermon",
+    icon: "&#128156;",
+    tags: ["court of heaven", "restoration", "inheritance", "Psalm 17", "Colossians 2", "unfailing love"],
+    featured: true,
+    date: "2026-02-22"
+  },
+  {
     title: "Grace Giving",
     speaker: "Pastor John Cuzick",
     description: "Tithing flows from God's grace, not obligation. Tracing the biblical foundation from Abraham through Jesus, and the promises for the faithful tither.",
