@@ -7,6 +7,19 @@
 const presentations = [
   // 2026 Presentations (Newest)
   {
+    title: "Approved by God to Be Entrusted with the Gospel",
+    speaker: "Bishop Darlingston Johnson",
+    description: "God tests the heart before entrusting kingdom responsibility. Three marks of a faithful heart and three action words: Prioritize, Personalize, Participate.",
+    slides: 20,
+    file: "presentations/sermons/Approved_Entrusted_With_The_Gospel.html",
+    id: "approved-entrusted-gospel-presentation",
+    category: "sermon",
+    icon: "&#128156;",
+    tags: ["stewardship", "faithfulness", "gospel", "unfailing love", "1 Thessalonians 2", "1 Corinthians 4"],
+    featured: true,
+    date: "2026-03-02"
+  },
+  {
     title: "My Sentence",
     speaker: "Apostle Dr. Billy Lubansa",
     description: "The Court of Heaven, our legal standing in Christ, and God's decree of full and complete restoration with seven times speed.",
