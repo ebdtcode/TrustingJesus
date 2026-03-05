@@ -7,6 +7,19 @@
 const presentations = [
   // 2026 Presentations (Newest)
   {
+    title: "March 2026 Prayer Points",
+    speaker: "",
+    description: "Monthly prayer points from Pastor Gledy. For the Nations, for HIMU (Wednesday) and for Harvest Olney (Thursday).",
+    slides: 21,
+    file: "presentations/prayer/March_2026_Prayer_Points.html",
+    id: "march-2026-prayer-points",
+    category: "prayer",
+    icon: "&#128197;",
+    tags: ["prayer", "monthly", "HIMU", "nations"],
+    featured: true,
+    date: "2026-03-04"
+  },
+  {
     title: "Approved by God to Be Entrusted with the Gospel",
     speaker: "Bishop Darlingston Johnson",
     description: "God tests the heart before entrusting kingdom responsibility. Three marks of a faithful heart and three action words: Prioritize, Personalize, Participate.",
