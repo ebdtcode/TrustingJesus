@@ -1,0 +1,22 @@
+{
+  "channels": [
+    {
+      "id": "REPLACE_WITH_CHANNEL_ID",
+      "name": "Harvest Intercontinental Church DMV",
+      "default_speaker": "Pastor",
+      "default_series": "Sunday Service",
+      "enabled": true,
+      "content_filter": {
+        "title_must_contain": [],
+        "title_must_not_contain": ["shorts", "trailer", "promo"],
+        "min_duration_seconds": 600
+      }
+    }
+  ],
+  "settings": {
+    "check_interval_hours": 6,
+    "auto_process": true,
+    "max_videos_per_check": 5,
+    "default_category": "sermon"
+  }
+}

@@ -1,0 +1,289 @@
+openapi: 3.1.0
+info:
+  title: TrustingJesus Sermon Processing API
+  version: 1.0.0
+  description: |
+    Processes YouTube sermon videos into transcripts, summaries, prayer points,
+    and Reveal.js presentation slides. Supports any YouTube URL (video or channel).
+
+    Authentication: Pass the Azure Function key as `?code=<KEY>` query parameter.
+    Client identification: Optionally pass `X-Client-ID` header for audit logging.
+
+servers:
+  - url: https://func-trusting-jesus.azurewebsites.net/api
+    description: Production
+
+security:
+  - functionKey: []
+
+paths:
+  /process:
+    post:
+      operationId: processUrl
+      summary: Process a YouTube video or scan a channel
+      description: |
+        Smart endpoint that auto-detects whether the URL is a video or channel.
+        - Video URL: downloads, transcribes, generates content, commits to GitHub.
+        - Channel URL/@handle/ID: scans for new videos, optionally processes them.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [url]
+              properties:
+                url:
+                  type: string
+                  description: |
+                    Any YouTube URL or ID. Supported formats:
+                    - Video: youtube.com/watch?v=ID, youtu.be/ID, youtube.com/shorts/ID
+                    - Channel: youtube.com/channel/UCxxx, youtube.com/@Handle, raw UCxxx ID
+                  examples:
+                    - "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                    - "https://youtube.com/@HarvestChurchDMV"
+                    - "UCxxxxxxxxxxxxxxxxxx"
+                speaker:
+                  type: string
+                  description: Speaker name. Falls back to video uploader if omitted.
+                  default: ""
+                series:
+                  type: string
+                  description: Sermon series name.
+                  default: ""
+                date:
+                  type: string
+                  format: date
+                  description: Sermon date (YYYY-MM-DD). Falls back to video publish date.
+                  default: ""
+                category:
+                  type: string
+                  enum: [sermon, prayer, grace, faith, family, marriage, personal-development]
+                  default: sermon
+                language:
+                  type: string
+                  description: Audio language for transcription.
+                  default: en
+                auto_process:
+                  type: boolean
+                  description: "For channels: automatically process new videos?"
+                  default: true
+                max_videos:
+                  type: integer
+                  description: "For channels: maximum videos to process per request."
+                  default: 5
+                  minimum: 1
+                  maximum: 20
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/VideoResult"
+                  - $ref: "#/components/schemas/ChannelResult"
+        "400":
+          description: Invalid request (bad URL, missing fields)
+        "403":
+          description: Client not authorized for this endpoint
+        "500":
+          description: Processing error
+
+  /scan:
+    post:
+      operationId: scanAllChannels
+      summary: Scan all configured YouTube channels for new videos
+      description: |
+        Checks every enabled channel in channels.json for new uploads.
+        Same logic as the automatic timer trigger but invoked on-demand.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                auto_process:
+                  type: boolean
+                  description: Override auto_process from channels.json settings.
+                max_videos:
+                  type: integer
+                  description: Override max_videos_per_check from channels.json settings.
+      responses:
+        "200":
+          description: Scan results
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ScanResult"
+        "403":
+          description: Client not authorized
+
+  /status:
+    get:
+      operationId: getStatus
+      summary: Get processing history and channel configuration
+      description: Returns recent processing results and configured channels.
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+          description: Max entries to return
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [completed, failed, detected, filtered]
+          description: Filter by processing status
+      responses:
+        "200":
+          description: Status information
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StatusResult"
+
+  /health:
+    get:
+      operationId: healthCheck
+      summary: Health check (no authentication required)
+      security: []
+      responses:
+        "200":
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthResult"
+
+components:
+  securitySchemes:
+    functionKey:
+      type: apiKey
+      in: query
+      name: code
+      description: Azure Function key
+
+  schemas:
+    VideoResult:
+      type: object
+      properties:
+        type:
+          type: string
+          const: video
+        status:
+          type: string
+          enum: [success]
+        video_id:
+          type: string
+        commit:
+          type: string
+          description: Git commit SHA
+        title:
+          type: string
+        files:
+          type: array
+          items:
+            type: string
+          description: List of files committed to the repo
+
+    ChannelResult:
+      type: object
+      properties:
+        type:
+          type: string
+          const: channel
+        channel_id:
+          type: string
+        videos_found:
+          type: integer
+        videos_processed:
+          type: integer
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              video_id:
+                type: string
+              title:
+                type: string
+              published_at:
+                type: string
+              status:
+                type: string
+                enum: [processed, detected, filtered, failed]
+              commit:
+                type: string
+              error:
+                type: string
+
+    ScanResult:
+      type: object
+      properties:
+        channels_checked:
+          type: integer
+        total_new:
+          type: integer
+        videos_processed:
+          type: integer
+        results:
+          type: array
+          items:
+            type: object
+
+    StatusResult:
+      type: object
+      properties:
+        last_checked:
+          type: string
+          format: date-time
+          nullable: true
+        total_processed:
+          type: integer
+        channels:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              enabled:
+                type: boolean
+        recent:
+          type: array
+          items:
+            type: object
+            properties:
+              video_id:
+                type: string
+              title:
+                type: string
+              status:
+                type: string
+              processed_at:
+                type: string
+              detected_at:
+                type: string
+              channel_id:
+                type: string
+
+    HealthResult:
+      type: object
+      properties:
+        status:
+          type: string
+        llm_provider:
+          type: string
+        llm_model:
+          type: string
+        whisper_provider:
+          type: string
+        youtube_auth_mode:
+          type: string
+        channel_check_enabled:
+          type: string

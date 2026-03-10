@@ -1,0 +1,115 @@
+name: Process Sermon
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'YouTube URL — video, channel, @handle, or channel ID'
+        required: true
+        type: string
+      speaker:
+        description: 'Speaker name (optional for channels with defaults)'
+        required: false
+        type: string
+        default: ''
+      date:
+        description: 'Sermon date YYYY-MM-DD (optional, auto-detected from video)'
+        required: false
+        type: string
+        default: ''
+      series:
+        description: 'Sermon series name'
+        required: false
+        type: string
+        default: ''
+      category:
+        description: 'Content category'
+        required: false
+        type: choice
+        default: 'sermon'
+        options:
+          - sermon
+          - prayer
+          - grace
+          - faith
+          - family
+          - marriage
+          - personal-development
+      auto_process:
+        description: 'For channels: auto-process new videos?'
+        required: false
+        type: boolean
+        default: true
+      max_videos:
+        description: 'For channels: max videos to process'
+        required: false
+        type: number
+        default: 5
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    env:
+      INPUT_URL: ${{ inputs.url }}
+      INPUT_SPEAKER: ${{ inputs.speaker }}
+      INPUT_DATE: ${{ inputs.date }}
+      INPUT_SERIES: ${{ inputs.series }}
+      INPUT_CATEGORY: ${{ inputs.category }}
+      INPUT_AUTO_PROCESS: ${{ inputs.auto_process }}
+      INPUT_MAX_VIDEOS: ${{ inputs.max_videos }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate URL
+        run: |
+          if [ -z "$INPUT_URL" ]; then
+            echo "::error::URL is required"
+            exit 1
+          fi
+
+      - name: Call Azure Function
+        env:
+          AZURE_FUNCTION_URL: ${{ secrets.AZURE_FUNCTION_URL }}
+          AZURE_FUNCTION_KEY: ${{ secrets.AZURE_FUNCTION_KEY }}
+        run: |
+          # Build JSON payload using Python for safe escaping
+          PAYLOAD=$(python3 -c "
+          import json, os
+          print(json.dumps({
+              'url': os.environ['INPUT_URL'],
+              'speaker': os.environ['INPUT_SPEAKER'],
+              'series': os.environ['INPUT_SERIES'],
+              'date': os.environ['INPUT_DATE'],
+              'category': os.environ['INPUT_CATEGORY'],
+              'auto_process': os.environ['INPUT_AUTO_PROCESS'].lower() == 'true',
+              'max_videos': int(os.environ.get('INPUT_MAX_VIDEOS', '5')),
+          }))
+          ")
+
+          RESPONSE=$(curl -s -w "\n%{http_code}" \
+            -X POST "${AZURE_FUNCTION_URL}/api/process?code=${AZURE_FUNCTION_KEY}" \
+            -H "Content-Type: application/json" \
+            -d "$PAYLOAD")
+
+          HTTP_CODE=$(echo "$RESPONSE" | tail -1)
+          BODY=$(echo "$RESPONSE" | head -n -1)
+
+          echo "HTTP Status: $HTTP_CODE"
+          echo "$BODY" | python3 -m json.tool 2>/dev/null || echo "$BODY"
+
+          if [ "$HTTP_CODE" -ne 200 ]; then
+            echo "::error::Azure Function returned $HTTP_CODE"
+            exit 1
+          fi
+
+      - name: Summary
+        run: |
+          echo "## Processing Complete" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "Content has been generated and committed to the repo." >> "$GITHUB_STEP_SUMMARY"
+          echo "Cloudflare Pages deployment will trigger automatically." >> "$GITHUB_STEP_SUMMARY"

@@ -1,0 +1,28 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+
+    "LLM_PROVIDER": "openai",
+    "LLM_API_KEY": "<your-llm-api-key>",
+    "LLM_MODEL": "gpt-4o",
+    "LLM_BASE_URL": "",
+    "LLM_API_VERSION": "",
+
+    "WHISPER_PROVIDER": "openai",
+    "WHISPER_API_KEY": "<your-whisper-api-key>",
+    "WHISPER_MODEL": "whisper-1",
+    "WHISPER_BASE_URL": "",
+
+    "YOUTUBE_AUTH_MODE": "rss",
+    "YOUTUBE_API_KEY": "",
+
+    "GITHUB_TOKEN": "<your-github-pat>",
+    "GITHUB_REPO": "<owner/repo>",
+    "GITHUB_BRANCH": "main",
+
+    "CHURCH_NAME": "Harvest Intercontinental Church",
+    "CHANNEL_CHECK_ENABLED": "true"
+  }
+}

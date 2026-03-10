@@ -17,5 +17,14 @@ output/
 *.nav
 *.snm
 node_modules/
+venv/
 .DS_Store
 .vscode/
+
+# Azure Functions
+azure-functions/local.settings.json
+azure-functions/__pycache__/
+azure-functions/shared/__pycache__/
+azure-functions/.python_packages/
+azure-functions/.venv/
+.funcignore
