@@ -1,9 +1,9 @@
 {
   "channels": [
     {
-      "id": "REPLACE_WITH_CHANNEL_ID",
-      "name": "Harvest Intercontinental Church DMV",
-      "default_speaker": "Pastor",
+      "id": "UC5KJIeoRbckT04fXv9BtSKQ",
+      "name": "Bishop Dr. Darlingston Johnson",
+      "default_speaker": "Bishop Darlingston Johnson",
       "default_series": "Sunday Service",
       "enabled": true,
       "content_filter": {
