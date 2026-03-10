@@ -70,10 +70,34 @@ def download_audio(
     if cookies_path:
         ydl_opts["cookiefile"] = cookies_path
 
+    # PO token for YouTube bot bypass (set YOUTUBE_PO_TOKEN env var)
+    po_token = os.environ.get("YOUTUBE_PO_TOKEN", "")
+    if po_token:
+        ydl_opts.setdefault("extractor_args", {})["youtube"] = [
+            f"po_token=web+{po_token}"
+        ]
+
     logger.info("Downloading audio from: %s", url)
 
-    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-        info = ydl.extract_info(url, download=True)
+    # Try download with fallback client strategies
+    strategies = [
+        {},  # default
+        {"extractor_args": {"youtube": {"player_client": ["mediaconnect"]}}},
+        {"extractor_args": {"youtube": {"player_client": ["web_creator"]}}},
+    ]
+
+    last_error = None
+    for i, extra_opts in enumerate(strategies):
+        try:
+            merged = {**ydl_opts, **extra_opts}
+            with yt_dlp.YoutubeDL(merged) as ydl:
+                info = ydl.extract_info(url, download=True)
+            break
+        except Exception as e:
+            last_error = e
+            logger.warning("Download strategy %d failed: %s", i + 1, e)
+    else:
+        raise RuntimeError(f"All download strategies failed: {last_error}")
 
     video_id = info.get("id", "unknown")
     audio_path = os.path.join(output_dir, f"{video_id}.{format}")
