@@ -57,8 +57,11 @@ jobs:
             exit 1
           fi
 
-      - name: Install yt-dlp
-        run: pip install yt-dlp
+      - name: Install yt-dlp and deno
+        run: |
+          pip install yt-dlp
+          curl -fsSL https://deno.land/install.sh | sh
+          echo "$HOME/.deno/bin" >> "$GITHUB_PATH"
 
       - name: Download audio from YouTube
         id: download

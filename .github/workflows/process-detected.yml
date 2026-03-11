@@ -33,7 +33,10 @@ jobs:
 
       - name: Install dependencies
         if: steps.check.outputs.detected_count != '0'
-        run: pip install yt-dlp azure-storage-blob
+        run: |
+          pip install yt-dlp azure-storage-blob
+          curl -fsSL https://deno.land/install.sh | sh
+          echo "$HOME/.deno/bin" >> "$GITHUB_PATH"
 
       - name: Process each detected video
         if: steps.check.outputs.detected_count != '0'
