@@ -126,6 +126,15 @@ jobs:
               except Exception as e:
                   print(f"  Error: {e}")
                   results.append({"video_id": vid, "status": "failed", "error": str(e)})
+              finally:
+                  # Clean up blob and local audio
+                  try:
+                      blob_service.get_blob_client("sermon-audio", f"{vid}.mp3").delete_blob()
+                      print(f"  Cleaned up blob {vid}.mp3")
+                  except Exception:
+                      pass
+                  import shutil
+                  shutil.rmtree(f"/tmp/audio/{vid}", ignore_errors=True)
 
           print(f"\n=== Done: {len(results)} videos processed ===")
           for r in results:

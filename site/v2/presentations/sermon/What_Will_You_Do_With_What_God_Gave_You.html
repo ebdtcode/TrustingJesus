@@ -1,266 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What Will You Do With What God Gave You? - Bishop Darlingston Johnson</title>
+    <meta name="description" content="Sermon on faithful stewardship from the Parable of the Talents. Bishop Darlingston Johnson challenges us to prioritize the gospel, personalize the mission, and participate fully.">
+    <title>What Will You Do With What God Gave You? | Sermon</title>
+
+    <!-- Reveal.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+    <!-- V2 Presentation Theme -->
     <link rel="stylesheet" href="../../assets/css/presentation-theme.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
 
-    <a href="../../presentations.html" class="home-btn" aria-label="Back to presentations">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M19 12H5M12 19l-7-7 7-7"/>
+    <a href="../../presentations.html" class="home-btn" aria-label="Return to presentations list">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
         </svg>
+        <span>Home</span>
     </a>
 
-    <button class="slide-nav-trigger" aria-label="Open slide navigator (G)"
-        onclick="document.querySelector('.slide-navigator').classList.toggle('active')">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-            <rect x="1" y="1" width="7" height="7" rx="1"/><rect x="12" y="1" width="7" height="7" rx="1"/>
-            <rect x="1" y="12" width="7" height="7" rx="1"/><rect x="12" y="12" width="7" height="7" rx="1"/>
+    <!-- Slide Navigator Trigger -->
+    <button class="slide-nav-trigger" aria-label="Open slide navigator" title="View all slides (G)">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1"/>
+            <rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/>
+            <rect x="14" y="14" width="7" height="7" rx="1"/>
         </svg>
     </button>
 
-    <div class="slide-navigator" role="dialog" aria-label="Slide navigator">
+    <!-- Slide Navigator Modal -->
+    <div class="slide-nav-modal" id="slideNavModal" role="dialog" aria-label="Slide navigator" aria-modal="true" aria-hidden="true">
         <div class="slide-nav-header">
-            <h3>Slides (15)</h3>
-            <button class="slide-nav-close" aria-label="Close navigator"
-                onclick="this.closest('.slide-navigator').classList.remove('active')">&times;</button>
+            <div>
+                <h2>Slide Navigator</h2>
+                <span class="slide-count" id="slideNavCount"></span>
+            </div>
+            <button class="slide-nav-close" aria-label="Close navigator">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
         </div>
-        <div class="slide-nav-grid">
-                    <button class="slide-nav-item" data-slide="0" aria-label="Go to slide 1: What Will You Do With What God Gave You?">&#9733; What Will You Do With What God Gave You?</button>
-                    <button class="slide-nav-item" data-slide="1" aria-label="Go to slide 2: Entrusted With the Gospel">&#128214; Entrusted With the Gospel</button>
-                    <button class="slide-nav-item" data-slide="2" aria-label="Go to slide 3: Prioritize the Message">&#128221; Prioritize the Message</button>
-                    <button class="slide-nav-item" data-slide="3" aria-label="Go to slide 4: Faithfulness With Resources">&#128214; Faithfulness With Resources</button>
-                    <button class="slide-nav-item" data-slide="4" aria-label="Go to slide 5: Personalize the Mission">&#128221; Personalize the Mission</button>
-                    <button class="slide-nav-item" data-slide="5" aria-label="Go to slide 6: Prayer for Faithfulness">&#128591; Prayer for Faithfulness</button>
-                    <button class="slide-nav-item" data-slide="6" aria-label="Go to slide 7: Participate Fully">&#128221; Participate Fully</button>
-                    <button class="slide-nav-item" data-slide="7" aria-label="Go to slide 8: Work While It Is Day">&#128214; Work While It Is Day</button>
-                    <button class="slide-nav-item" data-slide="8" aria-label="Go to slide 9: Two Types of Believers">&#128221; Two Types of Believers</button>
-                    <button class="slide-nav-item" data-slide="9" aria-label="Go to slide 10: Prayer for Obedience">&#128591; Prayer for Obedience</button>
-                    <button class="slide-nav-item" data-slide="10" aria-label="Go to slide 11: Eternal Perspective">&#128214; Eternal Perspective</button>
-                    <button class="slide-nav-item" data-slide="11" aria-label="Go to slide 12: God&amp;#x27;s Measure of Faithfulness">&#128221; God&amp;#x27;s Measure of Faithfulness</button>
-                    <button class="slide-nav-item" data-slide="12" aria-label="Go to slide 13: Living It Out">&#128161; Living It Out</button>
-                    <button class="slide-nav-item" data-slide="13" aria-label="Go to slide 14: Final Challenge">&#128221; Final Challenge</button>
-                    <button class="slide-nav-item" data-slide="14" aria-label="Go to slide 15: Closing / Call to Respond">&#10084; Closing / Call to Respond</button>
+        <div class="slide-nav-content">
+            <div class="slide-nav-grid" id="slideNavGrid"></div>
         </div>
     </div>
 
     <div class="reveal" id="main-content">
         <div class="slides">
+
+            <!-- SLIDE 1: TITLE -->
             <section data-background-gradient="radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a12 100%)">
                 <div class="light-rays"></div>
-                <span class="room-badge" style="background: linear-gradient(135deg, #1d4ed8, #3b82f6);">Sermon</span>
+                <span class="room-badge" style="background: linear-gradient(135deg, var(--sapphire), #3562a6);">Sermon</span>
                 <h1>What Will You Do With What God Gave You?</h1>
                 <p class="subtitle">Bishop Darlingston Johnson</p>
-                <p style="font-size: 0.8em; color: var(--text-muted);">Bethel World Outreach Church | March 05, 2026</p>
+                <p style="font-size: 0.6em; color: var(--text-muted); margin-top: 1.5em;">Matthew 25:14-30 &bull; 1 Thessalonians 2:4</p>
             </section>
 
-            <section data-auto-animate>
+            <!-- SLIDE 2: FOUNDATION SCRIPTURE -->
+            <section>
                 <h2>Entrusted With the Gospel</h2>
-                <div class="scripture-glass">
-                    <p class="scripture-text">"But as we have been approved by God to be entrusted with the gospel, even so we speak, not as pleasing men, but God who tests our hearts."</p>
-                    <p class="scripture-ref">&mdash; 1 Thessalonians 2:4</p>
+                <div class="scripture-glass" style="border-left-color: var(--sapphire);">
+                    <p class="scripture-text">&ldquo;But as we have been approved by God to be entrusted with the gospel, even so we speak, not as pleasing men, but God who tests our hearts.&rdquo;</p>
+                    <p class="scripture-ref">1 Thessalonians 2:4 (NKJV)</p>
                 </div>
-                    <ul class="prayer-list">
-                        <li class="fragment fade-up">God has entrusted us with the gospel.</li>
-                        <li class="fragment fade-up">Faithfulness to this call is essential.</li>
-                        <li class="fragment fade-up">We must prioritize sharing the message.</li>
-                    </ul>
+                <div class="prayer-panel fragment fade-up">
+                    <h4>The Call</h4>
+                    <p>God has entrusted every believer with the gospel&mdash;the responsibility of taking it to the whole world.</p>
+                </div>
             </section>
 
-            <section data-auto-animate>
+            <!-- SLIDE 3: THREE COMMITMENTS -->
+            <section>
+                <h2>Three Commitments</h2>
+                <div style="display: grid; gap: 1em; margin-top: 1em;">
+                    <div class="fragment fade-up" style="background: rgba(196, 77, 86, 0.15); border-left: 4px solid var(--ruby); padding: 1em; border-radius: 0 8px 8px 0;">
+                        <strong style="color: #f5b8bc;">1. Prioritize the Message</strong>
+                        <p style="margin: 0.5em 0 0; color: var(--text-secondary);">The gospel must be first in our time, talents, and treasure.</p>
+                    </div>
+                    <div class="fragment fade-up" style="background: rgba(77, 124, 196, 0.15); border-left: 4px solid var(--sapphire); padding: 1em; border-radius: 0 8px 8px 0;">
+                        <strong style="color: #a8c8f5;">2. Personalize the Mission</strong>
+                        <p style="margin: 0.5em 0 0; color: var(--text-secondary);">The Great Commission is your responsibility, not just the pastor&rsquo;s.</p>
+                    </div>
+                    <div class="fragment fade-up" style="background: rgba(86, 196, 77, 0.15); border-left: 4px solid var(--emerald); padding: 1em; border-radius: 0 8px 8px 0;">
+                        <strong style="color: #a8f5b8;">3. Participate Fully</strong>
+                        <p style="margin: 0.5em 0 0; color: var(--text-secondary);">God is not looking for part-time missionaries.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 4: PRIORITIZE -->
+            <section>
                 <h2>Prioritize the Message</h2>
                 <ul class="prayer-list">
-                        <li class="fragment fade-up">The gospel must be first in our lives.</li>
-                        <li class="fragment fade-up">It is the power of God for salvation.</li>
-                        <li class="fragment fade-up">Do not delay or minimize its importance.</li>
+                    <li class="fragment fade-up">The gospel cannot be something we &ldquo;get to when we get to it&rdquo;</li>
+                    <li class="fragment fade-up">It must be first on our schedule&mdash;in our time, talent, and treasure</li>
+                    <li class="fragment fade-up">It is the power of God unto salvation</li>
                 </ul>
-                    <div class="room-accent fragment fade-in" style="margin-top: 1em;">
-                        <p><em>The gospel is the power of God unto salvation.</em></p>
-                    </div>
-            </section>
-
-            <section data-auto-animate>
-                <h2>Faithfulness With Resources</h2>
-                <div class="scripture-glass">
-                    <p class="scripture-text">"For the kingdom of heaven is like a man traveling to a far country, who called his own servants and delivered his goods to them."</p>
-                    <p class="scripture-ref">&mdash; Matthew 25:14</p>
+                <div class="room-accent fragment fade-in" style="margin-top: 1.2em;">
+                    <p><em>&ldquo;The gospel has to be prioritized. It has to be first.&rdquo;</em></p>
                 </div>
-                    <ul class="prayer-list">
-                        <li class="fragment fade-up">God entrusts us with time, talents, and treasure.</li>
-                        <li class="fragment fade-up">Faithful stewardship leads to eternal rewards.</li>
-                        <li class="fragment fade-up">Unfaithfulness results in loss.</li>
-                    </ul>
             </section>
 
-            <section data-auto-animate>
+            <!-- SLIDE 5: PERSONALIZE -->
+            <section>
                 <h2>Personalize the Mission</h2>
                 <ul class="prayer-list">
-                        <li class="fragment fade-up">The Great Commission is for every believer.</li>
-                        <li class="fragment fade-up">Take personal responsibility for sharing the gospel.</li>
-                        <li class="fragment fade-up">Start where you are—your mission field is local.</li>
+                    <li class="fragment fade-up">When Jesus said &ldquo;Go into all the world,&rdquo; He was speaking to all of us</li>
+                    <li class="fragment fade-up">Don&rsquo;t delegate your calling to someone else</li>
+                    <li class="fragment fade-up">Your mission field begins right where you are</li>
                 </ul>
-                    <div class="room-accent fragment fade-in" style="margin-top: 1em;">
-                        <p><em>This responsibility is your responsibility.</em></p>
-                    </div>
-            </section>
-
-            <section data-background-gradient="radial-gradient(ellipse at center, #1a1a2e 0%, #0f0f1a 100%)">
-                <h2 style="color: var(--gold);">Prayer for Faithfulness</h2>
-                <ul class="prayer-list" style="text-align: left;">
-                        <li class="fragment fade-up">Ask God for a heart that prioritizes the gospel.</li>
-                        <li class="fragment fade-up">Pray for courage to act immediately in obedience.</li>
-                        <li class="fragment fade-up">Seek guidance to use resources for His kingdom.</li>
-                </ul>
-            </section>
-
-            <section data-auto-animate>
-                <h2>Participate Fully</h2>
-                <ul class="prayer-list">
-                        <li class="fragment fade-up">God calls us to full-time faithfulness.</li>
-                        <li class="fragment fade-up">Use your resources daily for the kingdom.</li>
-                        <li class="fragment fade-up">Do not serve sporadically or out of convenience.</li>
-                </ul>
-                    <div class="room-accent fragment fade-in" style="margin-top: 1em;">
-                        <p><em>God isn&#x27;t looking for part-time missionaries.</em></p>
-                    </div>
-            </section>
-
-            <section data-auto-animate>
-                <h2>Work While It Is Day</h2>
-                <div class="scripture-glass">
-                    <p class="scripture-text">"I must work the works of Him who sent Me while it is day; the night is coming when no one can work."</p>
-                    <p class="scripture-ref">&mdash; John 9:4</p>
+                <div class="room-accent fragment fade-in" style="margin-top: 1.2em;">
+                    <p><em>&ldquo;This responsibility is my responsibility.&rdquo;</em></p>
                 </div>
-                    <ul class="prayer-list">
-                        <li class="fragment fade-up">Time is limited—act now.</li>
-                        <li class="fragment fade-up">The harvest is ripe every day.</li>
-                        <li class="fragment fade-up">Be diligent in kingdom work.</li>
-                    </ul>
             </section>
 
-            <section data-auto-animate>
+            <!-- SLIDE 6: SECTION TRANSITION - THE PARABLE -->
+            <section data-background-gradient="radial-gradient(ellipse at center, #1f2a3d 0%, #0a0a12 100%)">
+                <div class="room-accent"></div>
+                <span class="room-badge" style="background: linear-gradient(135deg, var(--amber), #b8922e);">The Parable</span>
+                <h2>The Parable of the Talents</h2>
+                <p class="subtitle">Matthew 25:14&ndash;30</p>
+            </section>
+
+            <!-- SLIDE 7: PARABLE SCRIPTURE -->
+            <section>
+                <h2>Entrusted With His Goods</h2>
+                <div class="scripture-glass" style="border-left-color: var(--amber);">
+                    <p class="scripture-text">&ldquo;For the kingdom of heaven is like a man traveling to a far country, who called his own servants and delivered his goods to them. And to one he gave five talents, to another two, and to another one, to each according to his own ability.&rdquo;</p>
+                    <p class="scripture-ref">Matthew 25:14&ndash;15 (NKJV)</p>
+                </div>
+            </section>
+
+            <!-- SLIDE 8: TWO TYPES OF BELIEVERS -->
+            <section>
                 <h2>Two Types of Believers</h2>
-                <ul class="prayer-list">
-                        <li class="fragment fade-up">Active believers invest in the kingdom.</li>
-                        <li class="fragment fade-up">Passive believers bury their resources.</li>
-                        <li class="fragment fade-up">Procrastination is disobedience in slow motion.</li>
-                </ul>
-                    <div class="room-accent fragment fade-in" style="margin-top: 1em;">
-                        <p><em>Be an active believer, not a passive one.</em></p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin-top: 1em;">
+                    <div class="fragment fade-up" style="background: rgba(86, 196, 77, 0.12); border: 1px solid rgba(86, 196, 77, 0.3); padding: 1.2em; border-radius: 8px; text-align: center;">
+                        <p style="font-size: 2em; margin: 0;">&#9878;</p>
+                        <strong style="color: #a8f5b8; font-size: 1.1em;">Active</strong>
+                        <p style="color: var(--text-secondary); margin-top: 0.5em; font-size: 0.85em;">Working, contributing, investing in the kingdom</p>
                     </div>
-            </section>
-
-            <section data-background-gradient="radial-gradient(ellipse at center, #1a1a2e 0%, #0f0f1a 100%)">
-                <h2 style="color: var(--gold);">Prayer for Obedience</h2>
-                <ul class="prayer-list" style="text-align: left;">
-                        <li class="fragment fade-up">Pray for deliverance from procrastination.</li>
-                        <li class="fragment fade-up">Ask for boldness to use your gifts for God.</li>
-                        <li class="fragment fade-up">Seek wisdom to prioritize kingdom work.</li>
-                </ul>
-            </section>
-
-            <section data-auto-animate>
-                <h2>Eternal Perspective</h2>
-                <div class="scripture-glass">
-                    <p class="scripture-text">"His lord said to him, ‘Well done, good and faithful servant; you were faithful over a few things, I will make you ruler over many things. Enter into the joy of your lord.’"</p>
-                    <p class="scripture-ref">&mdash; Matthew 25:23</p>
+                    <div class="fragment fade-up" style="background: rgba(196, 77, 86, 0.12); border: 1px solid rgba(196, 77, 86, 0.3); padding: 1.2em; border-radius: 8px; text-align: center;">
+                        <p style="font-size: 2em; margin: 0;">&#9940;</p>
+                        <strong style="color: #f5b8bc; font-size: 1.1em;">Passive</strong>
+                        <p style="color: var(--text-secondary); margin-top: 0.5em; font-size: 0.85em;">Consuming, procrastinating, burying their resources</p>
+                    </div>
                 </div>
-                    <ul class="prayer-list">
-                        <li class="fragment fade-up">Faithfulness leads to eternal rewards.</li>
-                        <li class="fragment fade-up">Live daily with accountability to Jesus.</li>
-                        <li class="fragment fade-up">Strive for His commendation: &#x27;Well done.&#x27;</li>
-                    </ul>
+                <p class="fragment fade-up" style="margin-top: 1.2em; color: var(--text-muted); font-style: italic;">Which group will you belong to?</p>
             </section>
 
-            <section data-auto-animate>
-                <h2>God&#x27;s Measure of Faithfulness</h2>
-                <ul class="prayer-list">
-                        <li class="fragment fade-up">God values what we do with what we have.</li>
-                        <li class="fragment fade-up">Use resources to proclaim the gospel.</li>
-                        <li class="fragment fade-up">Faithfulness matters more than quantity.</li>
+            <!-- SLIDE 9: PROCRASTINATION -->
+            <section data-background-gradient="radial-gradient(ellipse at center, #2d1a1f 0%, #0a0a12 100%)">
+                <h2 style="color: var(--gold);">The Danger of Procrastination</h2>
+                <div class="scripture-glass" style="border-left-color: var(--ruby); margin-top: 1em;">
+                    <p class="scripture-text" style="font-size: 1.2em;">&ldquo;Procrastination is disobedience in slow motion.&rdquo;</p>
+                    <p class="scripture-ref">&mdash; Bishop Darlingston Johnson</p>
+                </div>
+                <ul class="prayer-list" style="margin-top: 1em;">
+                    <li class="fragment fade-up">The faithful servants immediately went to work</li>
+                    <li class="fragment fade-up">Good intentions without action are unfaithfulness</li>
+                    <li class="fragment fade-up">If not now, when? If not you, who?</li>
                 </ul>
-                    <div class="room-accent fragment fade-in" style="margin-top: 1em;">
-                        <p><em>Faithfulness is measured by obedience, not abundance.</em></p>
-                    </div>
             </section>
 
-            <section data-auto-animate>
+            <!-- SLIDE 10: WORK WHILE IT IS DAY -->
+            <section>
+                <h2>Work While It Is Day</h2>
+                <div class="scripture-glass" style="border-left-color: var(--sapphire);">
+                    <p class="scripture-text">&ldquo;I must work the works of Him who sent Me while it is day; the night is coming when no one can work.&rdquo;</p>
+                    <p class="scripture-ref">John 9:4 (NKJV)</p>
+                </div>
+                <ul class="prayer-list">
+                    <li class="fragment fade-up">People are not going to hell seasonally&mdash;they go every day</li>
+                    <li class="fragment fade-up">The harvest is ripe every day</li>
+                    <li class="fragment fade-up">You&rsquo;ll rest when you go to heaven</li>
+                </ul>
+            </section>
+
+            <!-- SLIDE 11: GOD'S MEASURE -->
+            <section>
+                <h2>God&rsquo;s Measure of Faithfulness</h2>
+                <ul class="prayer-list">
+                    <li class="fragment fade-up">It&rsquo;s not the amount you have that matters</li>
+                    <li class="fragment fade-up">God looks at what you do with what you have</li>
+                    <li class="fragment fade-up">The servant with two talents received the same commendation as the one with five</li>
+                </ul>
+                <div class="room-accent fragment fade-in" style="margin-top: 1.2em;">
+                    <p><em>Faithfulness is measured by obedience, not abundance.</em></p>
+                </div>
+            </section>
+
+            <!-- SLIDE 12: FIVE LOAVES AND TWO FISH -->
+            <section>
+                <h2>Five Loaves and Two Fish</h2>
+                <ul class="prayer-list">
+                    <li class="fragment fade-up">The boy didn&rsquo;t have much&mdash;but he gave what he had</li>
+                    <li class="fragment fade-up">When you place your best in the Master&rsquo;s hand, He multiplies it</li>
+                    <li class="fragment fade-up">Don&rsquo;t wait until you have enough&mdash;give what you have now</li>
+                </ul>
+                <div class="prayer-panel fragment fade-up">
+                    <h4>The Principle</h4>
+                    <p>It&rsquo;s not how much you have. It&rsquo;s what you choose to do with what you have.</p>
+                </div>
+            </section>
+
+            <!-- SLIDE 13: STEWARDS, NOT OWNERS -->
+            <section>
+                <h2>Stewards, Not Owners</h2>
+                <ul class="prayer-list">
+                    <li class="fragment fade-up">Nothing we have belongs to us&mdash;it is the Lord&rsquo;s</li>
+                    <li class="fragment fade-up">We are managing someone else&rsquo;s time, treasure, and talents</li>
+                    <li class="fragment fade-up">One day we will give an account of our stewardship</li>
+                </ul>
+                <div class="room-accent fragment fade-in" style="margin-top: 1.2em;">
+                    <p><em>&ldquo;Try earning money without a brain. The money isn&rsquo;t yours.&rdquo;</em></p>
+                </div>
+            </section>
+
+            <!-- SLIDE 14: THE PROMISE AND THE WARNING -->
+            <section>
+                <h2>Promise and Warning</h2>
+                <div class="scripture-glass" style="border-left-color: var(--emerald);">
+                    <p class="scripture-text">&ldquo;Well done, good and faithful servant; you were faithful over a few things, I will make you ruler over many things. Enter into the joy of your lord.&rdquo;</p>
+                    <p class="scripture-ref">Matthew 25:21 (NKJV)</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin-top: 1em;">
+                    <div class="fragment fade-up" style="background: rgba(86, 196, 77, 0.12); padding: 0.8em; border-radius: 8px; text-align: center;">
+                        <strong style="color: #a8f5b8;">The Faithful</strong>
+                        <p style="color: var(--text-secondary); font-size: 0.85em; margin-top: 0.4em;">Greater responsibility, greater rulership, eternal reward</p>
+                    </div>
+                    <div class="fragment fade-up" style="background: rgba(196, 77, 86, 0.12); padding: 0.8em; border-radius: 8px; text-align: center;">
+                        <strong style="color: #f5b8bc;">The Unfaithful</strong>
+                        <p style="color: var(--text-secondary); font-size: 0.85em; margin-top: 0.4em;">Loss of reward, joy, influence, and significance</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 15: ETERNAL PERSPECTIVE -->
+            <section>
+                <h2>Eternal Perspective</h2>
+                <ul class="prayer-list">
+                    <li class="fragment fade-up">What he has given us is of great value&mdash;yet nothing compared to what He plans to give</li>
+                    <li class="fragment fade-up">70 years of time is little compared to eternity</li>
+                    <li class="fragment fade-up">If you are faithful with earthly things, He will entrust you with eternal things</li>
+                </ul>
+                <div class="room-accent fragment fade-in" style="margin-top: 1.2em;">
+                    <p><em>&ldquo;If you&rsquo;re not faithful in this, who will entrust you with true riches?&rdquo;</em></p>
+                </div>
+            </section>
+
+            <!-- SLIDE 16: PRAYER -->
+            <section data-background-gradient="radial-gradient(ellipse at center, #1a2a1f 0%, #0a0a12 100%)">
+                <h2 style="color: var(--gold);">Prayer for Faithful Stewardship</h2>
+                <ul class="prayer-list" style="text-align: left;">
+                    <li class="fragment fade-up">Lord, help me prioritize Your gospel in my time, talent, and treasure</li>
+                    <li class="fragment fade-up">Deliver me from procrastination and the comfort of inaction</li>
+                    <li class="fragment fade-up">Give me courage to take what I have&mdash;little or much&mdash;and place it in Your hands</li>
+                    <li class="fragment fade-up">Let me live as a faithful steward, accountable to You alone</li>
+                </ul>
+            </section>
+
+            <!-- SLIDE 17: APPLICATION -->
+            <section>
                 <h2>Living It Out</h2>
                 <ul class="prayer-list">
-                        <li class="fragment fade-up">Reflect on how you prioritize the gospel daily.</li>
-                        <li class="fragment fade-up">Identify ways to participate in the Great Commission.</li>
-                        <li class="fragment fade-up">Start using your resources immediately for God.</li>
+                    <li class="fragment fade-up">Evaluate: Am I prioritizing, personalizing, and fully participating?</li>
+                    <li class="fragment fade-up">Stop procrastinating&mdash;start using your resources today</li>
+                    <li class="fragment fade-up">Remember: you are a steward, not an owner</li>
+                    <li class="fragment fade-up">Live for His eternal approval, not earthly applause</li>
                 </ul>
             </section>
 
-            <section data-auto-animate>
-                <h2>Final Challenge</h2>
-                <ul class="prayer-list">
-                        <li class="fragment fade-up">Evaluate your stewardship before God.</li>
-                        <li class="fragment fade-up">Commit to faithfulness today.</li>
-                        <li class="fragment fade-up">Live for eternal approval, not earthly applause.</li>
-                </ul>
-                    <div class="room-accent fragment fade-in" style="margin-top: 1em;">
-                        <p><em>Let there be no regrets—live for His glory.</em></p>
-                    </div>
-            </section>
-
+            <!-- SLIDE 18: CLOSING -->
             <section data-background-gradient="radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a12 100%)">
                 <div class="light-rays"></div>
-                <h2 style="color: var(--gold);">Closing / Call to Respond</h2>
-                    <div class="scripture-glass">
-                        <p class="scripture-text">"His lord said to him, ‘Well done, good and faithful servant.’"</p>
-                        <p class="scripture-ref">&mdash; Matthew 25:21</p>
-                    </div>
-                    <p class="fragment fade-in" style="margin-top: 1.5em; font-size: 1.1em; color: var(--gold-light);">
-                        Commit to faithfulness today. Use your resources for His kingdom.
-                    </p>
+                <h2 style="color: var(--gold);">Not Home Yet</h2>
+                <div class="scripture-glass" style="border-left-color: var(--gold); margin-top: 0.5em;">
+                    <p class="scripture-text">&ldquo;A missionary returned home after years of faithful service. There were no crowds, no bands. He prayed, &lsquo;Lord, no one was here to welcome me.&rsquo; And the Spirit whispered: &lsquo;But you&rsquo;re not home yet.&rsquo;&rdquo;</p>
+                    <p class="scripture-ref">&mdash; Bishop Darlingston Johnson</p>
+                </div>
+                <p class="fragment fade-in" style="margin-top: 1.5em; font-size: 1.1em; color: var(--gold-light);">
+                    What will matter is not the applause of earth, but the approval of heaven.
+                </p>
             </section>
+
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script src="../../assets/js/presentation.js"></script>
     <script>
         Reveal.initialize({
-            hash: true,
-            slideNumber: 'c/t',
-            controls: true,
-            controlsLayout: 'bottom-right',
-            progress: true,
-            center: true,
-            transition: 'slide',
-            transitionSpeed: 'default',
-            autoAnimateDuration: 0.8,
             width: 960,
             height: 700,
             margin: 0.1,
             minScale: 0.2,
-            maxScale: 1.5,
-            touch: true,
-            keyboard: true,
+            maxScale: 2.0,
+            hash: true,
+            history: true,
+            hashOneBasedIndex: true,
+            navigationMode: 'linear',
+            controls: true,
+            controlsTutorial: true,
+            progress: true,
+            slideNumber: 'c/t',
+            showSlideNumber: 'all',
+            transition: 'fade',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+            autoAnimate: true,
+            autoAnimateDuration: 0.6,
             fragments: true,
+            fragmentInURL: true,
+            keyboard: true,
+            touch: true,
+            center: true,
+            help: true,
         });
 
-        // Slide navigator keyboard shortcut
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'g' || e.key === 'G') {
-                document.querySelector('.slide-navigator').classList.toggle('active');
-            }
-        });
-
-        // Slide navigator click handling
-        document.querySelectorAll('.slide-nav-item').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                var idx = parseInt(this.dataset.slide);
-                Reveal.slide(idx);
-                document.querySelector('.slide-navigator').classList.remove('active');
-            });
+        Reveal.addKeyBinding({ keyCode: 72, key: 'H', description: 'Go home' }, () => {
+            window.location.href = '../../presentations.html';
         });
     </script>
 </body>

@@ -1,0 +1,19 @@
+[Unit]
+Description=Local Sermon Pipeline - Transcribe and generate with local Whisper + Claude
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=devos
+WorkingDirectory=/home/devos/prayer_trusting_Jesus/tools
+ExecStart=/home/devos/prayer_trusting_Jesus/tools/venv/bin/python3 /home/devos/prayer_trusting_Jesus/tools/sermon_local.py
+EnvironmentFile=/home/devos/prayer_trusting_Jesus/tools/sermon_local.env
+
+# 45 min max (local Whisper can take 10-15 min for long sermons)
+TimeoutStartSec=2700
+
+Restart=no
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=sermon-local

@@ -1,0 +1,13 @@
+[Unit]
+Description=Run sermon monitor every 6 hours
+
+[Timer]
+# Run at 00:15, 06:15, 12:15, 18:15 UTC
+OnCalendar=*-*-* 00/6:15:00
+# Catch up missed runs (e.g., if VM was off)
+Persistent=true
+# Randomize within 5 min window to avoid exact timing
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

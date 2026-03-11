@@ -28,3 +28,11 @@ azure-functions/shared/__pycache__/
 azure-functions/.python_packages/
 azure-functions/.venv/
 .funcignore
+
+# Sermon pipeline (local VM)
+tools/sermon_monitor.env
+tools/sermon_local.env
+tools/cookies.txt
+tools/.sermon_monitor_state.json
+tools/.sermon_local_state.json
+tools/venv/

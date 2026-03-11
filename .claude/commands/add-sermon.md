@@ -9,30 +9,68 @@ Add a new sermon from YouTube to the V2 Prayer Trusting Jesus site with the stai
 - `--title`: Override the sermon title (default: extracted from YouTube)
 - `--speaker`: Override speaker name (default: extracted from YouTube)
 
+## Source URL
+
+$ARGUMENTS
+
+**IMPORTANT:** If no URL or file path is provided above (shows as "$ARGUMENTS" literally or is empty), you MUST ask the user for the YouTube URL or local audio file path before proceeding.
+
 ## Workflow
 
-### 1. Setup Virtual Environment
-Ensure the virtual environment is activated:
+### 1. Validate Input
+- Check if a valid URL or file path was provided
+- If not, use AskUserQuestion to get the sermon URL/path from the user
+
+### 2. Activate Shared MLX Agents Virtual Environment
+
+Use the shared MLX agents venv (project-independent, managed centrally):
+
 ```bash
-source /Users/devos/git/media/prayer_trusting_Jesus/venv/bin/activate
+source "$MLX_AGENTS_HOME/bin/activate"
 ```
 
-Required packages: `yt-dlp`, `openai-whisper`, `torch`
+Where `MLX_AGENTS_HOME` is `$HOME/.local/share/mlx-agents`.
 
-### 2. Download Audio from YouTube
+**Pre-installed packages**: `mlx-whisper`, `mlx-lm`, `mlx-vlm`, `mlx-audio`, `mflux`, `torch`, `transformers`
+
+**Do NOT** use any project-local venv (e.g., `prayer_trusting_Jesus/venv/`). The shared venv is the single source of truth for all ML tooling.
+
+### 3. Download Audio from YouTube
+
+Use system-installed `yt-dlp` to download audio:
+
 ```bash
 yt-dlp -x --audio-format mp3 --audio-quality 0 \
   -o "working_docs/sermon_$(date +%Y%m%d).%(ext)s" \
   "YOUTUBE_URL"
 ```
 
-### 3. Transcribe with Whisper
+### 4. Transcribe with MLX Whisper
+
+Use `mlx_whisper` from the shared venv:
+
 ```bash
-whisper working_docs/sermon_*.mp3 --model base --language en \
-  --output_dir working_docs --output_format txt
+mlx_whisper working_docs/sermon_*.mp3 --model mlx-community/whisper-base-mlx --language en \
+  --output-dir working_docs --output-format txt
 ```
 
-### 4. Create V2 Presentation
+Available models (speed vs accuracy tradeoff):
+- `mlx-community/whisper-tiny-mlx` - Fastest, lower accuracy
+- `mlx-community/whisper-base-mlx` - Good balance (default)
+- `mlx-community/whisper-small-mlx` - Better accuracy
+- `mlx-community/whisper-medium-mlx` - High accuracy
+- `mlx-community/whisper-large-v3-mlx` - Best accuracy, slowest
+
+**Cleanup after transcription**: Remove the downloaded MP3 from `working_docs/` after the transcript is saved. Do not leave audio files in the working directory.
+
+### 5. Process with Sermon Prayer Generator Agent
+
+Use the **sermon-prayer-generator agent** to:
+- Generate sermon summary with key points and scripture references
+- Create prayer points based on sermon themes
+- Save outputs to `working_docs/` for review
+
+### 6. Create V2 Presentation
 
 #### File Location
 Create the presentation in the appropriate category folder:
@@ -41,6 +79,7 @@ Create the presentation in the appropriate category folder:
 - Personal Development: `site/v2/presentations/personal-development/`
 - Marriage: `site/v2/presentations/marriage/`
 - Faith: `site/v2/presentations/faith/`
+- Family: `site/v2/presentations/family/`
 
 #### Template Structure
 Use this V2 stained glass theme template:
@@ -188,7 +227,7 @@ Use this V2 stained glass theme template:
 </html>
 ```
 
-### 5. Update presentations.js
+### 7. Update presentations.js
 
 Add the new sermon entry at the TOP of the presentations array (newest first):
 
@@ -210,7 +249,7 @@ Add the new sermon entry at the TOP of the presentations array (newest first):
 },
 ```
 
-### 6. Run Tests
+### 8. Run Tests
 ```bash
 cd /Users/devos/git/media/prayer_trusting_Jesus/site
 npx playwright test
@@ -218,13 +257,27 @@ npx playwright test
 
 All 17 tests should pass.
 
-### 7. Commit and Push
+### 9. Cleanup
+
+After successful completion:
+- Remove temporary audio files from `working_docs/`
+- Remove temporary transcript text files from `working_docs/`
+- Keep final outputs (presentation HTML, summary markdown) in their proper locations
+
+### 10. Commit and Push
 ```bash
 git add site/v2/presentations/CATEGORY/FILENAME.html site/v2/data/presentations.js
 git commit -m "feat: Add SERMON_TITLE presentation"
 git tag -a vX.X.X -m "VX.X.X: Add SERMON_TITLE"
 git push origin main --tags
 ```
+
+## Requirements
+- Keep slides concise (typically 12-20 slides)
+- Include speaker name, church (if known), date, scripture references
+- Add prayer points slide(s) at the end
+- Use the V2 stained glass theme (Reveal.js + presentation-theme.css)
+- Mobile-first: base Reveal.js dimensions 960x700
 
 ## V2 Theme Color Reference
 

@@ -178,6 +178,29 @@ jobs:
           # Save result for summary
           echo "$BODY" > /tmp/result.json
 
+      - name: Cleanup
+        if: always()
+        env:
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+        run: |
+          # Delete blob from Azure Storage
+          BLOB_NAME="${{ steps.download.outputs.blob_name }}"
+          if [ -n "$BLOB_NAME" ]; then
+            python3 -c "
+          import os
+          from azure.storage.blob import BlobServiceClient
+          try:
+              client = BlobServiceClient.from_connection_string(os.environ['AZURE_STORAGE_CONNECTION_STRING'])
+              client.get_blob_client('sermon-audio', '$BLOB_NAME').delete_blob()
+              print(f'Cleaned up blob: $BLOB_NAME')
+          except Exception as e:
+              print(f'Blob cleanup skipped: {e}')
+          " 2>/dev/null || true
+          fi
+
+          # Delete local audio files
+          rm -rf /tmp/sermon-audio /tmp/yt_cookies.txt
+
       - name: Summary
         if: always()
         run: |

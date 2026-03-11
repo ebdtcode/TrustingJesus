@@ -526,10 +526,6 @@ def _process_video(
         commit_msg = f"feat: add sermon '{title}' ({date_str})"
         commit_sha = gh.commit_files(files, commit_msg)
 
-        # Clean up blob after successful processing
-        if audio_blob:
-            delete_blob(audio_blob)
-
         return {
             "status": "success",
             "commit": commit_sha,
@@ -540,6 +536,8 @@ def _process_video(
 
     finally:
         shutil.rmtree(tmp_dir, ignore_errors=True)
+        if audio_blob:
+            delete_blob(audio_blob)
 
 
 # ======================================================================

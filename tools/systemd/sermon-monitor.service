@@ -1,0 +1,22 @@
+[Unit]
+Description=YouTube Sermon Monitor - Check and process new sermons
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=devos
+WorkingDirectory=/home/devos/prayer_trusting_Jesus/tools
+ExecStart=/usr/bin/python3 /home/devos/prayer_trusting_Jesus/tools/sermon_monitor.py
+EnvironmentFile=/home/devos/prayer_trusting_Jesus/tools/sermon_monitor.env
+
+# Timeout: 30 min max per run (download + transcription + generation)
+TimeoutStartSec=1800
+
+# Restart on failure with delay
+Restart=no
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=sermon-monitor
