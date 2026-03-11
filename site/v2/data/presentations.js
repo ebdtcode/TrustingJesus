@@ -5,6 +5,20 @@
  */
 
 const presentations = [
+  {
+    title: "What Will You Do With What God Gave You?",
+    speaker: "Bishop Darlingston Johnson",
+    description: "",
+    slides: 18,
+    file: "presentations/sermon/What_Will_You_Do_With_What_God_Gave_You.html",
+    id: "what-will-you-do-with-what-god-gave-you",
+    category: "sermon",
+    icon: "&#128156;",
+    tags: ["sermon"],
+    featured: true,
+    date: "2026-03-05"
+  },
+
   // 2026 Presentations (Newest)
   {
     title: "March 2026 Prayer Points",
