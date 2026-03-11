@@ -53,6 +53,7 @@ from shared.llm_client import LLMClient
 from shared.template_engine import render_presentation
 from shared.transcriber import Transcriber
 from shared.auth import check_access
+from shared.blob_client import delete_blob, download_blob_to_file
 from shared.youtube_downloader import download_audio
 from shared.youtube_monitor import (
     URLType,
@@ -138,6 +139,9 @@ def _handle_video(body: dict, video_id: str) -> func.HttpResponse:
     date_str = body.get("date", "")
     category = body.get("category", "sermon")
     language = body.get("language", "en")
+    audio_blob = body.get("audio_blob", "")
+    video_title = body.get("title", "")
+    upload_date = body.get("upload_date", "")
 
     if category not in VALID_CATEGORIES:
         return _json_response(
@@ -150,7 +154,9 @@ def _handle_video(body: dict, video_id: str) -> func.HttpResponse:
 
     try:
         result = _process_video(
-            youtube_url, speaker, series, date_str, category, language
+            youtube_url, speaker, series, date_str, category, language,
+            audio_blob=audio_blob, video_title=video_title,
+            upload_date=upload_date,
         )
         result["type"] = "video"
         result["video_id"] = video_id
@@ -303,15 +309,20 @@ def scan(req: func.HttpRequest) -> func.HttpResponse:
     run_on_startup=False,
 )
 def check_channels(timer: func.TimerRequest) -> None:
-    """Scheduled scan of all configured channels."""
+    """Scheduled scan: detect new videos (processing handled by GitHub Actions).
+
+    The timer only records new videos as 'detected'. The process-detected.yml
+    GitHub Action runs 30 minutes later, downloads audio on GH runners (where
+    yt-dlp works), uploads to blob storage, and calls /api/process.
+    """
     if os.environ.get("CHANNEL_CHECK_ENABLED", "true").lower() != "true":
         logger.info("Channel checking is disabled")
         return
 
     try:
-        result = _scan_all_channels({})
+        result = _scan_all_channels({"auto_process": False})
         logger.info(
-            "Scheduled scan complete: %d channels, %d new videos",
+            "Scheduled scan complete: %d channels, %d new videos detected",
             result.get("channels_checked", 0),
             result.get("total_new", 0),
         )
@@ -410,8 +421,15 @@ def _process_video(
     date_str: str,
     category: str = "sermon",
     language: str = "en",
+    *,
+    audio_blob: str = "",
+    video_title: str = "",
+    upload_date: str = "",
 ) -> dict:
-    """Full pipeline: download -> transcribe -> generate content -> push to GitHub."""
+    """Full pipeline: download/fetch -> transcribe -> generate content -> push to GitHub.
+
+    If audio_blob is provided, skips YouTube download and reads from Azure Blob Storage.
+    """
     config = AppConfig.from_env()
 
     llm = LLMClient.from_config(config.llm)
@@ -421,19 +439,33 @@ def _process_video(
     tmp_dir = tempfile.mkdtemp(prefix="sermon_")
 
     try:
-        # 1. Download audio
-        audio_path, video_meta = download_audio(youtube_url, output_dir=tmp_dir)
+        # 1. Get audio — from blob (GH Action uploaded) or YouTube (direct)
+        if audio_blob:
+            logger.info("Using pre-uploaded audio from blob: %s", audio_blob)
+            audio_path = os.path.join(tmp_dir, os.path.basename(audio_blob))
+            download_blob_to_file(audio_blob, audio_path)
+            video_meta = {
+                "title": video_title or "Sermon",
+                "uploader": speaker or "Unknown",
+                "upload_date": upload_date.replace("-", ""),
+                "duration": 0,
+                "description": "",
+                "webpage_url": youtube_url,
+                "id": youtube_url.split("v=")[-1][:11] if "v=" in youtube_url else "",
+            }
+        else:
+            audio_path, video_meta = download_audio(youtube_url, output_dir=tmp_dir)
 
         if not speaker:
             speaker = video_meta.get("uploader", "Unknown")
         if not date_str:
-            raw_date = video_meta.get("upload_date", "")
+            raw_date = upload_date.replace("-", "") or video_meta.get("upload_date", "")
             if raw_date and len(raw_date) == 8:
                 date_str = f"{raw_date[:4]}-{raw_date[4:6]}-{raw_date[6:]}"
             else:
                 date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
-        title = _sanitize_title(video_meta.get("title", "Sermon"))
+        title = _sanitize_title(video_title or video_meta.get("title", "Sermon"))
 
         metadata = {
             "title": title,
@@ -493,6 +525,10 @@ def _process_video(
         # 9. Commit to GitHub
         commit_msg = f"feat: add sermon '{title}' ({date_str})"
         commit_sha = gh.commit_files(files, commit_msg)
+
+        # Clean up blob after successful processing
+        if audio_blob:
+            delete_blob(audio_blob)
 
         return {
             "status": "success",

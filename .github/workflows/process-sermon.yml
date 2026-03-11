@@ -4,16 +4,16 @@ on:
   workflow_dispatch:
     inputs:
       url:
-        description: 'YouTube URL — video, channel, @handle, or channel ID'
+        description: 'YouTube URL — video or channel'
         required: true
         type: string
       speaker:
-        description: 'Speaker name (optional for channels with defaults)'
+        description: 'Speaker name (optional, auto-detected from video)'
         required: false
         type: string
         default: ''
       date:
-        description: 'Sermon date YYYY-MM-DD (optional, auto-detected from video)'
+        description: 'Sermon date YYYY-MM-DD (optional, auto-detected)'
         required: false
         type: string
         default: ''
@@ -35,16 +35,6 @@ on:
           - family
           - marriage
           - personal-development
-      auto_process:
-        description: 'For channels: auto-process new videos?'
-        required: false
-        type: boolean
-        default: true
-      max_videos:
-        description: 'For channels: max videos to process'
-        required: false
-        type: number
-        default: 5
 
 jobs:
   process:
@@ -58,13 +48,8 @@ jobs:
       INPUT_DATE: ${{ inputs.date }}
       INPUT_SERIES: ${{ inputs.series }}
       INPUT_CATEGORY: ${{ inputs.category }}
-      INPUT_AUTO_PROCESS: ${{ inputs.auto_process }}
-      INPUT_MAX_VIDEOS: ${{ inputs.max_videos }}
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
       - name: Validate URL
         run: |
           if [ -z "$INPUT_URL" ]; then
@@ -72,26 +57,95 @@ jobs:
             exit 1
           fi
 
-      - name: Call Azure Function
+      - name: Install yt-dlp
+        run: pip install yt-dlp
+
+      - name: Download audio from YouTube
+        id: download
+        run: |
+          mkdir -p /tmp/sermon-audio
+
+          # Download audio and extract metadata as JSON
+          yt-dlp \
+            --format "bestaudio/best" \
+            --extract-audio \
+            --audio-format mp3 \
+            --audio-quality 128K \
+            --output "/tmp/sermon-audio/%(id)s.%(ext)s" \
+            --print-json \
+            --no-simulate \
+            "$INPUT_URL" > /tmp/sermon-audio/metadata.json
+
+          # Parse metadata
+          VIDEO_ID=$(python3 -c "import json; d=json.load(open('/tmp/sermon-audio/metadata.json')); print(d.get('id',''))")
+          VIDEO_TITLE=$(python3 -c "import json; d=json.load(open('/tmp/sermon-audio/metadata.json')); print(d.get('title',''))")
+          UPLOADER=$(python3 -c "import json; d=json.load(open('/tmp/sermon-audio/metadata.json')); print(d.get('uploader',''))")
+          UPLOAD_DATE=$(python3 -c "import json; d=json.load(open('/tmp/sermon-audio/metadata.json')); print(d.get('upload_date',''))")
+
+          # Find the mp3 file
+          AUDIO_FILE=$(find /tmp/sermon-audio -name "*.mp3" | head -1)
+          if [ -z "$AUDIO_FILE" ]; then
+            echo "::error::No audio file found after download"
+            exit 1
+          fi
+
+          BLOB_NAME="${VIDEO_ID}.mp3"
+          echo "video_id=$VIDEO_ID" >> "$GITHUB_OUTPUT"
+          echo "video_title=$VIDEO_TITLE" >> "$GITHUB_OUTPUT"
+          echo "uploader=$UPLOADER" >> "$GITHUB_OUTPUT"
+          echo "upload_date=$UPLOAD_DATE" >> "$GITHUB_OUTPUT"
+          echo "audio_file=$AUDIO_FILE" >> "$GITHUB_OUTPUT"
+          echo "blob_name=$BLOB_NAME" >> "$GITHUB_OUTPUT"
+
+          SIZE_MB=$(du -m "$AUDIO_FILE" | cut -f1)
+          echo "Downloaded: $VIDEO_TITLE ($SIZE_MB MB)"
+
+      - name: Upload audio to Azure Blob Storage
+        env:
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+        run: |
+          pip install azure-storage-blob
+          python3 - <<'PYEOF'
+          import os
+          from azure.storage.blob import BlobServiceClient
+
+          conn_str = os.environ["AZURE_STORAGE_CONNECTION_STRING"]
+          blob_name = "${{ steps.download.outputs.blob_name }}"
+          audio_file = "${{ steps.download.outputs.audio_file }}"
+
+          blob_service = BlobServiceClient.from_connection_string(conn_str)
+          blob_client = blob_service.get_blob_client("sermon-audio", blob_name)
+
+          with open(audio_file, "rb") as f:
+              blob_client.upload_blob(f, overwrite=True)
+
+          size_mb = os.path.getsize(audio_file) / (1024 * 1024)
+          print(f"Uploaded {blob_name} ({size_mb:.1f} MB) to sermon-audio container")
+          PYEOF
+
+      - name: Call Azure Function to process
         env:
           AZURE_FUNCTION_URL: ${{ secrets.AZURE_FUNCTION_URL }}
           AZURE_FUNCTION_KEY: ${{ secrets.AZURE_FUNCTION_KEY }}
         run: |
-          # Build JSON payload using Python for safe escaping
+          # Build JSON payload with audio_blob reference
           PAYLOAD=$(python3 -c "
           import json, os
           print(json.dumps({
               'url': os.environ['INPUT_URL'],
-              'speaker': os.environ['INPUT_SPEAKER'],
-              'series': os.environ['INPUT_SERIES'],
-              'date': os.environ['INPUT_DATE'],
-              'category': os.environ['INPUT_CATEGORY'],
-              'auto_process': os.environ['INPUT_AUTO_PROCESS'].lower() == 'true',
-              'max_videos': int(os.environ.get('INPUT_MAX_VIDEOS', '5')),
+              'speaker': os.environ.get('INPUT_SPEAKER', '') or '${{ steps.download.outputs.uploader }}',
+              'series': os.environ.get('INPUT_SERIES', ''),
+              'date': os.environ.get('INPUT_DATE', ''),
+              'category': os.environ.get('INPUT_CATEGORY', 'sermon'),
+              'audio_blob': '${{ steps.download.outputs.blob_name }}',
+              'title': '${{ steps.download.outputs.video_title }}',
+              'upload_date': '${{ steps.download.outputs.upload_date }}',
           }))
           ")
 
+          echo "Calling Azure Function with audio_blob..."
           RESPONSE=$(curl -s -w "\n%{http_code}" \
+            --max-time 540 \
             -X POST "${AZURE_FUNCTION_URL}/api/process?code=${AZURE_FUNCTION_KEY}" \
             -H "Content-Type: application/json" \
             -d "$PAYLOAD")
@@ -107,9 +161,20 @@ jobs:
             exit 1
           fi
 
+          # Save result for summary
+          echo "$BODY" > /tmp/result.json
+
       - name: Summary
+        if: always()
         run: |
-          echo "## Processing Complete" >> "$GITHUB_STEP_SUMMARY"
+          echo "## Sermon Processing" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo "Content has been generated and committed to the repo." >> "$GITHUB_STEP_SUMMARY"
-          echo "Cloudflare Pages deployment will trigger automatically." >> "$GITHUB_STEP_SUMMARY"
+          echo "**Video**: ${{ steps.download.outputs.video_title }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "**Speaker**: ${INPUT_SPEAKER:-${{ steps.download.outputs.uploader }}}" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f /tmp/result.json ]; then
+            STATUS=$(python3 -c "import json; print(json.load(open('/tmp/result.json')).get('status','unknown'))" 2>/dev/null || echo "unknown")
+            echo "**Result**: $STATUS" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "Cloudflare Pages deployment will trigger automatically." >> "$GITHUB_STEP_SUMMARY"
+          fi

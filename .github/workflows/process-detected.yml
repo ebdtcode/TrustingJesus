@@ -1,0 +1,137 @@
+name: Process Detected Videos
+
+on:
+  schedule:
+    - cron: '30 */6 * * *'  # Every 6 hours at :30 (after Azure timer at :00)
+  workflow_dispatch: {}      # Allow manual trigger
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check for detected videos
+        id: check
+        env:
+          AZURE_FUNCTION_URL: ${{ secrets.AZURE_FUNCTION_URL }}
+          AZURE_FUNCTION_KEY: ${{ secrets.AZURE_FUNCTION_KEY }}
+        run: |
+          RESPONSE=$(curl -s "${AZURE_FUNCTION_URL}/api/status?code=${AZURE_FUNCTION_KEY}&status=detected")
+          echo "$RESPONSE" > /tmp/status.json
+
+          COUNT=$(python3 -c "
+          import json
+          data = json.load(open('/tmp/status.json'))
+          videos = data.get('recent', [])
+          print(len(videos))
+          ")
+
+          echo "detected_count=$COUNT" >> "$GITHUB_OUTPUT"
+          echo "Found $COUNT detected (unprocessed) videos"
+
+      - name: Install dependencies
+        if: steps.check.outputs.detected_count != '0'
+        run: pip install yt-dlp azure-storage-blob
+
+      - name: Process each detected video
+        if: steps.check.outputs.detected_count != '0'
+        env:
+          AZURE_FUNCTION_URL: ${{ secrets.AZURE_FUNCTION_URL }}
+          AZURE_FUNCTION_KEY: ${{ secrets.AZURE_FUNCTION_KEY }}
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+        run: |
+          python3 - <<'PYEOF'
+          import json
+          import os
+          import subprocess
+          import urllib.request
+
+          func_url = os.environ["AZURE_FUNCTION_URL"]
+          func_key = os.environ["AZURE_FUNCTION_KEY"]
+          conn_str = os.environ["AZURE_STORAGE_CONNECTION_STRING"]
+
+          from azure.storage.blob import BlobServiceClient
+
+          with open("/tmp/status.json") as f:
+              data = json.load(f)
+
+          videos = data.get("recent", [])[:5]
+          blob_service = BlobServiceClient.from_connection_string(conn_str)
+
+          results = []
+          for video in videos:
+              vid = video["video_id"]
+              title = video.get("title", "")
+              print(f"\n--- Processing: {title} ({vid}) ---")
+
+              try:
+                  out_dir = f"/tmp/audio/{vid}"
+                  os.makedirs(out_dir, exist_ok=True)
+                  cmd = [
+                      "yt-dlp", "--format", "bestaudio/best",
+                      "--extract-audio", "--audio-format", "mp3",
+                      "--audio-quality", "128K",
+                      "--output", f"{out_dir}/%(id)s.%(ext)s",
+                      "--print-json", "--no-simulate",
+                      f"https://www.youtube.com/watch?v={vid}",
+                  ]
+                  result = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
+                  if result.returncode != 0:
+                      print(f"  Download failed: {result.stderr[:200]}")
+                      results.append({"video_id": vid, "status": "download_failed"})
+                      continue
+
+                  meta = json.loads(result.stdout)
+                  audio_file = None
+                  for f_name in os.listdir(out_dir):
+                      if f_name.endswith(".mp3"):
+                          audio_file = os.path.join(out_dir, f_name)
+                          break
+                  if not audio_file:
+                      print("  No mp3 file found")
+                      continue
+
+                  blob_name = f"{vid}.mp3"
+                  blob_client = blob_service.get_blob_client("sermon-audio", blob_name)
+                  with open(audio_file, "rb") as af:
+                      blob_client.upload_blob(af, overwrite=True)
+                  size_mb = os.path.getsize(audio_file) / (1024 * 1024)
+                  print(f"  Uploaded {size_mb:.1f} MB to blob")
+
+                  payload = json.dumps({
+                      "url": f"https://www.youtube.com/watch?v={vid}",
+                      "speaker": meta.get("uploader", ""),
+                      "category": "sermon",
+                      "audio_blob": blob_name,
+                      "title": meta.get("title", ""),
+                      "upload_date": meta.get("upload_date", ""),
+                  }).encode()
+
+                  req = urllib.request.Request(
+                      f"{func_url}/api/process?code={func_key}",
+                      data=payload,
+                      headers={"Content-Type": "application/json"},
+                      method="POST",
+                  )
+                  with urllib.request.urlopen(req, timeout=540) as resp:
+                      resp_data = json.loads(resp.read())
+                      print(f"  Result: {resp_data.get('status', 'unknown')}")
+                      results.append({"video_id": vid, "status": "processed"})
+
+              except Exception as e:
+                  print(f"  Error: {e}")
+                  results.append({"video_id": vid, "status": "failed", "error": str(e)})
+
+          print(f"\n=== Done: {len(results)} videos processed ===")
+          for r in results:
+              print(f"  {r['video_id']}: {r['status']}")
+          PYEOF
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Auto-Process Detected Videos" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "Found ${{ steps.check.outputs.detected_count }} detected videos" >> "$GITHUB_STEP_SUMMARY"
