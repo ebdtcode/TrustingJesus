@@ -65,8 +65,18 @@ jobs:
 
       - name: Download audio from YouTube
         id: download
+        env:
+          YOUTUBE_COOKIES_B64: ${{ secrets.YOUTUBE_COOKIES }}
         run: |
           mkdir -p /tmp/sermon-audio
+
+          # Write cookies file if available
+          COOKIE_ARGS=""
+          if [ -n "$YOUTUBE_COOKIES_B64" ]; then
+            echo "$YOUTUBE_COOKIES_B64" | base64 -d > /tmp/yt_cookies.txt
+            COOKIE_ARGS="--cookies /tmp/yt_cookies.txt"
+            echo "Using YouTube cookies for authentication"
+          fi
 
           # Download audio and extract metadata as JSON
           yt-dlp \
@@ -77,6 +87,7 @@ jobs:
             --output "/tmp/sermon-audio/%(id)s.%(ext)s" \
             --print-json \
             --no-simulate \
+            $COOKIE_ARGS \
             "$INPUT_URL" > /tmp/sermon-audio/metadata.json
 
           # Parse metadata
