@@ -6,6 +6,19 @@
 
 const presentations = [
   {
+    title: "How To Become a Vessel of God's Unfailing Love",
+    speaker: "Pastor Casimir Bilong",
+    description: "The Year of Unfailing Love is not about receiving blessings — it's about becoming vessels through which God expresses His love to a corrupted world. A process of spiritual growth from 2 Peter 1:5-7.",
+    slides: 18,
+    file: "presentations/sermons/How_To_Become_A_Vessel_of_Gods_Unfailing_Love.html",
+    id: "how-to-become-vessel-gods-unfailing-love",
+    category: "sermon",
+    icon: "&#128156;",
+    tags: ["unfailing love", "vessel", "spiritual growth", "integrity", "2 Peter 1", "Lamentations 3", "1 John 4"],
+    featured: true,
+    date: "2026-03-18"
+  },
+  {
     title: "What Will You Do With What God Gave You?",
     speaker: "Bishop Darlingston Johnson",
     description: "",
