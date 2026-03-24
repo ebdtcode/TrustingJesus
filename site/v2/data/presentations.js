@@ -6,6 +6,19 @@
 
 const presentations = [
   {
+    title: "Fear - Faith - Victory: The Battle Belongs To The Lord",
+    speaker: "Pastor Mohan Babu",
+    description: "From fear to faith to victory: Jehoshaphat's battle in 2 Chronicles 20 shows how worship, humility, and covenant prayer turn brokenness into blessings. The battle belongs to the Lord.",
+    slides: 22,
+    file: "presentations/sermons/Fear_Faith_Victory_Battle_Belongs_To_The_Lord.html",
+    id: "fear-faith-victory-battle-belongs-to-the-lord",
+    category: "sermon",
+    icon: "&#128156;",
+    tags: ["fear", "faith", "victory", "worship", "covenant", "Jehoshaphat", "2 Chronicles 20", "Romans 8:31", "unfailing love"],
+    featured: true,
+    date: "2026-03-23"
+  },
+  {
     title: "How To Become a Vessel of God's Unfailing Love",
     speaker: "Pastor Casimir Bilong",
     description: "The Year of Unfailing Love is not about receiving blessings — it's about becoming vessels through which God expresses His love to a corrupted world. A process of spiritual growth from 2 Peter 1:5-7.",
