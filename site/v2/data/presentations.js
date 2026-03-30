@@ -9,7 +9,7 @@ const presentations = [
     title: "Choosing Obedience",
     speaker: "Bishop Darlingston Johnson",
     description: "Palm Sunday message: Jesus set his face toward Jerusalem knowing the cost, because love for the Father and love for us superseded the desire to avoid suffering. Obedience over convenience — and your Jerusalem of suffering will become the place of your resurrection.",
-    slides: 22,
+    slides: 33,
     file: "presentations/sermons/Choosing_Obedience.html",
     id: "choosing-obedience",
     category: "sermon",
