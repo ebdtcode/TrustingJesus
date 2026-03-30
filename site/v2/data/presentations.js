@@ -6,6 +6,19 @@
 
 const presentations = [
   {
+    title: "Choosing Obedience",
+    speaker: "Bishop Darlingston Johnson",
+    description: "Palm Sunday message: Jesus set his face toward Jerusalem knowing the cost, because love for the Father and love for us superseded the desire to avoid suffering. Obedience over convenience — and your Jerusalem of suffering will become the place of your resurrection.",
+    slides: 22,
+    file: "presentations/sermons/Choosing_Obedience.html",
+    id: "choosing-obedience",
+    category: "sermon",
+    icon: "&#128156;",
+    tags: ["obedience", "Palm Sunday", "temple", "sacrifice", "unfailing love", "Matthew 21", "Romans 8:35", "1 Corinthians 6:19"],
+    featured: true,
+    date: "2026-03-30"
+  },
+  {
     title: "Fear - Faith - Victory: The Battle Belongs To The Lord",
     speaker: "Pastor Mohan Babu",
     description: "From fear to faith to victory: Jehoshaphat's battle in 2 Chronicles 20 shows how worship, humility, and covenant prayer turn brokenness into blessings. The battle belongs to the Lord.",
