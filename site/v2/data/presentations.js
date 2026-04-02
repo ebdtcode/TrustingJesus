@@ -6,6 +6,19 @@
 
 const presentations = [
   {
+    title: "April 2026 Prayer Points",
+    speaker: "",
+    description: "Monthly prayer points for April 2026. Day 1: Praying for Souls & HIM-U — claiming territories, making disciples, demolishing strongholds. Day 2: Praying for the Easter Service — consecration, the living Word, miracles, and serving with gifts.",
+    slides: 20,
+    file: "presentations/prayer/April_2026_Prayer_Points.html",
+    id: "april-2026-prayer-points",
+    category: "prayer",
+    icon: "&#128197;",
+    tags: ["prayer", "monthly", "HIM-U", "Easter", "souls", "missions", "ELI generation", "Joshua 1:3", "Hebrews 4:12"],
+    featured: true,
+    date: "2026-04-01"
+  },
+  {
     title: "Choosing Obedience",
     speaker: "Bishop Darlingston Johnson",
     description: "Palm Sunday message: Jesus set his face toward Jerusalem knowing the cost, because love for the Father and love for us superseded the desire to avoid suffering. Obedience over convenience — and your Jerusalem of suffering will become the place of your resurrection.",
