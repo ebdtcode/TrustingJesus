@@ -6,6 +6,19 @@
 
 const presentations = [
   {
+    title: "When Doubt Meets Jesus",
+    speaker: "Bishop Darlingston Johnson",
+    description: "Easter Sunday message: How Jesus moved Thomas from hardcore skepticism to total personal surrender through patience, evidence, and love. Christianity does not demand blind faith — it offers a risen Savior who provides proof to the sincere seeker.",
+    slides: 49,
+    file: "presentations/sermons/When_Doubt_Meets_Jesus.html",
+    id: "when-doubt-meets-jesus",
+    category: "sermon",
+    icon: "&#128156;",
+    tags: ["Easter", "resurrection", "doubt", "faith", "Thomas", "surrender", "evidence", "John 20", "Romans 8:35", "1 Corinthians 15"],
+    featured: true,
+    date: "2026-04-06"
+  },
+  {
     title: "April 2026 Prayer Points",
     speaker: "",
     description: "Monthly prayer points for April 2026. Day 1: Praying for Souls & HIM-U — claiming territories, making disciples, demolishing strongholds. Day 2: Praying for the Easter Service — consecration, the living Word, miracles, and serving with gifts.",
