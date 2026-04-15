@@ -6,6 +6,20 @@
 
 const presentations = [
   {
+    title: "Knowing The Voice of The Good Shepherd",
+    speaker: "Pastor Chrys Johnson",
+    description: "From John 10:27: four truths about our relationship with the Good Shepherd — relationship, intimacy, discernment, and obedience — plus five competing voices that drown Him out and five ways God still speaks today. If ever we needed to know His voice, it is now.",
+    slides: 50,
+    slides: 52,
+    file: "presentations/sermons/Knowing_The_Voice_Of_The_Good_Shepherd.html",
+    id: "knowing-the-voice-of-the-good-shepherd",
+    category: "sermon",
+    icon: "&#128156;",
+    tags: ["shepherd", "voice of God", "discernment", "John 10", "hearing God", "Holy Spirit", "dreams and visions", "Psalm 23", "Philippians 4:8", "1 Kings 19"],
+    featured: true,
+    date: "2026-04-13"
+  },
+  {
     title: "When Doubt Meets Jesus",
     speaker: "Bishop Darlingston Johnson",
     description: "Easter Sunday message: How Jesus moved Thomas from hardcore skepticism to total personal surrender through patience, evidence, and love. Christianity does not demand blind faith — it offers a risen Savior who provides proof to the sincere seeker.",
