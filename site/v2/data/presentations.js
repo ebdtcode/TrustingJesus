@@ -6,6 +6,19 @@
 
 const presentations = [
   {
+    title: "God Is Your Source of Supply — Part 1",
+    speaker: "Bishop Darlingston Johnson",
+    description: "Part 1 of a series on God's provision. Philippians 4:19 is not a promise — it is a divine decree. When God is your God, your needs are His responsibility. Source vs. channel, the covenant weight of 'my God,' the 'shall' of kingdom law, and the unsearchable riches of Christ.",
+    slides: 62,
+    file: "presentations/sermons/God_Is_Your_Source_Of_Supply_Part_1.html",
+    id: "god-is-your-source-of-supply-part-1",
+    category: "sermon",
+    icon: "&#128156;",
+    tags: ["provision", "supply", "Philippians 4:19", "source", "covenant", "decree", "riches in glory", "Matthew 6:33", "Psalm 23", "faith"],
+    featured: true,
+    date: "2026-04-19"
+  },
+  {
     title: "Knowing The Voice of The Good Shepherd",
     speaker: "Pastor Chrys Johnson",
     description: "From John 10:27: four truths about our relationship with the Good Shepherd — relationship, intimacy, discernment, and obedience — plus five competing voices that drown Him out and five ways God still speaks today. If ever we needed to know His voice, it is now.",
