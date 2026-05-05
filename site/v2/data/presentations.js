@@ -6,6 +6,19 @@
 
 const presentations = [
   {
+    title: "War In The Temple: Fighting The Wrong Enemy",
+    speaker: "Pastor Gledy Wariebi",
+    description: "Offense is the enemy's greatest weapon of mass destruction. Believers are temples (1 Cor 6:19, Eph 2:21-22) — but the enemy has infiltrated to shift the war so we fight one another instead of him. Pastor Gledy traces the history of coups (heaven, Eden, Calvary), names the four weapons God has given (Blood, Name, Word, Spirit), and calls every believer to refuse offense as an act of will, stand behind God, and be a lover and a fighter — fighting the right enemy.",
+    slides: 61,
+    file: "presentations/sermons/War_In_The_Temple_Fighting_The_Wrong_Enemy.html",
+    id: "war-in-the-temple-fighting-the-wrong-enemy",
+    category: "sermon",
+    icon: "&#9876;&#65039;",
+    tags: ["spiritual warfare", "offense", "forgiveness", "temple", "Proverbs 18:19", "Ephesians 6", "2 Corinthians 10", "2 Timothy 1:7", "Philippians 4:2-3", "Jehovah Nissi", "unity"],
+    featured: true,
+    date: "2026-05-03"
+  },
+  {
     title: "Connecting To God's Power And Supply",
     speaker: "Bishop Darlingston Johnson",
     description: "Part 2 of the supply series. The promise of Philippians 4:19 is dependent on power — and that power has already been delivered to every believer. Our responsibility is to connect to it through agreement: aligning will, words, ways, and work with God's. Power Company and faucet illustrations, the Lord's Prayer pattern of surrender-before-petition, James 4:7 sequence, and Jesus as High Priest of our confession.",
