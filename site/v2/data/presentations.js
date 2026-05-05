@@ -6,6 +6,19 @@
 
 const presentations = [
   {
+    title: "Connecting To God's Power And Supply",
+    speaker: "Bishop Darlingston Johnson",
+    description: "Part 2 of the supply series. The promise of Philippians 4:19 is dependent on power — and that power has already been delivered to every believer. Our responsibility is to connect to it through agreement: aligning will, words, ways, and work with God's. Power Company and faucet illustrations, the Lord's Prayer pattern of surrender-before-petition, James 4:7 sequence, and Jesus as High Priest of our confession.",
+    slides: 61,
+    file: "presentations/sermons/Connecting_To_Gods_Power_And_Supply.html",
+    id: "connecting-to-gods-power-and-supply",
+    category: "sermon",
+    icon: "&#128156;",
+    tags: ["provision", "power", "agreement", "alignment", "Philippians 4:19", "Amos 3:3", "Lord's Prayer", "Hebrews 3:1", "James 4:7", "confession", "high priest", "surrender", "faith"],
+    featured: true,
+    date: "2026-04-27"
+  },
+  {
     title: "God Is Your Source of Supply — Part 1",
     speaker: "Bishop Darlingston Johnson",
     description: "Part 1 of a series on God's provision. Philippians 4:19 is not a promise — it is a divine decree. When God is your God, your needs are His responsibility. Source vs. channel, the covenant weight of 'my God,' the 'shall' of kingdom law, and the unsearchable riches of Christ.",
