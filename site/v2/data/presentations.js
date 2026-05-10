@@ -6,6 +6,19 @@
 
 const presentations = [
   {
+    title: "She Did What She Could",
+    speaker: "Bishop Darlingston Johnson",
+    description: "Mother's Day message from Mark 14:3-9 — the woman with the alabaster jar. Three lessons from the women in Jesus' life: surrender like Mary the bond-servant (Luke 1:38), support like the women who funded the ministry from their substance (Luke 8:1-3), and stay near like the women at the cross when there were no more miracles. The common theme: even when they couldn't do everything, they always did everything they could — and that is what got heaven's attention.",
+    slides: 70,
+    file: "presentations/sermons/She_Did_What_She_Could.html",
+    id: "she-did-what-she-could",
+    category: "sermon",
+    icon: "&#127801;",
+    tags: ["Mother's Day", "women in scripture", "Mark 14", "Luke 8", "Luke 1:38", "surrender", "giving", "partnership", "faithfulness", "Mary", "Mary Magdalene", "Joanna", "bond-servant"],
+    featured: true,
+    date: "2026-05-10"
+  },
+  {
     title: "War In The Temple: Fighting The Wrong Enemy",
     speaker: "Pastor Gledy Wariebi",
     description: "Offense is the enemy's greatest weapon of mass destruction. Believers are temples (1 Cor 6:19, Eph 2:21-22) — but the enemy has infiltrated to shift the war so we fight one another instead of him. Pastor Gledy traces the history of coups (heaven, Eden, Calvary), names the four weapons God has given (Blood, Name, Word, Spirit), and calls every believer to refuse offense as an act of will, stand behind God, and be a lover and a fighter — fighting the right enemy.",
