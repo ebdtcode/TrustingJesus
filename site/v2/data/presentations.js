@@ -6,6 +6,19 @@
 
 const presentations = [
   {
+    title: "The Law That Shapes Your Future",
+    speaker: "Bishop Darlingston Johnson",
+    description: "From Galatians 6:6-10 — the law of sowing and reaping. The cross satisfied the moral law completely, but the natural and spiritual laws woven into creation are unaffected: gravity, Newton's third law, and the law of seedtime and harvest still operate with the same reliability in the kingdom as on a farm. Every harvest begins with a seed. Prayer is not a substitute for sowing. Zero times any amount of grace is still zero. Sow to the Spirit, refuse to grow weary, and trust due season — because the greatest application of this law was God Himself planting Jesus on the cross to produce a harvest of many sons, and you are that harvest.",
+    slides: 78,
+    file: "presentations/sermons/The_Law_That_Shapes_Your_Future.html",
+    id: "the-law-that-shapes-your-future",
+    category: "sermon",
+    icon: "&#127807;",
+    tags: ["sowing and reaping", "Galatians 6", "harvest", "righteousness", "grace foundation", "Genesis 8:22", "Mark 4", "John 12:24", "2 Corinthians 9:10", "due season", "kingdom laws", "stewardship", "perseverance"],
+    featured: true,
+    date: "2026-05-17"
+  },
+  {
     title: "She Did What She Could",
     speaker: "Bishop Darlingston Johnson",
     description: "Mother's Day message from Mark 14:3-9 — the woman with the alabaster jar. Three lessons from the women in Jesus' life: surrender like Mary the bond-servant (Luke 1:38), support like the women who funded the ministry from their substance (Luke 8:1-3), and stay near like the women at the cross when there were no more miracles. The common theme: even when they couldn't do everything, they always did everything they could — and that is what got heaven's attention.",
