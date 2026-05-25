@@ -1,0 +1,12 @@
+{
+  "url": "https://www.youtube.com/watch?v=vdP7qEP8-lc",
+  "video_id": "vdP7qEP8-lc",
+  "title": "The Power of The Seed | Bishop Darlingston Johnson",
+  "uploader": "Bishop Dr. Darlingston Johnson",
+  "upload_date": "20260525",
+  "transcription_date": "2026-05-25T08:57:16",
+  "language": "en",
+  "model": "mlx-community/whisper-small-mlx",
+  "start_time": null,
+  "end_time": null
+}

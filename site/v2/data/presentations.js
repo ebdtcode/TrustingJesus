@@ -6,6 +6,19 @@
 
 const presentations = [
   {
+    title: "The Power of The Seed",
+    speaker: "Bishop Darlingston Johnson",
+    description: "Part 2 of the law of sowing and reaping. Pressing into the spiritual dimension of Galatians 6:6-8: gratitude to those who teach you is a seed that returns multiplied, the value you place on the word determines your harvest, and you always have a choice — sow to the flesh and reap corruption, or sow to the Spirit (with your words and deeds) and reap life. Two Old Testament witnesses anchor it: Isaac, who reaped a hundredfold in famine by fusing natural planting with spiritual faith (Genesis 26), and the widow of Zarephath, who sowed her last meal into a season of unfailing supply (1 Kings 17). The kingdom's law is not karma — the law of Christ adds mercy (uprooting the harvest you deserve) and grace (vineyards you did not plant). The charge: never eat your seed, treasure peace above a trillion dollars, and teach the next generation to sow.",
+    slides: 85,
+    file: "presentations/sermons/The_Power_Of_The_Seed.html",
+    id: "the-power-of-the-seed",
+    category: "sermon",
+    icon: "&#127793;",
+    tags: ["sowing and reaping", "the seed", "Galatians 6", "sow to the Spirit", "Isaac", "Genesis 26", "widow of Zarephath", "1 Kings 17", "grace", "law of Christ", "never eat your seed", "supernatural supply", "1 Timothy 4:8"],
+    featured: true,
+    date: "2026-05-25"
+  },
+  {
     title: "The Law That Shapes Your Future",
     speaker: "Bishop Darlingston Johnson",
     description: "From Galatians 6:6-10 — the law of sowing and reaping. The cross satisfied the moral law completely, but the natural and spiritual laws woven into creation are unaffected: gravity, Newton's third law, and the law of seedtime and harvest still operate with the same reliability in the kingdom as on a farm. Every harvest begins with a seed. Prayer is not a substitute for sowing. Zero times any amount of grace is still zero. Sow to the Spirit, refuse to grow weary, and trust due season — because the greatest application of this law was God Himself planting Jesus on the cross to produce a harvest of many sons, and you are that harvest.",
