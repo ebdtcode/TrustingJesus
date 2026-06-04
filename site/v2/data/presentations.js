@@ -6,6 +6,19 @@
 
 const presentations = [
   {
+    title: "Abundance In Unlikely Places",
+    speaker: "Bishop Darlingston Johnson",
+    description: "From 2 Corinthians 8:1-5 — the Macedonian churches as God's model for grace-giving. In great affliction and deep poverty (so poor the poor people called them poor), they overflowed in an abundance of joy and riches of liberality: a combination so unnatural it 'looks suspiciously supernatural.' The source is not circumstance but the grace of God. God doesn't measure what's in your hand, He measures what's in your heart — so the largest givers are not necessarily the most generous, and while the economy is economizing your generosity need not shrink. Normal giving is according to ability; sacrificial giving goes beyond it (the one who gives away their only car). Giving is a transfer of grace, not merely currency — a partnership and fellowship with God. The Macedonians begged for the privilege because they had first given themselves to the Lord, turning the question from 'What should I do with my money?' into 'Lord, what do You want to do with me?' When grace truly captures the heart, generosity ceases to be a duty to perform and becomes a privilege to embrace.",
+    slides: 73,
+    file: "presentations/sermons/Abundance_In_Unlikely_Places.html",
+    id: "abundance-in-unlikely-places",
+    category: "sermon",
+    icon: "&#129371;",
+    tags: ["grace giving", "generosity", "2 Corinthians 8", "the Macedonians", "the widow's mite", "Mark 12", "give yourself first", "beyond your ability", "transfer of grace", "Philippians 2:13", "Matthew 6:24", "stewardship", "sacrifice"],
+    featured: true,
+    date: "2026-06-01"
+  },
+  {
     title: "The Power of The Seed",
     speaker: "Bishop Darlingston Johnson",
     description: "Part 2 of the law of sowing and reaping. Pressing into the spiritual dimension of Galatians 6:6-8: gratitude to those who teach you is a seed that returns multiplied, the value you place on the word determines your harvest, and you always have a choice — sow to the flesh and reap corruption, or sow to the Spirit (with your words and deeds) and reap life. Two Old Testament witnesses anchor it: Isaac, who reaped a hundredfold in famine by fusing natural planting with spiritual faith (Genesis 26), and the widow of Zarephath, who sowed her last meal into a season of unfailing supply (1 Kings 17). The kingdom's law is not karma — the law of Christ adds mercy (uprooting the harvest you deserve) and grace (vineyards you did not plant). The charge: never eat your seed, treasure peace above a trillion dollars, and teach the next generation to sow.",
