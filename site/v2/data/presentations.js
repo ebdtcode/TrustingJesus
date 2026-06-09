@@ -6,6 +6,19 @@
 
 const presentations = [
   {
+    title: "Loving Jesus",
+    speaker: "Pastor Obadiah Swen",
+    description: "From Psalm 42:1-2 (TPT) — a guest message at Harvest Intercontinental Church-Olney on the thirst of a heart that loves Jesus. Pastor Obi maps that love in four expressions. 'Jesus, I love You' — you can only love Him because He first loved you (Jeremiah 31:3; 1 John 3); real love wants to be with Him, become like Him, tell everyone, and purify itself — and intimacy cannot be delegated. 'Jesus, I want You' — loving Him means wanting the power of the Holy Spirit to live and serve (Luke 24:49; Acts 1:8; the Acts 4 boldness that shook the place); 'it takes Jesus,' illustrated by Claudio Freidzon's Argentine revival and the praying Kenyan woman of Reinhard Bonnke's crusades. 'Jesus, I surrender all to You' — worship is offering yourself as a living sacrifice (Romans 12:1-2); the seed must die to bear fruit (John 12:24), and a living sacrifice can roll off the altar, so we die daily to self in total dependence and obedience — Abraham withheld nothing and a willing Isaac was laid on the altar. 'Jesus, I say yes' — nothing is too difficult for God (Jeremiah 32:17); we say yes by declaring His faithfulness (Psalm 111). Why not here? Why not us? Why not now?",
+    slides: 57,
+    file: "presentations/sermons/Loving_Jesus.html",
+    id: "loving-jesus",
+    category: "sermon",
+    icon: "&#128156;",
+    tags: ["loving Jesus", "Psalm 42", "intimacy with God", "the Holy Spirit", "surrender", "living sacrifice", "Romans 12", "John 12:24", "Abraham and Isaac", "Acts 1:8", "Claudio Freidzon", "Reinhard Bonnke", "revival", "say yes"],
+    featured: true,
+    date: "2026-06-08"
+  },
+  {
     title: "Abundance In Unlikely Places",
     speaker: "Bishop Darlingston Johnson",
     description: "From 2 Corinthians 8:1-5 — the Macedonian churches as God's model for grace-giving. In great affliction and deep poverty (so poor the poor people called them poor), they overflowed in an abundance of joy and riches of liberality: a combination so unnatural it 'looks suspiciously supernatural.' The source is not circumstance but the grace of God. God doesn't measure what's in your hand, He measures what's in your heart — so the largest givers are not necessarily the most generous, and while the economy is economizing your generosity need not shrink. Normal giving is according to ability; sacrificial giving goes beyond it (the one who gives away their only car). Giving is a transfer of grace, not merely currency — a partnership and fellowship with God. The Macedonians begged for the privilege because they had first given themselves to the Lord, turning the question from 'What should I do with my money?' into 'Lord, what do You want to do with me?' When grace truly captures the heart, generosity ceases to be a duty to perform and becomes a privilege to embrace.",
