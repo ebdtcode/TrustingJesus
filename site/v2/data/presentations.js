@@ -9,7 +9,7 @@ const presentations = [
     title: "Loving Jesus",
     speaker: "Pastor Obadiah Swen",
     description: "From Psalm 42:1-2 (TPT) — a guest message at Harvest Intercontinental Church-Olney on the thirst of a heart that loves Jesus. Pastor Obi maps that love in four expressions. 'Jesus, I love You' — you can only love Him because He first loved you (Jeremiah 31:3; 1 John 3); real love wants to be with Him, become like Him, tell everyone, and purify itself — and intimacy cannot be delegated. 'Jesus, I want You' — loving Him means wanting the power of the Holy Spirit to live and serve (Luke 24:49; Acts 1:8; the Acts 4 boldness that shook the place); 'it takes Jesus,' illustrated by Claudio Freidzon's Argentine revival and the praying Kenyan woman of Reinhard Bonnke's crusades. 'Jesus, I surrender all to You' — worship is offering yourself as a living sacrifice (Romans 12:1-2); the seed must die to bear fruit (John 12:24), and a living sacrifice can roll off the altar, so we die daily to self in total dependence and obedience — Abraham withheld nothing and a willing Isaac was laid on the altar. 'Jesus, I say yes' — nothing is too difficult for God (Jeremiah 32:17); we say yes by declaring His faithfulness (Psalm 111). Why not here? Why not us? Why not now?",
-    slides: 57,
+    slides: 61,
     file: "presentations/sermons/Loving_Jesus.html",
     id: "loving-jesus",
     category: "sermon",
