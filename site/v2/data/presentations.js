@@ -6,6 +6,19 @@
 
 const presentations = [
   {
+    title: "The Word Works",
+    speaker: "Bishop Darlingston Johnson",
+    description: "From Luke 8:11 — the opening message of a new series on the Parable of the Sower (seed, soil, sower), built on the weeks of sowing and reaping. The seed is the Word of God, and spiritual growth does not come from trying harder but from planting the right seed into the right soil — a prepared heart. The Word is not a hammer or a textbook but a living seed: just as a whole forest hides in an acorn, God has compressed His eternal life, omniscience, omnipotence, wisdom, and every blessing into His Word (as into a microchip, or the atom whose power scientists only discovered). 'The Word works — we just need to learn how to work it.' Scripture testifies of itself: living and powerful (Hebrews 4:12), incorruptible seed that abides forever (1 Peter 1:23), healing and delivering (Psalm 107:20), and on an unstoppable mission that will not return void (Isaiah 55:11) — it cannot not come to pass. The homework: the seed is never the problem, so examine the soil of your heart and your relationship with the word of His grace (Acts 20:32) — and be a doer and an inviter, not merely a hearer.",
+    slides: 55,
+    file: "presentations/sermons/The_Word_Works.html",
+    id: "the-word-works",
+    category: "sermon",
+    icon: "&#127807;",
+    tags: ["the Word", "the seed", "Parable of the Sower", "Luke 8", "sowing and reaping", "spiritual growth", "Hebrews 4:12", "1 Peter 1:23", "Isaiah 55:11", "Psalm 107:20", "the word of His grace", "Acts 20:32", "compression", "four soils"],
+    featured: true,
+    date: "2026-06-14"
+  },
+  {
     title: "Give Me Your Isaac",
     speaker: "Pastor Maima Moore",
     description: "From Genesis 22:1-18 — a prophetic word to Harvest Intercontinental Church-Olney (second service the same morning as 'Loving Jesus,' with no coordination, taken as the Holy Ghost confirming one message to the house). Your 'Isaac' is not only your most precious possession but the specific thing God has commanded you to do — 'your only son,' not Ishmael the work of the flesh — and it is specific to you (social media surrendered to prayer, a call to the mission field, a business, the tithe, a delayed book, a besetting sin, a nest egg, a comfort zone). Three movements: identify your Isaac; true worship is obedience ('I cannot claim to worship God when I am not willing to obey God' — worship is more than a song, it is a surrendered heart); and giving God your Isaac releases grace and generational blessing. From Mount Moriah (where God's covenant partner's obedience releases grace for the Lamb) to David's costly offering ('I will not give the Lord that which costs me nothing,' 2 Samuel 24:24, on the same mountain), the sacrifice of praise (Hebrews 13:15-16), and Paul and Silas (Acts 16) — sacrifice precedes breakthrough. A call to Harvest's corporate Isaac of faith, obedience, and InvestBeyond, sealed in a covenant declaration.",
