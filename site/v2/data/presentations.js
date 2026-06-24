@@ -6,6 +6,19 @@
 
 const presentations = [
   {
+    title: "A Man's Calling",
+    speaker: "Bishop Darlingston Johnson",
+    description: "From Luke 11:2 — a Father's Day message that uses the Lord's Prayer as a phrase-by-phrase blueprint for godly manhood and fatherhood. Men are called to build families, homes, and ministries, but they need a pattern — and the blueprint is the Heavenly Father Himself. 'Lord, teach us to pray': the most important skill a man can master is to learn to pray and actually pray ('when you pray,' not 'if'), leaving a legacy of a father his children saw pray (Hebrews 4:16; James 1:5). 'Our Father': the great New Covenant revelation is God as Father — the role God Himself plays — so men are called to co-father with Him, a spiritual not merely biological calling, and 'you are never more like God than when you are fathering.' A father is uniquely positioned to meet the three foundational needs — physical security, emotional security and unconditional love, and significance — that free a person from the cage for 'Christ-actualization.' 'Which art in heaven': God is present, available, accessible, approachable (the prodigal son) — so be PRESENCE, not just PRESENTS. 'Hallowed be Thy name': your name is your reputation; leave your children a name they can be proud of, and where you have failed, the God of restoration lets you say 'I'm sorry' and begin again. 'Thy kingdom come': every father is a king (small 'k') over a sphere of influence — be a servant-king building a kingdom that mirrors heaven. 'Thy will be done': every king needs a vision — know where you are leading those who follow you. You don't have to be perfect to be a good father; you just need to be committed to the pursuit.",
+    slides: 64,
+    file: "presentations/sermons/A_Mans_Calling.html",
+    id: "a-mans-calling",
+    category: "sermon",
+    icon: "&#128081;",
+    tags: ["a man's calling", "fatherhood", "Father's Day", "the Lord's Prayer", "Luke 11:2", "Our Father", "prayer", "Hebrews 4:16", "presence not presents", "the prodigal son", "Luke 15", "servant leadership", "a godly name", "vision", "Bishop Darlingston Johnson"],
+    featured: true,
+    date: "2026-06-21"
+  },
+  {
     title: "The Word Works",
     speaker: "Bishop Darlingston Johnson",
     description: "From Luke 8:11 — the opening message of a new series on the Parable of the Sower (seed, soil, sower), built on the weeks of sowing and reaping. The seed is the Word of God, and spiritual growth does not come from trying harder but from planting the right seed into the right soil — a prepared heart. The Word is not a hammer or a textbook but a living seed: just as a whole forest hides in an acorn, God has compressed His eternal life, omniscience, omnipotence, wisdom, and every blessing into His Word (as into a microchip, or the atom whose power scientists only discovered). 'The Word works — we just need to learn how to work it.' Scripture testifies of itself: living and powerful (Hebrews 4:12), incorruptible seed that abides forever (1 Peter 1:23), healing and delivering (Psalm 107:20), and on an unstoppable mission that will not return void (Isaiah 55:11) — it cannot not come to pass. The homework: the seed is never the problem, so examine the soil of your heart and your relationship with the word of His grace (Acts 20:32) — and be a doer and an inviter, not merely a hearer.",
