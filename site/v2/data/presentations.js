@@ -6,6 +6,19 @@
 
 const presentations = [
   {
+    title: "Receiving From God's Channel of Blessings",
+    speaker: "Bishop Darlingston Johnson",
+    description: "From Luke 8:11 and James 1:18-21 — the Word Works series continues with the soils and how to receive what God has already planted. God is the original source of every blessing, but His Word is the immediate source — His channel: it carries everything necessary to accomplish the purpose for which He sent it, never returns void (Isaiah 55:10-11), and its instructions are programmed inside like DNA. The blessing is in the seed: as with 'Let there be light' and 'It is finished,' God spoke once and doesn't have to speak again — you don't need a new word, you need to receive the one already planted. The four soils are four relationships with the Word: closed (the devil steals it immediately by blocking understanding), casual (no roots, collapses under trials), crowded (the cares of this life and the deceitfulness of riches — the real rival of God is mammon, not the devil), and good (open, deep, prioritized). From James 1:21: the implanted word, planted by the Holy Spirit the day you were saved, is able to save your souls — salvation in three phases: spirit saved, soul being saved, body shall be saved (glorified at the trumpet, like the Chinese bamboo tree whose life was in the seed all along). Receive it as you would receive the president into your home — honor it, clean house, lay aside all filthiness as a divine enablement, and let the Word, not your feelings, have the final say.",
+    slides: 64,
+    file: "presentations/sermons/Receiving_From_Gods_Channel_of_Blessings.html",
+    id: "receiving-from-gods-channel-of-blessings",
+    category: "sermon",
+    icon: "&#127806;",
+    tags: ["God's channel of blessings", "the Word works", "Parable of the Sower", "Luke 8:11", "four soils", "Isaiah 55:11", "James 1:18", "James 1:21", "the implanted word", "1 Peter 1:23", "Romans 1:16", "three phases of salvation", "glorified body", "1 Corinthians 15:52", "deceitfulness of riches", "receive the word", "Bishop Darlingston Johnson"],
+    featured: true,
+    date: "2026-06-28"
+  },
+  {
     title: "A Man's Calling",
     speaker: "Bishop Darlingston Johnson",
     description: "From Luke 11:2 — a Father's Day message that uses the Lord's Prayer as a phrase-by-phrase blueprint for godly manhood and fatherhood. Men are called to build families, homes, and ministries, but they need a pattern — and the blueprint is the Heavenly Father Himself. 'Lord, teach us to pray': the most important skill a man can master is to learn to pray and actually pray ('when you pray,' not 'if'), leaving a legacy of a father his children saw pray (Hebrews 4:16; James 1:5). 'Our Father': the great New Covenant revelation is God as Father — the role God Himself plays — so men are called to co-father with Him, a spiritual not merely biological calling, and 'you are never more like God than when you are fathering.' A father is uniquely positioned to meet the three foundational needs — physical security, emotional security and unconditional love, and significance — that free a person from the cage for 'Christ-actualization.' 'Which art in heaven': God is present, available, accessible, approachable (the prodigal son) — so be PRESENCE, not just PRESENTS. 'Hallowed be Thy name': your name is your reputation; leave your children a name they can be proud of, and where you have failed, the God of restoration lets you say 'I'm sorry' and begin again. 'Thy kingdom come': every father is a king (small 'k') over a sphere of influence — be a servant-king building a kingdom that mirrors heaven. 'Thy will be done': every king needs a vision — know where you are leading those who follow you. You don't have to be perfect to be a good father; you just need to be committed to the pursuit.",
