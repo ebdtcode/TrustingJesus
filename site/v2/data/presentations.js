@@ -6,6 +6,19 @@
 
 const presentations = [
   {
+    title: "Making Room For The Word",
+    speaker: "Bishop Darlingston Johnson",
+    description: "From Luke 8:11 and James 1:21 — the Word Works series continues: the Word of God does not just inform — it creates. It created the new birth through incorruptible seed (1 Peter 1:23), and Jesus is right now upholding and expanding the universe by the word of His power (Hebrews 1:2-3). 'I am watching over My Word to perform it' (Jeremiah 1:12) is not divine doubt but a double guarantee — the power already in the Word plus God's personal backing, like a funded check with a personal guarantee. Everything for life and godliness is already inside you (2 Peter 1:3-4) — the tragedy is the millionaire who dies begging because he never knew; knowledge comes only through the Word, which makes you a partaker of the divine nature. The Word is the best medicine (Psalm 107:20) — witnessed in Billy Bimba's 'I will live and not die,' Dodie Osteen's healing from terminal cancer, and Psalm 91's deliverance in 1990 — and the 1977 college rhema still stands: 'Whenever you have a need, that need is already met' (Philippians 4:19), so pray from thanksgiving, not begging. Our part is not to empower the seed: 'The farmer does not give power to the seed — the farmer makes room.' Refuse the three unhealthy soils — the closed heart (the atheist who'd call the risen Christ a hallucination; believers closed to the gifts of the Spirit or to giving; construct your faith, don't deconstruct it), the casual heart (shallow roots fall in the storm; THE way of escape is the Word, 1 Corinthians 10:13), and the crowded heart (neglect, busyness, the $200 cable bill) — and cultivate a meek heart (James 1:21): God is not asking us to be stronger but softer; not weaker, but meeker.",
+    slides: 68,
+    file: "presentations/sermons/Making_Room_For_The_Word.html",
+    id: "making-room-for-the-word",
+    category: "sermon",
+    icon: "&#127793;",
+    tags: ["making room for the word", "the Word works", "Parable of the Sower", "Luke 8:11", "the Word creates", "Jeremiah 1:12", "Hebrews 1:3", "2 Peter 1:3-4", "partakers of the divine nature", "1 Peter 1:23", "Psalm 107:20", "Psalm 91", "Philippians 4:19", "Joshua 1:8", "1 Corinthians 10:13", "closed casual crowded heart", "James 1:21", "meekness", "Bishop Darlingston Johnson"],
+    featured: true,
+    date: "2026-07-06"
+  },
+  {
     title: "Receiving From God's Channel of Blessings",
     speaker: "Bishop Darlingston Johnson",
     description: "From Luke 8:11 and James 1:18-21 — the Word Works series continues with the soils and how to receive what God has already planted. God is the original source of every blessing, but His Word is the immediate source — His channel: it carries everything necessary to accomplish the purpose for which He sent it, never returns void (Isaiah 55:10-11), and its instructions are programmed inside like DNA. The blessing is in the seed: as with 'Let there be light' and 'It is finished,' God spoke once and doesn't have to speak again — you don't need a new word, you need to receive the one already planted. The four soils are four relationships with the Word: closed (the devil steals it immediately by blocking understanding), casual (no roots, collapses under trials), crowded (the cares of this life and the deceitfulness of riches — the real rival of God is mammon, not the devil), and good (open, deep, prioritized). From James 1:21: the implanted word, planted by the Holy Spirit the day you were saved, is able to save your souls — salvation in three phases: spirit saved, soul being saved, body shall be saved (glorified at the trumpet, like the Chinese bamboo tree whose life was in the seed all along). Receive it as you would receive the president into your home — honor it, clean house, lay aside all filthiness as a divine enablement, and let the Word, not your feelings, have the final say.",
