@@ -6,6 +6,19 @@
 
 const presentations = [
   {
+    title: "If You Receive It With Meekness",
+    speaker: "Bishop Darlingston Johnson",
+    description: "From James 1:21 and Numbers 12 — the Word Works series continues by naming the one ingredient missing from the closed, casual, and crowded hearts alike: meekness. Studying the first mention of meekness in Scripture, Moses — attacked by his own sister and brother over his Ethiopian wife and his right to lead — shows what it looks like: he did not react, rage, threaten, or curse ('Numbers 12:3 is an explanation, not a compliment'), and because he refused to defend himself, God defended him ('Suddenly the Lord said…'). Meekness is not weakness — the meekest man on earth grabbed a snake by the tail, faced down Pharaoh, and parted the Red Sea — it is strength under submission, power under control: fire kept in the fireplace, a war horse turned by a small rein. 'Pride always has another argument; meekness always has another surrender.' In practice (James 1:19) the meek are swift to hear, slow to speak, slow to wrath — no verdict until both sides are heard (Proverbs 18:13) — and the meek don't fight for blessings, they inherit them (Matthew 5:5). The whole assignment is one small word: LET the word of Christ dwell in you richly (Colossians 3:16) — because meekness produces rest, pride produces stress, and the Word doesn't need more power — it needs less resistance. God is not calling you to be stronger; He's calling you to be softer. Stop arguing with the Word and say: 'Okay, Lord, let's do it.'",
+    slides: 61,
+    file: "presentations/sermons/The_Word_Works_If_You_Receive_It_With_Meekness.html",
+    id: "if-you-receive-it-with-meekness",
+    category: "sermon",
+    icon: "&#128330;",
+    tags: ["meekness", "the Word works", "receive with meekness", "James 1:21", "James 1:19", "Numbers 12", "Moses", "meekness is not weakness", "strength under submission", "pride vs meekness", "Colossians 3:16", "let the word dwell", "Matthew 5:5", "Matthew 11:28-30", "Proverbs 18:13", "swift to hear", "less resistance", "Bishop Darlingston Johnson"],
+    featured: true,
+    date: "2026-07-12"
+  },
+  {
     title: "Making Room For The Word",
     speaker: "Bishop Darlingston Johnson",
     description: "From Luke 8:11 and James 1:21 — the Word Works series continues: the Word of God does not just inform — it creates. It created the new birth through incorruptible seed (1 Peter 1:23), and Jesus is right now upholding and expanding the universe by the word of His power (Hebrews 1:2-3). 'I am watching over My Word to perform it' (Jeremiah 1:12) is not divine doubt but a double guarantee — the power already in the Word plus God's personal backing, like a funded check with a personal guarantee. Everything for life and godliness is already inside you (2 Peter 1:3-4) — the tragedy is the millionaire who dies begging because he never knew; knowledge comes only through the Word, which makes you a partaker of the divine nature. The Word is the best medicine (Psalm 107:20) — witnessed in Billy Bimba's 'I will live and not die,' Dodie Osteen's healing from terminal cancer, and Psalm 91's deliverance in 1990 — and the 1977 college rhema still stands: 'Whenever you have a need, that need is already met' (Philippians 4:19), so pray from thanksgiving, not begging. Our part is not to empower the seed: 'The farmer does not give power to the seed — the farmer makes room.' Refuse the three unhealthy soils — the closed heart (the atheist who'd call the risen Christ a hallucination; believers closed to the gifts of the Spirit or to giving; construct your faith, don't deconstruct it), the casual heart (shallow roots fall in the storm; THE way of escape is the Word, 1 Corinthians 10:13), and the crowded heart (neglect, busyness, the $200 cable bill) — and cultivate a meek heart (James 1:21): God is not asking us to be stronger but softer; not weaker, but meeker.",
