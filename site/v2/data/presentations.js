@@ -6,6 +6,19 @@
 
 const presentations = [
   {
+    title: "I Forgave, But Must I Reconcile?",
+    speaker: "Bishop Darlingston Johnson",
+    description: "From Numbers 12:1-3 and Ephesians 4:32 — following the meekness message, a member's text turns into an interactive teaching on the question so many carry: does forgiveness always have to lead to reconciliation? What does walking in forgiveness look like 'when the wound has healed but the scar remains'? Forgiveness is 'a decision I make to no longer require you to repay me for what you took from me' — you cancel the $1,000 debt, take the case out of court, and turn it into your gift. It takes only one person, and it is commanded: 'God said it. That's enough.' Unforgiveness is rubber where grace needs copper — it blocks the flow of grace, hinders prayers, and is good ground for the devil; and while the offender sips wine at the party, 'it is not that person anymore that's victimizing you — you are victimizing yourself' by nursing the memory. Like Joseph (Genesis 50:20), forgiveness doesn't deny the facts — acknowledge the wrong, release the debt, then pray for them before your feelings catch up (Matthew 5:44). But reconciliation takes two: repentance, and trust rebuilt like a broken bridge — so reasonable boundaries around an unrepentant knife-wielder are wisdom, not unforgiveness. Just don't make the innocent pay for old wounds, don't build 100-foot walls where three feet will do, and keep saying hello. 'The best time to forgive is to forgive in advance; the next best time is to forgive now' (Matthew 6:12). And never say never — the John Mark who betrayed Paul became his most dependable helper, and the Moses who killed an Egyptian became the meekest man on earth: since God doesn't give up on people, we should not.",
+    slides: 59,
+    file: "presentations/sermons/I_Forgave_But_Must_I_Reconcile.html",
+    id: "i-forgave-but-must-i-reconcile",
+    category: "sermon",
+    icon: "&#129309;",
+    tags: ["forgiveness", "reconciliation", "boundaries", "Numbers 12:1-3", "Ephesians 4:32", "Matthew 6:12", "Matthew 5:44", "Genesis 50:20", "Ephesians 4:3", "John Mark and Paul", "2 Timothy 4:11", "cancel the debt", "the scar remains", "pre-forgive", "unforgiveness blocks grace", "meekness", "never say never", "interactive sermon", "Bishop Darlingston Johnson"],
+    featured: true,
+    date: "2026-07-19"
+  },
+  {
     title: "If You Receive It With Meekness",
     speaker: "Bishop Darlingston Johnson",
     description: "From James 1:21 and Numbers 12 — the Word Works series continues by naming the one ingredient missing from the closed, casual, and crowded hearts alike: meekness. Studying the first mention of meekness in Scripture, Moses — attacked by his own sister and brother over his Ethiopian wife and his right to lead — shows what it looks like: he did not react, rage, threaten, or curse ('Numbers 12:3 is an explanation, not a compliment'), and because he refused to defend himself, God defended him ('Suddenly the Lord said…'). Meekness is not weakness — the meekest man on earth grabbed a snake by the tail, faced down Pharaoh, and parted the Red Sea — it is strength under submission, power under control: fire kept in the fireplace, a war horse turned by a small rein. 'Pride always has another argument; meekness always has another surrender.' In practice (James 1:19) the meek are swift to hear, slow to speak, slow to wrath — no verdict until both sides are heard (Proverbs 18:13) — and the meek don't fight for blessings, they inherit them (Matthew 5:5). The whole assignment is one small word: LET the word of Christ dwell in you richly (Colossians 3:16) — because meekness produces rest, pride produces stress, and the Word doesn't need more power — it needs less resistance. God is not calling you to be stronger; He's calling you to be softer. Stop arguing with the Word and say: 'Okay, Lord, let's do it.'",
