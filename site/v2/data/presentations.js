@@ -6,6 +6,19 @@
 
 const presentations = [
   {
+    title: "August 2026 Prayer Points",
+    speaker: "",
+    description: "Monthly prayer points for August 2026 — Celebration of 36 Years of Ministry, HIMU. Day 1: thanksgiving for 36 years of God's faithfulness, Bishop & Lady Chrys, the Diocesan Bishops, and intercession for the 10/40 Window and post-Christian societies. Day 2: a hundredfold harvest, declarations of breakthrough, the 4/14 Window, nations in conflict, the persecuted Church, and asking for the nations.",
+    slides: 26,
+    file: "presentations/prayer/August_2026_Prayer_Points.html",
+    id: "august-2026-prayer-points",
+    category: "prayer",
+    icon: "&#128197;",
+    tags: ["prayer", "monthly", "HIMU", "36 years", "10/40 window", "4/14 window", "persecuted church", "nations", "missions", "Jeremiah 31:3", "Psalm 2:8", "Matthew 28:19-20"],
+    featured: true,
+    date: "2026-08-05"
+  },
+  {
     title: "Sorry Isn't Enough",
     speaker: "Bishop Darlingston Johnson",
     description: "From Matthew 5:23-24 — Part 3 of the reconciliation series, delivered seated and deliberately as a discussion ('that's why I got my chair, my stool — because if I stand, I'll be tempted to preach'), with the congregation answering from the floor. Bishop Johnson opens by confessing a wrong assumption: he had never taught this subject because he assumed everyone already knew how to apologize and simply chose not to — 'not everybody knows how.' Read the text carefully: it is not that you have something against him, but that 'your brother has something against you' — you are the offender, and Jesus commands you to abandon the gift at the altar, miss the praise and worship if you must, and go be reconciled first. That is the half of reconciliation we skip: we teach forgiving without waiting for acknowledgement, but not the willingness to say 'Will you forgive me? I was wrong' — three of the hardest words most of us will ever utter, which is precisely why Jesus had to command it. When Anita offered a real apology from the floor ('Brother Peter, I'm sorry for everything, I'm at the temple and need to give my offering'), three congregants said they would hang up the phone — sincere, but not serious. Because people have apology languages just as they have love languages: twelve long-stemmed roses, bought at real cost by a man who 'doesn't usually do these kinds of things,' withered forgotten in the trunk of the car — 'I was speaking French; my wife speaks English.' A real apology names the specific grievance rather than the other person's feelings ('I'm sorry you feel that way' is blame in disguise), shows changed behaviour, and carries remorse in its tone. And nobody gets a free pass: even when the other party is ninety percent at fault, you own your ten percent, because 'one wrong doesn't justify another wrong.' Receiving an apology is the mirror duty — swift to hear, slow to speak (James 1:19), responding with the wisdom from above that is 'pure, peaceable, gentle, willing to yield' — that is, easy to entreat (James 3:17): 'Please don't make it hard. Make it easy for someone to apologize.' Why did Jesus rank this above the altar? Because relationships are worship: 'when you're saying I'm sorry, that's real worship — when you're saying will you forgive me, that's worship at the next level.' The message closes with the five R's of a complete apology — Regret, Responsibility (never say 'but,' because 'but is strong enough to cancel everything that comes before it'), Restitution, Repentance, and a Request for forgiveness — and a charge to act, not merely to know: be merciful, be gentle, and be peaceable.",
